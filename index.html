@@ -1,10 +1,500 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>TheIA - Próximamente</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TheIA — Tu vendedor que nunca descansa</title>
+  <meta name="description" content="Agente de ventas IA para WhatsApp. Atiende, califica y cierra 24/7. Para retail, fitness, clínicas y servicios en Chile." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0e0b2e;
+      --bg2: #13103a;
+      --bg3: #1a1650;
+      --glass: rgba(255,255,255,0.05);
+      --glass-border: rgba(255,255,255,0.12);
+      --glass-border-gold: rgba(201,168,76,0.4);
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --gold-glow: rgba(201,168,76,0.25);
+      --indigo: #4f56d6;
+      --indigo-light: #6b74ff;
+      --text: #ffffff;
+      --text-sub: rgba(255,255,255,0.7);
+      --text-muted: rgba(255,255,255,0.4);
+      --green: #34c77b;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Open Sans', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+    #network-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.35; }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.1rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(14,11,46,0.85); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+    .logo-robot {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: linear-gradient(135deg, #c9a84c, #e8c97a);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; box-shadow: 0 0 16px var(--gold-glow);
+    }
+    .logo-text { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.4rem; color: #fff; }
+    .logo-text span { color: var(--gold); }
+    .nav-cta { display: flex; align-items: center; gap: 0.75rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.6rem 1.35rem; border-radius: 8px;
+      font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; cursor: pointer; border: none; transition: all 0.22s ease;
+    }
+    .btn-ghost { background: transparent; color: var(--text-sub); border: 1px solid var(--glass-border); }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+    .btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #0e0b2e; font-weight: 700; box-shadow: 0 4px 20px var(--gold-glow); }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,76,0.45); }
+    .btn-whatsapp { background: #25D366; color: white; font-weight: 700; padding: 0.85rem 2rem; font-size: 1rem; border-radius: 10px; box-shadow: 0 4px 20px rgba(37,211,102,0.3); }
+    .btn-whatsapp:hover { background: #20bd5a; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(37,211,102,0.45); }
+    .btn-outline-gold { background: transparent; color: var(--gold); border: 2px solid var(--gold); padding: 0.85rem 2rem; font-size: 1rem; border-radius: 10px; }
+    .btn-outline-gold:hover { background: var(--gold-glow); transform: translateY(-2px); }
+    section { position: relative; z-index: 1; }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 2rem; }
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 7rem 2rem 5rem; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -20%; left: 50%; transform: translateX(-50%);
+      width: 1000px; height: 800px;
+      background: radial-gradient(ellipse at center, rgba(79,86,214,0.3) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1140px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.35);
+      border-radius: 100px; padding: 0.3rem 1rem; font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-light);
+      margin-bottom: 1.5rem; width: fit-content;
+    }
+    .live-dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; animation: livepulse 2s infinite; }
+    @keyframes livepulse {
+      0%,100% { opacity:1; box-shadow: 0 0 0 0 rgba(52,199,123,0.5); }
+      50% { opacity:0.6; box-shadow: 0 0 0 4px rgba(52,199,123,0); }
+    }
+    h1 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2.4rem, 4.5vw, 4rem); line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 1.25rem; }
+    h1 .gold { color: var(--gold); }
+    .hero-sub { font-size: 1.05rem; color: var(--text-sub); line-height: 1.75; max-width: 500px; margin-bottom: 2.5rem; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .hero-proof { font-size: 0.82rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.6rem; }
+    .hero-proof span { color: var(--gold-light); font-weight: 600; }
+    .hero-glass-card {
+      background: var(--glass); border: 1px solid var(--glass-border);
+      border-radius: 24px; padding: 1.75rem; backdrop-filter: blur(20px); position: relative; overflow: hidden;
+    }
+    .hero-glass-card::before {
+      content: ''; position: absolute; top: 0; left: 10%; right: 10%; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .chat-header { display: flex; align-items: center; gap: 0.75rem; padding-bottom: 1rem; border-bottom: 1px solid var(--glass-border); margin-bottom: 1rem; }
+    .chat-avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, var(--indigo), var(--gold)); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: 0 0 20px var(--gold-glow); }
+    .chat-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.95rem; }
+    .chat-online { font-size: 0.72rem; color: var(--green); display: flex; align-items: center; gap: 0.3rem; }
+    .chat-online::before { content: ''; width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
+    .chat-msgs { display: flex; flex-direction: column; gap: 0.65rem; }
+    .msg { max-width: 82%; padding: 0.6rem 0.9rem; border-radius: 14px; font-size: 0.82rem; line-height: 1.5; opacity: 0; animation: msgfade 0.3s ease forwards; }
+    .msg-user { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); align-self: flex-start; border-bottom-left-radius: 4px; }
+    .msg-bot { background: linear-gradient(135deg, rgba(79,86,214,0.5), rgba(79,86,214,0.3)); border: 1px solid rgba(79,86,214,0.4); align-self: flex-end; border-bottom-right-radius: 4px; }
+    .msg:nth-child(1){animation-delay:0.2s} .msg:nth-child(2){animation-delay:0.7s} .msg:nth-child(3){animation-delay:1.2s} .msg:nth-child(4){animation-delay:1.7s} .msg:nth-child(5){animation-delay:2.2s}
+    @keyframes msgfade { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+    .typing { display: flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; color: var(--text-muted); padding: 0.35rem 0; opacity: 0; animation: msgfade 0.3s ease 2.6s forwards; }
+    .dots { display: flex; gap: 3px; }
+    .dots span { width: 5px; height: 5px; background: var(--indigo-light); border-radius: 50%; animation: dotbounce 1.2s infinite; }
+    .dots span:nth-child(2){animation-delay:0.2s} .dots span:nth-child(3){animation-delay:0.4s}
+    @keyframes dotbounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-4px)} }
+    .card-stats { display: flex; justify-content: space-around; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--glass-border); }
+    .stat-n { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--gold); text-align: center; }
+    .stat-l { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; text-align: center; }
+    .problema { padding: 5.5rem 0; background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%); }
+    .section-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: clamp(1.8rem,3vw,2.6rem); letter-spacing: -0.02em; line-height: 1.2; text-align: center; margin-bottom: 0.75rem; }
+    .section-title .gold { color: var(--gold); }
+    .section-sub { text-align: center; color: var(--text-sub); font-size: 0.95rem; line-height: 1.7; max-width: 560px; margin: 0 auto 3rem; }
+    .pain-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
+    .glass-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 18px; padding: 2rem 1.75rem; backdrop-filter: blur(10px); transition: all 0.25s ease; }
+    .glass-card:hover { border-color: var(--glass-border-gold); transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0,0,0,0.3), 0 0 30px var(--gold-glow); }
+    .pain-icon-wrap { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-glow), rgba(201,168,76,0.05)); border: 1px solid rgba(201,168,76,0.3); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.1rem; }
+    .pain-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 0.5rem; }
+    .pain-desc { font-size: 0.85rem; color: var(--text-sub); line-height: 1.65; }
+    .problema-banner { background: linear-gradient(90deg, rgba(201,168,76,0.1), rgba(79,86,214,0.1), rgba(201,168,76,0.1)); border: 1px solid var(--glass-border-gold); border-radius: 14px; padding: 1.25rem 2rem; text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--gold-light); }
+    .comparacion { padding: 5.5rem 0; }
+    .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+    .comp-card-bad { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 2rem; }
+    .comp-card-good { background: linear-gradient(135deg, rgba(79,86,214,0.15), rgba(201,168,76,0.08)); border: 1px solid var(--glass-border-gold); border-radius: 20px; padding: 2rem; position: relative; overflow: hidden; box-shadow: 0 0 40px rgba(201,168,76,0.1); }
+    .comp-card-good::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--indigo), var(--gold)); }
+    .comp-label { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--glass-border); }
+    .comp-label.gold { color: var(--gold); border-color: rgba(201,168,76,0.2); }
+    .comp-item { display: flex; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-sub); line-height: 1.55; }
+    .comp-icon-bad { color: rgba(255,80,80,0.8); font-size: 0.9rem; flex-shrink:0; margin-top:2px; }
+    .comp-icon-good { color: var(--gold); font-size: 0.9rem; flex-shrink:0; margin-top:2px; }
+    .comp-item strong { color: var(--text); }
+    .features { padding: 5.5rem 0; background: linear-gradient(180deg, var(--bg2) 0%, var(--bg3) 100%); }
+    .feat-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; margin-top: 3rem; }
+    .feat-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 18px; padding: 1.75rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: all 0.25s ease; }
+    .feat-card:hover { border-color: var(--glass-border-gold); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .feat-icon { width: 52px; height: 52px; flex-shrink:0; border-radius: 14px; background: linear-gradient(135deg, var(--gold-glow), rgba(201,168,76,0.05)); border: 1px solid rgba(201,168,76,0.25); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+    .feat-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--gold-light); margin-bottom: 0.35rem; }
+    .feat-desc { font-size: 0.85rem; color: var(--text-sub); line-height: 1.6; }
+    .verticales { padding: 5.5rem 0; }
+    .vert-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; margin-top: 3rem; }
+    .vert-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 18px; padding: 2rem 1.5rem; text-align: center; cursor: default; transition: all 0.25s ease; }
+    .vert-card:hover { border-color: var(--glass-border-gold); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.25); }
+    .vert-icon { font-size: 2.5rem; display: block; margin-bottom: 0.85rem; }
+    .vert-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 0.4rem; }
+    .vert-desc { font-size: 0.8rem; color: var(--text-sub); line-height: 1.55; }
+    .proceso { padding: 5.5rem 0; background: linear-gradient(180deg, var(--bg3) 0%, var(--bg2) 100%); }
+    .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; position: relative; }
+    .steps::before { content: ''; position: absolute; top: 50px; left: 16.5%; right: 16.5%; height: 2px; background: linear-gradient(90deg, var(--gold), var(--indigo), var(--gold)); opacity: 0.4; z-index: 0; }
+    .step-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 20px; padding: 2rem 1.75rem; text-align: center; position: relative; z-index: 1; transition: all 0.25s ease; }
+    .step-card:hover { border-color: var(--glass-border-gold); box-shadow: 0 0 40px var(--gold-glow); }
+    .step-num { width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.2rem; color: var(--gold); background: linear-gradient(135deg, var(--gold-glow), transparent); }
+    .step-icon { font-size: 1.8rem; margin-bottom: 0.75rem; display: block; }
+    .step-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; color: var(--gold-light); margin-bottom: 0.5rem; }
+    .step-desc { font-size: 0.85rem; color: var(--text-sub); line-height: 1.6; }
+    .security-banner { margin-top: 2rem; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 14px; padding: 1.25rem 2rem; display: flex; align-items: center; justify-content: center; gap: 1rem; font-size: 0.9rem; color: var(--text-sub); }
+    .security-banner .shield { font-size: 1.5rem; }
+    .security-banner strong { color: var(--text); }
+    .caso { padding: 5.5rem 0; }
+    .caso-card { background: var(--glass); border: 1px solid var(--glass-border-gold); border-radius: 24px; padding: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; position: relative; overflow: hidden; box-shadow: 0 0 60px rgba(201,168,76,0.08); }
+    .caso-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--indigo), var(--gold)); }
+    .caso-tag { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(52,199,123,0.1); border: 1px solid rgba(52,199,123,0.3); color: var(--green); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.3rem 0.85rem; border-radius: 100px; margin-bottom: 1.25rem; width: fit-content; }
+    .caso-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.5rem; margin-bottom: 0.85rem; }
+    .caso-desc { font-size: 0.92rem; color: var(--text-sub); line-height: 1.75; margin-bottom: 1.5rem; }
+    .caso-quote { font-style: italic; font-size: 0.95rem; color: var(--gold-light); border-left: 3px solid var(--gold); padding-left: 1.1rem; line-height: 1.65; }
+    .caso-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .caso-stat { background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); border-radius: 14px; padding: 1.4rem; text-align: center; }
+    .caso-stat-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.9rem; color: var(--gold); display: block; margin-bottom: 0.3rem; }
+    .caso-stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; }
+    .pricing { padding: 5.5rem 0; background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%); }
+    .pricing-inner { display: flex; gap: 2.5rem; margin-top: 3rem; align-items: flex-start; }
+    .pricing-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; flex: 1; }
+    .price-card { background: var(--glass); border: 1px solid var(--glass-border-gold); border-radius: 20px; padding: 2.25rem; text-align: center; position: relative; overflow: hidden; }
+    .price-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+    .price-type { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem; }
+    .price-amount { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 2.4rem; color: var(--gold); line-height: 1; margin-bottom: 0.25rem; }
+    .price-clp { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem; }
+    .price-note { font-size: 0.82rem; color: var(--text-sub); line-height: 1.5; }
+    .pricing-includes { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .pricing-includes h3 { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--text-sub); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .inc-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+    .inc-item { display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; color: var(--text-sub); }
+    .inc-check { color: var(--green); font-size: 0.85rem; }
+    .price-tagline { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--gold-light); line-height: 1.4; text-align: center; padding: 1.5rem; background: rgba(201,168,76,0.06); border: 1px solid rgba(201,168,76,0.2); border-radius: 12px; margin-bottom: 1.5rem; }
+    .cta-final { padding: 6rem 0; text-align: center; position: relative; overflow: hidden; }
+    .cta-final::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 700px; height: 500px; background: radial-gradient(ellipse, rgba(79,86,214,0.2) 0%, transparent 70%); pointer-events: none; }
+    .cta-final h2 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2rem,4vw,3.2rem); letter-spacing: -0.025em; margin-bottom: 0.75rem; }
+    .cta-final .gold { color: var(--gold); }
+    .cta-final p { color: var(--text-sub); font-size: 1rem; margin-bottom: 2.5rem; }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    footer { background: var(--bg); border-top: 1px solid var(--glass-border); padding: 2.5rem; }
+    .footer-inner { max-width: 1140px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-contact { display: flex; gap: 1.75rem; font-size: 0.85rem; color: var(--text-muted); }
+    .footer-contact a { color: var(--text-sub); text-decoration: none; transition: color 0.2s; }
+    .footer-contact a:hover { color: var(--gold); }
+    .footer-copy { font-size: 0.78rem; color: var(--text-muted); }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-glass-card { display: none; }
+      .pain-grid { grid-template-columns: 1fr 1fr; }
+      .comp-grid { grid-template-columns: 1fr; }
+      .feat-grid { grid-template-columns: 1fr; }
+      .vert-grid { grid-template-columns: 1fr 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .steps::before { display: none; }
+      .caso-card { grid-template-columns: 1fr; }
+      .pricing-inner { flex-direction: column; }
+      .pricing-cards { max-width: 360px; margin: 0 auto; grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-cta .btn-ghost { display: none; }
+      .hero { padding: 6rem 1.25rem 4rem; }
+      .pain-grid { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-contact { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
 </head>
 <body>
-  <h1>TheIA - Próximamente</h1>
+<canvas id="network-canvas"></canvas>
+
+<nav>
+  <a href="/" class="logo">
+    <div class="logo-robot">🤖</div>
+    <div class="logo-text">The<span>IA</span></div>
+  </a>
+  <div class="nav-cta">
+    <a href="#pricing" class="btn btn-ghost">Precios</a>
+    <a href="https://wa.me/56977298344?text=Hola,%20quiero%20saber%20m%C3%A1s%20sobre%20TheIA" class="btn btn-gold" target="_blank" rel="noopener">Agendar Demo →</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner container">
+    <div>
+      <div class="hero-tag"><div class="live-dot"></div> Ya operando en e-commerce de fitness</div>
+      <h1>Tu vendedor que<br/><span class="gold">nunca descansa.</span></h1>
+      <p class="hero-sub">Atención 24/7 por WhatsApp con Inteligencia Artificial. Atiende, califica y cierra ventas mientras tú duermes.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/56977298344?text=Hola,%20quiero%20una%20demo%20de%20TheIA" class="btn btn-whatsapp" target="_blank" rel="noopener">💬 Hablar por WhatsApp</a>
+        <a href="#pricing" class="btn btn-outline-gold">Ver precios</a>
+      </div>
+      <div class="hero-proof">🌐 www.theia.cl &nbsp;·&nbsp; <span>Santiago, Chile / Latinoamérica</span></div>
+    </div>
+    <div class="hero-glass-card">
+      <div class="chat-header">
+        <div class="chat-avatar">🤖</div>
+        <div><div class="chat-name">TheIA Agent</div><div class="chat-online">En línea ahora</div></div>
+      </div>
+      <div class="chat-msgs">
+        <div class="msg msg-user">Hola! tienen la trotadora TR500? cuánto vale?</div>
+        <div class="msg msg-bot">¡Hola! 👋 Sí, la TR500 está disponible.<br/><strong>Precio: $389.990 CLP</strong> con despacho gratis a RM. ¿Con envío o retiras?</div>
+        <div class="msg msg-user">Con envío. Cómo pago?</div>
+        <div class="msg msg-bot">Tarjeta, transferencia o hasta 12 cuotas sin interés 💳<br/>¿Te envío el link de pago ahora?</div>
+        <div class="msg msg-user">Sí perfecto</div>
+        <div class="typing"><div class="dots"><span></span><span></span><span></span></div> TheIA está respondiendo…</div>
+      </div>
+      <div class="card-stats">
+        <div><div class="stat-n">2am</div><div class="stat-l">Hora del chat</div></div>
+        <div><div class="stat-n">38s</div><div class="stat-l">Respuesta</div></div>
+        <div><div class="stat-n">24/7</div><div class="stat-l">Activo</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="problema">
+  <div class="container">
+    <h2 class="section-title reveal">¿Cuántas ventas pierdes<br/><span class="gold">mientras duermes?</span></h2>
+    <p class="section-sub reveal">Tus clientes escriben a cualquier hora. ¿Quién les responde hoy?</p>
+    <div class="pain-grid">
+      <div class="glass-card reveal">
+        <div class="pain-icon-wrap">🕐</div>
+        <div class="pain-title">Mensajes sin responder</div>
+        <p class="pain-desc">Si no contestas en 5 minutos, ese cliente se va a tu competencia.</p>
+      </div>
+      <div class="glass-card reveal">
+        <div class="pain-icon-wrap">📱</div>
+        <div class="pain-title">Tu equipo tiene límites</div>
+        <p class="pain-desc">Nadie puede trabajar 24 horas. Tu negocio cierra, pero las dudas de tus clientes no.</p>
+      </div>
+      <div class="glass-card reveal">
+        <div class="pain-icon-wrap">🔄</div>
+        <div class="pain-title">El agotamiento de lo repetitivo</div>
+        <p class="pain-desc">Responder "¿qué precio tiene?" 100 veces al día quita tiempo para hacer crecer tu negocio.</p>
+      </div>
+    </div>
+    <div class="problema-banner reveal">Tus clientes escriben a cualquier hora. ¿Quién les responde hoy?</div>
+  </div>
+</section>
+
+<section class="comparacion">
+  <div class="container">
+    <h2 class="section-title reveal">Conoce a TheIA: atiende,<br/>responde y <span class="gold">vende por ti.</span></h2>
+    <p class="section-sub reveal">Olvida los chatbots tontos con 'Menú 1, Menú 2'.</p>
+    <div class="comp-grid">
+      <div class="comp-card-bad reveal">
+        <div class="comp-label">Chatbot Tradicional</div>
+        <div class="comp-item"><span class="comp-icon-bad">✗</span><span>Solo sigue flujos rígidos — se rompe ante cualquier pregunta fuera del menú</span></div>
+        <div class="comp-item"><span class="comp-icon-bad">✗</span><span>No entiende errores de ortografía ni lenguaje natural</span></div>
+        <div class="comp-item"><span class="comp-icon-bad">✗</span><span>No puede tomar decisiones ni priorizar clientes importantes</span></div>
+        <div class="comp-item"><span class="comp-icon-bad">✗</span><span>Olvida el contexto si el cliente vuelve horas después</span></div>
+      </div>
+      <div class="comp-card-good reveal">
+        <div class="comp-label gold">TheIA Agent</div>
+        <div class="comp-item"><span class="comp-icon-good">★</span><span><strong>Conversa como una persona:</strong> Entiende audios, errores de ortografía y contextos.</span></div>
+        <div class="comp-item"><span class="comp-icon-good">★</span><span><strong>Aprende de TU negocio:</strong> Responde usando solo tu información real, no inventa nada.</span></div>
+        <div class="comp-item"><span class="comp-icon-good">★</span><span><strong>Toma decisiones:</strong> Sabe cuándo vender, cuándo agendar o cuándo llamar a un humano.</span></div>
+        <div class="comp-item"><span class="comp-icon-good">★</span><span><strong>Memoria inteligente:</strong> Si el cliente vuelve a las 4 horas, TheIA sabe exactamente dónde quedaron.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <div class="container">
+    <h2 class="section-title reveal">Inteligencia que genera <span class="gold">resultados.</span></h2>
+    <p class="section-sub reveal">Diseñado para cerrar ventas, no para solo responder preguntas.</p>
+    <div class="feat-grid">
+      <div class="feat-card reveal"><div class="feat-icon">🧠</div><div><div class="feat-name">Empatía Real</div><p class="feat-desc">Detecta si tu cliente está feliz, molesto o apurado. Si hay urgencia, cambia el tono y prioriza.</p></div></div>
+      <div class="feat-card reveal"><div class="feat-icon">💬</div><div><div class="feat-name">Retoma la Conversación</div><p class="feat-desc">Si un cliente deja de responder y vuelve a las 4 horas, TheIA sabe exactamente dónde quedaron.</p></div></div>
+      <div class="feat-card reveal"><div class="feat-icon">🛡️</div><div><div class="feat-name">Seguridad Total</div><p class="feat-desc">Solo dice lo que tú autorizas. Jamás inventará precios ni políticas que no existan.</p></div></div>
+      <div class="feat-card reveal"><div class="feat-icon">👤</div><div><div class="feat-name">Memoria Inteligente</div><p class="feat-desc">Guarda nombres y correos automáticamente para que no tengas que pedirlos después.</p></div></div>
+      <div class="feat-card reveal"><div class="feat-icon">📦</div><div><div class="feat-name">Conectado a tu Stock</div><p class="feat-desc">Si se agotó, TheIA lo sabe y no lo ofrece. Integración directa con Shopify y catálogos.</p></div></div>
+      <div class="feat-card reveal"><div class="feat-icon">💳</div><div><div class="feat-name">Cierre Automático</div><p class="feat-desc">Genera links de pago seguros ahí mismo en el chat. El cliente compra sin salir de WhatsApp.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="verticales" id="verticales">
+  <div class="container">
+    <h2 class="section-title reveal">Hecho para tu <span class="gold">tipo de negocio.</span></h2>
+    <div class="vert-grid">
+      <div class="vert-card reveal"><span class="vert-icon">🛍️</span><div class="vert-name">Retail & E-commerce</div><p class="vert-desc">Consultas de stock, precios y envíos. Ventas cerradas sin intervención humana.</p></div>
+      <div class="vert-card reveal"><span class="vert-icon">🏋️</span><div class="vert-name">Fitness & Gimnasios</div><p class="vert-desc">Vende membresías, equipos y planes. Responde dudas técnicas en segundos.</p></div>
+      <div class="vert-card reveal"><span class="vert-icon">🏥</span><div class="vert-name">Clínicas & Estética</div><p class="vert-desc">Agenda citas, confirma disponibilidad y responde preguntas frecuentes.</p></div>
+      <div class="vert-card reveal"><span class="vert-icon">⚙️</span><div class="vert-name">Servicios Profesionales</div><p class="vert-desc">Califica consultas, entrega presupuestos y agenda visitas automáticamente.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="proceso">
+  <div class="container">
+    <h2 class="section-title reveal">Tu negocio con IA en <span class="gold">días, no meses.</span></h2>
+    <p class="section-sub reveal">3 pasos para tener tu vendedor digital activo.</p>
+    <div class="steps">
+      <div class="step-card reveal"><div class="step-num">1</div><span class="step-icon">🔗</span><div class="step-name">Integración</div><p class="step-desc">Conectamos tu WhatsApp Business y tu catálogo o calendario.</p></div>
+      <div class="step-card reveal"><div class="step-num">2</div><span class="step-icon">🧠</span><div class="step-name">Entrenamiento</div><p class="step-desc">Le "pasamos" tus manuales y reglas. TheIA estudia tu negocio.</p></div>
+      <div class="step-card reveal"><div class="step-num">3</div><span class="step-icon">🚀</span><div class="step-name">En Vivo</div><p class="step-desc">¡Listo! TheIA empieza a atender y vender 24/7.</p></div>
+    </div>
+    <div class="security-banner reveal"><span class="shield">🔒</span><div><strong>Seguridad nivel bancario.</strong> Tus datos y los de tus clientes están 100% protegidos.</div></div>
+  </div>
+</section>
+
+<section class="caso">
+  <div class="container">
+    <h2 class="section-title reveal">Caso real: <span class="gold">R2Sport</span></h2>
+    <div class="caso-card reveal" style="margin-top:2.5rem">
+      <div>
+        <div class="caso-tag">✅ Operando en producción</div>
+        <div class="caso-title">E-commerce de máquinas de fitness</div>
+        <p class="caso-desc">R2Sport utiliza TheIA para atender consultas en su tienda online de máquinas de ejercicio. El agente responde preguntas de stock, precios, garantías y coordina el proceso de venta directamente por WhatsApp.</p>
+        <p class="caso-quote">"Nuestros clientes consultan a las 11pm y el agente los atiende como si fuera horario laboral. Las ventas nocturnas aumentaron significativamente."</p>
+      </div>
+      <div class="caso-stats">
+        <div class="caso-stat"><span class="caso-stat-num">24/7</span><span class="caso-stat-label">Atención continua</span></div>
+        <div class="caso-stat"><span class="caso-stat-num">&lt;1min</span><span class="caso-stat-label">Tiempo respuesta</span></div>
+        <div class="caso-stat"><span class="caso-stat-num">100%</span><span class="caso-stat-label">Mensajes respondidos</span></div>
+        <div class="caso-stat"><span class="caso-stat-num">0</span><span class="caso-stat-label">Consultas perdidas</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="container">
+    <h2 class="section-title reveal">Una inversión que <span class="gold">se paga sola.</span></h2>
+    <div class="pricing-inner">
+      <div class="pricing-cards reveal">
+        <div class="price-card">
+          <div class="price-type">Setup Inicial</div>
+          <div class="price-amount">$190.000</div>
+          <div class="price-clp">CLP + IVA</div>
+          <p class="price-note">Pago único de puesta en marcha.</p>
+        </div>
+        <div class="price-card">
+          <div class="price-type">Plan Mensual</div>
+          <div class="price-amount">$190.000</div>
+          <div class="price-clp">CLP/mes + IVA</div>
+          <p class="price-note">Suscripción todo incluido.</p>
+        </div>
+      </div>
+      <div class="pricing-includes reveal">
+        <div class="price-tagline">El costo de 3 clientes perdidos.<br/>El beneficio de no perder ninguno.</div>
+        <h3>Todo incluido</h3>
+        <ul class="inc-list">
+          <li class="inc-item"><span class="inc-check">✓</span> Hasta 1.000 conversaciones al mes</li>
+          <li class="inc-item"><span class="inc-check">✓</span> Integración con WhatsApp, Shopify y Calendarios</li>
+          <li class="inc-item"><span class="inc-check">✓</span> Panel de administración y métricas</li>
+          <li class="inc-item"><span class="inc-check">✓</span> Soporte en español y actualizaciones</li>
+          <li class="inc-item"><span class="inc-check">✓</span> Implementación en menos de 7 días</li>
+        </ul>
+        <a href="https://wa.me/56977298344?text=Hola,%20quiero%20contratar%20TheIA" class="btn btn-whatsapp" target="_blank" rel="noopener" style="width:100%;justify-content:center">💬 Contratar ahora</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="container">
+    <div class="reveal">
+      <h2>¿Listo para vender<br/><span class="gold">mientras duermes?</span></h2>
+      <p>No dejes que tu competencia llegue primero.</p>
+      <div class="cta-btns">
+        <a href="https://wa.me/56977298344?text=Hola,%20quiero%20una%20demo%20de%20TheIA" class="btn btn-whatsapp" target="_blank" rel="noopener">💬 Solicita una Demo Personalizada</a>
+        <a href="mailto:rodrigo@theia.cl" class="btn btn-outline-gold">✉️ rodrigo@theia.cl</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="logo"><div class="logo-robot">🤖</div><div class="logo-text">The<span>IA</span></div></div>
+    <div class="footer-contact">
+      <a href="mailto:rodrigo@theia.cl">rodrigo@theia.cl</a>
+      <a href="https://wa.me/56977298344" target="_blank">+56 9 7729 8344</a>
+      <a href="https://theia.cl">theia.cl</a>
+    </div>
+    <div class="footer-copy">TheIA Agent by THEIA.CL © 2026 · Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+<script>
+  const canvas = document.getElementById('network-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes = [];
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+  class Node {
+    constructor() { this.x = Math.random()*window.innerWidth; this.y = Math.random()*window.innerHeight; this.vx = (Math.random()-.5)*.4; this.vy = (Math.random()-.5)*.4; this.r = Math.random()*2+1; }
+    update() {
+      this.x += this.vx; this.y += this.vy;
+      if(this.x<0||this.x>W) this.vx*=-1;
+      if(this.y<0||this.y>H) this.vy*=-1;
+    }
+  }
+  for(let i=0;i<80;i++) nodes.push(new Node());
+  function draw() {
+    ctx.clearRect(0,0,W,H);
+    for(let i=0;i<nodes.length;i++) {
+      for(let j=i+1;j<nodes.length;j++) {
+        const dx=nodes[i].x-nodes[j].x, dy=nodes[i].y-nodes[j].y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<140) {
+          const a=(1-dist/140)*0.35;
+          ctx.beginPath();
+          ctx.strokeStyle = i%3===0 ? `rgba(201,168,76,${a})` : `rgba(79,86,214,${a})`;
+          ctx.lineWidth=0.8;
+          ctx.moveTo(nodes[i].x,nodes[i].y); ctx.lineTo(nodes[j].x,nodes[j].y); ctx.stroke();
+        }
+      }
+    }
+    nodes.forEach((n,i) => {
+      n.update();
+      ctx.beginPath();
+      ctx.fillStyle = i%4===0 ? 'rgba(201,168,76,0.8)' : 'rgba(79,86,214,0.7)';
+      ctx.arc(n.x,n.y,n.r,0,Math.PI*2); ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry,i) => {
+      if(entry.isIntersecting) { setTimeout(()=>entry.target.classList.add('visible'),i*60); observer.unobserve(entry.target); }
+    });
+  }, {threshold:0.08});
+  reveals.forEach(el=>observer.observe(el));
+</script>
 </body>
 </html>
