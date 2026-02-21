@@ -62,6 +62,20 @@
       overflow-x: hidden;
     }
 
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Hl0AAAAAXNSR0IArs4c6QAAAB9JREFUGFdjYGBgYGBgYGBgYGBgYGBgYGBgYGBgYAAKAAJ/E25xAAAAAElFTkSuQmCC");
+      background-repeat: repeat;
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 0;
+    }
+
     #network-canvas {
       position: fixed;
       inset: 0;
