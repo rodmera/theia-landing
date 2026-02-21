@@ -1524,6 +1524,46 @@
         height: 42px;
       }
     }
+
+    /* Custom Cursor */
+    .cursor-dot,
+    .cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      border-radius: 50%;
+      transition: transform 0.15s ease-out, opacity 0.2s ease;
+      transform: translate(-50%, -50%);
+    }
+
+    .cursor-dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--gold);
+    }
+
+    .cursor-ring {
+      width: 30px;
+      height: 30px;
+      border: 1px solid var(--gold-light);
+      opacity: 0.5;
+    }
+
+    body {
+      cursor: none;
+    }
+
+    a:hover ~ .cursor-ring,
+    button:hover ~ .cursor-ring {
+      transform: translate(-50%, -50%) scale(1.6);
+      opacity: 0.1;
+    }
+    a:hover ~ .cursor-dot,
+    button:hover ~ .cursor-dot {
+       transform: translate(-50%, -50%) scale(0);
+    }
   </style>
 </head>
 
@@ -2214,6 +2254,10 @@
     </svg>
   </button>
 
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
   <footer>
     <div class="footer-inner">
       <a href="#" class="logo"><img src="logo.svg" alt="TheIA" onerror="this.src='logo.png'" /></a>
@@ -2284,6 +2328,15 @@
     });
     scrollToTopBtn.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    // Custom Cursor Script
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+    window.addEventListener('mousemove', (e) => {
+      dot.style.left = `${e.clientX}px`;
+      dot.style.top = `${e.clientY}px`;
+      ring.style.left = `${e.clientX}px`;
+      ring.style.top = `${e.clientY}px`;
     });
   </script>
 </body>
