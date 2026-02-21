@@ -917,10 +917,16 @@
 
     .vert-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.25rem;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1.5rem;
       margin-top: 3rem;
+      align-items: start;
     }
+
+    .vert-card:nth-child(1) { grid-column: span 3; }
+    .vert-card:nth-child(2) { grid-column: span 3; }
+    .vert-card:nth-child(3) { grid-column: span 2; }
+    .vert-card:nth-child(4) { grid-column: span 4; }
 
     .vert-card {
       background: var(--glass);
@@ -1422,6 +1428,10 @@
 
       .vert-grid {
         grid-template-columns: 1fr 1fr;
+      }
+
+      .vert-card:nth-child(n) {
+        grid-column: auto / span 1;
       }
 
       .steps {
