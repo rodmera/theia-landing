@@ -1738,6 +1738,79 @@
     .animate-load {
       animation: fadeInUp 0.6s ease-out forwards;
     }
+
+    /* Mobile Menu Styles */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      z-index: 1001;
+      padding: 10px;
+      background: none;
+      border: none;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 28px;
+      height: 2px;
+      background-color: var(--text);
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 960px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-cta {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: var(--bg2);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        z-index: 1000;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        padding: 2rem;
+      }
+
+      .nav-cta.active {
+        right: 0;
+      }
+
+      .nav-cta .btn {
+        width: 100%;
+        max-width: 280px;
+        font-size: 1.1rem;
+        padding: 1rem;
+      }
+
+      .nav-cta .btn-ghost {
+        display: flex !important; /* Force display in mobile menu */
+      }
+
+      /* Hamburger animation */
+      .mobile-menu-open .menu-toggle span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .mobile-menu-open .menu-toggle span:nth-child(2) {
+        opacity: 0;
+      }
+      .mobile-menu-open .menu-toggle span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+      
+      body.mobile-menu-open {
+        overflow: hidden;
+      }
+    }
   </style>
 </head>
 
@@ -1748,6 +1821,11 @@
     <a href="#" class="logo">
       <img src="logo.png" alt="TheIA" />
     </a>
+    <button class="menu-toggle" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <div class="nav-cta">
       <a href="https://admin.theia.cl" class="btn btn-ghost">
         <span
@@ -2624,6 +2702,39 @@
     });
     scrollToTopBtn.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Custom Cursor Script
+    const dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    const ring = document.createElement('div');
+    ring.className = 'cursor-ring';
+    document.body.appendChild(dot);
+    document.body.appendChild(ring);
+
+    window.addEventListener('mousemove', (e) => {
+      dot.style.left = `${e.clientX}px`;
+      dot.style.top = `${e.clientY}px`;
+      ring.style.left = `${e.clientX}px`;
+      ring.style.top = `${e.clientY}px`;
+    });
+
+    // Mobile Menu Toggle Script
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navCta = document.querySelector('.nav-cta');
+    const navLinks = document.querySelectorAll('.nav-cta a');
+
+    menuToggle.addEventListener('click', () => {
+      navCta.classList.toggle('active');
+      document.body.classList.toggle('mobile-menu-open');
+    });
+
+    // Close menu when a link is clicked
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navCta.classList.remove('active');
+        document.body.classList.remove('mobile-menu-open');
+      });
     });
   </script>
 </body>
