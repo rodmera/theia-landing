@@ -1739,6 +1739,94 @@
       animation: fadeInUp 0.6s ease-out forwards;
     }
 
+    /* Newsletter Styles */
+    .newsletter-section {
+      padding: 6rem 0;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .newsletter-box {
+      background: var(--glass);
+      border: 1px solid var(--glass-border-gold);
+      border-radius: 24px;
+      padding: 3.5rem 2rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .newsletter-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .newsletter-box h2 {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin-bottom: 1rem;
+    }
+
+    .newsletter-box p {
+      color: var(--text-sub);
+      margin-bottom: 2.5rem;
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      border-radius: 10px;
+      padding: 0.85rem 1.25rem;
+      color: white;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .newsletter-form input:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+    }
+
+    .newsletter-success {
+      display: none;
+      color: var(--green);
+      font-weight: 600;
+      margin-top: 1.5rem;
+      animation: fadeInUp 0.4s ease;
+    }
+
+    @media (max-width: 600px) {
+      .newsletter-form {
+        flex-direction: column;
+      }
+      .newsletter-form button {
+        width: 100%;
+      }
+    }
+
     /* Mobile Menu Styles */
     .menu-toggle {
       display: none;
@@ -2613,6 +2701,22 @@
 
 
 
+  <section class="newsletter-section" id="newsletter">
+    <div class="container">
+      <div class="newsletter-box reveal">
+        <h2>Únete a la vanguardia de la IA</h2>
+        <p>Recibe casos de éxito reales y acceso prioritario a nuevas funciones de automatización comercial.</p>
+        <form class="newsletter-form" id="waitlist-form">
+          <input type="email" name="email" placeholder="tu@email.com" required>
+          <button type="submit" class="btn btn-gold">Unirse a la lista</button>
+        </form>
+        <div class="newsletter-success" id="newsletter-success">
+          ✨ ¡Gracias! Te has unido correctamente a nuestra lista.
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="footer-inner">
       <div class="footer-col">
@@ -2734,6 +2838,34 @@
       link.addEventListener('click', () => {
         navCta.classList.remove('active');
         document.body.classList.remove('mobile-menu-open');
+      });
+    });
+
+    // Waitlist Form Script
+    const waitlistForm = document.getElementById('waitlist-form');
+    const newsletterSuccess = document.getElementById('newsletter-success');
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxwkLWd4nUMSz0LvL0HnsJ0dqNbNpsOIpXHtuPR8EuVCEQ74r_dRk0C1hO1DBml3aKF0w/exec';
+
+    waitlistForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const submitBtn = waitlistForm.querySelector('button');
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Enviando...';
+
+      fetch(scriptURL, { 
+        method: 'POST', 
+        mode: 'no-cors', // Important for Google Script
+        body: new FormData(waitlistForm)
+      })
+      .then(() => {
+        waitlistForm.style.display = 'none';
+        newsletterSuccess.style.display = 'block';
+      })
+      .catch(error => {
+        console.error('Error!', error.message);
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Unirse a la lista';
+        alert('Hubo un error al unirse. Por favor intenta de nuevo.');
       });
     });
   </script>
