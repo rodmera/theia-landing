@@ -1809,6 +1809,11 @@
     }
 
     /* Newsletter Styles */
+    .b2b-banner { padding: 3.5rem 0; background: linear-gradient(90deg, rgba(79,86,214,0.08), rgba(201,168,76,0.06), rgba(79,86,214,0.08)); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
+    .b2b-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .b2b-text h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: clamp(1.1rem, 2vw, 1.4rem); margin-bottom: 0.4rem; }
+    .b2b-text p { font-size: 0.9rem; color: var(--text-sub); line-height: 1.6; max-width: 520px; }
+    @media (max-width: 600px) { .b2b-inner { flex-direction: column; text-align: center; } }
     .newsletter-section {
       padding: 6rem 0;
       background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
@@ -2770,14 +2775,26 @@
 
 
 
+  <section class="b2b-banner">
+    <div class="container">
+      <div class="b2b-inner reveal">
+        <div class="b2b-text">
+          <h3>¿Tienes un proyecto de IA más complejo? <span class="gold">Hablemos.</span></h3>
+          <p>Orquestación de agentes, integraciones LLM a medida, automatización de procesos internos — construimos soluciones IA para empresas que van más allá del producto estándar.</p>
+        </div>
+        <a href="#newsletter" class="btn btn-outline-gold" id="b2b-cta" style="white-space:nowrap;flex-shrink:0;">Dejar mi correo →</a>
+      </div>
+    </div>
+  </section>
+
   <section class="newsletter-section" id="newsletter">
     <div class="container">
       <div class="newsletter-box reveal">
-        <h2>Únete a la vanguardia de la IA</h2>
-        <p>Recibe casos de éxito reales y acceso prioritario a nuevas funciones de automatización comercial.</p>
+        <h2 id="newsletter-title">Únete a la vanguardia de la IA</h2>
+        <p id="newsletter-desc">Recibe casos de éxito reales y acceso prioritario a nuevas funciones de automatización comercial.</p>
         <form class="newsletter-form" id="waitlist-form">
           <input type="email" name="email" placeholder="tu@email.com" required>
-          <input type="hidden" name="source" value="Landing Footer">
+          <input type="hidden" name="source" value="Landing Newsletter">
           <button type="submit" class="btn btn-gold">Unirse a la lista</button>
         </form>
         <div class="newsletter-success" id="newsletter-success">
@@ -2913,6 +2930,14 @@
         navCta.classList.remove('active');
         document.body.classList.remove('mobile-menu-open');
       });
+    });
+
+    // B2B CTA: cambia source y copy del form al hacer click
+    document.getElementById('b2b-cta').addEventListener('click', () => {
+      document.querySelector('input[name="source"]').value = 'B2B - Proyecto IA';
+      document.getElementById('newsletter-title').textContent = '¿Proyecto IA a medida?';
+      document.getElementById('newsletter-desc').textContent = 'Déjanos tu correo y Rodrigo se contacta contigo para conversar sobre tu proyecto.';
+      waitlistForm.querySelector('button').textContent = 'Quiero conversar →';
     });
 
     // Waitlist Form Script
