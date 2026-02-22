@@ -2853,10 +2853,16 @@
       submitBtn.disabled = true;
       submitBtn.innerText = 'Enviando...';
 
+      const formData = new FormData(waitlistForm);
+      const plainData = new URLSearchParams(formData);
+
       fetch(scriptURL, { 
         method: 'POST', 
-        mode: 'no-cors', // Important for Google Script
-        body: new FormData(waitlistForm)
+        mode: 'no-cors', 
+        body: plainData.toString(),
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
       })
       .then(() => {
         waitlistForm.style.display = 'none';
