@@ -2853,27 +2853,24 @@
       submitBtn.disabled = true;
       submitBtn.innerText = 'Enviando...';
 
-      const formData = new FormData(waitlistForm);
-      const searchParams = new URLSearchParams();
+      // Creamos la cadena de datos manualmente para asegurar compatibilidad total
+      const email = waitlistForm.querySelector('input[name="email"]').value;
+      const source = waitlistForm.querySelector('input[name="source"]').value;
+      const params = `email=${encodeURIComponent(email)}&source=${encodeURIComponent(source)}`;
 
-      // Convertimos el FormData a URLSearchParams para asegurar compatibilidad
-      for (const pair of formData) {
-          searchParams.append(pair[0], pair[1]);
-      }
-
-      fetch(scriptURL, { 
-        method: 'POST', 
-        mode: 'no-cors', 
-        body: searchParams.toString(), // Enviamos como string puro
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+      fetch(scriptURL + "?" + params, { 
+        method: 'POST',
+        mode: 'no-cors'
       })
       .then(() => {
         waitlistForm.style.display = 'none';
         newsletterSuccess.style.display = 'block';
       })
-      .catch(error => console.error('Error!', error.message));
+      .catch(error => {
+        console.error('Error!', error.message);
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Unirse a la lista';
+      });
     });
   </script>
 </body>
