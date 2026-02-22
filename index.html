@@ -1396,6 +1396,63 @@
       line-height: 1.65;
     }
 
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--glass-border);
+      padding: 2.5rem;
+    }
+
+    footer .logo img {
+      height: 48px;
+      margin-bottom: 1rem;
+    }
+
+    .footer-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-col h4 {
+      color: var(--gold-light);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .footer-col p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .footer-col a {
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .footer-col.center {
+      align-items: center;
+    }
+
+    .footer-col.end {
+      align-items: flex-end;
+    }
+
     @media (max-width: 768px) {
       .extra-grid {
         grid-template-columns: 1fr;
@@ -1469,62 +1526,7 @@
       flex-wrap: wrap;
     }
 
-    footer {
-      background: var(--bg);
-      border-top: 1px solid var(--glass-border);
-      padding: 2.5rem;
-    }
 
-    footer .logo img {
-      height: 48px;
-      margin-bottom: 1rem;
-    }
-
-    .footer-inner {
-      max-width: 1140px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 2rem;
-    }
-
-    .footer-col {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .footer-col h4 {
-      color: var(--gold-light);
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-
-    .footer-col p {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      line-height: 1.5;
-    }
-
-    .footer-col a {
-      color: var(--text-sub);
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: color 0.2s;
-    }
-
-    .footer-col a:hover {
-      color: var(--gold);
-    }
-
-    .footer-col.center {
-      align-items: center;
-    }
-
-    .footer-col.end {
-      align-items: flex-end;
-    }
 
     .footer-bottom {
       max-width: 1140px;
@@ -1617,6 +1619,13 @@
     @media (max-width: 600px) {
       nav {
         padding: 1rem 1.25rem;
+      }
+
+      .btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.8rem;
+        width: 100%;
+        max-width: 320px;
       }
 
       .nav-cta .btn-ghost {
