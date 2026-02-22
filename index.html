@@ -329,6 +329,7 @@
       display: flex;
       align-items: center;
       gap: 0.6rem;
+      flex-wrap: wrap;
     }
 
     .hero-proof span {
@@ -1789,55 +1790,57 @@
               <line x1="12" x2="12" y1="15" y2="3" />
             </svg>Descargar Brochure</a>
         </div>
-        <a href="#pricing" class="btn btn-ghost" style="border: none; padding: 0.2rem 0; color: var(--text-sub);">↓
-          Ver planes y precios</a>
-        <div class="hero-proof animate-load" style="animation-delay: 0.6s;">🌐 www.theia.cl &nbsp;·&nbsp;
-          <span>Santiago, Chile / Latinoamérica</span>
+        <a href="#pricing"
+          style="color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 700; display: inline-block; margin-top: 0.5rem; transition: opacity 0.2s;"
+          onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">↓ Ver planes y precios</a>
+      </div>
+      <div class="hero-proof animate-load" style="animation-delay: 0.6s;">🌐 www.theia.cl &nbsp;·&nbsp;
+        <span>Santiago, Chile / Latinoamérica</span>
+      </div>
+    </div>
+    <div class="hero-glass-card animate-load" style="animation-delay: 0.7s;">
+      <div class="chat-header">
+        <div class="chat-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 8V4H8" />
+            <rect width="16" height="12" x="4" y="8" rx="2" />
+            <path d="M2 14h2" />
+            <path d="M20 14h2" />
+            <path d="M15 13v2" />
+            <path d="M9 13v2" />
+          </svg></div>
+        <div>
+          <div class="chat-name">TheIA Agent</div>
+          <div class="chat-online">En línea ahora</div>
         </div>
       </div>
-      <div class="hero-glass-card animate-load" style="animation-delay: 0.7s;">
-        <div class="chat-header">
-          <div class="chat-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-              fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 8V4H8" />
-              <rect width="16" height="12" x="4" y="8" rx="2" />
-              <path d="M2 14h2" />
-              <path d="M20 14h2" />
-              <path d="M15 13v2" />
-              <path d="M9 13v2" />
-            </svg></div>
-          <div>
-            <div class="chat-name">TheIA Agent</div>
-            <div class="chat-online">En línea ahora</div>
-          </div>
-        </div>
-        <div class="chat-msgs">
-          <div class="msg msg-user">Hola! tienen la trotadora TR500? cuánto vale?</div>
-          <div class="msg msg-bot">¡Hola! 👋 Sí, la TR500 está disponible.<br /><strong>Precio: $389.990 CLP</strong>
-            con despacho gratis a RM. ¿Con envío o retiras?</div>
-          <div class="msg msg-user">Con envío. Cómo pago?</div>
-          <div class="msg msg-bot">Tarjeta, transferencia o hasta 12 cuotas sin interés 💳<br />¿Te envío el link de
-            pago ahora?</div>
-          <div class="msg msg-user">Sí perfecto</div>
-          <div class="typing">
-            <div class="dots"><span></span><span></span><span></span></div> TheIA está respondiendo…
-          </div>
-        </div>
-        <div class="card-stats">
-          <div>
-            <div class="stat-n">2am</div>
-            <div class="stat-l">Hora del chat</div>
-          </div>
-          <div>
-            <div class="stat-n">38s</div>
-            <div class="stat-l">Respuesta</div>
-          </div>
-          <div>
-            <div class="stat-n">24/7</div>
-            <div class="stat-l">Activo</div>
-          </div>
+      <div class="chat-msgs">
+        <div class="msg msg-user">Hola! tienen la trotadora TR500? cuánto vale?</div>
+        <div class="msg msg-bot">¡Hola! 👋 Sí, la TR500 está disponible.<br /><strong>Precio: $389.990 CLP</strong>
+          con despacho gratis a RM. ¿Con envío o retiras?</div>
+        <div class="msg msg-user">Con envío. Cómo pago?</div>
+        <div class="msg msg-bot">Tarjeta, transferencia o hasta 12 cuotas sin interés 💳<br />¿Te envío el link de
+          pago ahora?</div>
+        <div class="msg msg-user">Sí perfecto</div>
+        <div class="typing">
+          <div class="dots"><span></span><span></span><span></span></div> TheIA está respondiendo…
         </div>
       </div>
+      <div class="card-stats">
+        <div>
+          <div class="stat-n">2am</div>
+          <div class="stat-l">Hora del chat</div>
+        </div>
+        <div>
+          <div class="stat-n">38s</div>
+          <div class="stat-l">Respuesta</div>
+        </div>
+        <div>
+          <div class="stat-n">24/7</div>
+          <div class="stat-l">Activo</div>
+        </div>
+      </div>
+    </div>
     </div>
   </section>
 
