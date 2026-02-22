@@ -5,6 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Security Meta Tags -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; connect-src 'self' https:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
   <title>TheIA | Tu Agente de Ventas con IA para WhatsApp Business</title>
   <link rel="icon" href="logo.png" type="image/png">
   <meta name="description"
@@ -184,6 +191,20 @@
 
     .btn-outline-gold:hover {
       background: var(--gold-glow);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-indigo {
+      background: transparent;
+      color: var(--indigo-light);
+      border: 2px solid var(--indigo-light);
+      padding: 0.85rem 2rem;
+      font-size: 1rem;
+      border-radius: 10px;
+    }
+
+    .btn-outline-indigo:hover {
+      background: rgba(99, 102, 241, 0.15);
       transform: translateY(-2px);
     }
 
@@ -1368,6 +1389,22 @@
       .extra-grid {
         grid-template-columns: 1fr;
       }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .footer-col.center,
+      .footer-col.end {
+        align-items: flex-start;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
     }
 
     .cta-final {
@@ -1421,38 +1458,70 @@
     }
 
     footer .logo img {
-      height: 56px;
+      height: 48px;
+      margin-bottom: 1rem;
     }
 
     .footer-inner {
       max-width: 1140px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer-col {
       display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-col h4 {
+      color: var(--gold-light);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .footer-col p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .footer-col a {
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .footer-col.center {
       align-items: center;
+    }
+
+    .footer-col.end {
+      align-items: flex-end;
+    }
+
+    .footer-bottom {
+      max-width: 1140px;
+      margin: 2.5rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--glass-border);
+      display: flex;
       justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
       gap: 1rem;
     }
 
-    .footer-contact {
-      display: flex;
-      gap: 1.75rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .footer-contact a {
-      color: var(--text-sub);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-contact a:hover {
-      color: var(--gold);
-    }
-
     .footer-copy {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
     }
 
@@ -1635,6 +1704,11 @@
       <img src="logo.png" alt="TheIA" />
     </a>
     <div class="nav-cta">
+      <a href="https://admin.theia.cl" class="btn btn-ghost">
+        <span
+          style="width: 6px; height: 6px; background-color: var(--indigo-light); border-radius: 50%; box-shadow: 0 0 8px var(--indigo-light); display: inline-block;"></span>
+        Panel Admin
+      </a>
       <a href="#features" class="btn btn-ghost">Funciones</a>
       <a href="#pricing" class="btn btn-ghost">Precios</a>
       <a href="https://wa.me/56977298344?text=Hola,%20quiero%20saber%20m%C3%A1s%20sobre%20TheIA" class="btn btn-gold"
@@ -1653,16 +1727,28 @@
         <p class="hero-sub animate-load" style="animation-delay: 0.4s;">Agente de ventas con IA para WhatsApp Business.
           Atiende, califica, agenda y cierra ventas —
           24/7, mientras tú duermes.</p>
-        <div class="hero-btns animate-load" style="animation-delay: 0.5s;">
-          <a href="https://wa.me/56977298344?text=Hola,%20quiero%20una%20demo%20de%20TheIA" class="btn btn-whatsapp"
-            target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle; margin-top: -2px;">
-              <path
-                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
-              </path>
-            </svg>Hablar por WhatsApp</a>
-          <a href="#pricing" class="btn btn-outline-gold">Ver precios</a>
+        <div class="hero-btns animate-load"
+          style="animation-delay: 0.5s; display: flex; flex-direction: column; align-items: flex-start; gap: 0.8rem;">
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://wa.me/56977298344?text=Hola,%20quiero%20una%20demo%20de%20TheIA" class="btn btn-whatsapp"
+              target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle; margin-top: -2px;">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                </path>
+              </svg>Hablar por WhatsApp</a>
+            <a href="TheIA_Sales_Agent_v4.pdf" download class="btn btn-outline-indigo" target="_blank"
+              rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                style="margin-right: 4px; vertical-align: middle; margin-top: -2px;">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" x2="12" y1="15" y2="3" />
+              </svg>Descargar Brochure</a>
+          </div>
+          <a href="#pricing" class="btn btn-ghost" style="border: none; padding: 0.2rem 0; color: var(--text-sub);">↓
+            Ver planes y precios</a>
         </div>
         <div class="hero-proof animate-load" style="animation-delay: 0.6s;">🌐 www.theia.cl &nbsp;·&nbsp;
           <span>Santiago, Chile / Latinoamérica</span>
@@ -2351,18 +2437,29 @@
       <div class="reveal">
         <h2>¿Listo para vender<br /><span class="gold">mientras duermes?</span></h2>
         <p>No dejes que tu competencia llegue primero.</p>
-        <div class="cta-btns">
-          <a href="https://wa.me/56977298344?text=Hola,%20quiero%20una%20demo%20de%20TheIA" class="btn btn-whatsapp"
-            target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle; margin-top: -2px;">
-              <path
-                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
-              </path>
-            </svg>Solicita una Demo Personalizada</a>
-          <a href="mailto:rodrigo@theia.cl" class="btn btn-outline-gold"><svg xmlns="http://www.w3.org/2000/svg"
-              width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle;">
+        <div class="cta-btns" style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="https://wa.me/56977298344?text=Hola,%20quiero%20una%20demo%20de%20TheIA" class="btn btn-whatsapp"
+              target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle; margin-top: -2px;">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                </path>
+              </svg>Solicita una Demo Personalizada</a>
+            <a href="TheIA_Sales_Agent_v4.pdf" download class="btn btn-outline-indigo" target="_blank"
+              rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                style="margin-right: 4px; vertical-align: middle; margin-top: -2px;">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" x2="12" y1="15" y2="3" />
+              </svg>Descargar Brochure</a>
+          </div>
+          <a href="mailto:rodrigo@theia.cl" class="btn btn-ghost" style="border: none;"><svg
+              xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="margin-right: 6px; vertical-align: middle;">
               <rect width="20" height="16" x="2" y="4" rx="2" />
               <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
             </svg> rodrigo@theia.cl</a>
@@ -2384,13 +2481,32 @@
 
   <footer>
     <div class="footer-inner">
-      <a href="#" class="logo"><img src="logo.png" alt="TheIA" /></a>
-      <div class="footer-contact">
-        <a href="mailto:rodrigo@theia.cl">rodrigo@theia.cl</a>
-        <a href="https://wa.me/56977298344" target="_blank">+56 9 7729 8344</a>
-        <a href="https://theia.cl">theia.cl</a>
+      <div class="footer-col">
+        <a href="#" class="logo"><img src="logo.png" alt="TheIA" /></a>
+        <p>Agente de ventas con IA especializado en automatización comercial 24/7 para WhatsApp Business.</p>
       </div>
+      <div class="footer-col center">
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start;">
+          <h4>Navegación</h4>
+          <a href="#features">Funciones</a>
+          <a href="#pricing">Planes y Precios</a>
+          <a href="https://wa.me/56977298344?text=Hola,%20quiero%20una%20demo%20de%20TheIA" target="_blank"
+            rel="noopener">Agendar Demo</a>
+          <a href="https://admin.theia.cl" target="_blank" rel="noopener">Panel Admin →</a>
+        </div>
+      </div>
+      <div class="footer-col end">
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start;">
+          <h4>Contacto</h4>
+          <a href="mailto:rodrigo@theia.cl">rodrigo@theia.cl</a>
+          <a href="https://wa.me/56977298344" target="_blank" rel="noopener">+56 9 7729 8344</a>
+          <a href="https://theia.cl" target="_blank" rel="noopener">theia.cl</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
       <div class="footer-copy">TheIA Agent by THEIA.CL © 2026 · Todos los derechos reservados.</div>
+      <div class="footer-copy">Santiago, Chile / Latinoamérica</div>
     </div>
   </footer>
 
