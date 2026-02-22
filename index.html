@@ -2853,14 +2853,15 @@
       submitBtn.disabled = true;
       submitBtn.innerText = 'Enviando...';
 
-      // Creamos la cadena de datos manualmente para asegurar compatibilidad total
       const email = waitlistForm.querySelector('input[name="email"]').value;
       const source = waitlistForm.querySelector('input[name="source"]').value;
-      const params = `email=${encodeURIComponent(email)}&source=${encodeURIComponent(source)}`;
+      const body = `email=${encodeURIComponent(email)}&source=${encodeURIComponent(source)}`;
 
-      fetch(scriptURL + "?" + params, { 
+      fetch(scriptURL, {
         method: 'POST',
-        mode: 'no-cors'
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
       })
       .then(() => {
         waitlistForm.style.display = 'none';
