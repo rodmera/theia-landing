@@ -198,10 +198,22 @@
     div.className = "theia-msg bot";
     div.textContent = text;
     if (mediaUrl) {
-      const img = document.createElement("img");
-      img.src = mediaUrl;
-      img.alt = "";
-      div.appendChild(img);
+      const ext = mediaUrl.split("?")[0].split(".").pop().toLowerCase();
+      const isImage = ["jpg", "jpeg", "png", "gif", "webp"].includes(ext);
+      if (isImage) {
+        const img = document.createElement("img");
+        img.src = mediaUrl;
+        img.alt = "";
+        div.appendChild(img);
+      } else {
+        const link = document.createElement("a");
+        link.href = mediaUrl;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "📎 Descargar documento";
+        link.style.cssText = "display:block;margin-top:6px;color:#6366f1;font-size:0.85rem;";
+        div.appendChild(link);
+      }
     }
     messages.appendChild(div);
     scrollBottom();
