@@ -16,6 +16,7 @@
   const TITLE = script.getAttribute("data-title") || "Chat";
   const COLOR = script.getAttribute("data-color") || "#6366f1";
   const STORAGE_KEY = "theia_session_" + API_KEY.slice(0, 8);
+  const COOKIE_KEY  = "theia_vid_"     + API_KEY.slice(0, 8);
 
   if (!API_KEY || !API_URL) {
     console.warn("[TheIA Widget] data-api-key y data-api-url son requeridos.");
@@ -128,8 +129,24 @@
   `;
   document.head.appendChild(style);
 
+  /* ── Cookie helpers (dual-storage: localStorage + cookie 180d) ── */
+  function setCookie(name, value, days) {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = name + "=" + encodeURIComponent(value) + "; expires=" + expires + "; path=/; SameSite=Lax";
+  }
+  function getCookie(name) {
+    const m = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/[\\^$.*+?()[\]{}|]/g, "\\$&") + "=([^;]*)"));
+    return m ? decodeURIComponent(m[1]) : null;
+  }
+  function persistToken(token) {
+    try { localStorage.setItem(STORAGE_KEY, token); } catch (e) {}
+    setCookie(COOKIE_KEY, token, 180);
+  }
+
   /* ── Estado ── */
-  let sessionToken = localStorage.getItem(STORAGE_KEY) || null;
+  let sessionToken = null;
+  try { sessionToken = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+  if (!sessionToken) sessionToken = getCookie(COOKIE_KEY);
   let isOpen = false;
   let pendingBadge = 0;
 
@@ -271,7 +288,7 @@
 
       if (data.session_token) {
         sessionToken = data.session_token;
-        localStorage.setItem(STORAGE_KEY, sessionToken);
+        persistToken(sessionToken);
       }
 
       if (data.reply) {
