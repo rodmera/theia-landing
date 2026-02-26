@@ -16,7 +16,7 @@
   const TITLE = script.getAttribute("data-title") || "Chat";
   const COLOR = script.getAttribute("data-color") || "#6366f1";
   const STORAGE_KEY = "theia_session_" + API_KEY.slice(0, 8);
-  const COOKIE_KEY  = "theia_vid_"     + API_KEY.slice(0, 8);
+  const COOKIE_KEY  = "theia_vid_"     + API_KEY.slice(0, 8); // cookie 180 días (cubre incógnito y caché limpio)
 
   if (!API_KEY || !API_URL) {
     console.warn("[TheIA Widget] data-api-key y data-api-url son requeridos.");
@@ -132,7 +132,7 @@
   /* ── Cookie helpers (dual-storage: localStorage + cookie 180d) ── */
   function setCookie(name, value, days) {
     const expires = new Date(Date.now() + days * 864e5).toUTCString();
-    document.cookie = name + "=" + encodeURIComponent(value) + "; expires=" + expires + "; path=/; SameSite=Lax";
+    document.cookie = name + "=" + encodeURIComponent(value) + "; expires=" + expires + "; path=/; SameSite=Lax; Secure";
   }
   function getCookie(name) {
     const m = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/[\\^$.*+?()[\]{}|]/g, "\\$&") + "=([^;]*)"));
@@ -146,7 +146,7 @@
   /* ── Estado ── */
   let sessionToken = null;
   try { sessionToken = localStorage.getItem(STORAGE_KEY); } catch (e) {}
-  if (!sessionToken) sessionToken = getCookie(COOKIE_KEY);
+  if (!sessionToken) sessionToken = getCookie(COOKIE_KEY); // fallback: incógnito o caché limpio
   let isOpen = false;
   let pendingBadge = 0;
 
@@ -210,10 +210,23 @@
     messages.scrollTop = messages.scrollHeight;
   }
 
+  function formatBotText(text) {
+    // Escapar HTML para prevenir XSS
+    const escaped = text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+    // Convertir *negrita* → <strong> (formato WhatsApp/IA)
+    const withBold = escaped.replace(/\*([^*\n]+)\*/g, "<strong>$1</strong>");
+    // Convertir saltos de línea → <br>
+    return withBold.replace(/\n/g, "<br>");
+  }
+
   function addBotMessage(text, mediaUrl) {
     const div = document.createElement("div");
     div.className = "theia-msg bot";
-    div.textContent = text;
+    div.innerHTML = formatBotText(text);
     if (mediaUrl) {
       const ext = mediaUrl.split("?")[0].split(".").pop().toLowerCase();
       const isImage = ["jpg", "jpeg", "png", "gif", "webp"].includes(ext);
