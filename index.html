@@ -2832,6 +2832,8 @@
         <form class="newsletter-form" id="waitlist-form">
           <input type="email" name="email" placeholder="tu@email.com" required>
           <input type="hidden" name="source" value="Landing Newsletter">
+          <!-- Honeypot: invisible para humanos, bots lo llenan -->
+          <input type="text" name="website" id="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;">
           <button type="submit" class="btn btn-gold">Unirse a la lista</button>
         </form>
         <div class="newsletter-success" id="newsletter-success">
@@ -3035,9 +3037,17 @@
     const waitlistForm = document.getElementById('waitlist-form');
     const newsletterSuccess = document.getElementById('newsletter-success');
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxwkLWd4nUMSz0LvL0HnsJ0dqNbNpsOIpXHtuPR8EuVCEQ74r_dRk0C1hO1DBml3aKF0w/exec';
+    const _formLoadTime = Date.now();
 
     waitlistForm.addEventListener('submit', e => {
       e.preventDefault();
+
+      // Anti-spam: honeypot (bots llenan campos ocultos)
+      if (document.getElementById('hp-field').value !== '') return;
+
+      // Anti-spam: time check (bots envían el form en < 3 segundos)
+      if (Date.now() - _formLoadTime < 3000) return;
+
       const submitBtn = waitlistForm.querySelector('button');
       submitBtn.disabled = true;
       submitBtn.innerText = 'Enviando...';
