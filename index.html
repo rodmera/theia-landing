@@ -1815,6 +1815,12 @@
     .b2b-text h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: clamp(1.1rem, 2vw, 1.4rem); margin-bottom: 0.4rem; }
     .b2b-text p { font-size: 0.9rem; color: var(--text-sub); line-height: 1.6; max-width: 520px; }
     @media (max-width: 600px) { .b2b-inner { flex-direction: column; text-align: center; } }
+    .gcal-section { padding: 5rem 0 6rem; }
+    .gcal-header { text-align: center; margin-bottom: 2.5rem; }
+    .gcal-header h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom: 0.75rem; }
+    .gcal-header p { color: var(--text-sub); font-size: 1.05rem; }
+    .gcal-wrapper { background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+    .gcal-wrapper iframe { display: block; }
     .newsletter-section {
       padding: 6rem 0;
       background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
@@ -1997,7 +2003,7 @@
       </a>
       <a href="#features" class="btn btn-ghost">Funciones</a>
       <a href="#pricing" class="btn btn-ghost">Precios</a>
-      <a href="#" onclick="openDemoModal(event)" class="btn btn-gold">Agendar Demo →</a>
+      <a href="#agendar" class="btn btn-gold">Agendar Demo →</a>
     </div>
   </nav>
 
@@ -2779,7 +2785,7 @@
         <p>No dejes que tu competencia llegue primero.</p>
         <div class="cta-btns" style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
           <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="#" onclick="openDemoModal(event)" class="btn btn-gold">
+            <a href="#agendar" class="btn btn-gold">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
               Agendar Demo</a>
             <a href="TheIA_Sales_Agent_v4.pdf" download class="btn btn-outline-indigo" target="_blank"
@@ -2824,6 +2830,20 @@
     </div>
   </section>
 
+  <section class="gcal-section" id="agendar">
+    <div class="container">
+      <div class="gcal-header reveal">
+        <h2>Agenda una <span class="gold">demo en vivo</span></h2>
+        <p>30 minutos para ver TheIA funcionando con los datos de tu negocio.</p>
+      </div>
+      <div class="gcal-wrapper reveal">
+        <!-- Google Calendar Appointment Scheduling begin -->
+        <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3GNttimLhHWbLycf2wzv1_MbgaigmL4gf9dfoG_8RTUEIDzKFuZJlBsz4fmOBemG_RoAlo3j7w?gv=true" style="border:0" width="100%" height="600" frameborder="0"></iframe>
+        <!-- end Google Calendar Appointment Scheduling -->
+      </div>
+    </div>
+  </section>
+
   <section class="newsletter-section" id="newsletter">
     <div class="container">
       <div class="newsletter-box reveal">
@@ -2854,7 +2874,7 @@
           <h4>Navegación</h4>
           <a href="#features">Funciones</a>
           <a href="#pricing">Planes y Precios</a>
-          <a href="#" onclick="openDemoModal(event)">Agendar Demo</a>
+          <a href="#agendar">Agendar Demo</a>
           <a href="https://admin.theia.cl" target="_blank" rel="noopener">Panel Admin →</a>
         </div>
       </div>
@@ -3075,16 +3095,6 @@
   </script>
 
   <script>
-    const CALENDAR_URL = "https://calendar.app.google/ZDjEtqCXTJVxzi7bA";
-
-    function openDemoModal(e) {
-      if (e) e.preventDefault();
-      const w = 520, h = 700;
-      const left = Math.max(0, (screen.width  - w) / 2);
-      const top  = Math.max(0, (screen.height - h) / 2);
-      window.open(CALENDAR_URL, "AgendarDemo",
-        `width=${w},height=${h},left=${left},top=${top},resizable=yes,scrollbars=yes`);
-    }
   </script>
 
   <!-- TheIA Web Chat Widget -->
