@@ -367,7 +367,7 @@
     h1 {
       font-family: 'Merriweather', serif;
       font-weight: 900;
-      font-size: clamp(2.4rem, 4.5vw, 4rem);
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
       line-height: 1.1;
       letter-spacing: -0.025em;
       margin-bottom: 1.25rem;
@@ -486,7 +486,7 @@
     }
 
     .msg-user {
-      background: rgba(255, 255, 255, 0.08);
+      
       border: 1px solid rgba(255, 255, 255, 0.1);
       align-self: flex-start;
       border-bottom-left-radius: 4px;
@@ -601,14 +601,14 @@
     }
 
     .problema {
-      padding: 5.5rem 0;
+      padding: 6.5rem 0;
       background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
     }
 
     .section-title {
       font-family: 'Merriweather', serif;
       font-weight: 800;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-size: clamp(2rem, 3.5vw, 3rem);
       letter-spacing: -0.02em;
       line-height: 1.2;
       text-align: center;
@@ -689,7 +689,7 @@
     }
 
     .comparacion {
-      padding: 5.5rem 0;
+      padding: 6.5rem 0;
     }
 
     .comp-grid {
@@ -767,8 +767,31 @@
       color: var(--text);
     }
 
+    /* Trust strip — divider with centered text (Kapso style) */
+    .trust-strip {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding: 3.5rem 2rem 2rem;
+    }
+
+    .trust-strip::before,
+    .trust-strip::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--glass-border);
+    }
+
+    .trust-strip span {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
     .features {
-      padding: 5.5rem 0;
+      padding: 6.5rem 0;
       background: linear-gradient(180deg, var(--bg2) 0%, var(--bg3) 100%);
     }
 
@@ -824,7 +847,7 @@
 
     /* Dashboard */
     .supervisa {
-      padding: 5.5rem 0;
+      padding: 6.5rem 0;
       background: linear-gradient(180deg, var(--bg3) 0%, var(--bg2) 100%);
     }
 
@@ -843,6 +866,57 @@
       color: var(--indigo-light);
       margin-bottom: 1rem;
       width: fit-content;
+    }
+
+    .dash-screenshots {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .dash-screenshot {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      background: var(--glass);
+      transition: border-color 0.3s;
+    }
+
+    .dash-screenshot:hover {
+      border-color: var(--glass-border-gold);
+    }
+
+    .dash-screenshot {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dash-screenshot img {
+      width: 100%;
+      flex: 1;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .dash-screenshot:hover img {
+      transform: scale(1.04);
+    }
+
+    .dash-screenshots {
+      align-items: stretch;
+    }
+
+    .dash-screenshot-label {
+      padding: 0.8rem 1.2rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-muted);
     }
 
     .dash-layout {
@@ -897,7 +971,7 @@
 
     /* Agenda */
     .agenda {
-      padding: 5.5rem 0;
+      padding: 6.5rem 0;
       background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
     }
 
@@ -1008,9 +1082,66 @@
       font-weight: 600;
     }
 
+    /* Integraciones Carousel */
+    .integraciones {
+      padding: 4rem 0 3rem;
+      overflow: hidden;
+    }
+
+    .integraciones .section-title {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      margin-bottom: 2.5rem;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: max-content;
+      animation: scroll-logos 35s linear infinite;
+    }
+
+    .carousel-track:hover {
+      animation-play-state: paused;
+    }
+
+    .carousel-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      min-width: 120px;
+      padding: 0 1rem;
+      opacity: 0.5;
+      filter: grayscale(1);
+      transition: opacity 0.3s, filter 0.3s;
+    }
+
+    .carousel-item:hover {
+      opacity: 1;
+      filter: grayscale(0);
+    }
+
+    .carousel-item img {
+      height: 36px;
+      width: 36px;
+      object-fit: contain;
+    }
+
+    .carousel-item span {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    @keyframes scroll-logos {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
     /* Verticales */
     .verticales {
-      padding: 5.5rem 0;
+      padding: 6.5rem 0;
     }
 
     .vert-grid {
@@ -1073,7 +1204,7 @@
     }
 
     .proceso {
-      padding: 5.5rem 0;
+      padding: 6.5rem 0;
       background: linear-gradient(180deg, var(--bg3) 0%, var(--bg2) 100%);
     }
 
@@ -1172,7 +1303,7 @@
     }
 
     .caso {
-      padding: 5.5rem 0;
+      padding: 6.5rem 0;
     }
 
     .caso-card {
@@ -1275,7 +1406,7 @@
     }
 
     .pricing {
-      padding: 5.5rem 0;
+      padding: 6.5rem 0;
       background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
     }
 
@@ -1466,6 +1597,70 @@
       line-height: 1.65;
     }
 
+    .plai-alliance {
+      margin-top: 2.5rem;
+    }
+
+    .plai-alliance-inner {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.5rem 2rem;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      max-width: 640px;
+      margin: 0 auto;
+      transition: border-color 0.3s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .plai-alliance-inner:hover {
+      border-color: var(--glass-border-gold);
+    }
+
+    .plai-logo {
+      height: 72px;
+      width: auto;
+      flex-shrink: 0;
+      border-radius: 10px;
+      padding: 6px 10px;
+    }
+
+    .plai-alliance-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .plai-alliance-text strong {
+      font-family: 'Merriweather', serif;
+      font-size: 1rem;
+      color: var(--gold);
+    }
+
+    .plai-alliance-text span {
+      font-size: 0.84rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    .plai-links {
+      font-size: 0.75rem !important;
+      margin-top: 0.2rem;
+    }
+
+    .plai-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .plai-links a:hover {
+      color: var(--gold-light);
+    }
+
     footer {
       background: var(--bg);
       border-top: 1px solid var(--glass-border);
@@ -1646,6 +1841,10 @@
       }
 
       .feat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dash-screenshots {
         grid-template-columns: 1fr;
       }
 
@@ -1881,7 +2080,7 @@
     .newsletter-form input:focus {
       outline: none;
       border-color: var(--gold);
-      background: rgba(255, 255, 255, 0.08);
+      
       box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
     }
 
@@ -2097,6 +2296,10 @@
 
     </div>
   </section>
+
+  <div class="trust-strip reveal">
+    <span>Participante del programa Google for Startups Cloud</span>
+  </div>
 
   <section class="problema">
     <div class="container">
@@ -2356,6 +2559,39 @@
     </div>
   </section>
 
+  <section class="integraciones">
+    <div class="container">
+      <h2 class="section-title reveal" style="text-align:center;">Conectado con las herramientas que <span class="gold">ya conoces.</span></h2>
+    </div>
+    <div class="carousel-track">
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp Business" loading="lazy"><span>WhatsApp</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify" loading="lazy"><span>Shopify</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/googlecalendar/4285F4" alt="Google Calendar" loading="lazy"><span>Google Calendar</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram" loading="lazy"><span>Instagram</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/googlegemini/8E75B2" alt="Google Gemini" loading="lazy"><span>Google Gemini</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/claude/D97757" alt="Claude" loading="lazy"><span>Claude</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" loading="lazy"><span>Python</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="n8n" loading="lazy"><span>n8n</span></div>
+      <div class="carousel-item"><img src="https://openclaw.ai/favicon.svg" alt="OpenClaw" loading="lazy"><span>OpenClaw</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL" loading="lazy"><span>PostgreSQL</span></div>
+      <div class="carousel-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original.svg" alt="Heroku" loading="lazy"><span>Heroku</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/fastapi/009688" alt="FastAPI" loading="lazy"><span>FastAPI</span></div>
+      <!-- Duplicado para loop infinito -->
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp Business" loading="lazy"><span>WhatsApp</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify" loading="lazy"><span>Shopify</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/googlecalendar/4285F4" alt="Google Calendar" loading="lazy"><span>Google Calendar</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram" loading="lazy"><span>Instagram</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/googlegemini/8E75B2" alt="Google Gemini" loading="lazy"><span>Google Gemini</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/claude/D97757" alt="Claude" loading="lazy"><span>Claude</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" loading="lazy"><span>Python</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="n8n" loading="lazy"><span>n8n</span></div>
+      <div class="carousel-item"><img src="https://openclaw.ai/favicon.svg" alt="OpenClaw" loading="lazy"><span>OpenClaw</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL" loading="lazy"><span>PostgreSQL</span></div>
+      <div class="carousel-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original.svg" alt="Heroku" loading="lazy"><span>Heroku</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/fastapi/009688" alt="FastAPI" loading="lazy"><span>FastAPI</span></div>
+    </div>
+  </section>
+
   <section class="verticales" id="verticales">
     <div class="container">
       <h2 class="section-title reveal">Hecho para tu <span class="gold">tipo de negocio.</span></h2>
@@ -2511,6 +2747,16 @@
         </svg> Panel de control</div>
       <h2 class="section-title reveal">Supervísalo todo desde <span class="gold">un solo lugar.</span></h2>
       <p class="section-sub reveal">Tú tienes el control. TheIA hace el trabajo sucio.</p>
+      <div class="dash-screenshots">
+        <div class="dash-screenshot reveal">
+          <div class="dash-screenshot-label">Inbox — Centro de mensajes</div>
+          <img src="screenshots/inbox.png" alt="TheIA Inbox: conversaciones en tiempo real con clasificación inteligente de leads" loading="lazy">
+        </div>
+        <div class="dash-screenshot reveal">
+          <div class="dash-screenshot-label">Dashboard — Métricas del negocio</div>
+          <img src="screenshots/dashboard.png" alt="TheIA Dashboard: KPIs, volumen de mensajes, conversión y productos más consultados" loading="lazy">
+        </div>
+      </div>
       <div class="dash-layout">
         <div class="dash-feat reveal">
           <div class="dash-feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -2705,8 +2951,7 @@
           Servicios Adicionales</div>
         <h2 class="section-title" style="font-size:clamp(1.5rem,2.5vw,2rem);">Más allá del agente. <span
             class="gold">Consultoría digital.</span></h2>
-        <p class="section-sub" style="max-width:520px;">Servicios complementarios de consultoría para potenciar tu
-          presencia y operación digital, de la mano del mismo equipo detrás de TheIA.</p>
+        <p class="section-sub" style="max-width:580px;">En alianza con <strong style="color:var(--text);">PLAI</strong>, ofrecemos servicios de consultoría y automatización digital para potenciar tu operación completa.</p>
       </div>
       <div class="extra-grid reveal">
         <div class="extra-card">
@@ -2757,6 +3002,16 @@
           <div class="extra-name">Marketing Digital & SEO</div>
           <p class="extra-desc">Estrategia y ejecución de marketing digital: posicionamiento orgánico en Google,
             campañas pagas y contenido orientado a conversión para el mercado chileno.</p>
+        </div>
+      </div>
+      <div class="plai-alliance reveal">
+        <div class="plai-alliance-inner">
+          <img src="Icono_Transp.png" alt="PLAI" class="plai-logo">
+          <div class="plai-alliance-text">
+            <strong>TheIA + PLAI</strong>
+            <span>Agente IA de ventas + automatización de marketing + desarrollo web. Un equipo multidisciplinario que cubre toda tu cadena digital.</span>
+            <span class="plai-links"><a href="https://plai.cl" target="_blank" rel="noopener">plai.cl</a> · <a href="https://www.instagram.com/plai.cl/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:2px;"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>@plai.cl</a></span>
+          </div>
         </div>
       </div>
       <div class="reveal" style="text-align:center; margin-top:2rem;">
@@ -3078,7 +3333,7 @@
   </script>
 
   <!-- TheIA Web Chat Widget -->
-  <script src="/webchat-widget.js"
+  <script src="webchat-widget.js"
           data-api-key="8da817eb-2cbf-42df-8b57-bb86288670de"
           data-api-url="https://theia-app-413c68cf488b.herokuapp.com"
           data-title="Asistente TheIA"
