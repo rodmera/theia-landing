@@ -1,0 +1,21 @@
+title: TheIA Blog
+description: "IA conversacional para ventas: guias, casos de uso y tendencias para PYMEs en Chile."
+url: "https://theia.cl"
+baseurl: ""
+
+permalink: /blog/:title/
+
+exclude:
+  - CHANGELOG.md
+  - CLAUDE.md
+  - skills-lock.json
+  - .claude
+  - .agents
+  - .DS_Store
+
+defaults:
+  - scope:
+      path: "_posts"
+      type: posts
+    values:
+      layout: post

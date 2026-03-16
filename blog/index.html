@@ -1,0 +1,255 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; connect-src 'self' https:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Blog — TheIA.cl | IA conversacional para ventas en Chile</title>
+  <link rel="canonical" href="https://theia.cl/blog/" />
+  <link rel="icon" href="/logo.png" type="image/png">
+
+  <meta name="description" content="Guias, casos de uso y tendencias sobre IA conversacional, ventas por WhatsApp y automatizacion comercial para PYMEs en Chile." />
+  <meta name="keywords" content="blog IA ventas Chile, chatbot WhatsApp guia, automatizar ventas WhatsApp, agente IA PYMEs, TheIA blog" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://theia.cl/blog/" />
+  <meta property="og:site_name" content="TheIA Blog" />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:title" content="Blog — TheIA.cl" />
+  <meta property="og:description" content="Guias, casos de uso y tendencias sobre IA conversacional para PYMEs en Chile." />
+  <meta property="og:image" content="https://theia.cl/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f172a;
+      --bg2: #1e293b;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-border-gold: rgba(212, 175, 55, 0.4);
+      --gold: #d4af37;
+      --gold-light: #ebca73;
+      --gold-glow: rgba(212, 175, 55, 0.25);
+      --text: #ffffff;
+      --text-sub: rgba(255, 255, 255, 0.7);
+      --text-muted: rgba(255, 255, 255, 0.4);
+      --indigo: #4f46e5;
+      --indigo-light: #6366f1;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.1rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .logo { display: flex; align-items: center; text-decoration: none; }
+    .logo img { height: 100px; width: auto; display: block; filter: drop-shadow(0 0 10px var(--gold-glow)); }
+
+    .nav-links { display: flex; align-items: center; gap: 0.75rem; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.6rem 1.35rem; border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; cursor: pointer; border: none; transition: all 0.22s ease;
+    }
+
+    .btn-ghost { background: transparent; color: var(--text-sub); border: 1px solid var(--glass-border); }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #0f172a; font-weight: 700;
+      box-shadow: 0 4px 20px var(--gold-glow);
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(212, 175, 55, 0.45); }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 12rem 2rem 5rem;
+    }
+
+    h1 {
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .gold { color: var(--gold); }
+
+    .blog-desc {
+      font-size: 1rem;
+      color: var(--text-sub);
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+
+    .post-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .post-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.25s ease;
+      display: block;
+    }
+
+    .post-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(212, 175, 55, 0.1);
+    }
+
+    .post-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .post-card-tag {
+      display: inline-flex;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 100px;
+      padding: 0.2rem 0.65rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    .post-card-date {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .post-card-title {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      line-height: 1.35;
+      margin-bottom: 0.5rem;
+    }
+
+    .post-card-excerpt {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .post-card-read {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 1rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      margin-top: 3rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      nav { padding: 0.8rem 1rem; }
+      .logo img { height: 60px; }
+      .container { padding: 9rem 1.25rem 3rem; }
+      .nav-links .btn-ghost { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="/" class="logo">
+      <img src="/logo.png" alt="TheIA" />
+    </a>
+    <div class="nav-links">
+      <a href="/blog/" class="btn btn-ghost" style="border-color: var(--gold); color: var(--gold);">Blog</a>
+      <a href="/#features" class="btn btn-ghost">Funciones</a>
+      <a href="/#pricing" class="btn btn-ghost">Precios</a>
+      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold">Agendar Demo</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Blog <span class="gold">TheIA</span></h1>
+    <p class="blog-desc">Guias, casos de uso y tendencias sobre IA conversacional y automatizacion comercial para PYMEs en Chile.</p>
+
+    <div class="post-list">
+      {% for post in site.posts %}
+      <a href="{{ post.url }}" class="post-card">
+        <div class="post-card-meta">
+          {% if post.category %}<span class="post-card-tag">{{ post.category }}</span>{% endif %}
+          <span class="post-card-date">{{ post.date | date: "%d %b %Y" }}</span>
+          {% if post.reading_time %}<span class="post-card-date">{{ post.reading_time }} min</span>{% endif %}
+        </div>
+        <div class="post-card-title">{{ post.title }}</div>
+        <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 180 }}</p>
+        <span class="post-card-read">Leer articulo &rarr;</span>
+      </a>
+      {% endfor %}
+    </div>
+
+    <a href="/" class="back-link">&larr; Volver a theia.cl</a>
+  </div>
+
+</body>
+
+</html>

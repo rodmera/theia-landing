@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; connect-src 'self' https:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>{{ page.title }} — TheIA Blog</title>
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
+  <link rel="icon" href="/logo.png" type="image/png">
+
+  <meta name="description" content="{{ page.excerpt | strip_html | truncate: 160 }}" />
+  <meta name="author" content="{{ page.author | default: 'Rodrigo Mera' }}" />
+  <meta name="geo.region" content="CL" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{ page.url | absolute_url }}" />
+  <meta property="og:site_name" content="TheIA Blog" />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="og:description" content="{{ page.excerpt | strip_html | truncate: 160 }}" />
+  <meta property="og:image" content="https://theia.cl/logo.png" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="{{ page.title }}" />
+  <meta name="twitter:description" content="{{ page.excerpt | strip_html | truncate: 160 }}" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ page.title }}",
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "author": { "@type": "Person", "name": "{{ page.author | default: 'Rodrigo Mera' }}" },
+    "publisher": { "@type": "Organization", "name": "TheIA", "url": "https://theia.cl", "logo": { "@type": "ImageObject", "url": "https://theia.cl/logo.png" } },
+    "mainEntityOfPage": "{{ page.url | absolute_url }}"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f172a;
+      --bg2: #1e293b;
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --gold: #d4af37;
+      --gold-light: #ebca73;
+      --gold-glow: rgba(212, 175, 55, 0.25);
+      --text: #ffffff;
+      --text-sub: rgba(255, 255, 255, 0.7);
+      --text-muted: rgba(255, 255, 255, 0.4);
+      --indigo: #4f46e5;
+      --indigo-light: #6366f1;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.1rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .logo { display: flex; align-items: center; text-decoration: none; }
+    .logo img { height: 100px; width: auto; display: block; filter: drop-shadow(0 0 10px var(--gold-glow)); }
+
+    .nav-links { display: flex; align-items: center; gap: 0.75rem; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.6rem 1.35rem; border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; cursor: pointer; border: none; transition: all 0.22s ease;
+    }
+
+    .btn-ghost { background: transparent; color: var(--text-sub); border: 1px solid var(--glass-border); }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #0f172a; font-weight: 700;
+      box-shadow: 0 4px 20px var(--gold-glow);
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(212, 175, 55, 0.45); }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 12rem 2rem 5rem;
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .post-tag {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 100px;
+      padding: 0.25rem 0.8rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    .post-date {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .post-reading {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    h1 {
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.2;
+      margin-bottom: 2rem;
+    }
+
+    .gold { color: var(--gold); }
+
+    .post-content {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--text-sub);
+    }
+
+    .post-content h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 2.5rem 0 1rem;
+    }
+
+    .post-content h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 2rem 0 0.75rem;
+    }
+
+    .post-content p {
+      margin-bottom: 1.25rem;
+    }
+
+    .post-content ul, .post-content ol {
+      margin: 1rem 0 1.5rem 1.5rem;
+    }
+
+    .post-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .post-content strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .post-content a {
+      color: var(--gold-light);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .post-content a:hover { color: var(--gold); }
+
+    .post-content blockquote {
+      border-left: 3px solid var(--gold);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      background: rgba(212, 175, 55, 0.05);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: var(--text-sub);
+    }
+
+    .post-cta {
+      margin-top: 3rem;
+      padding: 2rem;
+      background: rgba(79, 70, 229, 0.1);
+      border: 1px solid rgba(79, 70, 229, 0.3);
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .post-cta p {
+      font-size: 1.05rem;
+      color: var(--text-sub);
+      margin-bottom: 1.25rem;
+    }
+
+    .post-cta strong { color: var(--text); }
+
+    .post-footer {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--glass-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .post-footer a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+
+    .post-footer a:hover { opacity: 0.8; }
+
+    @media (max-width: 768px) {
+      nav { padding: 0.8rem 1rem; }
+      .logo img { height: 60px; }
+      .container { padding: 9rem 1.25rem 3rem; }
+      .nav-links .btn-ghost { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="/" class="logo">
+      <img src="/logo.png" alt="TheIA" />
+    </a>
+    <div class="nav-links">
+      <a href="/blog/" class="btn btn-ghost">Blog</a>
+      <a href="/#features" class="btn btn-ghost">Funciones</a>
+      <a href="/#pricing" class="btn btn-ghost">Precios</a>
+      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold">Agendar Demo</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="post-meta">
+      {% if page.category %}<span class="post-tag">{{ page.category }}</span>{% endif %}
+      <span class="post-date">{{ page.date | date: "%d %b %Y" }}</span>
+      {% if page.reading_time %}<span class="post-reading">{{ page.reading_time }} min de lectura</span>{% endif %}
+    </div>
+
+    <h1>{{ page.title }}</h1>
+
+    <div class="post-content">
+      {{ content }}
+    </div>
+
+    <div class="post-cta">
+      <p><strong>Quieres ver como funciona TheIA en tu negocio?</strong><br />Agenda una demo de 15 minutos y te mostramos en vivo.</p>
+      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold">Agendar Demo Gratis</a>
+    </div>
+
+    <div class="post-footer">
+      <a href="/blog/">&larr; Todos los articulos</a>
+      <a href="/">theia.cl</a>
+    </div>
+  </div>
+
+</body>
+
+</html>
