@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; connect-src 'self' https:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Politica de Privacidad — TheIA.cl</title>
+  <link rel="canonical" href="https://theia.cl/privacidad" />
+  <link rel="icon" href="logo.png" type="image/png">
+
+  <meta name="description" content="Politica de privacidad de TheIA.cl. Conoce como tratamos tus datos personales, seguridad, derechos del usuario y uso de APIs de Meta." />
+  <meta name="robots" content="noindex" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f172a;
+      --bg2: #1e293b;
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --gold: #d4af37;
+      --gold-light: #ebca73;
+      --gold-glow: rgba(212, 175, 55, 0.25);
+      --text: #ffffff;
+      --text-sub: rgba(255, 255, 255, 0.7);
+      --text-muted: rgba(255, 255, 255, 0.4);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.1rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .logo { display: flex; align-items: center; text-decoration: none; }
+    .logo img { height: 100px; width: auto; display: block; filter: drop-shadow(0 0 10px var(--gold-glow)); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.6rem 1.35rem; border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; cursor: pointer; border: none; transition: all 0.22s ease;
+    }
+
+    .btn-ghost {
+      background: transparent; color: var(--text-sub); border: 1px solid var(--glass-border);
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 8rem 2rem 4rem;
+    }
+
+    h1 {
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .gold { color: var(--gold); }
+
+    .updated {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+    }
+
+    .policy-section {
+      margin-bottom: 2rem;
+    }
+
+    .policy-section h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-sub);
+      margin-bottom: 0.5rem;
+    }
+
+    .policy-section p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+
+    .policy-section a {
+      color: var(--text-sub);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .policy-section a:hover { color: var(--gold); }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      transition: opacity 0.2s;
+    }
+
+    .back-link:hover { opacity: 0.8; }
+
+    @media (max-width: 768px) {
+      nav { padding: 0.8rem 1rem; }
+      .logo img { height: 60px; }
+      .container { padding: 7rem 1.25rem 3rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="/" class="logo">
+      <img src="logo.png" alt="TheIA" />
+    </a>
+    <a href="/" class="btn btn-ghost">Volver al inicio</a>
+  </nav>
+
+  <div class="container">
+    <h1>Politica de <span class="gold">Privacidad</span></h1>
+    <p class="updated">Ultima actualizacion: febrero 2026</p>
+
+    <div class="policy-section">
+      <h2>1. Responsable del tratamiento</h2>
+      <p>THEIA.CL, con domicilio en Santiago de Chile, es responsable del tratamiento de los datos personales recopilados a traves de esta plataforma y los canales de mensajeria asociados (WhatsApp, Instagram). Contacto: <a href="mailto:rodrigo@theia.cl">rodrigo@theia.cl</a></p>
+    </div>
+
+    <div class="policy-section">
+      <h2>2. Datos que recopilamos</h2>
+      <p>Recopilamos informacion que el usuario envia voluntariamente a traves de los canales de mensajeria (nombre, numero de telefono, mensajes de texto, intencion de compra). No recopilamos datos de pago ni documentos de identidad a traves de esta plataforma.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>3. Finalidad del tratamiento</h2>
+      <p>Los datos se utilizan exclusivamente para: (a) proveer el servicio de asistencia conversacional solicitado por el usuario, (b) mejorar la calidad de las respuestas del agente de IA, y (c) permitir a las empresas clientes gestionar sus conversaciones comerciales.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>4. Uso de la API de Meta (Instagram / WhatsApp)</h2>
+      <p>TheIA integra las APIs de Meta Platforms (Instagram Messaging, WhatsApp Business API) para recibir y enviar mensajes en nombre de las empresas que contratan el servicio. Los datos intercambiados a traves de estas APIs se rigen tambien por la <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Politica de Privacidad de Meta</a> y sus terminos de uso de la plataforma.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>5. Conservacion y seguridad</h2>
+      <p>Los datos de conversacion se conservan mientras la empresa cliente mantenga activo su servicio con TheIA. Aplicamos cifrado en reposo y en transito (HTTPS/TLS). Las credenciales de terceros se almacenan cifradas con clave Fernet.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>6. Comparticion de datos</h2>
+      <p>No vendemos ni cedemos datos personales a terceros. Los datos pueden ser procesados por proveedores de infraestructura (Google Cloud) bajo acuerdos de confidencialidad y unicamente para prestar el servicio.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>7. Derechos del usuario</h2>
+      <p>Tienes derecho a acceder, rectificar o eliminar tus datos personales. Para ejercer estos derechos escribenos a <a href="mailto:rodrigo@theia.cl">rodrigo@theia.cl</a> indicando tu solicitud.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>8. Cambios a esta politica</h2>
+      <p>Podemos actualizar esta politica cuando sea necesario. La fecha de ultima actualizacion siempre estara indicada al inicio de esta pagina.</p>
+    </div>
+
+    <a href="/" class="back-link">&larr; Volver a theia.cl</a>
+  </div>
+
+</body>
+
+</html>
