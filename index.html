@@ -17,9 +17,9 @@
   <link rel="icon" href="logo.png" type="image/png">
 
   <meta name="description"
-    content="TheIA: agente de ventas con IA para WhatsApp, Instagram DM y tu sitio web. Atiende, agenda y cierra ventas 24/7 en automático. Integración Shopify, calendarios chilenos y panel de control multicanal. Para retail, fitness y clínicas en Chile." />
+    content="TheIA: agente de ventas con IA para WhatsApp, Instagram DM y tu sitio web. Atiende, agenda y cierra ventas 24/7. Copiloto del dueño vía WhatsApp (Pulse), QR check-in, encuestas NPS, recepción de documentos y memoria cross-canal. Para retail, fitness, clínicas e inmobiliarias en Chile." />
   <meta name="keywords"
-    content="agente IA WhatsApp Chile, ventas automáticas WhatsApp, chatbot inteligente ventas, IA WhatsApp e-commerce, agente IA Instagram DM, chat web IA, omnicanalidad IA Chile, agenda citas automáticas Chile, automatización ventas pymes Chile, TheIA, WhatsApp Business IA, ventas 24/7" />
+    content="agente IA WhatsApp Chile, ventas automáticas WhatsApp, chatbot inteligente ventas, IA WhatsApp e-commerce, agente IA Instagram DM, chat web IA, omnicanalidad IA Chile, agenda citas automáticas Chile, automatización ventas pymes Chile, TheIA, WhatsApp Business IA, ventas 24/7, copiloto IA dueño negocio, QR check-in reservas, encuestas NPS WhatsApp, recepción documentos IA" />
   <meta name="author" content="TheIA" />
   <meta name="geo.region" content="CL" />
   <meta name="geo.placename" content="Santiago, Chile" />
@@ -1203,6 +1203,75 @@
       line-height: 1.55;
     }
 
+    /* Pulse Section */
+    .pulse {
+      padding: 6.5rem 0;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    }
+
+    .pulse-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+
+    .pulse-chat {
+      background: var(--glass);
+      border: 1px solid var(--glass-border-gold);
+      border-radius: 20px;
+      padding: 1.5rem;
+      backdrop-filter: blur(20px);
+    }
+
+    .pulse-chat .chat-msgs {
+      margin-top: 0.5rem;
+    }
+
+    .pulse-features {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .pulse-feat {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .pulse-feat-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 10px;
+    }
+
+    .pulse-feat-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .pulse-feat-desc {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      line-height: 1.55;
+    }
+
+    @media (max-width: 768px) {
+      .pulse-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .proceso {
       padding: 6.5rem 0;
       background: linear-gradient(180deg, var(--bg3) 0%, var(--bg2) 100%);
@@ -2195,6 +2264,7 @@
         Panel Admin
       </a>
       <a href="#features" class="btn btn-ghost">Funciones</a>
+      <a href="#pulse" class="btn btn-ghost">Pulse</a>
       <a href="#pricing" class="btn btn-ghost">Precios</a>
       <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold">Agendar Demo →</a>
     </div>
@@ -2555,6 +2625,43 @@
               chileno y latinoamericano.</p>
           </div>
         </div>
+        <div class="feat-card reveal">
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+              <polyline points="14 2 14 8 20 8" />
+              <path d="m9 15 2 2 4-4" />
+            </svg></div>
+          <div>
+            <div class="feat-name">Recibe Documentos</div>
+            <p class="feat-desc">Tus clientes envían fotos, carnet o certificados por WhatsApp. TheIA confirma qué recibió
+              y avisa qué falta. Ideal para clínicas, inmobiliarias y centros educativos.</p>
+          </div>
+        </div>
+        <div class="feat-card reveal">
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+              <path d="M2 12h20" />
+            </svg></div>
+          <div>
+            <div class="feat-name">Memoria Cross-Canal</div>
+            <p class="feat-desc">Si un cliente escribe por Instagram y luego por WhatsApp, TheIA lo reconoce y retoma
+              donde quedaron. Un solo historial, sin importar el canal.</p>
+          </div>
+        </div>
+        <div class="feat-card reveal">
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a.53.53 0 0 0 .399.29l5.164.753a.53.53 0 0 1 .294.904l-3.736 3.642a.53.53 0 0 0-.153.469l.882 5.14a.53.53 0 0 1-.77.56l-4.618-2.428a.53.53 0 0 0-.494 0l-4.618 2.428a.53.53 0 0 1-.77-.56l.882-5.14a.53.53 0 0 0-.153-.47L3.356 8.921a.53.53 0 0 1 .294-.904l5.164-.753a.53.53 0 0 0 .4-.29l2.31-4.679z" />
+            </svg></div>
+          <div>
+            <div class="feat-name">Satisfacción Automática</div>
+            <p class="feat-desc">Después de cada atención, TheIA envía una micro-encuesta de satisfacción. Si el cliente
+              está insatisfecho, te alerta de inmediato. Mide la calidad sin esfuerzo.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -2702,6 +2809,22 @@
             <div class="agenda-item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                 viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round">
+                <rect width="14" height="14" x="5" y="5" rx="1" />
+                <rect width="6" height="6" x="9" y="9" rx="0.5" />
+                <path d="M7 7h2v2H7z" />
+                <path d="M15 7h2v2h-2z" />
+                <path d="M7 15h2v2H7z" />
+              </svg></div>
+            <div>
+              <div class="agenda-item-name">Check-In con QR</div>
+              <p class="agenda-item-desc">El cliente recibe un QR en su confirmación. Tu staff escanea con el celular y
+                confirma asistencia con un tap. Reporte de no-shows y puntualidad incluido.</p>
+            </div>
+          </div>
+          <div class="agenda-item reveal">
+            <div class="agenda-item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
                 <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
                 <circle cx="12" cy="10" r="3" />
               </svg></div>
@@ -2816,6 +2939,65 @@
     </div>
   </section>
 
+  <section class="pulse" id="pulse">
+    <div class="container">
+      <div class="dash-badge reveal"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          style="margin-right: 4px; vertical-align: middle;">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+        </svg> TheIA Pulse</div>
+      <h2 class="section-title reveal">Tu negocio en el bolsillo.<br /><span class="gold">Directo desde WhatsApp.</span></h2>
+      <p class="section-sub reveal">No es solo un agente para tus clientes. Pulse es tu copiloto personal como dueño.</p>
+      <div class="pulse-layout">
+        <div class="pulse-chat reveal">
+          <div class="chat-header">
+            <div class="chat-avatar">📊</div>
+            <div>
+              <div class="chat-name">TheIA Pulse</div>
+              <div class="chat-online">Tu copiloto de negocio</div>
+            </div>
+          </div>
+          <div class="chat-msgs">
+            <div class="msg msg-user" style="animation-delay:0.1s">¿Cómo estuvo ayer?</div>
+            <div class="msg msg-bot" style="animation-delay:0.6s">📊 Resumen de ayer:<br />• 12 reservas confirmadas<br />• 3 leads calientes<br />• NPS: 4.7/5 ⭐<br />• 2 cancelaciones (normal)<br /><br />Hoy tienes 8 citas. ¿Algo que quieras ajustar?</div>
+            <div class="msg msg-user" style="animation-delay:1.2s">Bloquea mi agenda mañana de 12 a 14</div>
+            <div class="msg msg-bot" style="animation-delay:1.7s">✅ Bloqueado mañana de 12:00 a 14:00. No se agendarán citas en ese horario.</div>
+          </div>
+        </div>
+        <div class="pulse-features">
+          <div class="pulse-feat reveal">
+            <div class="pulse-feat-icon">📊</div>
+            <div>
+              <div class="pulse-feat-name">Resumen diario automático</div>
+              <p class="pulse-feat-desc">Cada mañana recibes un briefing con las métricas del día anterior: reservas, leads, NPS y cancelaciones.</p>
+            </div>
+          </div>
+          <div class="pulse-feat reveal">
+            <div class="pulse-feat-icon">🗓️</div>
+            <div>
+              <div class="pulse-feat-name">Gestiona tu agenda con texto</div>
+              <p class="pulse-feat-desc">"Bloquea mi horario mañana de 12 a 14", "¿Cuántas citas hay el viernes?", "Cancela la cita de María López". Todo por WhatsApp.</p>
+            </div>
+          </div>
+          <div class="pulse-feat reveal">
+            <div class="pulse-feat-icon">🔔</div>
+            <div>
+              <div class="pulse-feat-name">Alertas inteligentes</div>
+              <p class="pulse-feat-desc">Si un cliente cancela 3 veces en un mes, Pulse te avisa. Detecta patrones que tú no tienes tiempo de ver.</p>
+            </div>
+          </div>
+          <div class="pulse-feat reveal">
+            <div class="pulse-feat-icon">⏰</div>
+            <div>
+              <div class="pulse-feat-name">Recordatorios personales</div>
+              <p class="pulse-feat-desc">"Recuérdame llamar al proveedor mañana a las 10". Pulse programa el recordatorio y te avisa por WhatsApp.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="proceso">
     <div class="container">
       <h2 class="section-title reveal">Tu negocio con IA en <span class="gold">días, no meses.</span></h2>
@@ -2922,9 +3104,11 @@
         <h3>Todo incluido en tu plan</h3>
         <ul class="inc-list">
           <li class="inc-item"><span class="inc-check">✓</span> Hasta 1.000 conversaciones al mes</li>
-          <li class="inc-item"><span class="inc-check">✓</span> Integración con WhatsApp, Instagram, Shopify y Calendarios</li>
-          <li class="inc-item"><span class="inc-check">✓</span> Panel de administración y métricas</li>
-          <li class="inc-item"><span class="inc-check">✓</span> Soporte en español y actualizaciones</li>
+          <li class="inc-item"><span class="inc-check">✓</span> Integración con WhatsApp, Instagram, Shopify y Google Calendar</li>
+          <li class="inc-item"><span class="inc-check">✓</span> Panel de administración, métricas y encuestas NPS</li>
+          <li class="inc-item"><span class="inc-check">✓</span> TheIA Pulse — copiloto del dueño vía WhatsApp</li>
+          <li class="inc-item"><span class="inc-check">✓</span> QR Check-In, recepción de documentos y memoria cross-canal</li>
+          <li class="inc-item"><span class="inc-check">✓</span> Soporte en español y actualizaciones continuas</li>
           <li class="inc-item"><span class="inc-check">✓</span> Implementación en menos de 7 días</li>
           <li class="inc-item"><span class="inc-check">✓</span> <strong>Tecnología de IA incluida</strong> — sin API keys ni costos adicionales de inteligencia artificial</li>
         </ul>
@@ -3108,6 +3292,7 @@
         <div style="display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start;">
           <h4>Navegación</h4>
           <a href="#features">Funciones</a>
+          <a href="#pulse">TheIA Pulse</a>
           <a href="#pricing">Planes y Precios</a>
           <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener">Agendar Demo</a>
           <a href="https://admin.theia.cl" target="_blank" rel="noopener">Panel Admin →</a>
