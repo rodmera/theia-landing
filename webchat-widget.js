@@ -123,6 +123,34 @@
       flex-shrink: 0; transition: opacity .15s;
     }
     #theia-widget-input button:disabled { opacity: .5; cursor: not-allowed; }
+    #theia-proactive-bubble {
+      position: fixed; bottom: 88px; right: 24px; z-index: 9998;
+      background: #fff; color: #1f2937;
+      border-radius: 14px 14px 4px 14px;
+      padding: 12px 40px 12px 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.18);
+      font-family: system-ui, sans-serif;
+      font-size: 14px; line-height: 1.45;
+      max-width: 260px; cursor: pointer;
+      opacity: 0; transform: translateY(10px) scale(0.95);
+      transform-origin: bottom right;
+      transition: opacity .3s, transform .3s;
+      pointer-events: none;
+    }
+    #theia-proactive-bubble.theia-bubble-visible {
+      opacity: 1; transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+    #theia-proactive-bubble .theia-bubble-close {
+      position: absolute; top: 6px; right: 8px;
+      background: none; border: none; cursor: pointer;
+      color: #9ca3af; font-size: 16px; line-height: 1;
+      padding: 2px 4px;
+    }
+    #theia-proactive-bubble .theia-bubble-close:hover { color: #4b5563; }
+    @media (max-width: 768px) {
+      #theia-proactive-bubble { display: none !important; }
+    }
     @media (max-width: 400px) {
       #theia-widget-box { width: calc(100vw - 24px); right: 12px; }
     }
@@ -317,8 +345,54 @@
     }
   }
 
+  /* ── Proactive Bubble (solo desktop, máx 3 veces) ── */
+  const BUBBLE_KEY = "theia_bubble_count";
+  const bubble = document.createElement("div");
+  bubble.id = "theia-proactive-bubble";
+  bubble.innerHTML = '¿Tienes dudas? Pregúntame lo que necesites 👋<button class="theia-bubble-close" aria-label="Cerrar">&times;</button>';
+  document.body.appendChild(bubble);
+
+  function hideBubble() {
+    bubble.classList.remove("theia-bubble-visible");
+  }
+
+  function incrementBubbleCount() {
+    try {
+      const count = parseInt(localStorage.getItem(BUBBLE_KEY) || "0", 10) + 1;
+      localStorage.setItem(BUBBLE_KEY, count);
+    } catch (e) {}
+  }
+
+  // Click en el texto del bubble → abre chat
+  bubble.addEventListener("click", function (e) {
+    if (e.target.classList.contains("theia-bubble-close")) return;
+    hideBubble();
+    if (!isOpen) toggleChat();
+  });
+
+  // Click en X → cierra bubble
+  bubble.querySelector(".theia-bubble-close").addEventListener("click", function (e) {
+    e.stopPropagation();
+    hideBubble();
+  });
+
+  // Mostrar bubble tras 15s si: desktop, no abierto, y menos de 3 apariciones previas
+  setTimeout(function () {
+    if (isOpen) return;
+    if (window.innerWidth <= 768) return;
+    try {
+      const count = parseInt(localStorage.getItem(BUBBLE_KEY) || "0", 10);
+      if (count >= 3) return;
+    } catch (e) {}
+    bubble.classList.add("theia-bubble-visible");
+    incrementBubbleCount();
+  }, 15000);
+
   /* ── Eventos ── */
-  btn.addEventListener("click", toggleChat);
+  btn.addEventListener("click", function () {
+    hideBubble();
+    toggleChat();
+  });
   document.getElementById("theia-close-btn").addEventListener("click", toggleChat);
   sendBtn.addEventListener("click", sendMessage);
   input.addEventListener("keydown", function (e) {
