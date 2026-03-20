@@ -166,6 +166,14 @@
     .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    .dash-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(79, 70, 229, 0.12); border: 1px solid rgba(79, 70, 229, 0.35);
+      border-radius: 100px; padding: 0.3rem 1rem;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--indigo-light); margin-bottom: 1.2rem;
+    }
+
     /* ROI Calculator */
     .calc-section { padding: 10rem 0 4rem; }
 
@@ -374,6 +382,7 @@
 
   <section class="calc-section" id="calculadora">
     <div class="container">
+      <div class="dash-badge reveal"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><line x1="12" x2="12" y1="20" y2="10" /><line x1="18" x2="18" y1="20" y2="4" /><line x1="6" x2="6" y1="20" y2="16" /></svg> Calculadora ROI</div>
       <h2 class="section-title reveal">¿Cuánto estás perdiendo por <span class="gold">no responder a tiempo?</span></h2>
       <p class="section-sub reveal">Mueve los controles con los datos de tu negocio.</p>
       <div class="calc-card reveal">

@@ -168,6 +168,14 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    .dash-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(79, 70, 229, 0.12); border: 1px solid rgba(79, 70, 229, 0.35);
+      border-radius: 100px; padding: 0.3rem 1rem;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--indigo-light); margin-bottom: 1.2rem;
+    }
+
     /* Servicios Extra */
     .servicios-extra {
       padding: 10rem 0 5rem;
@@ -417,9 +425,7 @@
   <section class="servicios-extra" id="servicios">
     <div class="container">
       <div class="reveal" style="text-align:center; margin-bottom: 2.5rem;">
-        <div
-          style="display:inline-block; font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); border:1px solid var(--glass-border); border-radius:99px; padding:0.35rem 1rem; margin-bottom:1.2rem;">
-          Servicios Adicionales</div>
+        <div class="dash-badge"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /><path d="M11 8v6" /><path d="M8 11h6" /></svg> Servicios Adicionales</div>
         <h2 class="section-title" style="font-size:clamp(1.5rem,2.5vw,2rem);">Más allá del agente. <span
             class="gold">Consultoría digital.</span></h2>
         <p class="section-sub" style="max-width:580px;">En alianza con <strong style="color:var(--text);">PLAI</strong>, ofrecemos servicios de consultoría y automatización digital para potenciar tu operación completa.</p>
