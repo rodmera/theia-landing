@@ -3493,15 +3493,15 @@
           </div>
         </div>
         <div class="calc-group">
-          <div class="calc-label">Consultas fuera de horario <span class="calc-value" id="calc-after-val">40%</span></div>
-          <input type="range" class="calc-slider" id="calc-after" min="10" max="80" value="40" step="5">
+          <div class="calc-label">Consultas fuera de horario <span class="calc-value" id="calc-after-val">50%</span></div>
+          <input type="range" class="calc-slider" id="calc-after" min="10" max="80" value="50" step="5">
         </div>
         <div class="calc-result">
           <div class="calc-result-label">Ventas que pierdes al mes</div>
           <div class="calc-result-number" id="calc-lost">$140.000</div>
           <div class="calc-result-sub">en consultas que nadie responde fuera de horario</div>
           <div class="calc-result-roi" id="calc-roi">Con TheIA recuperas hasta <strong>$320.000/mes</strong></div>
-          <div class="calc-result-proof">Basado en caso real: e-commerce fitness, +60% ventas fuera de horario</div>
+          <div class="calc-result-proof">Fuentes: MIT/InsideSales.com (respuesta en 5 min = 21x más conversión), HubSpot (52% consultas fuera de horario), Meta Business LATAM (8-15% conversión WhatsApp)</div>
         </div>
         <div class="calc-cta">
           <a href="#" id="calc-wa-btn" class="btn btn-whatsapp" target="_blank" rel="noopener">
@@ -3947,13 +3947,14 @@
         var inquiries = parseInt(inquiriesSlider.value);
         var afterPct = parseInt(afterSlider.value) / 100;
 
-        // Sin TheIA: 70% abandona, solo 3% convierte de los que quedan
+        // Sin TheIA: 78% compra al primero que responde (Lead Connect)
+        // Sin respuesta rápida, solo ~2% convierte (baseline e-commerce)
         var afterHours = inquiries * afterPct;
-        var abandoned = afterHours * 0.70;
-        var lost = abandoned * 0.05 * ticket;
+        var lost = afterHours * 0.78 * 0.10 * ticket;
 
-        // Con TheIA: todos respondidos, 8% conversión (caso real +60%)
-        var recovered = afterHours * 0.08 * ticket;
+        // Con TheIA: respuesta en <38s, 10% conversión WhatsApp LATAM
+        // (conservador vs 8-15% de Meta Business Report)
+        var recovered = afterHours * 0.10 * ticket;
 
         inquiriesVal.textContent = inquiries;
         afterVal.textContent = Math.round(afterPct * 100) + '%';
