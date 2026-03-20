@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Security Meta Tags -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net; connect-src 'self' https:;">
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-37L5WMXF83"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-37L5WMXF83');
+  </script>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2143491406057008');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2143491406057008&ev=PageView&noscript=1"/></noscript>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Funciones — TheIA.cl · Todo lo que tu agente IA puede hacer</title>
+  <link rel="canonical" href="https://theia.cl/funciones" />
+  <link rel="icon" href="logo.png" type="image/png">
+
+  <meta name="description"
+    content="Conoce todas las funciones de TheIA: empatia real, cierre automatico, agenda inteligente, Instagram DM, chat web, memoria cross-canal, NPS, documentos y mas. Agente IA de ventas para WhatsApp en Chile." />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://theia.cl/funciones" />
+  <meta property="og:title" content="Funciones — TheIA.cl · Todo lo que tu agente IA puede hacer" />
+  <meta property="og:description" content="Descubre todas las capacidades de TheIA: ventas, agenda, multicanal, integraciones y mas." />
+  <meta property="og:image" content="https://theia.cl/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f172a;
+      --bg2: #1e293b;
+      --bg3: #334155;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-border-gold: rgba(212, 175, 55, 0.4);
+      --gold: #d4af37;
+      --gold-light: #ebca73;
+      --gold-glow: rgba(212, 175, 55, 0.25);
+      --indigo: #4f46e5;
+      --indigo-light: #6366f1;
+      --text: #ffffff;
+      --text-sub: rgba(255, 255, 255, 0.7);
+      --text-muted: rgba(255, 255, 255, 0.4);
+      --green: #34c77b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Hl0AAAAAXNSR0IArs4c6QAAAB9JREFUGFdjYGBgYGBgYGBgYGBgYGBgYGBgYGBgYAAKAAJ/E25xAAAAAElFTkSuQmCC");
+      background-repeat: repeat;
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.1rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .logo { display: flex; align-items: center; text-decoration: none; }
+    .logo img { height: 100px; width: auto; display: block; filter: drop-shadow(0 0 10px var(--gold-glow)); }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.6rem 1.35rem; border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; cursor: pointer; border: none; transition: all 0.22s ease;
+      text-align: center;
+    }
+
+    .btn svg { flex-shrink: 0; }
+
+    .btn-ghost {
+      background: transparent; color: var(--text-sub); border: 1px solid var(--glass-border);
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #0f172a; font-weight: 700;
+      box-shadow: 0 4px 20px var(--gold-glow);
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(212, 175, 55, 0.45);
+    }
+
+    .btn-whatsapp {
+      background: #25D366; color: white; font-weight: 700;
+      padding: 0.85rem 2rem; font-size: 1rem; border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+    }
+    .btn-whatsapp:hover {
+      background: #20bd5a; transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(37, 211, 102, 0.45);
+    }
+
+    .gold { color: var(--gold); }
+
+    section { position: relative; z-index: 1; }
+
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 2rem; }
+
+    /* Section titles */
+    .section-title {
+      font-family: 'Merriweather', serif; font-weight: 800;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      letter-spacing: -0.02em; line-height: 1.2;
+      text-align: center; margin-bottom: 0.75rem;
+    }
+    .section-title .gold { color: var(--gold); }
+
+    .section-sub {
+      text-align: center; color: var(--text-sub);
+      font-size: 0.95rem; line-height: 1.7;
+      max-width: 560px; margin: 0 auto 3rem;
+    }
+
+    /* Page hero */
+    .page-hero {
+      padding: 10rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -20%; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 600px;
+      background: radial-gradient(ellipse at center, rgba(79, 70, 229, 0.2) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .page-hero h1 {
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      margin-bottom: 1rem;
+    }
+
+    .page-hero p {
+      font-size: 1.05rem;
+      color: var(--text-sub);
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Group headers */
+    .group-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-top: 3rem;
+    }
+
+    .group-header h2 {
+      font-family: 'Merriweather', serif;
+      font-weight: 800;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .group-header p {
+      color: var(--text-sub);
+      font-size: 0.92rem;
+    }
+
+    .group-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 100px;
+      padding: 0.3rem 1rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 1rem;
+    }
+
+    /* Features section */
+    .features {
+      padding: 3rem 0 6.5rem;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    }
+
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .feat-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      padding: 1.75rem;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      transition: all 0.25s ease;
+    }
+
+    .feat-card:hover {
+      border-color: var(--glass-border-gold);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .feat-icon {
+      width: 52px; height: 52px;
+      flex-shrink: 0; border-radius: 14px;
+      background: linear-gradient(135deg, var(--gold-glow), rgba(212, 175, 55, 0.05));
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .feat-name {
+      font-family: 'Merriweather', serif;
+      font-weight: 700; font-size: 0.95rem;
+      color: var(--gold-light); margin-bottom: 0.35rem;
+    }
+
+    .feat-desc {
+      font-size: 0.85rem; color: var(--text-sub); line-height: 1.6;
+    }
+
+    /* Agenda */
+    .agenda {
+      padding: 6.5rem 0;
+      background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
+    }
+
+    .agenda-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem; margin-top: 3rem; align-items: start;
+    }
+
+    .agenda-items {
+      display: flex; flex-direction: column; gap: 1.1rem;
+    }
+
+    .agenda-item {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 1.35rem 1.5rem;
+      display: flex; gap: 1rem; align-items: flex-start;
+      transition: all 0.25s ease;
+    }
+
+    .agenda-item:hover { border-color: var(--glass-border-gold); }
+
+    .agenda-item-icon { font-size: 1.5rem; flex-shrink: 0; line-height: 1; }
+
+    .agenda-item-name {
+      font-family: 'Merriweather', serif;
+      font-weight: 700; font-size: 0.9rem;
+      color: var(--gold-light); margin-bottom: 0.2rem;
+    }
+
+    .agenda-item-desc {
+      font-size: 0.82rem; color: var(--text-sub); line-height: 1.55;
+    }
+
+    .agenda-card {
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.12), rgba(212, 175, 55, 0.06));
+      border: 1px solid var(--glass-border-gold);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+
+    .agenda-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--indigo), var(--gold));
+    }
+
+    .agenda-card-icon {
+      font-size: 4rem; display: block; margin-bottom: 1.25rem;
+      filter: drop-shadow(0 0 20px var(--gold-glow));
+    }
+
+    .agenda-card h3 {
+      font-family: 'Merriweather', serif;
+      font-weight: 800; font-size: 1.35rem; margin-bottom: 0.75rem;
+    }
+
+    .agenda-card p {
+      font-size: 0.9rem; color: var(--text-sub); line-height: 1.7; margin-bottom: 1.5rem;
+    }
+
+    .agenda-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+
+    .agenda-tag {
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 100px;
+      padding: 0.3rem 0.85rem;
+      font-size: 0.75rem;
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* Verticales */
+    .verticales { padding: 6.5rem 0; }
+
+    .vert-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1.5rem; margin-top: 3rem; align-items: start;
+    }
+
+    .vert-card:nth-child(1) { grid-column: span 3; }
+    .vert-card:nth-child(2) { grid-column: span 3; }
+    .vert-card:nth-child(3) { grid-column: span 2; }
+    .vert-card:nth-child(4) { grid-column: span 4; }
+
+    .vert-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      cursor: default;
+      transition: all 0.25s ease;
+    }
+
+    .vert-card:hover {
+      border-color: var(--glass-border-gold);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .vert-icon { font-size: 2.5rem; display: block; margin-bottom: 0.85rem; }
+
+    .vert-name {
+      font-family: 'Merriweather', serif;
+      font-weight: 700; font-size: 1rem; margin-bottom: 0.4rem;
+    }
+
+    .vert-desc { font-size: 0.8rem; color: var(--text-sub); line-height: 1.55; }
+
+    /* Integraciones Carousel */
+    .integraciones { padding: 4rem 0 3rem; overflow: hidden; }
+
+    .integraciones .section-title {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      margin-bottom: 2.5rem;
+    }
+
+    .carousel-track {
+      display: flex; width: max-content;
+      animation: scroll-logos 35s linear infinite;
+    }
+
+    .carousel-track:hover { animation-play-state: paused; }
+
+    .carousel-item {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 0.6rem; min-width: 120px; padding: 0 1rem;
+      opacity: 0.5; filter: grayscale(1);
+      transition: opacity 0.3s, filter 0.3s;
+    }
+
+    .carousel-item:hover { opacity: 1; filter: grayscale(0); }
+
+    .carousel-item img { height: 36px; width: 36px; object-fit: contain; }
+
+    .carousel-item span {
+      font-size: 0.7rem; color: var(--text-muted);
+      font-weight: 600; letter-spacing: 0.03em; white-space: nowrap;
+    }
+
+    @keyframes scroll-logos {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* CTA final */
+    .cta-final {
+      padding: 6rem 0;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+
+    .cta-final::before {
+      content: '';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px; height: 500px;
+      background: radial-gradient(ellipse, rgba(79, 70, 229, 0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-final h2 {
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: -0.025em;
+      margin-bottom: 0.75rem;
+    }
+
+    .cta-final p {
+      color: var(--text-sub); font-size: 1rem; margin-bottom: 2.5rem;
+    }
+
+    .cta-btns {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--glass-border);
+      padding: 2.5rem;
+    }
+
+    footer .logo img { height: 48px; margin-bottom: 1rem; }
+
+    .footer-inner {
+      max-width: 1140px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem;
+    }
+
+    .footer-col { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .footer-col h4 {
+      color: var(--gold-light); font-size: 0.9rem;
+      margin-bottom: 0.5rem; font-weight: 600;
+    }
+
+    .footer-col p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; }
+
+    .footer-col a {
+      color: var(--text-sub); text-decoration: none;
+      font-size: 0.85rem; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--gold); }
+
+    .footer-col.center { align-items: center; }
+    .footer-col.end { align-items: flex-end; }
+
+    .founder-strip {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0.75rem; padding: 1.5rem 0; margin-top: 1.5rem;
+    }
+    .founder-strip span { font-size: 0.82rem; color: var(--text-muted); }
+    .founder-strip a { color: var(--text-sub); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+    .founder-strip a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      max-width: 1140px; margin: 2.5rem auto 0;
+      padding-top: 1.5rem; padding-bottom: 1.5rem;
+      border-top: 1px solid var(--glass-border);
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+
+    .footer-copy { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* Reveal animations */
+    .reveal {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Divider */
+    .section-divider {
+      max-width: 1140px;
+      margin: 0 auto;
+      height: 1px;
+      background: var(--glass-border);
+    }
+
+    /* Mobile Menu Styles */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 6px; cursor: pointer; z-index: 1001;
+      padding: 10px; background: none; border: none;
+    }
+
+    .menu-toggle span {
+      display: block; width: 28px; height: 2px;
+      background-color: var(--text); transition: all 0.3s ease;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .menu-toggle { display: flex; }
+
+      .nav-cta {
+        position: fixed; top: 0; right: -100%;
+        width: 80%; height: 100vh;
+        background: var(--bg2);
+        flex-direction: column; justify-content: center; align-items: center;
+        gap: 2rem;
+        transition: right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        z-index: 1000;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        padding: 2rem;
+      }
+
+      .nav-cta.active { right: 0; }
+
+      .nav-cta .btn {
+        width: 100%; max-width: 280px;
+        font-size: 1.1rem; padding: 1rem;
+      }
+
+      .nav-cta .btn-ghost { display: flex !important; }
+
+      .mobile-menu-open .menu-toggle span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+      .mobile-menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
+      .mobile-menu-open .menu-toggle span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+      body.mobile-menu-open { overflow: hidden; }
+
+      .feat-grid { grid-template-columns: 1fr; }
+
+      .agenda-layout { grid-template-columns: 1fr; }
+
+      .vert-grid { grid-template-columns: 1fr 1fr; }
+      .vert-card:nth-child(n) { grid-column: auto / span 1; }
+    }
+
+    @media (max-width: 768px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-col, .footer-col.center, .footer-col.end {
+        align-items: center !important; text-align: center !important;
+      }
+      .footer-col div[style*="align-items: flex-start"] { align-items: center !important; }
+      .footer-bottom {
+        flex-direction: column; align-items: center;
+        text-align: center; gap: 0.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.25rem; }
+      .logo img { height: 60px; }
+      .btn {
+        padding: 0.75rem 1rem; font-size: 0.8rem;
+        width: 100%; max-width: 320px;
+      }
+      .nav-cta .btn-ghost { display: none; }
+      .page-hero { padding: 8rem 1.25rem 3rem; }
+      .agenda-layout { gap: 1.5rem; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="/" class="logo">
+      <img src="logo.png" alt="TheIA — Agente de ventas con IA para WhatsApp, Instagram y Web" width="100" height="100" />
+    </a>
+    <button class="menu-toggle" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-cta">
+      <a href="https://admin.theia.cl" class="btn btn-ghost">
+        <span style="width: 6px; height: 6px; background-color: var(--indigo-light); border-radius: 50%; box-shadow: 0 0 8px var(--indigo-light); display: inline-block;"></span>
+        Panel Admin
+      </a>
+      <a href="/funciones" class="btn btn-ghost" style="border-color: var(--gold); color: var(--gold);">Funciones</a>
+      <a href="/#pulse" class="btn btn-ghost">Pulse</a>
+      <a href="/#pricing" class="btn btn-ghost">Precios</a>
+      <a href="/blog/" class="btn btn-ghost">Blog</a>
+      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold">Agendar Demo</a>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="reveal">Todo lo que tu agente IA<br /><span class="gold">puede hacer.</span></h1>
+      <p class="reveal">Desde empatia real hasta cierre automatico de ventas. Conoce cada funcion que hace de TheIA el vendedor que nunca descansa.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 1. INTELIGENCIA DE VENTAS                          -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section class="features" style="padding-top: 2rem;">
+    <div class="container">
+      <div class="group-header reveal">
+        <span class="group-tag">Core</span>
+        <h2>Inteligencia de <span class="gold">ventas</span></h2>
+        <p>Capacidades que transforman conversaciones en ingresos.</p>
+      </div>
+      <div class="feat-grid">
+        <div class="feat-card reveal">
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .52 8.105 4 4 0 0 0 5.327 2.7l.636-.212a3 3 0 0 1 1.9 0l.636.212a4 4 0 0 0 5.327-2.7 4 4 0 0 0 .52-8.105 4 4 0 0 0-2.526-5.77A3 3 0 1 0 12 5Z" />
+              <path d="M9 13h.01" /><path d="M15 13h.01" /><path d="M12 17h.01" />
+            </svg></div>
+          <div>
+            <div class="feat-name">Empatia Real</div>
+            <p class="feat-desc">Detecta si tu cliente esta feliz, molesto o apurado. Si hay urgencia, cambia el tono y prioriza la atencion.</p>
+          </div>
+        </div>
+        <div class="feat-card reveal">
+          <div class="feat-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="feat-name">Retoma la Conversacion</div>
+            <p class="feat-desc">Si un cliente deja de responder y vuelve horas despues, TheIA sabe exactamente donde quedaron.</p>
+          </div>
+        </div>
+        <div class="feat-card reveal">
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" />
+              <path d="M21 3v5h-5" />
+            </svg></div>
+          <div>
+            <div class="feat-name">Recupera Ventas</div>
+            <p class="feat-desc">El cliente no compro? TheIA le escribe mas tarde para recordarle. El follow-up automatico que tu equipo no tiene tiempo de hacer.</p>
+          </div>
+        </div>
+        <div class="feat-card reveal">
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="14" x="2" y="5" rx="2" />
+              <line x1="2" x2="22" y1="10" y2="10" />
+            </svg></div>
+          <div>
+            <div class="feat-name">Cierre Automatico</div>
+            <p class="feat-desc">Genera links de pago seguros ahi mismo en el chat. El cliente compra sin salir de WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 2. MULTICANAL                                      -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section class="features" style="background: linear-gradient(180deg, var(--bg2) 0%, var(--bg3) 100%);">
+    <div class="container">
+      <div class="group-header reveal">
+        <span class="group-tag">Canales</span>
+        <h2><span class="gold">Multicanal</span></h2>
+        <p>Un solo agente, multiples puntos de contacto.</p>
+      </div>
+      <div class="feat-grid">
+        <div class="feat-card reveal">
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg></div>
+          <div>
+            <div class="feat-name">WhatsApp Business</div>
+            <p class="feat-desc">El canal principal de venta en Chile y Latinoamerica. TheIA atiende, califica y cierra ventas 24/7 por WhatsApp.</p>
+          </div>
+        </div>
+        <div class="feat-card reveal">
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="4" />
+              <circle cx="8.5" cy="12" r="2.5" />
+              <path d="M14.526 12.621 18 16" />
+              <path d="m14.526 11.379 3.948-3.948" />
+            </svg></div>
+          <div>
+            <div class="feat-name">Instagram DM</div>
+            <p class="feat-desc">Atiende y vende directamente desde el Instagram de tu negocio. Conecta tu cuenta con un clic — sin pegar tokens ni codigo.</p>
+          </div>
+        </div>
+        <div class="feat-card reveal">
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              <path d="M8 10h.01" /><path d="M12 10h.01" /><path d="M16 10h.01" />
+            </svg></div>
+          <div>
+            <div class="feat-name">Chat en tu Sitio Web</div>
+            <p class="feat-desc">Embed el widget en cualquier pagina con una linea de codigo. Tus visitantes hablan con la IA sin salir de tu sitio.</p>
+          </div>
+        </div>
+        <div class="feat-card reveal">
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+              <path d="M2 12h20" />
+            </svg></div>
+          <div>
+            <div class="feat-name">Memoria Cross-Canal</div>
+            <p class="feat-desc">Si un cliente escribe por Instagram y luego por WhatsApp, TheIA lo reconoce y retoma donde quedaron. Un solo historial, sin importar el canal.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 3. GESTION INTELIGENTE                             -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section class="features" style="background: linear-gradient(180deg, var(--bg3) 0%, var(--bg2) 100%);">
+    <div class="container">
+      <div class="group-header reveal">
+        <span class="group-tag">Operaciones</span>
+        <h2>Gestion <span class="gold">inteligente</span></h2>
+        <p>Herramientas que potencian cada interaccion con tus clientes.</p>
+      </div>
+      <div class="feat-grid">
+        <div class="feat-card reveal">
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
+              <path d="m3.3 7 8.7 5 8.7-5" /><path d="M12 22V12" />
+            </svg></div>
+          <div>
+            <div class="feat-name">Conectado a tu Stock</div>
+            <p class="feat-desc">Si se agoto, TheIA lo sabe y no lo ofrece. Integracion directa con Shopify y catalogos personalizados.</p>
+          </div>
+        </div>
+        <div class="feat-card reveal">
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+              <circle cx="9" cy="9" r="2" />
+              <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+            </svg></div>
+          <div>
+            <div class="feat-name">Muestra tus Productos</div>
+            <p class="feat-desc">Si el cliente pregunta por un modelo, TheIA envia fotos de los disponibles al instante, directo en el chat.</p>
+          </div>
+        </div>
+        <div class="feat-card reveal">
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+            </svg></div>
+          <div>
+            <div class="feat-name">Seguridad Total</div>
+            <p class="feat-desc">Solo dice lo que tu autorizas. Jamas inventara precios ni politicas que no existan en tu negocio.</p>
+          </div>
+        </div>
+        <div class="feat-card reveal">
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg></div>
+          <div>
+            <div class="feat-name">Memoria Inteligente</div>
+            <p class="feat-desc">Guarda nombres, correos y preferencias automaticamente para que no tengas que pedirlos despues.</p>
+          </div>
+        </div>
+        <div class="feat-card reveal">
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+              <polyline points="14 2 14 8 20 8" />
+              <path d="m9 15 2 2 4-4" />
+            </svg></div>
+          <div>
+            <div class="feat-name">Recibe Documentos</div>
+            <p class="feat-desc">Tus clientes envian fotos, carnet o certificados por WhatsApp. TheIA confirma que recibio y avisa que falta. Ideal para clinicas, inmobiliarias y centros educativos.</p>
+          </div>
+        </div>
+        <div class="feat-card reveal">
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a.53.53 0 0 0 .399.29l5.164.753a.53.53 0 0 1 .294.904l-3.736 3.642a.53.53 0 0 0-.153.469l.882 5.14a.53.53 0 0 1-.77.56l-4.618-2.428a.53.53 0 0 0-.494 0l-4.618 2.428a.53.53 0 0 1-.77-.56l.882-5.14a.53.53 0 0 0-.153-.47L3.356 8.921a.53.53 0 0 1 .294-.904l5.164-.753a.53.53 0 0 0 .4-.29l2.31-4.679z" />
+            </svg></div>
+          <div>
+            <div class="feat-name">Satisfaccion Automatica (NPS)</div>
+            <p class="feat-desc">Despues de cada atencion, TheIA envia una micro-encuesta de satisfaccion. Si el cliente esta insatisfecho, te alerta de inmediato.</p>
+          </div>
+        </div>
+        <div class="feat-card reveal">
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+              <line x1="12" x2="12" y1="19" y2="22" />
+            </svg></div>
+          <div>
+            <div class="feat-name">Entiende Mensajes de Voz</div>
+            <p class="feat-desc">Transcribe y responde notas de voz de WhatsApp en tiempo real. Optimizado para acento chileno y latinoamericano.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 4. PARA DESARROLLADORES                            -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section class="features" style="background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%); padding-bottom: 4rem;">
+    <div class="container">
+      <div class="group-header reveal">
+        <span class="group-tag">API</span>
+        <h2>Para <span class="gold">desarrolladores</span></h2>
+        <p>Conecta TheIA a tu stack con herramientas pensadas para escalar.</p>
+      </div>
+      <div class="feat-grid">
+        <div class="feat-card reveal">
+          <div class="feat-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none"
+              stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
+              <line x1="11" y1="4" x2="13" y2="20" />
+            </svg>
+          </div>
+          <div>
+            <div class="feat-name">Agent API (REST JSON)</div>
+            <p class="feat-desc">Disenada para escalar. Conecta la IA directamente a flujos en n8n, OpenClaw o tu propio CRM.</p>
+          </div>
+        </div>
+        <div class="feat-card reveal">
+          <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+              <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+            </svg></div>
+          <div>
+            <div class="feat-name">Te Avisa Cuando Importa</div>
+            <p class="feat-desc">Si un lead esta listo para comprar o necesita atencion urgente, TheIA te alerta al instante con un resumen. Nunca pierdas un cliente caliente.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 5. GESTION DE AGENDA                               -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section class="agenda" id="agenda">
+    <div class="container">
+      <div class="group-header reveal" style="padding-top: 0;">
+        <span class="group-tag">Agenda</span>
+      </div>
+      <h2 class="section-title reveal">Tu agenda llena, sin el <span class="gold">caos administrativo.</span></h2>
+      <p class="section-sub reveal">Para clinicas, centros de estetica, gimnasios y profesionales.</p>
+      <div class="agenda-layout">
+        <div class="agenda-items">
+          <div class="agenda-item reveal">
+            <div class="agenda-item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                <line x1="16" x2="16" y1="2" y2="6" />
+                <line x1="8" x2="8" y1="2" y2="6" />
+                <line x1="3" x2="21" y1="10" y2="10" />
+              </svg></div>
+            <div>
+              <div class="agenda-item-name">Agenda por ti</div>
+              <p class="agenda-item-desc">El cliente dice "quiero hora para manana" y TheIA busca el espacio disponible y reserva sin que tu muevas un dedo.</p>
+            </div>
+          </div>
+          <div class="agenda-item reveal">
+            <div class="agenda-item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+                <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+              </svg></div>
+            <div>
+              <div class="agenda-item-name">Adios al ausentismo</div>
+              <p class="agenda-item-desc">Envia recordatorios automaticos y confirma asistencia antes de cada cita. Menos no-shows, mas ingresos.</p>
+            </div>
+          </div>
+          <div class="agenda-item reveal">
+            <div class="agenda-item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" />
+                <path d="M21 3v5h-5" />
+              </svg></div>
+            <div>
+              <div class="agenda-item-name">Reprogramacion flexible</div>
+              <p class="agenda-item-desc">Si el cliente cancela, TheIA libera el bloque y le ofrece otro horario disponible de inmediato.</p>
+            </div>
+          </div>
+          <div class="agenda-item reveal">
+            <div class="agenda-item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect width="14" height="14" x="5" y="5" rx="1" />
+                <rect width="6" height="6" x="9" y="9" rx="0.5" />
+                <path d="M7 7h2v2H7z" />
+                <path d="M15 7h2v2h-2z" />
+                <path d="M7 15h2v2H7z" />
+              </svg></div>
+            <div>
+              <div class="agenda-item-name">Check-In con QR</div>
+              <p class="agenda-item-desc">El cliente recibe un QR en su confirmacion. Tu staff escanea con el celular y confirma asistencia con un tap.</p>
+            </div>
+          </div>
+          <div class="agenda-item reveal">
+            <div class="agenda-item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg></div>
+            <div>
+              <div class="agenda-item-name">Horario chileno nativo</div>
+              <p class="agenda-item-desc">Entiende perfectamente nuestros horarios y feriados. Disenado para el mercado local.</p>
+            </div>
+          </div>
+        </div>
+        <div class="agenda-card reveal">
+          <span class="agenda-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+              viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+              <line x1="16" x2="16" y1="2" y2="6" />
+              <line x1="8" x2="8" y1="2" y2="6" />
+              <line x1="3" x2="21" y1="10" y2="10" />
+              <path d="m9 16 2 2 4-4" />
+            </svg></span>
+          <h3>Menos llamadas.<br />Mas citas confirmadas.</h3>
+          <p>TheIA gestiona tu agenda 24/7 mientras tu te concentras en atender a tus clientes, no en coordinar horarios.</p>
+          <div class="agenda-tags">
+            <span class="agenda-tag">Clinicas</span>
+            <span class="agenda-tag">Estetica</span>
+            <span class="agenda-tag">Gimnasios</span>
+            <span class="agenda-tag">Profesionales</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 6. VERTICALES                                      -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section class="verticales" id="verticales">
+    <div class="container">
+      <div class="group-header reveal" style="padding-top: 0;">
+        <span class="group-tag">Industrias</span>
+      </div>
+      <h2 class="section-title reveal">Hecho para tu <span class="gold">tipo de negocio.</span></h2>
+      <p class="section-sub reveal">TheIA se adapta a como vende y opera tu industria. No es un producto generico.</p>
+      <div class="vert-grid">
+        <div class="vert-card reveal"><span class="vert-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32"
+              height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+              <path d="M3 6h18" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg></span>
+          <div class="vert-name">Retail & E-commerce</div>
+          <p class="vert-desc">Envia fotos de productos, consulta stock en tiempo real, cierra pagos y recupera carritos abandonados — en WhatsApp.</p>
+        </div>
+        <div class="vert-card reveal"><span class="vert-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32"
+              height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6.5 6.5 11 11" />
+              <path d="m21 21-1-1" /><path d="m3 3 1 1" />
+              <path d="m18 22 4-4" /><path d="m2 6 4-4" />
+              <path d="m3 10 7-7" /><path d="m14 21 7-7" />
+            </svg></span>
+          <div class="vert-name">Fitness & Gimnasios</div>
+          <p class="vert-desc">Vende membresias, equipos y planes. Responde dudas tecnicas, agenda clases y gestiona renovaciones sin friccion.</p>
+        </div>
+        <div class="vert-card reveal"><span class="vert-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32"
+              height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 6v4" /><path d="M14 14h-4" /><path d="M14 18h-4" /><path d="M14 8h-4" />
+              <path d="M18 12h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2h2" />
+              <path d="M18 22V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v18" />
+            </svg></span>
+          <div class="vert-name">Clinicas & Estetica</div>
+          <p class="vert-desc">Agenda citas, envia recordatorios y gestiona reprogramaciones automaticamente. Tu agenda llena sin caos administrativo.</p>
+        </div>
+        <div class="vert-card reveal"><span class="vert-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32"
+              height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              <rect width="20" height="14" x="2" y="6" rx="2" />
+            </svg></span>
+          <div class="vert-name">Servicios Profesionales</div>
+          <p class="vert-desc">Califica leads, entrega presupuestos y agenda visitas. TheIA entiende horario chileno y feriados nacionales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 7. INTEGRACIONES                                   -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section class="integraciones">
+    <div class="container">
+      <h2 class="section-title reveal" style="text-align:center;">Conectado con las herramientas que <span class="gold">ya conoces.</span></h2>
+    </div>
+    <div class="carousel-track">
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp Business" loading="lazy"><span>WhatsApp</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify" loading="lazy"><span>Shopify</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/googlecalendar/4285F4" alt="Google Calendar" loading="lazy"><span>Google Calendar</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram" loading="lazy"><span>Instagram</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/googlegemini/8E75B2" alt="Google Gemini" loading="lazy"><span>Google Gemini</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/claude/D97757" alt="Claude" loading="lazy"><span>Claude</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" loading="lazy"><span>Python</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="n8n" loading="lazy"><span>n8n</span></div>
+      <div class="carousel-item"><img src="https://openclaw.ai/favicon.svg" alt="OpenClaw" loading="lazy"><span>OpenClaw</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL" loading="lazy"><span>PostgreSQL</span></div>
+      <div class="carousel-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original.svg" alt="Heroku" loading="lazy"><span>Heroku</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/fastapi/009688" alt="FastAPI" loading="lazy"><span>FastAPI</span></div>
+      <!-- Duplicado para loop infinito -->
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp Business" loading="lazy"><span>WhatsApp</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify" loading="lazy"><span>Shopify</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/googlecalendar/4285F4" alt="Google Calendar" loading="lazy"><span>Google Calendar</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram" loading="lazy"><span>Instagram</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/googlegemini/8E75B2" alt="Google Gemini" loading="lazy"><span>Google Gemini</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/claude/D97757" alt="Claude" loading="lazy"><span>Claude</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" loading="lazy"><span>Python</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="n8n" loading="lazy"><span>n8n</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL" loading="lazy"><span>PostgreSQL</span></div>
+      <div class="carousel-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original.svg" alt="Heroku" loading="lazy"><span>Heroku</span></div>
+      <div class="carousel-item"><img src="https://cdn.simpleicons.org/fastapi/009688" alt="FastAPI" loading="lazy"><span>FastAPI</span></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- CTA FINAL                                          -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section class="cta-final">
+    <div class="container">
+      <h2 class="reveal">Listo para ver TheIA<br /><span class="gold">en accion?</span></h2>
+      <p class="reveal">Agenda una demo personalizada y descubre como TheIA puede transformar tus ventas.</p>
+      <div class="cta-btns reveal">
+        <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" style="padding: 0.85rem 2rem; font-size: 1rem; border-radius: 10px;">Agendar Demo</a>
+        <a href="https://wa.me/12063858350?text=Hola,%20quiero%20saber%20mas%20sobre%20TheIA" class="btn btn-whatsapp" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+          </svg>Hablar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-col">
+        <a href="/" class="logo"><img src="logo.png" alt="TheIA — Agente de ventas con IA para WhatsApp, Instagram y Web" width="100" height="100" /></a>
+        <p>Agente de ventas con IA para WhatsApp, Instagram DM y tu sitio web. Automatizacion comercial 24/7.</p>
+      </div>
+      <div class="footer-col center">
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start;">
+          <h4>Navegacion</h4>
+          <a href="/">Inicio</a>
+          <a href="/funciones">Funciones</a>
+          <a href="/#pulse">TheIA Pulse</a>
+          <a href="/#pricing">Planes y Precios</a>
+          <a href="/blog/">Blog</a>
+          <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener">Agendar Demo</a>
+          <a href="https://admin.theia.cl" target="_blank" rel="noopener">Panel Admin</a>
+        </div>
+      </div>
+      <div class="footer-col end">
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start;">
+          <h4>Contacto</h4>
+          <a href="mailto:rodrigo@theia.cl">rodrigo@theia.cl</a>
+          <a href="https://wa.me/12063858350" target="_blank" rel="noopener">+1 (206) 385-8350</a>
+          <h4 style="margin-top:0.5rem;">Siguenos</h4>
+          <a href="https://www.linkedin.com/company/112228768/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>TheIA en LinkedIn</a>
+          <a href="https://www.instagram.com/theiacl_/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>@theiacl_</a>
+        </div>
+      </div>
+    </div>
+    <div class="founder-strip">
+      <span>Creado por</span>
+      <a href="https://www.linkedin.com/in/rodmera/" target="_blank" rel="noopener"><strong>Rodrigo Mera</strong> · Fundador de TheIA</a>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">TheIA Agent by THEIA.CL &copy; 2026 · Todos los derechos reservados.</div>
+      <div class="footer-copy" style="display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:center;">
+        <span>Santiago, Chile</span>
+        <a href="/privacidad" style="color:var(--text-muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Politica de Privacidad</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navCta = document.querySelector('.nav-cta');
+    const navLinks = document.querySelectorAll('.nav-cta a');
+
+    menuToggle.addEventListener('click', () => {
+      navCta.classList.toggle('active');
+      document.body.classList.toggle('mobile-menu-open');
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navCta.classList.remove('active');
+        document.body.classList.remove('mobile-menu-open');
+      });
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Security Meta Tags -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net; connect-src 'self' https:;">
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-37L5WMXF83"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-37L5WMXF83');
+  </script>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2143491406057008');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2143491406057008&ev=PageView&noscript=1"/></noscript>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>TheIA Pulse — Tu negocio en el bolsillo vía WhatsApp</title>
+  <link rel="canonical" href="https://theia.cl/pulse" />
+  <link rel="icon" href="logo.png" type="image/png">
+
+  <meta name="description"
+    content="TheIA Pulse es el copiloto del dueño de negocio vía WhatsApp. Recibe resúmenes diarios, gestiona tu agenda, alertas inteligentes y recordatorios personales — todo desde tu WhatsApp." />
+  <meta name="keywords"
+    content="copiloto IA dueño negocio, TheIA Pulse, resumen diario WhatsApp, gestión agenda WhatsApp, alertas inteligentes negocio, recordatorios WhatsApp, IA para dueños pymes Chile" />
+  <meta name="author" content="TheIA" />
+  <meta name="geo.region" content="CL" />
+  <meta name="geo.placename" content="Santiago, Chile" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://theia.cl/pulse" />
+  <meta property="og:site_name" content="TheIA" />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:title" content="TheIA Pulse — Tu negocio en el bolsillo vía WhatsApp" />
+  <meta property="og:description"
+    content="Pulse es tu copiloto personal como dueño de negocio. Resúmenes diarios, gestión de agenda, alertas y recordatorios — todo desde WhatsApp." />
+  <meta property="og:image" content="https://theia.cl/logo.png" />
+  <meta property="og:image:width" content="500" />
+  <meta property="og:image:height" content="500" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="TheIA Pulse — Tu negocio en el bolsillo vía WhatsApp" />
+  <meta name="twitter:description"
+    content="Copiloto IA para dueños de negocio vía WhatsApp. Resúmenes, agenda, alertas y recordatorios." />
+  <meta name="twitter:image" content="https://theia.cl/logo.png" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "TheIA Pulse",
+    "url": "https://theia.cl/pulse",
+    "description": "Copiloto del dueño de negocio vía WhatsApp. Resúmenes diarios, gestión de agenda, alertas inteligentes y recordatorios personales.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://theia.cl",
+      "name": "TheIA"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0f172a;
+      --bg2: #1e293b;
+      --bg3: #334155;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-border-gold: rgba(212, 175, 55, 0.4);
+      --gold: #d4af37;
+      --gold-light: #ebca73;
+      --gold-glow: rgba(212, 175, 55, 0.25);
+      --indigo: #4f46e5;
+      --indigo-light: #6366f1;
+      --text: #ffffff;
+      --text-sub: rgba(255, 255, 255, 0.7);
+      --text-muted: rgba(255, 255, 255, 0.4);
+      --green: #34c77b;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Hl0AAAAAXNSR0IArs4c6QAAAB9JREFUGFdjYGBgYGBgYGBgYGBgYGBgYGBgYGBgYAAKAAJ/E25xAAAAAElFTkSuQmCC");
+      background-repeat: repeat;
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.1rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 100px;
+      width: auto;
+      display: block;
+      filter: drop-shadow(0 0 10px var(--gold-glow));
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.35rem;
+      border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.22s ease;
+      text-align: center;
+    }
+
+    .btn svg {
+      flex-shrink: 0;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-sub);
+      border: 1px solid var(--glass-border);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #0f172a;
+      font-weight: 700;
+      box-shadow: 0 4px 20px var(--gold-glow);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(212, 175, 55, 0.45);
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+      font-weight: 700;
+      padding: 0.85rem 2rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-whatsapp:hover {
+      background: #20bd5a;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(37, 211, 102, 0.45);
+    }
+
+    .btn-outline-gold {
+      background: transparent;
+      color: var(--gold);
+      border: 2px solid var(--gold);
+      padding: 0.85rem 2rem;
+      font-size: 1rem;
+      border-radius: 10px;
+    }
+
+    .btn-outline-gold:hover {
+      background: var(--gold);
+      color: #0f172a;
+      transform: translateY(-2px);
+    }
+
+    .gold {
+      color: var(--gold);
+    }
+
+    /* Section Title */
+    .section-title {
+      font-family: 'Merriweather', serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title .gold {
+      color: var(--gold);
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--text-sub);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto 3rem;
+    }
+
+    /* Dash Badge */
+    .dash-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(79, 70, 229, 0.12);
+      border: 1px solid rgba(79, 70, 229, 0.35);
+      border-radius: 100px;
+      padding: 0.3rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--indigo-light);
+      margin-bottom: 1rem;
+      width: fit-content;
+    }
+
+    /* Hero */
+    .pulse-hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      padding: 12rem 2rem 5rem;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .pulse-hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .pulse-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .pulse-hero h1 {
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+
+    .pulse-hero p {
+      color: var(--text-sub);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* Chat Simulation */
+    .chat-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--glass-border);
+      margin-bottom: 1rem;
+    }
+
+    .chat-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--indigo), var(--gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 0 20px var(--gold-glow);
+    }
+
+    .chat-name {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .chat-online {
+      font-size: 0.72rem;
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .chat-online::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+    .chat-msgs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .msg {
+      max-width: 82%;
+      padding: 0.6rem 0.9rem;
+      border-radius: 14px;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      opacity: 0;
+      animation: msgfade 0.3s ease forwards;
+    }
+
+    .msg-user {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+
+    .msg-bot {
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.5), rgba(79, 70, 229, 0.3));
+      border: 1px solid rgba(79, 70, 229, 0.4);
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+
+    .msg:nth-child(1) { animation-delay: 0.2s }
+    .msg:nth-child(2) { animation-delay: 0.7s }
+    .msg:nth-child(3) { animation-delay: 1.2s }
+    .msg:nth-child(4) { animation-delay: 1.7s }
+    .msg:nth-child(5) { animation-delay: 2.2s }
+
+    @keyframes msgfade {
+      from { opacity: 0; transform: translateY(6px) }
+      to { opacity: 1; transform: translateY(0) }
+    }
+
+    /* Pulse Section */
+    .pulse {
+      padding: 6.5rem 0;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    }
+
+    .pulse-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+
+    .pulse-chat {
+      background: var(--glass);
+      border: 1px solid var(--glass-border-gold);
+      border-radius: 20px;
+      padding: 1.5rem;
+      backdrop-filter: blur(20px);
+    }
+
+    .pulse-chat .chat-msgs {
+      margin-top: 0.5rem;
+    }
+
+    .pulse-features {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .pulse-feat {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .pulse-feat-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 10px;
+    }
+
+    .pulse-feat-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .pulse-feat-desc {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      line-height: 1.55;
+    }
+
+    /* CTA Final */
+    .cta-final {
+      padding: 6rem 0;
+      text-align: center;
+      position: relative;
+      background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
+    }
+
+    .cta-final::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-final .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-final h2 {
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      margin-bottom: 1rem;
+    }
+
+    .cta-final p {
+      color: var(--text-sub);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--glass-border);
+      padding: 2.5rem;
+    }
+
+    footer .logo img {
+      height: 48px;
+      margin-bottom: 1rem;
+    }
+
+    .footer-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-col h4 {
+      color: var(--gold-light);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .footer-col p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .footer-col a {
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .footer-col.center {
+      align-items: center;
+    }
+
+    .footer-col.end {
+      align-items: flex-end;
+    }
+
+    .founder-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 1.5rem 0;
+      margin-top: 1.5rem;
+    }
+
+    .founder-strip span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .founder-strip a {
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 0.82rem;
+      transition: color 0.2s;
+    }
+
+    .founder-strip a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      max-width: 1140px;
+      margin: 2.5rem auto 0;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-top: 1px solid var(--glass-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Reveal Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile Menu Styles */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      z-index: 1001;
+      padding: 10px;
+      background: none;
+      border: none;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 28px;
+      height: 2px;
+      background-color: var(--text);
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 960px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-cta {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: var(--bg2);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        z-index: 1000;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        padding: 2rem;
+      }
+
+      .nav-cta.active {
+        right: 0;
+      }
+
+      .nav-cta .btn {
+        width: 100%;
+        max-width: 280px;
+        font-size: 1.1rem;
+        padding: 1rem;
+      }
+
+      .nav-cta .btn-ghost {
+        display: flex !important;
+      }
+
+      /* Hamburger animation */
+      .mobile-menu-open .menu-toggle span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .mobile-menu-open .menu-toggle span:nth-child(2) {
+        opacity: 0;
+      }
+      .mobile-menu-open .menu-toggle span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      body.mobile-menu-open {
+        overflow: hidden;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .pulse-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .footer-col,
+      .footer-col.center,
+      .footer-col.end {
+        align-items: center !important;
+        text-align: center !important;
+      }
+
+      .footer-col div[style*="align-items: flex-start"] {
+        align-items: center !important;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 1rem 1.25rem;
+      }
+
+      .logo img {
+        height: 60px;
+      }
+
+      .pulse-hero {
+        padding: 9rem 1.25rem 4rem;
+      }
+
+      .nav-cta .btn-ghost {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="/" class="logo">
+      <img src="logo.png" alt="TheIA — Agente de ventas con IA para WhatsApp, Instagram y Web" width="100" height="100" />
+    </a>
+    <button class="menu-toggle" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-cta">
+      <a href="https://admin.theia.cl" class="btn btn-ghost">
+        <span
+          style="width: 6px; height: 6px; background-color: var(--indigo-light); border-radius: 50%; box-shadow: 0 0 8px var(--indigo-light); display: inline-block;"></span>
+        Panel Admin
+      </a>
+      <a href="/funciones" class="btn btn-ghost">Funciones</a>
+      <a href="/pulse" class="btn btn-ghost">Pulse</a>
+      <a href="/precios" class="btn btn-ghost">Precios</a>
+      <a href="/blog/" class="btn btn-ghost">Blog</a>
+      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold">Agendar Demo →</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="pulse-hero">
+    <div class="container">
+      <div class="dash-badge reveal"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          style="margin-right: 4px; vertical-align: middle;">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+        </svg> TheIA Pulse</div>
+      <h1 class="reveal">Tu negocio en el bolsillo.<br /><span class="gold">Directo desde WhatsApp.</span></h1>
+      <p class="reveal">Pulse es tu copiloto personal como dueño de negocio. Recibe resúmenes, gestiona tu agenda, recibe alertas y programa recordatorios — todo desde la app que ya usas todos los días.</p>
+    </div>
+  </section>
+
+  <!-- Pulse Section -->
+  <section class="pulse" id="pulse">
+    <div class="container">
+      <h2 class="section-title reveal">Todo lo que necesitas saber,<br /><span class="gold">en un mensaje.</span></h2>
+      <p class="section-sub reveal">Sin abrir dashboards, sin apps extra. Pulse te trae la información que importa directo a tu WhatsApp.</p>
+      <div class="pulse-layout">
+        <div class="pulse-chat reveal">
+          <div class="chat-header">
+            <div class="chat-avatar">📊</div>
+            <div>
+              <div class="chat-name">TheIA Pulse</div>
+              <div class="chat-online">Tu copiloto de negocio</div>
+            </div>
+          </div>
+          <div class="chat-msgs">
+            <div class="msg msg-user" style="animation-delay:0.1s">¿Cómo estuvo ayer?</div>
+            <div class="msg msg-bot" style="animation-delay:0.6s">📊 Resumen de ayer:<br />• 12 reservas confirmadas<br />• 3 leads calientes<br />• NPS: 4.7/5 ⭐<br />• 2 cancelaciones (normal)<br /><br />Hoy tienes 8 citas. ¿Algo que quieras ajustar?</div>
+            <div class="msg msg-user" style="animation-delay:1.2s">Bloquea mi agenda mañana de 12 a 14</div>
+            <div class="msg msg-bot" style="animation-delay:1.7s">✅ Bloqueado mañana de 12:00 a 14:00. No se agendarán citas en ese horario.</div>
+          </div>
+        </div>
+        <div class="pulse-features">
+          <div class="pulse-feat reveal">
+            <div class="pulse-feat-icon">📊</div>
+            <div>
+              <div class="pulse-feat-name">Resumen diario automático</div>
+              <p class="pulse-feat-desc">Cada mañana recibes un briefing con las métricas del día anterior: reservas, leads, NPS y cancelaciones.</p>
+            </div>
+          </div>
+          <div class="pulse-feat reveal">
+            <div class="pulse-feat-icon">🗓️</div>
+            <div>
+              <div class="pulse-feat-name">Gestiona tu agenda con texto</div>
+              <p class="pulse-feat-desc">"Bloquea mi horario mañana de 12 a 14", "¿Cuántas citas hay el viernes?", "Cancela la cita de María López". Todo por WhatsApp.</p>
+            </div>
+          </div>
+          <div class="pulse-feat reveal">
+            <div class="pulse-feat-icon">🔔</div>
+            <div>
+              <div class="pulse-feat-name">Alertas inteligentes</div>
+              <p class="pulse-feat-desc">Si un cliente cancela 3 veces en un mes, Pulse te avisa. Detecta patrones que tú no tienes tiempo de ver.</p>
+            </div>
+          </div>
+          <div class="pulse-feat reveal">
+            <div class="pulse-feat-icon">⏰</div>
+            <div>
+              <div class="pulse-feat-name">Recordatorios personales</div>
+              <p class="pulse-feat-desc">"Recuérdame llamar al proveedor mañana a las 10". Pulse programa el recordatorio y te avisa por WhatsApp.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-final">
+    <div class="container">
+      <h2 class="reveal">Activa Pulse con tu plan <span class="gold">TheIA</span></h2>
+      <p class="reveal">Pulse viene incluido en todos los planes. Empieza a gestionar tu negocio desde WhatsApp hoy mismo.</p>
+      <div class="cta-buttons reveal">
+        <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" style="padding: 0.85rem 2rem; font-size: 1rem; border-radius: 10px;">Agendar Demo →</a>
+        <a href="https://wa.me/56977298344" target="_blank" rel="noopener" class="btn btn-whatsapp">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.363 0-4.55-.82-6.274-2.191l-.438-.364-3.2 1.073 1.073-3.2-.364-.438A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+          Escríbenos por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-col">
+        <a href="/" class="logo"><img src="logo.png" alt="TheIA — Agente de ventas con IA para WhatsApp, Instagram y Web" width="100" height="100" /></a>
+        <p>Agente de ventas con IA para WhatsApp, Instagram DM y tu sitio web. Automatización comercial 24/7.</p>
+      </div>
+      <div class="footer-col center">
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start;">
+          <h4>Navegación</h4>
+          <a href="/funciones">Funciones</a>
+          <a href="/pulse">TheIA Pulse</a>
+          <a href="/precios">Planes y Precios</a>
+          <a href="/blog/">Blog</a>
+          <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener">Agendar Demo</a>
+          <a href="https://admin.theia.cl" target="_blank" rel="noopener">Panel Admin →</a>
+        </div>
+      </div>
+      <div class="footer-col end">
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start;">
+          <h4>Contacto</h4>
+          <a href="mailto:rodrigo@theia.cl">rodrigo@theia.cl</a>
+          <a href="https://wa.me/12063858350" target="_blank" rel="noopener">+1 (206) 385-8350</a>
+          <h4 style="margin-top:0.5rem;">Síguenos</h4>
+          <a href="https://www.linkedin.com/company/112228768/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>TheIA en LinkedIn</a>
+          <a href="https://www.instagram.com/theiacl_/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>@theiacl_</a>
+          <a href="https://www.linkedin.com/in/rodmera/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>@rodmera</a>
+        </div>
+      </div>
+    </div>
+    <div class="founder-strip">
+      <span>Creado por</span>
+      <a href="https://www.linkedin.com/in/rodmera/" target="_blank" rel="noopener"><strong>Rodrigo Mera</strong> · Fundador de TheIA</a>
+      <span>· Santiago, Chile 🇨🇱</span>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">TheIA Agent by THEIA.CL © 2026 · Todos los derechos reservados.</div>
+      <div class="footer-copy" style="display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:center;">
+        <span>Santiago, Chile</span>
+        <a href="/privacidad" style="color:var(--text-muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Política de Privacidad</a>
+        <a href="mailto:rodrigo@theia.cl?subject=Términos de Uso" style="color:var(--text-muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Términos de Uso</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal animations
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navCta = document.querySelector('.nav-cta');
+    const navLinks = document.querySelectorAll('.nav-cta a');
+
+    menuToggle.addEventListener('click', () => {
+      navCta.classList.toggle('active');
+      document.body.classList.toggle('mobile-menu-open');
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navCta.classList.remove('active');
+        document.body.classList.remove('mobile-menu-open');
+      });
+    });
+  </script>
+
+</body>
+
+</html>

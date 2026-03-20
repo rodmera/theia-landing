@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net; connect-src 'self' https:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-37L5WMXF83"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-37L5WMXF83');
+  </script>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2143491406057008');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2143491406057008&ev=PageView&noscript=1"/></noscript>
+
+  <title>Servicios — TheIA.cl · Consultoría digital y automatización</title>
+  <link rel="canonical" href="https://theia.cl/servicios" />
+  <link rel="icon" href="logo.png" type="image/png">
+
+  <meta name="description" content="Servicios de consultoría digital, instalación de agentes IA, diagnóstico de presencia digital y marketing SEO. En alianza con PLAI." />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f172a;
+      --bg2: #1e293b;
+      --bg3: #334155;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-border-gold: rgba(212, 175, 55, 0.4);
+      --gold: #d4af37;
+      --gold-light: #ebca73;
+      --gold-glow: rgba(212, 175, 55, 0.25);
+      --indigo: #4f46e5;
+      --indigo-light: #6366f1;
+      --text: #ffffff;
+      --text-sub: rgba(255, 255, 255, 0.7);
+      --text-muted: rgba(255, 255, 255, 0.4);
+      --green: #34c77b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Hl0AAAAAXNSR0IArs4c6QAAAB9JREFUGFdjYGBgYGBgYGBgYGBgYGBgYGBgYGBgYAAKAAJ/E25xAAAAAElFTkSuQmCC");
+      background-repeat: repeat;
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    section { position: relative; z-index: 1; }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.1rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .logo { display: flex; align-items: center; text-decoration: none; }
+    .logo img { height: 100px; width: auto; display: block; filter: drop-shadow(0 0 10px var(--gold-glow)); }
+
+    .nav-cta { display: flex; align-items: center; gap: 0.75rem; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.6rem 1.35rem; border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; cursor: pointer; border: none; transition: all 0.22s ease; text-align: center;
+    }
+    .btn svg { flex-shrink: 0; }
+
+    .btn-ghost { background: transparent; color: var(--text-sub); border: 1px solid var(--glass-border); }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #0f172a; font-weight: 700; box-shadow: 0 4px 20px var(--gold-glow); }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(212, 175, 55, 0.45); }
+
+    .btn-outline-gold {
+      background: transparent; color: var(--gold);
+      border: 2px solid var(--gold); padding: 0.85rem 2rem;
+      font-size: 1rem; border-radius: 10px;
+    }
+    .btn-outline-gold:hover { background: var(--gold-glow); transform: translateY(-2px); }
+
+    /* Section typography */
+    .section-title {
+      font-family: 'Merriweather', serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+    .section-title .gold, .gold { color: var(--gold); }
+
+    .section-sub {
+      text-align: center;
+      color: var(--text-sub);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto 3rem;
+    }
+
+    /* Reveal animation */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Servicios Extra */
+    .servicios-extra {
+      padding: 10rem 0 5rem;
+      background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .extra-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .extra-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      padding: 1.75rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.25s ease;
+    }
+    .extra-card:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.25), 0 0 20px rgba(99, 102, 241, 0.1);
+    }
+
+    .extra-icon {
+      width: 50px; height: 50px; border-radius: 12px;
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.1rem;
+    }
+
+    .extra-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700; font-size: 0.95rem;
+      margin-bottom: 0.5rem; color: var(--text);
+    }
+
+    .extra-desc { font-size: 0.84rem; color: var(--text-sub); line-height: 1.65; }
+
+    /* PLAI Alliance */
+    .plai-alliance { margin-top: 2.5rem; }
+
+    .plai-alliance-inner {
+      display: flex; align-items: center; gap: 1.5rem;
+      padding: 1.5rem 2rem; background: var(--glass);
+      border: 1px solid var(--glass-border); border-radius: 16px;
+      max-width: 640px; margin: 0 auto;
+      transition: border-color 0.3s;
+      text-decoration: none; color: inherit;
+    }
+    .plai-alliance-inner:hover { border-color: var(--glass-border-gold); }
+
+    .plai-logo {
+      height: 72px; width: auto; flex-shrink: 0;
+      border-radius: 10px; padding: 6px 10px;
+    }
+
+    .plai-alliance-text { display: flex; flex-direction: column; gap: 0.4rem; }
+    .plai-alliance-text strong { font-family: 'Merriweather', serif; font-size: 1rem; color: var(--gold); }
+    .plai-alliance-text span { font-size: 0.84rem; color: var(--text-sub); line-height: 1.6; }
+
+    .plai-links { font-size: 0.75rem !important; margin-top: 0.2rem; }
+    .plai-links a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .plai-links a:hover { color: var(--gold-light); }
+
+    /* B2B Banner */
+    .b2b-banner {
+      padding: 3.5rem 0;
+      background: linear-gradient(90deg, rgba(79,86,214,0.08), rgba(201,168,76,0.06), rgba(79,86,214,0.08));
+      border-top: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .b2b-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .b2b-text h3 { font-family: 'Merriweather', serif; font-weight: 800; font-size: clamp(1.1rem, 2vw, 1.4rem); margin-bottom: 0.4rem; }
+    .b2b-text p { font-size: 0.9rem; color: var(--text-sub); line-height: 1.6; max-width: 520px; }
+
+    /* Newsletter */
+    .newsletter-section {
+      padding: 6rem 0;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .newsletter-box {
+      background: var(--glass);
+      border: 1px solid var(--glass-border-gold);
+      border-radius: 24px;
+      padding: 3.5rem 2rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+    .newsletter-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .newsletter-box h2 {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin-bottom: 1rem;
+    }
+    .newsletter-box p {
+      color: var(--text-sub);
+      margin-bottom: 2.5rem;
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .newsletter-form { display: flex; gap: 1rem; max-width: 500px; margin: 0 auto; }
+    .newsletter-form input[type="email"] {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      border-radius: 10px;
+      padding: 0.85rem 1.25rem;
+      color: white;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    .newsletter-form input[type="email"]:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+    }
+
+    .newsletter-success {
+      display: none;
+      color: var(--green);
+      font-weight: 600;
+      margin-top: 1.5rem;
+      animation: fadeInUp 0.4s ease;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--glass-border);
+      padding: 2.5rem;
+    }
+    footer .logo img { height: 48px; margin-bottom: 1rem; }
+
+    .footer-bottom {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy { font-size: 0.8rem; color: var(--text-muted); }
+
+    .founder-strip {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0.75rem; padding: 1.5rem 0; margin-top: 0.5rem;
+    }
+    .founder-strip span { font-size: 0.82rem; color: var(--text-muted); }
+    .founder-strip a { color: var(--text-sub); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+    .founder-strip a:hover { color: var(--gold); }
+
+    /* Mobile Menu */
+    .menu-toggle {
+      display: none; flex-direction: column; gap: 6px;
+      cursor: pointer; z-index: 1001; padding: 10px;
+      background: none; border: none;
+    }
+    .menu-toggle span { display: block; width: 28px; height: 2px; background-color: var(--text); transition: all 0.3s ease; }
+
+    @media (max-width: 960px) {
+      .menu-toggle { display: flex; }
+
+      .nav-cta {
+        position: fixed; top: 0; right: -100%;
+        width: 80%; height: 100vh;
+        background: var(--bg2); flex-direction: column;
+        justify-content: center; align-items: center;
+        gap: 2rem; transition: right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        z-index: 1000; box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5); padding: 2rem;
+      }
+      .nav-cta.active { right: 0; }
+      .nav-cta .btn { width: 100%; max-width: 280px; font-size: 1.1rem; padding: 1rem; }
+      .nav-cta .btn-ghost { display: flex !important; }
+
+      .mobile-menu-open .menu-toggle span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+      .mobile-menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
+      .mobile-menu-open .menu-toggle span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+      body.mobile-menu-open { overflow: hidden; }
+    }
+
+    @media (max-width: 768px) {
+      .extra-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 0.8rem 1rem; }
+      .logo img { height: 60px; }
+      .servicios-extra { padding: 8rem 0 3rem; }
+      .b2b-inner { flex-direction: column; text-align: center; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-form button { width: 100%; }
+      .footer-bottom { flex-direction: column; align-items: center; text-align: center; gap: 0.5rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="/" class="logo">
+      <img src="logo.png" alt="TheIA — Agente de ventas con IA para WhatsApp, Instagram y Web" width="100" height="100" />
+    </a>
+    <button class="menu-toggle" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-cta">
+      <a href="https://admin.theia.cl" class="btn btn-ghost">
+        <span style="width: 6px; height: 6px; background-color: var(--indigo-light); border-radius: 50%; box-shadow: 0 0 8px var(--indigo-light); display: inline-block;"></span>
+        Panel Admin
+      </a>
+      <a href="/funciones" class="btn btn-ghost">Funciones</a>
+      <a href="/pulse" class="btn btn-ghost">Pulse</a>
+      <a href="/precios" class="btn btn-ghost">Precios</a>
+      <a href="/blog/" class="btn btn-ghost">Blog</a>
+      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold">Agendar Demo</a>
+    </div>
+  </nav>
+
+  <section class="servicios-extra" id="servicios">
+    <div class="container">
+      <div class="reveal" style="text-align:center; margin-bottom: 2.5rem;">
+        <div
+          style="display:inline-block; font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); border:1px solid var(--glass-border); border-radius:99px; padding:0.35rem 1rem; margin-bottom:1.2rem;">
+          Servicios Adicionales</div>
+        <h2 class="section-title" style="font-size:clamp(1.5rem,2.5vw,2rem);">Más allá del agente. <span
+            class="gold">Consultoría digital.</span></h2>
+        <p class="section-sub" style="max-width:580px;">En alianza con <strong style="color:var(--text);">PLAI</strong>, ofrecemos servicios de consultoría y automatización digital para potenciar tu operación completa.</p>
+      </div>
+      <div class="extra-grid reveal">
+        <div class="extra-card">
+          <div class="extra-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none"
+              stroke="var(--indigo-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="10" height="10" x="7" y="7" rx="1" />
+              <path d="M9 7V5" />
+              <path d="M12 7V5" />
+              <path d="M15 7V5" />
+              <path d="M9 19v-2" />
+              <path d="M12 19v-2" />
+              <path d="M15 19v-2" />
+              <path d="M5 9H7" />
+              <path d="M5 12H7" />
+              <path d="M5 15H7" />
+              <path d="M17 9h2" />
+              <path d="M17 12h2" />
+              <path d="M17 15h2" />
+            </svg>
+          </div>
+          <div class="extra-name">Instalación y Configuración de Agentes IA</div>
+          <p class="extra-desc">Implementamos, entrenamos y configuramos agentes de inteligencia artificial a medida
+            según los flujos reales de tu negocio. Sin complicaciones técnicas de tu parte.</p>
+        </div>
+        <div class="extra-card">
+          <div class="extra-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none"
+              stroke="var(--indigo-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+              <path d="M11 8v6" />
+              <path d="M8 11h6" />
+            </svg>
+          </div>
+          <div class="extra-name">Diagnóstico de Presencia Digital</div>
+          <p class="extra-desc">Análisis presencial de tu ecosistema digital: web, redes sociales, Google Business y
+            canales de atención. Identificamos brechas y te entregamos un plan de acción concreto.</p>
+        </div>
+        <div class="extra-card">
+          <div class="extra-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none"
+              stroke="var(--indigo-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 3v18h18" />
+              <path d="m19 9-5 5-4-4-3 3" />
+            </svg>
+          </div>
+          <div class="extra-name">Marketing Digital & SEO</div>
+          <p class="extra-desc">Estrategia y ejecución de marketing digital: posicionamiento orgánico en Google,
+            campañas pagas y contenido orientado a conversión para el mercado chileno.</p>
+        </div>
+      </div>
+      <div class="plai-alliance reveal">
+        <div class="plai-alliance-inner">
+          <img src="Icono_Transp.png" alt="PLAI" class="plai-logo">
+          <div class="plai-alliance-text">
+            <strong>TheIA + PLAI</strong>
+            <span>Agente IA de ventas + automatización de marketing + desarrollo web. Un equipo multidisciplinario que cubre toda tu cadena digital.</span>
+            <span class="plai-links"><a href="https://plai.cl" target="_blank" rel="noopener">plai.cl</a> · <a href="https://www.instagram.com/plai.cl/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;margin-right:2px;"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>@plai.cl</a></span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="text-align:center; margin-top:2rem;">
+        <a href="mailto:rodrigo@theia.cl" class="btn btn-outline-gold">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            style="margin-right:6px; vertical-align:middle;">
+            <rect width="20" height="16" x="2" y="4" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>Consulta por estos servicios
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="b2b-banner">
+    <div class="container">
+      <div class="b2b-inner reveal">
+        <div class="b2b-text">
+          <h3>¿Tienes un proyecto de IA más complejo? <span class="gold">Hablemos.</span></h3>
+          <p>Orquestación de agentes, integraciones LLM a medida, automatización de procesos internos — construimos soluciones IA para empresas que van más allá del producto estándar.</p>
+        </div>
+        <a href="#newsletter" class="btn btn-outline-gold" id="b2b-cta" style="white-space:nowrap;flex-shrink:0;">Dejar mi correo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter-section" id="newsletter">
+    <div class="container">
+      <div class="newsletter-box reveal">
+        <h2 id="newsletter-title">Únete a la vanguardia de la IA</h2>
+        <p id="newsletter-desc">Recibe casos de éxito reales y acceso prioritario a nuevas funciones de automatización comercial.</p>
+        <form class="newsletter-form" id="waitlist-form">
+          <input type="email" name="email" placeholder="tu@email.com" required>
+          <input type="hidden" name="source" value="Landing Newsletter - Servicios">
+          <!-- Honeypot: invisible para humanos, bots lo llenan -->
+          <input type="text" name="website" id="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;">
+          <button type="submit" class="btn btn-gold">Unirse a la lista</button>
+        </form>
+        <div class="newsletter-success" id="newsletter-success">
+          &#10024; ¡Gracias! Te has unido correctamente a nuestra lista.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="founder-strip">
+      <span>Creado por</span>
+      <a href="https://www.linkedin.com/in/rodmera/" target="_blank" rel="noopener"><strong>Rodrigo Mera</strong> · Fundador de TheIA</a>
+      <span>· Santiago, Chile</span>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">TheIA Agent by THEIA.CL &copy; 2026 · Todos los derechos reservados.</div>
+      <div class="footer-copy" style="display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:center;">
+        <span>Santiago, Chile</span>
+        <a href="/privacidad" style="color:var(--text-muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Política de Privacidad</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal animation
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 60); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navCta = document.querySelector('.nav-cta');
+    const navLinks = document.querySelectorAll('.nav-cta a');
+
+    menuToggle.addEventListener('click', () => {
+      navCta.classList.toggle('active');
+      document.body.classList.toggle('mobile-menu-open');
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navCta.classList.remove('active');
+        document.body.classList.remove('mobile-menu-open');
+      });
+    });
+
+    // B2B CTA: cambia source y copy del form al hacer click
+    document.getElementById('b2b-cta').addEventListener('click', () => {
+      document.querySelector('input[name="source"]').value = 'B2B - Proyecto IA';
+      document.getElementById('newsletter-title').textContent = '¿Proyecto IA a medida?';
+      document.getElementById('newsletter-desc').textContent = 'Déjanos tu correo y Rodrigo se contacta contigo para conversar sobre tu proyecto.';
+      waitlistForm.querySelector('button').textContent = 'Quiero conversar';
+    });
+
+    // Waitlist Form Script
+    const waitlistForm = document.getElementById('waitlist-form');
+    const newsletterSuccess = document.getElementById('newsletter-success');
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxwkLWd4nUMSz0LvL0HnsJ0dqNbNpsOIpXHtuPR8EuVCEQ74r_dRk0C1hO1DBml3aKF0w/exec';
+    const _formLoadTime = Date.now();
+
+    waitlistForm.addEventListener('submit', e => {
+      e.preventDefault();
+
+      // Anti-spam: honeypot (bots llenan campos ocultos)
+      if (document.getElementById('hp-field').value !== '') return;
+
+      // Anti-spam: time check (bots envían el form en < 3 segundos)
+      if (Date.now() - _formLoadTime < 3000) return;
+
+      const submitBtn = waitlistForm.querySelector('button');
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Enviando...';
+
+      const email = waitlistForm.querySelector('input[name="email"]').value;
+      const source = waitlistForm.querySelector('input[name="source"]').value;
+      const body = `email=${encodeURIComponent(email)}&source=${encodeURIComponent(source)}`;
+
+      fetch(scriptURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      })
+      .then(() => {
+        waitlistForm.style.display = 'none';
+        newsletterSuccess.style.display = 'block';
+      })
+      .catch(error => {
+        console.error('Error!', error.message);
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Unirse a la lista';
+      });
+    });
+  </script>
+
+</body>
+
+</html>
