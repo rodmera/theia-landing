@@ -148,7 +148,7 @@
       --indigo-light: #6366f1;
       --text: #ffffff;
       --text-sub: rgba(255, 255, 255, 0.7);
-      --text-muted: rgba(255, 255, 255, 0.46);
+      --text-muted: rgba(255, 255, 255, 0.57);
       --green: #34c77b;
     }
 
@@ -267,6 +267,7 @@
       cursor: pointer;
       border: none;
       transition: all 0.22s ease;
+      touch-action: manipulation;
       text-align: center;
     }
 
@@ -283,6 +284,11 @@
     .btn-ghost:hover {
       border-color: var(--gold);
       color: var(--gold);
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+      transition-duration: 0.05s;
     }
 
     .btn-gold {
@@ -2380,6 +2386,7 @@
       border: 1px solid var(--glass-border);
       background: transparent;
       color: var(--text-sub);
+      touch-action: manipulation;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 0.85rem;
       cursor: pointer;
@@ -3129,7 +3136,8 @@
     let W, H, nodes = [], canvasVisible = true;
     function resize() { W = canvas.width = heroEl.offsetWidth; H = canvas.height = heroEl.offsetHeight; }
     resize();
-    window.addEventListener('resize', resize);
+    let resizeTimer;
+    window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(resize, 150); });
     // Pause animation when hero is not visible (saves CPU/battery)
     const canvasObs = new IntersectionObserver(([e]) => { canvasVisible = e.isIntersecting; }, { threshold: 0 });
     canvasObs.observe(heroEl);
@@ -3174,13 +3182,20 @@
       });
     }, { threshold: 0.08 });
     reveals.forEach(el => observer.observe(el));
-    // Scroll to Top functionality
+    // Scroll to Top functionality (throttled)
     const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    let scrollTick = false;
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 400) {
-        scrollToTopBtn.classList.add("show");
-      } else {
-        scrollToTopBtn.classList.remove("show");
+      if (!scrollTick) {
+        requestAnimationFrame(() => {
+          if (window.scrollY > 400) {
+            scrollToTopBtn.classList.add("show");
+          } else {
+            scrollToTopBtn.classList.remove("show");
+          }
+          scrollTick = false;
+        });
+        scrollTick = true;
       }
     });
     scrollToTopBtn.addEventListener("click", () => {
