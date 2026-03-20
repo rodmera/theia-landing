@@ -3673,6 +3673,29 @@
     });
   </script>
 
+  <!-- Sticky WhatsApp CTA — mobile only -->
+  <div class="sticky-wa">
+    <a href="https://wa.me/12063858350?text=Hola,%20quiero%20saber%20más%20sobre%20TheIA" class="btn btn-whatsapp" target="_blank" rel="noopener">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>Hablar por WhatsApp
+    </a>
+  </div>
+
+  <!-- Exit Intent Popup — solo desktop -->
+  <div class="exit-overlay" id="exit-overlay">
+    <div class="exit-popup">
+      <button class="exit-close" aria-label="Cerrar">&times;</button>
+      <h3>Antes de irte <span class="gold">👋</span></h3>
+      <p>¿Quieres ver cómo TheIA funcionaría para tu negocio? Déjanos tu WhatsApp y te contactamos.</p>
+      <form class="exit-form" id="exit-form">
+        <input type="tel" name="phone" placeholder="+56 9 1234 5678" required pattern="\+?[0-9\s\-]{8,15}" />
+        <button type="submit" class="btn btn-gold" style="white-space:nowrap;">Quiero saber más</button>
+      </form>
+      <div class="exit-success" id="exit-success">Listo, te contactaremos pronto.</div>
+      <div class="cta-micro" style="margin-top:1rem;">Sin compromiso · Respuesta en menos de 2 horas</div>
+    </div>
+  </div>
+
+  <!-- Exit Intent Script -->
   <script>
     // Exit Intent Popup — solo desktop, 1 vez por sesión
     (function () {
@@ -3695,7 +3718,6 @@
         overlay.classList.remove('active');
       }
 
-      // Trigger: mouse sale por arriba de la ventana
       document.addEventListener('mouseout', function (e) {
         if (e.clientY <= 0 && e.relatedTarget === null) {
           showExit();
@@ -3709,8 +3731,8 @@
 
       exitForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        const phone = exitForm.querySelector('input[name="phone"]').value;
-        const body = 'email=' + encodeURIComponent(phone + ' (exit-intent)') + '&source=' + encodeURIComponent('Exit Intent - WhatsApp');
+        var phone = exitForm.querySelector('input[name="phone"]').value;
+        var body = 'email=' + encodeURIComponent(phone + ' (exit-intent)') + '&source=' + encodeURIComponent('Exit Intent - WhatsApp');
         fetch('https://script.google.com/macros/s/AKfycbxwkLWd4nUMSz0LvL0HnsJ0dqNbNpsOIpXHtuPR8EuVCEQ74r_dRk0C1hO1DBml3aKF0w/exec', {
           method: 'POST',
           mode: 'no-cors',
@@ -3724,28 +3746,6 @@
       });
     })();
   </script>
-
-  <!-- Sticky WhatsApp CTA — mobile only -->
-  <div class="sticky-wa">
-    <a href="https://wa.me/12063858350?text=Hola,%20quiero%20saber%20más%20sobre%20TheIA" class="btn btn-whatsapp" target="_blank" rel="noopener">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>Hablar por WhatsApp
-    </a>
-  </div>
-
-  <!-- Exit Intent Popup — solo desktop -->
-  <div class="exit-overlay" id="exit-overlay">
-    <div class="exit-popup">
-      <button class="exit-close" aria-label="Cerrar">&times;</button>
-      <h3>Antes de irte <span class="gold">👋</span></h3>
-      <p>¿Quieres ver cómo TheIA funcionaría para tu negocio? Déjanos tu WhatsApp y te contactamos.</p>
-      <form class="exit-form" id="exit-form">
-        <input type="tel" name="phone" placeholder="+56 9 1234 5678" required pattern="\+?[0-9\s\-]{8,15}" />
-        <button type="submit" class="btn btn-gold" style="white-space:nowrap;">Quiero saber más</button>
-      </form>
-      <div class="exit-success" id="exit-success">Listo, te contactaremos pronto.</div>
-      <div class="cta-micro" style="margin-top:1rem;">Sin compromiso · Respuesta en menos de 2 horas</div>
-    </div>
-  </div>
 
   <!-- TheIA Web Chat Widget -->
   <script src="webchat-widget.js"
