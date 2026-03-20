@@ -148,7 +148,7 @@
       --indigo-light: #6366f1;
       --text: #ffffff;
       --text-sub: rgba(255, 255, 255, 0.7);
-      --text-muted: rgba(255, 255, 255, 0.4);
+      --text-muted: rgba(255, 255, 255, 0.46);
       --green: #34c77b;
     }
 
@@ -660,7 +660,7 @@
     }
 
     .stat-l {
-      font-size: 0.65rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.06em;
@@ -1194,7 +1194,7 @@
     }
 
     .carousel-item span {
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
       font-weight: 600;
       letter-spacing: 0.03em;
@@ -2063,7 +2063,7 @@
       }
 
       .caso-tag {
-        font-size: 0.65rem;
+        font-size: 0.75rem;
         line-height: 1.4;
       }
 
@@ -3304,7 +3304,19 @@
         var body = 'email=' + encodeURIComponent(email) + '&source=' + encodeURIComponent(source);
         fetch(scriptURL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body })
           .then(function () { waitlistForm.style.display = 'none'; newsletterSuccess.style.display = 'block'; })
-          .catch(function () { submitBtn.disabled = false; submitBtn.innerText = 'Unirse a la lista'; });
+          .catch(function () {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Unirse a la lista';
+            var errEl = document.getElementById('newsletter-error');
+            if (!errEl) {
+              errEl = document.createElement('div');
+              errEl.id = 'newsletter-error';
+              errEl.setAttribute('role', 'alert');
+              errEl.style.cssText = 'color:#ef4444;font-size:0.85rem;margin-top:1rem;';
+              waitlistForm.parentNode.appendChild(errEl);
+            }
+            errEl.textContent = 'Error de conexión. Por favor intenta de nuevo.';
+          });
       });
     })();
   </script>
@@ -3356,6 +3368,16 @@
           exitForm.style.display = 'none';
           exitSuccess.style.display = 'block';
           setTimeout(hideExit, 2500);
+        }).catch(function () {
+          var errEl = exitForm.querySelector('.exit-error');
+          if (!errEl) {
+            errEl = document.createElement('div');
+            errEl.className = 'exit-error';
+            errEl.setAttribute('role', 'alert');
+            errEl.style.cssText = 'color:#ef4444;font-size:0.85rem;margin-top:0.75rem;text-align:center;';
+            exitForm.parentNode.insertBefore(errEl, exitForm.nextSibling);
+          }
+          errEl.textContent = 'Error de conexión. Intenta de nuevo.';
         });
       });
     })();
