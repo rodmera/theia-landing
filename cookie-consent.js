@@ -79,15 +79,21 @@
 
     document.body.appendChild(banner);
 
+    // Empujar sticky WhatsApp CTA en mobile para que no se tape
+    var stickyWa = document.querySelector(".sticky-wa");
+    if (stickyWa) stickyWa.style.bottom = banner.offsetHeight + "px";
+
     document.getElementById("theia-cc-accept").addEventListener("click", function () {
       setConsent("accepted");
       enableTracking();
       hideBanner();
+      if (stickyWa) stickyWa.style.bottom = "";
     });
 
     document.getElementById("theia-cc-reject").addEventListener("click", function () {
       setConsent("rejected");
       hideBanner();
+      if (stickyWa) stickyWa.style.bottom = "";
     });
   }
 
