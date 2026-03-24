@@ -92,6 +92,20 @@ El mayor error que vemos en PYMEs chilenas es implementar un "chatbot" que en re
 
 Eso no es automatizar ventas — es agregar fricción. Un agente con IA entiende la intención, revisa disponibilidad, y responde: "El martes tengo hora a las 10:00 y 16:30. ¿Cuál te acomoda?"
 
+## ¿Self-service o llave en mano?
+
+Si te preocupa la implementación técnica, no todas las soluciones requieren que tú configures todo. Algunas te lo entregan funcionando. Comparamos ambos modelos en detalle: [Self-service vs llave en mano: qué conviene para tu PYME](/blog/self-service-vs-llave-en-mano-chatbot-pyme/).
+
+Y si quieres ver las [funciones completas](/funciones) de un agente IA o comparar [precios](/precios), te dejamos los links.
+
 ## Empieza hoy
 
 No necesitas un equipo de tecnología ni meses de implementación. [Agenda una demo de 15 minutos](https://calendar.app.google/ZDjEtqCXTJVxzi7bA) y te mostramos cómo se ve esto funcionando con tu negocio real.
+
+---
+
+### Sigue leyendo
+
+- [Agente de IA vs chatbot tradicional: cuál necesita tu PYME](/blog/agente-ia-vs-chatbot-tradicional/)
+- [Chatbot WhatsApp en Chile: Guía completa para PYMEs](/blog/chatbot-whatsapp-chile-guia-pymes/)
+- [Cuánto cuesta un agente IA en Chile (2026)](/blog/cuanto-cuesta-agente-ia-chile/)

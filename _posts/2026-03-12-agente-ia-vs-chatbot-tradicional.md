@@ -95,6 +95,20 @@ La tendencia es clara: los chatbots de menú están quedando obsoletos. Los clie
 
 En Chile, la adopción todavía es baja. Eso significa oportunidad: mientras tu competencia sigue respondiendo manualmente o con menús rígidos, tú puedes ofrecer atención inmediata, personalizada y disponible 24/7.
 
+## Cuánto cuesta cada opción
+
+Si te preguntas cuánto cuesta realmente implementar un agente de IA vs un chatbot tradicional, preparamos una guía con el desglose completo: [Cuánto cuesta un agente IA para tu negocio en Chile (2026)](/blog/cuanto-cuesta-agente-ia-chile/).
+
+También puedes calcular cuánto pierdes hoy por no tener atención automática con nuestra [calculadora de ROI](/calculadora).
+
 ## Pruébalo tú mismo
 
 La mejor forma de entender la diferencia es verla en acción. [Agenda una demo de 15 minutos](https://calendar.app.google/ZDjEtqCXTJVxzi7bA) y te mostramos cómo un agente de IA atiende tu negocio — con tu catálogo, tu tono y tus reglas.
+
+---
+
+### Sigue leyendo
+
+- [Cómo automatizar las ventas por WhatsApp en 7 pasos](/blog/automatizar-ventas-whatsapp-7-pasos/)
+- [Chatbot WhatsApp en Chile: Guía completa para PYMEs](/blog/chatbot-whatsapp-chile-guia-pymes/)
+- [Self-service vs llave en mano: qué conviene para tu PYME](/blog/self-service-vs-llave-en-mano-chatbot-pyme/)

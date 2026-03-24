@@ -4,15 +4,24 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Proyecto
 
-Landing page estática para **TheIA** — agente de ventas IA para WhatsApp, orientado al mercado chileno y latinoamericano. Desplegada en GitHub Pages en `theia.cl`.
+Landing page estática para **TheIA** — agente de ventas IA para WhatsApp, Instagram DM y web, orientado al mercado chileno y latinoamericano. Desplegada en GitHub Pages en `theia.cl`.
 
 ## Arquitectura
 
-Todo el sitio vive en un único archivo `index.html` con HTML, CSS y JavaScript embebidos. No hay framework, bundler, ni dependencias npm. No se requiere proceso de build.
+Sitio multi-página con HTML/CSS/JS puro. Jekyll solo para el blog (`_posts/`, `_layouts/`). No hay framework, bundler ni dependencias npm.
 
-**Estructura del archivo:**
+**Páginas:**
+- `index.html` — landing principal (secciones: nav, hero, problema, comparacion, features, verticales, proceso, caso, pricing, cta-final, footer)
+- `funciones.html`, `precios.html`, `servicios.html`, `plataforma.html` — páginas internas
+- `calculadora.html` — calculadora de ROI
+- `pulse.html` — producto Pulse (copiloto del dueño)
+- `privacidad.html` — política de privacidad
+- `blog/` — posts Jekyll (`_posts/`)
+- `webchat-widget.js` — widget de chat web embebido, se conecta al backend TheIA vía API
+
+**Estructura de index.html:**
 - `<style>` — todos los estilos en línea, usando CSS custom properties para el sistema de diseño
-- `<body>` — secciones semánticas: `nav`, `hero`, `problema`, `comparacion`, `features`, `verticales`, `proceso`, `caso`, `pricing`, `cta-final`, `footer`
+- `<body>` — secciones semánticas
 - `<script>` — canvas animado de red neuronal + IntersectionObserver para animaciones de scroll
 
 ## Desarrollo local
@@ -55,6 +64,8 @@ Variables CSS definidas en `:root` que controlan toda la paleta:
 - `≤960px`: colapsa grids a 1 columna, oculta el hero card derecho
 - `≤600px`: nav simplificado, pain grid a 1 columna, footer apilado
 
-## Contacto / WhatsApp CTA
+## CTAs
 
-Todos los CTAs apuntan a `https://wa.me/56977298344`. El email de contacto es `rodrigo@theia.cl`.
+- **Agendar Demo:** `https://calendar.app.google/ZDjEtqCXTJVxzi7bA` (CTA principal en nav, hero y footer)
+- **WhatsApp:** `https://wa.me/12063858350` (número US +1 206 385-8350, botón secundario en hero + sticky mobile)
+- **Email de contacto:** `rodrigo@theia.cl`

@@ -69,6 +69,20 @@ Al evaluar opciones, pregunta:
 4. **¿Escala a humano?** La IA no reemplaza todo — debe saber cuándo derivar
 5. **¿Cuánto demora la implementación?** Si toma semanas, probablemente es demasiado complejo
 
+## ¿Cuánto cuesta realmente?
+
+El precio que ves en una página de precios rara vez es el costo real. Hay costos ocultos como cobro por conversación, API keys y canales adicionales. Lo desglosamos todo en: [Cuánto cuesta un agente IA para tu negocio en Chile (2026)](/blog/cuanto-cuesta-agente-ia-chile/).
+
+También puedes calcular cuánto pierdes hoy en ventas fuera de horario con nuestra [calculadora de ROI](/calculadora).
+
 ## Siguiente paso
 
 Si quieres ver cómo funciona un chatbot con IA en tu negocio, la forma más rápida es probarlo en vivo. [Agenda una demo de 15 minutos](https://calendar.app.google/ZDjEtqCXTJVxzi7bA) y te mostramos cómo TheIA atiende, vende y agenda — adaptado a tu rubro.
+
+---
+
+### Sigue leyendo
+
+- [Agente de IA vs chatbot tradicional: cuál necesita tu PYME](/blog/agente-ia-vs-chatbot-tradicional/)
+- [Cómo automatizar las ventas por WhatsApp en 7 pasos](/blog/automatizar-ventas-whatsapp-7-pasos/)
+- [Self-service vs llave en mano: qué conviene para tu PYME](/blog/self-service-vs-llave-en-mano-chatbot-pyme/)

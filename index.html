@@ -2877,6 +2877,8 @@
               después</span></div>
           <div class="comp-item"><span class="comp-icon-bad">✗</span><span>Pagas por separado la IA, el hosting y la
               integración — sin saber cuánto llegará la cuenta</span></div>
+          <div class="comp-item"><span class="comp-icon-bad">✗</span><span>Tú configuras todo — plataformas self-service que
+              requieren horas de setup y prueba</span></div>
         </div>
         <div class="comp-card-good reveal">
           <div class="comp-label gold">TheIA Agent</div>
@@ -2890,6 +2892,8 @@
               cliente vuelve a las 4 horas, TheIA sabe exactamente dónde quedaron.</span></div>
           <div class="comp-item"><span class="comp-icon-good">★</span><span><strong>IA incluida en el plan:</strong> La
               tecnología de Google va incluida. Sin API keys ni costos sorpresa de IA.</span></div>
+          <div class="comp-item"><span class="comp-icon-good">★</span><span><strong>Llave en mano:</strong> Nosotros
+              configuramos todo por ti. En 7 días tu agente está operativo, sin que toques nada técnico.</span></div>
         </div>
       </div>
     </div>
@@ -3095,6 +3099,7 @@
           <a href="/funciones">Funciones</a>
           <a href="/pulse">TheIA Pulse</a>
           <a href="/precios">Planes y Precios</a>
+          <a href="/servicios">Servicios</a>
           <a href="/blog/">Blog</a>
           <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener">Agendar Demo →</a>
           <a href="https://admin.theia.cl" target="_blank" rel="noopener">Panel Admin →</a>
@@ -3283,7 +3288,7 @@
         afterVal.textContent = Math.round(afterPct * 100) + '%';
         lostEl.textContent = formatCLP(lost);
         roiEl.innerHTML = 'Con TheIA recuperas hasta <strong>' + formatCLP(recovered) + '/mes</strong>';
-        var msg = 'Hola, calculé que pierdo aprox ' + formatCLP(lost) + '/mes en ventas fuera de horario (' + inquiries + ' consultas/mes, ticket ' + formatCLP(ticket) + '). Quiero saber más sobre TheIA.';
+        var msg = 'Hola, pierdo aprox ' + formatCLP(lost) + '/mes fuera de horario. Quiero una demo de TheIA.';
         waBtn.href = 'https://wa.me/12063858350?text=' + encodeURIComponent(msg);
       }
       inquiriesSlider.addEventListener('input', calculate);
