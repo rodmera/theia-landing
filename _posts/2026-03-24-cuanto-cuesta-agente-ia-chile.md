@@ -82,7 +82,7 @@ Puedes calcular exactamente cuánto pierdes con nuestra [calculadora de ROI](/ca
 
 ---
 
-*¿Quieres saber cuánto costaría TheIA para tu negocio? [Agenda una demo de 15 minutos](https://calendar.app.google/ZDjEtqCXTJVxzi7bA) y te mostramos en vivo, con los números de tu industria. Consulta nuestros [precios](/precios) para ver el detalle completo.*
+*¿Quieres saber cuánto costaría TheIA para tu negocio? [Agenda una demo de 30 minutos](https://calendar.app.google/ZDjEtqCXTJVxzi7bA) y te mostramos en vivo, con los números de tu industria. Consulta nuestros [precios](/precios) para ver el detalle completo.*
 
 ---
 

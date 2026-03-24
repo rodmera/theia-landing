@@ -103,7 +103,7 @@ También puedes calcular cuánto pierdes hoy por no tener atención automática 
 
 ## Pruébalo tú mismo
 
-La mejor forma de entender la diferencia es verla en acción. [Agenda una demo de 15 minutos](https://calendar.app.google/ZDjEtqCXTJVxzi7bA) y te mostramos cómo un agente de IA atiende tu negocio — con tu catálogo, tu tono y tus reglas.
+La mejor forma de entender la diferencia es verla en acción. [Agenda una demo de 30 minutos](https://calendar.app.google/ZDjEtqCXTJVxzi7bA) y te mostramos cómo un agente de IA atiende tu negocio — con tu catálogo, tu tono y tus reglas.
 
 ---
 

@@ -100,7 +100,7 @@ Y si quieres ver las [funciones completas](/funciones) de un agente IA o compara
 
 ## Empieza hoy
 
-No necesitas un equipo de tecnología ni meses de implementación. [Agenda una demo de 15 minutos](https://calendar.app.google/ZDjEtqCXTJVxzi7bA) y te mostramos cómo se ve esto funcionando con tu negocio real.
+No necesitas un equipo de tecnología ni meses de implementación. [Agenda una demo de 30 minutos](https://calendar.app.google/ZDjEtqCXTJVxzi7bA) y te mostramos cómo se ve esto funcionando con tu negocio real.
 
 ---
 

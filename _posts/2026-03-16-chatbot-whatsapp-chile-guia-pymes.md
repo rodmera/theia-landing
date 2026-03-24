@@ -77,7 +77,7 @@ También puedes calcular cuánto pierdes hoy en ventas fuera de horario con nues
 
 ## Siguiente paso
 
-Si quieres ver cómo funciona un chatbot con IA en tu negocio, la forma más rápida es probarlo en vivo. [Agenda una demo de 15 minutos](https://calendar.app.google/ZDjEtqCXTJVxzi7bA) y te mostramos cómo TheIA atiende, vende y agenda — adaptado a tu rubro.
+Si quieres ver cómo funciona un chatbot con IA en tu negocio, la forma más rápida es probarlo en vivo. [Agenda una demo de 30 minutos](https://calendar.app.google/ZDjEtqCXTJVxzi7bA) y te mostramos cómo TheIA atiende, vende y agenda — adaptado a tu rubro.
 
 ---
 
