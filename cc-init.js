@@ -79,21 +79,33 @@
 
     document.body.appendChild(banner);
 
-    // Empujar sticky WhatsApp CTA en mobile para que no se tape
+    // Empujar elementos fijos para que no se tapen con el banner
     var stickyWa = document.querySelector(".sticky-wa");
-    if (stickyWa) stickyWa.style.bottom = banner.offsetHeight + "px";
+    var chatBtn = document.getElementById("theia-widget-btn");
+    var chatBox = document.getElementById("theia-widget-box");
+    var bh = banner.offsetHeight;
+
+    if (stickyWa) stickyWa.style.bottom = bh + "px";
+    if (chatBtn) chatBtn.style.bottom = (bh + 24) + "px";
+    if (chatBox) chatBox.style.bottom = (bh + 90) + "px";
+
+    function restorePositions() {
+      if (stickyWa) stickyWa.style.bottom = "";
+      if (chatBtn) chatBtn.style.bottom = "";
+      if (chatBox) chatBox.style.bottom = "";
+    }
 
     document.getElementById("theia-cc-accept").addEventListener("click", function () {
       setConsent("accepted");
       enableTracking();
       hideBanner();
-      if (stickyWa) stickyWa.style.bottom = "";
+      restorePositions();
     });
 
     document.getElementById("theia-cc-reject").addEventListener("click", function () {
       setConsent("rejected");
       hideBanner();
-      if (stickyWa) stickyWa.style.bottom = "";
+      restorePositions();
     });
   }
 
