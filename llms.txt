@@ -4,6 +4,9 @@
 
 TheIA es un agente conversacional con IA que reemplaza al chatbot tradicional. Usa modelos de lenguaje (Gemini, OpenAI) para entender intención compleja, mantener memoria cross-canal y adaptar su tono según el estado emocional del cliente. Integrado con Shopify y Google Calendar. Implementación llave en mano en 7 días, sin necesidad de conocimientos técnicos.
 
+## Equipo
+- [Nosotros](https://theia.cl/nosotros): Rodrigo Mera, fundador — +15 años en tecnología, banca y transformación digital
+
 ## Producto
 - [TheIA Homepage](https://theia.cl): Página principal con demo y calculadora ROI
 - [Funciones](https://theia.cl/funciones): Capacidades del agente (memoria, multicanal, sentiment engine, IA multimodal)
