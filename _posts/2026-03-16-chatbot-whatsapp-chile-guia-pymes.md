@@ -57,7 +57,7 @@ El punto medio para PYMEs es una solución que incluya:
 - Panel de control para ver métricas
 - Soporte en español
 
-Soluciones como TheIA están diseñadas específicamente para PYMEs en Chile, con planes desde $29 USD/mes que incluyen todo esto.
+Soluciones como [TheIA](/funciones) están diseñadas específicamente para PYMEs en Chile, con [planes accesibles](/precios) que incluyen todo esto.
 
 ## Cómo elegir el chatbot correcto
 

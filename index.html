@@ -40,7 +40,7 @@
   <meta property="og:image:height" content="500" />
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="TheIA.cl — Agente IA WhatsApp, Instagram y Web · Ventas 24/7 Chile" />
   <meta name="twitter:description"
     content="Atiende, agenda y cierra ventas por WhatsApp, Instagram DM y tu web con IA. 24/7, sin intervención humana." />
@@ -53,6 +53,7 @@
     "@graph": [
       {
         "@type": "SoftwareApplication",
+        "@id": "https://theia.cl#software",
         "name": "TheIA",
         "url": "https://theia.cl",
         "description": "Agente de ventas con inteligencia artificial para WhatsApp, Instagram DM y tu sitio web. Atiende, califica, agenda y cierra ventas 24/7 para pymes en Chile.",
@@ -71,28 +72,45 @@
             "unitCode": "MON"
           }
         },
-        "provider": {
-          "@type": "Organization",
-          "name": "TheIA",
-          "url": "https://theia.cl",
-          "email": "rodrigo@theia.cl",
-          "telephone": "+56977298344",
-          "logo": "https://theia.cl/logo.png",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Santiago",
-            "addressRegion": "Región Metropolitana",
-            "addressCountry": "CL"
-          },
-          "areaServed": ["CL"]
-        }
+        "provider": { "@id": "https://theia.cl#organization" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://theia.cl#organization",
+        "name": "TheIA",
+        "url": "https://theia.cl",
+        "email": "rodrigo@theia.cl",
+        "telephone": "+56977298344",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://theia.cl/logo.png"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Santiago",
+          "addressRegion": "Región Metropolitana",
+          "addressCountry": "CL"
+        },
+        "areaServed": { "@type": "Country", "name": "Chile" },
+        "founder": {
+          "@type": "Person",
+          "@id": "https://theia.cl/nosotros#rodrigo",
+          "name": "Rodrigo Mera",
+          "url": "https://www.linkedin.com/in/rodmera/"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/112228768/",
+          "https://www.linkedin.com/in/rodmera/"
+        ]
       },
       {
         "@type": "WebSite",
+        "@id": "https://theia.cl#website",
         "url": "https://theia.cl",
         "name": "TheIA",
         "description": "Agente de ventas con IA para WhatsApp · Chile",
-        "inLanguage": "es-CL"
+        "inLanguage": "es-CL",
+        "publisher": { "@id": "https://theia.cl#organization" }
       }
     ]
   }
@@ -3080,6 +3098,7 @@
           <a href="/precios">Planes y Precios</a>
           <a href="/servicios">Servicios</a>
           <a href="/blog/">Blog</a>
+          <a href="/nosotros">Nosotros</a>
           <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener">Agendar Demo →</a>
           <a href="https://admin.theia.cl" target="_blank" rel="noopener">Panel Admin →</a>
         </div>
@@ -3098,7 +3117,7 @@
     </div>
     <div class="founder-strip">
       <span>Creado por</span>
-      <a href="https://www.linkedin.com/in/rodmera/" target="_blank" rel="noopener"><strong>Rodrigo Mera</strong> · Fundador de TheIA</a>
+      <a href="/nosotros"><strong>Rodrigo Mera</strong> · Fundador de TheIA</a>
       <span>· Santiago, Chile 🇨🇱</span>
     </div>
     <div class="footer-bottom">

@@ -93,7 +93,7 @@ Un chatbot básico puede funcionar. Pero si recibes más de 20 mensajes diarios 
 
 La tendencia es clara: los chatbots de menú están quedando obsoletos. Los clientes esperan conversaciones naturales — y las PYMEs que adoptan agentes de IA temprano tienen una ventaja competitiva real.
 
-En Chile, la adopción todavía es baja. Eso significa oportunidad: mientras tu competencia sigue respondiendo manualmente o con menús rígidos, tú puedes ofrecer atención inmediata, personalizada y disponible 24/7.
+En Chile, la adopción todavía es baja. Eso significa oportunidad: mientras tu competencia sigue respondiendo manualmente o con menús rígidos, tú puedes ofrecer atención inmediata, personalizada y disponible 24/7. [TheIA](/funciones) es un ejemplo de agente que combina IA multimodal, memoria cross-canal y cierre automático de ventas en un solo servicio llave en mano.
 
 ## Cuánto cuesta cada opción
 
