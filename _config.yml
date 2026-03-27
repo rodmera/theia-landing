@@ -5,6 +5,11 @@ baseurl: ""
 
 permalink: /blog/:title/
 
+include:
+  - robots.txt
+  - llms.txt
+  - sitemap.xml
+
 exclude:
   - CHANGELOG.md
   - CLAUDE.md

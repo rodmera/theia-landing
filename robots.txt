@@ -1,0 +1,30 @@
+# TheIA - theia.cl
+# Agente de ventas con IA para WhatsApp
+
+User-agent: *
+Allow: /
+
+# Bloquear crawlers de training (Common Crawl)
+User-agent: CCBot
+Disallow: /
+
+# AI search crawlers - permitidos explícitamente
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://theia.cl/sitemap.xml
