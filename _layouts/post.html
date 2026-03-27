@@ -40,7 +40,15 @@
     "@type": "BlogPosting",
     "headline": "{{ page.title }}",
     "datePublished": "{{ page.date | date_to_xmlschema }}",
-    "author": { "@type": "Person", "name": "{{ page.author | default: 'Rodrigo Mera' }}" },
+    "description": "{{ page.excerpt | strip_html | truncate: 160 | escape }}",
+    "dateModified": "{{ page.date | date_to_xmlschema }}",
+    "image": "https://theia.cl/logo.png",
+    "author": {
+      "@type": "Person",
+      "name": "{{ page.author | default: 'Rodrigo Mera' }}",
+      "url": "https://www.linkedin.com/in/rodmera/",
+      "jobTitle": "Fundador & AI Product Manager"
+    },
     "publisher": { "@type": "Organization", "name": "TheIA", "url": "https://theia.cl", "logo": { "@type": "ImageObject", "url": "https://theia.cl/logo.png" } },
     "mainEntityOfPage": "{{ page.url | absolute_url }}"
   }
@@ -311,6 +319,7 @@
       {% if page.category %}<span class="post-tag">{{ page.category }}</span>{% endif %}
       <span class="post-date">{{ page.date | date: "%d %b %Y" }}</span>
       {% if page.reading_time %}<span class="post-reading">{{ page.reading_time }} min de lectura</span>{% endif %}
+      <span class="post-date">Por <a href="/nosotros" style="color:var(--gold-light);text-decoration:none;">{{ page.author | default: 'Rodrigo Mera' }}</a></span>
     </div>
 
     <h1>{{ page.title }}</h1>
