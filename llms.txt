@@ -27,7 +27,7 @@ TheIA es un agente conversacional con IA que reemplaza al chatbot tradicional. U
 - Mercado: Pymes Chile (retail, fitness, clínicas, inmobiliarias, educación)
 - Precio: desde CLP 190.000/mes
 - Implementación: 7 días, llave en mano
-- Contacto: rodrigo@theia.cl | +56 9 7729 8344
+- Contacto: hola@theia.cl | +56 9 7729 8344
 
 ## Optional
 - [Privacidad](https://theia.cl/privacidad): Política de privacidad

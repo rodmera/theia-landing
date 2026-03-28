@@ -68,4 +68,15 @@ Variables CSS definidas en `:root` que controlan toda la paleta:
 
 - **Agendar Demo:** `https://calendar.app.google/ZDjEtqCXTJVxzi7bA` (CTA principal en nav, hero y footer)
 - **WhatsApp:** `https://wa.me/12063858350` (número US +1 206 385-8350, botón secundario en hero + sticky mobile)
-- **Email de contacto:** `rodrigo@theia.cl`
+- **Email de contacto:** `hola@theia.cl`
+
+## Cookies y compliance (Ley 21.719)
+
+- **Banner de consentimiento:** `cc-init.js` (nombre genérico para evitar ad blockers). Bloquea GA4 y Meta Pixel hasta que el usuario acepte. Preferencia en cookie `theia_cookie_consent` (1 año). Empuja webchat widget y sticky WA en mobile mientras el banner está visible.
+- **GA4 y Meta Pixel NO están en los HTML.** Se cargan dinámicamente desde `cc-init.js` solo con consentimiento.
+- **Política de privacidad:** `privacidad.html` — 13 secciones, cumple Ley 21.719. Indexable (sin noindex).
+- **Demo:** 30 minutos (no 15).
+
+## Autoría en Git
+
+PROHIBIDO incluir "Claude", "Claude Code", "Anthropic", o cualquier referencia a IA como autor o co-autor en commits y PRs. No usar `Co-Authored-By` con Claude. Los commits son de Rodrigo.
