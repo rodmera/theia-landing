@@ -80,16 +80,28 @@
     document.body.appendChild(banner);
 
     // Empujar elementos fijos para que no se tapen con el banner
-    var stickyWa = document.querySelector(".sticky-wa");
-    var chatBtn = document.getElementById("theia-widget-btn");
-    var chatBox = document.getElementById("theia-widget-box");
     var bh = banner.offsetHeight;
-
-    if (stickyWa) stickyWa.style.bottom = bh + "px";
-    if (chatBtn) chatBtn.style.bottom = (bh + 24) + "px";
-    if (chatBox) chatBox.style.bottom = (bh + 90) + "px";
+    function pushElements() {
+      var stickyWa = document.querySelector(".sticky-wa");
+      var chatBtn = document.getElementById("theia-widget-btn");
+      var chatBox = document.getElementById("theia-widget-box");
+      if (stickyWa) stickyWa.style.bottom = bh + "px";
+      if (chatBtn) chatBtn.style.bottom = (bh + 24) + "px";
+      if (chatBox) chatBox.style.bottom = (bh + 90) + "px";
+      return !!chatBtn;
+    }
+    // Widget externo puede cargar después — reintentar
+    if (!pushElements()) {
+      var _retries = 0;
+      var _iv = setInterval(function () {
+        if (pushElements() || ++_retries > 20) clearInterval(_iv);
+      }, 250);
+    }
 
     function restorePositions() {
+      var stickyWa = document.querySelector(".sticky-wa");
+      var chatBtn = document.getElementById("theia-widget-btn");
+      var chatBox = document.getElementById("theia-widget-box");
       if (stickyWa) stickyWa.style.bottom = "";
       if (chatBtn) chatBtn.style.bottom = "";
       if (chatBox) chatBox.style.bottom = "";
