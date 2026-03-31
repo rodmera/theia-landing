@@ -15,8 +15,11 @@
   const API_URL = (script.getAttribute("data-api-url") || "").replace(/\/$/, "");
   const TITLE = script.getAttribute("data-title") || "Chat";
   const COLOR = script.getAttribute("data-color") || "#6366f1";
+  const WELCOME_MSG = script.getAttribute("data-welcome") || "¡Hola! 👋 ¿En qué puedo ayudarte hoy?";
   const STORAGE_KEY = "theia_session_" + API_KEY.slice(0, 8);
+  const HISTORY_KEY = "theia_history_" + API_KEY.slice(0, 8);
   const COOKIE_KEY  = "theia_vid_"     + API_KEY.slice(0, 8); // cookie 180 días (cubre incógnito y caché limpio)
+  const PRECHAT = script.getAttribute("data-prechat") !== "false"; // default: true
 
   if (!API_KEY || !API_URL) {
     console.warn("[TheIA Widget] data-api-key y data-api-url son requeridos.");
@@ -123,34 +126,28 @@
       flex-shrink: 0; transition: opacity .15s;
     }
     #theia-widget-input button:disabled { opacity: .5; cursor: not-allowed; }
-    #theia-proactive-bubble {
-      position: fixed; bottom: 88px; right: 24px; z-index: 9998;
-      background: #fff; color: #1f2937;
-      border-radius: 14px 14px 4px 14px;
-      padding: 12px 40px 12px 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,.18);
-      font-family: system-ui, sans-serif;
-      font-size: 14px; line-height: 1.45;
-      max-width: 260px; cursor: pointer;
-      opacity: 0; transform: translateY(10px) scale(0.95);
-      transform-origin: bottom right;
-      transition: opacity .3s, transform .3s;
-      pointer-events: none;
+    #theia-prechat {
+      padding: 20px 16px; display: flex; flex-direction: column; gap: 12px;
+      background: #f9fafb; flex: 1; justify-content: center;
     }
-    #theia-proactive-bubble.theia-bubble-visible {
-      opacity: 1; transform: translateY(0) scale(1);
-      pointer-events: auto;
+    #theia-prechat p { margin: 0; font-size: 14px; color: #374151; text-align: center; }
+    #theia-prechat input {
+      border: 1px solid #d1d5db; border-radius: 8px; padding: 10px 12px;
+      font-size: 14px; outline: none; width: 100%; box-sizing: border-box;
     }
-    #theia-proactive-bubble .theia-bubble-close {
-      position: absolute; top: 6px; right: 8px;
-      background: none; border: none; cursor: pointer;
-      color: #9ca3af; font-size: 16px; line-height: 1;
-      padding: 2px 4px;
+    #theia-prechat input:focus { border-color: ${COLOR}; }
+    #theia-prechat button {
+      background: ${COLOR}; color: #fff; border: none; border-radius: 8px;
+      padding: 10px; font-size: 14px; font-weight: 600; cursor: pointer;
+      transition: opacity .15s;
     }
-    #theia-proactive-bubble .theia-bubble-close:hover { color: #4b5563; }
-    @media (max-width: 768px) {
-      #theia-proactive-bubble { display: none !important; }
+    #theia-prechat button:hover { opacity: .9; }
+    #theia-powered {
+      text-align: center; padding: 6px; font-size: 11px; color: #9ca3af;
+      border-top: 1px solid #f3f4f6; background: #fff;
     }
+    #theia-powered a { color: #6366f1; text-decoration: none; font-weight: 600; }
+    #theia-powered a:hover { text-decoration: underline; }
     @media (max-width: 400px) {
       #theia-widget-box { width: calc(100vw - 24px); right: 12px; }
     }
@@ -177,6 +174,23 @@
   if (!sessionToken) sessionToken = getCookie(COOKIE_KEY); // fallback: incógnito o caché limpio
   let isOpen = false;
   let pendingBadge = 0;
+  let prechatDone = false;
+  try { prechatDone = !!localStorage.getItem(HISTORY_KEY); } catch (e) {}
+
+  /* ── Sound notification (programmatic beep) ── */
+  function _playNotif() {
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.frequency.value = 800;
+      gain.gain.value = 0.08;
+      osc.start();
+      osc.stop(ctx.currentTime + 0.12);
+    } catch (e) {}
+  }
 
   /* ── HTML ── */
   const btn = document.createElement("button");
@@ -191,11 +205,18 @@
       <span>💬 ${TITLE}</span>
       <button id="theia-close-btn" aria-label="Cerrar">&times;</button>
     </div>
+    <div id="theia-prechat" style="display:none;">
+      <p><strong>👋 Antes de empezar</strong></p>
+      <input type="text" id="theia-prechat-name" placeholder="Tu nombre" autocomplete="given-name" />
+      <input type="email" id="theia-prechat-email" placeholder="Tu email (opcional)" autocomplete="email" />
+      <button id="theia-prechat-btn">Iniciar conversación</button>
+    </div>
     <div id="theia-widget-messages"></div>
     <div id="theia-widget-input">
       <input type="text" id="theia-msg-input" placeholder="Escribe tu mensaje..." autocomplete="off" />
       <button id="theia-send-btn" aria-label="Enviar">&#9658;</button>
     </div>
+    <div id="theia-powered">Potenciado por <a href="https://theia.cl" target="_blank" rel="noopener">TheIA</a></div>
   `;
 
   document.body.appendChild(btn);
@@ -205,6 +226,50 @@
   const input = document.getElementById("theia-msg-input");
   const sendBtn = document.getElementById("theia-send-btn");
 
+  /* ── Persistencia: guardar/restaurar historial ── */
+  function _saveHistory() {
+    try {
+      const msgs = [];
+      messages.querySelectorAll(".theia-msg").forEach(el => {
+        msgs.push({ role: el.classList.contains("user") ? "user" : "bot", html: el.innerHTML });
+      });
+      sessionStorage.setItem(HISTORY_KEY, JSON.stringify(msgs));
+    } catch (e) {}
+  }
+  function _restoreHistory() {
+    try {
+      const raw = sessionStorage.getItem(HISTORY_KEY);
+      if (!raw) return false;
+      const msgs = JSON.parse(raw);
+      if (!msgs.length) return false;
+      msgs.forEach(m => {
+        const div = document.createElement("div");
+        div.className = "theia-msg " + m.role;
+        div.innerHTML = m.html;
+        messages.appendChild(div);
+      });
+      scrollBottom();
+      return true;
+    } catch (e) { return false; }
+  }
+
+  /* ── Pre-chat form ── */
+  const prechatEl = document.getElementById("theia-prechat");
+  const chatMessages = document.getElementById("theia-widget-messages");
+  const chatInput = document.getElementById("theia-widget-input");
+
+  function _showPrechat() {
+    prechatEl.style.display = "flex";
+    chatMessages.style.display = "none";
+    chatInput.style.display = "none";
+    document.getElementById("theia-prechat-name").focus();
+  }
+  function _hidePrechat() {
+    prechatEl.style.display = "none";
+    chatMessages.style.display = "flex";
+    chatInput.style.display = "flex";
+  }
+
   /* ── Helpers ── */
   function toggleChat() {
     isOpen = !isOpen;
@@ -213,10 +278,20 @@
     if (isOpen) {
       pendingBadge = 0;
       updateBadge();
-      input.focus();
+      // Si hay historial previo, restaurar
       if (messages.children.length === 0) {
-        addBotMessage("¡Hola! 👋 ¿En qué puedo ayudarte hoy?");
+        const restored = _restoreHistory();
+        if (restored) {
+          _hidePrechat();
+          prechatDone = true;
+        } else if (PRECHAT && !prechatDone) {
+          _showPrechat();
+          return;
+        } else {
+          addBotMessage(WELCOME_MSG);
+        }
       }
+      input.focus();
     }
   }
 
@@ -275,9 +350,11 @@
     }
     messages.appendChild(div);
     scrollBottom();
+    _saveHistory();
     if (!isOpen) {
       pendingBadge++;
       updateBadge();
+      _playNotif();
     }
   }
 
@@ -287,6 +364,7 @@
     div.textContent = text;
     messages.appendChild(div);
     scrollBottom();
+    _saveHistory();
   }
 
   function showTyping() {
@@ -304,8 +382,13 @@
     if (el) el.remove();
   }
 
-  /* ── Enviar mensaje ── */
+  /* ── Enviar mensaje (con throttle anti-spam) ── */
+  let _lastSendTime = 0;
   async function sendMessage() {
+    const now = Date.now();
+    if (now - _lastSendTime < 2000) return; // Throttle: 1 msg cada 2 segundos
+    _lastSendTime = now;
+
     const text = input.value.trim();
     if (!text) return;
 
@@ -345,54 +428,8 @@
     }
   }
 
-  /* ── Proactive Bubble (solo desktop, máx 3 veces) ── */
-  const BUBBLE_KEY = "theia_bubble_count";
-  const bubble = document.createElement("div");
-  bubble.id = "theia-proactive-bubble";
-  bubble.innerHTML = '¿Tienes dudas? Pregúntame lo que necesites 👋<button class="theia-bubble-close" aria-label="Cerrar">&times;</button>';
-  document.body.appendChild(bubble);
-
-  function hideBubble() {
-    bubble.classList.remove("theia-bubble-visible");
-  }
-
-  function incrementBubbleCount() {
-    try {
-      const count = parseInt(localStorage.getItem(BUBBLE_KEY) || "0", 10) + 1;
-      localStorage.setItem(BUBBLE_KEY, count);
-    } catch (e) {}
-  }
-
-  // Click en el texto del bubble → abre chat
-  bubble.addEventListener("click", function (e) {
-    if (e.target.classList.contains("theia-bubble-close")) return;
-    hideBubble();
-    if (!isOpen) toggleChat();
-  });
-
-  // Click en X → cierra bubble
-  bubble.querySelector(".theia-bubble-close").addEventListener("click", function (e) {
-    e.stopPropagation();
-    hideBubble();
-  });
-
-  // Mostrar bubble tras 15s si: desktop, no abierto, y menos de 3 apariciones previas
-  setTimeout(function () {
-    if (isOpen) return;
-    if (window.innerWidth <= 768) return;
-    try {
-      const count = parseInt(localStorage.getItem(BUBBLE_KEY) || "0", 10);
-      if (count >= 3) return;
-    } catch (e) {}
-    bubble.classList.add("theia-bubble-visible");
-    incrementBubbleCount();
-  }, 15000);
-
   /* ── Eventos ── */
-  btn.addEventListener("click", function () {
-    hideBubble();
-    toggleChat();
-  });
+  btn.addEventListener("click", toggleChat);
   document.getElementById("theia-close-btn").addEventListener("click", toggleChat);
   sendBtn.addEventListener("click", sendMessage);
   input.addEventListener("keydown", function (e) {
@@ -400,5 +437,30 @@
       e.preventDefault();
       sendMessage();
     }
+  });
+
+  /* ── Pre-chat form submit ── */
+  document.getElementById("theia-prechat-btn").addEventListener("click", function () {
+    const name = document.getElementById("theia-prechat-name").value.trim();
+    if (!name) {
+      document.getElementById("theia-prechat-name").style.borderColor = "#ef4444";
+      return;
+    }
+    const email = document.getElementById("theia-prechat-email").value.trim();
+    prechatDone = true;
+    _hidePrechat();
+
+    // Enviar datos como primer mensaje (la IA los capturará con update_contact_info)
+    const intro = email ? `Hola, soy ${name}. Mi email es ${email}` : `Hola, soy ${name}`;
+    addBotMessage(WELCOME_MSG);
+    // Simular envío del mensaje con los datos del pre-chat
+    input.value = intro;
+    sendMessage();
+  });
+  document.getElementById("theia-prechat-name").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") document.getElementById("theia-prechat-btn").click();
+  });
+  document.getElementById("theia-prechat-email").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") document.getElementById("theia-prechat-btn").click();
   });
 })();
