@@ -2,6 +2,7 @@
 title: "El mito del \"No-Code\" para dueños de PYMEs: Tu negocio necesita ventas, no un ingeniero"
 category: Negocios
 reading_time: 4
+image: /screenshots/el-mito-no-code.jpg
 author: Rodrigo Mera
 excerpt: "Descubre por qué las plataformas 'No-Code' de Inteligencia Artificial pueden ser una trampa de tiempo para las PYMEs. TheIA ofrece una solución llave en mano para vender por WhatsApp sin complicaciones técnicas."
 ---
