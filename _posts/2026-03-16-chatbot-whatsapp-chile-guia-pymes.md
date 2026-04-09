@@ -31,19 +31,19 @@ Cualquier PYME que reciba consultas repetitivas por WhatsApp:
 
 - **E-commerce y tiendas online**: Preguntas sobre stock, tallas, precios, envíos
 - **Centros de salud y bienestar**: Agendar horas, confirmar citas, enviar recordatorios
-- **Gimnasios y centros deportivos**: Horarios de clases, disponibilidad, inscripciones
-- **Inmobiliarias**: Filtrar interesados, agendar visitas, enviar fichas
+- **Inmobiliarias y corredores**: Filtrar interesados, agendar visitas, enviar fichas de propiedades
+- **Salud mental y consultas**: Agendamiento fuera de horario, pre-screening, recordatorios
 - **Servicios profesionales**: Cotizaciones, disponibilidad, seguimiento
 
-## Caso real: E-commerce fitness en Santiago
+## Resultados en PYMEs reales en Chile
 
-Un e-commerce de equipamiento deportivo en Santiago implementó un agente de IA en WhatsApp con estos resultados en el primer mes:
+Negocios en Santiago de distintos rubros — inmobiliarias, salud, e-commerce, alimentos — ya operan con un agente de IA en WhatsApp. Los resultados comunes:
 
-- **+60% en ventas nocturnas** (el bot atendía cuando el equipo no estaba)
 - **Menos de 38 segundos** de tiempo de respuesta promedio
-- **+340 consultas atendidas** automáticamente por mes
+- **Atención 24/7** sin contratar turnos adicionales
+- **Consultas resueltas automáticamente** (precios, disponibilidad, agendamiento)
 
-El bot no reemplazó al equipo humano — lo complementó. Las preguntas simples (stock, precios, envíos) las resuelve solo. Las consultas complejas las escala con un resumen al equipo.
+El agente no reemplaza al equipo humano — lo complementa. Las preguntas repetitivas las resuelve solo. Las consultas complejas las escala con un resumen al equipo.
 
 ## Cuánto cuesta implementar un chatbot con IA
 

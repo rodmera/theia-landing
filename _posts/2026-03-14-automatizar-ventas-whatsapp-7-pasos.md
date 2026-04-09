@@ -26,7 +26,7 @@ Tu chatbot va a representar tu negocio. Debe sonar como tú — no como un call 
 
 Piensa en:
 - **¿Tuteas o hablas de usted?** (En Chile, la mayoría de las PYMEs tutean)
-- **¿Eres formal o cercano?** Un gimnasio no habla igual que un consultorio médico
+- **¿Eres formal o cercano?** Una inmobiliaria no habla igual que un consultorio médico
 - **¿Usas emojis?** Un par bien puestos humanizan la conversación
 
 Este tono se configura una vez y el agente lo mantiene en todas las conversaciones.
