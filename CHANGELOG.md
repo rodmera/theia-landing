@@ -2,6 +2,16 @@
 
 Todos los cambios notables en este proyecto serán documentados en este archivo.
 
+## [1.4.0] - 2026-07-02
+
+### Añadido
+
+- **Atribución de Anuncios**: nueva feature card en `funciones.html` (CRM & Captación) — trackeo de qué campaña de Meta/Google Ads originó cada conversación y venta.
+- **Transferencia a Agente Humano**: nueva feature card en `funciones.html` (Inteligencia de ventas) — handoff a humano sin perder el contexto.
+- **TheIA Growth**: card "SEO & Google Analytics" en `servicios.html` evolucionada para cubrir explícitamente gestión de Google Ads (línea de servicios propia, primer cliente Bodeguero.cl).
+- **FAQ nueva en precios.html**: "Vi una plataforma de IA más grande, ¿por qué elegir TheIA?" — posicionamiento de precio fijo/trato directo vs. plataformas corporativas.
+- Bullet nuevo en la comparación de `index.html` sobre plataformas "enterprise" que escalan a precio USD.
+
 ## [1.3.0] - 2026-03-19
 
 ### Añadido
