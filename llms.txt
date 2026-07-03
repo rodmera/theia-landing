@@ -1,11 +1,8 @@
 # TheIA
 
-> Agente de ventas con inteligencia artificial para WhatsApp, Instagram DM y sitio web. SaaS B2B para pymes en Chile. Atiende, califica, agenda y cierra ventas 24/7.
+> Agente de ventas con inteligencia artificial para WhatsApp, Instagram DM, Facebook Messenger y sitio web. SaaS B2B para pymes en Chile. Atiende, califica, agenda y cierra ventas 24/7.
 
 TheIA es un agente conversacional con IA que reemplaza al chatbot tradicional. Usa modelos de lenguaje (Gemini, OpenAI) para entender intención compleja, mantener memoria cross-canal y adaptar su tono según el estado emocional del cliente. Integrado con Shopify y Google Calendar. Implementación llave en mano en 7 días, sin necesidad de conocimientos técnicos.
-
-## Equipo
-- [Nosotros](https://theia.cl/nosotros): Rodrigo Mera, fundador — +15 años en tecnología, banca y transformación digital
 
 ## Producto
 - [TheIA Homepage](https://theia.cl): Página principal con demo y calculadora ROI
@@ -23,7 +20,7 @@ TheIA es un agente conversacional con IA que reemplaza al chatbot tradicional. U
 - [Self-Service vs Llave en Mano](https://theia.cl/blog/self-service-vs-llave-en-mano-chatbot-pyme/): Qué modelo conviene según tu negocio
 
 ## Datos clave
-- Canales: WhatsApp, Instagram DM, Chat Web
+- Canales: WhatsApp, Instagram DM, Facebook Messenger, Chat Web
 - Mercado: Pymes Chile (inmobiliarias, corredores de propiedades, salud mental, alimentos, retail, clínicas, e-commerce)
 - Precio: desde CLP 190.000/mes
 - Implementación: 7 días, llave en mano

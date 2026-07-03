@@ -387,7 +387,7 @@
 
   <nav>
     <a href="/" class="logo">
-      <img src="logo.png" alt="TheIA — Agente de ventas con IA para WhatsApp, Instagram y Web" width="100" height="100" />
+      <img src="logo.png" alt="TheIA — Agente de ventas con IA para WhatsApp, Instagram, Messenger y Web" width="100" height="100" />
     </a>
     <button class="menu-toggle" aria-label="Abrir menú">
       <span></span>
@@ -403,7 +403,7 @@
       <a href="/pulse" class="btn btn-ghost">Pulse</a>
       <a href="/precios" class="btn btn-ghost">Precios</a>
       <a href="/blog/" class="btn btn-ghost">Blog</a>
-      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold">Agendar Demo →</a>
+      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" onclick="theiaTrackCTA('demo','precios')">Agendar Demo →</a>
     </div>
   </nav>
 
@@ -431,7 +431,7 @@
         <h3>Todo incluido en tu plan</h3>
         <ul class="inc-list">
           <li class="inc-item"><span class="inc-check">&#10003;</span> Hasta 1.000 conversaciones al mes</li>
-          <li class="inc-item"><span class="inc-check">&#10003;</span> Integración con WhatsApp, Instagram, Shopify y Google Calendar</li>
+          <li class="inc-item"><span class="inc-check">&#10003;</span> Integración con WhatsApp, Instagram, Messenger, Shopify y Google Calendar</li>
           <li class="inc-item"><span class="inc-check">&#10003;</span> Panel de administración, métricas y encuestas NPS</li>
           <li class="inc-item"><span class="inc-check">&#10003;</span> <strong>CRM con pipeline automático</strong> — viaje del cliente en 5 etapas, lead scoring y valor de deals</li>
           <li class="inc-item"><span class="inc-check">&#10003;</span> Captación inteligente de leads — pre-chat, scoring automático y nudge por inactividad</li>
@@ -471,7 +471,7 @@
 
       <div class="pricing-cta reveal">
         <a href="https://wa.me/12063858350?text=Hola,%20quiero%20contratar%20TheIA" class="btn btn-whatsapp"
-          target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+          target="_blank" rel="noopener" onclick="theiaTrackCTA('whatsapp','precios')"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle; margin-top: -2px;">
             <path
@@ -528,7 +528,7 @@
             </tr>
             <tr style="border-bottom:1px solid var(--glass-border);">
               <td style="padding:0.85rem 0.75rem; color:var(--text-sub);">Canales</td>
-              <td style="padding:0.85rem 0.75rem; text-align:center; color:var(--green); font-weight:600;">WhatsApp + Instagram + Web</td>
+              <td style="padding:0.85rem 0.75rem; text-align:center; color:var(--green); font-weight:600;">WhatsApp + Instagram + Messenger + Web</td>
               <td style="padding:0.85rem 0.75rem; text-align:center; color:var(--text-sub);">Depende del contrato</td>
             </tr>
             <tr style="border-bottom:1px solid var(--glass-border);">
@@ -546,7 +546,7 @@
       </div>
 
       <div class="reveal" style="max-width:680px; margin:0 auto;">
-        <p style="color:var(--text-sub); font-size:0.92rem; line-height:1.8; margin-bottom:1.25rem;">Un community manager part-time en Chile cuesta entre $400.000 y $800.000 CLP mensuales, trabaja en horario laboral y puede atender un canal a la vez. TheIA cuesta menos de la mitad, opera las 24 horas en 3 canales simultáneamente, y nunca necesita vacaciones ni licencia médica.</p>
+        <p style="color:var(--text-sub); font-size:0.92rem; line-height:1.8; margin-bottom:1.25rem;">Un community manager part-time en Chile cuesta entre $400.000 y $800.000 CLP mensuales, trabaja en horario laboral y puede atender un canal a la vez. TheIA cuesta menos de la mitad, opera las 24 horas en 4 canales simultáneamente, y nunca necesita vacaciones ni licencia médica.</p>
         <p style="color:var(--text-sub); font-size:0.92rem; line-height:1.8; margin-bottom:1.25rem;">Esto no significa que TheIA reemplace completamente a las personas. El agente se encarga del 80% de las conversaciones rutinarias — consultas de precio, stock, horarios, agendamiento de citas — mientras tu equipo se enfoca en cerrar ventas grandes y atender casos complejos que requieren criterio humano.</p>
         <p style="color:var(--text-sub); font-size:0.92rem; line-height:1.8;">Según datos de <a href="https://www.hubspot.com/" target="_blank" rel="noopener" style="color:var(--gold-light);">HubSpot</a>, el 52% de las consultas comerciales llegan fuera de horario laboral. Si nadie responde esos mensajes, estás perdiendo más de la mitad de tus oportunidades de venta cada mes.</p>
       </div>
@@ -580,14 +580,14 @@
         <div class="faq-item">
           <button class="faq-question">¿La IA está incluida en el precio?</button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">Sí. TheIA está built with Google Gemini e infraestructura built on Google Cloud. Toda la tecnología de inteligencia artificial está 100% incluida en tu plan — no necesitas contratar API keys, modelos de lenguaje ni pagar costos adicionales por uso de IA.</div>
+            <div class="faq-answer-inner">Sí. TheIA está construido con Google Gemini, con infraestructura sobre Google Cloud. Toda la tecnología de inteligencia artificial está 100% incluida en tu plan — no necesitas contratar API keys, modelos de lenguaje ni pagar costos adicionales por uso de IA.</div>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">¿Cuánto demora la implementación?</button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">Menos de 7 días. Configuramos tu agente con la información de tu negocio, lo conectamos a WhatsApp, Instagram y tu sitio web, y lo dejamos listo para atender clientes.</div>
+            <div class="faq-answer-inner">Menos de 7 días. Configuramos tu agente con la información de tu negocio, lo conectamos a WhatsApp, Instagram, Messenger y tu sitio web, y lo dejamos listo para atender clientes.</div>
           </div>
         </div>
 
@@ -615,7 +615,7 @@
         <div class="faq-item">
           <button class="faq-question">¿Qué necesito para empezar?</button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">Solo necesitas una cuenta de WhatsApp Business y tu catálogo de productos o servicios. Nosotros nos encargamos de la configuración técnica completa: integración con WhatsApp, Instagram y tu sitio web, entrenamiento del agente con la información de tu negocio, y puesta en marcha. No necesitas conocimientos técnicos.</div>
+            <div class="faq-answer-inner">Solo necesitas una cuenta de WhatsApp Business y tu catálogo de productos o servicios. Nosotros nos encargamos de la configuración técnica completa: integración con WhatsApp, Instagram, Messenger y tu sitio web, entrenamiento del agente con la información de tu negocio, y puesta en marcha. No necesitas conocimientos técnicos.</div>
           </div>
         </div>
 
@@ -629,7 +629,7 @@
         <div class="faq-item">
           <button class="faq-question">¿Funciona para mi tipo de negocio?</button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">TheIA funciona para cualquier negocio que reciba consultas repetitivas por WhatsApp o Instagram: inmobiliarias, corredores de propiedades, clínicas, salud mental, e-commerce, alimentos, restaurantes, servicios profesionales. Si tus clientes preguntan precios, disponibilidad y horarios, TheIA puede atenderlos. <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" style="color:var(--gold-light);">Agenda una demo para ver cómo se adapta a tu rubro →</a></div>
+            <div class="faq-answer-inner">TheIA funciona para cualquier negocio que reciba consultas repetitivas por WhatsApp o Instagram: inmobiliarias, corredores de propiedades, clínicas, salud mental, e-commerce, alimentos, restaurantes, servicios profesionales. Si tus clientes preguntan precios, disponibilidad y horarios, TheIA puede atenderlos. <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" style="color:var(--gold-light);" onclick="theiaTrackCTA('demo','precios')">Agenda una demo para ver cómo se adapta a tu rubro →</a></div>
           </div>
         </div>
       </div>

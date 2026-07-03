@@ -28,7 +28,7 @@
     s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
     document.head.appendChild(s);
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
     gtag("js", new Date());
     gtag("config", GA_ID);
   }
@@ -135,3 +135,13 @@
   }
   // Si rejected: no hacer nada (no cargar tracking, no mostrar banner)
 })();
+
+/**
+ * Tracking de conversiones — llamar desde onclick en los CTAs del sitio.
+ * No-op silencioso si el usuario rechazó cookies (gtag no cargado).
+ */
+function theiaTrackCTA(ctaType, ctaLocation) {
+  if (typeof gtag === "function") {
+    gtag("event", "cta_click", { cta_type: ctaType, cta_location: ctaLocation });
+  }
+}

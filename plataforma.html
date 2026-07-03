@@ -491,7 +491,7 @@
 
   <nav>
     <a href="/" class="logo">
-      <img src="logo.png" alt="TheIA — Agente de ventas con IA para WhatsApp, Instagram y Web" width="100" height="100" />
+      <img src="logo.png" alt="TheIA — Agente de ventas con IA para WhatsApp, Instagram, Messenger y Web" width="100" height="100" />
     </a>
     <button class="menu-toggle" aria-label="Abrir menú">
       <span></span>
@@ -508,7 +508,7 @@
       <a href="/pulse" class="btn btn-ghost">Pulse</a>
       <a href="/precios" class="btn btn-ghost">Precios</a>
       <a href="/blog/" class="btn btn-ghost">Blog</a>
-      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold">Agendar Demo →</a>
+      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" onclick="theiaTrackCTA('demo','plataforma')">Agendar Demo →</a>
     </div>
   </nav>
 
@@ -596,15 +596,15 @@
     <div class="container">
       <h2 class="reveal">Agenda una demo y ve la plataforma <span class="gold">en vivo.</span></h2>
       <p class="section-sub reveal">Conoce el panel de control de TheIA, recorre el inbox y el dashboard con nosotros.</p>
-      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold reveal" style="padding: 0.85rem 2rem; font-size: 1rem; border-radius: 10px;">Agendar Demo →</a>
+      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold reveal" style="padding: 0.85rem 2rem; font-size: 1rem; border-radius: 10px;" onclick="theiaTrackCTA('demo','plataforma')">Agendar Demo →</a>
     </div>
   </section>
 
   <footer>
     <div class="footer-inner">
       <div class="footer-col">
-        <a href="/" class="logo"><img src="logo.png" alt="TheIA — Agente de ventas con IA para WhatsApp, Instagram y Web" width="100" height="100" /></a>
-        <p>Agente de ventas con IA para WhatsApp, Instagram DM y tu sitio web. Automatización comercial 24/7.</p>
+        <a href="/" class="logo"><img src="logo.png" alt="TheIA — Agente de ventas con IA para WhatsApp, Instagram, Messenger y Web" width="100" height="100" /></a>
+        <p>Agente de ventas con IA para WhatsApp, Instagram, Messenger y tu sitio web. Automatización comercial 24/7.</p>
       </div>
       <div class="footer-col center">
         <div style="display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start;">
@@ -613,7 +613,7 @@
           <a href="/pulse">TheIA Pulse</a>
           <a href="/precios">Planes y Precios</a>
           <a href="/blog/">Blog</a>
-          <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener">Agendar Demo →</a>
+          <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" onclick="theiaTrackCTA('demo','plataforma')">Agendar Demo →</a>
           <a href="https://admin.theia.cl" target="_blank" rel="noopener">Panel Admin →</a>
         </div>
       </div>
@@ -621,11 +621,10 @@
         <div style="display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start;">
           <h4>Contacto</h4>
           <a href="mailto:hola@theia.cl">hola@theia.cl</a>
-          <a href="https://wa.me/12063858350" target="_blank" rel="noopener">+1 (206) 385-8350</a>
+          <a href="https://wa.me/12063858350" target="_blank" rel="noopener" onclick="theiaTrackCTA('whatsapp','plataforma')">+1 (206) 385-8350</a>
           <h4 style="margin-top:0.5rem;">Síguenos</h4>
           <a href="https://www.linkedin.com/company/112228768/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>TheIA en LinkedIn</a>
           <a href="https://www.instagram.com/theiacl_/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>@theiacl_</a>
-          <a href="https://www.linkedin.com/in/rodmera/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>@rodmera</a>
         </div>
       </div>
     </div>

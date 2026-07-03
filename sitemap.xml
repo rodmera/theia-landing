@@ -79,12 +79,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://theia.cl/nosotros</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://theia.cl/privacidad</loc>
     <lastmod>2026-03-24</lastmod>
     <changefreq>yearly</changefreq>
