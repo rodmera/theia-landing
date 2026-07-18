@@ -5,6 +5,9 @@ baseurl: ""
 
 permalink: /blog/:title/
 
+plugins:
+  - jekyll-feed
+
 include:
   - robots.txt
   - llms.txt

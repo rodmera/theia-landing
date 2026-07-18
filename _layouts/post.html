@@ -42,7 +42,7 @@
     "datePublished": "{{ page.date | date_to_xmlschema }}",
     "description": "{{ page.excerpt | strip_html | truncate: 160 | escape }}",
     "dateModified": "{{ page.date | date_to_xmlschema }}",
-    "image": "https://theia.cl/logo.png",
+    "image": "{% if page.image %}{{ page.image | absolute_url }}{% else %}https://theia.cl/og-image.png{% endif %}",
     "author": {
       "@type": "Person",
       "name": "{{ page.author | default: 'Rodrigo Mera' }}",
