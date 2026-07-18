@@ -571,67 +571,110 @@ layout: null
       <p class="blog-desc">Guías, casos de uso y tendencias sobre IA conversacional y automatización comercial para PYMEs en Chile.</p>
     </div>
 
-    <!-- Category Filter -->
+    <!-- Category Filter (hardcoded; sync con frontmatter 'category' de cada post si agregas/borras) -->
     <div class="filter-bar reveal" style="transition-delay: 0.05s;">
       <button class="filter-pill active" data-filter="all">Todos</button>
-      {% assign categories = site.posts | map: "category" | compact | uniq | sort %}
-      {% for cat in categories %}
-      <button class="filter-pill" data-filter="{{ cat }}">{{ cat }}</button>
-      {% endfor %}
+      <button class="filter-pill" data-filter="Comparativa">Comparativa</button>
+      <button class="filter-pill" data-filter="Estrategia">Estrategia</button>
+      <button class="filter-pill" data-filter="Guía">Guía</button>
+      <button class="filter-pill" data-filter="Negocios">Negocios</button>
     </div>
 
-    {% assign sorted_posts = site.posts | sort: "date" | reverse %}
+    <!-- Featured Post + Post Grid (hardcoded; sync si agregas/borras _posts/*.md) -->
 
-    <!-- Featured Post (latest) -->
-    {% assign latest = sorted_posts | first %}
-    {% if latest %}
-    <a href="{{ latest.url }}" class="featured-post reveal" data-category="{{ latest.category }}" style="transition-delay: 0.1s;">
+    <a href="/blog/mito-no-code-para-pymes/" class="featured-post reveal" data-category="Negocios" style="transition-delay: 0.1s;">
       <div class="featured-img">
-        {% if latest.image %}
-        <img src="{{ latest.image }}" alt="{{ latest.title }}" loading="lazy" />
-        {% else %}
-        <div class="featured-img-placeholder">
-          <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
-        </div>
-        {% endif %}
+        <img src="/screenshots/el-mito-no-code.jpg" alt="El mito del &quot;No-Code&quot; para dueños de PYMEs" loading="lazy" />
       </div>
       <div class="featured-content">
         <span class="featured-label">Artículo destacado</span>
         <div class="featured-meta">
-          {% if latest.category %}<span class="post-card-tag">{{ latest.category }}</span>{% endif %}
-          <span class="post-card-date">{{ latest.date | date: "%d %b %Y" }}</span>
-          {% if latest.reading_time %}<span class="post-card-date">{{ latest.reading_time }} min</span>{% endif %}
+          <span class="post-card-tag">Negocios</span>
+          <span class="post-card-date">07 Apr 2026</span>
+          <span class="post-card-date">4 min</span>
         </div>
-        <div class="featured-title">{{ latest.title }}</div>
-        <p class="featured-excerpt">{{ latest.excerpt | strip_html | truncate: 220 }}</p>
+        <div class="featured-title">El mito del &quot;No-Code&quot; para dueños de PYMEs: Tu negocio necesita ventas, no un ingeniero</div>
+        <p class="featured-excerpt">Descubre por qué las plataformas &#39;No-Code&#39; de Inteligencia Artificial pueden ser una trampa de tiempo para las PYMEs. TheIA ofrece una solución llave en mano para vender por WhatsApp sin complicaciones técnicas.</p>
         <span class="featured-read">Leer artículo <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
       </div>
     </a>
-    {% endif %}
 
-    <!-- Post Grid (rest of posts) -->
     <div class="post-grid">
-      {% for post in sorted_posts offset:1 %}
-      <a href="{{ post.url }}" class="post-card reveal" data-category="{{ post.category }}" style="transition-delay: {{ forloop.index | times: 0.04 }}s;">
+      <a href="/blog/cuanto-cuesta-agente-ia-chile/" class="post-card reveal" data-category="Guía" style="transition-delay: 0.04s;">
         <div class="post-card-img">
-          {% if post.image %}
-          <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy" />
-          {% else %}
           <div class="post-card-img-placeholder"></div>
-          {% endif %}
         </div>
         <div class="post-card-body">
           <div class="post-card-meta">
-            {% if post.category %}<span class="post-card-tag">{{ post.category }}</span>{% endif %}
-            <span class="post-card-date">{{ post.date | date: "%d %b %Y" }}</span>
-            {% if post.reading_time %}<span class="post-card-date">{{ post.reading_time }} min</span>{% endif %}
+            <span class="post-card-tag">Guía</span>
+            <span class="post-card-date">24 Mar 2026</span>
+            <span class="post-card-date">5 min</span>
           </div>
-          <div class="post-card-title">{{ post.title }}</div>
-          <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
+          <div class="post-card-title">Cuánto Cuesta un Agente IA para tu Negocio en Chile (2026)</div>
+          <p class="post-card-excerpt">Estás evaluando un agente de inteligencia artificial para atender clientes por WhatsApp. La primera pregunta es obvia: ¿cuánto cuesta?</p>
           <span class="post-card-read">Leer <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
         </div>
       </a>
-      {% endfor %}
+      <a href="/blog/self-service-vs-llave-en-mano-chatbot-pyme/" class="post-card reveal" data-category="Guía" style="transition-delay: 0.08s;">
+        <div class="post-card-img">
+          <div class="post-card-img-placeholder"></div>
+        </div>
+        <div class="post-card-body">
+          <div class="post-card-meta">
+            <span class="post-card-tag">Guía</span>
+            <span class="post-card-date">24 Mar 2026</span>
+            <span class="post-card-date">4 min</span>
+          </div>
+          <div class="post-card-title">Self-Service vs Llave en Mano: Qué Conviene para tu PYME al Elegir un Chatbot con IA</div>
+          <p class="post-card-excerpt">Decidiste automatizar la atención al cliente de tu negocio con un chatbot inteligente. Ahora viene la segunda decisión: ¿contratas una plataforma donde tú configuras todo?</p>
+          <span class="post-card-read">Leer <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </div>
+      </a>
+      <a href="/blog/chatbot-whatsapp-chile-guia-pymes/" class="post-card reveal" data-category="Guía" style="transition-delay: 0.12s;">
+        <div class="post-card-img">
+          <div class="post-card-img-placeholder"></div>
+        </div>
+        <div class="post-card-body">
+          <div class="post-card-meta">
+            <span class="post-card-tag">Guía</span>
+            <span class="post-card-date">16 Mar 2026</span>
+            <span class="post-card-date">6 min</span>
+          </div>
+          <div class="post-card-title">Chatbot WhatsApp en Chile: Guía Completa para PYMEs que Quieren Vender Más</div>
+          <p class="post-card-excerpt">Si tienes una PYME en Chile y usas WhatsApp para vender, probablemente ya conoces el problema: los mensajes llegan a cualquier hora, los clientes preguntan lo mismo una y otra vez.</p>
+          <span class="post-card-read">Leer <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </div>
+      </a>
+      <a href="/blog/automatizar-ventas-whatsapp-7-pasos/" class="post-card reveal" data-category="Estrategia" style="transition-delay: 0.16s;">
+        <div class="post-card-img">
+          <div class="post-card-img-placeholder"></div>
+        </div>
+        <div class="post-card-body">
+          <div class="post-card-meta">
+            <span class="post-card-tag">Estrategia</span>
+            <span class="post-card-date">14 Mar 2026</span>
+            <span class="post-card-date">5 min</span>
+          </div>
+          <div class="post-card-title">Cómo Automatizar las Ventas por WhatsApp en 7 Pasos (Sin Perder el Toque Humano)</div>
+          <p class="post-card-excerpt">Automatizar ventas por WhatsApp no significa convertir tu negocio en un robot frío que repite respuestas genéricas. Significa liberar tu tiempo para lo que importa.</p>
+          <span class="post-card-read">Leer <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </div>
+      </a>
+      <a href="/blog/agente-ia-vs-chatbot-tradicional/" class="post-card reveal" data-category="Comparativa" style="transition-delay: 0.20s;">
+        <div class="post-card-img">
+          <div class="post-card-img-placeholder"></div>
+        </div>
+        <div class="post-card-body">
+          <div class="post-card-meta">
+            <span class="post-card-tag">Comparativa</span>
+            <span class="post-card-date">12 Mar 2026</span>
+            <span class="post-card-date">4 min</span>
+          </div>
+          <div class="post-card-title">Agente de IA vs Chatbot Tradicional: Cuál Necesita tu PYME en 2026</div>
+          <p class="post-card-excerpt">&#39;Chatbot&#39; se convirtió en una palabra que significa todo y nada. Desde un menú de opciones básico hasta un agente con inteligencia artificial que entiende contexto y cierra ventas.</p>
+          <span class="post-card-read">Leer <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </div>
+      </a>
       <div class="empty-state" id="empty-state" style="display:none;">
         <p>No hay artículos en esta categoría todavía.</p>
       </div>
