@@ -2980,6 +2980,100 @@
         overflow: hidden;
       }
     }
+
+    /* Pricing-inline section (resumen en landing, derivado de /precios.html) */
+    .pricing-inline-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 720px;
+      margin: 2rem auto 0;
+    }
+    .pricing-inline-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+    }
+    .pricing-inline-card--featured {
+      border-color: var(--glass-border-gold);
+      box-shadow: 0 0 30px var(--gold-glow);
+    }
+    .pricing-inline-type {
+      font-size: 0.78rem;
+      color: var(--text-sub);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .pricing-inline-amount {
+      font-family: 'Merriweather', serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .pricing-inline-clp {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      margin: 0.5rem 0;
+    }
+    .pricing-inline-note {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      margin: 0.75rem 0 0;
+    }
+    .pricing-inline-features {
+      max-width: 720px;
+      margin: 1.75rem auto 0;
+      padding: 1.5rem 1.75rem;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+    }
+    .pricing-inline-features-label {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .pricing-inline-features ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem 1.25rem;
+      font-size: 0.88rem;
+      color: var(--text-sub);
+    }
+    .pricing-inline-features li {
+      padding-left: 1.25rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .pricing-inline-features li::before {
+      content: '\2713';
+      color: var(--gold);
+      font-weight: 700;
+      position: absolute;
+      left: 0;
+    }
+    .micro-cta {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+    }
+    .micro-cta:hover { opacity: 0.7; }
+    @media (max-width: 600px) {
+      .pricing-inline-grid { grid-template-columns: 1fr; }
+      .pricing-inline-features ul { grid-template-columns: 1fr; }
+      .pricing-inline-amount { font-size: 2rem; }
+    }
   </style>
 </head>
 
@@ -3304,6 +3398,51 @@
           <div class="caso-stat"><span class="caso-stat-num">24/7</span><span class="caso-stat-label">Atención sin pausas</span></div>
           <div class="caso-stat"><span class="caso-stat-num">4</span><span class="caso-stat-label">Industrias operando</span></div>
           <div class="caso-stat"><span class="caso-stat-num">7 días</span><span class="caso-stat-label">Implementación</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing-inline" id="pricing" style="padding: 6.5rem 0; background: var(--bg2);">
+    <div class="container">
+      <div style="text-align:center;">
+        <div class="dash-badge reveal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><rect width="20" height="14" x="2" y="5" rx="2" /><line x1="2" x2="22" y1="10" y2="10" /></svg>
+          Planes y precios
+        </div>
+        <h2 class="section-title reveal">Una inversión que <span class="gold">se paga sola.</span></h2>
+        <p class="section-sub reveal">Setup + plan mensual. Todo incluido, sin contratos de permanencia.</p>
+      </div>
+      <div class="pricing-inline-grid reveal">
+        <div class="pricing-inline-card">
+          <div class="pricing-inline-type">Setup Inicial</div>
+          <div class="pricing-inline-amount">$190.000</div>
+          <div class="pricing-inline-clp">CLP + IVA</div>
+          <p class="pricing-inline-note">Pago único de puesta en marcha.</p>
+        </div>
+        <div class="pricing-inline-card pricing-inline-card--featured">
+          <div class="pricing-inline-type">Plan Mensual</div>
+          <div class="pricing-inline-amount">$190.000</div>
+          <div class="pricing-inline-clp">CLP/mes + IVA</div>
+          <p class="pricing-inline-note">Suscripción todo incluido, sin mínimo de permanencia.</p>
+        </div>
+      </div>
+      <div class="pricing-inline-features reveal">
+        <div class="pricing-inline-features-label">Todo incluido en tu plan:</div>
+        <ul>
+          <li>WhatsApp, Instagram, Messenger, Shopify y Google Calendar</li>
+          <li>CRM con pipeline automático (lead scoring + 5 etapas)</li>
+          <li>TheIA Pulse — copiloto del dueño por WhatsApp</li>
+          <li>IA incluida (sin API keys ni costos extra)</li>
+          <li>Soporte en español y actualizaciones continuas</li>
+          <li>Implementación en menos de 7 días</li>
+        </ul>
+      </div>
+      <div class="reveal" style="text-align:center; margin-top: 2rem;">
+        <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" style="margin-right: 0.5rem;" onclick="theiaTrackCTA('demo','home-pricing')">Agendar demo →</a>
+        <a href="/precios" class="btn btn-ghost" onclick="theiaTrackCTA('pricing-detail','home-pricing')">Ver detalle</a>
+        <div style="margin-top: 1.25rem;">
+          <a href="/calculadora" class="micro-cta" onclick="theiaTrackCTA('calculator','home-pricing')">¿Vale la pena? Calcula tu ROI →</a>
         </div>
       </div>
     </div>
