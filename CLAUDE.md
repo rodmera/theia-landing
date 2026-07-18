@@ -77,6 +77,27 @@ Variables CSS definidas en `:root` que controlan toda la paleta:
 - **Política de privacidad:** `privacidad.html` — 13 secciones, cumple Ley 21.719. Indexable (sin noindex).
 - **Demo:** 30 minutos (no 15).
 
+## Backlog (desde 2026-07-18)
+
+Las HUs del sitio viven en el **mismo backlog del vault que TheIA producto** (notas `HU-WEB-*` en
+`00-Inbox/UniqueNotes/`), con **épica `web`** y campo **`repo: theia-landing`** en el frontmatter.
+Consultar: `python3 ~/projects/r2sport-whatsapp-bot/scripts/backlog.py --epica web`.
+- Los agentes que trabajen ACÁ solo toman HUs con `repo: theia-landing`. Las demás son del producto
+  (r2sport-whatsapp-bot, otros gates) — no tomarlas desde este repo.
+- Cerrar una HU: mismo protocolo del vault (`estado: implementado` + `commit:` SOLO tras el deploy
+  verificado en theia.cl).
+
+## Gate de este repo (no hay pytest — el gate es otro)
+
+Antes de commitear a `main` (main = deploy directo a theia.cl vía Pages):
+1. Servir local (`python3 -m http.server 8080`) y revisar la página tocada + home en desktop y móvil.
+2. Verificar TODOS los links/CTAs tocados (no romper el link de agendar demo ni el WhatsApp).
+3. **Consistencia comercial:** precios/planes/claims deben coincidir con el brochure y el system
+   prompt del bot (incidente EXP-010: el bot y el material deben decir LO MISMO). Si tocas precios,
+   revisa las tres fuentes.
+4. Tras el push, verificar theia.cl en vivo (Pages tarda ~1-2 min) — el deploy ES el push, no hay
+   staging.
+
 ## Autoría en Git
 
 PROHIBIDO incluir "Claude", "Claude Code", "Anthropic", o cualquier referencia a IA como autor o co-autor en commits y PRs. No usar `Co-Authored-By` con Claude. Los commits son de Rodrigo.
