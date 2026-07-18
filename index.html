@@ -117,6 +117,115 @@
   }
   </script>
 
+  <!-- JSON-LD: FAQPage (12 preguntas, landing) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://theia.cl/#faqpage",
+    "name": "Preguntas frecuentes sobre TheIA",
+    "url": "https://theia.cl/#faq",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Sirve para varios números de WhatsApp?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Si tu negocio tiene 1, 2 o más números de WhatsApp Business, todos se atienden desde el mismo bot y convergen en un único inbox. Cada cliente es respondido desde el mismo número que escribió — sin que se note que detrás hay varios."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Atiende Instagram y Messenger también?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Instagram DM, Facebook Messenger y tu sitio web (webchat) son canales reales del producto. Si el cliente escribe por Instagram y luego por WhatsApp, TheIA retoma la conversación donde la dejó — memoria cross-canal."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuántas conversaciones incluye el plan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Hasta 1.000 conversaciones por mes, donde conversación es una ventana de 24 horas (no un mensaje suelto). Si tu volumen real es 1.500–2.000 mensajes/mes, típicamente son unos cientos de conversaciones — encaja en el plan. Si te pasas, te avisamos y ajustamos antes de cortar el servicio."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Mi equipo puede intervenir cuando quiera?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. El panel admin muestra todas las conversaciones y cualquier administrador puede tomarla en vivo: el bot pasa a segundo plano mientras tu equipo responde. Lo que aún no soportamos es una bandeja separada por vendedor (tipo 'mis casos' vs 'sin asignar') — está en roadmap de la épica CCT del producto. Si te interesa, lo priorizamos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Necesito conocimientos técnicos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Implementación llave en mano en menos de 7 días. Tú entregas una cuenta de WhatsApp Business y un catálogo de productos o servicios; nosotros configuramos el bot con tu información, lo conectamos a los canales y lo dejamos operando. Cualquier ajuste posterior lo hacemos nosotros o te enseñamos a hacerlo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué pasa si supero las 1.000 conversaciones?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Te avisamos antes de que se acabe el cupo y vemos contigo un plan escalable que se ajusta a tu crecimiento. Nunca cortamos el servicio en seco ni dejamos a tus clientes sin respuesta."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto tarda la implementación?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Menos de 7 días hábiles, siempre que contemos con tu catálogo y respondas las preguntas de configuración (tono, casos, excepciones). Si tienes sucursales o integraciones especiales, se alarga un poco — te decimos el estimado exacto en la primera reunión."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿La IA habla de precios y políticas de mi negocio?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, los precios y políticas que tú definas. El bot se entrena con tu catálogo y responde solo lo que está documentado — nunca inventa precios ni condiciones. Si algo no está en tu configuración, deriva a un humano en vez de improvisar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Y cuando llegan mensajes fuera de horario?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El bot responde 24/7. Mensajes de clientes a las 3 AM reciben una respuesta coherente y, si la consulta lo requiere (agendamiento, venta compleja, queja sensible), agenda una cita o deriva la conversación a tu equipo con notificación por el canal que prefieras."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Funciona para mi industria?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Funciona bien para cualquier negocio que recibe consultas repetitivas por WhatsApp o Instagram: inmobiliarias, corredores de propiedades, clínicas y centros de salud, e-commerce, restaurantes, servicios profesionales, estudios de fitness, talleres mecánicos. Si tus clientes preguntan horarios, precios, disponibilidad o agendan citas, TheIA puede atenderlos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo cancelar en cualquier momento?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Sin contratos de permanencia, sin cláusulas ocultas. Suscripción mes a mes: si decides irte, cancelas y listo. Si después quieres volver, reactivamos tu config intacta."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Y si mi PyME necesita español chileno real, no neutro?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El bot está entrenado en español chileno por defecto: modismos, errores de ortografía, mensajes de voz, jerga regional. Si quieres un tono más formal o más cercano, lo ajustamos en la configuración inicial sin costo."
+        }
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -3074,6 +3183,67 @@
       .pricing-inline-features ul { grid-template-columns: 1fr; }
       .pricing-inline-amount { font-size: 2rem; }
     }
+
+    /* FAQ-inline section (resumen en landing) */
+    .faq-inline-list {
+      max-width: 800px;
+      margin: 2.5rem auto 0;
+    }
+    .faq-inline-item {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      padding: 0;
+      margin-bottom: 0.85rem;
+      transition: border-color 0.2s;
+    }
+    .faq-inline-item[open] {
+      border-color: var(--glass-border-gold);
+      box-shadow: 0 0 30px var(--gold-glow);
+    }
+    .faq-inline-q {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.02rem;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      list-style: none;
+      color: var(--text);
+    }
+    .faq-inline-q::-webkit-details-marker { display: none; }
+    .faq-inline-q::marker { display: none; }
+    .faq-inline-icon {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 300;
+      line-height: 1;
+      color: var(--gold);
+      border: 1px solid var(--glass-border-gold);
+      border-radius: 8px;
+      transition: transform 0.25s ease, background 0.2s;
+    }
+    .faq-inline-item[open] .faq-inline-icon {
+      transform: rotate(45deg);
+      background: var(--gold-glow);
+    }
+    .faq-inline-a {
+      padding: 0 1.5rem 1.4rem;
+      color: var(--text-sub);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .faq-inline-cta {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
   </style>
 </head>
 
@@ -3451,6 +3621,74 @@
         <div style="margin-top: 1.25rem;">
           <a href="/calculadora" class="micro-cta" onclick="theiaTrackCTA('calculator','home-pricing')">¿Vale la pena? Calcula tu ROI →</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-inline" id="faq" style="padding: 6.5rem 0;">
+    <div class="container">
+      <div style="text-align: center;">
+        <div class="dash-badge reveal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+          Preguntas frecuentes
+        </div>
+        <h2 class="section-title reveal">Las preguntas que <span class="gold">ya nos han hecho.</span></h2>
+        <p class="section-sub reveal">Respuestas honestas sobre lo que TheIA hace hoy y lo que viene. Si tu pregunta no está, <a href="https://wa.me/56977298344?text=Hola,%20tengo%20una%20pregunta" style="color:var(--gold); text-decoration:none; font-weight:600;" onclick="theiaTrackCTA('whatsapp','home-faq')">escríbenos por WhatsApp</a>.</p>
+      </div>
+
+      <div class="faq-inline-list reveal">
+        <details class="faq-inline-item">
+          <summary class="faq-inline-q"><span>¿Sirve para varios números de WhatsApp?</span><span class="faq-inline-icon">+</span></summary>
+          <div class="faq-inline-a">Sí. Si tu negocio tiene 1, 2 o más números de WhatsApp Business, todos se atienden desde el mismo bot y convergen en un único inbox. Cada cliente es respondido desde el mismo número que escribió — sin que se note que detrás hay varios.</div>
+        </details>
+        <details class="faq-inline-item">
+          <summary class="faq-inline-q"><span>¿Atiende Instagram y Messenger también?</span><span class="faq-inline-icon">+</span></summary>
+          <div class="faq-inline-a">Sí. Instagram DM, Facebook Messenger y tu sitio web (webchat) son canales reales del producto. Si el cliente escribe por Instagram y luego por WhatsApp, TheIA retoma la conversación donde la dejó — memoria cross-canal.</div>
+        </details>
+        <details class="faq-inline-item">
+          <summary class="faq-inline-q"><span>¿Cuántas conversaciones incluye el plan?</span><span class="faq-inline-icon">+</span></summary>
+          <div class="faq-inline-a">Hasta 1.000 conversaciones por mes, donde <strong>conversación</strong> es una ventana de 24 horas (no un mensaje suelto). Si tu volumen real es 1.500–2.000 mensajes/mes, típicamente son unos cientos de conversaciones — encaja en el plan. Si te pasas, te avisamos y ajustamos antes de cortar el servicio.</div>
+        </details>
+        <details class="faq-inline-item">
+          <summary class="faq-inline-q"><span>¿Mi equipo puede intervenir cuando quiera?</span><span class="faq-inline-icon">+</span></summary>
+          <div class="faq-inline-a">Sí. El panel admin muestra todas las conversaciones y cualquier administrador puede tomarla en vivo: el bot pasa a segundo plano mientras tu equipo responde. Lo que aún no soportamos es una bandeja separada por vendedor (tipo "mis casos" vs "sin asignar") — está en roadmap de la épica CCT del producto. Si te interesa, lo priorizamos.</div>
+        </details>
+        <details class="faq-inline-item">
+          <summary class="faq-inline-q"><span>¿Necesito conocimientos técnicos?</span><span class="faq-inline-icon">+</span></summary>
+          <div class="faq-inline-a">No. Implementación llave en mano en menos de 7 días. Tú entregas una cuenta de WhatsApp Business y un catálogo de productos o servicios; nosotros configuramos el bot con tu información, lo conectamos a los canales y lo dejamos operando. Cualquier ajuste posterior lo hacemos nosotros o te enseñamos a hacerlo.</div>
+        </details>
+        <details class="faq-inline-item">
+          <summary class="faq-inline-q"><span>¿Qué pasa si supero las 1.000 conversaciones?</span><span class="faq-inline-icon">+</span></summary>
+          <div class="faq-inline-a">Te avisamos antes de que se acabe el cupo y vemos contigo un plan escalable que se ajusta a tu crecimiento. Nunca cortamos el servicio en seco ni dejamos a tus clientes sin respuesta.</div>
+        </details>
+        <details class="faq-inline-item">
+          <summary class="faq-inline-q"><span>¿Cuánto tarda la implementación?</span><span class="faq-inline-icon">+</span></summary>
+          <div class="faq-inline-a">Menos de 7 días hábiles, siempre que contemos con tu catálogo y respondas las preguntas de configuración (tono, casos, excepciones). Si tienes sucursales o integraciones especiales, se alarga un poco — te decimos el estimado exacto en la primera reunión.</div>
+        </details>
+        <details class="faq-inline-item">
+          <summary class="faq-inline-q"><span>¿La IA habla de precios y políticas de mi negocio?</span><span class="faq-inline-icon">+</span></summary>
+          <div class="faq-inline-a">Sí, los precios y políticas que tú definas. El bot se entrena con tu catálogo y responde solo lo que está documentado — <strong>nunca inventa precios ni condiciones</strong>. Si algo no está en tu configuración, deriva a un humano en vez de improvisar.</div>
+        </details>
+        <details class="faq-inline-item">
+          <summary class="faq-inline-q"><span>¿Y cuando llegan mensajes fuera de horario?</span><span class="faq-inline-icon">+</span></summary>
+          <div class="faq-inline-a">El bot responde 24/7. Mensajes de clientes a las 3 AM reciben una respuesta coherente y, si la consulta lo requiere (agendamiento, venta compleja, queja sensible), agenda una cita o deriva la conversación a tu equipo con notificación por el canal que prefieras.</div>
+        </details>
+        <details class="faq-inline-item">
+          <summary class="faq-inline-q"><span>¿Funciona para mi industria?</span><span class="faq-inline-icon">+</span></summary>
+          <div class="faq-inline-a">Funciona bien para cualquier negocio que recibe consultas repetitivas por WhatsApp o Instagram: inmobiliarias, corredores de propiedades, clínicas y centros de salud, e-commerce, restaurantes, servicios profesionales, estudios de fitness, talleres mecánicos. Si tus clientes preguntan horarios, precios, disponibilidad o agendan citas, TheIA puede atenderlos.</div>
+        </details>
+        <details class="faq-inline-item">
+          <summary class="faq-inline-q"><span>¿Puedo cancelar en cualquier momento?</span><span class="faq-inline-icon">+</span></summary>
+          <div class="faq-inline-a">Sí. Sin contratos de permanencia, sin cláusulas ocultas. Suscripción mes a mes: si decides irte, cancelas y listo. Si después quieres volver, reactivamos tu config intacta.</div>
+        </details>
+        <details class="faq-inline-item">
+          <summary class="faq-inline-q"><span>¿Y si mi PyME necesita español chileno real, no neutro?</span><span class="faq-inline-icon">+</span></summary>
+          <div class="faq-inline-a">El bot está entrenado en español chileno por defecto: modismos, errores de ortografía, mensajes de voz, jerga regional. Si quieres un tono más formal o más cercano, lo ajustamos en la configuración inicial sin costo.</div>
+        </details>
+      </div>
+
+      <div class="faq-inline-cta reveal">
+        <a href="https://wa.me/56977298344?text=Hola,%20tengo%20una%20pregunta%20sobre%20TheIA" class="btn btn-ghost" target="_blank" rel="noopener" onclick="theiaTrackCTA('whatsapp','home-faq')">¿Otra pregunta? Escríbenos →</a>
       </div>
     </div>
   </section>
