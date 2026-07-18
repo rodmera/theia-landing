@@ -3383,22 +3383,29 @@
     </div>
   </section>
 
-  <section class="caso">
+  <section class="caso" id="caso">
     <div class="container">
       <h2 class="section-title reveal">En producción con <span class="gold">PYMEs reales</span></h2>
-      <div class="caso-card reveal" style="margin-top:2.5rem">
-        <div>
-          <div class="caso-tag"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><polyline points="20 6 9 17 4 12" /></svg> Operando en producción · Santiago, Chile</div>
-          <div class="caso-title">Inmobiliarias · Salud · E-commerce · Alimentos</div>
-          <p class="caso-desc">TheIA atiende consultas de disponibilidad, precios, agendamiento de visitas y seguimiento post-venta por WhatsApp — sin intervención humana, en múltiples industrias.</p>
-          <p class="caso-quote">"Responde en segundos lo que antes nos tomaba horas."<br /><strong style="font-style:normal;font-size:0.8rem;color:var(--text-muted);">— Dueños de PYME · Santiago</strong></p>
-        </div>
-        <div class="caso-stats">
-          <div class="caso-stat"><span class="caso-stat-num">&lt;38s</span><span class="caso-stat-label">Respuesta promedio</span></div>
-          <div class="caso-stat"><span class="caso-stat-num">24/7</span><span class="caso-stat-label">Atención sin pausas</span></div>
-          <div class="caso-stat"><span class="caso-stat-num">4</span><span class="caso-stat-label">Industrias operando</span></div>
-          <div class="caso-stat"><span class="caso-stat-num">7 días</span><span class="caso-stat-label">Implementación</span></div>
-        </div>
+      <p class="section-sub reveal">TheIA atiende consultas reales en inmobiliarias, salud, e-commerce y alimentos — 24/7, en menos de 38 segundos.</p>
+
+      <!-- Estadísticas globales del producto (no requieren permiso por tenant) -->
+      <div class="caso-stats-bar reveal" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 720px; margin: 2rem auto 0;">
+        <div class="caso-stat"><span class="caso-stat-num">&lt;38s</span><span class="caso-stat-label">Respuesta promedio</span></div>
+        <div class="caso-stat"><span class="caso-stat-num">24/7</span><span class="caso-stat-label">Atención continua</span></div>
+        <div class="caso-stat"><span class="caso-stat-num">4</span><span class="caso-stat-label">Industrias operando</span></div>
+        <div class="caso-stat"><span class="caso-stat-num">7 días</span><span class="caso-stat-label">Implementación</span></div>
+      </div>
+
+      <!-- Disclosure honesto: publicamos casos solo con permiso escrito del cliente (regla EXP-010 / HU-WEB-001) -->
+      <div class="caso-disclosure reveal" style="margin: 2.5rem auto 0; max-width: 720px; padding: 1.5rem 1.75rem; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 14px;">
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-sub); line-height: 1.7;">
+          <strong style="color: var(--text);">Casos con nombre y métricas en camino.</strong>
+          Por política publicamos cada caso solo con permiso escrito del cliente (nombre, logo, métricas). 3 tenants están en conversación para aparecer públicamente. Si eres cliente TheIA y quieres aparecer, te explicamos cómo funciona en <a href="/casos" style="color: var(--gold); text-decoration: none; font-weight: 600;">/casos</a>.
+        </p>
+      </div>
+
+      <div class="reveal" style="text-align:center; margin-top: 1.75rem;">
+        <a href="/casos" class="btn btn-ghost" onclick="theiaTrackCTA('casos','home')">Ver casos extendidos →</a>
       </div>
     </div>
   </section>
