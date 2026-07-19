@@ -135,6 +135,14 @@ def test_demo_es_30_minutos(mobile_page):
         assert not re.search(r"15 minutos", text), f"{path} volvió a ofrecer demo de 15 minutos (es 30)"
 
 
+@pytest.mark.parametrize("path", PAGES)
+def test_widget_en_todas_las_paginas(mobile_page, path):
+    """El webchat (dogfooding + canal de dudas) debe estar en TODAS las páginas —
+    antes solo estaba en el index: un prospecto en /precios no tenía dónde preguntar."""
+    goto(mobile_page, path)
+    assert "webchat-widget.js" in mobile_page.content(), f"{path} sin el widget de webchat"
+
+
 # ───────────────────────── 6. STICKY WHATSAPP EN MÓVIL ─────────────────────────
 
 def test_sticky_whatsapp_movil(mobile_page):
