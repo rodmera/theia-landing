@@ -77,6 +77,21 @@ Variables CSS definidas en `:root` que controlan toda la paleta:
 - **Política de privacidad:** `privacidad.html` — 13 secciones, cumple Ley 21.719. Indexable (sin noindex).
 - **Demo:** 30 minutos (no 15).
 
+## Registro y tono del copy (regla dura, Rodrigo 2026-07-18)
+
+La audiencia es **la persona de a pie detrás del mesón**: emprendedor, mini empresario, la dueña
+de la clínica o del almacén. TODO el copy del sitio se escribe en SU lenguaje:
+
+- ✅ Palabras de su día a día: clientes, plata, mensualidad, atender, "que no te dejen botado",
+  caja, pedidos, horas, ahorro.
+- ⛔ PROHIBIDO jerga startup/tech: "unicornio", "Serie A", "levantar capital", "escalar",
+  "expansión a X país", "plataforma" (en el hero), "stack", "SaaS", "onboarding", anglicismos
+  innecesarios. Si la gente de a pie no lo usa en una conversación normal, no va.
+- La ironía hacia la competencia se construye con conceptos universales (ej. "no hay
+  inversionistas que alimentar — el ahorro es tuyo"), nunca con referencias que requieran leer
+  prensa de negocios.
+- Español chileno, tuteo, directo. Frases cortas. Cero superlativos vacíos.
+
 ## Backlog (desde 2026-07-18)
 
 Las HUs del sitio viven en el **mismo backlog del vault que TheIA producto** (notas `HU-WEB-*` en
