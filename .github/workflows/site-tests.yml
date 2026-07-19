@@ -1,0 +1,37 @@
+name: Site tests
+
+# Red de seguridad del sitio: Pages deploya directo desde main en cada push, así
+# que esta suite corre EN PARALELO al deploy y ALERTA (rojo + screenshots) si algo
+# se rompió — mobile-first, sin revisión manual.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  playwright:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: |
+          pip install -r tests/requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: Correr suite (mobile-first)
+        run: python -m pytest tests/ -v --tb=short
+
+      - name: Subir screenshots (evidencia visual)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots-mobile
+          path: tests/screenshots/
+          retention-days: 14

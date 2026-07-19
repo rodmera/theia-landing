@@ -37,7 +37,21 @@ python3 -m http.server 8080
 # luego visitar http://localhost:8080
 ```
 
-No hay linter, tests ni build configurados.
+**Tests (desde 2026-07-18):** suite Playwright mobile-first en `tests/` (viewport default =
+iPhone 390×844). Corre local antes de push y en GitHub Actions en cada push (workflow
+`site-tests.yml`, screenshots móviles como artifacts).
+
+```bash
+# setup una vez
+python3 -m venv .venv-test && .venv-test/bin/pip install -r tests/requirements.txt
+.venv-test/bin/python -m playwright install chromium
+# correr
+.venv-test/bin/python -m pytest tests/ -q
+```
+
+Cubre: smoke de las 10 páginas, overflow horizontal móvil, errores JS, CTAs críticos
+(incluido el número BLOQUEADO), links internos, regla de registro (jerga prohibida),
+consistencia comercial ($190.000, demo 30 min) y sticky WhatsApp.
 
 ## Despliegue
 
@@ -105,12 +119,13 @@ Consultar: `python3 ~/projects/r2sport-whatsapp-bot/scripts/backlog.py --epica w
 ## Gate de este repo (no hay pytest — el gate es otro)
 
 Antes de commitear a `main` (main = deploy directo a theia.cl vía Pages):
-1. Servir local (`python3 -m http.server 8080`) y revisar la página tocada + home en desktop y móvil.
-2. Verificar TODOS los links/CTAs tocados (no romper el link de agendar demo ni el WhatsApp).
-3. **Consistencia comercial:** precios/planes/claims deben coincidir con el brochure y el system
+1. **Correr la suite:** `.venv-test/bin/python -m pytest tests/ -q` — verde obligatorio.
+2. Servir local (`python3 -m http.server 8080`) y revisar la página tocada + home en desktop y móvil.
+3. Verificar TODOS los links/CTAs tocados (no romper el link de agendar demo ni el WhatsApp).
+4. **Consistencia comercial:** precios/planes/claims deben coincidir con el brochure y el system
    prompt del bot (incidente EXP-010: el bot y el material deben decir LO MISMO). Si tocas precios,
    revisa las tres fuentes.
-4. Tras el push, verificar theia.cl en vivo (Pages tarda ~1-2 min) — el deploy ES el push, no hay
+5. Tras el push, verificar theia.cl + el run de `site-tests.yml` en Actions en vivo (Pages tarda ~1-2 min) — el deploy ES el push, no hay
    staging.
 
 ## Autoría en Git
