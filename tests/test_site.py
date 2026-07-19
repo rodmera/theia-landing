@@ -71,9 +71,11 @@ def test_ctas_criticos_index(mobile_page):
     # Número BLOQUEADO por decisión de Rodrigo (2026-07-18): el US +1 206. No cambiarlo.
     assert "wa.me/12063858350" in html, "CTA WhatsApp roto o número cambiado (decisión cerrada: es el +1 206)"
     assert "calendar.app.google" in html, "link de agendar demo roto"
-    assert re.search(r"brochure", html, re.I), "CTA de brochure ausente"
     # los 3 botones del hero visibles en móvil
-    for texto in ["Pruébalo ahora", "Hablar por WhatsApp", "Descargar Brochure"]:
+    # Brochure fuera del hero por decisión (2026-07-19): el sitio es el brochure;
+    # el PDF queda solo como asset del bot en conversación (y el archivo vive en el
+    # repo para no romper links antiguos).
+    for texto in ["Pruébalo ahora", "Hablar por WhatsApp"]:
         assert mobile_page.get_by_text(texto).first.is_visible(), f"CTA '{texto}' no visible en móvil"
 
 
