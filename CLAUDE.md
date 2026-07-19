@@ -67,7 +67,7 @@ Variables CSS definidas en `:root` que controlan toda la paleta:
 ## CTAs
 
 - **Agendar Demo:** `https://calendar.app.google/ZDjEtqCXTJVxzi7bA` (CTA principal en nav, hero y footer)
-- **WhatsApp:** `https://wa.me/12063858350` (número US +1 206 385-8350, botón secundario en hero + sticky mobile)
+- **WhatsApp:** `https://wa.me/12063858350` (número US +1 206 385-8350, botón secundario en hero + sticky mobile). **⛔ DECISIÓN CERRADA (2026-07-18): este número NO se cambia** — es la línea Kapso actual y no hay presupuesto para línea chilena. PROHIBIDO proponer el cambio de número en reviews, HUs o auditorías.
 - **Email de contacto:** `hola@theia.cl`
 
 ## Cookies y compliance (Ley 21.719)
