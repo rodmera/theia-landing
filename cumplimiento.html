@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; connect-src 'self' https:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Cumplimiento Ley 21.719 — TheIA.cl</title>
+
+  <!-- JSON-LD: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://theia.cl/cumplimiento#webpage",
+    "url": "https://theia.cl/cumplimiento",
+    "name": "Cumplimiento Ley 21.719 — TheIA.cl",
+    "description": "Garantías de aislamiento y cumplimiento normativo de TheIA con la Ley 21.719 de Chile.",
+    "inLanguage": "es-CL",
+    "isPartOf": { "@id": "https://theia.cl#website" },
+    "publisher": { "@id": "https://theia.cl#organization" }
+  }
+  </script>
+  <link rel="canonical" href="https://theia.cl/cumplimiento" />
+  <link rel="icon" href="logo.png" type="image/png">
+
+  <meta name="description" content="Cumplimiento Ley 21.719 sobre Protección de Datos Personales en Chile. Conoce cómo TheIA blinda tus conversaciones con PII Masking, ROPA, y Handoff Humano." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    html, body { overflow-x: hidden; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f172a;
+      --bg2: #1e293b;
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --gold: #d4af37;
+      --gold-light: #ebca73;
+      --gold-glow: rgba(212, 175, 55, 0.25);
+      --text: #ffffff;
+      --text-sub: rgba(255, 255, 255, 0.7);
+      --text-muted: rgba(255, 255, 255, 0.4);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.1rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .logo { display: flex; align-items: center; text-decoration: none; }
+    .logo img { height: 100px; width: auto; display: block; filter: drop-shadow(0 0 10px var(--gold-glow)); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.6rem 1.35rem; border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; cursor: pointer; border: none; transition: all 0.22s ease;
+    }
+
+    .btn-ghost {
+      background: transparent; color: var(--text-sub); border: 1px solid var(--glass-border);
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 12rem 2rem 5rem;
+    }
+
+    h1 {
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .gold { color: var(--gold); }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-sub);
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+
+    .feature-card {
+      background: var(--bg2);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .feature-card:hover {
+      border-color: var(--gold);
+    }
+
+    .feature-card h3 {
+      font-size: 1.2rem;
+      color: var(--gold-light);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      transition: opacity 0.2s;
+    }
+
+    .back-link:hover { opacity: 0.8; }
+
+    @media (max-width: 768px) {
+      nav { padding: 0.8rem 1rem; }
+      .logo img { height: 60px; }
+      .container { padding: 9rem 1.25rem 3rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="/" class="logo">
+      <img src="logo.png" alt="TheIA" />
+    </a>
+    <a href="/" class="btn btn-ghost">Volver al inicio</a>
+  </nav>
+
+  <div class="container">
+    <h1>Conformidad <span class="gold">Ley 21.719</span></h1>
+    <p class="subtitle">La nueva Ley de Protección de Datos Personales en Chile entra en vigencia en diciembre de 2026. TheIA está diseñada desde su origen (compliant by design) para blindar y cumplir rigurosamente con cada estándar regulatorio chileno.</p>
+
+    <div class="feature-card">
+      <h3>🔒 1. Enmascaramiento Inteligente de Datos (PII Masking)</h3>
+      <p>Nuestra plataforma procesa los mensajes localmente de forma asíncrona. Antes de enviar cualquier consulta a los modelos de inteligencia artificial, TheIA enmascara automáticamente información sensible como RUTs, números de tarjetas de crédito, correos electrónicos y teléfonos de los usuarios, garantizando que el proveedor de IA nunca reciba datos personales identificables sin tu consentimiento.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>🧑 2. Derecho de Intervención Humana (Handoff Automático)</h3>
+      <p>Cumpliendo estrictamente con el artículo 8 bis sobre Decisiones Automatizadas, TheIA permite a tus clientes oponerse al trato automatizado en cualquier momento. Si el bot detecta tensión/frustración conversacional, o si el usuario escribe frases como "hablar con humano", se activa de inmediato el modo de intervención asíncrono transferiendo el control del chat al Inbox de tu equipo.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>📋 3. Registro de Actividades de Tratamiento (ROPA)</h3>
+      <p>Conforme al artículo 31 de la ley, cada tenant de TheIA cuenta con una pantalla de auto-generación del Registro de Actividades de Tratamiento (ROPA). Este reporte detalla de forma interactiva qué datos se tratan, con qué finalidad, qué base legal se aplica y los sub-procesadores involucrados, listo para ser presentado ante la Agencia de Protección de Datos.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>❌ 4. Purga Transversal Segura (Derecho de Supresión)</h3>
+      <p>Garantizamos el derecho de supresión y olvido (ARCO) de forma transversal. Cuando un cliente solicita ser borrado, el operador del tenant puede gatillar con un solo clic la purga destructiva de toda la huella digital en cascada (anonimizar logs conversacionales, eliminar documentos cargados, borrar timeline e historial de sesiones), eliminándolo irreversiblemente de las bases de datos de TheIA.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>🇨🇱 5. Soporte y Datos en Chile</h3>
+      <p>Somos una empresa chilena que te acompaña con soporte local en español. Almacenamos tus datos de forma aislada e independiente en servidores cloud de alto estándar con encriptación Fernet de reposo, amparados por las Cláusulas Contractuales Modelo (CCM) chilenas aprobadas por la Subsecretaría de Economía.</p>
+    </div>
+
+    <a href="/" class="back-link">&larr; Volver a theia.cl</a>
+  </div>
+
+  <!-- TheIA Web Chat Widget -->
+  <script src="https://admin.theia.cl/static/js/webchat-widget.js"
+          data-api-key="8da817eb-2cbf-42df-8b57-bb86288670de"
+          data-api-url="https://admin.theia.cl"
+          data-title="Asistente TheIA"
+          data-color="#d4af37"
+          data-welcome="¡Hola! 👋 ¿Qué te trae por aquí?"
+          data-prechat="false"
+          data-welcome-replies="Ver precios,Cómo funciona,Agendar demo">
+  </script>
+</body>
+
+</html>
