@@ -10,6 +10,7 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 - **Home enfocada en atención confiable:** hero, conversación demostrativa, problemas, funciones y CTA ahora priorizan responder con contexto, orientar, cotizar/agendar y derivar al equipo; vender más se presenta como consecuencia, no como promesa única.
 - **Páginas internas alineadas:** `funciones.html` ahora organiza la ayuda en atención, continuidad y control del equipo; `casos.html` usa dogfooding y política de transparencia hasta contar con permisos escritos para publicar prueba social.
 - **Precios más transparentes:** se eliminaron comparaciones y estadísticas no verificadas; la página explica la mensualidad, el alcance acordado y los cargos de terceros sin promesas absolutas.
+- **Recorrido secundario coherente:** Plataforma, Servicios y Pulse priorizan control operativo y apoyo según alcance; navegación y CTAs se unifican en las páginas comerciales.
 - **Prueba de producto propia:** se reemplazó la sección de casos y métricas no publicables de la home por dogfooding: el visitante puede probar TheIA conversando con el equipo.
 - **Canales e integraciones honestas:** la home comunica WhatsApp Business, Instagram DM, WebChat, Google Calendar y Shopify según configuración; Messenger y conectores no disponibles no se presentan como estándar.
 - **Recorrido principal más liviano:** calculadora, newsletter y popup de salida quedan fuera de la experiencia inicial de la home mientras se valida su uso como activos de campaña.
