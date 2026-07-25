@@ -15,26 +15,26 @@
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
-  <title>Casos — TheIA.cl · Clientes reales con métricas verificadas</title>
+  <title>Prueba TheIA — Mira cómo atiende una PYME</title>
   <link rel="canonical" href="https://theia.cl/casos" />
   <link rel="icon" href="/logo.png" type="image/png">
   <link rel="alternate" type="application/atom+xml" title="TheIA Blog" href="https://theia.cl/feed.xml" />
 
-  <meta name="description" content="Casos de clientes TheIA operando en producción: inmobiliarias, salud, e-commerce, alimentos. Publicamos cada caso solo con permiso escrito del cliente (nombre, logo, métricas)." />
+  <meta name="description" content="Prueba la atención de TheIA conversando con nuestra propia plataforma. Publicamos casos y métricas de clientes sólo con permiso escrito." />
   <meta name="author" content="TheIA" />
   <meta name="geo.region" content="CL" />
   <meta name="geo.placename" content="Santiago, Chile" />
 
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_CL" />
-  <meta property="og:title" content="Casos — TheIA.cl" />
-  <meta property="og:description" content="Clientes reales con métricas verificadas. Cada caso se publica solo con permiso escrito del cliente." />
+  <meta property="og:title" content="Prueba TheIA — Mira cómo atiende una PYME" />
+  <meta property="og:description" content="Inicia una conversación real con la misma plataforma que usamos para atenderte." />
   <meta property="og:image" content="https://theia.cl/og-image.png" />
   <meta property="og:url" content="https://theia.cl/casos" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Casos — TheIA.cl" />
-  <meta name="twitter:description" content="Clientes reales con métricas verificadas." />
+  <meta name="twitter:title" content="Prueba TheIA — Mira cómo atiende una PYME" />
+  <meta name="twitter:description" content="Inicia una conversación real con la misma plataforma que usamos para atenderte." />
   <meta name="twitter:image" content="https://theia.cl/og-image.png" />
 
   <!-- JSON-LD: WebPage -->
@@ -44,8 +44,8 @@
     "@type": "WebPage",
     "@id": "https://theia.cl/casos#webpage",
     "url": "https://theia.cl/casos",
-    "name": "Casos — TheIA.cl",
-    "description": "Casos de clientes TheIA operando en producción. Política de transparencia y métricas verificadas.",
+    "name": "Prueba TheIA",
+    "description": "Una conversación real con la propia plataforma de atención de TheIA y su política de transparencia.",
     "inLanguage": "es-CL",
     "isPartOf": { "@id": "https://theia.cl#website" },
     "publisher": { "@id": "https://theia.cl#organization" }
@@ -129,6 +129,12 @@
       padding: 0.85rem 2rem; font-size: 1rem; border-radius: 10px;
       box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
     }
+
+    .btn-demo {
+      background: transparent; color: var(--text); border: 1px solid var(--glass-border-gold);
+      padding: 0.85rem 2rem; font-size: 1rem; border-radius: 10px;
+    }
+    .btn-demo:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
 
     .container { max-width: 1140px; margin: 0 auto; padding: 0 2rem; }
 
@@ -344,74 +350,56 @@
         <span style="width: 6px; height: 6px; background-color: var(--indigo-light); border-radius: 50%; box-shadow: 0 0 8px var(--indigo-light); display: inline-block;"></span>
         Panel Admin
       </a>
-      <a href="/funciones" class="btn btn-ghost">Funciones</a>
-      <a href="/pulse" class="btn btn-ghost">Pulse</a>
+      <a href="/funciones" class="btn btn-ghost">Cómo ayuda</a>
+      <a href="/pulse" class="btn btn-ghost">Plataforma</a>
       <a href="/precios" class="btn btn-ghost">Precios</a>
-      <a href="/blog/" class="btn btn-ghost">Blog</a>
-      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" onclick="theiaTrackCTA('demo','casos')">Agendar Demo →</a>
+      <a href="/blog/" class="btn btn-ghost">Recursos</a>
+      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" onclick="theiaTrackCTA('demo','casos')">Agenda una demo →</a>
     </div>
   </nav>
 
   <section class="hero">
     <div class="container">
-      <div class="dash-badge">Casos y testimonios</div>
-      <h1 class="section-title">Clientes reales con <span class="gold">métricas verificadas.</span></h1>
-      <p class="section-sub">TheIA opera hoy en inmobiliarias, salud, e-commerce y alimentos. Cada caso se publica solo con permiso escrito del cliente — nombre, logo y métricas.</p>
+      <div class="dash-badge">Prueba TheIA</div>
+      <h1 class="section-title">Mira cómo atendemos <span class="gold">antes de decidir.</span></h1>
+      <p class="section-sub">La conversación que puedes iniciar aquí mismo recibe la misma atención que usamos para responderte. Así ves cómo orienta y deja el contexto para una persona cuando hace falta.</p>
     </div>
   </section>
 
   <section class="cases-section">
     <div class="container">
-      <div class="cases-grid">
-
-        <div class="case-tile" data-pending="true">
-          <div class="case-tile-sector">Fitness · Santiago</div>
-          <div class="case-tile-logo">Logo<br>pendiente</div>
-          <div class="case-tile-name">[Cliente en conversación]</div>
-          <div class="case-tile-metric">Consulta típica: horarios, precios, reserva de clases. Métricas en preparación — publicaremos cuando el cliente confirme por escrito.</div>
-          <div class="case-tile-status">Pendiente permiso</div>
+      <div class="cases-grid" style="max-width: 560px; margin: 0 auto;">
+        <div class="case-tile">
+          <div class="case-tile-sector">Así usamos TheIA</div>
+          <div class="case-tile-logo">TheIA<br>en acción</div>
+          <div class="case-tile-name">Te atendemos con TheIA</div>
+          <div class="case-tile-metric">Responde tus dudas iniciales, reúne el contexto y avisa al equipo cuando necesitas una conversación más específica. No es una simulación ni una cifra inventada: puedes probarla ahora.</div>
+          <div class="case-tile-status">Disponible para conversar</div>
         </div>
-
-        <div class="case-tile" data-pending="true">
-          <div class="case-tile-sector">Inmobiliaria · Santiago</div>
-          <div class="case-tile-logo">Logo<br>pendiente</div>
-          <div class="case-tile-name">[Cliente en conversación]</div>
-          <div class="case-tile-metric">Consulta típica: disponibilidad de propiedades, agendamiento de visitas, seguimiento post-venta. Métricas en preparación.</div>
-          <div class="case-tile-status">Pendiente permiso</div>
-        </div>
-
-        <div class="case-tile" data-pending="true">
-          <div class="case-tile-sector">Salud mental · Online</div>
-          <div class="case-tile-logo">Logo<br>pendiente</div>
-          <div class="case-tile-name">[Cliente en conversación]</div>
-          <div class="case-tile-metric">Consulta típica: orientación al paciente, agendamiento de sesiones, derivación a profesional. Métricas en preparación.</div>
-          <div class="case-tile-status">Pendiente permiso</div>
-        </div>
-
       </div>
     </div>
   </section>
 
   <section class="policy-section">
     <div class="container">
-      <h2 class="section-title reveal">Nuestra <span class="gold">política de transparencia.</span></h2>
-      <p class="section-sub reveal">Cómo decidimos qué se publica y qué no.</p>
+      <h2 class="section-title reveal">Lo que no vamos a <span class="gold">prometer.</span></h2>
+      <p class="section-sub reveal">La confianza se gana mostrando lo que existe y diciendo claramente lo que aún no corresponde publicar.</p>
 
       <div class="policy-grid">
         <div class="policy-card">
           <div class="policy-icon">📋</div>
-          <div class="policy-title">Permiso escrito</div>
-          <p class="policy-desc">Cada nombre, logo y métrica se publica solo con autorización firmada por el cliente. Sin excepciones: ni testimonios inventados, ni datos aproximados.</p>
+          <div class="policy-title">Sin casos sin permiso</div>
+          <p class="policy-desc">No mostramos nombres, logos ni testimonios de clientes sin su autorización escrita. Por eso esta página no usa casos anónimos para convencerte.</p>
         </div>
         <div class="policy-card">
           <div class="policy-icon">📊</div>
-          <div class="policy-title">Métricas del panel del cliente</div>
-          <p class="policy-desc">Las cifras (respuesta, conversión, ventas) vienen del dashboard del propio cliente. El cliente las valida antes de publicarlas. Nunca editamos números a posteriori.</p>
+          <div class="policy-title">Sin métricas inventadas</div>
+          <p class="policy-desc">Cuando publiquemos una cifra será porque viene de la operación del cliente y fue validada por él. Hasta entonces, no usamos porcentajes para adornar la promesa.</p>
         </div>
         <div class="policy-card">
           <div class="policy-icon">🪞</div>
-          <div class="policy-title">Honestidad sobre el estado</div>
-          <p class="policy-desc">Si un caso está pendiente de permiso, lo decimos. Si una métrica es preliminar, lo decimos. Si algo no funcionó, también. La confianza se gana con verdad.</p>
+          <div class="policy-title">Una prueba que puedes hacer</div>
+          <p class="policy-desc">Puedes iniciar una conversación real con TheIA y decidir con esa experiencia. Si luego quieres revisar tu caso, conversas con una persona del equipo.</p>
         </div>
       </div>
     </div>
@@ -419,11 +407,11 @@
 
   <section class="cta-bottom">
     <div class="container">
-      <h2 class="section-title reveal">¿Eres cliente TheIA <span class="gold">y quieres aparecer?</span></h2>
-      <p class="section-sub reveal">Te explicamos cómo documentamos tu caso en 1 reunión breve, y publicamos solo lo que tú apruebes. Sin costo.</p>
+      <h2 class="section-title reveal">¿Quieres ver si sirve para <span class="gold">tu negocio?</span></h2>
+      <p class="section-sub reveal">Háblale a TheIA ahora o agenda una demo de 30 minutos para revisar tu forma de atender.</p>
       <div class="cta-bottom-cta">
-        <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" onclick="theiaTrackCTA('demo','casos-cta')">Hablar contigo →</a>
-        <a href="https://wa.me/12063858350?text=Hola,%20soy%20cliente%20TheIA%20y%20quiero%20aparecer%20en%20la%20página%20de%20casos" target="_blank" rel="noopener" class="btn btn-whatsapp" onclick="theiaTrackCTA('whatsapp','casos-cta')">Escribir por WhatsApp</a>
+        <button type="button" class="btn btn-gold" style="border: none; cursor: pointer;" onclick="openTheiaChat('casos-cta')">Habla con TheIA</button>
+        <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-demo" onclick="theiaTrackCTA('demo','casos-cta')">Agenda una demo</a>
       </div>
     </div>
   </section>
@@ -433,8 +421,8 @@
     <div class="footer-links">
       <a href="/">Inicio</a>
       <a href="/precios">Precios</a>
-      <a href="/funciones">Funciones</a>
-      <a href="/blog/">Blog</a>
+      <a href="/funciones">Cómo ayuda</a>
+      <a href="/blog/">Recursos</a>
       <a href="/nosotros">Nosotros</a>
       <a href="/privacidad">Privacidad</a>
       <a href="/terminos.html">Términos</a>
@@ -442,6 +430,7 @@
   </footer>
 
 
+  <script src="/webchat-cta.js"></script>
   <!-- TheIA Web Chat Widget (carga desde backend — updates automáticos) -->
   <script src="https://admin.theia.cl/static/js/webchat-widget.js"
           data-api-key="8da817eb-2cbf-42df-8b57-bb86288670de"
@@ -450,7 +439,7 @@
           data-color="#d4af37"
           data-welcome="¡Hola! 👋 ¿Qué te trae por aquí?"
           data-prechat="false"
-          data-welcome-replies="Quiero resultados así,Ver precios,Agendar demo">
+          data-welcome-replies="Quiero probar TheIA,Ver precios,Agenda una demo">
   </script>
 </body>
 </html>

@@ -88,6 +88,42 @@ def test_home_no_promete_casos_ni_comparaciones_de_precio():
     assert "Ver casos extendidos" not in html
 
 
+def test_funciones_organiza_la_ayuda_en_tres_resultados(mobile_page):
+    """La página explica atención PYME sin exhibir catálogo técnico no disponible."""
+    goto(mobile_page, "/funciones.html")
+    text = visible_text(mobile_page)
+    for texto in ["Atiende y orienta.", "Cotiza, agenda y hace seguimiento.",
+                  "Tu equipo conserva el control.", "Habla con TheIA", "Agenda una demo"]:
+        assert texto in text, f"funciones no explica: {texto}"
+    for texto in ["Facebook Messenger", "Para desarrolladores", "Lead Scoring Inteligente"]:
+        assert texto not in text, f"funciones volvió a exhibir capacidad no comunicable: {texto}"
+    for texto in ["Atiende y orienta.", "Cotiza, agenda y hace seguimiento.",
+                  "Tu equipo conserva el control."]:
+        heading = mobile_page.get_by_text(texto, exact=True)
+        heading.scroll_into_view_if_needed()
+        mobile_page.wait_for_timeout(150)
+        assert heading.evaluate("el => getComputedStyle(el).opacity") == "1", (
+            f"{texto} queda oculto al llegar con scroll")
+    html = (Path(__file__).parent.parent / "funciones.html").read_text(encoding="utf-8")
+    for texto in ["Facebook Messenger", "Lead Scoring Inteligente", "Agent API", "OpenClaw"]:
+        assert texto not in html, f"funciones conserva una promesa no comunicable en HTML público: {texto}"
+    root = Path(__file__).parent.parent
+    assert (root / "webchat-cta.js").is_file(), "falta el helper compartido de CTA WebChat"
+    assert 'src="/webchat-cta.js"' in html
+
+
+def test_casos_usa_dogfooding_sin_prueba_social_no_autorizada(mobile_page):
+    """Hasta contar con permisos, casos ofrece una prueba real y no testimonios anónimos."""
+    goto(mobile_page, "/casos.html")
+    text = visible_text(mobile_page)
+    assert "Mira cómo atendemos antes de decidir." in text
+    assert "Te atendemos con TheIA" in text
+    assert "Cliente en conversación" not in text
+    assert "Métricas en preparación" not in text
+    html = (Path(__file__).parent.parent / "casos.html").read_text(encoding="utf-8")
+    assert 'src="/webchat-cta.js"' in html
+
+
 def test_links_internos_resuelven(mobile_page):
     """Todo href interno del index apunta a un archivo que existe en el repo."""
     goto(mobile_page, "/")
@@ -196,7 +232,8 @@ def test_sticky_whatsapp_movil(mobile_page):
 # ───────────────── 7. EVIDENCIA VISUAL (screenshots → artifacts CI) ─────────────────
 
 @pytest.mark.parametrize("path,name", [("/", "index"), ("/precios.html", "precios"),
-                                        ("/nosotros.html", "nosotros"), ("/casos.html", "casos")])
+                                        ("/nosotros.html", "nosotros"), ("/casos.html", "casos"),
+                                        ("/funciones.html", "funciones")])
 def test_screenshots_mobile(mobile_page, path, name):
     goto(mobile_page, path)
     mobile_page.wait_for_timeout(600)
@@ -207,3 +244,15 @@ def test_screenshot_hero_desktop(desktop_page):
     goto(desktop_page, "/")
     desktop_page.wait_for_timeout(600)
     desktop_page.screenshot(path=str(SHOTS / "index-desktop-hero.png"))
+
+
+def test_screenshot_funciones_desktop(desktop_page):
+    goto(desktop_page, "/funciones.html")
+    desktop_page.wait_for_timeout(600)
+    desktop_page.screenshot(path=str(SHOTS / "funciones-desktop-hero.png"))
+
+
+def test_screenshot_casos_desktop(desktop_page):
+    goto(desktop_page, "/casos.html")
+    desktop_page.wait_for_timeout(600)
+    desktop_page.screenshot(path=str(SHOTS / "casos-desktop-hero.png"))
