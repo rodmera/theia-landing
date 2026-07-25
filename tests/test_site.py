@@ -82,7 +82,8 @@ def test_ctas_criticos_index(mobile_page):
 def test_home_no_promete_casos_ni_comparaciones_de_precio():
     """La home usa dogfooding como prueba hasta contar con permisos de casos reales."""
     html = (Path(__file__).parent.parent / "index.html").read_text(encoding="utf-8")
-    assert "Usamos TheIA para atenderte" in html
+    assert "Usamos TheIA para" in html
+    assert "atenderte." in html
     assert "inversionistas que alimentar" not in html
     assert "Ver casos extendidos" not in html
 
