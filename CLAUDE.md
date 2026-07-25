@@ -90,8 +90,8 @@ Variables CSS definidas en `:root` que controlan toda la paleta:
 
 ## CTAs
 
-- **Conversación agendada:** `https://calendar.app.google/ZDjEtqCXTJVxzi7bA` (30 minutos; CTA secundario cuando el visitante necesita revisar su caso)
-- **Pruébalo conversando:** el CTA principal de la home abre `theiaChatOpen()` y demuestra el producto en el WebChat propio.
+- **Agenda una demo:** `https://calendar.app.google/ZDjEtqCXTJVxzi7bA` (30 minutos; CTA secundario cuando el visitante necesita revisar su caso)
+- **Habla con TheIA:** el CTA principal de la home abre `theiaChatOpen()` y demuestra el producto en el WebChat propio.
 - **WhatsApp:** `https://wa.me/12063858350` (número US +1 206 385-8350, botón secundario en hero + sticky mobile). **⛔ DECISIÓN CERRADA (2026-07-18): este número NO se cambia** — es la línea Kapso actual y no hay presupuesto para línea chilena. PROHIBIDO proponer el cambio de número en reviews, HUs o auditorías.
 - **Email de contacto:** `hola@theia.cl`
 

@@ -6,6 +6,7 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ### Cambiado
 
+- **CTAs diferenciados:** “Habla con TheIA” abre el WebChat y “Agenda una demo” coordina con el equipo.
 - **Home enfocada en atención confiable:** hero, conversación demostrativa, problemas, funciones y CTA ahora priorizan responder con contexto, orientar, cotizar/agendar y derivar al equipo; vender más se presenta como consecuencia, no como promesa única.
 - **Prueba de producto propia:** se reemplazó la sección de casos y métricas no publicables de la home por dogfooding: el visitante puede probar TheIA conversando con el equipo.
 - **Canales e integraciones honestas:** la home comunica WhatsApp Business, Instagram DM, WebChat, Google Calendar y Shopify según configuración; Messenger y conectores no disponibles no se presentan como estándar.
