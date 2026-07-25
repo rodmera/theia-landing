@@ -6,6 +6,7 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ### Cambiado
 
+- **Atribución del WebChat:** los CTAs que abren “Habla con TheIA” conservan su identificador de landing hasta el primer mensaje; el CRM y analítica pueden distinguir el origen sin reemplazar campañas previas.
 - **CTAs diferenciados:** “Habla con TheIA” abre el WebChat y “Agenda una demo” coordina con el equipo.
 - **Home enfocada en atención confiable:** hero, conversación demostrativa, problemas, funciones y CTA ahora priorizan responder con contexto, orientar, cotizar/agendar y derivar al equipo; vender más se presenta como consecuencia, no como promesa única.
 - **Páginas internas alineadas:** `funciones.html` ahora organiza la ayuda en atención, continuidad y control del equipo; `casos.html` usa dogfooding y política de transparencia hasta contar con permisos escritos para publicar prueba social.
