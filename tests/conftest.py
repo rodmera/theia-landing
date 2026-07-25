@@ -13,7 +13,19 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
-PORT = int(os.environ.get("SITE_PORT", "8123"))
+
+
+def _free_port():
+    """Puerto efímero libre asignado por el SO. Evita colisiones con otros
+    servicios locales (ej. el servidor A2A en :8123, que hacía que la suite
+    testeara contra el server equivocado y devolviera 404 en todas las páginas)."""
+    with socket.socket() as s:
+        s.bind(("127.0.0.1", 0))
+        return s.getsockname()[1]
+
+
+# SITE_PORT fuerza un puerto fijo si se necesita; por defecto, uno libre por corrida.
+PORT = int(os.environ["SITE_PORT"]) if os.environ.get("SITE_PORT") else _free_port()
 BASE = f"http://127.0.0.1:{PORT}"
 
 # Mobile-first: el viewport POR DEFECTO de toda la suite es un teléfono real.

@@ -148,7 +148,21 @@ def test_widget_en_todas_las_paginas(mobile_page, path):
     """El webchat (dogfooding + canal de dudas) debe estar en TODAS las páginas —
     antes solo estaba en el index: un prospecto en /precios no tenía dónde preguntar."""
     goto(mobile_page, path)
-    assert "webchat-widget.js" in mobile_page.content(), f"{path} sin el widget de webchat"
+    content = mobile_page.content()
+    assert "webchat-widget.js" in content, f"{path} sin el widget de webchat"
+    # No basta con que el <script> esté: la CSP debe permitir cargarlo desde
+    # admin.theia.cl. Si no, el widget queda bloqueado por CSP y el chat no carga
+    # (bug 2026-07-25: pasaba en 12 de 13 páginas y el test no lo detectaba).
+    csp = mobile_page.eval_on_selector(
+        "meta[http-equiv='Content-Security-Policy']",
+        "el => el ? el.getAttribute('content') : ''") or ""
+    script_src = ""
+    for directive in csp.split(";"):
+        if directive.strip().startswith("script-src"):
+            script_src = directive
+            break
+    assert "admin.theia.cl" in script_src, (
+        f"{path}: la CSP (script-src) no permite admin.theia.cl — el webchat quedaría bloqueado")
 
 
 # ───────────────────────── 6. STICKY WHATSAPP EN MÓVIL ─────────────────────────
