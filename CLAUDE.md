@@ -16,6 +16,7 @@ Sitio multi-página con HTML/CSS/JS puro. Jekyll solo para el blog (`_posts/`, `
 - `calculadora.html` — calculadora de ROI
 - `pulse.html` — producto Pulse (copiloto del dueño)
 - `privacidad.html` — política de privacidad
+- `terminos.html` — términos de servicio y tratamiento de cargos de canales de terceros
 - `blog/` — posts Jekyll (`_posts/`)
 - `webchat-widget.js` — widget de chat web embebido, se conecta al backend TheIA vía API
 
@@ -56,6 +57,15 @@ consistencia comercial ($190.000, demo 30 min) y sticky WhatsApp.
 ## Despliegue
 
 GitHub Pages publica automáticamente desde la rama `main`. El archivo `CNAME` contiene `theia.cl` para el dominio personalizado. No se requiere ningún paso adicional — hacer push a `main` es suficiente para desplegar.
+
+Después del workflow, comprobar que `https://theia.cl/terminos.html` responda HTTP 200. Esta página es HTML estático: los enlaces, el canonical y el sitemap deben usar **`/terminos.html`**, no `/terminos` (esa ruta devuelve 404).
+
+## Transparencia de precios de canal
+
+- La mensualidad de TheIA cubre el servicio indicado en la propuesta; WhatsApp Business es un canal de terceros operado por Meta.
+- Nunca prometer que el canal es ilimitado, gratuito, con tarifa Meta fija o “sin cobro por conversación extra”. Meta puede aplicar cargos por mensajes entregados según país, categoría y sus reglas vigentes.
+- La página `precios.html` debe explicar esta separación en lenguaje simple y enlazar a `/terminos.html`. Los términos y la propuesta comercial definen el tratamiento concreto de esos cargos.
+- Al cambiar copy comercial, mantener la prueba `test_precios_explica_cargos_de_whatsapp_business` y actualizarla si cambia el contrato visible.
 
 ## Sistema de diseño
 

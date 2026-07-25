@@ -2,6 +2,16 @@
 
 Todos los cambios notables en este proyecto serán documentados en este archivo.
 
+## [1.4.1] - 2026-07-25
+
+### Añadido
+
+- **Transparencia WhatsApp Business:** `precios.html`, FAQ, política de privacidad y pie de páginas aclaran que Meta opera el canal y puede aplicar cargos por mensajes entregados según país, categoría y reglas vigentes. Se agregó `terminos.html` para explicar el tratamiento comercial.
+
+### Corregido
+
+- **Ruta pública de términos:** enlaces internos, canonical y sitemap apuntan a `/terminos.html`, la ruta que GitHub Pages sirve efectivamente en `theia.cl` (HTTP 200).
+
 ## [1.4.0] - 2026-07-02
 
 ### Añadido
