@@ -75,8 +75,16 @@ def test_ctas_criticos_index(mobile_page):
     # Brochure fuera del hero por decisión (2026-07-19): el sitio es el brochure;
     # el PDF queda solo como asset del bot en conversación (y el archivo vive en el
     # repo para no romper links antiguos).
-    for texto in ["Pruébalo ahora", "Hablar por WhatsApp"]:
+    for texto in ["Pruébalo conversando", "Agenda una conversación"]:
         assert mobile_page.get_by_text(texto).first.is_visible(), f"CTA '{texto}' no visible en móvil"
+
+
+def test_home_no_promete_casos_ni_comparaciones_de_precio():
+    """La home usa dogfooding como prueba hasta contar con permisos de casos reales."""
+    html = (Path(__file__).parent.parent / "index.html").read_text(encoding="utf-8")
+    assert "Usamos TheIA para atenderte" in html
+    assert "inversionistas que alimentar" not in html
+    assert "Ver casos extendidos" not in html
 
 
 def test_links_internos_resuelven(mobile_page):

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Proyecto
 
-Landing page estática para **TheIA** — agente de ventas IA para WhatsApp, Instagram DM y web, orientado al mercado chileno y latinoamericano. Desplegada en GitHub Pages en `theia.cl`.
+Landing page estática para **TheIA** — atención de clientes confiable con IA para WhatsApp, Instagram DM y web, orientada a PYMEs chilenas. Vender más es una consecuencia de atender bien, no la única promesa. Desplegada en GitHub Pages en `theia.cl`.
 
 ## Arquitectura
 
@@ -79,7 +79,7 @@ Variables CSS definidas en `:root` que controlan toda la paleta:
 | `--text`, `--text-sub`, `--text-muted` | Jerarquía tipográfica |
 | `--glass`, `--glass-border`, `--glass-border-gold` | Efecto glassmorphism |
 
-**Tipografías:** Montserrat (headings, peso 700-900) y Open Sans (cuerpo), cargadas desde Google Fonts.
+**Tipografías:** Merriweather (headings, peso 700-900) y Plus Jakarta Sans (cuerpo), cargadas desde Google Fonts.
 
 **Componentes reutilizables:** `.glass-card`, `.btn`, `.section-title`, `.section-sub`, `.reveal` (animación de entrada al scroll).
 
@@ -90,7 +90,8 @@ Variables CSS definidas en `:root` que controlan toda la paleta:
 
 ## CTAs
 
-- **Agendar Demo:** `https://calendar.app.google/ZDjEtqCXTJVxzi7bA` (CTA principal en nav, hero y footer)
+- **Conversación agendada:** `https://calendar.app.google/ZDjEtqCXTJVxzi7bA` (30 minutos; CTA secundario cuando el visitante necesita revisar su caso)
+- **Pruébalo conversando:** el CTA principal de la home abre `theiaChatOpen()` y demuestra el producto en el WebChat propio.
 - **WhatsApp:** `https://wa.me/12063858350` (número US +1 206 385-8350, botón secundario en hero + sticky mobile). **⛔ DECISIÓN CERRADA (2026-07-18): este número NO se cambia** — es la línea Kapso actual y no hay presupuesto para línea chilena. PROHIBIDO proponer el cambio de número en reviews, HUs o auditorías.
 - **Email de contacto:** `hola@theia.cl`
 
@@ -111,9 +112,9 @@ de la clínica o del almacén. TODO el copy del sitio se escribe en SU lenguaje:
 - ⛔ PROHIBIDO jerga startup/tech: "unicornio", "Serie A", "levantar capital", "escalar",
   "expansión a X país", "plataforma" (en el hero), "stack", "SaaS", "onboarding", anglicismos
   innecesarios. Si la gente de a pie no lo usa en una conversación normal, no va.
-- La ironía hacia la competencia se construye con conceptos universales (ej. "no hay
-  inversionistas que alimentar — el ahorro es tuyo"), nunca con referencias que requieran leer
-  prensa de negocios.
+- Evitar ataques, comparaciones de precio no contrastadas y referencias a inversionistas. El
+  diferencial se explica con atención confiable, foco PYME, implementación entendible, soporte
+  cercano y transparencia de costos.
 - Español chileno, tuteo, directo. Frases cortas. Cero superlativos vacíos.
 
 ## Backlog (desde 2026-07-18)
