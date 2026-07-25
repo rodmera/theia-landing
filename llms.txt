@@ -7,7 +7,7 @@ TheIA es un agente conversacional con IA que reemplaza al chatbot tradicional. U
 ## Producto
 - [TheIA Homepage](https://theia.cl): Página principal con demo y calculadora ROI
 - [Funciones](https://theia.cl/funciones): Capacidades del agente (memoria, multicanal, sentiment engine, IA multimodal)
-- [Precios](https://theia.cl/precios): Plan único CLP 190.000/mes + setup
+- [Precios](https://theia.cl/precios): Plan TheIA desde CLP 190.000/mes + setup; los cargos de WhatsApp Business se informan por separado según las reglas de Meta
 - [Plataforma](https://theia.cl/plataforma): Dashboard de supervisión y métricas
 - [Pulse](https://theia.cl/pulse): Monitor de conversaciones en tiempo real
 - [Servicios](https://theia.cl/servicios): Implementación y soporte
@@ -22,10 +22,11 @@ TheIA es un agente conversacional con IA que reemplaza al chatbot tradicional. U
 ## Datos clave
 - Canales: WhatsApp, Instagram DM, Facebook Messenger, Chat Web
 - Mercado: Pymes Chile (inmobiliarias, corredores de propiedades, salud mental, alimentos, retail, clínicas, e-commerce)
-- Precio: desde CLP 190.000/mes
+- Precio: desde CLP 190.000/mes por TheIA. Los cargos de WhatsApp Business dependen de Meta, categoría, país y cuenta del cliente.
 - Implementación: 7 días, llave en mano
 - Contacto: hola@theia.cl | +56 9 7729 8344
 
 ## Optional
 - [Privacidad](https://theia.cl/privacidad): Política de privacidad
+- [Términos de Servicio](https://theia.cl/terminos): Alcance del servicio, uso de canales de terceros y cargos de WhatsApp Business
 - [Calculadora ROI](https://theia.cl/calculadora): Calcula cuánto pierdes por no responder a tiempo

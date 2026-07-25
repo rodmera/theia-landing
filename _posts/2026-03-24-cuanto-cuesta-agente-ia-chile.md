@@ -25,11 +25,11 @@ El plan mensual es el costo más visible. En Chile, los rangos van desde **$150.
 
 Pero acá viene lo importante: ¿qué incluye ese plan?
 
-### 3. Costo por conversación
+### 3. Costos del canal de mensajería
 
-Este es el costo oculto más común. Muchas plataformas cobran **entre $200 y $400 CLP por cada conversación** que tu agente atiende. Si recibes 500 consultas al mes, eso puede sumar $100.000-$200.000 CLP adicionales a tu plan base.
+WhatsApp Business es operado por Meta. Sus cargos pueden depender del país del destinatario, de la categoría del mensaje y de sus reglas vigentes. No conviene comparar soluciones solo por una "ventana de 24 horas" o asumir que todas las respuestas del bot serán gratuitas.
 
-Antes de contratar, pregunta: **¿el plan tiene límite de conversaciones? ¿Qué pasa si lo supero?**
+Antes de contratar, pregunta: **¿quién asume los cargos de WhatsApp Business? ¿la cuenta del cliente está preparada para recibirlos? ¿qué categorías y límites cubre el plan?**
 
 ### 4. Costo de la IA (API keys)
 
@@ -56,23 +56,25 @@ Supongamos una PYME en Chile que recibe 400 consultas al mes por WhatsApp e Inst
 | Concepto | Plataforma A (self-service) | Plataforma B (llave en mano) |
 |---|---|---|
 | Suscripción mensual | $350.000 | $190.000 |
-| Conversaciones extra (400) | $80.000 | $0 (incluidas) |
+| Cargos de WhatsApp Business | Según reglas y tarifa vigente de Meta | Se explican antes de activar el canal |
 | API de IA | $40.000 | $0 (incluida) |
 | Canales (WA + IG) | Plan superior requerido | Incluidos |
-| **Total mensual real** | **~$470.000+** | **$190.000** |
+| **Total mensual antes de cargos Meta** | **~$390.000** | **$190.000** |
+| **Total final** | **~$390.000 + cargos Meta, si aplican** | **$190.000 + cargos Meta, si aplican** |
 
-La diferencia puede ser de **2x o más** cuando sumas todos los costos ocultos.
+La comparación responsable separa el valor de la suscripción de los cargos que controla Meta. Antes de firmar, pide que ese tratamiento quede escrito en la propuesta.
 
 ## Qué preguntar antes de contratar
 
 Antes de decidir, haz estas preguntas al proveedor:
 
-1. **¿Cuántas conversaciones incluye el plan?** ¿Y cuánto cuesta cada conversación adicional?
+1. **¿Qué mide el límite incluido?** ¿Y cómo se separa de los cargos de WhatsApp Business?
 2. **¿La inteligencia artificial está incluida?** ¿O necesito contratar API keys por mi cuenta?
 3. **¿Qué canales incluye?** WhatsApp, Instagram, chat web — ¿todos o solo uno?
 4. **¿Quién configura el agente?** ¿Lo hago yo o lo hacen ustedes?
 5. **¿Cuánto demora la implementación?** ¿Días o semanas?
 6. **¿Hay contrato de permanencia?** ¿Puedo cancelar si no funciona?
+7. **¿Quién responde por el opt-in, las plantillas y los cargos de Meta/WhatsApp?**
 
 ## El costo de no tener un agente IA
 

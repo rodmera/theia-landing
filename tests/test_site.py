@@ -127,6 +127,14 @@ def test_precio_consistente():
         assert "190.000" in html, f"{f} no menciona el precio $190.000"
 
 
+def test_precios_explica_cargos_de_whatsapp_business():
+    """El precio TheIA no debe prometer que el canal Meta es ilimitado o gratuito."""
+    html = (Path(__file__).parent.parent / "precios.html").read_text(encoding="utf-8")
+    assert "/terminos" in html, "precios debe enlazar los Términos de Servicio"
+    assert "WhatsApp Business es un canal de terceros" in html
+    assert "Sin cobro por conversación extra" not in html
+
+
 def test_demo_es_30_minutos(mobile_page):
     """La demo es de 30 minutos (decisión documentada) — '15 minutos' no debe reaparecer."""
     for path in ("/", "/precios.html"):

@@ -26,7 +26,7 @@ DESKTOP = {"viewport": {"width": 1366, "height": 768}}
 # Páginas estáticas del sitio (los _posts Jekyll requieren build de Pages — no van acá).
 PAGES = ["/", "/funciones.html", "/precios.html", "/servicios.html",
          "/plataforma.html", "/calculadora.html", "/pulse.html",
-         "/casos.html", "/nosotros.html", "/privacidad.html", "/blog/"]
+         "/casos.html", "/nosotros.html", "/privacidad.html", "/terminos.html", "/blog/"]
 
 
 def _wait_port(port, timeout=15):
