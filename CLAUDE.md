@@ -128,6 +128,28 @@ Consultar: `python3 ~/projects/r2sport-whatsapp-bot/scripts/backlog.py --epica w
 - Cerrar una HU: mismo protocolo del vault (`estado: implementado` + `commit:` SOLO tras el deploy
   verificado en theia.cl).
 
+### 🔒 Al pasar a prod, el vault se actualiza en la MISMA sesión (obligatorio)
+
+El vault es la fuente de verdad del estado **real y priorizado** de TheIA. Si el frontmatter miente,
+Rodrigo decide sobre datos falsos. En la nota de la HU, apenas theia.cl sirva el cambio:
+
+1. `estado: implementado` + `commit: <hash>`.
+2. **El hash se obtiene con `git rev-parse --short HEAD` (o `git log`) y se verifica con
+   `git show --stat <hash>` ANTES de escribirlo.** Prohibido escribirlo de memoria o inventarlo.
+3. **Si no lo sabes, `commit: ""`.** Vacío es honesto; inventado es falsificar la trazabilidad.
+4. **Prohibidos los placeholders** (`docus`, `d0XX_algo`, "pendiente"): es un hash real o está vacío.
+5. Reemplazar el tag de estado (`- backlog` → `- implementado`) y el `topic`.
+6. Aclaraciones SOLO en `observaciones:`, nunca dentro de `estado:`.
+7. Cerrar corriendo `python3 ~/.openclaw/workspace/tools/theia-hu-health/check.py` → **13/13 verde**.
+
+**Antes de cambiar cualquier `estado`:** leer la nota **completa** (la sección
+`## Decisión de portafolio` va al FINAL del cuerpo) y correr `git grep <HU-ID>`. Si el ID ya está
+citado en el código, la HU está implementada y **no puede volver** a un estado activo.
+
+> Por qué es regla y no sugerencia: la auditoría del 2026-07-27 encontró **51 HU con `commit:` que
+> mentía** — 29 hashes de 40 caracteres que no existen en ningún repo del disco (uno repetido en 6
+> notas) y 22 literales tipo `docus`. Los checks 12 y 13 del validador ahora bloquean ambas cosas.
+
 ## Gate de este repo (no hay pytest — el gate es otro)
 
 Antes de commitear a `main` (main = deploy directo a theia.cl vía Pages):
