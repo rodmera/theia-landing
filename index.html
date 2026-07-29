@@ -744,6 +744,115 @@
       }
     }
 
+    .client-header {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--glass-border);
+      margin-bottom: 1rem;
+    }
+
+    .client-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--indigo));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+      font-size: 0.95rem;
+      color: #0f172a;
+      flex-shrink: 0;
+    }
+
+    .client-name {
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+      font-size: 1.05rem;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .client-status {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      color: var(--text-sub);
+      margin-top: 0.25rem;
+    }
+
+    .client-status .status-tag {
+      display: inline-block;
+      background: rgba(251, 191, 36, 0.15);
+      color: var(--warn);
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .client-channels {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--glass-border);
+      margin-bottom: 1rem;
+    }
+
+    .channel-row {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.82rem;
+    }
+
+    .channel-row .ch-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .channel-row .ch-icon.wa { background: rgba(37, 211, 102, 0.18); }
+    .channel-row .ch-icon.ig { background: rgba(225, 48, 108, 0.18); }
+    .channel-row .ch-icon.web { background: rgba(79, 70, 229, 0.18); }
+
+    .channel-row .ch-name {
+      color: var(--text);
+      font-weight: 500;
+      flex: 1;
+    }
+
+    .channel-row .ch-count {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    .client-context-label {
+      font-size: 0.7rem;
+      color: var(--gold-light);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+      font-weight: 700;
+    }
+
+    .client-context-text {
+      color: var(--text-sub);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
     .card-stats {
       display: flex;
       justify-content: space-around;
@@ -3329,46 +3438,52 @@
 
       <!-- Right Column -->
       <div class="hero-glass-card animate-load" style="animation-delay: 0.7s;">
-        <div class="chat-header">
-          <div class="chat-avatar">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 8V4H8" />
-              <rect width="16" height="12" x="4" y="8" rx="2" />
-              <path d="M2 14h2" />
-              <path d="M20 14h2" />
-              <path d="M15 13v2" />
-              <path d="M9 13v2" />
-            </svg>
-          </div>
+        <div class="client-header">
+          <div class="client-avatar">ML</div>
           <div>
-            <div class="chat-name">TheIA Agent</div>
-            <div class="chat-online">En línea ahora</div>
+            <div class="client-name">María López</div>
+            <div class="client-status">
+              <span class="status-tag">Cotización enviada</span>
+              <span>hace 2 días</span>
+            </div>
           </div>
         </div>
 
-        <div class="chat-msgs">
-          <div class="msg msg-user">Hola, necesito una cotización para esta semana.</div>
-          <div class="msg msg-bot">Claro. Para orientarte bien, ¿qué servicio necesitas y para cuántas personas?</div>
-          <div class="msg msg-user">Es para una reunión de 12 personas.</div>
-          <div class="msg msg-bot">Perfecto. Te ayudo a preparar la cotización y, si hace falta, lo derivamos al equipo con este contexto.</div>
-          <div class="typing">
-            <div class="dots"><span></span><span></span><span></span></div> TheIA está respondiendo…
+        <div class="client-channels">
+          <div class="channel-row">
+            <span class="ch-icon wa">💬</span>
+            <span class="ch-name">WhatsApp</span>
+            <span class="ch-count">12 mensajes</span>
           </div>
+          <div class="channel-row">
+            <span class="ch-icon ig">📷</span>
+            <span class="ch-name">Instagram</span>
+            <span class="ch-count">3 mensajes</span>
+          </div>
+          <div class="channel-row">
+            <span class="ch-icon web">🌐</span>
+            <span class="ch-name">Web</span>
+            <span class="ch-count">1 formulario</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="client-context-label">Última conversación</div>
+          <div class="client-context-text">"Cotización para reunión de 12 personas. La IA preguntó detalles y derivó al equipo con todo el contexto."</div>
         </div>
 
         <div class="card-stats">
           <div>
-            <div class="stat-n">24/7</div>
-            <div class="stat-l">Atención disponible</div>
+            <div class="stat-n">Omnicanal</div>
+            <div class="stat-l">WA + IG + Web</div>
           </div>
           <div>
             <div class="stat-n">Contexto</div>
-            <div class="stat-l">Historial del cliente</div>
+            <div class="stat-l">Historial unificado</div>
           </div>
           <div>
-            <div class="stat-n">Equipo</div>
-            <div class="stat-l">Cuando corresponde</div>
+            <div class="stat-n">Escalado</div>
+            <div class="stat-l">Al equipo con resumen</div>
           </div>
         </div>
       </div>
