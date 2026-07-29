@@ -163,6 +163,31 @@ def test_criterios_sin_nombres_en_copy_visible(mobile_page):
     assert data_file.is_file(), "falta el archivo de datos externalizado data/criterios-precios.json"
 
 
+def test_seo_geo_sin_nombres_en_sitemap_y_llms():
+    """HU-WEB-016: sitemap.xml y llms.txt NO nombran plataformas competidoras
+    (decisión 2026-07-29). Las keywords son genéricas."""
+    root = Path(__file__).parent.parent
+    for fname in ("sitemap.xml", "llms.txt"):
+        text = (root / fname).read_text(encoding="utf-8")
+        for nombre in ["Kommo", "Vambe", "Dapta", "Botpress", "ManyChat", "Chatfuel"]:
+            assert nombre not in text, (
+                f"{fname} nombra a {nombre} (decisión 2026-07-29: sin nombres en SEO/GEO)")
+    # Sitemap incluye las páginas nuevas del paraguas
+    sitemap = (root / "sitemap.xml").read_text(encoding="utf-8")
+    for url in ["atencion-cliente", "criterios"]:
+        assert url in sitemap, f"sitemap.xml no incluye /{url}"
+
+
+def test_landing_pages_citables_por_asistentes_ia():
+    """HU-WEB-016 AC2: las páginas con FAQ tienen schema JSON-LD FAQPage válido.
+    Las páginas citable por asistentes de IA."""
+    root = Path(__file__).parent.parent
+    for fname in ("criterios.html", "atencion-cliente.html"):
+        html = (root / fname).read_text(encoding="utf-8")
+        assert "FAQPage" in html, f"{fname} sin schema FAQPage (no citable por IAs para preguntas)"
+        assert "application/ld+json" in html, f"{fname} sin JSON-LD embebido"
+
+
 def test_links_internos_resuelven(mobile_page):
     """Todo href interno del index apunta a un archivo que existe en el repo."""
     goto(mobile_page, "/")
