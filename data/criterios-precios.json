@@ -1,0 +1,55 @@
+{
+  "fecha_verificacion": "2026-07-29",
+  "fuente": "Sitios públicos de cada plataforma (precios listados vigentes al momento de la verificación). Sin nombres en el HTML público: este archivo es interno y se renderiza vía JavaScript para que actualizar los precios no requiera tocar la maqueta.",
+  "moneda_referencia": "USD para planes por usuario/crédito; CLP para planes por negocio. El sitio muestra conversión estimada al tipo de cambio indicativo del día (verificado).",
+  "modelos": [
+    {
+      "id": "por-usuario",
+      "etiqueta": "Por usuario (modelo tradicional)",
+      "descripcion": "Se cobra por cada persona que usa el sistema. Mínimo 6 meses. Créditos de IA separados.",
+      "precio_min_usd_user_mes": 15,
+      "precio_max_usd_user_mes": 45,
+      "compromiso_minimo_meses": 6,
+      "creditos_ia_incluidos": "750-2250 por usuario/mes (no acumulables)",
+      "moneda": "USD",
+      "fuente_datos": "Planes típicos del segmento publicados en sitios de plataformas competidoras (Kommo, Vambe, etc.). El sitio público NO los nombra."
+    },
+    {
+      "id": "por-credito",
+      "etiqueta": "Por crédito de IA",
+      "descripcion": "Se cobra por uso: cada llamada, mensaje o respuesta consume créditos.",
+      "precio_rango_referencial": "Variable según plataforma; paquetes desde ~$99/mes en planes básicos hasta $1499/mes en planes premium.",
+      "moneda": "USD",
+      "compromiso_minimo_meses": 1,
+      "fuente_datos": "Páginas de pricing de plataformas AI-first (Dapta, Vapi, etc.). El sitio público NO las nombra."
+    },
+    {
+      "id": "por-negocio",
+      "etiqueta": "Por negocio (modelo TheIA)",
+      "descripcion": "Se cobra por negocio atendido, no por asiento. Personas que lo usan incluidas.",
+      "precio_clp_mes": 190000,
+      "compromiso_minimo_meses": 1,
+      "moneda": "CLP",
+      "incluye": "Atención WhatsApp + Instagram + Web. Personas del equipo incluidas sin costo extra.",
+      "modulos_adicionales": {
+        "CRM": "Próximamente publicado; precio por confirmar (HU-CRM-036)."
+      }
+    }
+  ],
+  "cargos_frecuentes_no_incluidos": [
+    {
+      "concepto": "Cargos de WhatsApp Business (Meta)",
+      "descripcion": "Meta cobra por mensajes entregados según país, categoría y reglas vigentes. Estos cargos NO están incluidos en el precio de ninguna plataforma. TheIA los transparenta en su panel y en /terminos.html."
+    },
+    {
+      "concepto": "Créditos de IA adicionales",
+      "descripcion": "Si se acaban los créditos incluidos, se compran paquetes aparte. En modelos por usuario, los créditos no se acumulan mes a mes."
+    }
+  ],
+  "supuestos_calculadora": {
+    "personas_equipo": "Cantidad de personas que atienden clientes o configuran el sistema.",
+    "conversaciones_mes": "Cantidad aproximada de conversaciones únicas por mes (un cliente que vuelve a escribir 5 veces cuenta como 1 conversación para el cálculo básico, o 5 si se quiere estimar por mensaje).",
+    "tipo_cambio_referencial_clp_por_usd": 950,
+    "nota": "Los cálculos son estimaciones con propósito comparativo, no cotizaciones. Los precios reales pueden variar por país, plan, campaña o cambios del proveedor."
+  }
+}

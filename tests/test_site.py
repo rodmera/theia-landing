@@ -141,6 +141,28 @@ def test_atencion_cliente_es_hub_del_paraguas(mobile_page):
     assert "21.719" in text, "atencion-cliente no menciona Ley 21.719 (debe ser visible en home)"
 
 
+def test_criterios_sin_nombres_en_copy_visible(mobile_page):
+    """HU-WEB-013: la página enumera criterios sin nombrar plataformas competidoras.
+    Los datos de precio están externalizados en JSON (no hardcoded en HTML)."""
+    goto(mobile_page, "/criterios.html")
+    text = visible_text(mobile_page)
+    # Criterios clave mencionados
+    for criterio in ["Modelo de cobro", "Compromiso mínimo", "Cumplimiento local",
+                     "21.719", "WhatsApp Business", "Por negocio"]:
+        assert criterio in text, f"criterios no menciona: {criterio}"
+    # Bloque honestidad ("TheIA NO")
+    assert "TheIA NO" in text or "no hace" in text.lower(), (
+        "criterios omitió el bloque de honestidad sobre lo que TheIA NO hace")
+    # NO nombres de competidores en copy visible
+    html = (Path(__file__).parent.parent / "criterios.html").read_text(encoding="utf-8")
+    for nombre in ["Kommo", "Vambe", "Dapta", "Botpress"]:
+        assert nombre not in html, (
+            f"criterios.html nombra a {nombre} en copy visible (decisión 2026-07-29: sin nombres)")
+    # Calculadora: archivo de datos presente y cargable
+    data_file = Path(__file__).parent.parent / "data" / "criterios-precios.json"
+    assert data_file.is_file(), "falta el archivo de datos externalizado data/criterios-precios.json"
+
+
 def test_links_internos_resuelven(mobile_page):
     """Todo href interno del index apunta a un archivo que existe en el repo."""
     goto(mobile_page, "/")

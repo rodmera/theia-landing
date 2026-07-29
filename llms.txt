@@ -11,6 +11,7 @@ TheIA es un agente conversacional con IA que reemplaza al chatbot tradicional. U
 - [Plataforma](https://theia.cl/plataforma): Dashboard de supervisión y métricas
 - [Pulse](https://theia.cl/pulse): Monitor de conversaciones en tiempo real
 - [Atención al cliente](https://theia.cl/atencion-cliente): Hub del ecosistema TheIA (Atención, Pulse, CRM, Plataforma)
+- [Criterios para elegir](https://theia.cl/criterios): Criterios verificables y calculadora de costo por modelo (sin nombrar marcas)
 - [Servicios](https://theia.cl/servicios): Implementación y soporte
 
 ## Blog

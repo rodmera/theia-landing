@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://admin.theia.cl; connect-src 'self' https:;">
+
+  <script src="/cc-init.js"></script>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Criterios para elegir atención con IA para tu PYME — TheIA</title>
+  <link rel="canonical" href="https://theia.cl/criterios" />
+  <link rel="icon" href="logo.png" type="image/png">
+
+  <meta name="description"
+    content="Qué mirar antes de elegir atención con IA para tu PYME: modelo de cobro, compromiso mínimo, cumplimiento local, soporte, transparencia de costos. Comparativa honesta con calculadora de costo." />
+  <meta name="keywords"
+    content="alternativa chatbots CRM, mejor atención con IA PYME Chile, chatbot WhatsApp Chile, CRM para WhatsApp, criterios elegir chatbot, atención cliente IA emprendedores" />
+  <meta name="author" content="TheIA" />
+  <meta name="geo.region" content="CL" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://theia.cl/criterios" />
+  <meta property="og:site_name" content="TheIA" />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:title" content="Criterios para elegir atención con IA para tu PYME" />
+  <meta property="og:description"
+    content="Comparativa honesta con criterios verificables y calculadora de costo. Sin nombres de competidores en copy visible." />
+  <meta property="og:image" content="https://theia.cl/logo.png" />
+
+  <!-- JSON-LD: FAQPage + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué modelo de cobro me conviene: por usuario, por crédito o por negocio?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Depende de cuántas personas usen el sistema y de qué tan variables son tus conversaciones. Por usuario castiga cuando rotás o crecés; por crédito es flexible pero impredecible mes a mes; por negocio es fijo y permite sumar personas sin que suba el precio."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Por qué es importante el cumplimiento de la Ley 21.719?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La Ley 21.719 regula el tratamiento de datos personales en Chile. Una plataforma que cumple te garantiza residencia local de datos y respaldo si el regulador pide información."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué incluye el cargo de WhatsApp Business?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "WhatsApp Business es un canal operado por Meta. Meta cobra por mensajes entregados según país, categoría y reglas vigentes. Estos cargos son independientes del precio de cualquier plataforma de atención y se informan por separado en el panel de TheIA."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿TheIA cobra por usuario?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. TheIA cobra por negocio. Las personas del equipo que atienden están incluidas sin costo extra. Si tu equipo crece o rota, el precio no cambia."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f172a;
+      --bg2: #1e293b;
+      --bg3: #334155;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-border-gold: rgba(212, 175, 55, 0.4);
+      --gold: #d4af37;
+      --gold-light: #ebca73;
+      --gold-glow: rgba(212, 175, 55, 0.25);
+      --indigo: #4f46e5;
+      --indigo-light: #6366f1;
+      --text: #ffffff;
+      --text-sub: rgba(255, 255, 255, 0.7);
+      --text-muted: rgba(255, 255, 255, 0.4);
+      --green: #34c77b;
+      --warn: #fbbf24;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 { font-family: 'Merriweather', serif; font-weight: 900; line-height: 1.2; }
+    .gold { color: var(--gold); }
+
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 0.5rem; padding: 0.6rem 1.35rem; border-radius: 8px;
+      font-family: 'Plus jakarta Sans', sans-serif;
+      font-size: 0.85rem; font-weight: 600; text-decoration: none;
+      cursor: pointer; border: none; transition: all 0.22s ease; text-align: center;
+    }
+    .btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #0f172a; font-weight: 700; box-shadow: 0 4px 20px var(--gold-glow); }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(212, 175, 55, 0.45); }
+    .btn-ghost { background: transparent; color: var(--text-sub); border: 1px solid var(--glass-border); }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+    .btn-whatsapp { background: #25D366; color: white; }
+    .btn-whatsapp:hover { background: #1da851; }
+
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; max-width: 1140px; margin: 0 auto; }
+    .logo img { height: 36px; width: auto; }
+    .nav-cta { display: flex; align-items: center; gap: 0.5rem; }
+    .menu-toggle { display: none; background: transparent; border: none; cursor: pointer; padding: 0.5rem; flex-direction: column; gap: 4px; }
+    .menu-toggle span { display: block; width: 24px; height: 2px; background: var(--text); transition: 0.2s; }
+
+    .hero { padding: 4rem 0 3rem; text-align: center; position: relative; overflow: hidden; }
+    .hero::before {
+      content: ''; position: absolute; top: -200px; left: 50%;
+      transform: translateX(-50%); width: 800px; height: 800px;
+      background: radial-gradient(circle, var(--gold-glow) 0%, transparent 60%);
+      opacity: 0.4; pointer-events: none;
+    }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 1.25rem; position: relative; }
+    .hero-sub { font-size: clamp(1rem, 2vw, 1.15rem); color: var(--text-sub); max-width: 720px; margin: 0 auto 2rem; position: relative; }
+
+    section { padding: 4rem 0; }
+    .section-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); text-align: center; margin-bottom: 0.75rem; }
+    .section-sub { text-align: center; color: var(--text-sub); max-width: 720px; margin: 0 auto 2.5rem; font-size: 1.05rem; }
+
+    /* Criterios grid */
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .criterion-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .criterion-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .criterion-card h3 .num {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #0f172a; font-size: 0.8rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 6px;
+    }
+    .criterion-card p { color: var(--text-sub); font-size: 0.95rem; margin-bottom: 0.75rem; }
+    .criterion-card .ask {
+      color: var(--gold-light); font-size: 0.85rem; font-style: italic;
+      border-left: 2px solid var(--gold); padding-left: 0.6rem; margin-top: 0.5rem;
+    }
+
+    /* Calculadora */
+    .calc {
+      background: var(--bg2);
+      border-radius: 16px;
+      padding: 2.5rem;
+      max-width: 880px;
+      margin: 2rem auto 0;
+    }
+    .calc h3 { font-size: 1.3rem; margin-bottom: 1rem; text-align: center; }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .calc-field label { display: block; font-size: 0.85rem; color: var(--text-sub); margin-bottom: 0.35rem; }
+    .calc-field input {
+      width: 100%; padding: 0.65rem 0.85rem;
+      background: var(--bg); color: var(--text);
+      border: 1px solid var(--glass-border); border-radius: 8px;
+      font-family: inherit; font-size: 1rem;
+    }
+    .calc-field input:focus { outline: none; border-color: var(--gold); }
+    .calc-results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .calc-result-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .calc-result-card.theia { border-color: var(--glass-border-gold); }
+    .calc-result-card h4 { font-size: 0.9rem; color: var(--gold-light); margin-bottom: 0.4rem; font-weight: 600; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .calc-result-card .price { font-size: 1.6rem; font-weight: 700; }
+    .calc-result-card .note { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; }
+    .calc-disclaimer {
+      margin-top: 1.5rem; padding: 0.9rem 1rem;
+      background: rgba(251, 191, 36, 0.08);
+      border-left: 3px solid var(--warn);
+      border-radius: 6px;
+      font-size: 0.82rem; color: var(--text-sub);
+    }
+    .calc-data-warning {
+      margin-top: 1rem; padding: 0.7rem 0.9rem;
+      background: rgba(251, 191, 36, 0.08);
+      border-left: 3px solid var(--warn);
+      border-radius: 6px;
+      font-size: 0.8rem; color: var(--warn);
+      display: none;
+    }
+
+    /* Diferenciadores */
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .diff-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .diff-card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+    .diff-card p { color: var(--text-sub); font-size: 0.9rem; margin-bottom: 0.6rem; }
+    .diff-card a { color: var(--gold); font-size: 0.85rem; text-decoration: none; }
+    .diff-card a:hover { text-decoration: underline; }
+
+    .honest-section { background: var(--bg2); }
+    .honest-list { max-width: 720px; margin: 1.5rem auto 0; }
+    .honest-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--glass-border);
+      color: var(--text-sub);
+      font-size: 0.95rem;
+    }
+    .honest-item:last-child { border-bottom: none; }
+    .honest-item strong { color: var(--text); }
+
+    /* FAQ */
+    .faq-list { max-width: 800px; margin: 1.5rem auto 0; }
+    .faq-item {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .faq-item h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .faq-item p { color: var(--text-sub); font-size: 0.95rem; }
+
+    /* CTA */
+    .cta-final {
+      text-align: center;
+      padding: 5rem 0;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    }
+    .cta-final h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: 0.75rem; }
+    .cta-final p { color: var(--text-sub); max-width: 600px; margin: 0 auto 2rem; }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--glass-border); padding: 3rem 1.5rem 1.5rem; background: var(--bg2); }
+    .footer-inner { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
+    .footer-col { display: flex; flex-direction: column; gap: 0.75rem; }
+    .footer-col h4 { color: var(--gold-light); font-size: 0.9rem; margin-bottom: 0.5rem; font-weight: 600; }
+    .footer-col p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; }
+    .footer-col a { color: var(--text-sub); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-col.center { align-items: center; }
+    .footer-col.end { align-items: flex-end; }
+    .footer-bottom { max-width: 1140px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-copy { color: var(--text-muted); font-size: 0.8rem; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .menu-toggle { display: flex; }
+      .nav-cta {
+        position: fixed; top: 60px; right: 0; bottom: 0;
+        background: var(--bg2); flex-direction: column; align-items: stretch;
+        padding: 2rem 1.5rem; gap: 1rem; transform: translateX(100%);
+        transition: transform 0.3s ease; width: 240px;
+        border-left: 1px solid var(--glass-border);
+      }
+      .nav-cta.active { transform: translateX(0); }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-col, .footer-col.center, .footer-col.end { align-items: center !important; text-align: center !important; }
+      .footer-col div[style*="align-items: flex-start"] { align-items: center !important; }
+      .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="/" class="logo">
+      <img src="logo.png" alt="TheIA — Atención de clientes confiable con IA para WhatsApp, Instagram y Web" width="100" height="100" />
+    </a>
+    <button class="menu-toggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-cta">
+      <a href="https://admin.theia.cl" class="btn btn-ghost">Panel Admin</a>
+      <a href="/atencion-cliente" class="btn btn-ghost">Atención</a>
+      <a href="/pulse" class="btn btn-ghost">Pulse</a>
+      <a href="/plataforma" class="btn btn-ghost">Plataforma</a>
+      <a href="/precios" class="btn btn-ghost">Precios</a>
+      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" onclick="theiaTrackCTA('demo','criterios')">Agenda una demo →</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="reveal">Qué mirar antes de elegir<br /><span class="gold">atención con IA para tu PYME</span></h1>
+      <p class="hero-sub reveal">No todas las plataformas cobran igual ni se atan igual. Esta página enumera los criterios que importan, sin nombrar marcas — para que compares con información y no con marketing.</p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section style="padding-top:0;">
+    <div class="container">
+      <p class="reveal" style="max-width:760px;margin:0 auto;color:var(--text-sub);font-size:1.05rem;text-align:center;">
+        La siguiente lista vale para evaluar cualquier opción del mercado, incluida TheIA. Al final hay una <strong style="color:var(--text);">calculadora</strong> que te muestra cuánto te costaría cada modelo según tu equipo y volumen.
+      </p>
+    </div>
+  </section>
+
+  <!-- Criterios -->
+  <section style="padding-top:2rem;">
+    <div class="container">
+      <h2 class="section-title reveal">Los criterios que importan</h2>
+      <p class="section-sub reveal">Ocho preguntas que cualquier proveedor debería poder responderte sin rodeos.</p>
+
+      <div class="criteria-grid">
+        <div class="criterion-card reveal">
+          <h3><span class="num">1</span> Modelo de cobro</h3>
+          <p>Por usuario, por crédito de IA, o por negocio atendido. Cada modelo tiene consecuencias distintas cuando tu equipo crece o rota.</p>
+          <p class="ask">Pregunta clave: "¿Cuánto pago si mi equipo pasa de 2 a 5 personas?"</p>
+        </div>
+
+        <div class="criterion-card reveal">
+          <h3><span class="num">2</span> Compromiso mínimo</h3>
+          <p>Mensual, semestral o anual. Un compromiso largo es una apuesta a ciegas si todavía no probaste el producto con tu equipo.</p>
+          <p class="ask">Pregunta clave: "¿Puedo pagar mes a mes o me exigen 6 meses?"</p>
+        </div>
+
+        <div class="criterion-card reveal">
+          <h3><span class="num">3</span> Moneda y pasarela de pago</h3>
+          <p>USD con tarjeta internacional, CLP con transferencia local, o ambos. La diferencia es el costo real en pesos y la fricción operativa.</p>
+          <p class="ask">Pregunta clave: "¿Facturan en pesos chilenos o en dólares?"</p>
+        </div>
+
+        <div class="criterion-card reveal">
+          <h3><span class="num">4</span> Canales incluidos en el precio base</h3>
+          <p>WhatsApp, Instagram, Web. Algunos cobran aparte cada canal; otros los traen juntos.</p>
+          <p class="ask">Pregunta clave: "¿WhatsApp e Instagram vienen juntos o se cobran por separado?"</p>
+        </div>
+
+        <div class="criterion-card reveal">
+          <h3><span class="num">5</span> Soporte e implementación</h3>
+          <p>Self-serve con documentación, derivación a partners pagos, o trato directo con el equipo. Esto define cuánto te cuesta ponerlo a andar.</p>
+          <p class="ask">Pregunta clave: "¿Quién me ayuda a configurarlo y cuánto cuesta ese acompañamiento?"</p>
+        </div>
+
+        <div class="criterion-card reveal">
+          <h3><span class="num">6</span> Cumplimiento local (Ley 21.719)</h3>
+          <p>Residencia de datos, derechos ARCO del titular, deber de información. Importante si manejas datos de clientes en Chile.</p>
+          <p class="ask">Pregunta clave: "¿Dónde se almacenan mis datos y mis conversaciones?"</p>
+        </div>
+
+        <div class="criterion-card reveal">
+          <h3><span class="num">7</span> Transparencia de costos de canal</h3>
+          <p>WhatsApp Business es operado por Meta y Meta cobra aparte. Esto no es opcional. La pregunta es si el proveedor te lo muestra claro o lo escondes.</p>
+          <p class="ask">Pregunta clave: "¿Cuánto me va a cobrar Meta además del precio que me cobras tú?"</p>
+        </div>
+
+        <div class="criterion-card reveal">
+          <h3><span class="num">8</span> Idioma y atención humana</h3>
+          <p>Que la IA hable español chileno, que sepa entender errores tipográficos, y que cuando no entienda pase a una persona sin que el cliente tenga que repetir todo.</p>
+          <p class="ask">Pregunta clave: "¿Si la IA no sabe responder, qué pasa?"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculadora -->
+  <section>
+    <div class="container">
+      <h2 class="section-title reveal">Calculadora: cuánto te costaría cada modelo</h2>
+      <p class="section-sub reveal">Ingresa los datos de tu caso. La calculadora muestra rangos estimados por modelo. No es cotización, es orientación.</p>
+
+      <div class="calc reveal">
+        <h3>Tu caso</h3>
+        <div class="calc-grid">
+          <div class="calc-field">
+            <label for="calc-personas">Personas en tu equipo</label>
+            <input id="calc-personas" type="number" min="1" max="50" value="2" />
+          </div>
+          <div class="calc-field">
+            <label for="calc-conv">Conversaciones / mes</label>
+            <input id="calc-conv" type="number" min="0" max="50000" value="200" />
+          </div>
+        </div>
+
+        <div class="calc-results" id="calc-results">
+          <div class="calc-result-card">
+            <h4>Por usuario (modelo tradicional)</h4>
+            <div class="price" data-model="por-usuario">—</div>
+            <p class="note">Cobro por persona, mínimo 6 meses, créditos aparte.</p>
+          </div>
+          <div class="calc-result-card">
+            <h4>Por crédito de IA</h4>
+            <div class="price" data-model="por-credito">—</div>
+            <p class="note">Cobro por uso; variable según volumen.</p>
+          </div>
+          <div class="calc-result-card theia">
+            <h4>TheIA — por negocio</h4>
+            <div class="price" data-model="por-negocio">—</div>
+            <p class="note">Precio fijo, personas incluidas, sin atadura.</p>
+          </div>
+        </div>
+
+        <div id="calc-data-warning" class="calc-data-warning"></div>
+
+        <div class="calc-disclaimer">
+          <strong>Importante:</strong> estos valores son estimaciones con propósito comparativo, no cotizaciones. Los precios reales dependen del país, el plan, los cargos del canal (WhatsApp Business los cobra Meta aparte) y posibles promociones vigentes. Verifica con cada proveedor antes de decidir. <span id="calc-disclaimer-fecha"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Diferenciadores TheIA -->
+  <section>
+    <div class="container">
+      <h2 class="section-title reveal">Lo que TheIA ofrece, en cada criterio</h2>
+      <p class="section-sub reveal">Cada afirmación enlaza a la página del sitio que la respalda.</p>
+
+      <div class="diff-grid">
+        <div class="diff-card reveal">
+          <h3>Por negocio, no por usuario</h3>
+          <p>El precio no depende de cuántas personas usen el sistema. Rotación o crecimiento no te cobran extra.</p>
+          <a href="/precios">Ver precios →</a>
+        </div>
+        <div class="diff-card reveal">
+          <h3>Mensual, sin atadura</h3>
+          <p>Cancelas cuando quieras. Sin contratos de 6 meses ni cláusulas de permanencia.</p>
+          <a href="/precios">Ver precios →</a>
+        </div>
+        <div class="diff-card reveal">
+          <h3>En pesos chilenos</h3>
+          <p>Facturación en CLP, transferencia local. Sin sorpresas por tipo de cambio.</p>
+          <a href="/precios">Ver precios →</a>
+        </div>
+        <div class="diff-card reveal">
+          <h3>WhatsApp + Instagram + Web juntos</h3>
+          <p>Los tres canales vienen en el plan base. Sin pagar extra por cada uno.</p>
+          <a href="/funciones">Ver funciones →</a>
+        </div>
+        <div class="diff-card reveal">
+          <h3>Soporte directo con el equipo</h3>
+          <p>Trato con personas reales, no derivación a partners pagos.</p>
+          <a href="/nosotros">Conocer al equipo →</a>
+        </div>
+        <div class="diff-card reveal">
+          <h3>Cumple Ley 21.719</h3>
+          <p>Datos en Chile, residencia local, cumplimiento verificable.</p>
+          <a href="/cumplimiento">Ver cumplimiento →</a>
+        </div>
+        <div class="diff-card reveal">
+          <h3>Cargos Meta transparentes</h3>
+          <p>WhatsApp Business es un canal de Meta y se cobra aparte. TheIA lo muestra en el panel y en los términos.</p>
+          <a href="/terminos.html">Ver términos →</a>
+        </div>
+        <div class="diff-card reveal">
+          <h3>Español chileno + escalado humano</h3>
+          <p>La IA habla en español natural y sabe cuándo pasar a una persona con el resumen de la conversación.</p>
+          <a href="/atencion-cliente">Ver atención →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Honestidad -->
+  <section class="honest-section">
+    <div class="container">
+      <h2 class="section-title reveal">Lo que TheIA NO hace</h2>
+      <p class="section-sub reveal">Una comparación que solo habla bien de sí misma no es creíble.</p>
+
+      <div class="honest-list">
+        <div class="honest-item reveal">
+          <strong>TheIA no es la opción más barata en todos los casos.</strong> Si tu equipo tiene 10+ personas y un volumen muy alto de conversaciones, hay plataformas por usuario que pueden salir más convenientes. Compara con la calculadora.
+        </div>
+        <div class="honest-item reveal">
+          <strong>TheIA no tiene marketplace de integraciones masivas.</strong> Plataformas más grandes ofrecen cientos de conectores. TheIA tiene los que necesita una PYME chilena; si necesitas algo exótico, probablemente no esté.
+        </div>
+        <div class="honest-item reveal">
+          <strong>TheIA no soporta todos los verticales.</strong> Si tu negocio requiere integraciones muy específicas (ej. ERP industrial, logística compleja), puede que TheIA no sea para ti.
+        </div>
+        <div class="honest-item reveal">
+          <strong>TheIA no promete "AI mágica".</strong> Si la IA no sabe, no inventa: escala a tu equipo con el resumen. Esa es su decisión de diseño, no un bug.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="container">
+      <h2 class="section-title reveal">Preguntas frecuentes</h2>
+      <p class="section-sub reveal">Las que más aparecen cuando un prospecto compara opciones.</p>
+
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <h4>¿Qué modelo de cobro me conviene: por usuario, por crédito o por negocio?</h4>
+          <p>Depende de cuántas personas usen el sistema y de qué tan variables son tus conversaciones. Por usuario castiga cuando rotás o crecés; por crédito es flexible pero impredecible mes a mes; por negocio es fijo y permite sumar personas sin que suba el precio.</p>
+        </div>
+        <div class="faq-item reveal">
+          <h4>¿Por qué es importante el cumplimiento de la Ley 21.719?</h4>
+          <p>Regula el tratamiento de datos personales en Chile. Una plataforma que cumple te garantiza residencia local y respaldo si el regulador pide información.</p>
+        </div>
+        <div class="faq-item reveal">
+          <h4>¿Qué incluye el cargo de WhatsApp Business?</h4>
+          <p>WhatsApp Business es un canal operado por Meta. Meta cobra por mensajes entregados según país, categoría y reglas vigentes. Estos cargos son independientes del precio de cualquier plataforma. TheIA los transparenta en el panel y en <a href="/terminos.html" style="color:var(--gold);">/terminos.html</a>.</p>
+        </div>
+        <div class="faq-item reveal">
+          <h4>¿TheIA cobra por usuario?</h4>
+          <p>No. TheIA cobra por negocio. Las personas del equipo que atienden están incluidas sin costo extra. Si tu equipo crece o rota, el precio no cambia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-final">
+    <div class="container">
+      <div class="reveal">
+        <h2>¿Listo para probarlo en tu caso?</h2>
+        <p>Una demo de 30 minutos. Vemos tu tipo de clientes, te mostramos TheIA funcionando y decides con información real, no con promesas.</p>
+        <div class="cta-buttons">
+          <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" style="padding: 0.85rem 2rem; font-size: 1rem; border-radius: 10px;" onclick="theiaTrackCTA('demo','criterios-cta')">Agenda una demo →</a>
+          <a href="https://wa.me/12063858350?text=Hola%2C%20quiero%20comparar%20opciones%20de%20atenci%C3%B3n%20con%20IA" target="_blank" rel="noopener" class="btn btn-whatsapp" onclick="theiaTrackCTA('whatsapp','criterios-cta')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            Hablar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-col">
+        <a href="/" class="logo"><img src="logo.png" alt="TheIA — Atención de clientes confiable con IA para WhatsApp, Instagram y Web" width="100" height="100" /></a>
+        <p>Atención de clientes confiable con IA para WhatsApp, Instagram y tu sitio web. Tu negocio atendido las 24 horas.</p>
+        <p style="font-size:0.8rem;color:var(--gold-light);font-weight:600;">Tus datos se quedan en Chile. Cumplimos la Ley 21.719.</p>
+      </div>
+      <div class="footer-col center">
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start;">
+          <h4>Productos TheIA</h4>
+          <a href="/atencion-cliente">Atención</a>
+          <a href="/pulse">TheIA Pulse</a>
+          <a href="/plataforma">Plataforma</a>
+        </div>
+      </div>
+      <div class="footer-col end">
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start;">
+          <h4>Sitio</h4>
+          <a href="/funciones">Funciones</a>
+          <a href="/precios">Planes y Precios</a>
+          <a href="/servicios">Servicios</a>
+          <a href="/blog/">Blog</a>
+          <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" onclick="theiaTrackCTA('demo','criterios')">Agendar Demo →</a>
+          <a href="https://admin.theia.cl" target="_blank" rel="noopener">Panel Admin →</a>
+          <h4 style="margin-top:0.5rem;">Contacto</h4>
+          <a href="mailto:hola@theia.cl">hola@theia.cl</a>
+          <a href="https://wa.me/12063858350" target="_blank" rel="noopener" onclick="theiaTrackCTA('whatsapp','criterios')">+1 (206) 385-8350</a>
+          <a href="https://www.linkedin.com/company/112228768/" target="_blank" rel="noopener">TheIA en LinkedIn</a>
+          <a href="https://www.instagram.com/theiacl_/" target="_blank" rel="noopener">@theiacl_</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">TheIA Agent by THEIA.CL © 2026 · Todos los derechos reservados.</div>
+      <div class="footer-copy" style="display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:center;">
+        <span>Santiago, Chile</span>
+        <a href="/privacidad" style="color:var(--text-muted);text-decoration:none;">Política de Privacidad</a>
+        <a href="/terminos.html" style="color:var(--text-muted);text-decoration:none;">Términos de Servicio</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Calculadora: carga de datos -->
+  <script>
+    (function() {
+      const dataUrl = '/data/criterios-precios.json';
+      const results = {
+        'por-usuario': document.querySelector('[data-model="por-usuario"]'),
+        'por-credito': document.querySelector('[data-model="por-credito"]'),
+        'por-negocio': document.querySelector('[data-model="por-negocio"]'),
+      };
+      const warning = document.getElementById('calc-data-warning');
+      const fechaSpan = document.getElementById('calc-disclaimer-fecha');
+      const personasInput = document.getElementById('calc-personas');
+      const convInput = document.getElementById('calc-conv');
+
+      let data = null;
+
+      function fmtCLP(n) {
+        return '$' + Math.round(n).toLocaleString('es-CL');
+      }
+
+      function calc() {
+        if (!data) return;
+        const personas = Math.max(1, parseInt(personasInput.value) || 1);
+        const conv = Math.max(0, parseInt(convInput.value) || 0);
+
+        const modelos = data.modelos;
+        const tc = data.supuestos_calculadora.tipo_cambio_referencial_clp_por_usd;
+
+        // Por usuario: precio_min*personas*6 meses (USD -> CLP)
+        const mu = modelos.find(m => m.id === 'por-usuario');
+        if (mu && mu.precio_min_usd_user_mes != null && mu.precio_max_usd_user_mes != null) {
+          const minCLP = mu.precio_min_usd_user_mes * personas * mu.compromiso_minimo_meses * tc;
+          const maxCLP = mu.precio_max_usd_user_mes * personas * mu.compromiso_minimo_meses * tc;
+          results['por-usuario'].textContent = fmtCLP(minCLP) + ' – ' + fmtCLP(maxCLP) + ' CLP (6 meses)';
+        }
+
+        // Por crédito: estimación simple — $99-499 USD/mes
+        const mc = modelos.find(m => m.id === 'por-credito');
+        if (mc) {
+          const min = 99 * tc;
+          const max = 499 * tc;
+          results['por-credito'].textContent = fmtCLP(min) + ' – ' + fmtCLP(max) + ' CLP/mes';
+        }
+
+        // Por negocio (TheIA): precio fijo
+        const mn = modelos.find(m => m.id === 'por-negocio');
+        if (mn && mn.precio_clp_mes) {
+          results['por-negocio'].textContent = fmtCLP(mn.precio_clp_mes) + ' CLP/mes';
+        }
+
+        // Advertencia de antigüedad (>6 meses)
+        const fecha = new Date(data.fecha_verificacion);
+        const diffMeses = (Date.now() - fecha.getTime()) / (1000 * 60 * 60 * 24 * 30);
+        if (diffMeses > 6) {
+          warning.style.display = 'block';
+          warning.textContent = `Aviso: los precios verificados tienen ${Math.floor(diffMeses)} meses de antigüedad. Verifica con cada proveedor antes de decidir.`;
+        }
+        fechaSpan.textContent = `Datos verificados el ${data.fecha_verificacion}.`;
+      }
+
+      fetch(dataUrl, { cache: 'no-cache' })
+        .then(r => r.ok ? r.json() : Promise.reject(r.status))
+        .then(d => { data = d; calc(); })
+        .catch(err => {
+          warning.style.display = 'block';
+          warning.textContent = 'No se pudieron cargar los datos de referencia. Los rangos mostrados son aproximaciones históricas.';
+          // Fallback con valores por defecto para no romper UX
+          data = {
+            fecha_verificacion: '2026-07-29',
+            supuestos_calculadora: { tipo_cambio_referencial_clp_por_usd: 950 },
+            modelos: [
+              { id: 'por-usuario', precio_min_usd_user_mes: 15, precio_max_usd_user_mes: 45, compromiso_minimo_meses: 6 },
+              { id: 'por-credito' },
+              { id: 'por-negocio', precio_clp_mes: 190000 }
+            ]
+          };
+          calc();
+        });
+
+      personasInput.addEventListener('input', calc);
+      convInput.addEventListener('input', calc);
+    })();
+  </script>
+
+  <script>
+    // Reveal animations
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Mobile Menu
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navCta = document.querySelector('.nav-cta');
+    const navLinks = document.querySelectorAll('.nav-cta a');
+    menuToggle.addEventListener('click', () => {
+      navCta.classList.toggle('active');
+      document.body.classList.toggle('mobile-menu-open');
+    });
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navCta.classList.remove('active');
+        document.body.classList.remove('mobile-menu-open');
+      });
+    });
+  </script>
+
+  <!-- TheIA Web Chat Widget -->
+  <script src="https://admin.theia.cl/static/js/webchat-widget.js"
+          data-api-key="8da817eb-2cbf-42df-8b57-bb86288670de"
+          data-api-url="https://admin.theia.cl"
+          data-title="Asistente TheIA"
+          data-color="#d4af37"
+          data-welcome="¡Hola! 👋 ¿Qué te trae por aquí?"
+          data-prechat="false"
+          data-welcome-replies="Ver precios,Cómo funciona,Agendar demo">
+  </script>
+</body>
+
+</html>
