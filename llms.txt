@@ -10,6 +10,7 @@ TheIA es un agente conversacional con IA que reemplaza al chatbot tradicional. U
 - [Precios](https://theia.cl/precios): Plan TheIA desde CLP 190.000/mes + setup; los cargos de WhatsApp Business se informan por separado según las reglas de Meta
 - [Plataforma](https://theia.cl/plataforma): Dashboard de supervisión y métricas
 - [Pulse](https://theia.cl/pulse): Monitor de conversaciones en tiempo real
+- [Atención al cliente](https://theia.cl/atencion-cliente): Hub del ecosistema TheIA (Atención, Pulse, CRM, Plataforma)
 - [Servicios](https://theia.cl/servicios): Implementación y soporte
 
 ## Blog

@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Security Meta Tags -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://admin.theia.cl; connect-src 'self' https:;">
+
+  <!-- Cookie Consent + Analytics -->
+  <script src="/cc-init.js"></script>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Atención al cliente TheIA — WhatsApp, Instagram y Web en un solo lugar</title>
+  <link rel="canonical" href="https://theia.cl/atencion-cliente" />
+  <link rel="icon" href="logo.png" type="image/png">
+
+  <meta name="description"
+    content="TheIA es el sistema de atención al cliente para tu PYME. WhatsApp, Instagram y tu web en un solo lugar, con tu agenda de clientes integrada. No como respuestas sueltas — con contexto y derivación a tu equipo." />
+  <meta name="keywords"
+    content="atención al cliente PYME, TheIA, chatbot WhatsApp Chile, atención multicanal, agenda de clientes, derivación al humano, cumplimiento Ley 21.719" />
+  <meta name="author" content="TheIA" />
+  <meta name="geo.region" content="CL" />
+  <meta name="geo.placename" content="Santiago, Chile" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://theia.cl/atencion-cliente" />
+  <meta property="og:site_name" content="TheIA" />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:title" content="Atención al cliente TheIA — el sistema completo para tu PYME" />
+  <meta property="og:description"
+    content="WhatsApp, Instagram y tu web en un solo lugar. Con tu agenda de clientes integrada y derivación al humano cuando hace falta." />
+  <meta property="og:image" content="https://theia.cl/logo.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Atención al cliente TheIA" />
+  <meta name="twitter:description" content="El sistema de atención al cliente para tu PYME. WhatsApp, Instagram y Web en un solo lugar." />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Atención al cliente TheIA",
+    "url": "https://theia.cl/atencion-cliente",
+    "description": "TheIA es el sistema de atención al cliente para tu PYME: WhatsApp, Instagram y tu web en un solo lugar, con tu agenda de clientes integrada.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://theia.cl",
+      "name": "TheIA"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0f172a;
+      --bg2: #1e293b;
+      --bg3: #334155;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-border-gold: rgba(212, 175, 55, 0.4);
+      --gold: #d4af37;
+      --gold-light: #ebca73;
+      --gold-glow: rgba(212, 175, 55, 0.25);
+      --indigo: #4f46e5;
+      --indigo-light: #6366f1;
+      --text: #ffffff;
+      --text-sub: rgba(255, 255, 255, 0.7);
+      --text-muted: rgba(255, 255, 255, 0.4);
+      --green: #34c77b;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .gold { color: var(--gold); }
+
+    a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.35rem;
+      border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.22s ease;
+      text-align: center;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #0f172a;
+      font-weight: 700;
+      box-shadow: 0 4px 20px var(--gold-glow);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(212, 175, 55, 0.45);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-sub);
+      border: 1px solid var(--glass-border);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1da851;
+    }
+
+    /* Nav */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      transition: 0.2s;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 4rem 0 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, var(--gold-glow) 0%, transparent 60%);
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      margin-bottom: 1.25rem;
+      position: relative;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--text-sub);
+      max-width: 720px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--text-sub);
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Pieces Grid */
+    .pieces-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .piece-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .piece-card:hover {
+      border-color: var(--glass-border-gold);
+      transform: translateY(-3px);
+    }
+
+    .piece-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    .piece-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .piece-card p {
+      color: var(--text-sub);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+      flex: 1;
+    }
+
+    .piece-card .btn {
+      align-self: flex-start;
+    }
+
+    .piece-card.preview {
+      opacity: 0.85;
+    }
+
+    .piece-card.preview .piece-tag {
+      display: inline-block;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      color: var(--gold-light);
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* Case Section */
+    .case-section {
+      background: var(--bg2);
+    }
+
+    .case-flow {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .case-step {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      max-width: 260px;
+      flex: 1 1 220px;
+    }
+
+    .case-step-num {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+
+    .case-step p {
+      color: var(--text-sub);
+      font-size: 0.95rem;
+    }
+
+    .case-arrow {
+      align-self: center;
+      color: var(--gold);
+      font-size: 1.4rem;
+    }
+
+    /* Para quien */
+    .quien-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .quien-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+
+    .quien-card.si { border-left: 3px solid var(--green); }
+    .quien-card.no { border-left: 3px solid var(--text-muted); }
+
+    .quien-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .quien-card p {
+      color: var(--text-sub);
+      font-size: 0.95rem;
+    }
+
+    /* Compliance */
+    .compliance {
+      background: var(--bg2);
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .compliance-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .compliance-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--glass);
+      border: 1px solid var(--glass-border-gold);
+      color: var(--gold-light);
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .compliance h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .compliance p {
+      color: var(--text-sub);
+    }
+
+    /* CTA Final */
+    .cta-final {
+      text-align: center;
+      padding: 5rem 0;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    }
+
+    .cta-final h2 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      margin-bottom: 0.75rem;
+    }
+
+    .cta-final p {
+      color: var(--text-sub);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--glass-border);
+      padding: 3rem 1.5rem 1.5rem;
+      background: var(--bg2);
+    }
+
+    .footer-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-col h4 {
+      color: var(--gold-light);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .footer-col p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .footer-col a {
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .footer-col.center { align-items: center; }
+    .footer-col.end { align-items: flex-end; }
+
+    .footer-bottom {
+      max-width: 1140px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--glass-border);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .menu-toggle { display: flex; }
+
+      .nav-cta {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        bottom: 0;
+        background: var(--bg2);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 2rem 1.5rem;
+        gap: 1rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        width: 240px;
+        border-left: 1px solid var(--glass-border);
+      }
+
+      .nav-cta.active {
+        transform: translateX(0);
+      }
+
+      .footer-inner { grid-template-columns: 1fr; }
+
+      .footer-col,
+      .footer-col.center,
+      .footer-col.end {
+        align-items: center !important;
+        text-align: center !important;
+      }
+
+      .footer-col div[style*="align-items: flex-start"] {
+        align-items: center !important;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="/" class="logo">
+      <img src="logo.png" alt="TheIA — Atención de clientes confiable con IA para WhatsApp, Instagram y Web" width="100" height="100" />
+    </a>
+    <button class="menu-toggle" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-cta">
+      <a href="https://admin.theia.cl" class="btn btn-ghost">
+        <span style="width: 6px; height: 6px; background-color: var(--indigo-light); border-radius: 50%; box-shadow: 0 0 8px var(--indigo-light); display: inline-block;"></span>
+        Panel Admin
+      </a>
+      <a href="/atencion-cliente" class="btn btn-ghost">Atención</a>
+      <a href="/pulse" class="btn btn-ghost">Pulse</a>
+      <a href="/plataforma" class="btn btn-ghost">Plataforma</a>
+      <a href="/precios" class="btn btn-ghost">Precios</a>
+      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" onclick="theiaTrackCTA('demo','atencion-cliente')">Agenda una demo →</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="reveal">Atención al cliente para tu PYME.<br /><span class="gold">WhatsApp, Instagram y tu web, en un solo lugar.</span></h1>
+      <p class="hero-sub reveal">TheIA responde con contexto, sabe cuándo derivar a tu equipo y deja tu agenda de clientes donde la puedes ver. No como respuestas sueltas — con el seguimiento que tu negocio necesita.</p>
+      <div class="hero-cta reveal">
+        <button type="button" class="btn btn-gold" onclick="theiaTrackCTA('widget-open','atencion-cliente-hero'); if(window.theiaChatOpen){theiaChatOpen('atencion-cliente-hero');}">
+          Habla con TheIA
+        </button>
+        <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-ghost" onclick="theiaTrackCTA('demo','atencion-cliente-hero')">
+          Agenda una demo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Piezas -->
+  <section>
+    <div class="container">
+      <h2 class="section-title reveal">Cuatro piezas, una atención continua</h2>
+      <p class="section-sub reveal">TheIA no es un chatbot suelto. Es un sistema donde cada pieza hace su parte para que ningún cliente quede esperando.</p>
+
+      <div class="pieces-grid">
+        <div class="piece-card reveal">
+          <div class="piece-icon">💬</div>
+          <h3>Atención</h3>
+          <p>WhatsApp, Instagram y tu web responden con contexto. Cuando la pregunta es compleja, TheIA escala a tu equipo con el resumen de la conversación.</p>
+          <a href="/funciones" class="btn btn-ghost">Ver cómo ayuda →</a>
+        </div>
+
+        <div class="piece-card reveal">
+          <div class="piece-icon">📊</div>
+          <h3>TheIA Pulse</h3>
+          <p>Tu copiloto personal por WhatsApp. Resúmenes diarios, alertas y gestión de tu agenda en texto natural.</p>
+          <a href="/pulse" class="btn btn-ghost">Conocer Pulse →</a>
+        </div>
+
+        <div class="piece-card preview reveal">
+          <span class="piece-tag">PRÓXIMAMENTE</span>
+          <div class="piece-icon">🗂️</div>
+          <h3>CRM</h3>
+          <p>Si tu negocio vende con seguimiento en el tiempo (cotizaciones, tareas, embudo), el módulo CRM se enchufa. Por negocio, no por asiento.</p>
+          <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-ghost" onclick="theiaTrackCTA('demo','atencion-cliente-crm')">Avísame cuando esté →</a>
+        </div>
+
+        <div class="piece-card reveal">
+          <div class="piece-icon">⚙️</div>
+          <h3>Plataforma</h3>
+          <p>Tu equipo ve qué pasa en cada conversación. Métricas claras, sin jerga, para que sepas qué funciona.</p>
+          <a href="/plataforma" class="btn btn-ghost">Ver la plataforma →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Caso concreto -->
+  <section class="case-section">
+    <div class="container">
+      <h2 class="section-title reveal">Lo que pasa cuando un cliente escribe</h2>
+      <p class="section-sub reveal">Un caso real, de tu día a día.</p>
+
+      <div class="case-flow">
+        <div class="case-step reveal">
+          <div class="case-step-num">PASO 1</div>
+          <p>Un cliente escribe por WhatsApp preguntando por un servicio y un precio.</p>
+        </div>
+        <div class="case-arrow reveal">→</div>
+        <div class="case-step reveal">
+          <div class="case-step-num">PASO 2</div>
+          <p>TheIA responde con la información que ya tiene sobre tu negocio. Pregunta lo que falta, cotiza.</p>
+        </div>
+        <div class="case-arrow reveal">→</div>
+        <div class="case-step reveal">
+          <div class="case-step-num">PASO 3</div>
+          <p>Al día siguiente, el cliente vuelve por Instagram con la misma duda. TheIA recuerda todo.</p>
+        </div>
+        <div class="case-arrow reveal">→</div>
+        <div class="case-step reveal">
+          <div class="case-step-num">PASO 4</div>
+          <p>Tu equipo entra solo si el cliente lo pide, con el resumen de las conversaciones anteriores.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Para quién -->
+  <section>
+    <div class="container">
+      <h2 class="section-title reveal">Para quién sí, para quién no</h2>
+      <p class="section-sub reveal">TheIA no es para todos. Ser honestos ahorra tiempo a los dos lados.</p>
+
+      <div class="quien-grid">
+        <div class="quien-card si reveal">
+          <h4>TheIA es para ti si…</h4>
+          <p>Tus clientes te escriben por WhatsApp, Instagram o tu web y a veces no alcanzas a responder. O cuando respondes, te das cuenta de que estás partiendo de cero cada vez.</p>
+        </div>
+
+        <div class="quien-card si reveal">
+          <h4>TheIA es para ti si…</h4>
+          <p>Vendes con algo de seguimiento: cotizaciones, reservas, devoluciones, post-venta. TheIA te ayuda a no perder a nadie en el camino.</p>
+        </div>
+
+        <div class="quien-card no reveal">
+          <h4>TheIA no es para ti si…</h4>
+          <p>Solo recibes consultas muy puntuales y no necesitas historial. Una respuesta automática simple te basta y TheIA es más de lo que necesitas.</p>
+        </div>
+
+        <div class="quien-card no reveal">
+          <h4>TheIA no es para ti si…</h4>
+          <p>Esperas que la IA cierre ventas sin tu equipo. TheIA atiende, pero las decisiones de precio, políticas y excepciones las toma una persona.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cumplimiento -->
+  <section class="compliance">
+    <div class="container">
+      <div class="compliance-inner reveal">
+        <div class="compliance-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Ley 21.719
+        </div>
+        <h3>Tus datos se quedan en Chile.</h3>
+        <p>TheIA opera sobre Google Cloud con residencia local. Cumplimos la Ley 21.719 de protección de datos personales desde el primer día. Sin letra chica.</p>
+        <p style="margin-top:0.75rem;font-size:0.9rem;"><a href="/cumplimiento" style="color:var(--gold);text-decoration:underline;">Ver detalles de cumplimiento →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-final">
+    <div class="container">
+      <div class="reveal">
+        <h2>¿Listo para que ningún cliente quede esperando?</h2>
+        <p>Una demo de 30 minutos. Vemos tu caso, te mostramos TheIA funcionando con tu tipo de clientes y decides con información, no con promesas.</p>
+        <div class="cta-buttons">
+          <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" style="padding: 0.85rem 2rem; font-size: 1rem; border-radius: 10px;" onclick="theiaTrackCTA('demo','atencion-cliente-cta')">Agenda una demo →</a>
+          <a href="https://wa.me/12063858350" target="_blank" rel="noopener" class="btn btn-whatsapp" onclick="theiaTrackCTA('whatsapp','atencion-cliente-cta')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+            Escríbenos por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-col">
+        <a href="/" class="logo"><img src="logo.png" alt="TheIA — Atención de clientes confiable con IA para WhatsApp, Instagram y Web" width="100" height="100" /></a>
+        <p>Atención de clientes confiable con IA para WhatsApp, Instagram y tu sitio web. Tu negocio atendido las 24 horas.</p>
+        <p style="font-size:0.8rem;color:var(--gold-light);font-weight:600;">Tus datos se quedan en Chile. Cumplimos la Ley 21.719.</p>
+      </div>
+      <div class="footer-col center">
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start;">
+          <h4>Productos TheIA</h4>
+          <a href="/atencion-cliente">Atención</a>
+          <a href="/pulse">TheIA Pulse</a>
+          <a href="/plataforma">Plataforma</a>
+        </div>
+      </div>
+      <div class="footer-col end">
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start;">
+          <h4>Sitio</h4>
+          <a href="/funciones">Funciones</a>
+          <a href="/precios">Planes y Precios</a>
+          <a href="/servicios">Servicios</a>
+          <a href="/blog/">Blog</a>
+          <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" onclick="theiaTrackCTA('demo','atencion-cliente')">Agendar Demo →</a>
+          <a href="https://admin.theia.cl" target="_blank" rel="noopener">Panel Admin →</a>
+          <h4 style="margin-top:0.5rem;">Contacto</h4>
+          <a href="mailto:hola@theia.cl">hola@theia.cl</a>
+          <a href="https://wa.me/12063858350" target="_blank" rel="noopener" onclick="theiaTrackCTA('whatsapp','atencion-cliente')">+1 (206) 385-8350</a>
+          <a href="https://www.linkedin.com/company/112228768/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>TheIA en LinkedIn</a>
+          <a href="https://www.instagram.com/theiacl_/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>@theiacl_</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">TheIA Agent by THEIA.CL © 2026 · Todos los derechos reservados.</div>
+      <div class="footer-copy" style="display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:center;">
+        <span>Santiago, Chile</span>
+        <a href="/privacidad" style="color:var(--text-muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Política de Privacidad</a>
+        <a href="/terminos.html" style="color:var(--text-muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Términos de Servicio</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal animations
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navCta = document.querySelector('.nav-cta');
+    const navLinks = document.querySelectorAll('.nav-cta a');
+
+    menuToggle.addEventListener('click', () => {
+      navCta.classList.toggle('active');
+      document.body.classList.toggle('mobile-menu-open');
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navCta.classList.remove('active');
+        document.body.classList.remove('mobile-menu-open');
+      });
+    });
+  </script>
+
+  <!-- TheIA Web Chat Widget -->
+  <script src="https://admin.theia.cl/static/js/webchat-widget.js"
+          data-api-key="8da817eb-2cbf-42df-8b57-bb86288670de"
+          data-api-url="https://admin.theia.cl"
+          data-title="Asistente TheIA"
+          data-color="#d4af37"
+          data-welcome="¡Hola! 👋 ¿Qué te trae por aquí?"
+          data-prechat="false"
+          data-welcome-replies="Ver precios,Cómo funciona,Agendar demo">
+  </script>
+</body>
+
+</html>

@@ -39,7 +39,8 @@ DESKTOP = {"viewport": {"width": 1366, "height": 768}}
 PAGES = ["/", "/funciones.html", "/precios.html", "/servicios.html",
          "/plataforma.html", "/calculadora.html", "/pulse.html",
          "/casos.html", "/nosotros.html", "/privacidad.html", "/terminos.html", "/blog/",
-         "/atencion-whatsapp.html", "/cotizaciones-agendamiento.html", "/seguimiento-equipo.html"]
+         "/atencion-whatsapp.html", "/cotizaciones-agendamiento.html", "/seguimiento-equipo.html",
+         "/atencion-cliente.html"]
 
 
 def _wait_port(port, timeout=15):

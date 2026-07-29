@@ -124,6 +124,23 @@ def test_casos_usa_dogfooding_sin_prueba_social_no_autorizada(mobile_page):
     assert 'src="/webchat-cta.js"' in html
 
 
+def test_atencion_cliente_es_hub_del_paraguas(mobile_page):
+    """HU-WEB-017: la página articula las 4 piezas (Atención, Pulse, CRM, Plataforma),
+    lleva el claim A del paraguas y la sección de cumplimiento."""
+    goto(mobile_page, "/atencion-cliente.html")
+    text = visible_text(mobile_page)
+    # Claim A — bajada reconocible
+    assert "WhatsApp, Instagram y tu web" in text, "atencion-cliente no exhibe el claim A"
+    assert "agenda de clientes" in text, "atencion-cliente perdió el lenguaje del dueño del claim A"
+    # Las 4 piezas del paraguas mencionadas como cards/secciones
+    for pieza in ["Atención", "TheIA Pulse", "CRM", "Plataforma"]:
+        assert pieza in text, f"atencion-cliente no menciona la pieza {pieza}"
+    # Honestidad — bloque "para quién no"
+    assert "TheIA no es para ti" in text, "atencion-cliente omitió el bloque 'para quién no'"
+    # Cumplimiento
+    assert "21.719" in text, "atencion-cliente no menciona Ley 21.719 (debe ser visible en home)"
+
+
 def test_links_internos_resuelven(mobile_page):
     """Todo href interno del index apunta a un archivo que existe en el repo."""
     goto(mobile_page, "/")
