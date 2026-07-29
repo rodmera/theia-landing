@@ -246,6 +246,27 @@ def test_sticky_whatsapp_movil(mobile_page):
     assert stickies >= 1, "no hay botón WhatsApp fijo (sticky) visible al scrollear en móvil"
 
 
+def test_sticky_whatsapp_desktop(desktop_page):
+    """HU-WEB-011: el sticky-wa debe verse también en desktop como píldora compacta,
+    no solo en mobile. Mismo número wa.me, sin exponer dígitos en copy visible."""
+    goto(desktop_page, "/")
+    desktop_page.mouse.wheel(0, 1500)
+    desktop_page.wait_for_timeout(300)
+    stickies = desktop_page.eval_on_selector_all(
+        "a[href*='wa.me']",
+        """els => els.filter(e => {
+            for (let n = e; n && n !== document.body; n = n.parentElement) {
+                const cs = getComputedStyle(n);
+                if (cs.position === 'fixed' && cs.display !== 'none' && cs.visibility !== 'hidden')
+                    return true;
+            }
+            return false;
+        }).length""")
+    assert stickies >= 1, (
+        "HU-WEB-011: no hay botón WhatsApp sticky visible en desktop "
+        "(antes solo aparecía en mobile; ahora debe verse en ambos)")
+
+
 # ───────────────── 7. EVIDENCIA VISUAL (screenshots → artifacts CI) ─────────────────
 
 @pytest.mark.parametrize("path,name", [("/", "index"), ("/precios.html", "precios"),
