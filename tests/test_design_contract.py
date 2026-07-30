@@ -118,6 +118,71 @@ def test_crm_no_se_ofrece_como_funcionalidad_lista():
     assert not findings, "promesas CRM no habilitadas:\n" + "\n".join(findings)
 
 
+def test_ctas_crm_usan_openTheiaChat():
+    """Las dos tarjetas CRM del sitio (index.html y atencion-cliente.html)
+    deben invocar el helper compartido openTheiaChat('crm'). El helper
+    (webchat-cta.js) registra el evento widget-open, abre el WebChat y cae a
+    WhatsApp si corresponde. By-pasearlo con la forma inline
+    theiaChatOpen('crm') rompe la atribución y el fallback.
+    """
+    expected = "openTheiaChat('crm')"
+    stale_inline = ("theiaChatOpen('crm')", 'theiaChatOpen("crm")')
+    findings = []
+    for filename in ("index.html", "atencion-cliente.html"):
+        source = (ROOT / filename).read_text(encoding="utf-8")
+        if expected not in source:
+            findings.append(f"{filename} no llama {expected}")
+        for stale in stale_inline:
+            if stale in source:
+                findings.append(f"{filename} aún tiene la forma inline {stale!r}")
+    assert not findings, "CTAs CRM no usan el helper compartido:\n" + "\n".join(findings)
+
+
+def test_no_promesa_de_futuro_en_copy_visible():
+    """Decisión 2026-07-30 (contexto post-PLAI): 'próximamente / soon' queda
+    PROHIBIDO en copy visible. Una feature que aún no está en producción:
+      - no se etiqueta como futura;
+      - no se ofrece con CTA que comunica futuro (Avísame, etc.);
+      - se omite hasta estar en producción (criterio AC2 de HU-WEB-012).
+
+    El arnés cubre TODO el HTML público (PAGES + blog + layouts). Si una
+    feature vuelve al backlog o cambia de scope, CI bloquea cualquier
+    regresión de copy que la siga prometiendo como futura.
+
+    Nota: 'te avisamos' en contexto de cupo/operación (no de feature) es
+    legítimo y queda fuera del arnés — el contrato es semántico, no léxico.
+    """
+    forbidden = [
+        "próximamente",
+        "próximas",
+        "avísame",
+        "en camino",
+        "coming soon",
+    ]
+    findings = []
+    for file in SITE_HTML:
+        if not file.exists():
+            continue
+        source = file.read_text(encoding="utf-8")
+        for marker in forbidden:
+            for match in re.finditer(re.escape(marker), source, re.I):
+                findings.append(
+                    f"{file.relative_to(ROOT)}:{line_number(source, match.start())} → "
+                    f"{match.group()!r} (copy visible promete futuro)"
+                )
+    # "soon" como palabra suelta (case-insensitive, word-boundary).
+    for file in SITE_HTML:
+        if not file.exists():
+            continue
+        source = file.read_text(encoding="utf-8")
+        for match in re.finditer(r"\bsoon\b", source, re.I):
+            findings.append(
+                f"{file.relative_to(ROOT)}:{line_number(source, match.start())} → "
+                f"{match.group()!r} (copy visible promete futuro)"
+            )
+    assert not findings, "copy visible promete futuro:\n" + "\n".join(findings)
+
+
 def test_hero_de_home_mantiene_la_vista_360_y_los_iconos_oficiales():
     """El hero comunica un producto de atención, no una conversación simulada."""
     source = (ROOT / "index.html").read_text(encoding="utf-8")
