@@ -79,9 +79,25 @@ Variables CSS definidas en `:root` que controlan toda la paleta:
 | `--text`, `--text-sub`, `--text-muted` | Jerarquía tipográfica |
 | `--glass`, `--glass-border`, `--glass-border-gold` | Efecto glassmorphism |
 
-**Tipografías:** Merriweather (headings, peso 700-900) y Plus Jakarta Sans (cuerpo), cargadas desde Google Fonts.
+**Tipografías (fuente de verdad en `~/Vaults/Digital-Brain/04-Procesos/Plantillas/Plantilla_LookFeel_theia-landing.md`):**
 
-**Componentes reutilizables:** `.glass-card`, `.btn`, `.section-title`, `.section-sub`, `.reveal` (animación de entrada al scroll).
+- **Merriweather** (headings) — pesos disponibles: **700, 900**
+- **Plus Jakarta Sans** (cuerpo) — pesos disponibles: **400, 500, 700**
+
+**⛔ REGLA DURA — Tipografías:**
+- NO cargar otras familias de Google Fonts (no Inter, no Roboto, no Montserrat, no Poppins, etc.).
+- NO usar pesos que no estén en la lista (Merriweather 800, Plus Jakarta 600 — el navegador hace fallback y se rompe la consistencia visual).
+- Pesos canónicos: **Merriweather 900** para H1/H2 principales; **700** para H3/sub-headings. **Plus Jakarta 700** para botones/UI importante; **500** para cuerpo destacado; **400** para texto normal.
+
+**⛔ REGLA DURA — Iconos de canales:**
+- NO usar emojis genéricos (💬, 📷, 🌐) para representar canales oficiales en paneles visuales.
+- SÍ usar SVGs inline con los logos oficiales y colores de marca: WhatsApp `#25D366`, Instagram `#E1306C`, Web `#6366F1`.
+
+**⛔ REGLA DURA — Vistas:**
+- El panel del hero y similares NO debe mostrar **sesiones de chat simuladas** (burbujas user/bot estilo chatbot). Eso refuerza la idea de TheIA como "solo un chatbot" y contradice el discurso paraguas.
+- Patrón vigente: **Vista 360 del cliente** (avatar con iniciales, nombre, estado, canales con conteo, contexto de la última conversación).
+
+**Componentes reutilizables:** `.glass-card`, `.btn-gold`, `.btn-ghost`, `.btn-whatsapp`, `.section-title`, `.section-sub`, `.reveal` (animación de entrada al scroll).
 
 ## Responsive
 
