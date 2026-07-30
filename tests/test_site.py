@@ -188,9 +188,10 @@ def test_landing_pages_citables_por_asistentes_ia():
         assert "application/ld+json" in html, f"{fname} sin JSON-LD embebido"
 
 
-def test_links_internos_resuelven(mobile_page):
-    """Todo href interno del index apunta a un archivo que existe en el repo."""
-    goto(mobile_page, "/")
+@pytest.mark.parametrize("path", PAGES)
+def test_links_internos_resuelven(mobile_page, path):
+    """Todo href interno de una página pública apunta a un archivo del repo."""
+    goto(mobile_page, path)
     hrefs = mobile_page.eval_on_selector_all(
         "a[href]", "els => els.map(e => e.getAttribute('href'))")
     root = Path(__file__).parent.parent
@@ -208,7 +209,7 @@ def test_links_internos_resuelven(mobile_page):
             target = root / f"{clean}.html"  # Pages resuelve /precios → precios.html
         if not target.exists():
             rotos.append(h)
-    assert not rotos, f"links internos rotos en index: {rotos}"
+    assert not rotos, f"links internos rotos en {path}: {rotos}"
 
 
 # ──────────────── 4. REGRESIÓN DE REGISTRO (jerga prohibida) ────────────────
@@ -316,13 +317,19 @@ def test_sticky_whatsapp_desktop(desktop_page):
 
 # ───────────────── 7. EVIDENCIA VISUAL (screenshots → artifacts CI) ─────────────────
 
-@pytest.mark.parametrize("path,name", [("/", "index"), ("/precios.html", "precios"),
-                                        ("/nosotros.html", "nosotros"), ("/casos.html", "casos"),
-                                        ("/funciones.html", "funciones")])
-def test_screenshots_mobile(mobile_page, path, name):
+def screenshot_name(path):
+    if path == "/":
+        return "index"
+    if path == "/blog/":
+        return "blog"
+    return path.strip("/").removesuffix(".html")
+
+
+@pytest.mark.parametrize("path", PAGES)
+def test_screenshots_mobile(mobile_page, path):
     goto(mobile_page, path)
     mobile_page.wait_for_timeout(600)
-    mobile_page.screenshot(path=str(SHOTS / f"{name}-mobile.png"), full_page=True)
+    mobile_page.screenshot(path=str(SHOTS / f"{screenshot_name(path)}-mobile.png"), full_page=True)
 
 
 def test_screenshot_hero_desktop(desktop_page):
