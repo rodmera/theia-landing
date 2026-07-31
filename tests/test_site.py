@@ -272,6 +272,29 @@ def test_crm_va_incluido_en_la_mensualidad():
     )
 
 
+def test_no_se_publica_material_comercial_descargable():
+    """Decisión de Rodrigo (2026-07-31): el brochure no se comparte en ningún canal.
+
+    GitHub Pages sirve cualquier archivo del repo, así que un PDF/PPTX suelto queda
+    descargable aunque ninguna página lo enlace. Fue exactamente lo que pasó:
+    `TheIA_Sales_Agent_v4.pdf` siguió respondiendo 200 en theia.cl durante meses
+    después de sacarlo del hero, publicando la tarifa antigua.
+
+    El contrafactual: si alguien vuelve a dejar material comercial en el repo,
+    este test falla antes del deploy."""
+    root = Path(__file__).parent.parent
+    publicables = []
+    for ext in ("*.pdf", "*.pptx", "*.ppt", "*.docx", "*.key"):
+        for f in root.rglob(ext):
+            if any(p in f.parts for p in (".git", ".venv-test", "node_modules")):
+                continue
+            publicables.append(f.relative_to(root))
+    assert not publicables, (
+        f"material descargable en el repo: {publicables}. GitHub Pages lo sirve "
+        "público. El brochure y las propuestas no se publican en el sitio."
+    )
+
+
 def test_precios_explica_cargos_de_whatsapp_business():
     """El precio TheIA no debe prometer que el canal Meta es ilimitado o gratuito."""
     html = (Path(__file__).parent.parent / "precios.html").read_text(encoding="utf-8")
