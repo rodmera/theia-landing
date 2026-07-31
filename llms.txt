@@ -9,7 +9,7 @@ TheIA responde con contexto, escala a tu equipo con el resumen de la conversaci�
 - [Atención al cliente](https://theia.cl/atencion-cliente): Hub del ecosistema TheIA (Atención, Pulse, CRM, Plataforma)
 - [Funciones](https://theia.cl/funciones): Cómo ayuda — atiende y orienta, cotiza y agenda, tu equipo conserva el control
 - [Criterios para elegir atención con IA](https://theia.cl/criterios): 8 criterios verificables + calculadora de costo por modelo (sin nombrar marcas)
-- [Precios](https://theia.cl/precios): Plan TheIA desde CLP 190.000/mes, por negocio, no por usuario. Cargos de WhatsApp Business se informan por separado.
+- [Precios](https://theia.cl/precios): Setup inicial CLP 190.000 (pago único) y plan mensual CLP 250.000, por negocio, no por usuario. Incluye el módulo CRM. Cargos de WhatsApp Business se informan por separado.
 - [Plataforma](https://theia.cl/plataforma): Panel de control y métricas
 - [TheIA Pulse](https://theia.cl/pulse): Copiloto del dueño por WhatsApp — resúmenes diarios, gestión de agenda, alertas
 - [CRM](https://theia.cl/crm): Módulo CRM de TheIA — registra cada negocio que llega por WhatsApp, Instagram y la web, lo mueve por tus etapas y se actualiza desde la conversa. Complemento de la atención.
@@ -29,7 +29,7 @@ TheIA responde con contexto, escala a tu equipo con el resumen de la conversaci�
 - Modelo de cobro: por negocio, no por usuario. Personas del equipo incluidas sin costo extra.
 - Compromiso: mensual, cancelas cuando quieras. Sin atadura de 6 meses ni cláusulas de permanencia.
 - Moneda: CLP, transferencia local. Sin sorpresas por tipo de cambio.
-- Precio base: CLP 190.000/mes. Cargos de WhatsApp Business los cobra Meta aparte (no incluidos).
+- Precio: setup inicial CLP 190.000 (pago único) + CLP 250.000/mes. El módulo CRM va incluido en la mensualidad. Cargos de WhatsApp Business los cobra Meta aparte (no incluidos).
 - Cumplimiento: Ley 21.719, datos en Chile (Google Cloud).
 - Implementación: 7 días, llave en mano
 - Contacto: hola@theia.cl | WhatsApp +1 (206) 385-8350

@@ -164,9 +164,11 @@ def test_crm_page_h1_incluye_crm_y_agenda_de_clientes():
 
 
 def test_crm_page_no_promete_precio():
-    """crm.html NO muestra precio (HU-WEB-014 está bloqueada por HU-CRM-036)."""
+    """crm.html NO muestra cifras de precio. Desde 2026-07-30 el CRM va incluido en
+    la mensualidad, así que la página tampoco debe repetir el monto del plan: el
+    precio se declara en un solo lugar (precios.html) para no volver a desalinearse."""
     source = CRM_PAGE.read_text(encoding="utf-8").lower()
-    forbidden = ["$190.000", "190.000", "clp 190", "usd", "precio mens"]
+    forbidden = ["$190.000", "190.000", "$250.000", "250.000", "clp 190", "clp 250", "usd", "precio mens"]
     findings = [w for w in forbidden if w in source]
     assert not findings, f"crm.html promete precio público: {findings}"
 

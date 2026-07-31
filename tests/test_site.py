@@ -9,6 +9,7 @@ Cubre lo que Rodrigo no va a revisar a mano:
   6. Sticky de WhatsApp visible en móvil.
   7. Screenshots móviles como evidencia (artifacts en CI).
 """
+import json
 import re
 from pathlib import Path
 
@@ -230,11 +231,45 @@ def test_registro_sin_jerga(mobile_page, path):
 # ──────────────── 5. CONSISTENCIA COMERCIAL (precio único, demo 30) ────────────────
 
 def test_precio_consistente():
-    """$190.000 presente donde se habla de precio; ningún precio alternativo inventado."""
+    """Setup $190.000 (pago único) + mensualidad $250.000, iguales en home y precios.
+
+    Alza de mensualidad 2026-07-30: el plan pasó de $190.000 a $250.000 e incorporó
+    el módulo CRM. El contrafactual es la mensualidad vieja: si $190.000 vuelve a
+    aparecer como monto mensual, el sitio quedó desalineado con el checkout del
+    producto y con el brochure, que es el incidente EXP-010."""
     root = Path(__file__).parent.parent
     for f in ["index.html", "precios.html"]:
         html = (root / f).read_text(encoding="utf-8")
-        assert "190.000" in html, f"{f} no menciona el precio $190.000"
+        assert "$250.000" in html, f"{f} no menciona la mensualidad $250.000"
+        assert "$190.000" in html, f"{f} no menciona el setup inicial $190.000"
+        assert not re.search(r"\$190\.000\s*</div>\s*<div[^>]*>CLP/mes", html), (
+            f"{f} muestra $190.000 como mensualidad; la mensualidad vigente es $250.000"
+        )
+
+
+def test_json_ld_declara_la_mensualidad_vigente():
+    """El Offer del JSON-LD alimenta los rich results de Google: si queda en el
+    precio viejo, el buscador sigue publicando $190.000 aunque la página no lo muestre."""
+    html = (Path(__file__).parent.parent / "index.html").read_text(encoding="utf-8")
+    assert '"price": "250000"' in html, "el JSON-LD no declara la mensualidad vigente"
+    assert '"price": "190000"' not in html, (
+        "el JSON-LD aún declara $190.000: Google seguirá mostrando el precio viejo"
+    )
+
+
+def test_crm_va_incluido_en_la_mensualidad():
+    """Decisión comercial 2026-07-30: el CRM entra en el plan, no se cobra aparte.
+    Si vuelve a ofrecerse como módulo con costo, precios.html y crm.html se contradicen."""
+    root = Path(__file__).parent.parent
+    for f in ["index.html", "precios.html"]:
+        html = (root / f).read_text(encoding="utf-8")
+        assert "Módulo CRM" in html, f"{f} no declara el CRM dentro de lo incluido"
+    data = json.loads((root / "data" / "criterios-precios.json").read_text(encoding="utf-8"))
+    por_negocio = next(m for m in data["modelos"] if m["id"] == "por-negocio")
+    assert por_negocio["precio_clp_mes"] == 250000
+    assert not por_negocio["modulos_adicionales"], (
+        "el CRM va incluido: no debe quedar listado como módulo adicional con precio aparte"
+    )
 
 
 def test_precios_explica_cargos_de_whatsapp_business():
