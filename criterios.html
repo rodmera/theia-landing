@@ -298,6 +298,20 @@
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    .dash-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(79, 70, 229, 0.12);
+      border: 1px solid rgba(79, 70, 229, 0.35);
+      border-radius: 100px;
+      padding: 0.35rem 1.1rem;
+      color: var(--indigo-light);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+
     /* Mobile */
     @media (max-width: 768px) {
       .menu-toggle { display: flex; }
@@ -338,7 +352,13 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="container">
+    <div class="container" style="text-align: center;">
+      <div style="display: flex; justify-content: center;">
+        <div class="dash-badge reveal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>
+          Guía de Selección
+        </div>
+      </div>
       <h1 class="reveal">Qué mirar antes de elegir<br /><span class="gold">atención con IA para tu PYME</span></h1>
       <p class="hero-sub reveal">No todas las plataformas cobran igual ni se atan igual. Esta página enumera los criterios que importan, sin nombrar marcas — para que compares con información y no con marketing.</p>
     </div>

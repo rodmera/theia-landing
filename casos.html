@@ -160,17 +160,18 @@
     }
 
     .dash-badge {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      padding: 0.4rem 0.85rem;
-      background: var(--glass);
-      border: 1px solid var(--glass-border-gold);
-      border-radius: 999px;
-      font-size: 0.78rem;
-      color: var(--gold-light);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: rgba(79, 70, 229, 0.12);
+      border: 1px solid rgba(79, 70, 229, 0.35);
+      border-radius: 100px;
+      padding: 0.35rem 1.1rem;
+      font-size: 0.82rem;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 1.5rem;
+      color: var(--gold-light);
+      margin: 0 auto 1.25rem auto;
     }
 
     /* Cases grid */
@@ -359,8 +360,10 @@
   </nav>
 
   <section class="hero">
-    <div class="container">
-      <div class="dash-badge">Prueba TheIA</div>
+    <div class="container" style="text-align: center;">
+      <div style="display: flex; justify-content: center;">
+        <div class="dash-badge"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Prueba TheIA</div>
+      </div>
       <h1 class="section-title">Mira cómo atendemos <span class="gold">antes de decidir.</span></h1>
       <p class="section-sub">La conversación que puedes iniciar aquí mismo recibe la misma atención que usamos para responderte. Así ves cómo orienta y deja el contexto para una persona cuando hace falta.</p>
     </div>

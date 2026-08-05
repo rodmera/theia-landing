@@ -156,6 +156,20 @@
       transition: opacity 0.2s;
     }
 
+    .dash-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(79, 70, 229, 0.12);
+      border: 1px solid rgba(79, 70, 229, 0.35);
+      border-radius: 100px;
+      padding: 0.35rem 1.1rem;
+      color: var(--indigo-light);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+
     .back-link:hover { opacity: 0.8; }
 
     @media (max-width: 768px) {
@@ -175,32 +189,53 @@
     <a href="/" class="btn btn-ghost">Volver al inicio</a>
   </nav>
 
-  <div class="container">
+  <div class="container" style="text-align: center;">
+    <div style="display: flex; justify-content: center;">
+      <div class="dash-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Cumplimiento & Ley 21.719
+      </div>
+    </div>
     <h1>Conformidad <span class="gold">Ley 21.719</span></h1>
     <p class="subtitle">La nueva Ley de Protección de Datos Personales en Chile entra en vigencia en diciembre de 2026. TheIA está diseñada desde su origen (compliant by design) para blindar y cumplir rigurosamente con cada estándar regulatorio chileno.</p>
 
-    <div class="feature-card">
-      <h3>🔒 1. Enmascaramiento Inteligente de Datos (PII Masking)</h3>
+    <div class="feature-card" style="text-align: left;">
+      <h3 style="display:flex; align-items:center; gap:0.6rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        1. Enmascaramiento Inteligente de Datos (PII Masking)
+      </h3>
       <p>Nuestra plataforma procesa los mensajes localmente de forma asíncrona. Antes de enviar cualquier consulta a los modelos de inteligencia artificial, TheIA enmascara automáticamente información sensible como RUTs, números de tarjetas de crédito, correos electrónicos y teléfonos de los usuarios, garantizando que el proveedor de IA nunca reciba datos personales identificables sin tu consentimiento.</p>
     </div>
 
-    <div class="feature-card">
-      <h3>🧑 2. Derecho de Intervención Humana (Handoff Automático)</h3>
-      <p>Cumpliendo estrictamente con el artículo 8 bis sobre Decisiones Automatizadas, TheIA permite a tus clientes oponerse al trato automatizado en cualquier momento. Si el bot detecta tensión/frustración conversacional, o si el usuario escribe frases como "hablar con humano", se activa de inmediato el modo de intervención asíncrono transferiendo el control del chat al Inbox de tu equipo.</p>
+    <div class="feature-card" style="text-align: left;">
+      <h3 style="display:flex; align-items:center; gap:0.6rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        2. Derecho de Intervención Humana (Handoff Automático)
+      </h3>
+      <p>Cumpliendo strictly con el artículo 8 bis sobre Decisiones Automatizadas, TheIA permite a tus clientes oponerse al trato automatizado en cualquier momento. Si el bot detecta tensión/frustración conversacional, o si el usuario escribe frases como "hablar con humano", se activa de inmediato el modo de intervención asíncrono transferiendo el control del chat al Inbox de tu equipo.</p>
     </div>
 
-    <div class="feature-card">
-      <h3>📋 3. Registro de Actividades de Tratamiento (ROPA)</h3>
+    <div class="feature-card" style="text-align: left;">
+      <h3 style="display:flex; align-items:center; gap:0.6rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        3. Registro de Actividades de Tratamiento (ROPA)
+      </h3>
       <p>Conforme al artículo 31 de la ley, cada tenant de TheIA cuenta con una pantalla de auto-generación del Registro de Actividades de Tratamiento (ROPA). Este reporte detalla de forma interactiva qué datos se tratan, con qué finalidad, qué base legal se aplica y los sub-procesadores involucrados, listo para ser presentado ante la Agencia de Protección de Datos.</p>
     </div>
 
-    <div class="feature-card">
-      <h3>❌ 4. Purga Transversal Segura (Derecho de Supresión)</h3>
+    <div class="feature-card" style="text-align: left;">
+      <h3 style="display:flex; align-items:center; gap:0.6rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+        4. Purga Transversal Segura (Derecho de Supresión)
+      </h3>
       <p>Garantizamos el derecho de supresión y olvido (ARCO) de forma transversal. Cuando un cliente solicita ser borrado, el operador del tenant puede gatillar con un solo clic la purga destructiva de toda la huella digital en cascada (anonimizar logs conversacionales, eliminar documentos cargados, borrar timeline e historial de sesiones), eliminándolo irreversiblemente de las bases de datos de TheIA.</p>
     </div>
 
-    <div class="feature-card">
-      <h3>🇨🇱 5. Soporte y Datos en Chile</h3>
+    <div class="feature-card" style="text-align: left;">
+      <h3 style="display:flex; align-items:center; gap:0.6rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 15.3 0 0 0 0 20 14.5 15.3 0 0 0 0-20"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+        5. Soporte y Datos en Chile
+      </h3>
       <p>Somos una empresa chilena que te acompaña con soporte local en español. Almacenamos tus datos de forma aislada e independiente en servidores cloud de alto estándar con encriptación Fernet de reposo, amparados por las Cláusulas Contractuales Modelo (CCM) chilenas aprobadas por la Subsecretaría de Economía.</p>
     </div>
 

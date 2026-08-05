@@ -204,6 +204,20 @@
       background: #1da851;
     }
 
+    .dash-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(79, 70, 229, 0.12);
+      border: 1px solid rgba(79, 70, 229, 0.35);
+      border-radius: 100px;
+      padding: 0.35rem 1.1rem;
+      color: var(--indigo-light);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+
     /* Nav */
     nav {
       display: flex;
@@ -658,7 +672,13 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="container">
+    <div class="container" style="text-align: center;">
+      <div style="display: flex; justify-content: center;">
+        <div class="dash-badge reveal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Atención al cliente
+        </div>
+      </div>
       <h1 class="reveal">Atención al cliente para tu PYME.<br /><span class="gold">WhatsApp, Instagram y tu web, en un solo lugar.</span></h1>
       <p class="hero-sub reveal">TheIA responde con contexto, sabe cuándo derivar a tu equipo y deja tu agenda de clientes donde la puedes ver. No como respuestas sueltas — con el seguimiento que tu negocio necesita.</p>
       <div class="hero-cta reveal">

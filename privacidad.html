@@ -153,6 +153,20 @@
       transition: opacity 0.2s;
     }
 
+    .dash-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(79, 70, 229, 0.12);
+      border: 1px solid rgba(79, 70, 229, 0.35);
+      border-radius: 100px;
+      padding: 0.35rem 1.1rem;
+      color: var(--indigo-light);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+
     .back-link:hover { opacity: 0.8; }
 
     @media (max-width: 768px) {
@@ -172,7 +186,13 @@
     <a href="/" class="btn btn-ghost">Volver al inicio</a>
   </nav>
 
-  <div class="container">
+  <div class="container" style="text-align: center;">
+    <div style="display: flex; justify-content: center;">
+      <div class="dash-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Legal & Privacidad
+      </div>
+    </div>
     <h1>Política de <span class="gold">Privacidad</span></h1>
     <p class="updated">Última actualización: 24 de julio de 2026</p>
 
