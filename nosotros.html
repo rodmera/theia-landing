@@ -291,38 +291,66 @@
       color: var(--green); font-size: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;
     }
 
-    /* Experience */
+    /* Experience / Capabilities */
     .experience {
       padding: 0 2rem 5rem;
     }
 
-    .exp-list {
-      max-width: 720px;
+    .capability-grid {
+      max-width: 900px;
       margin: 0 auto;
-      display: flex; flex-direction: column; gap: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
     }
 
-    .exp-item {
+    .capability-card {
       background: var(--glass);
       border: 1px solid var(--glass-border);
-      border-radius: 14px;
+      border-radius: 16px;
       padding: 1.5rem 1.75rem;
-      display: flex; justify-content: space-between; align-items: center;
-      gap: 1rem; flex-wrap: wrap;
+      transition: border-color 0.25s, transform 0.25s;
     }
 
-    .exp-role {
-      font-weight: 700; font-size: 0.92rem; color: var(--text);
-      margin-bottom: 0.15rem;
+    .capability-card:hover {
+      border-color: var(--glass-border-gold);
+      transform: translateY(-3px);
     }
 
-    .exp-company {
-      font-size: 0.82rem; color: var(--text-sub);
+    .capability-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
     }
 
-    .exp-date {
-      font-size: 0.78rem; color: var(--text-muted);
-      white-space: nowrap;
+    .capability-title {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .capability-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--glass-border-gold);
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+    }
+
+    .capability-desc {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .capability-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* CTA */
@@ -494,44 +522,40 @@
 
   <section class="experience">
     <div class="container">
-      <h2 class="section-title reveal">Experiencia del <span class="gold">equipo.</span></h2>
-      <p class="section-sub reveal">+15 años de trayectoria acumulada en tecnología, banca, medios de pago y transformación digital.</p>
+      <h2 class="section-title reveal">Capacidades y <span class="gold">especialización.</span></h2>
+      <p class="section-sub reveal">Soluciones desarrolladas con altos estándares de ingeniería, seguridad y conocimiento operativo.</p>
 
-      <div class="exp-list reveal">
-        <div class="exp-item">
-          <div>
-            <div class="exp-role">Ingeniería de Software & AI Agents</div>
-            <div class="exp-company">TheIA Agent Chatbot Platform</div>
+      <div class="capability-grid reveal">
+        <div class="capability-card">
+          <div class="capability-header">
+            <div class="capability-title">Agentes de Atención IA</div>
+            <span class="capability-badge">Core Platform</span>
           </div>
-          <div class="exp-date">2026 – Actualidad</div>
+          <p class="capability-desc">Procesamiento de lenguaje natural con contexto del negocio, derivación inteligente a ejecutivos y resúmenes de conversación en tiempo real.</p>
         </div>
-        <div class="exp-item">
-          <div>
-            <div class="exp-role">Especialistas en Agilidad & Facilitación</div>
-            <div class="exp-company">Proyectos de Innovación en Banca & Servicios</div>
+
+        <div class="capability-card">
+          <div class="capability-header">
+            <div class="capability-title">Medios de Pago & E-Commerce</div>
+            <span class="capability-badge">Integraciones</span>
           </div>
-          <div class="exp-date">2024 – 2026</div>
+          <p class="capability-desc">Sincronización fluida con catálogos comerciales, cotizaciones, Shopify y agendas automatizadas sin fricción operativa.</p>
         </div>
-        <div class="exp-item">
-          <div>
-            <div class="exp-role">E-Commerce, Medios de Pago & Retail</div>
-            <div class="exp-company">Desarrollo de Soluciones Transaccionales</div>
+
+        <div class="capability-card">
+          <div class="capability-header">
+            <div class="capability-title">Atención Comercial & Postventa</div>
+            <span class="capability-badge">Operación PYME</span>
           </div>
-          <div class="exp-date">2022 – 2025</div>
+          <p class="capability-desc">Diseño de flujos pensados para la venta real: captación de datos, seguimiento de negocios y canalización de consultas recurrentes.</p>
         </div>
-        <div class="exp-item">
-          <div>
-            <div class="exp-role">Atención de Clientes & Canales Comerciales</div>
-            <div class="exp-company">Gestión de Equipos de Venta y Postventa</div>
+
+        <div class="capability-card">
+          <div class="capability-header">
+            <div class="capability-title">Arquitectura Cloud & Seguridad</div>
+            <span class="capability-badge">Infraestructura</span>
           </div>
-          <div class="exp-date">2018 – 2023</div>
-        </div>
-        <div class="exp-item">
-          <div>
-            <div class="exp-role">Arquitectura Cloud & Consultoría Digital</div>
-            <div class="exp-company">Infraestructura Nube y Transformación Digital</div>
-          </div>
-          <div class="exp-date">2015 – 2020</div>
+          <p class="capability-desc">Infraestructura sobre Google Cloud con aislamiento multi-tenant, encriptación en reposo y cumplimiento estricto de la Ley 21.719 en Chile.</p>
         </div>
       </div>
     </div>
