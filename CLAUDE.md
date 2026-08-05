@@ -52,7 +52,7 @@ python3 -m venv .venv-test && .venv-test/bin/pip install -r tests/requirements.t
 
 Cubre: smoke de las 10 páginas, overflow horizontal móvil, errores JS, CTAs críticos
 (incluido el número BLOQUEADO), links internos, regla de registro (jerga prohibida),
-consistencia comercial ($190.000, demo 30 min) y sticky WhatsApp.
+consistencia comercial ($250.000, demo 30 min) y sticky WhatsApp.
 
 ## Despliegue
 
@@ -181,3 +181,14 @@ Antes de commitear a `main` (main = deploy directo a theia.cl vía Pages):
 ## Autoría en Git
 
 PROHIBIDO incluir "Claude", "Claude Code", "Anthropic", o cualquier referencia a IA como autor o co-autor en commits y PRs. No usar `Co-Authored-By` con Claude. Los commits son de Rodrigo.
+
+## 🔒 Prevención de colisiones entre agentes
+
+Tres agentes de coding pueden editar este repo (Claude, Pi, Codex). Para evitar pisarse:
+- **Siempre usar el lock antes de empezar a trabajar:**
+  ```python
+  from lock_agent import repo_lock, LockHeld
+  with repo_lock("REPO_PATH") as info:
+      # trabajar aquí
+  ```
+- Si ves `LockHeld`, otro agente ya está trabajando: aborta o coordiná con él.

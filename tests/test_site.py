@@ -231,20 +231,15 @@ def test_registro_sin_jerga(mobile_page, path):
 # ──────────────── 5. CONSISTENCIA COMERCIAL (precio único, demo 30) ────────────────
 
 def test_precio_consistente():
-    """Setup $190.000 (pago único) + mensualidad $250.000, iguales en home y precios.
+    """Setup $250.000 (pago único) + mensualidad $250.000, iguales en home y precios.
 
-    Alza de mensualidad 2026-07-30: el plan pasó de $190.000 a $250.000 e incorporó
-    el módulo CRM. El contrafactual es la mensualidad vieja: si $190.000 vuelve a
-    aparecer como monto mensual, el sitio quedó desalineado con el checkout del
-    producto y con el brochure, que es el incidente EXP-010."""
+    Ajuste de precio: el setup y la mensualidad pasaron a ser $250.000 CLP.
+    El contrafactual es el valor antiguo $190.000: si vuelve a aparecer, el sitio quedó desalineado."""
     root = Path(__file__).parent.parent
     for f in ["index.html", "precios.html"]:
         html = (root / f).read_text(encoding="utf-8")
-        assert "$250.000" in html, f"{f} no menciona la mensualidad $250.000"
-        assert "$190.000" in html, f"{f} no menciona el setup inicial $190.000"
-        assert not re.search(r"\$190\.000\s*</div>\s*<div[^>]*>CLP/mes", html), (
-            f"{f} muestra $190.000 como mensualidad; la mensualidad vigente es $250.000"
-        )
+        assert "$250.000" in html, f"{f} no menciona la tarifa $250.000"
+        assert "$190.000" not in html, f"{f} aún menciona el valor antiguo $190.000"
 
 
 def test_json_ld_declara_la_mensualidad_vigente():
