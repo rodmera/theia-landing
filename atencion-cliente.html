@@ -244,9 +244,17 @@
       margin: 0 auto;
     }
 
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
     .logo img {
-      height: 36px;
+      height: 100px;
       width: auto;
+      display: block;
+      filter: drop-shadow(0 0 10px var(--gold-glow));
     }
 
     .nav-cta {
@@ -678,10 +686,12 @@
         <span style="width: 6px; height: 6px; background-color: var(--indigo-light); border-radius: 50%; box-shadow: 0 0 8px var(--indigo-light); display: inline-block;"></span>
         Panel Admin
       </a>
-      <a href="/atencion-cliente" class="btn btn-ghost">Atención</a>
-      <a href="/pulse" class="btn btn-ghost">Pulse</a>
+      <a href="/atencion-cliente" class="btn btn-ghost" style="border-color: var(--gold); color: var(--gold);">Atención</a>
+      <a href="/funciones" class="btn btn-ghost">Cómo ayuda</a>
+      <a href="/crm" class="btn btn-ghost">CRM</a>
       <a href="/plataforma" class="btn btn-ghost">Plataforma</a>
       <a href="/precios" class="btn btn-ghost">Precios</a>
+      <a href="/blog/" class="btn btn-ghost">Recursos</a>
       <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" onclick="theiaTrackCTA('demo','atencion-cliente')">Agenda una demo →</a>
     </div>
   </nav>
