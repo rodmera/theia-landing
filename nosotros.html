@@ -258,37 +258,44 @@
 
     .cred-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      max-width: 720px;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      max-width: 900px;
       margin: 0 auto;
     }
 
     .cred-card {
       background: var(--glass);
       border: 1px solid var(--glass-border);
-      border-radius: 14px;
-      padding: 1.75rem;
+      border-radius: 16px;
+      padding: 1.5rem 1.75rem;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+
+    .cred-card:hover {
+      border-color: var(--glass-border-gold);
+      transform: translateY(-3px);
     }
 
     .cred-card h3 {
-      font-family: 'Merriweather', serif; font-size: 1rem; font-weight: 700;
-      color: var(--gold); margin-bottom: 1rem;
-      text-transform: uppercase; letter-spacing: 0.05em;
+      font-family: 'Merriweather', serif; font-size: 1.05rem; font-weight: 700;
+      color: var(--gold-light); margin-bottom: 1.25rem;
     }
 
     .cred-list {
       list-style: none;
-      display: flex; flex-direction: column; gap: 0.6rem;
+      display: flex; flex-direction: column; gap: 0.85rem;
     }
 
     .cred-list li {
-      display: flex; align-items: flex-start; gap: 0.6rem;
-      font-size: 0.88rem; color: var(--text-sub); line-height: 1.5;
+      display: block;
+      font-size: 0.88rem; color: var(--text-sub); line-height: 1.6;
     }
 
-    .cred-check {
-      color: var(--green); font-size: 0.75rem; margin-top: 0.2rem; flex-shrink: 0;
+    @media (max-width: 768px) {
+      .cred-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* Experience / Capabilities */
@@ -474,18 +481,18 @@
         <div class="cred-card">
           <h3>Respaldo de Google</h3>
           <ul class="cred-list">
-            <li><span class="cred-check">✓</span> <strong>Google Cloud:</strong> Servidores y bases de datos oficiales de alta velocidad, garantizando estabilidad y seguridad.</li>
-            <li><span class="cred-check">✓</span> <strong>Google Gemini:</strong> Inteligencia Artificial de última generación que conversa de forma fluida, natural y cercana.</li>
-            <li><span class="cred-check">✓</span> <strong>Google for Startups:</strong> Apoyo oficial del programa de Google para empresas tecnológicas en Chile.</li>
-            <li><span class="cred-check">✓</span> <strong>Integraciones nativas:</strong> Sincronización directa con Google Calendar y Shopify.</li>
+            <li><span style="color:var(--green); font-weight:700;">✓</span> <strong style="color:var(--text);">Google Cloud:</strong> Servidores y bases de datos oficiales de alta velocidad, garantizando estabilidad y seguridad.</li>
+            <li><span style="color:var(--green); font-weight:700;">✓</span> <strong style="color:var(--text);">Google Gemini:</strong> Inteligencia Artificial de última generación que conversa de forma fluida, natural y cercana.</li>
+            <li><span style="color:var(--green); font-weight:700;">✓</span> <strong style="color:var(--text);">Google for Startups:</strong> Apoyo oficial del programa de Google para empresas tecnológicas en Chile.</li>
+            <li><span style="color:var(--green); font-weight:700;">✓</span> <strong style="color:var(--text);">Integraciones nativas:</strong> Sincronización directa con Google Calendar y Shopify.</li>
           </ul>
         </div>
         <div class="cred-card">
           <h3>Seguridad y Datos</h3>
           <ul class="cred-list">
-            <li><span class="cred-check">✓</span> <strong>Datos protegidos:</strong> Toda la información de tu negocio y tus clientes viaja encriptada y protegida bajo altos estándares.</li>
-            <li><span class="cred-check">✓</span> <strong>Aislamiento total:</strong> Tu base de datos está totalmente separada — tus datos nunca se mezclarán con otros negocios.</li>
-            <li><span class="cred-check">✓</span> <strong>Soporte local en Chile:</strong> Si tienes un problema, te responde nuestro equipo directamente por WhatsApp, sin robots lejanos.</li>
+            <li><span style="color:var(--green); font-weight:700;">✓</span> <strong style="color:var(--text);">Datos protegidos:</strong> Toda la información de tu negocio y tus clientes viaja encriptada y protegida bajo altos estándares.</li>
+            <li><span style="color:var(--green); font-weight:700;">✓</span> <strong style="color:var(--text);">Aislamiento total:</strong> Tu base de datos está totalmente separada — tus datos nunca se mezclarán con otros negocios.</li>
+            <li><span style="color:var(--green); font-weight:700;">✓</span> <strong style="color:var(--text);">Soporte local en Chile:</strong> Si tienes un problema, te responde nuestro equipo directamente por WhatsApp, sin robots lejanos.</li>
           </ul>
         </div>
       </div>
