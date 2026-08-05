@@ -2,7 +2,7 @@
 title: "Self-Service vs Llave en Mano: Qué Conviene para tu PYME al Elegir un Chatbot con IA"
 category: Guía
 reading_time: 4
-author: Rodrigo Mera
+author: Equipo TheIA
 ---
 
 Decidiste automatizar la atención al cliente de tu negocio con un chatbot inteligente. Ahora viene la segunda decisión: **¿contratas una plataforma donde tú configuras todo, o un servicio donde te lo entregan funcionando?**

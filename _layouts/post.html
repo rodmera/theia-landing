@@ -19,7 +19,7 @@
   <link rel="icon" href="/logo.png" type="image/png">
 
   <meta name="description" content="{{ page.excerpt | strip_html | truncate: 160 }}" />
-  <meta name="author" content="{{ page.author | default: 'Rodrigo Mera' }}" />
+  <meta name="author" content="{{ page.author | default: 'Equipo TheIA' }}" />
   <meta name="geo.region" content="CL" />
 
   <meta property="og:type" content="article" />
@@ -44,9 +44,9 @@
     "dateModified": "{{ page.date | date_to_xmlschema }}",
     "image": "{% if page.image %}{{ page.image | absolute_url }}{% else %}https://theia.cl/og-image.png{% endif %}",
     "author": {
-      "@type": "Person",
-      "name": "{{ page.author | default: 'Rodrigo Mera' }}",
-      "url": "https://www.linkedin.com/in/rodmera/",
+      "@type": "Organization",
+      "name": "{{ page.author | default: 'Equipo TheIA' }}",
+      "url": "https://www.linkedin.com/company/112228768/",
       "jobTitle": "Fundador & AI Product Manager"
     },
     "publisher": { "@type": "Organization", "name": "TheIA", "url": "https://theia.cl", "logo": { "@type": "ImageObject", "url": "https://theia.cl/logo.png" } },
@@ -690,7 +690,7 @@
         {% if page.category %}<span class="post-tag">{{ page.category }}</span>{% endif %}
         <span class="post-date">{{ page.date | date: "%d %b %Y" }}</span>
         {% if page.reading_time %}<span class="post-reading">{{ page.reading_time }} min de lectura</span>{% endif %}
-        <span class="post-date">Por <a href="/nosotros" style="color:var(--gold-light);text-decoration:none;">{{ page.author | default: 'Rodrigo Mera' }}</a></span>
+        <span class="post-date">Por <a href="/nosotros" style="color:var(--gold-light);text-decoration:none;">{{ page.author | default: 'Equipo TheIA' }}</a></span>
       </div>
 
       <h1>{{ page.title }}</h1>
@@ -712,12 +712,12 @@
 
       <!-- Author Card -->
       <div class="author-card">
-        <div class="author-avatar">RM</div>
+        <div class="author-avatar" style="font-size:0.95rem; font-weight:900; color:var(--gold-light);">TheIA</div>
         <div class="author-info">
-          <div class="author-name">{{ page.author | default: 'Rodrigo Mera' }}</div>
-          <div class="author-role">Founder & AI Product Manager, TheIA</div>
+          <div class="author-name">{{ page.author | default: 'Equipo TheIA' }}</div>
+          <div class="author-role">Soluciones & Atención de Clientes, TheIA</div>
           <div class="author-links">
-            <a href="https://www.linkedin.com/in/rodmera/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://www.linkedin.com/company/112228768/" target="_blank" rel="noopener">LinkedIn TheIA</a>
             <a href="/nosotros">Sobre nosotros</a>
           </div>
         </div>

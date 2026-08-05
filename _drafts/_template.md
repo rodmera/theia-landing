@@ -3,7 +3,7 @@ title: "Título del artículo"
 category: Guía
 reading_time: 5
 image: /screenshots/nombre-imagen.jpg
-author: Rodrigo Mera
+author: Equipo TheIA
 excerpt: "Resumen de 1-2 líneas para SEO y cards del blog. Máximo 160 caracteres idealmente."
 ---
 

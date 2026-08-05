@@ -2,7 +2,7 @@
 title: "Chatbot WhatsApp en Chile: Guía Completa para PYMEs que Quieren Vender Más"
 category: Guía
 reading_time: 6
-author: Rodrigo Mera
+author: Equipo TheIA
 ---
 
 Si tienes una PYME en Chile y usas WhatsApp para vender, probablemente ya conoces el problema: los mensajes llegan a cualquier hora, los clientes preguntan lo mismo una y otra vez, y responder rápido se vuelve imposible cuando el negocio crece.

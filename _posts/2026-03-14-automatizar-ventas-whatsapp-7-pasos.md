@@ -2,7 +2,7 @@
 title: "Cómo Automatizar las Ventas por WhatsApp en 7 Pasos (Sin Perder el Toque Humano)"
 category: Estrategia
 reading_time: 5
-author: Rodrigo Mera
+author: Equipo TheIA
 ---
 
 Automatizar ventas por WhatsApp no significa convertir tu negocio en un robot frío que repite respuestas genéricas. Significa liberar tu tiempo para lo que importa — cerrar ventas grandes, atender clientes VIP, y hacer crecer tu negocio — mientras un agente inteligente maneja el 80% de las conversaciones rutinarias.

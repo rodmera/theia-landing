@@ -2,7 +2,7 @@
 title: "Agente de IA vs Chatbot Tradicional: Cuál Necesita tu PYME en 2026"
 category: Comparativa
 reading_time: 4
-author: Rodrigo Mera
+author: Equipo TheIA
 ---
 
 "Chatbot" se convirtió en una palabra que significa todo y nada. Desde un menú de opciones básico hasta un agente con inteligencia artificial que entiende contexto y cierra ventas. Si estás evaluando opciones para tu PYME, esta guía te ayuda a entender la diferencia — y a elegir bien.

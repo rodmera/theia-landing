@@ -2,7 +2,7 @@
 title: "Cuánto Cuesta un Agente IA para tu Negocio en Chile (2026)"
 category: Guía
 reading_time: 5
-author: Rodrigo Mera
+author: Equipo TheIA
 ---
 
 Estás evaluando un agente de inteligencia artificial para atender clientes por WhatsApp. La primera pregunta es obvia: **¿cuánto cuesta?**
