@@ -123,7 +123,15 @@
       text-align: center;
     }
 
-    button.btn { border-style: solid; }
+    button.btn { border: none; }
+
+    .dash-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(79, 70, 229, 0.12); border: 1px solid rgba(79, 70, 229, 0.35);
+      border-radius: 100px; padding: 0.3rem 1rem;
+      color: var(--indigo-light); font-size: 0.82rem; font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
 
     .btn-large {
       padding: 0.85rem 2rem;
@@ -709,6 +717,10 @@
 
   <section class="crm-hero">
     <div class="container">
+      <div class="dash-badge reveal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Módulo CRM TheIA
+      </div>
       <h1>CRM: tu agenda de clientes<br /><span class="gold">en un solo lugar.</span></h1>
       <p>Cada negocio que llega por WhatsApp, Instagram o la web queda registrado, avanza por tus etapas y se actualiza desde la propia conversación. Por negocio, no por asiento.</p>
       <div class="crm-hero-ctas">
