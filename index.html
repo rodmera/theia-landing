@@ -849,6 +849,39 @@
       border-top: 1px solid var(--glass-border);
     }
 
+    .card-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .card-stat-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--glass-border);
+      border-radius: 10px;
+      padding: 0.6rem 0.4rem;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--gold-light);
+      margin-bottom: 0.2rem;
+      white-space: nowrap;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--text-sub);
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+
     .stat-n {
       font-family: 'Merriweather', serif;
       font-weight: 900;
@@ -3563,18 +3596,18 @@
           <div class="client-context-text">"Cotización para reunión de 12 personas. La IA preguntó detalles y derivó al equipo con todo el contexto."</div>
         </div>
 
-        <div class="card-stats">
-          <div>
-            <div class="stat-n">3 canales</div>
-            <div class="stat-l">WA + IG + Web</div>
+        <div class="card-stats-grid">
+          <div class="card-stat-box">
+            <div class="stat-value">3 Canales</div>
+            <div class="stat-label">WA · IG · Web</div>
           </div>
-          <div>
-            <div class="stat-n">Contexto</div>
-            <div class="stat-l">Historial unificado</div>
+          <div class="card-stat-box">
+            <div class="stat-value">Historial</div>
+            <div class="stat-label">Contexto Unificado</div>
           </div>
-          <div>
-            <div class="stat-n">Escalado</div>
-            <div class="stat-l">Al equipo con resumen</div>
+          <div class="card-stat-box">
+            <div class="stat-value">Derivación</div>
+            <div class="stat-label">Resumen al Equipo</div>
           </div>
         </div>
       </div>
