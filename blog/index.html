@@ -117,7 +117,23 @@ layout: null
       padding: 11rem 2rem 5rem;
     }
 
+    .dash-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: rgba(79, 70, 229, 0.12);
+      border: 1px solid rgba(79, 70, 229, 0.35);
+      border-radius: 100px;
+      padding: 0.35rem 1.1rem;
+      color: var(--indigo-light);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin: 0 auto 1.25rem auto;
+    }
+
     .blog-header {
+      text-align: center;
       margin-bottom: 2.5rem;
     }
 
@@ -133,7 +149,9 @@ layout: null
       font-size: 1rem;
       color: var(--text-sub);
       line-height: 1.6;
-      max-width: 600px;
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
     }
 
     .gold { color: var(--gold); }
@@ -141,6 +159,7 @@ layout: null
     /* ── Category Filter Pills ── */
     .filter-bar {
       display: flex;
+      justify-content: center;
       gap: 0.5rem;
       flex-wrap: wrap;
       margin-bottom: 2.5rem;
@@ -567,7 +586,13 @@ layout: null
   </nav>
 
   <div class="blog-container">
-    <div class="blog-header reveal">
+    <div class="blog-header reveal" style="text-align: center;">
+      <div style="display: flex; justify-content: center;">
+        <div class="dash-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+          Recursos & Blog
+        </div>
+      </div>
       <h1>Blog <span class="gold">TheIA</span></h1>
       <p class="blog-desc">Guías, casos de uso y tendencias sobre IA conversacional y automatización comercial para PYMEs en Chile.</p>
     </div>
