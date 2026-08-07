@@ -94,7 +94,7 @@ def test_funciones_organiza_la_ayuda_en_tres_resultados(mobile_page):
     goto(mobile_page, "/funciones.html")
     text = visible_text(mobile_page)
     for texto in ["Atiende y orienta.", "Cotiza, agenda y hace seguimiento.",
-                  "Tu equipo conserva el control.", "Habla con TheIA", "Agenda una demo"]:
+                  "Tu equipo conserva el control.", "Probar conversación en vivo", "Agenda una demo"]:
         assert texto in text, f"funciones no explica: {texto}"
     for texto in ["Facebook Messenger", "Para desarrolladores", "Lead Scoring Inteligente"]:
         assert texto not in text, f"funciones volvió a exhibir capacidad no comunicable: {texto}"

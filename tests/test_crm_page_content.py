@@ -303,7 +303,7 @@ def test_cta_crm_abre_webchat_con_origen_estable(mobile_page):
     mobile_page.wait_for_timeout(600)
     mobile_page.evaluate("window.__crmCtaEvents = []")
 
-    mobile_page.get_by_role("button", name="Habla con TheIA").first.click()
+    mobile_page.get_by_role("button", name="Probar conversación en vivo").first.click()
 
     assert mobile_page.evaluate("window.__crmCtaEvents") == [
         ["widget-open", "crm"],
