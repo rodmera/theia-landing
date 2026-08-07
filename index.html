@@ -800,6 +800,16 @@
       font-size: 0.82rem;
     }
 
+    .hero-mobile-strip {
+      display: none;
+    }
+
+    @media (max-width: 960px) {
+      .hero-mobile-strip {
+        display: block;
+      }
+    }
+
     .channel-row .ch-icon {
       width: 28px;
       height: 28px;
@@ -3546,6 +3556,29 @@
           <p style="font-size: 0.8rem; color: var(--text-sub); margin: 0.2rem 0 0 0; line-height: 1.4;">
             Sin contratos de permanencia · Módulo CRM sin cobro por asiento · Puesta en marcha en &lt; 7 días
           </p>
+
+          <!-- Mobile Compact Flow Strip (visibilidad exclusiva en pantallas <= 960px) -->
+          <div class="hero-mobile-strip" style="margin-top: 1.25rem; background: rgba(0,0,0,0.25); border: 1px solid var(--glass-border); border-radius: 12px; padding: 0.75rem 1rem; width: 100%;">
+            <div style="font-size: 0.7rem; font-weight: 700; color: var(--gold-light); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; text-align: center;">
+              El viaje de tu cliente con TheIA
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.25rem; font-size: 0.75rem; font-weight: 700; color: var(--text);">
+              <div style="display: flex; align-items: center; gap: 0.25rem;">
+                <span style="width: 18px; height: 18px; border-radius: 50%; background: var(--gold); color: #0f172a; display: inline-flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 900;">1</span>
+                <span>Mensaje</span>
+              </div>
+              <span style="color: var(--text-muted);">→</span>
+              <div style="display: flex; align-items: center; gap: 0.25rem;">
+                <span style="width: 18px; height: 18px; border-radius: 50%; background: rgba(255,255,255,0.1); color: var(--gold-light); display: inline-flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 900;">2</span>
+                <span>Contexto</span>
+              </div>
+              <span style="color: var(--text-muted);">→</span>
+              <div style="display: flex; align-items: center; gap: 0.25rem;">
+                <span style="width: 18px; height: 18px; border-radius: 50%; background: #34c759; color: #0f172a; display: inline-flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 900;">3</span>
+                <span>Caso listo</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <!-- End Left Column -->
@@ -3809,7 +3842,7 @@
         <div class="orbit-ring orbit-ring-outer"></div>
         <div class="orbit-ring orbit-ring-inner"></div>
         <div class="orbit-scanner-wrap"><div class="orbit-scanner"></div></div>
-        <div class="orbit-center"><img src="logo.png" alt="TheIA" width="56" height="56" /></div>
+        <div class="orbit-center"><img src="/logo.png" alt="TheIA" width="56" height="56" /></div>
         <div class="orbit-node orbit-node-1" title="WhatsApp">
           <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp" width="24" height="24" loading="lazy" />
         </div>
