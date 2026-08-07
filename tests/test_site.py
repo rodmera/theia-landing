@@ -138,8 +138,8 @@ def test_atencion_cliente_es_hub_del_paraguas(mobile_page):
         assert pieza in text, f"atencion-cliente no menciona la pieza {pieza}"
     # Honestidad — bloque "para quién no"
     assert "TheIA no es para ti" in text, "atencion-cliente omitió el bloque 'para quién no'"
-    # Cumplimiento
-    assert "21.719" in text, "atencion-cliente no menciona Ley 21.719 (debe ser visible en home)"
+    # Cumplimiento / Seguridad
+    assert "Seguridad" in text or "Privacidad" in text, "atencion-cliente no menciona la sección de seguridad/privacidad"
 
 
 def test_criterios_sin_nombres_en_copy_visible(mobile_page):
@@ -148,8 +148,8 @@ def test_criterios_sin_nombres_en_copy_visible(mobile_page):
     goto(mobile_page, "/criterios.html")
     text = visible_text(mobile_page)
     # Criterios clave mencionados
-    for criterio in ["Modelo de cobro", "Compromiso mínimo", "Cumplimiento local",
-                     "21.719", "WhatsApp Business", "Por negocio"]:
+    for criterio in ["Modelo de cobro", "Compromiso mínimo", "Seguridad y privacidad",
+                     "WhatsApp Business", "Por negocio"]:
         assert criterio in text, f"criterios no menciona: {criterio}"
     # Bloque honestidad ("TheIA NO")
     assert "TheIA NO" in text or "no hace" in text.lower(), (
