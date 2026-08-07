@@ -3552,78 +3552,77 @@
 
       <!-- Right Column -->
       <div class="hero-glass-card animate-load" style="animation-delay: 0.7s;">
-        <div class="client-header" style="display:flex; justify-content:space-between; align-items:center; padding-bottom:0.85rem; border-bottom:1px solid var(--glass-border); margin-bottom:1rem;">
-          <div style="font-weight:700; font-size:0.92rem; color:var(--text); display:flex; align-items:center; gap:0.5rem;">
+        <div class="client-header" style="display:flex; justify-content:space-between; align-items:center; padding-bottom:0.85rem; border-bottom:1px solid var(--glass-border); margin-bottom:0.85rem;">
+          <div style="font-weight:700; font-size:0.9rem; color:var(--text); display:flex; align-items:center; gap:0.5rem;">
             <span style="width:8px; height:8px; background:#25D366; border-radius:50%; box-shadow:0 0 8px #25D366; display:inline-block;"></span>
-            Operación de Atención & CRM
+            Centro de Control: Caso #104
           </div>
-          <span style="font-size:0.72rem; font-weight:700; color:var(--gold-light); background:rgba(212,175,55,0.1); border:1px solid var(--glass-border-gold); padding:0.25rem 0.6rem; border-radius:20px;">En Vivo</span>
+          <span style="font-size:0.72rem; font-weight:700; color:var(--gold-light); background:rgba(212,175,55,0.12); border:1px solid var(--glass-border-gold); padding:0.2rem 0.6rem; border-radius:20px;">Caso en avance</span>
         </div>
 
-        <!-- Channels & Cases -->
-        <div class="client-channels" style="display:flex; flex-direction:column; gap:0.75rem; margin-bottom:1rem;">
-          <!-- Case 1: WhatsApp -->
-          <div style="background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); border-radius:12px; padding:0.75rem 0.9rem; display:flex; justify-content:space-between; align-items:center;">
-            <div style="display:flex; align-items:center; gap:0.6rem;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#25D366">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.472-13.382C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.363 0-4.55-.82-6.274-2.191l-.438-.364-3.2 1.073 1.073-3.2-.364-.438A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
-              </svg>
-              <div>
-                <div style="font-weight:700; font-size:0.85rem; color:var(--text); margin-bottom:0.15rem;">María L. — Cotización Evento</div>
-                <div style="font-size:0.75rem; color:var(--text-sub);">WhatsApp · Hace 5 min</div>
-              </div>
+        <!-- Flow Progress Nodes -->
+        <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(0,0,0,0.2); border:1px solid var(--glass-border); border-radius:10px; padding:0.5rem 0.75rem; margin-bottom:0.85rem;">
+          <div class="flow-step" id="flow-step-1" style="font-size:0.7rem; font-weight:700; color:var(--gold); display:flex; align-items:center; gap:0.25rem;">
+            <span style="width:16px; height:16px; border-radius:50%; background:var(--gold); color:#0f172a; display:inline-flex; align-items:center; justify-content:center; font-size:0.65rem;">1</span> Mensaje
+          </div>
+          <span style="color:var(--text-muted); font-size:0.7rem;">→</span>
+          <div class="flow-step" id="flow-step-2" style="font-size:0.7rem; font-weight:700; color:var(--text-sub); display:flex; align-items:center; gap:0.25rem;">
+            <span style="width:16px; height:16px; border-radius:50%; background:rgba(255,255,255,0.1); color:var(--text); display:inline-flex; align-items:center; justify-content:center; font-size:0.65rem;">2</span> Contexto
+          </div>
+          <span style="color:var(--text-muted); font-size:0.7rem;">→</span>
+          <div class="flow-step" id="flow-step-3" style="font-size:0.7rem; font-weight:700; color:var(--text-sub); display:flex; align-items:center; gap:0.25rem;">
+            <span style="width:16px; height:16px; border-radius:50%; background:rgba(255,255,255,0.1); color:var(--text); display:inline-flex; align-items:center; justify-content:center; font-size:0.65rem;">3</span> CRM
+          </div>
+          <span style="color:var(--text-muted); font-size:0.7rem;">→</span>
+          <div class="flow-step" id="flow-step-4" style="font-size:0.7rem; font-weight:700; color:var(--text-sub); display:flex; align-items:center; gap:0.25rem;">
+            <span style="width:16px; height:16px; border-radius:50%; background:rgba(255,255,255,0.1); color:var(--text); display:inline-flex; align-items:center; justify-content:center; font-size:0.65rem;">4</span> Equipo
+          </div>
+        </div>
+
+        <!-- Case Timeline Feed -->
+        <div class="client-channels" style="display:flex; flex-direction:column; gap:0.6rem; margin-bottom:0.85rem;">
+          <!-- Timeline Entry 1 -->
+          <div class="timeline-row" id="time-row-1" style="background:rgba(212,175,55,0.12); border:1px solid var(--glass-border-gold); border-radius:10px; padding:0.65rem 0.85rem; transition:all 0.3s ease;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.2rem;">
+              <span style="font-size:0.72rem; font-weight:700; color:var(--gold-light);">09:12 · Consulta por Instagram</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
             </div>
-            <span style="font-size:0.72rem; font-weight:700; color:var(--gold-light); background:rgba(212,175,55,0.15); border:1px solid var(--glass-border-gold); padding:0.2rem 0.55rem; border-radius:12px; white-space:nowrap;">En CRM: Cotizado</span>
+            <div style="font-size:0.82rem; color:var(--text); font-weight:500;">"Necesito cotizar atención para mi oficina de 12 personas"</div>
           </div>
 
-          <!-- Case 2: Instagram -->
-          <div style="background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); border-radius:12px; padding:0.75rem 0.9rem; display:flex; justify-content:space-between; align-items:center;">
-            <div style="display:flex; align-items:center; gap:0.6rem;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-              </svg>
-              <div>
-                <div style="font-weight:700; font-size:0.85rem; color:var(--text); margin-bottom:0.15rem;">Carlos M. — Horarios & Cita</div>
-                <div style="font-size:0.75rem; color:var(--text-sub);">Instagram · Resuelto 24/7</div>
-              </div>
+          <!-- Timeline Entry 2 -->
+          <div class="timeline-row" id="time-row-2" style="background:rgba(255,255,255,0.02); border:1px solid var(--glass-border); border-radius:10px; padding:0.65rem 0.85rem; transition:all 0.3s ease;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.2rem;">
+              <span style="font-size:0.72rem; font-weight:700; color:var(--text-sub);">09:13 · Contexto & Historial Unificado</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.472-13.382C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.363 0-4.55-.82-6.274-2.191l-.438-.364-3.2 1.073 1.073-3.2-.364-.438A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
             </div>
-            <span style="font-size:0.72rem; font-weight:700; color:#34c759; background:rgba(52,199,89,0.12); border:1px solid rgba(52,199,89,0.3); padding:0.2rem 0.55rem; border-radius:12px; white-space:nowrap;">Resuelto por IA</span>
+            <div style="font-size:0.8rem; color:var(--text-sub);">Cliente María L. · Contacto previo en WhatsApp · Requerimiento identificado</div>
           </div>
 
-          <!-- Case 3: Web -->
-          <div style="background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); border-radius:12px; padding:0.75rem 0.9rem; display:flex; justify-content:space-between; align-items:center;">
-            <div style="display:flex; align-items:center; gap:0.6rem;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="2" x2="22" y1="12" y2="12"/>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-              </svg>
-              <div>
-                <div style="font-weight:700; font-size:0.85rem; color:var(--text); margin-bottom:0.15rem;">Andrea R. — Caso Complejo</div>
-                <div style="font-size:0.75rem; color:var(--text-sub);">WebChat · Con resumen</div>
-              </div>
+          <!-- Timeline Entry 3 -->
+          <div class="timeline-row" id="time-row-3" style="background:rgba(255,255,255,0.02); border:1px solid var(--glass-border); border-radius:10px; padding:0.65rem 0.85rem; transition:all 0.3s ease;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.2rem;">
+              <span style="font-size:0.72rem; font-weight:700; color:var(--text-sub);">09:13 · Caso Registrado en CRM</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             </div>
-            <span style="font-size:0.72rem; font-weight:700; color:var(--indigo-light); background:rgba(79,70,229,0.15); border:1px solid rgba(79,70,229,0.35); padding:0.2rem 0.55rem; border-radius:12px; white-space:nowrap;">Escalado a Equipo</span>
+            <div style="font-size:0.8rem; color:var(--text-sub);">Ficha creada · Etapa: Cotización Enviada · $0 costo por usuario</div>
+          </div>
+
+          <!-- Timeline Entry 4 -->
+          <div class="timeline-row" id="time-row-4" style="background:rgba(255,255,255,0.02); border:1px solid var(--glass-border); border-radius:10px; padding:0.65rem 0.85rem; transition:all 0.3s ease;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.2rem;">
+              <span style="font-size:0.72rem; font-weight:700; color:var(--text-sub);">09:14 · Traspaso a Equipo Humano</span>
+              <span style="font-size:0.68rem; font-weight:700; color:#34c759; background:rgba(52,199,89,0.12); padding:0.1rem 0.4rem; border-radius:8px;">Resumen Listo</span>
+            </div>
+            <div style="font-size:0.8rem; color:var(--text-sub);">Resumen listo para confirmación de fecha · Equipo toma el control con 1 clic</div>
           </div>
         </div>
 
         <div class="client-context" style="display:none;"></div>
 
-        <div class="card-stats-grid">
-          <div class="card-stat-box">
-            <div class="stat-value">Resolución</div>
-            <div class="stat-label">Consultas 24/7</div>
-          </div>
-          <div class="card-stat-box">
-            <div class="stat-value">CRM Incluido</div>
-            <div class="stat-label">Pipeline de Ventas</div>
-          </div>
-          <div class="card-stat-box">
-            <div class="stat-value">$0 Extra</div>
-            <div class="stat-label">Sin Cobro por Asiento</div>
-          </div>
+        <!-- Footer Motto Bar -->
+        <div style="text-align:center; padding-top:0.75rem; border-top:1px solid var(--glass-border); font-size:0.78rem; font-weight:700; color:var(--gold-light);">
+          "TheIA no sólo responde: convierte conversaciones en casos listos para resolver."
         </div>
       </div>
       <!-- End Right Column -->
@@ -4581,6 +4580,43 @@
           errEl.textContent = 'Error de conexión. Intenta de nuevo.';
         });
       });
+    })();
+  </script>
+
+  <script>
+    // Live Case Timeline Progression Cycle (Centro de Control Hero)
+    (function() {
+      let currentStep = 1;
+      const totalSteps = 4;
+      function advanceFlow() {
+        for (let i = 1; i <= totalSteps; i++) {
+          const stepEl = document.getElementById('flow-step-' + i);
+          const rowEl = document.getElementById('time-row-' + i);
+          if (stepEl) {
+            stepEl.style.color = (i === currentStep) ? 'var(--gold)' : 'var(--text-sub)';
+            const numBg = stepEl.querySelector('span');
+            if (numBg) {
+              numBg.style.background = (i === currentStep) ? 'var(--gold)' : 'rgba(255,255,255,0.1)';
+              numBg.style.color = (i === currentStep) ? '#0f172a' : 'var(--text)';
+            }
+          }
+          if (rowEl) {
+            if (i === currentStep) {
+              rowEl.style.background = 'rgba(212,175,55,0.12)';
+              rowEl.style.borderColor = 'var(--glass-border-gold)';
+              const timeLabel = rowEl.querySelector('span');
+              if (timeLabel) timeLabel.style.color = 'var(--gold-light)';
+            } else {
+              rowEl.style.background = 'rgba(255,255,255,0.02)';
+              rowEl.style.borderColor = 'var(--glass-border)';
+              const timeLabel = rowEl.querySelector('span');
+              if (timeLabel) timeLabel.style.color = 'var(--text-sub)';
+            }
+          }
+        }
+        currentStep = (currentStep % totalSteps) + 1;
+      }
+      setInterval(advanceFlow, 2800);
     })();
   </script>
 
