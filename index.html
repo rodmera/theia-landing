@@ -1182,15 +1182,19 @@
       border-color: var(--glass-border-gold);
     }
 
-    .orbit-node-top { top: 0; left: 50%; transform: translate(-50%, -50%); animation-delay: 0s; }
-    .orbit-node-right { top: 50%; left: 100%; transform: translate(-50%, -50%); animation-delay: 1.5s; }
+    .orbit-node-top { top: 0%; left: 50%; transform: translate(-50%, -50%); animation-delay: 0s; }
+    .orbit-node-top-right { top: 25%; left: 93.3%; transform: translate(-50%, -50%); animation-delay: 1s; }
+    .orbit-node-bottom-right { top: 75%; left: 93.3%; transform: translate(-50%, -50%); animation-delay: 2s; }
     .orbit-node-bottom { top: 100%; left: 50%; transform: translate(-50%, -50%); animation-delay: 3s; }
-    .orbit-node-left { top: 50%; left: 0; transform: translate(-50%, -50%); animation-delay: 4.5s; }
+    .orbit-node-bottom-left { top: 75%; left: 6.7%; transform: translate(-50%, -50%); animation-delay: 4s; }
+    .orbit-node-top-left { top: 25%; left: 6.7%; transform: translate(-50%, -50%); animation-delay: 5s; }
 
-    .orbit-node-top:hover { transform: translate(-50%, -50%) scale(1.08); }
-    .orbit-node-right:hover { transform: translate(-50%, -50%) scale(1.08); }
-    .orbit-node-bottom:hover { transform: translate(-50%, -50%) scale(1.08); }
-    .orbit-node-left:hover { transform: translate(-50%, -50%) scale(1.08); }
+    .orbit-node-top:hover,
+    .orbit-node-top-right:hover,
+    .orbit-node-bottom-right:hover,
+    .orbit-node-bottom:hover,
+    .orbit-node-bottom-left:hover,
+    .orbit-node-top-left:hover { transform: translate(-50%, -50%) scale(1.08); }
 
     @keyframes orbitCenterPulse {
       0%, 100% { box-shadow: 0 0 30px var(--gold-glow); }
@@ -3777,24 +3781,30 @@
   <section class="orbit-section">
     <div class="container">
       <h2 class="section-title reveal">Un solo historial. <span class="gold">Tus canales conectados.</span></h2>
-      <p class="section-sub reveal">TheIA centraliza cada conversación para que tu cliente no tenga que explicar todo de nuevo.</p>
+      <p class="section-sub reveal">TheIA centraliza WhatsApp, Instagram, WebChat, Google Calendar y Shopify para que tu cliente no tenga que explicar todo de nuevo.</p>
       <div class="orbit-visual reveal">
         <div class="orbit-ring orbit-ring-outer"></div>
         <div class="orbit-ring orbit-ring-inner"></div>
         <div class="orbit-scanner-wrap"><div class="orbit-scanner"></div></div>
-        <div class="orbit-center"><img src="/logo.png" alt="TheIA" width="56" height="56" /></div>
+        <div class="orbit-center"><img src="logo.png" alt="TheIA" width="56" height="56" /></div>
         <div class="orbit-node orbit-node-top" title="WhatsApp">
           <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp" width="24" height="24" loading="lazy" />
         </div>
-        <div class="orbit-node orbit-node-right" title="Instagram">
+        <div class="orbit-node orbit-node-top-right" title="Instagram">
           <img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram" width="24" height="24" loading="lazy" />
+        </div>
+        <div class="orbit-node orbit-node-bottom-right" title="Google Calendar">
+          <img src="https://cdn.simpleicons.org/googlecalendar/4285F4" alt="Google Calendar" width="24" height="24" loading="lazy" />
         </div>
         <div class="orbit-node orbit-node-bottom" title="Tu equipo">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
           </svg>
         </div>
-        <div class="orbit-node orbit-node-left" title="Chat Web">
+        <div class="orbit-node orbit-node-bottom-left" title="Shopify">
+          <img src="https://cdn.simpleicons.org/shopify/95BF47" alt="Shopify" width="24" height="24" loading="lazy" />
+        </div>
+        <div class="orbit-node orbit-node-top-left" title="Chat Web">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
             stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
