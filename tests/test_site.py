@@ -76,7 +76,7 @@ def test_ctas_criticos_index(mobile_page):
     # Brochure fuera del hero por decisión (2026-07-19): el sitio es el brochure;
     # el PDF queda solo como asset del bot en conversación (y el archivo vive en el
     # repo para no romper links antiguos).
-    for texto in ["Habla con TheIA", "Agenda una demo"]:
+    for texto in ["Probar conversación en vivo", "Agenda una demo"]:
         assert mobile_page.get_by_text(texto).first.is_visible(), f"CTA '{texto}' no visible en móvil"
 
 
