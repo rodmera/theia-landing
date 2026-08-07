@@ -1149,7 +1149,7 @@
       width: 300px;
       height: 300px;
       transform: translate(-50%, -50%) rotate(0deg);
-      animation: orbitScan 6s linear infinite;
+      animation: orbitScan 7s linear infinite;
     }
 
     .orbit-scanner {
@@ -1175,7 +1175,7 @@
       align-items: center;
       justify-content: center;
       transition: border-color 0.25s;
-      animation: orbitNodePulse 6s ease-in-out infinite;
+      animation: orbitNodePulse 7s ease-in-out infinite;
     }
 
     .orbit-node:hover {
@@ -1183,12 +1183,12 @@
     }
 
     .orbit-node-1 { top: 0%; left: 50%; transform: translate(-50%, -50%); animation-delay: 0s; }
-    .orbit-node-2 { top: 18.8%; left: 89.1%; transform: translate(-50%, -50%); animation-delay: 0.8s; }
-    .orbit-node-3 { top: 61.1%; left: 98.8%; transform: translate(-50%, -50%); animation-delay: 1.6s; }
-    .orbit-node-4 { top: 95.1%; left: 71.7%; transform: translate(-50%, -50%); animation-delay: 2.4s; }
-    .orbit-node-5 { top: 95.1%; left: 28.3%; transform: translate(-50%, -50%); animation-delay: 3.2s; }
-    .orbit-node-6 { top: 61.1%; left: 11.2%; transform: translate(-50%, -50%); animation-delay: 4.0s; }
-    .orbit-node-7 { top: 18.8%; left: 10.9%; transform: translate(-50%, -50%); animation-delay: 4.8s; }
+    .orbit-node-2 { top: 18.8%; left: 89.1%; transform: translate(-50%, -50%); animation-delay: 1s; }
+    .orbit-node-3 { top: 61.1%; left: 98.8%; transform: translate(-50%, -50%); animation-delay: 2s; }
+    .orbit-node-4 { top: 95.1%; left: 71.7%; transform: translate(-50%, -50%); animation-delay: 3s; }
+    .orbit-node-5 { top: 95.1%; left: 28.3%; transform: translate(-50%, -50%); animation-delay: 4s; }
+    .orbit-node-6 { top: 61.1%; left: 11.2%; transform: translate(-50%, -50%); animation-delay: 5s; }
+    .orbit-node-7 { top: 18.8%; left: 10.9%; transform: translate(-50%, -50%); animation-delay: 6s; }
 
     .orbit-node-1:hover,
     .orbit-node-2:hover,
@@ -1209,8 +1209,8 @@
     }
 
     @keyframes orbitNodePulse {
-      0%, 100% { border-color: var(--gold); box-shadow: 0 0 14px var(--gold-glow); transform: translate(-50%, -50%) scale(1.08); }
-      8%, 92% { border-color: var(--glass-border); box-shadow: none; transform: translate(-50%, -50%) scale(1); }
+      0%, 11.4% { border-color: var(--gold); box-shadow: 0 0 16px var(--gold-glow); transform: translate(-50%, -50%) scale(1.1); }
+      18%, 93% { border-color: var(--glass-border); box-shadow: none; transform: translate(-50%, -50%) scale(1); }
     }
 
     @media (max-width: 600px) {
