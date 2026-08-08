@@ -19,6 +19,7 @@ from conftest import BASE, PAGES, filtered_js_errors
 
 SHOTS = Path(__file__).parent / "screenshots"
 SHOTS.mkdir(exist_ok=True)
+ROOT = Path(__file__).parent.parent
 
 # Regla de registro (CLAUDE.md §Registro y tono): jerga que NO puede aparecer
 # en texto visible. "escalar a/al/a un humano|persona|equipo" SÍ se permite.
@@ -492,6 +493,18 @@ def test_seccion_como_funciona_sin_linea_y_texto_alineado(desktop_page):
         for idx, top in enumerate(desc_tops[1:], start=2):
             diff = abs(top - first)
             assert diff <= 1.5, f"La descripción de la tarjeta 0{idx} está desalineada por {diff:.1f}px (top={top:.1f} vs 01 top={first:.1f})"
+
+
+def test_respaldo_tech_icons_son_oficiales():
+    """QA Respaldo Tecnológico:
+    1. Google Cloud lleva el logo oficial de Google Cloud.
+    2. Google Gemini lleva la estrella sparkle oficial de Gemini (no un signo peso $).
+    3. Google for Startups lleva el logo oficial de Google ('G' 4 colores), no el logo de TheIA.
+    """
+    source = (ROOT / "index.html").read_text(encoding="utf-8")
+    assert "gemini-grad" in source or "12 0C12 6.627" in source, "Google Gemini no usa la estrella sparkle oficial de Gemini"
+    assert "34A853" in source or "4285F4" in source, "Google for Startups no usa el logo oficial de Google"
+    assert "M12 2v20M17 5H9.5" not in source, "Google Gemini conservó el icono desalineado con signo peso $"
 
 
 @pytest.mark.parametrize("path", PAGES)
