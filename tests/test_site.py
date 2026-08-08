@@ -507,6 +507,17 @@ def test_respaldo_tech_icons_son_oficiales():
     assert "M12 2v20M17 5H9.5" not in source, "Google Gemini conservó el icono desalineado con signo peso $"
 
 
+def test_no_contenido_repetido_para_quien_en_hub_atencion():
+    """QA de Contenido y Jerarquía:
+    El bloque general 'Para quién sí, para quién no' pertenece únicamente a la home (index.html).
+    No debe repetirse de forma redundante en las páginas secundarias de producto (atencion-cliente.html).
+    """
+    source = (ROOT / "atencion-cliente.html").read_text(encoding="utf-8")
+    assert "Para quién sí, para quién no" not in source, (
+        "atencion-cliente.html repite de forma redundante la sección 'Para quién sí, para quién no' de la home"
+    )
+
+
 @pytest.mark.parametrize("path", PAGES)
 def test_alineacion_vertical_de_grupos_de_botones(desktop_page, path):
     """QA de Alineación Visual:
