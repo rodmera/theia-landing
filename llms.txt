@@ -13,6 +13,7 @@ TheIA responde con contexto, escala a tu equipo con el resumen de la conversaci�
 - [Plataforma](https://theia.cl/plataforma): Panel de control y métricas
 - [TheIA Pulse](https://theia.cl/pulse): Copiloto del dueño por WhatsApp — resúmenes diarios, gestión de agenda, alertas
 - [CRM](https://theia.cl/crm): Módulo CRM de TheIA — registra cada negocio que llega por WhatsApp, Instagram y la web, lo mueve por tus etapas y se actualiza desde la conversa. Complemento de la atención.
+- [Salud & Clínicas](https://theia.cl/salud): Solución de atención y confirmación de horas por WhatsApp para clínicas dentales, médicas y estéticas en Chile. Reduce inasistencias y descongestiona recepción.
 - [Servicios](https://theia.cl/servicios): Implementación y soporte
 - [Cumplimiento Ley 21.719](https://theia.cl/cumplimiento): Datos en Chile, residencia local
 
