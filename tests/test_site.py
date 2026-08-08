@@ -433,6 +433,40 @@ def test_webchat_box_no_subpixel_corner_artifacts(mobile_page):
     )
 
 
+@pytest.mark.parametrize("path", PAGES)
+def test_todos_los_botones_tienen_estilos_y_color_canonico(mobile_page, path):
+    """QA de Botones y Links en las 19 páginas:
+    1. Verifica que ningún botón o enlace .btn, .btn-whatsapp, .btn-gold, .btn-ghost renderice con color azul unstyled de navegador.
+    2. Verifica que .btn-whatsapp siempre renderice con el fondo verde oficial (#25D366 / rgb(37, 211, 102)).
+    """
+    goto(mobile_page, path)
+    mobile_page.wait_for_timeout(400)
+
+    btn_styles = mobile_page.evaluate("""() => {
+        const els = Array.from(document.querySelectorAll('.btn, .btn-whatsapp, .btn-gold, .btn-ghost, a[href*="wa.me"]'));
+        return els.map(el => {
+            const cs = getComputedStyle(el);
+            return {
+                tag: el.tagName,
+                cls: el.className,
+                text: el.innerText.trim(),
+                color: cs.color,
+                bg: cs.backgroundColor,
+            };
+        });
+    }""")
+
+    for item in btn_styles:
+        assert item["color"] not in ("rgb(0, 0, 238)", "rgb(0, 0, 255)", "rgb(0, 102, 204)"), (
+            f"{path}: el elemento <{item['tag']} class='{item['cls']}'> '{item['text']}' "
+            f"renderiza con color azul unstyled de navegador: {item['color']}"
+        )
+        if "btn-whatsapp" in item["cls"]:
+            assert item["bg"] in ("rgb(37, 211, 102)", "rgb(32, 189, 90)"), (
+                f"{path}: .btn-whatsapp '{item['text']}' no tiene fondo verde WhatsApp: bg={item['bg']}"
+            )
+
+
 # ───────────────── 7. EVIDENCIA VISUAL (screenshots → artifacts CI) ─────────────────
 
 def screenshot_name(path):
