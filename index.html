@@ -2798,11 +2798,12 @@
       }
     }
 
-    /* Sticky WhatsApp CTA — píldora en desktop, barra full-width en mobile */
+    /* Sticky WhatsApp CTA — píldora en desktop (inferior izquierda), barra full-width en mobile */
     .sticky-wa {
       position: fixed;
       bottom: 24px;
-      right: 24px;
+      left: 24px;
+      right: auto;
       z-index: 9997;
       display: inline-flex;
     }
@@ -2836,24 +2837,28 @@
         box-shadow: none;
       }
 
-      /* Mover webchat button arriba del sticky bar */
+      /* Mover webchat button arriba del sticky bar en mobile */
       #theia-widget-btn {
         bottom: 80px !important;
+        right: 16px !important;
       }
 
       #theia-widget-box {
         bottom: 146px !important;
+        right: 16px !important;
       }
     }
 
-    /* Desktop: webchat FAB arriba de la píldora de WhatsApp */
+    /* Desktop: webchat FAB en la derecha (24px), WhatsApp pill en la izquierda (24px) */
     @media (min-width: 769px) {
       #theia-widget-btn {
-        bottom: 88px !important;
+        bottom: 24px !important;
+        right: 24px !important;
       }
 
       #theia-widget-box {
-        bottom: 154px !important;
+        bottom: 90px !important;
+        right: 24px !important;
       }
     }
 

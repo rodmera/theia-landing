@@ -85,9 +85,17 @@
       var stickyWa = document.querySelector(".sticky-wa");
       var chatBtn = document.getElementById("theia-widget-btn");
       var chatBox = document.getElementById("theia-widget-box");
-      if (stickyWa) stickyWa.style.bottom = bh + "px";
-      if (chatBtn) chatBtn.style.bottom = (bh + 24) + "px";
-      if (chatBox) chatBox.style.bottom = (bh + 90) + "px";
+      var isMobile = window.innerWidth <= 768;
+
+      if (isMobile) {
+        if (stickyWa) stickyWa.style.setProperty("bottom", bh + "px", "important");
+        if (chatBtn) chatBtn.style.setProperty("bottom", (bh + 80) + "px", "important");
+        if (chatBox) chatBox.style.setProperty("bottom", (bh + 146) + "px", "important");
+      } else {
+        if (stickyWa) stickyWa.style.setProperty("bottom", (bh + 24) + "px", "important");
+        if (chatBtn) chatBtn.style.setProperty("bottom", (bh + 24) + "px", "important");
+        if (chatBox) chatBox.style.setProperty("bottom", (bh + 90) + "px", "important");
+      }
       return !!chatBtn;
     }
     // Widget externo puede cargar después — reintentar
@@ -102,9 +110,9 @@
       var stickyWa = document.querySelector(".sticky-wa");
       var chatBtn = document.getElementById("theia-widget-btn");
       var chatBox = document.getElementById("theia-widget-box");
-      if (stickyWa) stickyWa.style.bottom = "";
-      if (chatBtn) chatBtn.style.bottom = "";
-      if (chatBox) chatBox.style.bottom = "";
+      if (stickyWa) stickyWa.style.removeProperty("bottom");
+      if (chatBtn) chatBtn.style.removeProperty("bottom");
+      if (chatBox) chatBox.style.removeProperty("bottom");
     }
 
     document.getElementById("theia-cc-accept").addEventListener("click", function () {

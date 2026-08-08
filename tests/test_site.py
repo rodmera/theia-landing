@@ -369,6 +369,25 @@ def test_sticky_whatsapp_desktop(desktop_page):
         "(antes solo aparecía en mobile; ahora debe verse en ambos)")
 
 
+def test_sin_colision_entre_widgets_flotantes(desktop_page, mobile_page):
+    """QA de Widgets Flotantes: verifica que el botón de WhatsApp (.sticky-wa) y el
+    asistente WebChat (#theia-widget-btn) no se traslapen ni colisionen en desktop ni en teléfono."""
+    for page, mode in [(desktop_page, "desktop"), (mobile_page, "mobile")]:
+        goto(page, "/")
+        page.mouse.wheel(0, 1000)
+        page.wait_for_timeout(400)
+        has_overlap = page.evaluate("""() => {
+            const wa = document.querySelector('.sticky-wa');
+            const chat = document.getElementById('theia-widget-btn');
+            if (!wa || !chat) return false;
+            const r1 = wa.getBoundingClientRect();
+            const r2 = chat.getBoundingClientRect();
+            if (r1.width === 0 || r1.height === 0 || r2.width === 0 || r2.height === 0) return false;
+            return !(r1.right < r2.left || r1.left > r2.right || r1.bottom < r2.top || r1.top > r2.bottom);
+        }""")
+        assert not has_overlap, f"Colisión o traslape detectado entre .sticky-wa y #theia-widget-btn en modo {mode}"
+
+
 # ───────────────── 7. EVIDENCIA VISUAL (screenshots → artifacts CI) ─────────────────
 
 def screenshot_name(path):
