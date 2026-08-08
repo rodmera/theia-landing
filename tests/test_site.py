@@ -309,14 +309,14 @@ def test_demo_es_30_minutos(mobile_page):
 
 @pytest.mark.parametrize("path", PAGES)
 def test_widget_en_todas_las_paginas(mobile_page, path):
-    """El webchat (dogfooding + canal de dudas) debe estar en TODAS las páginas —
-    antes solo estaba en el index: un prospecto en /precios no tenía dónde preguntar."""
+    """El webchat y su helper personalizado (/webchat-cta.js) deben estar en TODAS las páginas."""
     goto(mobile_page, path)
     content = mobile_page.content()
     assert "webchat-widget.js" in content, f"{path} sin el widget de webchat"
-    # No basta con que el <script> esté: la CSP debe permitir cargarlo desde
-    # admin.theia.cl. Si no, el widget queda bloqueado por CSP y el chat no carga
-    # (bug 2026-07-25: pasaba en 12 de 13 páginas y el test no lo detectaba).
+    assert "webchat-cta.js" in content, f"{path} sin el helper compartido webchat-cta.js"
+    assert content.index("webchat-cta.js") < content.index("webchat-widget.js"), (
+        f"{path}: webchat-cta.js debe cargarse antes que webchat-widget.js"
+    )
     csp = mobile_page.eval_on_selector(
         "meta[http-equiv='Content-Security-Policy']",
         "el => el ? el.getAttribute('content') : ''") or ""
