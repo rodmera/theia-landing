@@ -580,6 +580,30 @@ def test_sin_wording_duplicado_entre_hero_y_tooltip(desktop_page, path):
                 )
 
 
+def test_sin_repeticion_de_atencion_en_titulos_contiguos():
+    """QA de Redacción / Copy:
+    Verifica que las secciones contiguas 'caso' (dogfooding) y 'productos-paraguas' en index.html
+    NO repitan la palabra 'atención' / 'atenderte' en sus títulos H2 consecutivos.
+    """
+    source = (ROOT / "index.html").read_text(encoding="utf-8")
+    caso_section = re.search(r'<section class="caso".*?</section>', source, re.DOTALL)
+    paraguas_section = re.search(r'<section class="productos-paraguas".*?</section>', source, re.DOTALL)
+
+    assert caso_section and paraguas_section, "No se encontraron las secciones en index.html"
+
+    h2_caso = re.search(r'<h2[^>]*>(.*?)</h2>', caso_section.group(0), re.DOTALL)
+    h2_paraguas = re.search(r'<h2[^>]*>(.*?)</h2>', paraguas_section.group(0), re.DOTALL)
+
+    t1 = re.sub(r'<[^>]+>', ' ', h2_caso.group(1)).lower() if h2_caso else ""
+    t2 = re.sub(r'<[^>]+>', ' ', h2_paraguas.group(1)).lower() if h2_paraguas else ""
+
+    both_have_atencion = ("atender" in t1 or "atención" in t1 or "atencion" in t1) and ("atender" in t2 or "atención" in t2 or "atencion" in t2)
+    assert not both_have_atencion, (
+        f"Secciones consecutivas repiten la palabra 'atención/atenderte' en títulos H2:\n"
+        f"  Sección Caso: '{t1.strip()}'\n  Sección Paraguas: '{t2.strip()}'"
+    )
+
+
 @pytest.mark.parametrize("path", PAGES)
 def test_alineacion_vertical_de_grupos_de_botones(desktop_page, path):
     """QA de Alineación Visual:
