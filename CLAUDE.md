@@ -97,6 +97,12 @@ Variables CSS definidas en `:root` que controlan toda la paleta:
 - El panel del hero y similares NO debe mostrar **sesiones de chat simuladas** (burbujas user/bot estilo chatbot). Eso refuerza la idea de TheIA como "solo un chatbot" y contradice el discurso paraguas.
 - Patrón vigente: **Vista 360 del cliente** (avatar con iniciales, nombre, estado, canales con conteo, contexto de la última conversación).
 
+**⛔ REGLA DURA — Widgets Flotantes y Frame del WebChat:**
+- En desktop (`min-width: 769px`), existe **un único widget flotante de atención** en la esquina inferior derecha: el asistente WebChat propio de TheIA (`#theia-widget-btn`). No duplicar ni amontonar botones flotantes en desktop (estilo Dapta.ai; WhatsApp va como barra en móvil y en CTAs orgánicos en desktop).
+- El botón del WebChat usa gradiente dorado de marca, ícono SVG vectorial AI Spark (no emojis 💬) y tooltip flotante *"Probar conversación en vivo ✨"*.
+- El frame desplegado (`#theia-widget-box`) usa header azul índigo `#0f172a` con borde dorado `#d4af37` e ícono SVG.
+- Las respuestas rápidas (`.theia-quick-replies button`) usan fondo oscuro `#0f172a` con texto blanco `#ffffff` de alto contraste. PROHIBIDO usar texto dorado claro sobre fondo blanco (bajo contraste ilegible).
+
 **Componentes reutilizables:** `.glass-card`, `.btn-gold`, `.btn-ghost`, `.btn-whatsapp`, `.section-title`, `.section-sub`, `.reveal` (animación de entrada al scroll).
 
 ## Responsive
