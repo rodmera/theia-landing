@@ -92,10 +92,11 @@
         if (chatBtn) chatBtn.style.setProperty("bottom", (bh + 80) + "px", "important");
         if (chatBox) chatBox.style.setProperty("bottom", (bh + 146) + "px", "important");
       } else {
-        if (stickyWa) stickyWa.style.setProperty("bottom", (bh + 24) + "px", "important");
         if (chatBtn) chatBtn.style.setProperty("bottom", (bh + 24) + "px", "important");
         if (chatBox) chatBox.style.setProperty("bottom", (bh + 90) + "px", "important");
       }
+      return !!chatBtn;
+    }
       return !!chatBtn;
     }
     // Widget externo puede cargar después — reintentar

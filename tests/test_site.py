@@ -349,29 +349,24 @@ def test_sticky_whatsapp_movil(mobile_page):
 
 
 def test_sticky_whatsapp_desktop(desktop_page):
-    """HU-WEB-011: el sticky-wa debe verse también en desktop como píldora compacta,
-    no solo en mobile. Mismo número wa.me, sin exponer dígitos en copy visible."""
+    """Estilo Dapta.ai: en desktop hay un único widget flotante de atención (WebChat).
+    El botón sticky-wa no debe duplicar flotantes en desktop y WhatsApp se accede
+    orgánicamente desde navbar, CTAs y footer."""
     goto(desktop_page, "/")
     desktop_page.mouse.wheel(0, 1500)
     desktop_page.wait_for_timeout(300)
-    stickies = desktop_page.eval_on_selector_all(
-        "a[href*='wa.me']",
-        """els => els.filter(e => {
-            for (let n = e; n && n !== document.body; n = n.parentElement) {
-                const cs = getComputedStyle(n);
-                if (cs.position === 'fixed' && cs.display !== 'none' && cs.visibility !== 'hidden')
-                    return true;
-            }
-            return false;
-        }).length""")
-    assert stickies >= 1, (
-        "HU-WEB-011: no hay botón WhatsApp sticky visible en desktop "
-        "(antes solo aparecía en mobile; ahora debe verse en ambos)")
+    is_hidden = desktop_page.evaluate("""() => {
+        const wa = document.querySelector('.sticky-wa');
+        if (!wa) return true;
+        const cs = getComputedStyle(wa);
+        return cs.display === 'none';
+    }""")
+    assert is_hidden, "en desktop .sticky-wa debe ser display:none para evitar colisión/duplicidad con el WebChat (estilo Dapta.ai)"
 
 
 def test_sin_colision_entre_widgets_flotantes(desktop_page, mobile_page):
     """QA de Widgets Flotantes: verifica que el botón de WhatsApp (.sticky-wa) y el
-    asistente WebChat (#theia-widget-btn) no se traslapen ni colisionen en desktop ni en teléfono."""
+    asistente WebChat (#theia-widget-btn) no se traslapen ni colisionen en teléfono ni escritorio."""
     for page, mode in [(desktop_page, "desktop"), (mobile_page, "mobile")]:
         goto(page, "/")
         page.mouse.wheel(0, 1000)
@@ -380,6 +375,9 @@ def test_sin_colision_entre_widgets_flotantes(desktop_page, mobile_page):
             const wa = document.querySelector('.sticky-wa');
             const chat = document.getElementById('theia-widget-btn');
             if (!wa || !chat) return false;
+            const cs1 = getComputedStyle(wa);
+            const cs2 = getComputedStyle(chat);
+            if (cs1.display === 'none' || cs2.display === 'none') return false;
             const r1 = wa.getBoundingClientRect();
             const r2 = chat.getBoundingClientRect();
             if (r1.width === 0 || r1.height === 0 || r2.width === 0 || r2.height === 0) return false;

@@ -2798,24 +2798,14 @@
       }
     }
 
-    /* Sticky WhatsApp CTA — píldora en desktop (inferior izquierda), barra full-width en mobile */
+    /* Sticky WhatsApp CTA — solo en mobile. En desktop se usa el widget flotante único estilo Dapta.ai */
     .sticky-wa {
-      position: fixed;
-      bottom: 24px;
-      left: 24px;
-      right: auto;
-      z-index: 9997;
-      display: inline-flex;
-    }
-
-    .sticky-wa .btn {
-      padding: 0.7rem 1.1rem;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+      display: none;
     }
 
     @media (max-width: 768px) {
       .sticky-wa {
+        position: fixed;
         bottom: 0;
         left: 0;
         right: 0;
@@ -2826,6 +2816,7 @@
         background: rgba(15, 23, 42, 0.95);
         backdrop-filter: blur(12px);
         border-top: 1px solid var(--glass-border);
+        z-index: 9997;
       }
 
       .sticky-wa .btn {
@@ -2849,8 +2840,12 @@
       }
     }
 
-    /* Desktop: webchat FAB en la derecha (24px), WhatsApp pill en la izquierda (24px) */
+    /* Desktop: único widget flotante en la derecha estilo Dapta.ai (sin duplicidad de flotantes) */
     @media (min-width: 769px) {
+      .sticky-wa {
+        display: none !important;
+      }
+
       #theia-widget-btn {
         bottom: 24px !important;
         right: 24px !important;
