@@ -386,6 +386,36 @@ def test_sin_colision_entre_widgets_flotantes(desktop_page, mobile_page):
         assert not has_overlap, f"Colisión o traslape detectado entre .sticky-wa y #theia-widget-btn en modo {mode}"
 
 
+@pytest.mark.parametrize("path", PAGES)
+def test_webchat_frame_branding_and_contrast(mobile_page, path):
+    """QA WebChat Frame en las 19 páginas públicas:
+    1. Verifica que el header del widget (#theia-widget-header) no use el emoji '💬' crudo.
+    2. Verifica que las respuestas rápidas (.theia-quick-replies button) no usen texto dorado claro sobre fondo blanco (bajo contraste).
+    """
+    goto(mobile_page, path)
+    mobile_page.wait_for_timeout(600)
+
+    btn = mobile_page.locator("#theia-widget-btn")
+    if btn.is_visible():
+        btn.evaluate("el => el.click()")
+        mobile_page.wait_for_timeout(400)
+
+    header_text = mobile_page.locator("#theia-widget-header").inner_text()
+    assert "💬" not in header_text, f"{path}: el header del WebChat conserva el emoji '💬' crudo: {header_text!r}"
+
+    reply_styles = mobile_page.evaluate("""() => {
+        const btns = Array.from(document.querySelectorAll('.theia-quick-replies button'));
+        return btns.map(b => {
+            const cs = getComputedStyle(b);
+            return { text: b.innerText, color: cs.color, bg: cs.backgroundColor };
+        });
+    }""")
+    for item in reply_styles:
+        assert item["color"] not in ("rgb(212, 175, 55)", "rgb(235, 202, 115)"), (
+            f"{path}: bajo contraste en quick reply '{item['text']}': texto dorado {item['color']} sobre {item['bg']}"
+        )
+
+
 # ───────────────── 7. EVIDENCIA VISUAL (screenshots → artifacts CI) ─────────────────
 
 def screenshot_name(path):

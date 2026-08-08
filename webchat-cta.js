@@ -10,15 +10,16 @@ window.openTheiaChat = function openTheiaChat(source) {
   window.open('https://wa.me/12063858350?text=Hola%2C%20quiero%20probar%20TheIA', '_blank');
 };
 
-/* Personalización elegante y marketera del botón de WebChat (AI Spark + Tooltip) */
+/* Personalización elegante y marketera del botón y frame del WebChat (AI Spark + Contraste Alto) */
 (function () {
   "use strict";
 
-  // Inyectar estilos para el botón dorado y el tooltip flotante
+  // Inyectar estilos para el botón dorado, el tooltip y el alto contraste dentro del frame
   if (!document.getElementById("theia-widget-custom-style")) {
     var style = document.createElement("style");
     style.id = "theia-widget-custom-style";
     style.textContent =
+      /* Botón Flotante Dorado */
       "#theia-widget-btn {" +
         "background: linear-gradient(135deg, #d4af37, #ebca73) !important;" +
         "color: #0f172a !important;" +
@@ -36,6 +37,7 @@ window.openTheiaChat = function openTheiaChat(source) {
         "transform: scale(1.08) translateY(-2px) !important;" +
         "box-shadow: 0 8px 28px rgba(212, 175, 55, 0.65) !important;" +
       "}" +
+      /* Tooltip Flotante */
       "#theia-widget-tooltip {" +
         "position: fixed;" +
         "bottom: 32px;" +
@@ -54,6 +56,58 @@ window.openTheiaChat = function openTheiaChat(source) {
         "white-space: nowrap;" +
         "font-family: 'Plus Jakarta Sans', system-ui, sans-serif;" +
         "animation: theiaTooltipPulse 2.5s infinite ease-in-out;" +
+      "}" +
+      /* Estilos Internos del Frame - Alto Contraste */
+      "#theia-widget-header {" +
+        "background: #0f172a !important;" +
+        "color: #ffffff !important;" +
+        "border-bottom: 2px solid #d4af37 !important;" +
+        "padding: 12px 16px !important;" +
+      "}" +
+      "#theia-widget-header span {" +
+        "display: flex !important;" +
+        "align-items: center !important;" +
+        "gap: 8px !important;" +
+        "color: #ffffff !important;" +
+        "font-weight: 700 !important;" +
+      "}" +
+      "#theia-widget-header button {" +
+        "color: #ebca73 !important;" +
+        "opacity: 0.9 !important;" +
+      "}" +
+      "#theia-widget-header button:hover {" +
+        "opacity: 1 !important;" +
+        "color: #ffffff !important;" +
+      "}" +
+      ".theia-quick-replies button {" +
+        "background: #0f172a !important;" +
+        "color: #ffffff !important;" +
+        "border: 1.5px solid #d4af37 !important;" +
+        "font-weight: 600 !important;" +
+        "padding: 7px 14px !important;" +
+        "border-radius: 20px !important;" +
+        "box-shadow: 0 2px 8px rgba(15, 23, 42, 0.1) !important;" +
+        "transition: all 0.2s ease !important;" +
+      "}" +
+      ".theia-quick-replies button:hover {" +
+        "background: linear-gradient(135deg, #d4af37, #ebca73) !important;" +
+        "color: #0f172a !important;" +
+        "border-color: #d4af37 !important;" +
+        "font-weight: 700 !important;" +
+      "}" +
+      "#theia-widget-input input {" +
+        "border: 1.5px solid #0f172a !important;" +
+        "color: #0f172a !important;" +
+        "font-weight: 500 !important;" +
+      "}" +
+      "#theia-widget-input input:focus {" +
+        "border-color: #d4af37 !important;" +
+        "box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2) !important;" +
+      "}" +
+      "#theia-widget-input button {" +
+        "background: linear-gradient(135deg, #d4af37, #ebca73) !important;" +
+        "color: #0f172a !important;" +
+        "font-weight: 700 !important;" +
       "}" +
       "@keyframes theiaTooltipPulse {" +
         "0%, 100% { transform: translateY(0); }" +
@@ -93,6 +147,15 @@ window.openTheiaChat = function openTheiaChat(source) {
         if (tooltip) tooltip.style.display = "none";
       });
     }
+
+    // Reemplazar emoji crudo 💬 del header si está presente
+    var headerSpan = document.querySelector("#theia-widget-header span");
+    if (headerSpan && headerSpan.innerHTML.indexOf("💬") !== -1) {
+      headerSpan.innerHTML =
+        '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ebca73" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><path d="M12 7l0.6 1.4 1.4 0.6-1.4 0.6-0.6 1.4-0.6-1.4-1.4-0.6 1.4-0.6z" fill="#ebca73" stroke="none"></path></svg> ' +
+        headerSpan.innerHTML.replace("💬", "").trim();
+    }
+
     return true;
   }
 
