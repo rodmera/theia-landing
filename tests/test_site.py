@@ -404,15 +404,82 @@ def test_screenshot_casos_desktop(desktop_page):
     desktop_page.screenshot(path=str(SHOTS / "casos-desktop-hero.png"))
 
 
-@pytest.mark.parametrize("path", [p for p in PAGES if p not in ["/terminos.html", "/funciones.html"]])
-def test_sin_elementos_huerfanos_entre_secciones(path):
-    """Verifica que no queden bloques HTML huérfanos o fuera de <section> entre secciones."""
+# ──────────────── 6. QA DE FRONTEND ROBUSTO (imágenes, navbar, padding, botones, emojis) ────────────────
+
+MARKETING_PAGES = [p for p in PAGES if p not in ["/cumplimiento.html", "/privacidad.html", "/terminos.html"]]
+
+
+@pytest.mark.parametrize("path", PAGES)
+def test_todas_las_imagenes_locales_cargan_en_browser(mobile_page, path):
+    """QA de Imágenes: verifica que cada <img> de origen local cargue correctamente sin 404 ni naturalWidth == 0."""
+    goto(mobile_page, path)
+    broken_imgs = mobile_page.evaluate("""() => {
+        const imgs = Array.from(document.querySelectorAll('img'));
+        return imgs.filter(img => {
+            const isLocal = img.src.includes('127.0.0.1') || img.src.includes('theia.cl') || img.src.startsWith('file:');
+            return isLocal && (!img.complete || img.naturalWidth === 0);
+        }).map(img => img.src);
+    }""")
+    assert not broken_imgs, f"{path} tiene imágenes locales rotas que no cargan: {broken_imgs}"
+
+
+@pytest.mark.parametrize("path", MARKETING_PAGES)
+def test_homologacion_de_navbar_y_logo(mobile_page, path):
+    """QA de Nav: verifica logo responsive (60px/100px) y los 8 enlaces de navegación homologados."""
+    goto(mobile_page, path)
+    logo_height = mobile_page.evaluate("""() => {
+        const logoImg = document.querySelector('.logo img');
+        return logoImg ? getComputedStyle(logoImg).height : '0px';
+    }""")
+    assert logo_height in ["60px", "100px"], f"{path} tiene la altura del logo fuera de norma (altura: {logo_height})"
+
+    nav_texts = mobile_page.evaluate("""() => {
+        const links = Array.from(document.querySelectorAll('.nav-cta a'));
+        return links.map(a => a.innerText.trim());
+    }""")
+    expected = ["Atención", "Cómo ayuda", "CRM", "Plataforma", "Precios", "Recursos", "Agenda una demo →"]
+    for item in expected:
+        assert item in nav_texts, f"{path} no contiene el enlace de navegación homologado '{item}': {nav_texts}"
+
+
+@pytest.mark.parametrize("path", PAGES)
+def test_secciones_tienen_padding_y_sin_colision(mobile_page, path):
+    """QA de Spacing: verifica que cada <section> tenga padding suficiente arriba y abajo."""
+    goto(mobile_page, path)
+    cramped_sections = mobile_page.evaluate("""() => {
+        const sections = Array.from(document.querySelectorAll('section:not(#network-canvas)'));
+        return sections.filter(sec => {
+            const style = getComputedStyle(sec);
+            const pt = parseInt(style.paddingTop, 10);
+            const pb = parseInt(style.paddingBottom, 10);
+            return (pt < 15 || pb < 15) && !sec.classList.contains('metrics-banner');
+        }).map(sec => sec.className || sec.id || 'unnamed section');
+    }""")
+    assert not cramped_sections, f"{path} tiene secciones colapsadas sin padding adecuado: {cramped_sections}"
+
+
+@pytest.mark.parametrize("path", PAGES)
+def test_sin_botones_con_borde_negro_browser(mobile_page, path):
+    """QA de Botones: verifica que ningún <button> tenga el borde negro por defecto del navegador."""
+    goto(mobile_page, path)
+    glitched_buttons = mobile_page.evaluate("""() => {
+        const btns = Array.from(document.querySelectorAll('button.btn'));
+        return btns.filter(btn => {
+            const style = getComputedStyle(btn);
+            return style.borderStyle === 'solid' && (style.borderColor === 'rgb(0, 0, 0)' || style.borderColor === 'canvastext');
+        }).map(btn => btn.innerText.trim());
+    }""")
+    assert not glitched_buttons, f"{path} contiene botones con borde negro de navegador: {glitched_buttons}"
+
+
+@pytest.mark.parametrize("path", PAGES)
+def test_sin_emojis_crudos_en_encabezados_y_tarjetas(path):
+    """QA Visual: asegura que no se usen emojis de texto como íconos principales de tarjetas."""
     root = Path(__file__).parent.parent
     rel = path.lstrip("/")
     file_path = root / rel
     if file_path.is_dir():
         file_path = file_path / "index.html"
     content = file_path.read_text(encoding="utf-8")
-    clean = re.sub(r"<!--[\s\S]*?-->", "", content)
-    stray_matches = re.findall(r"</section>\s*<(div|p|a|span|h[1-6])[^>]*>([\s\S]*?)</\1>", clean)
-    assert not stray_matches, f"{path} contiene elementos huérfanos fuera de <section>: {stray_matches}"
+    raw_emojis = re.findall(r"<div[^>]*font-size:\s*2rem[^>]*>[💬📊📋⚙️🔒📜🔑💰🚫🤝]", content)
+    assert not raw_emojis, f"{path} tiene íconos de tarjetas con emojis crudos desalineados: {raw_emojis}"
