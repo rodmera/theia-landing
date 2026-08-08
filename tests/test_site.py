@@ -467,6 +467,47 @@ def test_todos_los_botones_tienen_estilos_y_color_canonico(mobile_page, path):
             )
 
 
+@pytest.mark.parametrize("path", PAGES)
+def test_alineacion_vertical_de_grupos_de_botones(desktop_page, path):
+    """QA de Alineación Visual:
+    Verifica que los botones CTA contiguos (.cta-btns, .actions, .cta-section, .hero-btns)
+    compartan exactamente la misma alineación vertical (centros coinciden con diferencia <= 2px).
+    """
+    goto(desktop_page, path)
+    desktop_page.wait_for_timeout(400)
+
+    misalignments = desktop_page.evaluate("""() => {
+        const containers = Array.from(document.querySelectorAll('.cta-btns, .actions, .cta-section, .hero-btns'));
+        const errors = [];
+        containers.forEach(container => {
+            const btns = Array.from(container.querySelectorAll('.btn, .btn-gold, .btn-ghost, .btn-whatsapp'));
+            if (btns.length < 2) return;
+            const boxes = btns.map(b => ({
+                text: b.innerText.trim(),
+                box: b.getBoundingClientRect()
+            })).filter(b => b.box.width > 0 && b.box.height > 0);
+
+            for (let i = 0; i < boxes.length - 1; i++) {
+                for (let j = i + 1; j < boxes.length; j++) {
+                    const b1 = boxes[i];
+                    const b2 = boxes[j];
+                    if (Math.abs(b1.box.top - b2.box.top) < 30) {
+                        const center1 = b1.box.top + b1.box.height / 2;
+                        const center2 = b2.box.top + b2.box.height / 2;
+                        const diff = Math.abs(center1 - center2);
+                        if (diff > 2) {
+                            errors.push(`'${b1.text}' y '${b2.text}' desalineados por ${diff.toFixed(1)}px`);
+                        }
+                    }
+                }
+            }
+        });
+        return errors;
+    }""")
+
+    assert not misalignments, f"{path}: botones CTA desalineados verticalmente:\n" + "\n".join(misalignments)
+
+
 # ───────────────── 7. EVIDENCIA VISUAL (screenshots → artifacts CI) ─────────────────
 
 def screenshot_name(path):
