@@ -308,6 +308,23 @@ def test_demo_es_30_minutos(mobile_page):
         assert not re.search(r"15 minutos", text), f"{path} volvió a ofrecer demo de 15 minutos (es 30)"
 
 
+def test_demo_modal_opens_in_site(desktop_page):
+    """QA de Retención de Leads: al hacer clic en 'Agenda una demo', el agendamiento
+    de Google Calendar se abre dentro de un modal en theia.cl sin redirigir al lead fuera del sitio.
+    """
+    goto(desktop_page, "/")
+    desktop_page.wait_for_timeout(400)
+
+    demo_btn = desktop_page.get_by_role("link", name=re.compile(r"Agenda.*demo", re.I)).first
+    demo_btn.click()
+    desktop_page.wait_for_timeout(500)
+
+    modal = desktop_page.locator("#theia-demo-modal")
+    assert modal.is_visible(), "El clic en 'Agenda una demo' no abrió el modal de agendamiento en theia.cl"
+    iframe = desktop_page.locator("#theia-demo-modal iframe")
+    assert iframe.is_visible(), "El modal de agendamiento no contiene el iframe de Google Calendar"
+
+
 @pytest.mark.parametrize("path", PAGES)
 def test_widget_en_todas_las_paginas(mobile_page, path):
     """El webchat y su helper personalizado (/webchat-cta.js) deben estar en TODAS las páginas."""
