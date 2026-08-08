@@ -416,6 +416,23 @@ def test_webchat_frame_branding_and_contrast(mobile_page, path):
         )
 
 
+def test_webchat_box_no_subpixel_corner_artifacts(mobile_page):
+    """QA WebChat Frame: verifica que el fondo del contenedor #theia-widget-box sea oscuro (#0f172a)
+    y no blanco, evitando píxeles claros o destellos en el border-radius de las esquinas superiores."""
+    goto(mobile_page, "/")
+    mobile_page.wait_for_timeout(600)
+
+    bg_box = mobile_page.evaluate("""() => {
+        const box = document.getElementById('theia-widget-box');
+        if (!box) return '';
+        return getComputedStyle(box).backgroundColor;
+    }""")
+    assert bg_box not in ("rgb(255, 255, 255)", "#ffffff", "#fff"), (
+        f"#theia-widget-box tiene fondo blanco ({bg_box}) detrás del header oscuro, "
+        "causando píxeles claros en las esquinas superiores. Usa el tono oscuro #0f172a."
+    )
+
+
 # ───────────────── 7. EVIDENCIA VISUAL (screenshots → artifacts CI) ─────────────────
 
 def screenshot_name(path):

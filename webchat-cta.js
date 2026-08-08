@@ -10,7 +10,7 @@ window.openTheiaChat = function openTheiaChat(source) {
   window.open('https://wa.me/12063858350?text=Hola%2C%20quiero%20probar%20TheIA', '_blank');
 };
 
-/* Personalización elegante y marketera del botón y frame del WebChat (AI Spark + Contraste Alto) */
+/* Personalización elegante y marketera del botón y frame del WebChat (AI Spark + Contraste Alto + Esquinas Limpias) */
 (function () {
   "use strict";
 
@@ -19,6 +19,14 @@ window.openTheiaChat = function openTheiaChat(source) {
     var style = document.createElement("style");
     style.id = "theia-widget-custom-style";
     style.textContent =
+      /* Frame Principal - Fondo oscuro #0f172a que elimina píxeles blancos en esquinas con border-radius */
+      "#theia-widget-box {" +
+        "background: #0f172a !important;" +
+        "border-radius: 16px !important;" +
+        "overflow: hidden !important;" +
+        "border: 1px solid rgba(255, 255, 255, 0.15) !important;" +
+        "box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45) !important;" +
+      "}" +
       /* Botón Flotante Dorado */
       "#theia-widget-btn {" +
         "background: linear-gradient(135deg, #d4af37, #ebca73) !important;" +
@@ -63,6 +71,8 @@ window.openTheiaChat = function openTheiaChat(source) {
         "color: #ffffff !important;" +
         "border-bottom: 2px solid #d4af37 !important;" +
         "padding: 12px 16px !important;" +
+        "border-top-left-radius: 15px !important;" +
+        "border-top-right-radius: 15px !important;" +
       "}" +
       "#theia-widget-header span {" +
         "display: flex !important;" +
@@ -95,6 +105,10 @@ window.openTheiaChat = function openTheiaChat(source) {
         "border-color: #d4af37 !important;" +
         "font-weight: 700 !important;" +
       "}" +
+      "#theia-widget-input {" +
+        "background: #ffffff !important;" +
+        "border-top: 1px solid #e2e8f0 !important;" +
+      "}" +
       "#theia-widget-input input {" +
         "border: 1.5px solid #0f172a !important;" +
         "color: #0f172a !important;" +
@@ -108,6 +122,14 @@ window.openTheiaChat = function openTheiaChat(source) {
         "background: linear-gradient(135deg, #d4af37, #ebca73) !important;" +
         "color: #0f172a !important;" +
         "font-weight: 700 !important;" +
+      "}" +
+      "#theia-powered {" +
+        "background: #0f172a !important;" +
+        "color: rgba(255, 255, 255, 0.6) !important;" +
+        "border-top: 1px solid rgba(255, 255, 255, 0.1) !important;" +
+      "}" +
+      "#theia-powered a {" +
+        "color: #ebca73 !important;" +
       "}" +
       "@keyframes theiaTooltipPulse {" +
         "0%, 100% { transform: translateY(0); }" +
