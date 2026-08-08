@@ -16,6 +16,7 @@ TheIA responde con contexto, escala a tu equipo con el resumen de la conversaci�
 - [Salud & Clínicas](https://theia.cl/salud): Solución de atención y confirmación de horas por WhatsApp para clínicas dentales, médicas y estéticas en Chile. Reduce inasistencias y descongestiona recepción.
 - [Servicios & Consultoría B2B](https://theia.cl/servicios-pyme): Solución de atención, calificación de prospectos y agendamiento de reuniones B2B por WhatsApp para consultoras y empresas de servicios.
 - [Automotriz & Talleres](https://theia.cl/automotriz): Solución de atención, agendamiento de mantenciones y avisos de estado del vehículo por WhatsApp para talleres mecánicos y empresas automotrices.
+- [Comercio & Retail Local](https://theia.cl/comercio): Solución de atención 24/7 de consultas de catálogo, stock y despacho por WhatsApp e Instagram DM para tiendas y comercios locales.
 - [Servicios](https://theia.cl/servicios): Implementación y soporte
 - [Cumplimiento Ley 21.719](https://theia.cl/cumplimiento): Datos en Chile, residencia local
 
