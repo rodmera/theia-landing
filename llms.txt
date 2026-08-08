@@ -17,6 +17,7 @@ TheIA responde con contexto, escala a tu equipo con el resumen de la conversaci�
 - [Servicios & Consultoría B2B](https://theia.cl/servicios-pyme): Solución de atención, calificación de prospectos y agendamiento de reuniones B2B por WhatsApp para consultoras y empresas de servicios.
 - [Automotriz & Talleres](https://theia.cl/automotriz): Solución de atención, agendamiento de mantenciones y avisos de estado del vehículo por WhatsApp para talleres mecánicos y empresas automotrices.
 - [Comercio & Retail Local](https://theia.cl/comercio): Solución de atención 24/7 de consultas de catálogo, stock y despacho por WhatsApp e Instagram DM para tiendas y comercios locales.
+- [Alternativa Tarifa Plana CRM](https://theia.cl/alternativa-crm): Comparativa transparente del modelo de tarifa plana única ($250.000/mes con $0 por asiento adicional) frente al cobro por usuario/vendedor.
 - [Servicios](https://theia.cl/servicios): Implementación y soporte
 - [Cumplimiento Ley 21.719](https://theia.cl/cumplimiento): Datos en Chile, residencia local
 
