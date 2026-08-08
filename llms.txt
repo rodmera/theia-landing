@@ -15,6 +15,7 @@ TheIA responde con contexto, escala a tu equipo con el resumen de la conversaci�
 - [CRM](https://theia.cl/crm): Módulo CRM de TheIA — registra cada negocio que llega por WhatsApp, Instagram y la web, lo mueve por tus etapas y se actualiza desde la conversa. Complemento de la atención.
 - [Salud & Clínicas](https://theia.cl/salud): Solución de atención y confirmación de horas por WhatsApp para clínicas dentales, médicas y estéticas en Chile. Reduce inasistencias y descongestiona recepción.
 - [Servicios & Consultoría B2B](https://theia.cl/servicios-pyme): Solución de atención, calificación de prospectos y agendamiento de reuniones B2B por WhatsApp para consultoras y empresas de servicios.
+- [Automotriz & Talleres](https://theia.cl/automotriz): Solución de atención, agendamiento de mantenciones y avisos de estado del vehículo por WhatsApp para talleres mecánicos y empresas automotrices.
 - [Servicios](https://theia.cl/servicios): Implementación y soporte
 - [Cumplimiento Ley 21.719](https://theia.cl/cumplimiento): Datos en Chile, residencia local
 
