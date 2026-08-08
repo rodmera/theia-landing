@@ -156,13 +156,13 @@ window.openTheiaChat = function openTheiaChat(source) {
         '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>' +
         '<path d="M12 7l0.8 1.8 1.8 0.8-1.8 0.8-0.8 1.8-0.8-1.8-1.8-0.8 1.8-0.8z" fill="#0f172a" stroke="none"></path>' +
       '</svg>';
-    btn.setAttribute("title", "Probar conversación en vivo con TheIA");
+    btn.setAttribute("title", "Chatea con TheIA en vivo");
 
-    // Inyectar tooltip flotante "Probar conversación en vivo ✨"
+    // Inyectar tooltip flotante "Chatea con TheIA ✨"
     if (!document.getElementById("theia-widget-tooltip")) {
       var tooltip = document.createElement("div");
       tooltip.id = "theia-widget-tooltip";
-      tooltip.innerHTML = "Probar conversación en vivo ✨";
+      tooltip.innerHTML = "Chatea con TheIA ✨";
       document.body.appendChild(tooltip);
 
       btn.addEventListener("click", function () {

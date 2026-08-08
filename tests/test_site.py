@@ -559,6 +559,28 @@ def test_sin_cta_probar_conversacion_duplicado_en_misma_pantalla():
 
 
 @pytest.mark.parametrize("path", PAGES)
+def test_sin_wording_duplicado_entre_hero_y_tooltip(desktop_page, path):
+    """QA de Copy / Wording:
+    El tooltip flotante del widget (#theia-widget-tooltip) NO debe usar el mismo texto exacto
+    que los botones CTA estáticos de la página ('Probar conversación en vivo'), evitando la duplicidad en pantalla.
+    """
+    goto(desktop_page, path)
+    desktop_page.wait_for_timeout(400)
+
+    tooltip = desktop_page.locator("#theia-widget-tooltip")
+    if tooltip.is_visible():
+        tooltip_text = tooltip.inner_text().strip()
+        hero_btns = desktop_page.locator(".hero .btn, main .actions .btn, .hero-btns .btn").all_inner_texts()
+        for hero_text in hero_btns:
+            clean_hero = hero_text.strip()
+            if clean_hero:
+                assert tooltip_text.lower() != clean_hero.lower(), (
+                    f"{path}: el tooltip del widget ('{tooltip_text}') repite exactamente el wording "
+                    f"del botón CTA del hero ('{clean_hero}')"
+                )
+
+
+@pytest.mark.parametrize("path", PAGES)
 def test_alineacion_vertical_de_grupos_de_botones(desktop_page, path):
     """QA de Alineación Visual:
     Verifica que los botones CTA contiguos (.cta-btns, .actions, .cta-section, .hero-btns)
