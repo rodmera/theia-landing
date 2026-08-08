@@ -308,21 +308,21 @@ def test_demo_es_30_minutos(mobile_page):
         assert not re.search(r"15 minutos", text), f"{path} volvió a ofrecer demo de 15 minutos (es 30)"
 
 
-def test_demo_modal_opens_in_site(desktop_page):
-    """QA de Retención de Leads: al hacer clic en 'Agenda una demo', el agendamiento
-    de Google Calendar se abre dentro de un modal en theia.cl sin redirigir al lead fuera del sitio.
-    """
+def test_demo_link_limpio_nueva_pestaña(desktop_page):
+    """QA de Agendamiento: verifica que los enlaces de agendamiento 'Agenda una demo'
+    apunten a la URL de Google Calendar con target='_blank' y rel='noopener', permitiendo
+    que el flujo de agendamiento funcione sin ser bloqueado por políticas de iframe de Google."""
     goto(desktop_page, "/")
     desktop_page.wait_for_timeout(400)
 
     demo_btn = desktop_page.get_by_role("link", name=re.compile(r"Agenda.*demo", re.I)).first
-    demo_btn.click()
-    desktop_page.wait_for_timeout(500)
+    href = demo_btn.get_attribute("href") or ""
+    target = demo_btn.get_attribute("target") or ""
+    rel = demo_btn.get_attribute("rel") or ""
 
-    modal = desktop_page.locator("#theia-demo-modal")
-    assert modal.is_visible(), "El clic en 'Agenda una demo' no abrió el modal de agendamiento en theia.cl"
-    iframe = desktop_page.locator("#theia-demo-modal iframe")
-    assert iframe.is_visible(), "El modal de agendamiento no contiene el iframe de Google Calendar"
+    assert "calendar.app.google" in href, f"El enlace de demo no apunta a Google Calendar: {href}"
+    assert target == "_blank", f"El enlace de demo no tiene target='_blank': {target}"
+    assert "noopener" in rel, f"El enlace de demo no tiene rel='noopener': {rel}"
 
 
 @pytest.mark.parametrize("path", PAGES)

@@ -10,103 +10,15 @@ window.openTheiaChat = function openTheiaChat(source) {
   window.open('https://wa.me/12063858350?text=Hola%2C%20quiero%20probar%20TheIA', '_blank');
 };
 
-/* Modal de Agendamiento In-Site (Retención de Leads sin redirigir fuera de theia.cl) */
-window.openTheiaDemoModal = function openTheiaDemoModal(source) {
-  if (typeof window.theiaTrackCTA === 'function') {
-    window.theiaTrackCTA('demo', source || 'modal');
-  }
-
-  var existing = document.getElementById("theia-demo-modal");
-  if (existing) {
-    existing.style.display = "flex";
-    setTimeout(function () { existing.style.opacity = "1"; }, 10);
-    return;
-  }
-
-  var modal = document.createElement("div");
-  modal.id = "theia-demo-modal";
-  modal.innerHTML =
-    '<div class="theia-demo-container">' +
-      '<div class="theia-demo-header">' +
-        '<div>' +
-          '<div style="font-size:0.75rem; font-weight:700; color:#ebca73; text-transform:uppercase; letter-spacing:0.05em;">Demostración Personalizada</div>' +
-          '<h3 style="margin:0.15rem 0 0; font-family:\'Merriweather\',serif; font-size:1.1rem; color:#ffffff;">Agenda una Demo de 30 minutos</h3>' +
-        '</div>' +
-        '<div style="display:flex; align-items:center; gap:0.75rem;">' +
-          '<a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6); font-size:0.8rem; text-decoration:underline;">Nueva pestaña ↗</a>' +
-          '<button id="theia-demo-close" aria-label="Cerrar" style="background:none; border:none; color:#ebca73; font-size:1.8rem; cursor:pointer; line-height:1; padding:0 4px;">&times;</button>' +
-        '</div>' +
-      '</div>' +
-      '<iframe src="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" title="Agenda Demo TheIA"></iframe>' +
-    '</div>';
-
-  document.body.appendChild(modal);
-  setTimeout(function () { modal.style.opacity = "1"; }, 10);
-
-  function closeModal() {
-    modal.style.opacity = "0";
-    setTimeout(function () { modal.style.display = "none"; }, 250);
-  }
-
-  document.getElementById("theia-demo-close").addEventListener("click", closeModal);
-  modal.addEventListener("click", function (e) {
-    if (e.target === modal) closeModal();
-  });
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && modal.style.display !== "none") closeModal();
-  });
-};
-
-/* Interceptar clics en enlaces de demo para abrir el modal in-site */
-document.addEventListener("click", function (e) {
-  var target = e.target.closest("a[href*='calendar.app.google']");
-  if (target) {
-    e.preventDefault();
-    var sourceAttr = target.getAttribute("onclick") || "";
-    var match = sourceAttr.match(/'demo'\s*,\s*'([^']+)'/);
-    var sourceTag = match ? match[1] : "site-link";
-    window.openTheiaDemoModal(sourceTag);
-  }
-});
-
 /* Personalización elegante y marketera del botón y frame del WebChat (AI Spark + Contraste Alto + Esquinas Limpias) */
 (function () {
   "use strict";
 
-  // Inyectar estilos para el botón dorado, el tooltip, el modal de agendamiento y el alto contraste dentro del frame
+  // Inyectar estilos para el botón dorado, el tooltip y el alto contraste dentro del frame
   if (!document.getElementById("theia-widget-custom-style")) {
     var style = document.createElement("style");
     style.id = "theia-widget-custom-style";
     style.textContent =
-      /* Modal de Agendamiento In-Site */
-      "#theia-demo-modal {" +
-        "position: fixed; top: 0; left: 0; right: 0; bottom: 0;" +
-        "background: rgba(15, 23, 42, 0.88);" +
-        "backdrop-filter: blur(12px);" +
-        "z-index: 10005;" +
-        "display: flex; align-items: center; justify-content: center;" +
-        "opacity: 0; transition: opacity 0.25s ease;" +
-        "padding: 1rem;" +
-        "box-sizing: border-box;" +
-      "}" +
-      "#theia-demo-modal .theia-demo-container {" +
-        "width: 100%; max-width: 900px; height: 85vh; max-height: 720px;" +
-        "background: #0f172a;" +
-        "border: 1px solid rgba(212, 175, 55, 0.4);" +
-        "border-radius: 18px;" +
-        "box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);" +
-        "display: flex; flex-direction: column;" +
-        "overflow: hidden;" +
-      "}" +
-      "#theia-demo-modal .theia-demo-header {" +
-        "padding: 0.9rem 1.25rem;" +
-        "background: #1e293b;" +
-        "border-bottom: 1px solid rgba(255, 255, 255, 0.1);" +
-        "display: flex; align-items: center; justify-content: space-between;" +
-      "}" +
-      "#theia-demo-modal iframe {" +
-        "width: 100%; height: 100%; border: none; background: #ffffff;" +
-      "}" +
       /* Frame Principal - Fondo oscuro #0f172a que elimina píxeles blancos en esquinas con border-radius */
       "#theia-widget-box {" +
         "background: #0f172a !important;" +
