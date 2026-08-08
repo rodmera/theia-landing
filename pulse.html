@@ -106,6 +106,12 @@
       overflow-x: hidden;
     }
 
+    section {
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
     body::before {
       content: "";
       position: fixed;
@@ -630,6 +636,7 @@
       }
 
       .nav-cta {
+        display: none;
         position: fixed;
         top: 0;
         right: -100%;
@@ -647,6 +654,7 @@
       }
 
       .nav-cta.active {
+        display: flex;
         right: 0;
       }
 

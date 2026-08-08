@@ -371,6 +371,7 @@
       .menu-toggle { display: flex; }
 
       .nav-cta {
+        display: none;
         position: fixed; top: 0; right: -100%; width: 80%; height: 100vh;
         background: var(--bg2); flex-direction: column; justify-content: center;
         align-items: center; gap: 2rem;
@@ -378,7 +379,7 @@
         z-index: 1000; box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5); padding: 2rem;
       }
 
-      .nav-cta.active { right: 0; }
+      .nav-cta.active { display: flex; right: 0; }
 
       .nav-cta .btn { width: 100%; max-width: 280px; font-size: 1.1rem; padding: 1rem; }
       .nav-cta .btn-ghost { display: flex !important; }
@@ -397,7 +398,7 @@
     @media (max-width: 600px) {
       nav { padding: 1rem 1.25rem; }
       .logo img { height: 60px; }
-      .btn { padding: 0.75rem 1rem; font-size: 0.8rem; }
+      .btn { padding: 0.75rem 1rem; font-size: 0.8rem; white-space: normal !important; text-align: center; }
       .pricing { padding: 9rem 0 3rem; }
     }
   </style>

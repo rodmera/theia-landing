@@ -104,6 +104,12 @@
       overflow-x: hidden;
     }
 
+    section {
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
     /* Nav */
     nav {
       position: fixed;
@@ -292,12 +298,6 @@
       font-size: 0.88rem; color: var(--text-sub); line-height: 1.6;
     }
 
-    @media (max-width: 768px) {
-      .cred-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
     /* Experience / Capabilities */
     .experience {
       padding: 3rem 2rem 5rem;
@@ -317,6 +317,18 @@
       border-radius: 16px;
       padding: 1.5rem 1.75rem;
       transition: border-color 0.25s, transform 0.25s;
+    }
+
+    @media (max-width: 768px) {
+      .cred-grid, .capability-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .experience, .cred-section {
+        padding: 2rem 1rem 3rem;
+      }
+      .capability-card {
+        padding: 1.25rem 1.25rem;
+      }
     }
 
     .capability-card:hover {
