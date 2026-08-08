@@ -604,6 +604,29 @@ def test_sin_repeticion_de_atencion_en_titulos_contiguos():
     )
 
 
+def test_sin_saturacion_de_nombre_de_marca_theia():
+    """QA de Copy / Saturación de Marca:
+    Verifica que el nombre de la marca 'TheIA' no se repita de forma consecutiva en titulares H2 y badges contiguos.
+    Títulos H2 de secciones consecutivas no deben comenzar ni repetir 'TheIA' seguidamente.
+    """
+    source = (ROOT / "index.html").read_text(encoding="utf-8")
+    caso_section = re.search(r'<section class="caso".*?</section>', source, re.DOTALL)
+    paraguas_section = re.search(r'<section class="productos-paraguas".*?</section>', source, re.DOTALL)
+
+    assert caso_section and paraguas_section, "No se encontraron las secciones en index.html"
+
+    h2_caso = re.search(r'<h2[^>]*>(.*?)</h2>', caso_section.group(0), re.DOTALL)
+    h2_paraguas = re.search(r'<h2[^>]*>(.*?)</h2>', paraguas_section.group(0), re.DOTALL)
+
+    t1 = re.sub(r'<[^>]+>', ' ', h2_caso.group(1)).lower() if h2_caso else ""
+    t2 = re.sub(r'<[^>]+>', ' ', h2_paraguas.group(1)).lower() if h2_paraguas else ""
+
+    assert "theia" not in t1 and "theia" not in t2, (
+        f"Titulares H2 de secciones contiguas saturan el nombre de marca 'TheIA':\n"
+        f"  Caso H2: '{t1.strip()}'\n  Paraguas H2: '{t2.strip()}'"
+    )
+
+
 @pytest.mark.parametrize("path", PAGES)
 def test_alineacion_vertical_de_grupos_de_botones(desktop_page, path):
     """QA de Alineación Visual:
