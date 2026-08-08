@@ -455,47 +455,48 @@
       background: var(--bg2);
     }
 
-    .complemento-card {
-      max-width: 900px;
-      margin: 0 auto;
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      border-radius: 18px;
-      padding: 2.25rem 2rem;
-    }
-
     .complemento-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-bottom: 2rem;
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
-    .complemento-pillar {
+    .complemento-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      padding: 2rem 1.75rem;
       display: flex;
-      gap: 1rem;
+      flex-direction: column;
       align-items: flex-start;
-      text-align: left;
+      transition: all 0.25s ease;
+    }
+
+    .complemento-card:hover {
+      border-color: var(--glass-border-gold);
+      transform: translateY(-2px);
     }
 
     .complemento-icon {
-      width: 44px;
-      height: 44px;
+      width: 48px;
+      height: 48px;
       border-radius: 12px;
       background: rgba(212, 175, 55, 0.12);
       border: 1px solid rgba(212, 175, 55, 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
+      margin-bottom: 1.25rem;
     }
 
     .complemento-title {
       font-family: 'Merriweather', serif;
       font-weight: 700;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       color: var(--text);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.65rem;
     }
 
     .complemento-desc {
@@ -506,14 +507,13 @@
     }
 
     .complemento-cta {
-      margin-top: 1.5rem;
+      margin-top: 2.5rem;
       text-align: center;
     }
 
     @media (max-width: 768px) {
       .complemento-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
       }
     }
 
@@ -889,39 +889,33 @@
       <h2 class="section-title reveal">Complemento de la atención, <span class="gold">no producto aparte.</span></h2>
       <p class="section-sub reveal">El CRM se integra con la atención de clientes de TheIA para potenciar tu operación sin costos extra por usuario.</p>
       
-      <div class="complemento-card reveal">
-        <div class="complemento-grid">
-          <div class="complemento-pillar">
-            <div class="complemento-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ebca73" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <polyline points="16 11 18 13 22 9" />
-              </svg>
-            </div>
-            <div>
-              <div class="complemento-title">Integración activa con la atención</div>
-              <p class="complemento-desc">El CRM no reemplaza la atención: la hace más útil. TheIA atiende por WhatsApp, Instagram y Web, detecta oportunidades en vivo y las registra automáticamente en tu agenda comercial.</p>
-            </div>
+      <div class="complemento-grid">
+        <div class="glass-card complemento-card reveal">
+          <div class="complemento-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ebca73" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <polyline points="16 11 18 13 22 9" />
+            </svg>
           </div>
-
-          <div class="complemento-pillar">
-            <div class="complemento-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ebca73" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                <polyline points="9 12 11 14 15 10" />
-              </svg>
-            </div>
-            <div>
-              <div class="complemento-title">Transparencia y calce real</div>
-              <p class="complemento-desc">Si tu negocio solo responde consultas puntuales (horarios, ubicación), probablemente no necesitas este módulo. Decirlo con claridad es lo que nos da credibilidad.</p>
-            </div>
-          </div>
+          <div class="complemento-title">Integración activa con la atención</div>
+          <p class="complemento-desc">El CRM no reemplaza la atención: la hace más útil. TheIA atiende por WhatsApp, Instagram y Web, detecta oportunidades en vivo y las registra automáticamente en tu agenda comercial.</p>
         </div>
 
-        <div class="complemento-cta">
-          <button type="button" class="btn btn-gold btn-large" onclick="openTheiaChat('crm-complemento')">Probar conversación en vivo ✨</button>
+        <div class="glass-card complemento-card reveal">
+          <div class="complemento-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ebca73" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <polyline points="9 12 11 14 15 10" />
+            </svg>
+          </div>
+          <div class="complemento-title">Transparencia y calce real</div>
+          <p class="complemento-desc">Si tu negocio solo responde consultas puntuales (horarios, ubicación), probablemente no necesitas este módulo. Decirlo con claridad es lo que nos da credibilidad.</p>
         </div>
+      </div>
+
+      <div class="complemento-cta reveal">
+        <button type="button" class="btn btn-gold btn-large" onclick="openTheiaChat('crm-complemento')">Probar conversación en vivo ✨</button>
       </div>
     </div>
   </section>

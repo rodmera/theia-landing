@@ -535,15 +535,17 @@ def test_no_contenido_repetido_para_quien_en_hub_atencion():
     )
 
 
-def test_crm_complemento_card_tiene_pilares_visuales():
-    """QA crm.html: la tarjeta 'Complemento de la atención' debe estar estructurada
-    en pilares visuales (.complemento-pillar) con íconos (.complemento-icon) y títulos (.complemento-title),
-    en lugar de párrafos de texto suelto pegados.
+def test_crm_complemento_card_tiene_tarjetas_independientes():
+    """QA crm.html: la sección 'Complemento de la atención' se divide en 2 tarjetas
+    independientes (.complemento-card), cada una con su propio ícono (.complemento-icon)
+    y título (.complemento-title), en lugar de una sola tarjeta grande encerrando ambos conceptos.
     """
     source = (ROOT / "crm.html").read_text(encoding="utf-8")
-    assert "complemento-pillar" in source, "crm.html conserva la tarjeta de complemento como texto pegado sin pilares visuales (.complemento-pillar)"
-    assert "complemento-icon" in source, "crm.html no tiene íconos de apoyo (.complemento-icon) en la tarjeta de complemento"
-    assert "complemento-title" in source, "crm.html no tiene títulos estructurados (.complemento-title) en la tarjeta de complemento"
+    assert "glass-card complemento-card" in source, "crm.html no usa tarjetas .glass-card independientes para cada concepto de complemento"
+    cards_count = source.count("complemento-card")
+    assert cards_count >= 2, f"crm.html debe tener 2 tarjetas independientes (.complemento-card), encontradas: {cards_count}"
+    assert "complemento-icon" in source, "crm.html no tiene íconos (.complemento-icon) en las tarjetas de complemento"
+    assert "complemento-title" in source, "crm.html no tiene títulos (.complemento-title) en las tarjetas de complemento"
 
 
 @pytest.mark.parametrize("path", PAGES)
