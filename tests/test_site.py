@@ -402,3 +402,17 @@ def test_screenshot_casos_desktop(desktop_page):
     goto(desktop_page, "/casos.html")
     desktop_page.wait_for_timeout(600)
     desktop_page.screenshot(path=str(SHOTS / "casos-desktop-hero.png"))
+
+
+@pytest.mark.parametrize("path", [p for p in PAGES if p not in ["/terminos.html", "/funciones.html"]])
+def test_sin_elementos_huerfanos_entre_secciones(path):
+    """Verifica que no queden bloques HTML huérfanos o fuera de <section> entre secciones."""
+    root = Path(__file__).parent.parent
+    rel = path.lstrip("/")
+    file_path = root / rel
+    if file_path.is_dir():
+        file_path = file_path / "index.html"
+    content = file_path.read_text(encoding="utf-8")
+    clean = re.sub(r"<!--[\s\S]*?-->", "", content)
+    stray_matches = re.findall(r"</section>\s*<(div|p|a|span|h[1-6])[^>]*>([\s\S]*?)</\1>", clean)
+    assert not stray_matches, f"{path} contiene elementos huérfanos fuera de <section>: {stray_matches}"
