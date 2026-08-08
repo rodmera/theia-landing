@@ -628,6 +628,33 @@ def test_sin_saturacion_de_nombre_de_marca_theia():
 
 
 @pytest.mark.parametrize("path", PAGES)
+def test_sin_titulos_h2_repetidos_o_redondantes(path):
+    """QA de Redacción / Copy en las 21 páginas:
+    Verifica que no existan titulares H2 consecutivos o repetidos que usen la misma frase
+    (ej. 'Cómo funciona en tu...' repetido 2 veces seguidas o 'en tu negocio' repetido 3 veces).
+    """
+    rel = path.lstrip("/")
+    if rel == "" or rel == "/":
+        rel = "index.html"
+    elif rel.endswith("/"):
+        rel += "index.html"
+
+    file_path = ROOT / rel
+    if not file_path.exists():
+        return
+
+    source = file_path.read_text(encoding="utf-8")
+    h2s = [re.sub(r"<[^>]+>", " ", h).strip().lower() for h in re.findall(r"<h2[^>]*>(.*?)</h2>", source, re.DOTALL)]
+
+    for i in range(len(h2s) - 1):
+        if "cómo funciona" in h2s[i] and "cómo funciona" in h2s[i+1]:
+            pytest.fail(f"{path}: H2s consecutivos repiten 'cómo funciona': '{h2s[i]}' vs '{h2s[i+1]}'")
+
+    negocio_count = sum(1 for h in h2s if "en tu negocio" in h)
+    assert negocio_count <= 1, f"{path}: repite 'en tu negocio' {negocio_count} veces en los títulos H2"
+
+
+@pytest.mark.parametrize("path", PAGES)
 def test_alineacion_vertical_de_grupos_de_botones(desktop_page, path):
     """QA de Alineación Visual:
     Verifica que los botones CTA contiguos (.cta-btns, .actions, .cta-section, .hero-btns)
