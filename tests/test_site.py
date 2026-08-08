@@ -548,6 +548,16 @@ def test_crm_complemento_card_tiene_tarjetas_independientes():
     assert "complemento-title" in source, "crm.html no tiene títulos (.complemento-title) en las tarjetas de complemento"
 
 
+def test_sin_cta_probar_conversacion_duplicado_en_misma_pantalla():
+    """QA de Saturación de CTAs:
+    En crm.html no se debe repetir 'Probar conversación en vivo' múltiples veces en secciones estáticas contiguas,
+    evitando la fatiga de CTAs. Cada acción principal ('Probar conversación', 'Agenda una demo', 'WhatsApp') debe ser única.
+    """
+    source = (ROOT / "crm.html").read_text(encoding="utf-8")
+    matches = len(re.findall(r"Probar conversación en vivo", source, re.I))
+    assert matches <= 1, f"crm.html repite 'Probar conversación en vivo' {matches} veces en el cuerpo estático (máximo 1 vez)"
+
+
 @pytest.mark.parametrize("path", PAGES)
 def test_alineacion_vertical_de_grupos_de_botones(desktop_page, path):
     """QA de Alineación Visual:
