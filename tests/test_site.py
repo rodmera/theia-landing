@@ -535,6 +535,17 @@ def test_no_contenido_repetido_para_quien_en_hub_atencion():
     )
 
 
+def test_crm_complemento_card_tiene_pilares_visuales():
+    """QA crm.html: la tarjeta 'Complemento de la atención' debe estar estructurada
+    en pilares visuales (.complemento-pillar) con íconos (.complemento-icon) y títulos (.complemento-title),
+    en lugar de párrafos de texto suelto pegados.
+    """
+    source = (ROOT / "crm.html").read_text(encoding="utf-8")
+    assert "complemento-pillar" in source, "crm.html conserva la tarjeta de complemento como texto pegado sin pilares visuales (.complemento-pillar)"
+    assert "complemento-icon" in source, "crm.html no tiene íconos de apoyo (.complemento-icon) en la tarjeta de complemento"
+    assert "complemento-title" in source, "crm.html no tiene títulos estructurados (.complemento-title) en la tarjeta de complemento"
+
+
 @pytest.mark.parametrize("path", PAGES)
 def test_alineacion_vertical_de_grupos_de_botones(desktop_page, path):
     """QA de Alineación Visual:
