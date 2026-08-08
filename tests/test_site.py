@@ -467,6 +467,33 @@ def test_todos_los_botones_tienen_estilos_y_color_canonico(mobile_page, path):
             )
 
 
+def test_seccion_como_funciona_sin_linea_y_texto_alineado(desktop_page):
+    """QA Sección 'Cómo funciona':
+    1. Verifica que NO exista la línea conectora (.steps::before) cortando las tarjetas.
+    2. Verifica que las descripciones (.step-desc) de las 3 tarjetas comiencen exactamente a la misma altura vertical (top coincide <= 1.5px).
+    """
+    goto(desktop_page, "/")
+    desktop_page.wait_for_timeout(400)
+
+    has_line = desktop_page.evaluate("""() => {
+        const steps = document.querySelector('.steps');
+        if (!steps) return false;
+        const before = getComputedStyle(steps, '::before');
+        return before && before.content !== 'none' && before.display !== 'none' && parseFloat(before.height) > 0;
+    }""")
+    assert not has_line, "La sección 'Cómo funciona' conserva la línea conectora (.steps::before)"
+
+    desc_tops = desktop_page.evaluate("""() => {
+        const descs = Array.from(document.querySelectorAll('.step-card .step-desc'));
+        return descs.map(d => d.getBoundingClientRect().top);
+    }""")
+    if len(desc_tops) >= 2:
+        first = desc_tops[0]
+        for idx, top in enumerate(desc_tops[1:], start=2):
+            diff = abs(top - first)
+            assert diff <= 1.5, f"La descripción de la tarjeta 0{idx} está desalineada por {diff:.1f}px (top={top:.1f} vs 01 top={first:.1f})"
+
+
 @pytest.mark.parametrize("path", PAGES)
 def test_alineacion_vertical_de_grupos_de_botones(desktop_page, path):
     """QA de Alineación Visual:
