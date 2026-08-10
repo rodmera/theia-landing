@@ -39,6 +39,14 @@ def test_servicios_pyme_page_content_and_pillars():
     assert not jargon_found, f"servicios-pyme.html contiene jerga startup prohibida: {jargon_found}"
 
 
+def test_servicios_pyme_promete_operacion_con_revision_humana():
+    """HU-WEB-026: cotiza con reglas y deriva excepciones, no vende autonomía total."""
+    source = SERVICIOS_PAGE.read_text(encoding="utf-8").lower()
+    for text in ["operación comercial confiable", "tus reglas", "excepción", "revisión"]:
+        assert text in source, f"servicios-pyme no explica límite comercial: {text}"
+    assert "78% de los prospectos" not in source, "permanece un porcentaje sin fuente"
+
+
 def test_servicios_pyme_page_ctas_and_attribution():
     """AC3: CTAs y atribución correcta openTheiaChat('servicios-pyme')."""
     source = SERVICIOS_PAGE.read_text(encoding="utf-8")

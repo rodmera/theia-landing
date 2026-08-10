@@ -90,6 +90,14 @@ def test_home_no_promete_casos_ni_comparaciones_de_precio():
     assert "Ver casos extendidos" not in html
 
 
+def test_home_empaqueta_operacion_comercial_sin_canales_no_vigentes():
+    """HU-WEB-026: la promesa une la operación y no comunica Messenger."""
+    html = (Path(__file__).parent.parent / "index.html").read_text(encoding="utf-8")
+    for text in ["operación comercial", "cotiza con tus reglas", "según el alcance y los canales"]:
+        assert text in html, f"home no conserva el contrato de oferta: {text}"
+    assert "Facebook Messenger" not in html, "home comunica Messenger como canal vigente"
+
+
 def test_funciones_organiza_la_ayuda_en_tres_resultados(mobile_page):
     """La página explica atención PYME sin exhibir catálogo técnico no disponible."""
     goto(mobile_page, "/funciones.html")
