@@ -285,3 +285,41 @@ def test_subtitulo_hero_tamano_consistente_entre_paginas(mobile_page, path):
         f"{path}: subtítulo del hero renderiza a {res['fs']}, "
         f"debe ser {SUBTITULO_CANONICO_REM} ({SUBTITULO_CANONICO_PX})"
     )
+
+
+@pytest.mark.parametrize("path", PAGES)
+def test_cards_glass_tipografia_consistente(mobile_page, path):
+    """Regresión 2026-08-10: la sección '¿Por qué TheIA?' de precios.html usaba
+    divs con estilos inline ad-hoc (icono 40px, títulos sans-serif, sin
+    glass-card) que no seguían el sistema de diseño. Contrato: toda card del
+    sitio usa .glass-card, icono canónico (.piece-icon-wrap 50px) y, dentro de
+    cada grid, los títulos comparten tamaño y fuente Merriweather."""
+    mobile_page.goto(BASE + path, wait_until="domcontentloaded")
+    state = mobile_page.evaluate("""() => {
+        const cards = [...document.querySelectorAll('.glass-card')];
+        const outliers = [];
+        for (const card of cards) {
+            const icon = card.querySelector('.piece-icon-wrap');
+            if (icon) {
+                const w = Math.round(icon.getBoundingClientRect().width);
+                if (w !== 50) outliers.push(`icono ${w}px (no 50)`);
+            }
+            const h = card.querySelector('h3');
+            if (h && !getComputedStyle(h).fontFamily.toLowerCase().includes('merriweather')) {
+                outliers.push(`título no-Merriweather: ${h.textContent.trim().slice(0, 24)}`);
+            }
+        }
+        // consistencia de tamaño de título DENTRO de cada grid hermano
+        const grids = [...document.querySelectorAll('div[style*="grid"], .pricing-cards, .pieces-grid')];
+        for (const grid of grids) {
+            const tfs = [...grid.querySelectorAll(':scope > .glass-card h3')]
+                .map(x => getComputedStyle(x).fontSize);
+            const uniq = [...new Set(tfs)];
+            if (uniq.length > 1) {
+                outliers.push(`grid con títulos de tamaños mixtos: ${uniq.join(', ')}`);
+            }
+        }
+        return { count: cards.length, outliers };
+    }""")
+    if state["count"]:
+        assert not state["outliers"], f"{path}: cards con estilo no canónico: {state['outliers'][:6]}"
