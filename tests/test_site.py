@@ -240,13 +240,16 @@ def test_registro_sin_jerga(mobile_page, path):
 # ──────────────── 5. CONSISTENCIA COMERCIAL (precio único, demo 30) ────────────────
 
 def test_precio_consistente():
-    """Setup $250.000 (pago único) + mensualidad $250.000 en la página dedicada de precios.
+    """Plan mensual 'desde $250.000' y setup SIN precio fijo en precios.html.
 
-    Ajuste de precio: el setup y la mensualidad pasaron a ser $250.000 CLP.
-    El contrafactual es el valor antiguo $190.000: si vuelve a aparecer, el sitio quedó desalineado."""
+    Cambio 2026-08-10: la mensualidad se comunica como 'desde $250.000' y el
+    setup inicial deja de ser un valor fijo: se evalúa según el alcance de cada
+    implementación. El contrafactual es el valor antiguo $190.000: si vuelve a
+    aparecer, el sitio quedó desalineado."""
     root = Path(__file__).parent.parent
     precios_html = (root / "precios.html").read_text(encoding="utf-8")
-    assert "$250.000" in precios_html, "precios.html no menciona la tarifa $250.000"
+    assert "desde $250.000" in precios_html, "precios.html no comunica la mensualidad 'desde $250.000'"
+    assert "Pago único" not in precios_html, "el setup ya no se publica como monto fijo"
     for f in ["index.html", "precios.html"]:
         html = (root / f).read_text(encoding="utf-8")
         assert "$190.000" not in html, f"{f} aún menciona el valor antiguo $190.000"

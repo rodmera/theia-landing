@@ -482,7 +482,7 @@
           <div class="calc-result-card theia">
             <h4>TheIA — por negocio</h4>
             <div class="price" data-model="por-negocio">—</div>
-            <p class="note">Precio fijo, personas incluidas, sin atadura.</p>
+            <p class="note">Desde $250.000 CLP/mes, personas incluidas, sin atadura.</p>
           </div>
         </div>
 
@@ -699,10 +699,10 @@
           results['por-credito'].textContent = fmtCLP(min) + ' – ' + fmtCLP(max) + ' CLP/mes';
         }
 
-        // Por negocio (TheIA): precio fijo
+        // Por negocio (TheIA): precio desde
         const mn = modelos.find(m => m.id === 'por-negocio');
         if (mn && mn.precio_clp_mes) {
-          results['por-negocio'].textContent = fmtCLP(mn.precio_clp_mes) + ' CLP/mes';
+          results['por-negocio'].textContent = 'desde ' + fmtCLP(mn.precio_clp_mes) + ' CLP/mes';
         }
 
         // Advertencia de antigüedad (>6 meses)

@@ -55,13 +55,13 @@ Supongamos una PYME en Chile que recibe 400 consultas al mes por WhatsApp e Inst
 
 | Concepto | Plataforma A (self-service) | Plataforma B (llave en mano) |
 |---|---|---|
-| Suscripción mensual | $350.000 | $250.000 |
+| Suscripción mensual | $350.000 | desde $250.000 |
 | Cargos de WhatsApp Business | Según reglas y tarifa vigente de Meta | Se explican antes de activar el canal |
 | API de IA | $40.000 | $0 (incluida) |
 | Canales (WA + IG) | Plan superior requerido | Incluidos |
 | CRM | Módulo aparte | Incluido |
-| **Total mensual antes de cargos Meta** | **~$390.000** | **$250.000** |
-| **Total final** | **~$390.000 + cargos Meta, si aplican** | **$250.000 + cargos Meta, si aplican** |
+| **Total mensual antes de cargos Meta** | **~$390.000** | **desde $250.000** |
+| **Total final** | **~$390.000 + cargos Meta, si aplican** | **desde $250.000 + cargos Meta, si aplican** |
 
 La comparación responsable separa el valor de la suscripción de los cargos que controla Meta. Antes de firmar, pide que ese tratamiento quede escrito en la propuesta.
 
