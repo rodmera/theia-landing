@@ -241,3 +241,47 @@ def test_roles_tipograficos_se_renderizan_en_el_navegador(mobile_page, path):
         f"{path} no cargó Merriweather: {state['loaded']}"
     )
     assert not state["violations"], f"{path} usa pesos renderizados inválidos: {state['violations'][:5]}"
+
+
+SUBTITULO_CANONICO_REM = "1.05rem"
+SUBTITULO_CANONICO_PX = "16.8px"  # 1.05rem a font-size raíz 16px
+SUBTITULO_SELECTORES = (
+    ".hero-sub", ".section-sub", ".price-tagline", ".subtitle", ".lead",
+    ".crm-hero p", ".pulse-hero p",
+)
+# Páginas legales (subtítulo de fecha, diseño propio) y blog Jekyll (otra
+# estructura): el contrato de subtítulo de hero aplica a las de marketing.
+SUBTITULO_EXCLUIDAS = {"/privacidad.html", "/terminos.html", "/blog/"}
+
+
+def _subtitulo_hero(mobile_page, path):
+    """Devuelve el font-size renderizado del subtítulo bajo el H1 del hero."""
+    mobile_page.goto(BASE + path, wait_until="domcontentloaded")
+    return mobile_page.evaluate("""() => {
+        const h = document.querySelector('h1');
+        if (!h) return { fs: null, why: 'sin h1' };
+        let p = h.nextElementSibling;
+        if (!p || !p.textContent.trim()) {
+            const sels = %(sels)r;
+            p = sels.map(s => h.parentElement && h.parentElement.querySelector(s))
+                    .find(el => el && el.textContent.trim());
+        }
+        if (!p) return { fs: null, why: 'sin subtítulo visible' };
+        return { fs: getComputedStyle(p).fontSize, why: null };
+    }""" % {"sels": list(SUBTITULO_SELECTORES)})
+
+
+@pytest.mark.parametrize("path", PAGES)
+def test_subtitulo_hero_tamano_consistente_entre_paginas(mobile_page, path):
+    """Regresión 2026-08-10: los subtítulos de las páginas interiores tenían
+    hasta 6 tamaños distintos (0.95rem a 1.2rem) y ningún test lo detectaba.
+    Contrato: el subtítulo del hero renderiza a 1.05rem (16.8px) en todas las
+    páginas de marketing."""
+    if path in SUBTITULO_EXCLUIDAS:
+        pytest.skip(f"{path}: página legal/blog, diseño propio")
+    res = _subtitulo_hero(mobile_page, path)
+    assert res["fs"], f"{path}: {res['why']}"
+    assert res["fs"] == SUBTITULO_CANONICO_PX, (
+        f"{path}: subtítulo del hero renderiza a {res['fs']}, "
+        f"debe ser {SUBTITULO_CANONICO_REM} ({SUBTITULO_CANONICO_PX})"
+    )
