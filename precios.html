@@ -220,6 +220,21 @@
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 0 0 12px var(--gold-glow);
     }
 
+    .glass-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      padding: 2rem 1.75rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.25s ease;
+    }
+
+    .glass-card:hover {
+      border-color: var(--glass-border-gold);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.3), 0 0 20px var(--gold-glow);
+    }
+
     .price-tagline {
       font-family: 'Merriweather', serif; font-weight: 900; font-size: 1.05rem;
       color: var(--gold-light); line-height: 1.4; text-align: center;
@@ -472,35 +487,37 @@
 
       <div class="why-theia reveal" style="max-width:900px; margin:0 auto 2.5rem;">
         <h3 style="font-family:'Merriweather',serif; font-size:0.85rem; font-weight:700; color:var(--text-sub); margin-bottom:1.5rem; text-transform:uppercase; letter-spacing:0.08em; text-align:center;">¿Por qué TheIA?</h3>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
-          <div style="background:var(--glass); border:1px solid var(--glass-border); border-radius:14px; padding:1.25rem;">
-            <div class="piece-icon-wrap" style="width:40px;height:40px;border-radius:10px;margin-bottom:0.75rem;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 2-2 2m-1.5 1.5L16 7v3.5l-2.5 2.5a5.5 5.5 0 1 1-2.12-2.12L13.88 8.38H17V6l1.5-1.5"/></svg>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; align-items:stretch;">
+          <div class="glass-card" style="display:flex; flex-direction:column;">
+            <div class="piece-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 2-2 2m-1.5 1.5L16 7v3.5l-2.5 2.5a5.5 5.5 0 1 1-2.12-2.12L13.88 8.38H17V6l1.5-1.5"/></svg>
             </div>
-            <div style="font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">Llave en mano</div>
-            <p style="font-size:0.82rem; color:var(--text-sub); line-height:1.6;">Nosotros configuramos todo. Tú no tocas nada técnico — en 7 días tu agente está atendiendo clientes.</p>
+            <h3 style="font-family:'Merriweather',serif; font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:0.5rem; text-align:left;">Llave en mano</h3>
+            <p style="font-size:0.88rem; color:var(--text-sub); line-height:1.6; flex:1; text-align:left;">Nosotros configuramos todo. Tú no tocas nada técnico — en 7 días tu agente está atendiendo clientes.</p>
           </div>
-          <div style="background:var(--glass); border:1px solid var(--glass-border); border-radius:14px; padding:1.25rem;">
-            <div class="piece-icon-wrap" style="width:40px;height:40px;border-radius:10px;margin-bottom:0.75rem;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <div class="glass-card" style="display:flex; flex-direction:column;">
+            <div class="piece-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
             </div>
-            <div style="font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">Precio accesible para PYMEs</div>
-            <p style="font-size:0.82rem; color:var(--text-sub); line-height:1.6;">Una mensualidad en pesos, con alcance y cargos de terceros explicados antes de activar.</p>
+            <h3 style="font-family:'Merriweather',serif; font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:0.5rem; text-align:left;">Precio accesible para PYMEs</h3>
+            <p style="font-size:0.88rem; color:var(--text-sub); line-height:1.6; flex:1; text-align:left;">Una mensualidad en pesos, con alcance y cargos de terceros explicados antes de activar.</p>
           </div>
-          <div style="background:var(--glass); border:1px solid var(--glass-border); border-radius:14px; padding:1.25rem;">
-            <div class="piece-icon-wrap" style="width:40px;height:40px;border-radius:10px;margin-bottom:0.75rem;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          <div class="glass-card" style="display:flex; flex-direction:column;">
+            <div class="piece-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
             </div>
-            <div style="font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">Precio claro</div>
-            <p style="font-size:0.82rem; color:var(--text-sub); line-height:1.6;">No necesitas API keys ni pagas IA aparte. Los posibles cargos de WhatsApp Business se transparentan por separado.</p>
+            <h3 style="font-family:'Merriweather',serif; font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:0.5rem; text-align:left;">Precio claro</h3>
+            <p style="font-size:0.88rem; color:var(--text-sub); line-height:1.6; flex:1; text-align:left;">No necesitas API keys ni pagas IA aparte. Los posibles cargos de WhatsApp Business se transparentan por separado.</p>
           </div>
-          <div style="background:var(--glass); border:1px solid var(--glass-border); border-radius:14px; padding:1.25rem;">
-            <div class="piece-icon-wrap" style="width:40px;height:40px;border-radius:10px;margin-bottom:0.75rem;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <div class="glass-card" style="display:flex; flex-direction:column;">
+            <div class="piece-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             </div>
-            <div style="font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">Atención directa y cercana</div>
-            <p style="font-size:0.82rem; color:var(--text-sub); line-height:1.6;">No hablas con un bot de soporte ni esperas un ticket. Tu contacto es directamente con el equipo que construyó la plataforma.</p>
+            <h3 style="font-family:'Merriweather',serif; font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:0.5rem; text-align:left;">Atención directa y cercana</h3>
+            <p style="font-size:0.88rem; color:var(--text-sub); line-height:1.6; flex:1; text-align:left;">No hablas con un bot de soporte ni esperas un ticket. Tu contacto es directamente con el equipo que construyó la plataforma.</p>
           </div>
+        </div>
+      </div>
         </div>
       </div>
 
