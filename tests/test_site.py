@@ -558,6 +558,22 @@ def test_badge_nvidia_inception_oficial():
     )
 
 
+def test_badge_nvidia_inception_en_navbar():
+    """QA Respaldo Tecnológico: el badge NVIDIA Inception también es visible en la barra
+    de navegación superior (junto al logo), no solo en la sección respaldo de la home.
+    """
+    source = (ROOT / "index.html").read_text(encoding="utf-8")
+    assert 'class="logo"' in source and 'class="nav-nvidia-badge"' in source, (
+        "el navbar no integra el badge NVIDIA Inception junto al logo"
+    )
+    assert 'src="/nvidia-inception-program-badge.png"' in source, (
+        "el navbar no usa el asset oficial del badge NVIDIA Inception"
+    )
+    assert "Miembro del NVIDIA Inception Program" in source, (
+        "el alt del badge del navbar no usa el wording oficial"
+    )
+
+
 def test_no_contenido_repetido_para_quien_en_hub_atencion():
     """QA de Contenido y Jerarquía:
     El bloque general 'Para quién sí, para quién no' pertenece únicamente a la home (index.html).
