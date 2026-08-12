@@ -211,8 +211,22 @@ def test_hero_360_respeta_la_composicion_desktop_y_mobile(desktop_page, mobile_p
 def test_roles_tipograficos_se_renderizan_en_el_navegador(mobile_page, path):
     """Verifica las font faces cargadas y sus pesos sobre el DOM realmente renderizado."""
     mobile_page.goto(BASE + path, wait_until="domcontentloaded")
+    # Espera determinista: reintenta hasta que ambas familias canónicas estén en estado
+    # 'loaded'. document.fonts.ready se resuelve cuando termina el primer lote y en CI
+    # deja Merriweather fuera si llega más lento que Plus Jakarta Sans; fonts.load()
+    # solo por sí solo no garantiza que la red haya terminado.
+    mobile_page.wait_for_function("""() => {
+        document.fonts.load('900 16px Merriweather');
+        document.fonts.load('400 16px "Plus Jakarta Sans"');
+        document.fonts.load('700 16px "Plus Jakarta Sans"');
+        const faces = [...document.fonts];
+        const loadedFamily = fam => faces.some(
+            f => f.family.replaceAll('\\"', '').replaceAll("'", '').toLowerCase().includes(fam)
+                 && f.status === 'loaded'
+        );
+        return loadedFamily('merriweather') && loadedFamily('plus jakarta sans');
+    }""", timeout=20000)
     state = mobile_page.evaluate("""async () => {
-        await document.fonts.ready;
         const loaded = [...document.fonts].filter(face => face.status === 'loaded').map(face => ({
             family: face.family.replaceAll('\\"', '').replaceAll("'", '').toLowerCase(),
             weight: face.weight,

@@ -84,8 +84,8 @@ def test_ctas_criticos_index(mobile_page):
 def test_home_no_promete_casos_ni_comparaciones_de_precio():
     """La home usa dogfooding como prueba hasta contar con permisos de casos reales."""
     html = (Path(__file__).parent.parent / "index.html").read_text(encoding="utf-8")
-    assert "Usamos TheIA para" in html
-    assert "atenderte." in html
+    assert "Te atendemos con" in html and "nuestra propia plataforma" in html
+    assert "pasa por nuestra propia plataforma" in html
     assert "inversionistas que alimentar" not in html
     assert "Ver casos extendidos" not in html
 
@@ -127,7 +127,8 @@ def test_casos_usa_dogfooding_sin_prueba_social_no_autorizada(mobile_page):
     goto(mobile_page, "/casos.html")
     text = visible_text(mobile_page)
     assert "Mira cómo atendemos antes de decidir." in text
-    assert "Te atendemos con TheIA" in text
+    assert "Una prueba que puedes hacer" in text
+    assert "Puedes iniciar una conversación real con TheIA" in text
     assert "Cliente en conversación" not in text
     assert "Métricas en preparación" not in text
     html = (Path(__file__).parent.parent / "casos.html").read_text(encoding="utf-8")
@@ -145,8 +146,12 @@ def test_atencion_cliente_es_hub_del_paraguas(mobile_page):
     # Las 4 piezas del paraguas mencionadas como cards/secciones
     for pieza in ["Atención", "TheIA Pulse", "CRM", "Plataforma"]:
         assert pieza in text, f"atencion-cliente no menciona la pieza {pieza}"
-    # Honestidad — bloque "para quién no"
-    assert "TheIA no es para ti" in text, "atencion-cliente omitió el bloque 'para quién no'"
+    # Honestidad — el bloque "para quién no" vive en la home (decisión 3321110:
+    # se removió la réplica redundante de atencion-cliente; test_no_contenido_repetido
+    # impide que vuelva. Verificar que la home lo conserva).
+    home = (Path(__file__).parent.parent / "index.html").read_text(encoding="utf-8")
+    assert "Para quién sí, para quién no" in home, "home perdió el bloque de honestidad 'para quién sí/no'"
+    assert "TheIA no es para todos" in home, "home perdió el copy honesto de 'para quién no'"
     # Cumplimiento / Seguridad
     assert "Seguridad" in text or "Privacidad" in text, "atencion-cliente no menciona la sección de seguridad/privacidad"
 
