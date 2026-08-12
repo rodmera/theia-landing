@@ -535,6 +535,29 @@ def test_respaldo_tech_icons_son_oficiales():
     assert "M12 2v20M17 5H9.5" not in source, "Google Gemini conservó el icono desalineado con signo peso $"
 
 
+def test_badge_nvidia_inception_oficial():
+    """QA Respaldo Tecnológico: el badge NVIDIA Inception es el asset oficial del programa
+    (fondo blanco integrado, wording exacto 'NVIDIA Inception Program'), no un logo improvisado.
+    Incluye la línea legal requerida por NVIDIA y el enlace al asset oficial del repositorio.
+    """
+    source = (ROOT / "index.html").read_text(encoding="utf-8")
+    assert "/nvidia-inception-program-badge.png" in source, (
+        "home no usa el badge oficial NVIDIA Inception (nvidia-inception-program-badge.png)"
+    )
+    assert (ROOT / "nvidia-inception-program-badge.png").is_file(), (
+        "falta el asset oficial del badge NVIDIA Inception en el repo"
+    )
+    assert "NVIDIA Inception Program" in source, (
+        "el copy no usa el wording oficial 'NVIDIA Inception Program'"
+    )
+    assert "© 2025 NVIDIA, the NVIDIA logo" in source, (
+        "falta la línea legal requerida de NVIDIA junto al badge"
+    )
+    assert "the NVIDIA Inception Program are trademarks" in source, (
+        "la línea legal de NVIDIA no nombra la marca NVIDIA Inception"
+    )
+
+
 def test_no_contenido_repetido_para_quien_en_hub_atencion():
     """QA de Contenido y Jerarquía:
     El bloque general 'Para quién sí, para quién no' pertenece únicamente a la home (index.html).
