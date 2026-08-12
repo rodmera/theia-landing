@@ -79,6 +79,8 @@ Variables CSS definidas en `:root` que controlan toda la paleta:
 | `--text`, `--text-sub`, `--text-muted` | Jerarquía tipográfica |
 | `--glass`, `--glass-border`, `--glass-border-gold` | Efecto glassmorphism |
 
+**Design System oficial (desde 2026-08-12):** documento canónico consolidado del ecosistema en `~/Vaults/Digital-Brain/04-Procesos/Plantillas/202608121018 - Design System TheIA — documento oficial consolidado del ecosistema.md` — cubre landing, blog, webchat, posts y panel admin. Especificación detallada del landing (fuente de verdad local): `~/Vaults/Digital-Brain/04-Procesos/Plantillas/Plantilla_LookFeel_theia-landing.md`.
+
 **Tipografías (fuente de verdad en `~/Vaults/Digital-Brain/04-Procesos/Plantillas/Plantilla_LookFeel_theia-landing.md`):**
 
 - **Merriweather** (headings) — pesos disponibles: **700, 900**
