@@ -1539,6 +1539,198 @@
       border-top: 1px solid var(--glass-border);
     }
 
+    /* Pulse Spotlight (Home) */
+    .pulse-spotlight {
+      padding: 6.5rem 0;
+      background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
+      border-top: 1px solid var(--glass-border);
+      position: relative;
+    }
+
+    .pulse-spotlight__layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 960px) {
+      .pulse-spotlight__layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    .pulse-spotlight__copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .pulse-spotlight__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--gold-light);
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--glass-border-gold);
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+    }
+
+    .pulse-spotlight__title {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-weight: 900;
+      line-height: 1.25;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .pulse-spotlight__desc {
+      font-size: 1.05rem;
+      color: var(--text-sub);
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+    }
+
+    .pulse-spotlight__highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+
+    .pulse-spotlight__highlight {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      background: rgba(15, 23, 42, 0.4);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 0.85rem 1.1rem;
+    }
+
+    .pulse-spotlight__hl-icon {
+      font-size: 1.2rem;
+      line-height: 1;
+      margin-top: 0.15rem;
+    }
+
+    .pulse-spotlight__hl-text h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .pulse-spotlight__hl-text p {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .pulse-spotlight__phone {
+      background: var(--glass);
+      border: 1px solid var(--glass-border-gold);
+      border-radius: 20px;
+      padding: 1.5rem;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4), 0 0 20px var(--gold-glow);
+      backdrop-filter: blur(20px);
+    }
+
+    .pulse-spotlight__phone-header {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding-bottom: 1rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .pulse-spotlight__avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(79, 70, 229, 0.2));
+      border: 1px solid var(--glass-border-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .pulse-spotlight__phone-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .pulse-spotlight__phone-sub {
+      font-size: 0.78rem;
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .pulse-spotlight__moments {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .pulse-spotlight__moment {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      padding: 1rem 1.15rem;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .pulse-spotlight__moment:hover {
+      border-color: var(--glass-border-gold);
+      transform: translateY(-2px);
+    }
+
+    .pulse-spotlight__moment-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.45rem;
+    }
+
+    .pulse-spotlight__moment-title {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .pulse-spotlight__time {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.15rem 0.45rem;
+      border-radius: 6px;
+    }
+
+    .pulse-spotlight__moment-body {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.55;
+      margin: 0;
+    }
+
     .para-quien {
       padding: 6.5rem 0;
       background: var(--bg);
@@ -3527,6 +3719,7 @@
     </button>
     <div class="nav-cta">
       <a href="/atencion-cliente" class="btn btn-ghost">Atención</a>
+      <a href="/pulse" class="btn btn-ghost">Pulse</a>
       <a href="/funciones" class="btn btn-ghost">Cómo ayuda</a>
       <a href="/crm" class="btn btn-ghost">CRM</a>
       <a href="/panel" class="btn btn-ghost">Panel de Control</a>
@@ -3776,6 +3969,99 @@
             <p style="color:var(--text-sub);font-size:0.92rem;margin-bottom:1.25rem;">Tu equipo ve qué pasa en cada conversación. Métricas claras, sin jerga, para saber qué funciona.</p>
           </div>
           <a href="/panel" class="btn btn-ghost product-suite-card__action" style="font-size:0.82rem;">Ver Panel de Control →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TheIA Pulse Spotlight Section -->
+  <section class="pulse-spotlight">
+    <div class="container">
+      <div class="pulse-spotlight__layout">
+        <!-- Columna Editorial -->
+        <div class="pulse-spotlight__copy reveal">
+          <div class="pulse-spotlight__tag">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            THEIA PULSE · COPILOTO EN WHATSAPP
+          </div>
+          <h2 class="pulse-spotlight__title">Tu negocio en el bolsillo,<br /><span class="gold">sin entrar a paneles web.</span></h2>
+          <p class="pulse-spotlight__desc">
+            No necesitas abrir dashboards complicados ni revisar planillas para saber qué pasa. Pulse te informa por WhatsApp en los momentos exactos del día: qué clientes esperan, qué oportunidades surgieron y cómo cerró tu operación.
+          </p>
+
+          <div class="pulse-spotlight__highlights">
+            <div class="pulse-spotlight__highlight">
+              <div class="pulse-spotlight__hl-icon">🌅</div>
+              <div class="pulse-spotlight__hl-text">
+                <h4>Briefing de inicio (08:00 AM)</h4>
+                <p>Tu agenda, demos del día y cotizaciones pendientes de seguimiento listas antes de empezar la jornada.</p>
+              </div>
+            </div>
+            <div class="pulse-spotlight__highlight">
+              <div class="pulse-spotlight__hl-icon">⚡</div>
+              <div class="pulse-spotlight__hl-text">
+                <h4>Alertas en tiempo real</h4>
+                <p>Aviso inmediato cuando un lead prioritario de alto valor o caso sensible requiere tu intervención.</p>
+              </div>
+            </div>
+            <div class="pulse-spotlight__highlight">
+              <div class="pulse-spotlight__hl-icon">📊</div>
+              <div class="pulse-spotlight__hl-text">
+                <h4>Resumen de cierre (19:00 PM)</h4>
+                <p>Cierre consolidado con consultas atendidas, negocios ganados y 0 mensajes pendientes de tu equipo.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="/pulse" class="btn btn-gold pulse-spotlight__cta">Conocer TheIA Pulse →</a>
+        </div>
+
+        <!-- Mockup de WhatsApp / Teléfono -->
+        <div class="pulse-spotlight__phone reveal">
+          <div class="pulse-spotlight__phone-header">
+            <div class="pulse-spotlight__avatar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <div>
+              <div class="pulse-spotlight__phone-title">TheIA Pulse</div>
+              <div class="pulse-spotlight__phone-sub"><span class="live-dot" style="display:inline-block;width:6px;height:6px;background:#25D366;border-radius:50%;"></span> WhatsApp · Copiloto de negocio</div>
+            </div>
+          </div>
+
+          <div class="pulse-spotlight__moments">
+            <!-- Momento 1: 08:00 AM -->
+            <div class="pulse-spotlight__moment">
+              <div class="pulse-spotlight__moment-top">
+                <span class="pulse-spotlight__moment-title">🌅 Briefing de inicio</span>
+                <span class="pulse-spotlight__time">08:00 AM</span>
+              </div>
+              <p class="pulse-spotlight__moment-body">
+                Buenos días. Hoy tienes 4 demos agendadas y 3 cotizaciones pendientes de seguimiento. 2 consultas recibidas anoche ya fueron derivadas a tu equipo.
+              </p>
+            </div>
+
+            <!-- Momento 2: 14:35 PM -->
+            <div class="pulse-spotlight__moment" style="border-color: rgba(212, 175, 55, 0.4); background: rgba(212, 175, 55, 0.05);">
+              <div class="pulse-spotlight__moment-top">
+                <span class="pulse-spotlight__moment-title" style="color:var(--gold-light);">⚡ Alerta lead caliente</span>
+                <span class="pulse-spotlight__time">14:35 PM</span>
+              </div>
+              <p class="pulse-spotlight__moment-body">
+                <strong>Lead prioritario:</strong> Clínica San Lucas solicitó cotización para 8 sucursales por WhatsApp. Presupuesto estimado: $2.000.000. Ficha y contexto listos en el CRM.
+              </p>
+            </div>
+
+            <!-- Momento 3: 19:00 PM -->
+            <div class="pulse-spotlight__moment">
+              <div class="pulse-spotlight__moment-top">
+                <span class="pulse-spotlight__moment-title">📊 Resumen de cierre</span>
+                <span class="pulse-spotlight__time">19:00 PM</span>
+              </div>
+              <p class="pulse-spotlight__moment-body">
+                Cierre del día: 38 consultas atendidas, 2 ventas cerradas ($500.000) y 0 mensajes sin responder. Tu equipo resolvió 5 casos complejos.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
