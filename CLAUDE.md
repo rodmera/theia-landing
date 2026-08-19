@@ -62,6 +62,12 @@ Cubre: smoke de las 10 páginas, overflow horizontal móvil, errores JS, CTAs cr
 (incluido el número BLOQUEADO), links internos, regla de registro (jerga prohibida),
 consistencia comercial ($250.000, demo 30 min) y sticky WhatsApp.
 
+### Estándar de QA de Interacción Frontend (Regla Dura, 2026-08-19)
+
+- **Prohibido validar menús/dropdowns flotantes con `.hover()` instantáneo:** Playwright teletransporta el puntero en 0ms y enmascara gaps físicos entre el trigger y el popover.
+- **Simulación continua obligatoria:** Todo menú desplegable o popover debe validarse simulando el trayecto del mouse con `page.mouse.move()` en pasos interpolados desde el botón hasta la tarjeta interior, verificando que no ocurra `mouseleave` prematuro.
+- **Doble gatillo mandatorio (Hover + Click Pinning):** Los dropdowns deben soportar apertura por hover con puente continuo sin gaps (padding/margin estructural) Y persistencia con clic (estado pinned) para accesibilidad y usabilidad táctil.
+
 ## Despliegue
 
 GitHub Pages publica automáticamente desde la rama `main`. El archivo `CNAME` contiene `theia.cl` para el dominio personalizado. No se requiere ningún paso adicional — hacer push a `main` es suficiente para desplegar.
