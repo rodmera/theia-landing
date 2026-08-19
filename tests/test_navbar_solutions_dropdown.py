@@ -51,7 +51,94 @@ def test_site_nav_css_contains_2x2_grid_and_glassmorphism_rules():
     
     # Grilla 2 columnas para el popover en desktop
     assert "grid" in css, "El popover debe usar display: grid"
-    assert "repeat(2" in css or "1fr 1fr" in css or "280px" in css or "auto auto" in css, "El popover debe distribuirse en 2 columnas (2x2)"
+    assert "repeat(2" in css or "1fr 1fr" in css or "280px" in css or "270px" in css or "auto auto" in css, "El popover debe distribuirse en 2 columnas (2x2)"
+    
+    # Geometría continua sin gap
+    assert "padding-bottom" in css, ".site-nav__solutions debe tener padding-bottom estructural"
+    assert "margin-bottom" in css, ".site-nav__solutions debe tener margin-bottom negativo"
+
+
+def test_desktop_dropdown_continuous_mouse_movement_and_navigation(desktop_page):
+    """Simula el movimiento continuo del mouse desde el botón hasta la tarjeta sin cortes de hover."""
+    desktop_page.goto(f"{BASE}/", wait_until="domcontentloaded")
+    
+    trigger = desktop_page.locator(".site-nav__solutions-trigger")
+    assert trigger.is_visible()
+    
+    t_box = trigger.bounding_box()
+    assert t_box is not None
+    
+    # Posicionar mouse sobre el trigger
+    desktop_page.mouse.move(t_box["x"] + t_box["width"] / 2, t_box["y"] + t_box["height"] / 2)
+    desktop_page.wait_for_timeout(100)
+    
+    popover = desktop_page.locator("#site-solutions-menu")
+    assert popover.is_visible()
+    
+    # Mover el mouse suavemente hacia abajo (atravesando el puente hacia la tarjeta Pulse)
+    pulse_card = popover.locator("a[href='/pulse']")
+    p_box = pulse_card.bounding_box()
+    assert p_box is not None
+    
+    start_y = t_box["y"] + t_box["height"] / 2
+    target_y = p_box["y"] + p_box["height"] / 2
+    target_x = p_box["x"] + p_box["width"] / 2
+    
+    # 5 pasos continuos de movimiento
+    for step in range(1, 6):
+        cur_y = start_y + (target_y - start_y) * (step / 5)
+        desktop_page.mouse.move(target_x, cur_y)
+        desktop_page.wait_for_timeout(30)
+        assert popover.is_visible(), f"El popover se cerró durante el movimiento vertical en paso {step}"
+        
+    desktop_page.mouse.click(target_x, target_y)
+    desktop_page.wait_for_url("**/pulse", timeout=5000)
+    assert "/pulse" in desktop_page.url
+
+
+def test_desktop_dropdown_inner_page_navigation(desktop_page):
+    """En una página interior (/atencion-cliente), permite hacer hover y navegar fluidamente a otra solución."""
+    desktop_page.goto(f"{BASE}/atencion-cliente.html", wait_until="domcontentloaded")
+    
+    trigger = desktop_page.locator(".site-nav__solutions-trigger")
+    assert trigger.is_visible()
+    
+    trigger.hover()
+    desktop_page.wait_for_timeout(100)
+    
+    popover = desktop_page.locator("#site-solutions-menu")
+    assert popover.is_visible()
+    
+    crm_card = popover.locator("a[href='/crm']")
+    assert crm_card.is_visible()
+    crm_card.click()
+    desktop_page.wait_for_url("**/crm", timeout=5000)
+    assert "/crm" in desktop_page.url
+
+
+def test_desktop_dropdown_click_to_pin_and_escape(desktop_page):
+    """Al hacer clic en el trigger, el popover queda anclado (pinned) aunque el mouse se mueva lejos."""
+    desktop_page.goto(f"{BASE}/", wait_until="domcontentloaded")
+    
+    trigger = desktop_page.locator(".site-nav__solutions-trigger")
+    popover = desktop_page.locator("#site-solutions-menu")
+    
+    # Clic en trigger fija el estado pinned
+    trigger.click()
+    desktop_page.wait_for_timeout(100)
+    assert trigger.get_attribute("aria-expanded") == "true"
+    assert popover.is_visible()
+    
+    # Mover el mouse lejos (al extremo superior izquierdo de la pantalla)
+    desktop_page.mouse.move(10, 10)
+    desktop_page.wait_for_timeout(250)
+    assert popover.is_visible(), "El popover pinned debe permanecer visible tras alejar el cursor"
+    
+    # Presionar Escape lo cierra y devuelve foco al trigger
+    desktop_page.keyboard.press("Escape")
+    desktop_page.wait_for_timeout(200)
+    assert trigger.get_attribute("aria-expanded") == "false"
+    assert not popover.is_visible(), "Escape debe cerrar el popover"
 
 
 @pytest.mark.parametrize("page_path", ALL_PUBLIC_PAGES)

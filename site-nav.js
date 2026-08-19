@@ -1,87 +1,131 @@
 /**
- * site-nav.js — Comportamiento accesible para el navbar TheIA (TASK-202608191930)
+ * site-nav.js — Comportamiento accesible y estabilidad hover para el navbar TheIA (TASK-202608191947)
  */
 (function () {
   function initSiteNav() {
-    // 1. Gestión del Dropdown de Soluciones en Desktop
+    // 1. Gestión accesible y control de estado del Dropdown de Soluciones en Desktop
     const solutions = document.querySelectorAll('.site-nav__solutions');
     solutions.forEach((container) => {
       const trigger = container.querySelector('.site-nav__solutions-trigger');
       const popover = container.querySelector('.site-nav__popover');
       if (!trigger || !popover) return;
 
-      function openMenu() {
+      let closeTimer = null;
+      let pinned = false;
+      let suppressFocusOpen = false;
+
+      function openMenu(options) {
+        if (suppressFocusOpen) return;
+        const pin = options && options.pin;
+        if (closeTimer) {
+          clearTimeout(closeTimer);
+          closeTimer = null;
+        }
+        if (pin) {
+          pinned = true;
+        }
         if (window.innerWidth > 960) {
           container.classList.add('is-open');
           trigger.setAttribute('aria-expanded', 'true');
         }
       }
 
-      function closeMenu() {
-        if (window.innerWidth > 960) {
-          container.classList.remove('is-open');
-          trigger.setAttribute('aria-expanded', 'false');
+      function scheduleCloseMenu() {
+        if (pinned) return;
+        if (container.contains(document.activeElement)) return;
+        if (closeTimer) {
+          clearTimeout(closeTimer);
+        }
+        closeTimer = setTimeout(() => {
+          closeMenu();
+        }, 150);
+      }
+
+      function closeMenu(options) {
+        const returnFocus = options && options.returnFocus;
+        if (closeTimer) {
+          clearTimeout(closeTimer);
+          closeTimer = null;
+        }
+        pinned = false;
+        container.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+        if (returnFocus) {
+          suppressFocusOpen = true;
+          trigger.focus();
+          setTimeout(() => {
+            suppressFocusOpen = false;
+          }, 150);
         }
       }
 
-      // Hover
-      container.addEventListener('mouseenter', openMenu);
-      container.addEventListener('mouseleave', closeMenu);
+      // Eventos de puntero sobre el contenedor completo (trigger + padding continuo + popover)
+      container.addEventListener('pointerenter', () => {
+        if (window.innerWidth > 960) {
+          openMenu({ pin: false });
+        }
+      });
 
-      // Clic en trigger
+      container.addEventListener('pointerleave', () => {
+        if (window.innerWidth > 960) {
+          scheduleCloseMenu();
+        }
+      });
+
+      // Foco accesible por teclado
+      container.addEventListener('focusin', () => {
+        if (window.innerWidth > 960) {
+          openMenu({ pin: false });
+        }
+      });
+
+      container.addEventListener('focusout', () => {
+        if (window.innerWidth > 960) {
+          setTimeout(() => {
+            if (!container.contains(document.activeElement)) {
+              scheduleCloseMenu();
+            }
+          }, 20);
+        }
+      });
+
+      // Clic para anclar (pin) o alternar estado
       trigger.addEventListener('click', (e) => {
         if (window.innerWidth > 960) {
           e.stopPropagation();
-          const isOpen = trigger.getAttribute('aria-expanded') === 'true';
-          if (isOpen) {
+          const isOpen = container.classList.contains('is-open');
+          if (isOpen && pinned) {
             closeMenu();
           } else {
-            openMenu();
+            openMenu({ pin: true });
           }
         }
       });
-    });
 
-    // Cerrar dropdown al hacer clic fuera o con Escape
-    document.addEventListener('click', (e) => {
-      if (window.innerWidth > 960) {
-        solutions.forEach((container) => {
+      // Cerrar si se hace clic fuera del contenedor
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth > 960) {
           if (!container.contains(e.target)) {
-            container.classList.remove('is-open');
-            const trigger = container.querySelector('.site-nav__solutions-trigger');
-            if (trigger) trigger.setAttribute('aria-expanded', 'false');
+            closeMenu();
           }
-        });
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && window.innerWidth > 960) {
-        solutions.forEach((container) => {
-          container.classList.remove('is-open');
-          const trigger = container.querySelector('.site-nav__solutions-trigger');
-          if (trigger) {
-            trigger.setAttribute('aria-expanded', 'false');
-            trigger.focus();
-          }
-        });
-      }
-    });
-
-    window.addEventListener('resize', () => {
-      if (window.innerWidth <= 960) {
-        solutions.forEach((container) => {
-          container.classList.remove('is-open');
-          const trigger = container.querySelector('.site-nav__solutions-trigger');
-          if (trigger) trigger.setAttribute('aria-expanded', 'false');
-        });
-      } else {
-        const navCta = document.querySelector('.nav-cta');
-        if (navCta) {
-          navCta.classList.remove('active');
-          document.body.classList.remove('mobile-menu-open');
         }
-      }
+      });
+
+      // Cerrar con Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && window.innerWidth > 960) {
+          if (container.classList.contains('is-open')) {
+            closeMenu({ returnFocus: true });
+          }
+        }
+      });
+
+      // Reset en cambio de tamaño de ventana
+      window.addEventListener('resize', () => {
+        if (window.innerWidth <= 960) {
+          closeMenu();
+        }
+      });
     });
 
     // 2. Gestión unificada del menú móvil off-canvas
