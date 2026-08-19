@@ -161,6 +161,36 @@
       align-items: center;
       gap: 0.75rem;
     }
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-cta .btn-ghost {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-sub);
+      font-weight: 500;
+      font-size: 0.84rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-cta .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      border-color: transparent;
+    }
+
+    .nav-cta .btn-ghost.active {
+      color: var(--gold-light);
+      background: rgba(212, 175, 55, 0.08);
+      border-color: var(--glass-border-gold);
+      font-weight: 700;
+    }
+
 
     .btn {
       display: inline-flex;
@@ -747,7 +777,7 @@
     </button>
     <div class="nav-cta">
       <a href="/atencion-cliente" class="btn btn-ghost">Atención</a>
-      <a href="/pulse" class="btn btn-ghost">Pulse</a>
+      <a href="/pulse" class="btn btn-ghost active">Pulse</a>
       <a href="/funciones" class="btn btn-ghost">Cómo ayuda</a>
       <a href="/crm" class="btn btn-ghost">CRM</a>
       <a href="/panel" class="btn btn-ghost">Panel de Control</a>

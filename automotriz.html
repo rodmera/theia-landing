@@ -110,6 +110,36 @@
     .logo img { height: 100px; width: auto; display: block; filter: drop-shadow(0 0 10px var(--gold-glow)); }
 
     .nav-cta { display: flex; align-items: center; gap: 0.75rem; }
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-cta .btn-ghost {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-sub);
+      font-weight: 500;
+      font-size: 0.84rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-cta .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      border-color: transparent;
+    }
+
+    .nav-cta .btn-ghost.active {
+      color: var(--gold-light);
+      background: rgba(212, 175, 55, 0.08);
+      border-color: var(--glass-border-gold);
+      font-weight: 700;
+    }
+
 
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;

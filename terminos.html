@@ -52,7 +52,38 @@
     }
     .back { color:var(--gold); display:inline-flex; font-weight: 700; text-decoration:none; margin-top:1rem; }
     @media (max-width:768px) { nav { padding:.8rem 1rem; } .logo img { height:60px; } .container { padding:9rem 1.25rem 3rem; } }
-  </style>
+  
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-cta .btn-ghost {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-sub);
+      font-weight: 500;
+      font-size: 0.84rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-cta .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      border-color: transparent;
+    }
+
+    .nav-cta .btn-ghost.active {
+      color: var(--gold-light);
+      background: rgba(212, 175, 55, 0.08);
+      border-color: var(--glass-border-gold);
+      font-weight: 700;
+    }
+
+</style>
 </head>
 <body>
   <nav><a href="/" class="logo"><img src="/logo.png" alt="TheIA" /></a><a href="/" class="btn">Volver al inicio</a></nav>
