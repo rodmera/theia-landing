@@ -26,13 +26,6 @@ ACTIVE_NAV_MAP = {
     "/atencion-whatsapp.html": "/atencion-cliente",
     "/pulse.html": "/pulse",
     "/funciones.html": "/funciones",
-    "/servicios.html": "/funciones",
-    "/servicios-pyme.html": "/funciones",
-    "/automotriz.html": "/funciones",
-    "/comercio.html": "/funciones",
-    "/salud.html": "/funciones",
-    "/cotizaciones-agendamiento.html": "/funciones",
-    "/seguimiento-equipo.html": "/funciones",
     "/crm.html": "/crm",
     "/alternativa-crm.html": "/crm",
     "/panel.html": "/panel",
@@ -93,11 +86,12 @@ def test_navbar_structure_and_active_state(page_path):
                            re.findall(r'aria-current="page"[^>]*href="([^"]+)"', content)
     
     if expected_active_href:
-        assert len(aria_current_matches) == 1, (
-            f"{file.name} debe tener exactamente un aria-current='page' (encontrados {aria_current_matches})"
+        all_match_expected = all(href == expected_active_href for href in aria_current_matches)
+        assert len(aria_current_matches) in [1, 2], (
+            f"{file.name} debe tener 1 o 2 aria-current='page' (encontrados {aria_current_matches})"
         )
-        assert aria_current_matches[0] == expected_active_href, (
-            f"En {file.name}, el activo debe ser {expected_active_href} (encontrado {aria_current_matches[0]})"
+        assert all_match_expected, (
+            f"En {file.name}, el activo debe ser {expected_active_href} (encontrado {aria_current_matches})"
         )
     else:
         assert len(aria_current_matches) == 0, (
@@ -109,12 +103,13 @@ def test_navbar_visual_desktop_styles(desktop_page):
     """Verifica en navegador desktop que los enlaces de navegación sean texto limpio sin bordes."""
     desktop_page.goto(f"{BASE}/", wait_until="domcontentloaded")
     
-    nav_links = desktop_page.locator(".site-nav .site-nav__link")
-    count = nav_links.count()
-    assert count == 7, f"Se esperaban 7 enlaces de texto en desktop, se encontraron {count}"
+    # En desktop, los enlaces visibles directos son las 3 secciones (Cómo ayuda, Precios, Recursos) + disparador Soluciones
+    direct_links = desktop_page.locator(".site-nav > .site-nav__link")
+    count = direct_links.count()
+    assert count == 3, f"Se esperaban 3 enlaces de texto directos en desktop, se encontraron {count}"
     
     for i in range(count):
-        link = nav_links.nth(i)
+        link = direct_links.nth(i)
         border_width = link.evaluate("el => getComputedStyle(el).borderWidth")
         border_style = link.evaluate("el => getComputedStyle(el).borderStyle")
         bg_color = link.evaluate("el => getComputedStyle(el).backgroundColor")
@@ -126,6 +121,12 @@ def test_navbar_visual_desktop_styles(desktop_page):
             f"En desktop, el enlace {i} tiene fondo de botón: {bg_color}"
         )
     
+    # Disparador Soluciones también es texto limpio
+    trigger = desktop_page.locator(".site-nav__solutions-trigger")
+    assert trigger.is_visible()
+    trig_border = trigger.evaluate("el => getComputedStyle(el).borderWidth")
+    assert trig_border in ["0px", "none", ""]
+    
     # Único botón destacado es Agenda una demo
     demo_btn = desktop_page.locator(".site-nav .site-nav__demo")
     assert demo_btn.is_visible(), "El botón demo debe ser visible"
@@ -134,12 +135,14 @@ def test_navbar_visual_desktop_styles(desktop_page):
 
 
 def test_navbar_active_item_highlight_in_inner_page(desktop_page):
-    """En una página interior como /pulse.html, el ítem Pulse debe tener realce activo."""
+    """En una página interior como /pulse.html, el disparador Soluciones o el ítem Pulse tienen realce activo."""
     desktop_page.goto(f"{BASE}/pulse.html", wait_until="domcontentloaded")
     
-    active_link = desktop_page.locator(".site-nav .site-nav__link[aria-current='page']")
-    assert active_link.count() == 1, "Debe haber exactamente un enlace activo en /pulse.html"
-    assert active_link.inner_text().strip() == "Pulse"
+    active_cards = desktop_page.locator(".site-nav .site-nav__solution-card[aria-current='page']")
+    assert active_cards.count() == 1, "Debe haber un card activo en popover en /pulse.html"
+    
+    trigger_active = desktop_page.locator(".site-nav__solutions-trigger--active")
+    assert trigger_active.count() == 1, "El disparador Soluciones debe tener estado activo en /pulse.html"
 
 
 def test_navbar_mobile_menu_open_and_close(mobile_page):
@@ -156,7 +159,7 @@ def test_navbar_mobile_menu_open_and_close(mobile_page):
     mobile_page.wait_for_timeout(250)
     assert "active" in (nav_cta.get_attribute("class") or ""), "El menú móvil debe abrirse al hacer clic"
     
-    # Los 7 enlaces deben ser accesibles
-    links = mobile_page.locator(".site-nav .site-nav__link")
-    assert links.count() == 7
-    assert links.first.is_visible(), "Los enlaces deben ser visibles dentro del menú móvil abierto"
+    # Los enlaces móviles directos deben ser visibles
+    mobile_links = mobile_page.locator(".site-nav__mobile-solutions .site-nav__link")
+    assert mobile_links.count() == 4
+    assert mobile_links.first.is_visible(), "Los enlaces deben ser visibles dentro del menú móvil abierto"

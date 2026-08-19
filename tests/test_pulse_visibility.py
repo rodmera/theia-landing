@@ -40,9 +40,9 @@ def test_navbar_contiene_enlace_a_pulse_en_orden_correcto(page_path):
     
     assert "nav-cta" in content, f"{file.name} debe tener contenedor .nav-cta"
     
-    # Extraer el bloque nav-cta
-    match = re.search(r'<div class="nav-cta[^"]*"[^>]*>(.*?)</div>', content, re.DOTALL)
-    assert match is not None, f"No se encontró <div class=\"nav-cta\"> en {file.name}"
+    # Extraer el bloque nav
+    match = re.search(r'<nav[^>]*>(.*?)</nav>', content, re.DOTALL)
+    assert match is not None, f"No se encontró <nav> en {file.name}"
     nav_html = match.group(1)
     
     # Debe contener enlace a /pulse con texto Pulse
@@ -127,6 +127,12 @@ def test_pulse_navbar_click_navega_a_pulse(desktop_page):
     """Verifica que hacer clic en el enlace Pulse del navbar navegue a /pulse."""
     desktop_page.goto(f"{BASE}/", wait_until="domcontentloaded")
     
+    # En desktop, interactuar con Soluciones para desplegar popover
+    trigger = desktop_page.locator(".site-nav__solutions-trigger")
+    if trigger.is_visible():
+        trigger.hover()
+        desktop_page.wait_for_timeout(200)
+
     pulse_link = desktop_page.locator(".nav-cta a[href='/pulse']").first
     assert pulse_link.is_visible(), "El enlace a Pulse en el navbar debe ser visible en desktop"
     
