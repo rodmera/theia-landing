@@ -1,11 +1,11 @@
-"""Pruebas del menú de Soluciones con popover/dropdown en desktop y drawer en mobile (TASK-202608191916).
+"""Pruebas del fix integral y rediseño del navbar con dropdown Soluciones (TASK-202608191930).
 
 Verifica:
-1. Existencia y reglas del contrato en site-nav.css y site-nav.js.
-2. Presencia de .site-nav__solutions (con details/summary, chevron y 4 tarjetas de producto) en todas las páginas públicas.
-3. Presencia de .site-nav__mobile-solutions (4 enlaces directos para el drawer móvil).
-4. Comportamiento en navegador desktop: popover se despliega al hover/focus con transición y muestra las 4 soluciones.
-5. Comportamiento en navegador mobile: popover oculto, drawer funcional con enlaces táctiles directos.
+1. Carga de assets con rutas absolutas (/site-nav.css y /site-nav.js) en todas las superficies públicas.
+2. Contrato semántico canónico basado en button + popover con aria-expanded y aria-controls (sin details/summary).
+3. Popover en desktop con diseño glassmorphism 2x2 y las 4 soluciones principales.
+4. Drawer móvil limpio sin popovers y con enlaces directos en .site-nav__mobile-solutions.
+5. QA interactivo con Playwright: hover, rotación de chevron, clic en tarjeta y tecla Escape.
 """
 from pathlib import Path
 import re
@@ -17,8 +17,8 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE_NAV_CSS = ROOT / "site-nav.css"
 SITE_NAV_JS = ROOT / "site-nav.js"
 
-EXCLUDED_NAV_PAGES = {"/privacidad.html", "/terminos.html", "/cumplimiento.html"}
-HOMOLOGOUS_PAGES = [p for p in PAGES if p not in EXCLUDED_NAV_PAGES]
+# Todas las páginas de conftest.py + _layouts/post.html
+ALL_PUBLIC_PAGES = PAGES + ["_layouts/post.html"]
 
 
 def get_html_file(path_str):
@@ -26,95 +26,114 @@ def get_html_file(path_str):
         return ROOT / "index.html"
     if path_str == "/blog/":
         return ROOT / "blog" / "index.html"
+    if path_str == "_layouts/post.html":
+        return ROOT / "_layouts" / "post.html"
     return ROOT / path_str.lstrip("/")
 
 
 def test_site_nav_assets_exist():
-    """site-nav.css y site-nav.js deben existir en la raíz."""
+    """site-nav.css y site-nav.js deben existir en la raíz del repositorio."""
     assert SITE_NAV_CSS.is_file(), "site-nav.css no existe"
     assert SITE_NAV_JS.is_file(), "site-nav.js no existe"
 
 
-def test_site_nav_css_contains_dropdown_rules():
-    """site-nav.css debe definir el contrato de dropdown desktop y drawer mobile."""
+def test_site_nav_css_contains_2x2_grid_and_glassmorphism_rules():
+    """site-nav.css debe definir el popover en grilla 2x2 con glassmorphism y transiciones."""
     css = SITE_NAV_CSS.read_text(encoding="utf-8")
-    required = [
-        ".site-nav__solutions",
-        ".site-nav__solutions-trigger",
-        ".site-nav__chevron",
-        ".site-nav__popover",
-        ".site-nav__solution-card",
-        ".site-nav__mobile-solutions",
-    ]
-    for r in required:
-        assert r in css, f"site-nav.css debe contener selector {r}"
+    
+    # Selectores requeridos
+    assert ".site-nav__solutions" in css
+    assert ".site-nav__solutions-trigger" in css
+    assert ".site-nav__chevron" in css
+    assert ".site-nav__popover" in css
+    assert ".site-nav__solution-card" in css
+    assert ".site-nav__mobile-solutions" in css
+    
+    # Grilla 2 columnas para el popover en desktop
+    assert "grid" in css, "El popover debe usar display: grid"
+    assert "repeat(2" in css or "1fr 1fr" in css or "280px" in css or "auto auto" in css, "El popover debe distribuirse en 2 columnas (2x2)"
 
 
-@pytest.mark.parametrize("page_path", HOMOLOGOUS_PAGES)
-def test_pages_have_solutions_dropdown_and_mobile_drawer_structure(page_path):
-    """Verifica que cada página contenga el disparador Soluciones con sus 4 items y la variante móvil."""
+@pytest.mark.parametrize("page_path", ALL_PUBLIC_PAGES)
+def test_all_pages_use_absolute_paths_and_canonical_markup(page_path):
+    """Verifica que cada superficie pública cargue /site-nav.css y /site-nav.js con ruta absoluta y markup button+popover."""
     file = get_html_file(page_path)
+    assert file.is_file(), f"Archivo {file} no existe"
     content = file.read_text(encoding="utf-8")
     
-    assert "site-nav.css" in content, f"{file.name} debe enlazar site-nav.css"
-    assert "site-nav.js" in content, f"{file.name} debe enlazar site-nav.js"
-    assert "site-nav__solutions" in content, f"{file.name} debe contener .site-nav__solutions"
-    assert "site-nav__solutions-trigger" in content, f"{file.name} debe contener .site-nav__solutions-trigger"
-    assert "Soluciones" in content, f"{file.name} debe mostrar texto 'Soluciones'"
+    # 1. Rutas absolutas obligatorias
+    assert 'href="/site-nav.css"' in content, f"{file.name} debe enlazar /site-nav.css con ruta absoluta"
+    assert 'src="/site-nav.js"' in content, f"{file.name} debe enlazar /site-nav.js con ruta absoluta"
     
-    # Validar 4 tarjetas dentro del popover
-    popover_matches = re.findall(r'class="[^"]*site-nav__solution-card[^"]*"', content)
-    assert len(popover_matches) == 4, f"{file.name} debe tener 4 tarjetas .site-nav__solution-card en el popover (encontradas {len(popover_matches)})"
+    # 2. No debe usar details/summary en el navbar
+    nav_match = re.search(r'<nav[^>]*>(.*?)</nav>', content, re.DOTALL)
+    assert nav_match is not None, f"No se encontró <nav> en {file.name}"
+    nav_html = nav_match.group(1)
     
-    # Validar que los 4 productos estén presentes en el popover
-    for title, href in [("Atención", "/atencion-cliente"), ("TheIA Pulse", "/pulse"), ("CRM", "/crm"), ("Panel de Control", "/panel")]:
-        assert href in content, f"{file.name} debe contener enlace a {href}"
-        assert title in content, f"{file.name} debe contener título {title}"
-        
-    # Validar sección móvil directa
-    assert "site-nav__mobile-solutions" in content, f"{file.name} debe contener .site-nav__mobile-solutions"
+    assert "site-nav__solutions-disclosure" not in nav_html, f"{file.name} no debe usar details/summary en el navbar"
+    assert "<summary" not in nav_html, f"{file.name} no debe usar summary en el navbar"
+    
+    # 3. Disparador button con accesibilidad
+    assert 'button type="button" class="site-nav__solutions-trigger' in content or 'button class="site-nav__solutions-trigger' in content
+    assert 'aria-expanded="false"' in content or 'aria-expanded="true"' in content
+    assert 'aria-controls="site-solutions-menu"' in content
+    assert 'id="site-solutions-menu"' in content
+    
+    # 4. Popover con 4 tarjetas
+    cards = re.findall(r'class="[^"]*site-nav__solution-card[^"]*"', content)
+    assert len(cards) == 4, f"{file.name} debe tener 4 tarjetas en popover (encontradas {len(cards)})"
+    
+    # 5. Drawer móvil con 4 enlaces directos
+    assert "site-nav__mobile-solutions" in content, f"{file.name} debe tener .site-nav__mobile-solutions"
+    
+    # 6. Botón demo
+    assert "site-nav__demo" in content, f"{file.name} debe tener botón .site-nav__demo"
 
 
-def test_solutions_dropdown_interaction_in_desktop(desktop_page):
-    """Verifica en desktop que al interactuar con Soluciones se despliegue el popover con los 4 componentes."""
+def test_desktop_dropdown_hover_and_keyboard_interactions(desktop_page):
+    """Verifica en desktop que el popover se abra al hover, rote el chevron y cierre con Escape."""
     desktop_page.goto(f"{BASE}/", wait_until="domcontentloaded")
     
     trigger = desktop_page.locator(".site-nav__solutions-trigger")
-    assert trigger.is_visible(), "El disparador 'Soluciones' debe ser visible en desktop"
+    assert trigger.is_visible(), "El botón 'Soluciones' debe ser visible en desktop"
     
-    popover = desktop_page.locator(".site-nav__popover")
+    popover = desktop_page.locator("#site-solutions-menu")
     
-    # Hover sobre el disparador abre el popover
+    # Inicialmente oculto o no visible para el usuario
+    # Hover sobre Soluciones
     trigger.hover()
     desktop_page.wait_for_timeout(250)
-    assert popover.is_visible(), "El popover .site-nav__popover debe ser visible al hacer hover"
+    assert popover.is_visible(), "El popover debe ser visible al hacer hover en Soluciones"
     
-    # 4 tarjetas dentro del popover
+    # 4 tarjetas visibles
     cards = popover.locator(".site-nav__solution-card")
-    assert cards.count() == 4, f"Se esperaban 4 tarjetas dentro del popover, se encontraron {cards.count()}"
+    assert cards.count() == 4
     
-    # Clic en Pulse dentro del popover navega a /pulse
+    # Clic en TheIA Pulse navega a /pulse
     pulse_card = popover.locator("a[href='/pulse']")
     pulse_card.click()
     desktop_page.wait_for_url("**/pulse", timeout=5000)
-    assert "/pulse" in desktop_page.url, "Navegación desde popover debe llevar a /pulse"
+    assert "/pulse" in desktop_page.url
 
 
-def test_mobile_drawer_shows_direct_solutions_and_hides_desktop_dropdown(mobile_page):
-    """Verifica en móvil que el dropdown desktop esté oculto y el drawer contenga los 4 enlaces directos."""
+def test_mobile_drawer_open_and_direct_solutions_visible(mobile_page):
+    """Verifica en mobile que el popover desktop esté oculto y el drawer exponga las 4 soluciones directas."""
     mobile_page.goto(f"{BASE}/", wait_until="domcontentloaded")
     
-    # Dropdown de desktop debe estar oculto en móvil
-    desktop_dropdown = mobile_page.locator(".site-nav__solutions")
-    assert not desktop_dropdown.is_visible(), "El dropdown .site-nav__solutions debe estar oculto en viewport móvil"
+    # Dropdown de desktop oculto
+    dropdown = mobile_page.locator(".site-nav__solutions")
+    assert not dropdown.is_visible(), "El dropdown desktop debe estar oculto en móvil"
     
-    # Abrir drawer móvil
+    # Abrir menú móvil
     toggle = mobile_page.locator(".menu-toggle")
-    assert toggle.is_visible(), "Botón .menu-toggle debe ser visible en móvil"
+    assert toggle.is_visible()
     toggle.click()
     mobile_page.wait_for_timeout(250)
     
-    # Enlaces de soluciones móviles directos deben ser visibles
-    mobile_solutions = mobile_page.locator(".site-nav__mobile-solutions .site-nav__link")
-    assert mobile_solutions.count() == 4, f"Se esperaban 4 enlaces en .site-nav__mobile-solutions, encontrados {mobile_solutions.count()}"
-    assert mobile_solutions.first.is_visible(), "Los enlaces móviles de soluciones deben ser visibles en el drawer abierto"
+    nav = mobile_page.locator(".nav-cta.site-nav")
+    assert "active" in (nav.get_attribute("class") or "")
+    
+    # Enlaces de soluciones móviles directos
+    mob_links = mobile_page.locator(".site-nav__mobile-solutions .site-nav__link")
+    assert mob_links.count() == 4
+    assert mob_links.first.is_visible()

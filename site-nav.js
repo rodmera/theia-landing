@@ -1,52 +1,107 @@
 /**
- * site-nav.js — Comportamiento accesible y mejoras interactivas para el navbar TheIA (TASK-202608191916)
+ * site-nav.js — Comportamiento accesible para el navbar TheIA (TASK-202608191930)
  */
 (function () {
   function initSiteNav() {
-    // 1. Gestión accesible del menú de Soluciones en Desktop
-    const disclosures = document.querySelectorAll('.site-nav__solutions-disclosure');
-    disclosures.forEach((d) => {
-      // Hover interactivo para apertura de details en desktop
-      d.addEventListener('mouseenter', () => {
-        if (window.innerWidth > 960) {
-          d.setAttribute('open', '');
-        }
-      });
+    // 1. Gestión del Dropdown de Soluciones en Desktop
+    const solutions = document.querySelectorAll('.site-nav__solutions');
+    solutions.forEach((container) => {
+      const trigger = container.querySelector('.site-nav__solutions-trigger');
+      const popover = container.querySelector('.site-nav__popover');
+      if (!trigger || !popover) return;
 
-      d.addEventListener('mouseleave', () => {
+      function openMenu() {
         if (window.innerWidth > 960) {
-          d.removeAttribute('open');
+          container.classList.add('is-open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      }
+
+      function closeMenu() {
+        if (window.innerWidth > 960) {
+          container.classList.remove('is-open');
+          trigger.setAttribute('aria-expanded', 'false');
+        }
+      }
+
+      // Hover
+      container.addEventListener('mouseenter', openMenu);
+      container.addEventListener('mouseleave', closeMenu);
+
+      // Clic en trigger
+      trigger.addEventListener('click', (e) => {
+        if (window.innerWidth > 960) {
+          e.stopPropagation();
+          const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+          if (isOpen) {
+            closeMenu();
+          } else {
+            openMenu();
+          }
         }
       });
     });
 
-    if (disclosures.length) {
-      document.addEventListener('click', (e) => {
-        if (window.innerWidth > 960) {
-          disclosures.forEach((d) => {
-            if (d.open && !d.contains(e.target)) {
-              d.removeAttribute('open');
-            }
-          });
+    // Cerrar dropdown al hacer clic fuera o con Escape
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth > 960) {
+        solutions.forEach((container) => {
+          if (!container.contains(e.target)) {
+            container.classList.remove('is-open');
+            const trigger = container.querySelector('.site-nav__solutions-trigger');
+            if (trigger) trigger.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && window.innerWidth > 960) {
+        solutions.forEach((container) => {
+          container.classList.remove('is-open');
+          const trigger = container.querySelector('.site-nav__solutions-trigger');
+          if (trigger) {
+            trigger.setAttribute('aria-expanded', 'false');
+            trigger.focus();
+          }
+        });
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth <= 960) {
+        solutions.forEach((container) => {
+          container.classList.remove('is-open');
+          const trigger = container.querySelector('.site-nav__solutions-trigger');
+          if (trigger) trigger.setAttribute('aria-expanded', 'false');
+        });
+      } else {
+        const navCta = document.querySelector('.nav-cta');
+        if (navCta) {
+          navCta.classList.remove('active');
+          document.body.classList.remove('mobile-menu-open');
         }
+      }
+    });
+
+    // 2. Gestión unificada del menú móvil off-canvas
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navCta = document.querySelector('.nav-cta');
+    const hasInlineScript = Array.from(document.querySelectorAll('script:not([src])')).some(s => s.textContent.includes('menuToggle'));
+    if (menuToggle && navCta && !hasInlineScript && !menuToggle.dataset.navBound) {
+      menuToggle.dataset.navBound = 'true';
+      menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navCta.classList.toggle('active');
+        document.body.classList.toggle('mobile-menu-open');
       });
 
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && window.innerWidth > 960) {
-          disclosures.forEach((d) => {
-            if (d.open) {
-              d.removeAttribute('open');
-              const summary = d.querySelector('summary');
-              if (summary) summary.focus();
-            }
-          });
-        }
-      });
-
-      window.addEventListener('resize', () => {
-        if (window.innerWidth <= 960) {
-          disclosures.forEach((d) => d.removeAttribute('open'));
-        }
+      const navLinks = navCta.querySelectorAll('a');
+      navLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          navCta.classList.remove('active');
+          document.body.classList.remove('mobile-menu-open');
+        });
       });
     }
   }
