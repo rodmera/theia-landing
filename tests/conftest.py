@@ -85,6 +85,16 @@ def desktop_page(browser):
     ctx.close()
 
 
+@pytest.fixture(autouse=True)
+def _reset_js_errors(request):
+    """Limpia la lista de errores JS antes de cada test para no arrastrar estado en fixtures de sesión."""
+    for fix in ("mobile_page", "desktop_page"):
+        if fix in request.fixturenames:
+            p = request.getfixturevalue(fix)
+            if hasattr(p, "js_errors"):
+                p.js_errors.clear()
+
+
 def filtered_js_errors(page):
     """Errores JS reales: se toleran los fallos de RED del widget/analytics
     (el backend TheIA y GA no corren en el server local de tests)."""
