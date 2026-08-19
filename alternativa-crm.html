@@ -282,6 +282,7 @@
       .btn { white-space: normal !important; text-align: center; }
     }
   </style>
+  <link rel="stylesheet" href="site-nav.css" />
 </head>
 
 <body>
@@ -293,15 +294,15 @@
     <button class="menu-toggle" aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
-    <div class="nav-cta">
-      <a href="/atencion-cliente" class="btn btn-ghost">Atención</a>
-      <a href="/pulse" class="btn btn-ghost">Pulse</a>
-      <a href="/funciones" class="btn btn-ghost">Cómo ayuda</a>
-      <a href="/crm" class="btn btn-ghost">CRM</a>
-      <a href="/panel" class="btn btn-ghost">Panel de Control</a>
-      <a href="/precios" class="btn btn-ghost">Precios</a>
-      <a href="/blog/" class="btn btn-ghost">Recursos</a>
-      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" onclick="theiaTrackCTA('demo','alternativa-nav')">Agenda una demo →</a>
+        <div class="nav-cta site-nav" aria-label="Navegación principal">
+      <a href="/atencion-cliente" class="site-nav__link">Atención</a>
+      <a href="/pulse" class="site-nav__link">Pulse</a>
+      <a href="/funciones" class="site-nav__link">Cómo ayuda</a>
+      <a href="/crm" class="site-nav__link site-nav__link--active" aria-current="page">CRM</a>
+      <a href="/panel" class="site-nav__link">Panel de Control</a>
+      <a href="/precios" class="site-nav__link">Precios</a>
+      <a href="/blog/" class="site-nav__link">Recursos</a>
+      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold site-nav__demo" onclick="theiaTrackCTA('demo','alternativa-nav')">Agenda una demo →</a>
     </div>
   </nav>
 

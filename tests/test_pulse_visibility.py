@@ -38,10 +38,10 @@ def test_navbar_contiene_enlace_a_pulse_en_orden_correcto(page_path):
     assert file.is_file(), f"Archivo {file} no existe"
     content = file.read_text(encoding="utf-8")
     
-    assert 'class="nav-cta"' in content, f"{file.name} debe tener contenedor .nav-cta"
+    assert "nav-cta" in content, f"{file.name} debe tener contenedor .nav-cta"
     
     # Extraer el bloque nav-cta
-    match = re.search(r'<div class="nav-cta">(.*?)</div>', content, re.DOTALL)
+    match = re.search(r'<div class="nav-cta[^"]*"[^>]*>(.*?)</div>', content, re.DOTALL)
     assert match is not None, f"No se encontró <div class=\"nav-cta\"> en {file.name}"
     nav_html = match.group(1)
     
