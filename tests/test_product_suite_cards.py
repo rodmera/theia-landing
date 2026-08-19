@@ -58,13 +58,13 @@ def test_product_suite_css_contains_semantic_contract():
         ("/atencion-cliente", "Conocer Atención"),
         ("/pulse", "Conocer Pulse"),
         ("openTheiaChat('crm')", "Conocer CRM"),
-        ("/plataforma", "Ver Plataforma"),
+        ("/panel", "Ver Panel de Control"),
     ]),
     (ATENCION_HTML, [
         ("/funciones", "Ver cómo ayuda"),
         ("/pulse", "Conocer Pulse"),
         ("openTheiaChat('crm')", "Conocer CRM"),
-        ("/plataforma", "Ver la plataforma"),
+        ("/panel", "Ver Panel de Control"),
     ]),
 ])
 def test_html_structure_has_4_cards_with_correct_semantics_and_ctas(html_file, expected_ctas):
@@ -83,7 +83,7 @@ def test_html_structure_has_4_cards_with_correct_semantics_and_ctas(html_file, e
     assert action_count == 4, f"{html_file.name} debe contener 4 acciones .product-suite-card__action"
     
     # Títulos esperados
-    for title in ["Atención", "TheIA Pulse", "CRM", "Plataforma"]:
+    for title in ["Atención", "TheIA Pulse", "CRM", "Panel de Control"]:
         assert title in content, f"{html_file.name} debe contener el producto '{title}'"
         
     # CTAs esperados

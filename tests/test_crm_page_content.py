@@ -191,7 +191,7 @@ def test_cta_crm_abre_webchat_con_origen_estable(mobile_page):
 @pytest.mark.parametrize(
     "path",
     [ROOT / "index.html", FUNCIONES_PAGE, PRECIOS_PAGE, ROOT / "pulse.html",
-     ROOT / "plataforma.html"],
+     ROOT / "panel.html"],
 )
 def test_pagina_enlaza_a_crm(path):
     """La navegación de las páginas de producto lleva al módulo CRM."""

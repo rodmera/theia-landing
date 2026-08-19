@@ -144,7 +144,7 @@ def test_atencion_cliente_es_hub_del_paraguas(mobile_page):
     assert "WhatsApp, Instagram y tu web" in text, "atencion-cliente no exhibe el claim A"
     assert "agenda de clientes" in text, "atencion-cliente perdió el lenguaje del dueño del claim A"
     # Las 4 piezas del paraguas mencionadas como cards/secciones
-    for pieza in ["Atención", "TheIA Pulse", "CRM", "Plataforma"]:
+    for pieza in ["Atención", "TheIA Pulse", "CRM", "Panel de Control"]:
         assert pieza in text, f"atencion-cliente no menciona la pieza {pieza}"
     # Honestidad — el bloque "para quién no" vive en la home (decisión 3321110:
     # se removió la réplica redundante de atencion-cliente; test_no_contenido_repetido
@@ -818,7 +818,7 @@ def test_homologacion_de_navbar_y_logo(mobile_page, path):
         const links = Array.from(document.querySelectorAll('.nav-cta a'));
         return links.map(a => a.innerText.trim());
     }""")
-    expected = ["Atención", "Cómo ayuda", "CRM", "Plataforma", "Precios", "Recursos", "Agenda una demo →"]
+    expected = ["Atención", "Cómo ayuda", "CRM", "Panel de Control", "Precios", "Recursos", "Agenda una demo →"]
     for item in expected:
         assert item in nav_texts, f"{path} no contiene el enlace de navegación homologado '{item}': {nav_texts}"
 
