@@ -6,6 +6,7 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ### Cambiado
 
+- **Tests más rápidos (2026-08-15):** la suite Playwright pasó de ~5+ min (podía colgarse) a ~47 s. Fixtures `mobile_page`/`desktop_page` ahora son session-scope (un contexto de navegador para toda la suite, no uno por test), los waits de navegación se redujeron a 150-200 ms y la suite corre en paralelo con `pytest-xdist -n 4` (local y en el CI `site-tests.yml`). Se agrega `pytest-xdist` a `tests/requirements.txt`.
 - **Atribución del WebChat:** los CTAs que abren “Habla con TheIA” conservan su identificador de landing hasta el primer mensaje; el CRM y analítica pueden distinguir el origen sin reemplazar campañas previas.
 - **CTAs diferenciados:** “Habla con TheIA” abre el WebChat y “Agenda una demo” coordina con el equipo.
 - **Home enfocada en atención confiable:** hero, conversación demostrativa, problemas, funciones y CTA ahora priorizan responder con contexto, orientar, cotizar/agendar y derivar al equipo; vender más se presenta como consecuencia, no como promesa única.

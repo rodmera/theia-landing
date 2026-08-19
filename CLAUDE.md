@@ -38,17 +38,25 @@ python3 -m http.server 8080
 # luego visitar http://localhost:8080
 ```
 
-**Tests (desde 2026-07-18):** suite Playwright mobile-first en `tests/` (viewport default =
-iPhone 390×844). Corre local antes de push y en GitHub Actions en cada push (workflow
-`site-tests.yml`, screenshots móviles como artifacts).
+**Tests (desde 2026-07-18; optimizado 2026-08-15):** suite Playwright mobile-first en
+`tests/` (viewport default = iPhone 390×844). Corre local antes de push y en GitHub
+Actions en cada push (workflow `site-tests.yml`, screenshots móviles como artifacts).
 
 ```bash
 # setup una vez
 python3 -m venv .venv-test && .venv-test/bin/pip install -r tests/requirements.txt
 .venv-test/bin/python -m playwright install chromium
-# correr
+# correr (paralelo: -n 4, ~47s; antes >5 min)
+.venv-test/bin/python -m pytest tests/ -q -n 4
+# serial (diagnóstico, ~2.5 min)
 .venv-test/bin/python -m pytest tests/ -q
 ```
+
+Optimización 2026-08-15: fixtures `mobile_page`/`desktop_page` son session-scope (un
+contexto para toda la suite, no uno por test), waits de navegación reducidos
+(150-200ms) y la suite corre en paralelo con `pytest-xdist -n 4` (igual que el CI).
+Las esperas de 600ms en `test_design_contract.py`/`test_crm_page_content.py` son
+intencionales (verifican animaciones) y NO deben reducirse.
 
 Cubre: smoke de las 10 páginas, overflow horizontal móvil, errores JS, CTAs críticos
 (incluido el número BLOQUEADO), links internos, regla de registro (jerga prohibida),
@@ -149,6 +157,7 @@ Las HUs del sitio viven en el **mismo backlog del vault que TheIA producto** (no
 Consultar: `python3 ~/projects/r2sport-whatsapp-bot/scripts/backlog.py --epica web`.
 - Los agentes que trabajen ACÁ solo toman HUs con `repo: theia-landing`. Las demás son del producto
   (r2sport-whatsapp-bot, otros gates) — no tomarlas desde este repo.
+- **Toda HU que toque front debe cumplir el Design System oficial** (`04-Procesos/Plantillas/202608121018 - Design System TheIA — documento oficial consolidado del ecosistema`): tipografías, paleta, iconos SVG, patrón de vista 360 y rutas de assets. El gate incluye `tests/test_design_contract.py`.
 - Cerrar una HU: mismo protocolo del vault (`estado: implementado` + `commit:` SOLO tras el deploy
   verificado en theia.cl).
 

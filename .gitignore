@@ -1,4 +1,7 @@
+.venv-test
 .venv-test/
+.venv
+.venv/
 tests/screenshots/
 __pycache__/
 .pytest_cache/

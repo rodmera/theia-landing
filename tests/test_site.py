@@ -34,7 +34,7 @@ def visible_text(page):
 
 def goto(page, path):
     resp = page.goto(BASE + path, wait_until="domcontentloaded")
-    page.wait_for_timeout(400)  # animaciones de entrada / cc-init
+    page.wait_for_timeout(150)  # animaciones de entrada / cc-init (reducido de 400ms)
     return resp
 
 
@@ -329,7 +329,7 @@ def test_demo_link_limpio_nueva_pestaña(desktop_page):
     apunten a la URL de Google Calendar con target='_blank' y rel='noopener', permitiendo
     que el flujo de agendamiento funcione sin ser bloqueado por políticas de iframe de Google."""
     goto(desktop_page, "/")
-    desktop_page.wait_for_timeout(400)
+    desktop_page.wait_for_timeout(200)
 
     demo_btn = desktop_page.get_by_role("link", name=re.compile(r"Agenda.*demo", re.I)).first
     href = demo_btn.get_attribute("href") or ""
@@ -368,7 +368,7 @@ def test_widget_en_todas_las_paginas(mobile_page, path):
 def test_sticky_whatsapp_movil(mobile_page):
     goto(mobile_page, "/")
     mobile_page.mouse.wheel(0, 1500)
-    mobile_page.wait_for_timeout(300)
+    mobile_page.wait_for_timeout(200)
     stickies = mobile_page.eval_on_selector_all(
         "a[href*='wa.me']",
         """els => els.filter(e => {
@@ -388,7 +388,7 @@ def test_sticky_whatsapp_desktop(desktop_page):
     orgánicamente desde navbar, CTAs y footer."""
     goto(desktop_page, "/")
     desktop_page.mouse.wheel(0, 1500)
-    desktop_page.wait_for_timeout(300)
+    desktop_page.wait_for_timeout(200)
     is_hidden = desktop_page.evaluate("""() => {
         const wa = document.querySelector('.sticky-wa');
         if (!wa) return true;
@@ -507,7 +507,7 @@ def test_seccion_como_funciona_sin_linea_y_texto_alineado(desktop_page):
     2. Verifica que las descripciones (.step-desc) de las 3 tarjetas comiencen exactamente a la misma altura vertical (top coincide <= 1.5px).
     """
     goto(desktop_page, "/")
-    desktop_page.wait_for_timeout(400)
+    desktop_page.wait_for_timeout(200)
 
     has_line = desktop_page.evaluate("""() => {
         const steps = document.querySelector('.steps');
@@ -620,7 +620,7 @@ def test_sin_wording_duplicado_entre_hero_y_tooltip(desktop_page, path):
     que los botones CTA estáticos de la página ('Probar conversación en vivo'), evitando la duplicidad en pantalla.
     """
     goto(desktop_page, path)
-    desktop_page.wait_for_timeout(400)
+    desktop_page.wait_for_timeout(200)
 
     tooltip = desktop_page.locator("#theia-widget-tooltip")
     if tooltip.is_visible():
@@ -716,7 +716,7 @@ def test_alineacion_vertical_de_grupos_de_botones(desktop_page, path):
     compartan exactamente la misma alineación vertical (centros coinciden con diferencia <= 2px).
     """
     goto(desktop_page, path)
-    desktop_page.wait_for_timeout(400)
+    desktop_page.wait_for_timeout(200)
 
     misalignments = desktop_page.evaluate("""() => {
         const containers = Array.from(document.querySelectorAll('.cta-btns, .actions, .cta-section, .hero-btns'));

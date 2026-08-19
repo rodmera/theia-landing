@@ -64,7 +64,7 @@ def site_server():
     proc.wait(timeout=5)
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def mobile_page(browser):
     """Página con viewport móvil (el default de la suite) + captura de errores JS."""
     ctx = browser.new_context(**MOBILE)
@@ -75,7 +75,7 @@ def mobile_page(browser):
     ctx.close()
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def desktop_page(browser):
     ctx = browser.new_context(**DESKTOP)
     page = ctx.new_page()

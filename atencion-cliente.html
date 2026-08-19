@@ -95,6 +95,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
     rel="stylesheet" />
+  <link rel="stylesheet" href="product-suite.css" />
 
   <style>
     *, *::before, *::after {
@@ -753,41 +754,57 @@
       <h2 class="section-title reveal">Cuatro piezas, una atención continua</h2>
       <p class="section-sub reveal">TheIA no es un chatbot suelto. Es un sistema donde cada pieza hace su parte para que ningún cliente quede esperando.</p>
 
-      <div class="pieces-grid">
-        <div class="piece-card reveal">
-          <div class="piece-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg>
+      <div class="pieces-grid product-suite-grid">
+        <div class="piece-card reveal product-suite-card">
+          <div class="product-suite-card__header">
+            <div class="product-suite-card__icon piece-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg>
+            </div>
           </div>
-          <h3>Atención</h3>
-          <p>WhatsApp, Instagram y tu web responden con contexto. Cuando la pregunta es compleja, TheIA escala a tu equipo con el resumen de la conversación.</p>
-          <a href="/funciones" class="btn btn-ghost">Ver cómo ayuda →</a>
+          <div class="product-suite-card__content">
+            <h3>Atención</h3>
+            <p>WhatsApp, Instagram y tu web responden con contexto. Cuando la pregunta es compleja, TheIA escala a tu equipo con el resumen de la conversación.</p>
+          </div>
+          <a href="/funciones" class="btn btn-ghost product-suite-card__action">Ver cómo ayuda →</a>
         </div>
 
-        <div class="piece-card reveal">
-          <div class="piece-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        <div class="piece-card reveal product-suite-card">
+          <div class="product-suite-card__header">
+            <div class="product-suite-card__icon piece-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
           </div>
-          <h3>TheIA Pulse</h3>
-          <p>Tu copiloto personal por WhatsApp. Resúmenes diarios, alertas y gestión de tu agenda en texto natural.</p>
-          <a href="/pulse" class="btn btn-ghost">Conocer Pulse →</a>
+          <div class="product-suite-card__content">
+            <h3>TheIA Pulse</h3>
+            <p>Tu copiloto personal por WhatsApp. Resúmenes diarios, alertas y gestión de tu agenda en texto natural.</p>
+          </div>
+          <a href="/pulse" class="btn btn-ghost product-suite-card__action">Conocer Pulse →</a>
         </div>
 
-        <div class="piece-card reveal">
-          <div class="piece-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div class="piece-card reveal product-suite-card">
+          <div class="product-suite-card__header">
+            <div class="product-suite-card__icon piece-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
           </div>
-          <h3>CRM</h3>
-          <p>Cada negocio se registra, avanza por tus etapas y se actualiza desde la propia conversación. Por negocio, no por asiento.</p>
-          <button type="button" class="btn btn-ghost" style="border-style:solid;cursor:pointer;" onclick="openTheiaChat('crm')">Conocer CRM →</button>
+          <div class="product-suite-card__content">
+            <h3>CRM</h3>
+            <p>Cada negocio se registra, avanza por tus etapas y se actualiza desde la propia conversación. Por negocio, no por asiento.</p>
+          </div>
+          <button type="button" class="btn btn-ghost product-suite-card__action" style="border-style:solid;cursor:pointer;" onclick="openTheiaChat('crm')">Conocer CRM →</button>
         </div>
 
-        <div class="piece-card reveal">
-          <div class="piece-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+        <div class="piece-card reveal product-suite-card">
+          <div class="product-suite-card__header">
+            <div class="product-suite-card__icon piece-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            </div>
           </div>
-          <h3>Plataforma</h3>
-          <p>Tu equipo ve qué pasa en cada conversación. Métricas claras, sin jerga, para que sepas qué funciona.</p>
-          <a href="/plataforma" class="btn btn-ghost">Ver la plataforma →</a>
+          <div class="product-suite-card__content">
+            <h3>Plataforma</h3>
+            <p>Tu equipo ve qué pasa en cada conversación. Métricas claras, sin jerga, para que sepas qué funciona.</p>
+          </div>
+          <a href="/plataforma" class="btn btn-ghost product-suite-card__action">Ver la plataforma →</a>
         </div>
       </div>
     </div>

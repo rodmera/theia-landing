@@ -25,8 +25,8 @@ jobs:
           pip install -r tests/requirements.txt
           python -m playwright install --with-deps chromium
 
-      - name: Correr suite (mobile-first)
-        run: python -m pytest tests/ -v --tb=short
+      - name: Correr suite (mobile-first, paralelo)
+        run: python -m pytest tests/ -v --tb=short -n 4
 
       - name: Subir screenshots (evidencia visual)
         if: always()
