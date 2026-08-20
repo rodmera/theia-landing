@@ -30,7 +30,7 @@ ACTIVE_NAV_MAP = {
     "/panel.html": "/panel",
     "/salud.html": "/salud",
     "/servicios.html": "/servicios",
-    "/servicios-pyme.html": "/servicios",
+    "/servicios-pyme.html": "/servicios-pyme",
     "/automotriz.html": "/automotriz",
     "/comercio.html": "/comercio",
     "/casos.html": "/casos",
@@ -112,10 +112,10 @@ def test_navbar_visual_desktop_styles(desktop_page):
     desktop_page.goto(f"{BASE}/", wait_until="domcontentloaded")
     desktop_page.wait_for_timeout(200)
     
-    # En desktop, los enlaces visibles directos son las 3 secciones (Cómo ayuda, Precios, Nosotros)
+    # En desktop, los enlaces visibles directos son las 4 secciones (Servicios, Cómo ayuda, Precios, Nosotros)
     direct_links = desktop_page.locator(".site-nav > .site-nav__link")
     count = direct_links.count()
-    assert count == 3, f"Se esperaban 3 enlaces de texto directos en desktop, se encontraron {count}"
+    assert count == 4, f"Se esperaban 4 enlaces de texto directos en desktop, se encontraron {count}"
     
     for i in range(count):
         link = direct_links.nth(i)
