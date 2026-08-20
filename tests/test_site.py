@@ -146,12 +146,13 @@ def test_atencion_cliente_es_hub_del_paraguas(mobile_page):
     # Las 4 piezas del paraguas mencionadas como cards/secciones
     for pieza in ["Atención", "TheIA Pulse", "CRM", "Panel de Control"]:
         assert pieza in text, f"atencion-cliente no menciona la pieza {pieza}"
-    # Honestidad — el bloque "para quién no" vive en la home (decisión 3321110:
-    # se removió la réplica redundante de atencion-cliente; test_no_contenido_repetido
-    # impide que vuelva. Verificar que la home lo conserva).
+    # Honestidad — el bloque "para quién no" vive en criterios.html (página interior especializada
+    # para desaturar la landing principal).
+    criterios_src = (Path(__file__).parent.parent / "criterios.html").read_text(encoding="utf-8")
+    assert "Para quién sí, para quién no" in criterios_src, "criterios.html debe contener el bloque de honestidad 'para quién sí/no'"
+    assert "TheIA no es para todos" in criterios_src, "criterios.html debe contener el copy honesto de 'para quién no'"
     home = (Path(__file__).parent.parent / "index.html").read_text(encoding="utf-8")
-    assert "Para quién sí, para quién no" in home, "home perdió el bloque de honestidad 'para quién sí/no'"
-    assert "TheIA no es para todos" in home, "home perdió el copy honesto de 'para quién no'"
+    assert "Para quién sí, para quién no" not in home, "home debe estar limpia de secciones secundarias"
     # Cumplimiento / Seguridad
     assert "Seguridad" in text or "Privacidad" in text, "atencion-cliente no menciona la sección de seguridad/privacidad"
 
