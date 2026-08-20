@@ -661,6 +661,91 @@
       .agenda-layout { gap: 1.5rem; }
       .footer-inner { flex-direction: column; text-align: center; }
     }
+
+    /* Comparacion section */
+    .comparacion {
+      padding: 5.5rem 0;
+      background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
+    }
+
+    .comp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .comp-grid { grid-template-columns: 1fr; }
+    }
+
+    .comp-card-bad {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 2rem;
+    }
+
+    .comp-card-good {
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.15), rgba(212, 175, 55, 0.08));
+      border: 1px solid var(--glass-border-gold);
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.1);
+    }
+
+    .comp-card-good::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--indigo), var(--gold));
+    }
+
+    .comp-label {
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .comp-label.gold {
+      color: var(--gold);
+      border-color: rgba(212, 175, 55, 0.2);
+    }
+
+    .comp-item {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-sub);
+      line-height: 1.55;
+    }
+
+    .comp-icon-bad {
+      color: rgba(255, 80, 80, 0.8);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .comp-icon-good {
+      color: var(--gold);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .comp-item strong {
+      color: var(--text);
+    }
   </style>
   <link rel="stylesheet" href="/site-nav.css">
   <script src="/site-nav.js" defer></script>
@@ -1112,6 +1197,38 @@
   </section>
 
 
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- COMPARACIÓN: CONTEXTO Y CONTROL                    -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section class="comparacion">
+    <div class="container">
+      <h2 class="section-title reveal">Cuando un cliente escribe,<br /><span class="gold">el contexto importa.</span></h2>
+      <p class="section-sub reveal">Una buena atención no consiste en contestar cualquier cosa: consiste en saber qué responder y cuándo sumar a una persona.</p>
+      <div class="comp-grid">
+        <div class="comp-card-bad reveal">
+          <h3 class="comp-label">Sin contexto ni control</h3>
+          <div class="comp-item"><span class="comp-icon-bad">✗</span><span><strong>IA que inventa:</strong> Si no sabe una respuesta, inventa precios o condiciones falsas para salir del paso.</span></div>
+          <div class="comp-item"><span class="comp-icon-bad">✗</span><span><strong>Flujos rígidos:</strong> Te obliga a seguir menús numéricos o botones de 'Menú 1, Menú 2' que aburren al cliente.</span></div>
+          <div class="comp-item"><span class="comp-icon-bad">✗</span><span><strong>Sin intervención humana:</strong> No sabe cuándo traspasarte un chat importante y deja al cliente sin respuesta.</span></div>
+          <div class="comp-item"><span class="comp-icon-bad">✗</span><span><strong>Olvida el contexto:</strong> Si el cliente vuelve a escribir horas más tarde, tiene que explicarle todo desde cero.</span></div>
+          <div class="comp-item"><span class="comp-icon-bad">✗</span><span><strong>Costos por mensaje:</strong> Pagas licencias en dólares y tarifas variables con letra chica por cada mensaje de IA enviado.</span></div>
+          <div class="comp-item"><span class="comp-icon-bad">✗</span><span><strong>Hágalo usted mismo:</strong> Tienes que configurarlo tú mismo usando plataformas en inglés con cientos de opciones técnicas.</span></div>
+          <div class="comp-item"><span class="comp-icon-bad">✗</span><span><strong>Soporte fantasma:</strong> Si el bot falla, te atienden por correo en inglés o con un robot genérico después de días.</span></div>
+        </div>
+        <div class="comp-card-good reveal">
+          <h3 class="comp-label gold">Con TheIA y tu equipo</h3>
+          <div class="comp-item"><span class="comp-icon-good">★</span><span><strong>IA que no inventa:</strong> Responde solo con tu información real. Si no sabe algo, prefiere decirlo y te avisa.</span></div>
+          <div class="comp-item"><span class="comp-icon-good">★</span><span><strong>Conversación natural:</strong> Atiende y conversa por WhatsApp de forma fluida y cercana, entendiendo audios y modismos.</span></div>
+          <div class="comp-item"><span class="comp-icon-good">★</span><span><strong>Traspaso inteligente:</strong> Sabe cuándo cerrar la venta, agendar la cita o pasarte la conversación a tu WhatsApp personal.</span></div>
+          <div class="comp-item"><span class="comp-icon-good">★</span><span><strong>Memoria del cliente:</strong> Recuerda el historial de cada conversación para retomar la charla exactamente donde quedó.</span></div>
+          <div class="comp-item"><span class="comp-icon-good">★</span><span><strong>Mensualidad clara:</strong> La IA de TheIA está incluida. Los cargos que dependan de WhatsApp Business se explican antes de activar el canal.</span></div>
+          <div class="comp-item"><span class="comp-icon-good">★</span><span><strong>Llave en mano:</strong> Nosotros configuramos tu atención con tu catálogo. La puesta en marcha inicial toma menos de 7 días, según el alcance y los canales.</span></div>
+          <div class="comp-item"><span class="comp-icon-good">★</span><span><strong>Soporte local en Chile:</strong> Somos un equipo local y te respondemos directamente por WhatsApp ante cualquier duda o ajuste.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ═══════════════════════════════════════════════════ -->
   <!-- CTA FINAL                                          -->
