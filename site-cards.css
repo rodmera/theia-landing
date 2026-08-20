@@ -101,9 +101,31 @@
   flex: 1 1 auto !important;
 }
 
-/* 4. Acción (si existe botón al pie) */
-.theia-card__action {
-  align-self: center !important;
-  margin-top: 1.25rem !important;
-  margin-bottom: 0 !important;
+/* Compatibilidad con clases legacy (pain-grid, etc.) */
+.pain-grid .glass-card,
+.pain-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 2.25rem 1.75rem !important;
 }
+
+.pain-icon-wrap {
+  margin: 0 auto 1.25rem auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.pain-title {
+  text-align: center !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.65rem !important;
+}
+
+.pain-desc {
+  text-align: center !important;
+  margin: 0 !important;
+}
+
