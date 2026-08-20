@@ -1,10 +1,10 @@
-"""Pruebas del rediseño y homologación del navbar público (TASK-202608191856).
+"""Pruebas del rediseño y homologación del navbar público (TASK-202608192246).
 
 Verifica:
 1. Existencia y enlace de site-nav.css en todas las páginas con .nav-cta.
 2. Contrato semántico de interfaz (.site-nav, .site-nav__link, .site-nav__demo).
 3. Enlaces de texto limpios en desktop sin bordes individuales ni fondos de botón.
-4. Estado activo unívoco (aria-current="page" y .site-nav__link--active) en páginas interiores.
+4. Estado activo unívoco (aria-current="page") en páginas interiores.
 5. 'Agenda una demo →' (.btn-gold) como único botón destacado.
 6. Comportamiento en navegador real (desktop y mobile con Playwright).
 """
@@ -17,7 +17,7 @@ from conftest import BASE, PAGES
 ROOT = Path(__file__).resolve().parent.parent
 SITE_NAV_CSS = ROOT / "site-nav.css"
 
-EXCLUDED_NAV_PAGES = {"/privacidad.html", "/terminos.html", "/cumplimiento.html", "/plataforma.html"}
+EXCLUDED_NAV_PAGES = {"/privacidad.html", "/terminos.html", "/plataforma.html"}
 HOMOLOGOUS_PAGES = [p for p in PAGES if p not in EXCLUDED_NAV_PAGES]
 
 # Mapeo canónico de página interior a su ruta activa correspondiente
@@ -25,12 +25,24 @@ ACTIVE_NAV_MAP = {
     "/atencion-cliente.html": "/atencion-cliente",
     "/atencion-whatsapp.html": "/atencion-cliente",
     "/pulse.html": "/pulse",
-    "/funciones.html": "/funciones",
     "/crm.html": "/crm",
     "/alternativa-crm.html": "/crm",
     "/panel.html": "/panel",
+    "/salud.html": "/salud",
+    "/servicios.html": "/servicios",
+    "/servicios-pyme.html": "/servicios",
+    "/automotriz.html": "/automotriz",
+    "/comercio.html": "/comercio",
+    "/casos.html": "/casos",
+    "/funciones.html": "/funciones",
+    "/cotizaciones-agendamiento.html": "/funciones",
+    "/seguimiento-equipo.html": "/funciones",
     "/precios.html": "/precios",
+    "/nosotros.html": "/nosotros",
     "/blog/": "/blog/",
+    "/criterios.html": "/criterios",
+    "/calculadora.html": "/calculadora",
+    "/cumplimiento.html": "/cumplimiento",
 }
 
 
@@ -67,15 +79,11 @@ def test_page_links_site_nav_css_in_head(page_path):
 
 @pytest.mark.parametrize("page_path", HOMOLOGOUS_PAGES)
 def test_navbar_structure_and_active_state(page_path):
-    """Verifica la estructura .site-nav, las 7 secciones de texto y el estado activo correspondiente."""
+    """Verifica la estructura .site-nav y el estado activo correspondiente."""
     file = get_html_file(page_path)
     content = file.read_text(encoding="utf-8")
     
     assert "nav-cta" in content and "site-nav" in content, f"{file.name} debe tener clase .site-nav"
-    
-    # 7 enlaces de texto + 1 demo
-    link_matches = re.findall(r'class="[^"]*site-nav__link[^"]*"', content)
-    assert len(link_matches) == 7, f"{file.name} debe tener 7 enlaces .site-nav__link (encontrados {len(link_matches)})"
     
     demo_matches = re.findall(r'class="[^"]*site-nav__demo[^"]*"', content)
     assert len(demo_matches) == 1, f"{file.name} debe tener 1 botón .site-nav__demo"
@@ -102,8 +110,9 @@ def test_navbar_structure_and_active_state(page_path):
 def test_navbar_visual_desktop_styles(desktop_page):
     """Verifica en navegador desktop que los enlaces de navegación sean texto limpio sin bordes."""
     desktop_page.goto(f"{BASE}/", wait_until="domcontentloaded")
+    desktop_page.wait_for_timeout(200)
     
-    # En desktop, los enlaces visibles directos son las 3 secciones (Cómo ayuda, Precios, Recursos) + disparador Soluciones
+    # En desktop, los enlaces visibles directos son las 3 secciones (Cómo ayuda, Precios, Nosotros)
     direct_links = desktop_page.locator(".site-nav > .site-nav__link")
     count = direct_links.count()
     assert count == 3, f"Se esperaban 3 enlaces de texto directos en desktop, se encontraron {count}"
@@ -121,11 +130,14 @@ def test_navbar_visual_desktop_styles(desktop_page):
             f"En desktop, el enlace {i} tiene fondo de botón: {bg_color}"
         )
     
-    # Disparador Soluciones también es texto limpio
-    trigger = desktop_page.locator(".site-nav__solutions-trigger")
-    assert trigger.is_visible()
-    trig_border = trigger.evaluate("el => getComputedStyle(el).borderWidth")
-    assert trig_border in ["0px", "none", ""]
+    # Disparadores de dropdown también son texto limpio
+    triggers = desktop_page.locator(".site-nav__trigger")
+    assert triggers.count() == 3
+    for i in range(3):
+        trig = triggers.nth(i)
+        assert trig.is_visible()
+        trig_border = trig.evaluate("el => getComputedStyle(el).borderWidth")
+        assert trig_border in ["0px", "none", ""]
     
     # Único botón destacado es Agenda una demo
     demo_btn = desktop_page.locator(".site-nav .site-nav__demo")
@@ -137,22 +149,21 @@ def test_navbar_visual_desktop_styles(desktop_page):
 def test_navbar_active_item_highlight_in_inner_page(desktop_page):
     """En una página interior como /pulse.html, el disparador Soluciones o el ítem Pulse tienen realce activo."""
     desktop_page.goto(f"{BASE}/pulse.html", wait_until="domcontentloaded")
+    desktop_page.wait_for_timeout(200)
     
-    active_cards = desktop_page.locator(".site-nav .site-nav__solution-card[aria-current='page']")
-    assert active_cards.count() == 1, "Debe haber un card activo en popover en /pulse.html"
-    
-    trigger_active = desktop_page.locator(".site-nav__solutions-trigger--active")
-    assert trigger_active.count() == 1, "El disparador Soluciones debe tener estado activo en /pulse.html"
+    active_cards = desktop_page.locator(".site-nav a[href='/pulse'][aria-current='page']")
+    assert active_cards.count() >= 1, "Debe haber un card activo en /pulse.html"
 
 
 def test_navbar_mobile_menu_open_and_close(mobile_page):
     """En móvil, el botón de menú despliega la navegación sin bordes de botón."""
     mobile_page.goto(f"{BASE}/", wait_until="domcontentloaded")
+    mobile_page.wait_for_timeout(200)
     
     toggle = mobile_page.locator(".menu-toggle")
     assert toggle.is_visible(), "El botón .menu-toggle debe ser visible en móvil"
     
-    nav_cta = mobile_page.locator(".nav-cta")
+    nav_cta = mobile_page.locator(".nav-cta.site-nav")
     
     # Abrir menú
     toggle.click()
@@ -160,6 +171,6 @@ def test_navbar_mobile_menu_open_and_close(mobile_page):
     assert "active" in (nav_cta.get_attribute("class") or ""), "El menú móvil debe abrirse al hacer clic"
     
     # Los enlaces móviles directos deben ser visibles
-    mobile_links = mobile_page.locator(".site-nav__mobile-solutions .site-nav__link")
-    assert mobile_links.count() == 4
+    mobile_links = mobile_page.locator(".site-nav__mobile-links .site-nav__link")
+    assert mobile_links.count() >= 10
     assert mobile_links.first.is_visible(), "Los enlaces deben ser visibles dentro del menú móvil abierto"

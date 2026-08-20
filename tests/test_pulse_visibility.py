@@ -128,7 +128,7 @@ def test_pulse_navbar_click_navega_a_pulse(desktop_page):
     desktop_page.goto(f"{BASE}/", wait_until="domcontentloaded")
     
     # En desktop, interactuar con Soluciones para desplegar popover
-    trigger = desktop_page.locator(".site-nav__solutions-trigger")
+    trigger = desktop_page.locator(".site-nav__trigger:has-text('Soluciones'), .site-nav__solutions-trigger").first
     if trigger.is_visible():
         trigger.hover()
         desktop_page.wait_for_timeout(200)

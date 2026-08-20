@@ -577,71 +577,166 @@
 
 <body>
 
-  <nav>
+    <nav class="site-header" data-site-nav data-site-nav-page="panel" data-site-nav-source="plataforma" aria-label="Navegación principal">
     <a href="/" class="logo">
       <img src="/logo.png" alt="TheIA — Atención de clientes confiable con IA para WhatsApp, Instagram y Web" width="100" height="100" />
+      <img src="/nvidia-inception-program-badge.png" alt="Miembro del NVIDIA Inception Program" class="nav-nvidia-badge" />
     </a>
-    <button class="menu-toggle" aria-label="Abrir menú">
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-nav-drawer">
       <span></span>
       <span></span>
       <span></span>
     </button>
-                <div class="nav-cta site-nav" aria-label="Navegación principal">
-      <div class="site-nav__solutions">
-        <button type="button" class="site-nav__solutions-trigger site-nav__solutions-trigger--active" aria-expanded="false" aria-controls="site-solutions-menu">
+    <div class="nav-cta site-nav" data-site-nav-mount id="site-nav-drawer">
+      <!-- 1. Dropdown Soluciones -->
+      <div class="site-nav__group site-nav__group--solutions">
+        <button type="button" class="site-nav__trigger site-nav__trigger--active" aria-expanded="false" aria-controls="site-solutions-menu">
           Soluciones
           <svg class="site-nav__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </button>
-        <div id="site-solutions-menu" class="site-nav__popover" aria-label="Soluciones TheIA">
-          <a href="/atencion-cliente" class="site-nav__solution-card">
-            <div class="site-nav__solution-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg>
-            </div>
-            <div class="site-nav__solution-text">
-              <div class="site-nav__solution-title">Atención</div>
-              <div class="site-nav__solution-desc">WhatsApp, Instagram y Web con contexto</div>
+        <div id="site-solutions-menu" class="site-nav__popover site-nav__popover--solutions" aria-label="Soluciones TheIA">
+          <a href="/atencion-cliente" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Atención</div>
+              <div class="site-nav__card-desc">WhatsApp, Instagram y Web con contexto</div>
             </div>
           </a>
-          <a href="/pulse" class="site-nav__solution-card">
-            <div class="site-nav__solution-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            </div>
-            <div class="site-nav__solution-text">
-              <div class="site-nav__solution-title">TheIA Pulse</div>
-              <div class="site-nav__solution-desc">Copiloto por WhatsApp para el dueño</div>
+          <a href="/pulse" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">TheIA Pulse</div>
+              <div class="site-nav__card-desc">Copiloto por WhatsApp para el dueño</div>
             </div>
           </a>
-          <a href="/crm" class="site-nav__solution-card">
-            <div class="site-nav__solution-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <div class="site-nav__solution-text">
-              <div class="site-nav__solution-title">CRM</div>
-              <div class="site-nav__solution-desc">Gestión comercial desde la conversación</div>
+          <a href="/crm" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">CRM</div>
+              <div class="site-nav__card-desc">Gestión comercial desde la conversación</div>
             </div>
           </a>
-          <a href="/panel" class="site-nav__solution-card site-nav__solution-card--active" aria-current="page">
-            <div class="site-nav__solution-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-            </div>
-            <div class="site-nav__solution-text">
-              <div class="site-nav__solution-title">Panel de Control</div>
-              <div class="site-nav__solution-desc">Supervisión y métricas en vivo</div>
+          <a href="/panel" class="site-nav__card site-nav__card--active" aria-current="page">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Panel de Control</div>
+              <div class="site-nav__card-desc">Supervisión y métricas en vivo</div>
             </div>
           </a>
         </div>
       </div>
 
-      <div class="site-nav__mobile-solutions">
-      <a href="/atencion-cliente" class="site-nav__link">Atención</a>
-      <a href="/pulse" class="site-nav__link">Pulse</a>
-      <a href="/crm" class="site-nav__link">CRM</a>
-      <a href="/panel" class="site-nav__link site-nav__link--active" aria-current="page">Panel de Control</a>
+      <!-- 2. Dropdown Industrias -->
+      <div class="site-nav__group site-nav__group--industries">
+        <button type="button" class="site-nav__trigger" aria-expanded="false" aria-controls="site-industries-menu">
+          Industrias
+          <svg class="site-nav__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div id="site-industries-menu" class="site-nav__popover site-nav__popover--industries" aria-label="Industrias TheIA">
+          <a href="/salud" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Salud</div>
+              <div class="site-nav__card-desc">Clínicas y centros médicos</div>
+            </div>
+          </a>
+          <a href="/servicios" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Servicios</div>
+              <div class="site-nav__card-desc">Empresas B2B y consultoría</div>
+            </div>
+          </a>
+          <a href="/automotriz" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Automotriz</div>
+              <div class="site-nav__card-desc">Talleres y concesionarias</div>
+            </div>
+          </a>
+          <a href="/comercio" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Comercio</div>
+              <div class="site-nav__card-desc">Retail y tiendas comerciales</div>
+            </div>
+          </a>
+          <a href="/casos" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Casos</div>
+              <div class="site-nav__card-desc">Resultados e historias de éxito</div>
+            </div>
+          </a>
+        </div>
       </div>
 
+      <!-- 3. Enlaces Directos -->
       <a href="/funciones" class="site-nav__link">Cómo ayuda</a>
       <a href="/precios" class="site-nav__link">Precios</a>
-      <a href="/blog/" class="site-nav__link">Recursos</a>
+      <a href="/nosotros" class="site-nav__link">Nosotros</a>
+
+      <!-- 4. Dropdown Recursos -->
+      <div class="site-nav__group site-nav__group--resources">
+        <button type="button" class="site-nav__trigger" aria-expanded="false" aria-controls="site-resources-menu">
+          Recursos
+          <svg class="site-nav__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div id="site-resources-menu" class="site-nav__popover site-nav__popover--resources" aria-label="Recursos TheIA">
+          <a href="/blog/" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Blog</div>
+              <div class="site-nav__card-desc">Artículos, guías y novedades</div>
+            </div>
+          </a>
+          <a href="/criterios" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Criterios</div>
+              <div class="site-nav__card-desc">Pauta para evaluar agentes de IA</div>
+            </div>
+          </a>
+          <a href="/calculadora" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Calculadora</div>
+              <div class="site-nav__card-desc">Calcula el retorno de inversión</div>
+            </div>
+          </a>
+          <a href="/cumplimiento" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Cumplimiento</div>
+              <div class="site-nav__card-desc">Seguridad, privacidad y Ley 21.719</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- 5. Enlaces Directos Móviles -->
+      <div class="site-nav__mobile-links">
+        <div class="site-nav__mobile-section-label">Soluciones</div>
+        <a href="/atencion-cliente" class="site-nav__link">Atención</a>
+        <a href="/pulse" class="site-nav__link">Pulse</a>
+        <a href="/crm" class="site-nav__link">CRM</a>
+        <a href="/panel" class="site-nav__link">Panel de Control</a>
+
+        <div class="site-nav__mobile-section-label">Industrias</div>
+        <a href="/salud" class="site-nav__link">Salud</a>
+        <a href="/servicios" class="site-nav__link">Servicios</a>
+        <a href="/automotriz" class="site-nav__link">Automotriz</a>
+        <a href="/comercio" class="site-nav__link">Comercio</a>
+        <a href="/casos" class="site-nav__link">Casos</a>
+
+        <div class="site-nav__mobile-section-label">Recursos</div>
+        <a href="/blog/" class="site-nav__link">Blog</a>
+        <a href="/criterios" class="site-nav__link">Criterios</a>
+        <a href="/calculadora" class="site-nav__link">Calculadora</a>
+        <a href="/cumplimiento" class="site-nav__link">Cumplimiento</a>
+      </div>
+
+      <!-- 6. Demo CTA -->
       <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold site-nav__demo" onclick="theiaTrackCTA('demo','plataforma')">Agenda una demo →</a>
     </div>
   </nav>
@@ -793,23 +888,6 @@
       });
     }, { threshold: 0.08 });
     reveals.forEach(el => observer.observe(el));
-
-    // Mobile Menu Toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navCta = document.querySelector('.nav-cta');
-    const navLinks = document.querySelectorAll('.nav-cta a');
-
-    menuToggle.addEventListener('click', () => {
-      navCta.classList.toggle('active');
-      document.body.classList.toggle('mobile-menu-open');
-    });
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navCta.classList.remove('active');
-        document.body.classList.remove('mobile-menu-open');
-      });
-    });
   </script>
 
 

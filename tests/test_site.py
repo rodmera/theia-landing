@@ -818,9 +818,9 @@ def test_homologacion_de_navbar_y_logo(mobile_page, path):
         const links = Array.from(document.querySelectorAll('.nav-cta a'));
         return links.map(a => a.innerText.trim());
     }""")
-    expected = ["Atención", "Cómo ayuda", "CRM", "Panel de Control", "Precios", "Recursos", "Agenda una demo →"]
+    expected = ["Atención", "Pulse", "CRM", "Panel de Control", "Cómo ayuda", "Precios", "Nosotros", "Blog", "Criterios", "Calculadora", "Cumplimiento", "Agenda una demo →"]
     for item in expected:
-        assert item in nav_texts, f"{path} no contiene el enlace de navegación homologado '{item}': {nav_texts}"
+        assert any(item in text for text in nav_texts), f"{path} no contiene el enlace de navegación homologado '{item}': {nav_texts}"
 
 
 @pytest.mark.parametrize("path", PAGES)

@@ -1,12 +1,12 @@
 /**
- * site-nav.js — Comportamiento accesible y estabilidad hover para el navbar TheIA (TASK-202608191947)
+ * site-nav.js — Módulo profundo de navegación pública TheIA (TASK-202608192246)
  */
 (function () {
   function initSiteNav() {
-    // 1. Gestión accesible y control de estado del Dropdown de Soluciones en Desktop
-    const solutions = document.querySelectorAll('.site-nav__solutions');
-    solutions.forEach((container) => {
-      const trigger = container.querySelector('.site-nav__solutions-trigger');
+    // 1. Gestión de Dropdowns en Desktop (Soluciones, Industrias, Recursos)
+    const groups = document.querySelectorAll('.site-nav__group, .site-nav__solutions');
+    groups.forEach((container) => {
+      const trigger = container.querySelector('.site-nav__trigger, .site-nav__solutions-trigger');
       const popover = container.querySelector('.site-nav__popover');
       if (!trigger || !popover) return;
 
@@ -25,6 +25,14 @@
           pinned = true;
         }
         if (window.innerWidth > 960) {
+          // Cerrar otros dropdowns hermanos
+          groups.forEach((other) => {
+            if (other !== container && other.classList.contains('is-open')) {
+              other.classList.remove('is-open');
+              const otherTrig = other.querySelector('.site-nav__trigger, .site-nav__solutions-trigger');
+              if (otherTrig) otherTrig.setAttribute('aria-expanded', 'false');
+            }
+          });
           container.classList.add('is-open');
           trigger.setAttribute('aria-expanded', 'true');
         }
@@ -59,7 +67,7 @@
         }
       }
 
-      // Eventos de puntero sobre el contenedor completo (trigger + padding continuo + popover)
+      // Eventos de puntero sobre el grupo
       container.addEventListener('pointerenter', () => {
         if (window.innerWidth > 960) {
           openMenu({ pin: false });
@@ -89,7 +97,7 @@
         }
       });
 
-      // Clic para anclar (pin) o alternar estado
+      // Clic para anclar (pin) o alternar
       trigger.addEventListener('click', (e) => {
         if (window.innerWidth > 960) {
           e.stopPropagation();
@@ -102,7 +110,7 @@
         }
       });
 
-      // Cerrar si se hace clic fuera del contenedor
+      // Cerrar si se hace clic fuera
       document.addEventListener('click', (e) => {
         if (window.innerWidth > 960) {
           if (!container.contains(e.target)) {
@@ -130,14 +138,14 @@
 
     // 2. Gestión unificada del menú móvil off-canvas
     const menuToggle = document.querySelector('.menu-toggle');
-    const navCta = document.querySelector('.nav-cta');
-    const hasInlineScript = Array.from(document.querySelectorAll('script:not([src])')).some(s => s.textContent.includes('menuToggle'));
-    if (menuToggle && navCta && !hasInlineScript && !menuToggle.dataset.navBound) {
-      menuToggle.dataset.navBound = 'true';
+    const navCta = document.querySelector('.nav-cta, .site-nav');
+    if (menuToggle && navCta && !menuToggle.dataset.siteNavBound) {
+      menuToggle.dataset.siteNavBound = 'true';
       menuToggle.addEventListener('click', (e) => {
         e.stopPropagation();
-        navCta.classList.toggle('active');
+        const isOpen = navCta.classList.toggle('active');
         document.body.classList.toggle('mobile-menu-open');
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
 
       const navLinks = navCta.querySelectorAll('a');
@@ -145,7 +153,16 @@
         link.addEventListener('click', () => {
           navCta.classList.remove('active');
           document.body.classList.remove('mobile-menu-open');
+          menuToggle.setAttribute('aria-expanded', 'false');
         });
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 960 && navCta.classList.contains('active')) {
+          navCta.classList.remove('active');
+          document.body.classList.remove('mobile-menu-open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        }
       });
     }
   }
