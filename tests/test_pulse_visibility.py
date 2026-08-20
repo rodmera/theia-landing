@@ -17,8 +17,8 @@ from conftest import BASE, PAGES
 ROOT = Path(__file__).resolve().parent.parent
 INDEX_HTML = ROOT / "index.html"
 
-# Páginas legales que no llevan el navbar comercial completo
-EXCLUDED_NAV_PAGES = {"/privacidad.html", "/terminos.html", "/cumplimiento.html"}
+# Páginas legales o de redirección que no llevan el navbar comercial completo
+EXCLUDED_NAV_PAGES = {"/privacidad.html", "/terminos.html", "/cumplimiento.html", "/plataforma.html"}
 
 HOMOLOGOUS_PAGES = [p for p in PAGES if p not in EXCLUDED_NAV_PAGES]
 

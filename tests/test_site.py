@@ -534,7 +534,7 @@ def test_respaldo_tech_icons_son_oficiales():
     2. Google Gemini lleva la estrella sparkle oficial de Gemini (no un signo peso $).
     3. Google for Startups lleva el logo oficial de Google ('G' 4 colores), no el logo de TheIA.
     """
-    source = (ROOT / "index.html").read_text(encoding="utf-8")
+    source = (ROOT / "nosotros.html").read_text(encoding="utf-8")
     assert "gemini-grad" in source or "12 0C12 6.627" in source, "Google Gemini no usa la estrella sparkle oficial de Gemini"
     assert "34A853" in source or "4285F4" in source, "Google for Startups no usa el logo oficial de Google"
     assert "M12 2v20M17 5H9.5" not in source, "Google Gemini conservó el icono desalineado con signo peso $"

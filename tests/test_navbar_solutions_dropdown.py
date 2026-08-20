@@ -17,8 +17,8 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE_NAV_CSS = ROOT / "site-nav.css"
 SITE_NAV_JS = ROOT / "site-nav.js"
 
-# Todas las páginas de conftest.py + _layouts/post.html
-ALL_PUBLIC_PAGES = PAGES + ["_layouts/post.html"]
+# Todas las páginas de conftest.py + _layouts/post.html (excluyendo redirects)
+ALL_PUBLIC_PAGES = [p for p in PAGES if p != "/plataforma.html"] + ["_layouts/post.html"]
 
 
 def get_html_file(path_str):

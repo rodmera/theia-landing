@@ -17,7 +17,7 @@ from conftest import BASE, PAGES
 ROOT = Path(__file__).resolve().parent.parent
 SITE_NAV_CSS = ROOT / "site-nav.css"
 
-EXCLUDED_NAV_PAGES = {"/privacidad.html", "/terminos.html", "/cumplimiento.html"}
+EXCLUDED_NAV_PAGES = {"/privacidad.html", "/terminos.html", "/cumplimiento.html", "/plataforma.html"}
 HOMOLOGOUS_PAGES = [p for p in PAGES if p not in EXCLUDED_NAV_PAGES]
 
 # Mapeo canónico de página interior a su ruta activa correspondiente
