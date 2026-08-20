@@ -95,8 +95,7 @@ def test_desktop_three_dropdowns_interaction(desktop_page):
     popover_ind = desktop_page.locator("#site-industries-menu, .site-nav__popover--industries").first
     assert popover_ind.is_visible()
     assert popover_ind.locator("a[href='/salud']").count() == 1
-    assert popover_ind.locator("a[href='/servicios-pyme']").count() == 1
-    assert "Servicios Profesionales B2B" in popover_ind.locator("a[href='/servicios-pyme']").inner_text()
+    assert popover_ind.locator("a[href='/servicios-pyme']").count() == 0
     assert popover_ind.locator("a[href='/automotriz']").count() == 1
     assert popover_ind.locator("a[href='/comercio']").count() == 1
     assert popover_ind.locator("a[href='/casos']").count() == 1

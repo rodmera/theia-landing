@@ -94,12 +94,11 @@ def test_desktop_navbar_order_in_browser(desktop_page):
     assert second_nav_item.inner_text().strip() == "Servicios"
     assert second_nav_item.get_attribute("href") == "/servicios"
     
-    # Hover en Industrias muestra 'Servicios Profesionales B2B'
+    # Hover en Industrias muestra las 4 industrias canónicas (sin duplicar servicios)
     ind_trigger = desktop_page.locator(".site-nav__trigger:has-text('Industrias')").first
     ind_trigger.hover()
     desktop_page.wait_for_timeout(150)
     
     ind_popover = desktop_page.locator("#site-industries-menu")
-    b2b_link = ind_popover.locator("a[href='/servicios-pyme']").first
-    assert b2b_link.is_visible()
-    assert "Servicios Profesionales B2B" in b2b_link.inner_text()
+    assert ind_popover.locator("a[href='/servicios-pyme']").count() == 0
+    assert ind_popover.locator("a[href='/salud']").is_visible()
