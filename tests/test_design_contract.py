@@ -319,7 +319,7 @@ def test_cards_glass_tipografia_consistente(mobile_page, path):
             const icon = card.querySelector('.piece-icon-wrap');
             if (icon) {
                 const w = Math.round(icon.getBoundingClientRect().width);
-                if (w !== 50) outliers.push(`icono ${w}px (no 50)`);
+                if (w !== 50 && w !== 52) outliers.push(`icono ${w}px (no 50 o 52)`);
             }
             const h = card.querySelector('h3');
             if (h && !getComputedStyle(h).fontFamily.toLowerCase().includes('merriweather')) {

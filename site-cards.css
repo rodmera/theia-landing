@@ -1,131 +1,127 @@
-/* site-cards.css — Design System Canónico de Tarjetas TheIA (TASK-202608192355)
-   GOBIERNA TODAS LAS TARJETAS (.theia-card) EN LAS 26 PÁGINAS DEL SITIO.
-   PROHIBIDO SOBREESCRIBIR CON ESTILOS INLINE. */
+/* site-cards.css — Design System Canónico de Tarjetas TheIA (TASK-202608200001) */
 
-/* 1. Contenedor de Tarjeta */
-.theia-card,
-.glass-card.theia-card,
-.extra-card.theia-card {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  text-align: center !important;
-  padding: 2.25rem 1.75rem !important;
-  background: var(--glass, rgba(255, 255, 255, 0.05)) !important;
-  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.12)) !important;
-  border-radius: 18px !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-sizing: border-box;
-  min-height: 100%;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+/* Contenedor estándar de tarjeta */
+.theia-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-inline-size: 0;
+  text-align: center;
+  background: var(--glass, rgba(15, 23, 42, 0.75));
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.12));
+  border-radius: 18px;
+  padding: 2.25rem 1.75rem;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.theia-card:hover,
-.glass-card.theia-card:hover,
-.extra-card.theia-card:hover {
-  border-color: var(--glass-border-gold, rgba(212, 175, 55, 0.4)) !important;
-  transform: translateY(-4px) !important;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3), 0 0 20px rgba(212, 175, 55, 0.15) !important;
+.theia-card:hover {
+  border-color: var(--glass-border-gold, rgba(212, 175, 55, 0.3));
+  transform: translateY(-2px);
 }
 
-/* 2. Apoyo Visual / Ícono / Badge */
+/* Rol 1: Editorial (producto, capacidades, verticales, pasos, confianza) */
+.theia-card--editorial {
+  padding: 2.25rem 1.75rem;
+}
+
+/* Rol 2: Lectura (casos, criterios, políticas, comparativas) */
+.theia-card--reading {
+  padding: 2rem 1.75rem;
+}
+
+.theia-card--reading .theia-card__content .ask,
+.theia-card--reading .theia-card__content ul,
+.theia-card--reading .theia-card__content ol {
+  text-align: left;
+}
+
+/* Rol 3: Funcional (precio, calculadora, formularios, resultados) */
+.theia-card--functional {
+  padding: 2rem;
+}
+
+/* Identificador visual / Ícono / Badge / Número de paso */
 .theia-card__visual {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  align-self: center !important;
-  margin-bottom: 1.25rem !important; /* 20px de separación fija con el título */
-  margin-top: 0 !important;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  margin-block-end: 1.25rem;
 }
 
+/* Badge canónico de 52x52px para apoyos visuales */
+.piece-icon-wrap,
+.theia-card__icon,
 .theia-card__visual .piece-icon-wrap,
 .theia-card__visual .piece-icon,
 .theia-card__visual .servicios-icon,
 .theia-card__visual .diff-icon,
 .theia-card__visual .cap-icon,
-.theia-card__visual .extra-icon {
+.theia-card__visual .complemento-icon {
   width: 52px !important;
   height: 52px !important;
   border-radius: 12px !important;
-  background: rgba(212, 175, 55, 0.08) !important;
-  border: 1px solid var(--glass-border-gold, rgba(212, 175, 55, 0.4)) !important;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(79, 70, 229, 0.12)) !important;
+  border: 1px solid var(--glass-border-gold, rgba(212, 175, 55, 0.25)) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   margin: 0 auto !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: 0 !important;
+  color: var(--gold-light, #f3e5ab) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 0 0 12px var(--gold-glow, rgba(212, 175, 55, 0.15)) !important;
+  transition: transform 0.3s ease, border-color 0.3s ease !important;
+  flex-shrink: 0 !important;
 }
 
-.theia-card__visual svg {
-  width: 24px !important;
-  height: 24px !important;
-  stroke: var(--gold-light, #ebca73) !important;
-  stroke-width: 2 !important;
-  fill: none !important;
+.theia-card:hover .piece-icon-wrap,
+.theia-card:hover .theia-card__icon,
+.theia-card:hover .theia-card__visual .piece-icon-wrap,
+.theia-card:hover .theia-card__visual .piece-icon {
+  transform: scale(1.06) !important;
+  border-color: var(--gold-light, #f3e5ab) !important;
 }
 
-/* 3. Bloque de Contenido */
+/* Contenido de la tarjeta (título + párrafo) */
 .theia-card__content {
-  display: flex !important;
-  flex: 1 1 auto !important;
-  width: 100% !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  text-align: center !important;
+  display: flex;
+  flex: 1 1 auto;
+  inline-size: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .theia-card__content h3,
 .theia-card__content h4,
-.theia-card__content .extra-name {
+.theia-card h3,
+.theia-card h4 {
   font-family: 'Merriweather', serif !important;
-  font-weight: 700 !important;
   font-size: 1.15rem !important;
+  font-weight: 700 !important;
   color: var(--text, #ffffff) !important;
+  margin-block-start: 0 !important;
   margin-top: 0 !important;
-  margin-bottom: 0.65rem !important;
+  margin-bottom: 0.6rem !important;
   text-align: center !important;
-  line-height: 1.35 !important;
 }
 
 .theia-card__content p,
-.theia-card__content .extra-desc {
+.theia-card p {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 0.9rem !important;
-  line-height: 1.65 !important;
-  color: var(--text-sub, rgba(255, 255, 255, 0.7)) !important;
-  margin: 0 !important;
-  text-align: center !important;
-  flex: 1 1 auto !important;
-}
-
-/* Compatibilidad con clases legacy (pain-grid, etc.) */
-.pain-grid .glass-card,
-.pain-card {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  text-align: center !important;
-  padding: 2.25rem 1.75rem !important;
-}
-
-.pain-icon-wrap {
-  margin: 0 auto 1.25rem auto !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-.pain-title {
-  text-align: center !important;
+  color: var(--text-sub, #94a3b8) !important;
+  line-height: 1.6 !important;
+  flex: 1 1 auto;
+  margin-block-start: 0 !important;
   margin-top: 0 !important;
-  margin-bottom: 0.65rem !important;
-}
-
-.pain-desc {
+  margin-bottom: 0.75rem !important;
   text-align: center !important;
-  margin: 0 !important;
 }
 
+/* Acción de la tarjeta (cuando existe) */
+.theia-card__action,
+.theia-card .btn.theia-card__action {
+  align-self: center !important;
+  margin-block-start: auto !important;
+}
