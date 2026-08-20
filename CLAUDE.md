@@ -62,6 +62,30 @@ Cubre: smoke de las 10 páginas, overflow horizontal móvil, errores JS, CTAs cr
 (incluido el número BLOQUEADO), links internos, regla de registro (jerga prohibida),
 consistencia comercial ($250.000, demo 30 min) y sticky WhatsApp.
 
+### Estándar Canónico de Tarjetas / Cards (Regla Dura, 2026-08-19)
+
+**PROHIBIDO** inventar estilos inline, alinear íconos a la izquierda o pegar los apoyos visuales a los títulos. Toda tarjeta (`.theia-card`) en las 26 páginas del sitio DEBE gobernarse exclusivamente por `site-cards.css` respetando la estructura semántica canónica:
+
+```html
+<div class="theia-card">
+  <div class="theia-card__visual">
+    <div class="piece-icon-wrap">
+      <!-- SVG width="24" height="24" stroke="var(--gold-light)" -->
+    </div>
+  </div>
+  <div class="theia-card__content">
+    <h3>Título de la Tarjeta</h3>
+    <p>Descripción clara y concisa...</p>
+  </div>
+</div>
+```
+
+**Reglas de Maquetación de Cards:**
+1. **Apoyo Visual Centrado:** `.theia-card__visual` SIEMPRE está centrado horizontalmente (`align-self: center`, `justify-content: center`) con exactamente `margin-bottom: 1.25rem` (20px) de separación con el título. Jamás pegado al texto.
+2. **Dimensiones del Badge:** `.piece-icon-wrap` mide `52px × 52px`, `border-radius: 12px`, fondo `rgba(212, 175, 55, 0.08)` y borde `1px solid var(--glass-border-gold)`.
+3. **Contenido Centrado:** `.theia-card__content` tiene título `h3` (`Merriweather`, 1.15rem, margin-bottom: 0.65rem) y descripción `p` (`Plus Jakarta Sans`, 0.9rem, line-height: 1.65, color `var(--text-sub)`), ambos rigurosamente centrados (`text-align: center`).
+4. **Contenedor:** `.theia-card` tiene `padding: 2.25rem 1.75rem`, `border-radius: 18px`, fondo `var(--glass)`, borde `1px solid var(--glass-border)` y hover con glow dorado (`transform: translateY(-4px)`).
+
 ### Estándar de QA de Interacción Frontend (Regla Dura, 2026-08-19)
 
 - **Prohibido validar menús/dropdowns flotantes con `.hover()` instantáneo:** Playwright teletransporta el puntero en 0ms y enmascara gaps físicos entre el trigger y el popover.
