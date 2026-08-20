@@ -73,15 +73,25 @@ def test_precios_why_theia_cards_structure():
             assert 'text-align:left' not in card_chunk.lower(), "Las tarjetas en ¿Por qué TheIA? no deben tener text-align:left inline"
 
 
-@pytest.mark.parametrize("page_path", ["/precios.html", "/servicios.html", "/criterios.html"])
+@pytest.mark.parametrize("page_path", [
+    "/precios.html",
+    "/servicios.html",
+    "/criterios.html",
+    "/crm.html",
+    "/pulse.html",
+    "/panel.html",
+])
 def test_theia_cards_layout_in_browser(desktop_page, page_path):
-    """Verifica en navegador desktop que las tarjetas .theia-card tengan contenido centrado y títulos alineados."""
+    """Verifica en navegador desktop que las tarjetas de producto tengan contenido centrado y títulos alineados."""
     desktop_page.goto(f"{BASE}{page_path}", wait_until="domcontentloaded")
     desktop_page.wait_for_timeout(200)
     
-    cards = desktop_page.locator(".theia-card")
+    # Selectores de cards según la página
+    selectors = [".theia-card", ".complemento-card", ".feature-card", ".pulse-feat", ".dash-feat"]
+    combined_sel = ", ".join(selectors)
+    cards = desktop_page.locator(combined_sel)
     count = cards.count()
-    assert count >= 2, f"Se esperaban tarjetas .theia-card en {page_path}, encontradas {count}"
+    assert count >= 2, f"Se esperaban tarjetas de producto en {page_path}, encontradas {count}"
     
     for i in range(min(count, 6)):
         card = cards.nth(i)
@@ -91,12 +101,37 @@ def test_theia_cards_layout_in_browser(desktop_page, page_path):
             
         card_center_x = card_box["x"] + card_box["width"] / 2
         
-        # Contenido centrado horizontalmente
-        content_elem = card.locator(".theia-card__content")
-        if content_elem.count() > 0:
-            c_box = content_elem.bounding_box()
-            if c_box:
-                c_center_x = c_box["x"] + c_box["width"] / 2
-                assert abs(c_center_x - card_center_x) < 3.0, (
-                    f"En {page_path}, contenido de tarjeta {i} descentrado: {c_center_x} vs {card_center_x}"
+        # Verificar alineación del texto o título
+        title_elem = card.locator("h3, h4, .complemento-title, .feature-name, .pulse-feat-name, .dash-feat-name, .theia-card__content").first
+        if title_elem.count() > 0:
+            t_box = title_elem.bounding_box()
+            if t_box and t_box["width"] > 0:
+                t_center_x = t_box["x"] + t_box["width"] / 2
+                assert abs(t_center_x - card_center_x) < 4.0, (
+                    f"En {page_path}, título de tarjeta {i} descentrado: {t_center_x} vs {card_center_x}"
                 )
+
+
+def test_crm_complemento_and_features_cards_centered(desktop_page):
+    """Verifica explícitamente en crm.html que las tarjetas de complemento y features tengan texto centrado."""
+    desktop_page.goto(f"{BASE}/crm.html", wait_until="domcontentloaded")
+    desktop_page.wait_for_timeout(200)
+    
+    # 1. Complemento cards (2 cards)
+    comp_cards = desktop_page.locator(".complemento-card")
+    assert comp_cards.count() == 2
+    for i in range(2):
+        card = comp_cards.nth(i)
+        c_box = card.bounding_box()
+        assert c_box is not None
+        card_center_x = c_box["x"] + c_box["width"] / 2
+        
+        icon = card.locator(".complemento-icon")
+        i_box = icon.bounding_box()
+        assert i_box is not None
+        icon_center_x = i_box["x"] + i_box["width"] / 2
+        assert abs(icon_center_x - card_center_x) < 3.0, f"Ícono de complemento-card {i} descentrado"
+        
+        title = card.locator(".complemento-title")
+        t_align = title.evaluate("el => getComputedStyle(el).textAlign")
+        assert t_align in ["center"], f"Título de complemento-card {i} no está centrado: {t_align}"

@@ -343,14 +343,16 @@
       border-radius: 18px;
       padding: 1.6rem;
       display: flex;
-      gap: 1.1rem;
-      align-items: flex-start;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
       transition: all 0.25s ease;
     }
 
     .dash-feat:hover {
       border-color: var(--glass-border-gold);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      transform: translateY(-2px);
     }
 
     .dash-feat-icon {
@@ -364,6 +366,7 @@
       align-items: center;
       justify-content: center;
       font-size: 1.35rem;
+      margin: 0 auto 0.85rem auto;
     }
 
     .dash-feat-name {
@@ -372,12 +375,14 @@
       font-size: 0.95rem;
       color: var(--indigo-light);
       margin-bottom: 0.35rem;
+      text-align: center;
     }
 
     .dash-feat-desc {
       font-size: 0.85rem;
       color: var(--text-sub);
       line-height: 1.6;
+      text-align: center;
     }
 
     /* CTA Section */

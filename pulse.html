@@ -466,40 +466,60 @@
     }
 
     .pulse-features {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 600px) {
+      .pulse-features {
+        grid-template-columns: 1fr;
+      }
     }
 
     .pulse-feat {
       display: flex;
-      gap: 1rem;
-      align-items: flex-start;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      padding: 1.25rem 1rem;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .pulse-feat:hover {
+      border-color: var(--glass-border-gold);
+      transform: translateY(-2px);
     }
 
     .pulse-feat-icon {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       flex-shrink: 0;
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      border-radius: 10px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--glass-border-gold);
+      border-radius: 12px;
+      margin-bottom: 0.75rem;
     }
 
     .pulse-feat-name {
       font-weight: 700;
       font-size: 0.95rem;
       margin-bottom: 0.3rem;
+      text-align: center;
     }
 
     .pulse-feat-desc {
       font-size: 0.82rem;
       color: var(--text-sub);
       line-height: 1.55;
+      text-align: center;
     }
 
     /* CTA Final */
