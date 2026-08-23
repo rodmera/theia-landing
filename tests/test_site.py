@@ -544,36 +544,38 @@ def test_respaldo_tech_icons_son_oficiales():
 def test_badge_nvidia_inception_oficial():
     """QA Respaldo Tecnológico: el badge NVIDIA Inception es el asset oficial del programa
     (fondo blanco integrado, wording exacto 'NVIDIA Inception Program'), no un logo improvisado.
-    Incluye la línea legal requerida por NVIDIA y el enlace al asset oficial del repositorio.
+    Incluye la línea legal requerida por NVIDIA en nosotros.html y el asset oficial en el repositorio.
     """
-    source = (ROOT / "index.html").read_text(encoding="utf-8")
-    assert "/nvidia-inception-program-badge.png" in source, (
+    source_home = (ROOT / "index.html").read_text(encoding="utf-8")
+    source_nosotros = (ROOT / "nosotros.html").read_text(encoding="utf-8")
+    assert "/nvidia-inception-program-badge.png" in source_home, (
         "home no usa el badge oficial NVIDIA Inception (nvidia-inception-program-badge.png)"
     )
     assert (ROOT / "nvidia-inception-program-badge.png").is_file(), (
         "falta el asset oficial del badge NVIDIA Inception en el repo"
     )
-    assert "NVIDIA Inception Program" in source, (
-        "el copy no usa el wording oficial 'NVIDIA Inception Program'"
+    assert "NVIDIA Inception Program" in source_home, (
+        "el copy de la home no usa el wording oficial 'NVIDIA Inception Program'"
     )
-    assert "© 2025 NVIDIA, the NVIDIA logo" in source, (
-        "falta la línea legal requerida de NVIDIA junto al badge"
+    assert "© 2025 NVIDIA, the NVIDIA logo" in source_nosotros, (
+        "falta la línea legal requerida de NVIDIA en nosotros.html"
     )
-    assert "the NVIDIA Inception Program are trademarks" in source, (
-        "la línea legal de NVIDIA no nombra la marca NVIDIA Inception"
+    assert "the NVIDIA Inception Program are trademarks" in source_nosotros, (
+        "la línea legal de NVIDIA en nosotros.html no nombra la marca NVIDIA Inception"
     )
 
 
-def test_badge_nvidia_inception_exclusivo_en_footer():
-    """QA Respaldo Tecnológico: el badge NVIDIA Inception vive exclusivamente en el footer
-    (y secciones institucionales de respaldo), manteniendo el navbar limpio solo con el logo de TheIA.
+def test_badge_nvidia_inception_en_hero_trust_strip():
+    """QA Respaldo Tecnológico: el badge NVIDIA Inception se ubica en el Hero Trust Strip
+    junto a Google for Startups y en la sección institucional de nosotros.html,
+    manteniendo el navbar y el footer limpios.
     """
     source = (ROOT / "index.html").read_text(encoding="utf-8")
     assert 'class="nav-nvidia-badge"' not in source, (
-        "el navbar no debe contener el badge de NVIDIA (debe ir exclusivamente en el footer)"
+        "el navbar no debe contener el badge de NVIDIA"
     )
-    assert '<footer>' in source and '/nvidia-inception-program-badge.png' in source.split('<footer>')[-1], (
-        "el footer de la home debe integrar el badge oficial NVIDIA Inception"
+    assert 'hero-trust-strip' in source and '/nvidia-inception-program-badge.png' in source, (
+        "el Hero Trust Strip de la home debe integrar el badge oficial NVIDIA Inception"
     )
     assert "Miembro del NVIDIA Inception Program" in source, (
         "el alt del badge no usa el wording oficial"
