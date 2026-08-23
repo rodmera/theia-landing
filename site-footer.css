@@ -1,0 +1,150 @@
+/* site-footer.css — Arquitectura de Footer Canónico TheIA (4 Columnas Balanceadas) */
+
+footer {
+  background: var(--bg, #0b0f19);
+  border-top: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1));
+  padding: 3.5rem 1.5rem 2.5rem;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.footer-col--brand .logo {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.footer-col--brand .logo img {
+  height: 70px;
+  width: auto;
+  display: block;
+}
+
+.footer-col h4 {
+  color: var(--gold-light, #ebca73);
+  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.95rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.footer-col p {
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
+  font-size: 0.85rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.footer-links-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  align-items: flex-start;
+}
+
+.footer-col a {
+  color: var(--text-sub, rgba(255, 255, 255, 0.75));
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.footer-col a:hover {
+  color: var(--gold, #d4af37);
+  transform: translateX(2px);
+}
+
+.footer-bottom {
+  max-width: 1140px;
+  margin: 3rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.footer-copy {
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
+  font-size: 0.82rem;
+}
+
+.footer-legal-links {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.footer-legal-links a {
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
+  text-decoration: none;
+  font-size: 0.82rem;
+  transition: color 0.2s ease;
+}
+
+.footer-legal-links a:hover {
+  color: var(--gold, #d4af37);
+}
+
+@media (max-width: 960px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 2rem;
+  }
+  .footer-col--brand {
+    grid-column: span 2;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 560px) {
+  footer {
+    padding: 2.5rem 1.25rem 6rem;
+  }
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  .footer-col,
+  .footer-col--brand {
+    grid-column: span 1;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .footer-links-group {
+    align-items: center !important;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+  .footer-legal-links {
+    justify-content: center;
+  }
+}

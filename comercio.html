@@ -304,6 +304,7 @@
     }
   </style>
   <link rel="stylesheet" href="/site-nav.css">
+  <link rel="stylesheet" href="/site-footer.css">
   <link rel="stylesheet" href="/site-cards.css">
   <script src="/site-nav.js" defer></script>
 </head>
@@ -588,39 +589,60 @@
     </div>
   </section>
 
-  <footer>
+        <footer>
     <div class="footer-inner">
-      <div class="footer-col">
-        <a href="/" class="logo"><img src="/logo.png" alt="TheIA — Atención de clientes confiable para PYMEs" width="100" height="100" /></a>
-        <p>Atención de clientes confiable con IA para WhatsApp, Instagram y tu sitio web. Tu negocio atendido las 24 horas.</p>
-        <p style="font-size:0.8rem;color:var(--gold-light);font-weight: 700;">Protegemos tu información con enmascaramiento de datos y controles de privacidad.</p>
+      <!-- Columna 1: Marca & Propósito -->
+      <div class="footer-col footer-col--brand">
+        <a href="/" class="logo"><img src="/logo.png" alt="TheIA — Agentes de IA para Negocios, Ventas y CRM" width="70" height="70" /></a>
+        <p>Agentes de IA para WhatsApp, Web y Redes Sociales. Automatiza ventas, cotizaciones y atención 24/7 con integración nativa a tu CRM.</p>
+        <p style="font-size:0.8rem;color:var(--gold-light);font-weight: 700;margin-top:0.25rem;">🔒 Privacidad y seguridad con enmascaramiento de datos.</p>
       </div>
-      <div class="footer-col center">
-        <div style="display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start;">
-          <h4>Soluciones por Industria</h4>
-          <a href="/comercio">Comercio & Retail Local</a>
-          <a href="/salud">Salud & Clínicas</a>
-          <a href="/servicios-pyme">Servicios B2B</a>
-          <a href="/automotriz">Automotriz & Talleres</a>
-          <a href="/precios">Precios</a>
+
+      <!-- Columna 2: Productos TheIA -->
+      <div class="footer-col">
+        <h4>Productos</h4>
+        <div class="footer-links-group">
+          <a href="/atencion-cliente">Atención Omnicanal</a>
+          <a href="/pulse">TheIA Pulse</a>
+          <a href="/crm">CRM Integrado</a>
+          <a href="/panel">Panel de Control</a>
         </div>
       </div>
-      <div class="footer-col right">
-        <h4>Contacto & Soporte</h4>
-        <p><a href="mailto:hola@theia.cl" style="color:var(--text-sub);text-decoration:underline;">hola@theia.cl</a></p>
-        <div style="margin-top:0.75rem;">
-          <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" style="padding:0.5rem 1rem;font-size:0.8rem;" onclick="theiaTrackCTA('demo','comercio-footer')">Agenda una demo →</a>
+
+      <!-- Columna 3: Plataforma & Recursos -->
+      <div class="footer-col">
+        <h4>Plataforma</h4>
+        <div class="footer-links-group">
+          <a href="/funciones">Funciones</a>
+          <a href="/precios">Planes y Precios</a>
+          <a href="/servicios">Servicios</a>
+          <a href="/blog/">Blog</a>
+          <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" onclick="theiaTrackCTA('demo','footer')" style="color:var(--gold-light);font-weight:700;">Agendar Demo →</a>
+        </div>
+      </div>
+
+      <!-- Columna 4: Contacto & Redes -->
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <div class="footer-links-group">
+          <a href="mailto:hola@theia.cl">hola@theia.cl</a>
+          <a href="https://wa.me/12063858350" target="_blank" rel="noopener" onclick="theiaTrackCTA('whatsapp','footer')">+1 (206) 385-8350</a>
+          <a href="https://www.linkedin.com/company/112228768/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>TheIA en LinkedIn</a>
+          <a href="https://www.instagram.com/theiacl_/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>@theiacl_</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 TheIA Servicios Tecnológicos SpA. Todos los derechos reservados.</p>
-      <div style="display:flex;gap:1rem;">
-        <a href="/privacidad" style="color:var(--text-muted);text-decoration:none;">Privacidad</a>
-        <a href="/terminos.html" style="color:var(--text-muted);text-decoration:none;">Términos</a>
+      <div class="footer-copy">TheIA Agent by THEIA.CL © 2026 · Todos los derechos reservados.</div>
+      <div class="footer-legal-links">
+        <span class="footer-copy">Santiago, Chile</span>
+        <a href="/privacidad">Política de Privacidad</a>
+        <a href="/terminos.html">Términos de Servicio</a>
       </div>
     </div>
   </footer>
+
+
 
   <script>
 
