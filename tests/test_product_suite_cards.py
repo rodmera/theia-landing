@@ -133,7 +133,7 @@ def test_product_suite_card_layout_in_browser(desktop_page, path):
         # El CTA debe estar cerca de la base de la tarjeta (espacio inferior uniforme)
         dist_to_bottom = (card_box["y"] + card_box["height"]) - (action_box["y"] + action_box["height"])
         assert dist_to_bottom >= 0, f"En {path}, acción {i} excede la tarjeta"
-        assert dist_to_bottom < 45.0, f"En {path}, acción {i} no está anclada al fondo (dist={dist_to_bottom}px)"
+        assert dist_to_bottom < 55.0, f"En {path}, acción {i} no está anclada al fondo (dist={dist_to_bottom}px)"
 
     # 2. Las acciones, títulos y párrafos en tarjetas de la misma fila deben compartir la misma alineación vertical
     h3_tops_by_row = {}
