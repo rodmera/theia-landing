@@ -564,19 +564,19 @@ def test_badge_nvidia_inception_oficial():
     )
 
 
-def test_badge_nvidia_inception_en_navbar():
-    """QA Respaldo Tecnológico: el badge NVIDIA Inception también es visible en la barra
-    de navegación superior (junto al logo), no solo en la sección respaldo de la home.
+def test_badge_nvidia_inception_exclusivo_en_footer():
+    """QA Respaldo Tecnológico: el badge NVIDIA Inception vive exclusivamente en el footer
+    (y secciones institucionales de respaldo), manteniendo el navbar limpio solo con el logo de TheIA.
     """
     source = (ROOT / "index.html").read_text(encoding="utf-8")
-    assert 'class="logo"' in source and 'class="nav-nvidia-badge"' in source, (
-        "el navbar no integra el badge NVIDIA Inception junto al logo"
+    assert 'class="nav-nvidia-badge"' not in source, (
+        "el navbar no debe contener el badge de NVIDIA (debe ir exclusivamente en el footer)"
     )
-    assert 'src="/nvidia-inception-program-badge.png"' in source, (
-        "el navbar no usa el asset oficial del badge NVIDIA Inception"
+    assert '<footer>' in source and '/nvidia-inception-program-badge.png' in source.split('<footer>')[-1], (
+        "el footer de la home debe integrar el badge oficial NVIDIA Inception"
     )
     assert "Miembro del NVIDIA Inception Program" in source, (
-        "el alt del badge del navbar no usa el wording oficial"
+        "el alt del badge no usa el wording oficial"
     )
 
 
