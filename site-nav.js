@@ -136,7 +136,7 @@
       });
     });
 
-    // 2. Gestión unificada del menú móvil off-canvas
+    // 2. Gestión unificada del menú móvil off-canvas (HU-WEB-027)
     const menuToggle = document.querySelector('.menu-toggle');
     const navCta = document.querySelector('.nav-cta, .site-nav');
     if (menuToggle && navCta && !menuToggle.dataset.siteNavBound) {

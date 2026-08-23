@@ -119,23 +119,30 @@ def test_crm_no_se_ofrece_como_funcionalidad_lista():
 
 
 def test_ctas_crm_usan_openTheiaChat():
-    """Las dos tarjetas CRM del sitio (index.html y atencion-cliente.html)
-    deben invocar el helper compartido openTheiaChat('crm'). El helper
-    (webchat-cta.js) registra el evento widget-open, abre el WebChat y cae a
-    WhatsApp si corresponde. By-pasearlo con la forma inline
-    theiaChatOpen('crm') rompe la atribución y el fallback.
+    """HU-WEB-027: Los CTAs de prueba en vivo de CRM (crm.html) deben invocar el helper
+    compartido openTheiaChat('crm'), mientras que las tarjetas paraguas en index.html y
+    atencion-cliente.html usan enlace canónico a /crm.
     """
     expected = "openTheiaChat('crm')"
     stale_inline = ("theiaChatOpen('crm')", 'theiaChatOpen("crm")')
     findings = []
+    # crm.html usa el helper compartido para probar en vivo
+    source_crm = (ROOT / "crm.html").read_text(encoding="utf-8")
+    if expected not in source_crm:
+        findings.append(f"crm.html no llama {expected}")
+    for stale in stale_inline:
+        if stale in source_crm:
+            findings.append(f"crm.html aún tiene la forma inline {stale!r}")
+
+    # index.html y atencion-cliente.html usan enlace canónico a /crm (HU-WEB-027 AC1)
     for filename in ("index.html", "atencion-cliente.html"):
         source = (ROOT / filename).read_text(encoding="utf-8")
-        if expected not in source:
-            findings.append(f"{filename} no llama {expected}")
+        if 'href="/crm"' not in source:
+            findings.append(f"{filename} debe contener enlace canónico href='/crm'")
         for stale in stale_inline:
             if stale in source:
                 findings.append(f"{filename} aún tiene la forma inline {stale!r}")
-    assert not findings, "CTAs CRM no usan el helper compartido:\n" + "\n".join(findings)
+    assert not findings, "CTAs CRM no cumplen con el contrato:\n" + "\n".join(findings)
 
 
 def test_no_promesa_de_futuro_en_copy_visible():

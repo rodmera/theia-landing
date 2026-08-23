@@ -56,9 +56,9 @@ def _wait_port(port, timeout=15):
 @pytest.fixture(scope="session", autouse=True)
 def site_server():
     proc = subprocess.Popen(
-        ["python3", "-m", "http.server", str(PORT), "--bind", "127.0.0.1"],
+        ["python3", str(ROOT / "tests" / "serve_local.py"), str(PORT)],
         cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    assert _wait_port(PORT), f"http.server no levantó en :{PORT}"
+    assert _wait_port(PORT), f"serve_local.py no levantó en :{PORT}"
     yield BASE
     proc.terminate()
     proc.wait(timeout=5)

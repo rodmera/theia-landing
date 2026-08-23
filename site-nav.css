@@ -365,9 +365,10 @@
     overflow: hidden;
   }
 
-  /* Ocultar los dropdowns desktop en mobile */
+  /* Ocultar los dropdowns desktop y el enlace directo suelto en mobile */
   .site-nav__group,
-  .site-nav__solutions {
+  .site-nav__solutions,
+  .site-nav > .site-nav__link {
     display: none !important;
   }
 

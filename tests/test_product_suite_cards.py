@@ -58,13 +58,13 @@ def test_product_suite_css_contains_semantic_contract():
     (INDEX_HTML, [
         ("/atencion-cliente", "Conocer Atención"),
         ("/pulse", "Conocer Pulse"),
-        ("openTheiaChat('crm')", "Conocer CRM"),
+        ("/crm", "Conocer CRM"),
         ("/panel", "Ver Panel de Control"),
     ]),
     (ATENCION_HTML, [
         ("/funciones", "Ver cómo ayuda"),
         ("/pulse", "Conocer Pulse"),
-        ("openTheiaChat('crm')", "Conocer CRM"),
+        ("/crm", "Conocer CRM"),
         ("/panel", "Ver Panel de Control"),
     ]),
 ])

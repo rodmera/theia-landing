@@ -1,4 +1,4 @@
-/* CTA compartido: abre el WebChat propio y conserva WhatsApp como respaldo. */
+/* CTA compartido (HU-WEB-027): abre el WebChat propio y conserva WhatsApp como respaldo. */
 window.openTheiaChat = function openTheiaChat(source) {
   if (typeof window.theiaTrackCTA === 'function') {
     window.theiaTrackCTA('widget-open', source);
