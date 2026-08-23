@@ -21,7 +21,7 @@ def test_ac1_hero_growth_framing_copy_and_hierarchy():
 
     # 1. Titular principal
     assert "Cierra más ventas y atiende 24/7" in content, "Falta titular principal de crecimiento en hero"
-    assert "con Asistentes de IA en WhatsApp" in content, "Falta bajada de Asistentes de IA en titular"
+    assert "con Agentes de IA para tu Negocio" in content, "Falta bajada de Agentes de IA en titular"
 
     # 2. Bajada comercial clara
     assert "califica prospectos" in content, "Falta calificación de prospectos en bajada"

@@ -97,7 +97,9 @@ def test_html_structure_has_4_cards_with_correct_semantics_and_ctas(html_file, e
 def test_product_suite_card_layout_in_browser(desktop_page, path):
     """Verifica en navegador real que las tarjetas estén centradas horizontalmente y los CTAs alineados al fondo."""
     desktop_page.goto(f"{BASE}{path}", wait_until="domcontentloaded")
-    desktop_page.wait_for_timeout(200)
+    cards = desktop_page.locator(".product-suite-grid .product-suite-card")
+    cards.first.scroll_into_view_if_needed()
+    desktop_page.wait_for_timeout(350)
     
     cards = desktop_page.locator(".product-suite-grid .product-suite-card")
     count = cards.count()
