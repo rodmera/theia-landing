@@ -867,3 +867,27 @@ def test_sin_emojis_crudos_en_encabezados_y_tarjetas(path):
     content = file_path.read_text(encoding="utf-8")
     raw_emojis = re.findall(r"<div[^>]*font-size:\s*2rem[^>]*>[💬📊📋⚙️🔒📜🔑💰🚫🤝]", content)
     assert not raw_emojis, f"{path} tiene íconos de tarjetas con emojis crudos desalineados: {raw_emojis}"
+
+
+def test_organization_sameas_schema_includes_linkedin_and_instagram():
+    """QA SEO & Schema.org:
+    Asegura que el bloque Organization.sameAs en index.html y nosotros.html
+    incluya los perfiles oficiales de LinkedIn e Instagram de TheIA.
+    """
+    for fname in ("index.html", "nosotros.html"):
+        content = (ROOT / fname).read_text(encoding="utf-8")
+        scripts = re.findall(r'<script type="application/ld\+json">(.*?)</script>', content, re.DOTALL)
+        found_org = False
+        for s in scripts:
+            try:
+                data = json.loads(s.strip())
+                graph = data.get("@graph", [data])
+                for node in graph:
+                    if node.get("@type") == "Organization":
+                        same_as = node.get("sameAs", [])
+                        assert "https://www.linkedin.com/company/112228768/" in same_as, f"{fname}: LinkedIn falta en sameAs"
+                        assert "https://www.instagram.com/theiacl_/" in same_as, f"{fname}: Instagram falta en sameAs"
+                        found_org = True
+            except Exception as e:
+                pass
+        assert found_org, f"{fname} no tiene un bloque Schema.org Organization válido"
