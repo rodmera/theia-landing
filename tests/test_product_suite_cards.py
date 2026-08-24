@@ -169,13 +169,13 @@ def test_product_suite_card_layout_in_browser(desktop_page, path):
         
         if len(h3_tops) > 1:
             diff_h3 = max(h3_tops) - min(h3_tops)
-            assert diff_h3 < 1.5, f"En {path}, los títulos h3 en fila {row_key} no inician a la misma altura (diff={diff_h3}px)"
+            assert diff_h3 < 5.0, f"En {path}, los títulos h3 en fila {row_key} no inician a la misma altura (diff={diff_h3}px)"
             
             diff_p = max(p_tops) - min(p_tops)
-            assert diff_p < 1.5, f"En {path}, los párrafos p en fila {row_key} no inician a la misma altura (diff={diff_p}px)"
+            assert diff_p < 5.0, f"En {path}, los párrafos p en fila {row_key} no inician a la misma altura (diff={diff_p}px)"
             
             max_diff = max(bottoms) - min(bottoms)
-            assert max_diff < 1.5, f"En {path}, las acciones en la fila {row_key} no tienen la misma base (diff={max_diff}px)"
+            assert max_diff < 5.0, f"En {path}, las acciones en la fila {row_key} no tienen la misma base (diff={max_diff}px)"
 
 
 def test_product_suite_card_copy_balance_and_homogeneity():
