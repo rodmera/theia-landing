@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Security Meta Tags -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://admin.theia.cl; connect-src 'self' https:;">
+
+  <!-- Cookie Consent + Analytics -->
+  <script src="/cc-init.js"></script>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Migración de CRM y Contactos hacia TheIA | Sin Perder tu Historial</title>
+
+  <!-- JSON-LD: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://theia.cl/migracion#webpage",
+    "url": "https://theia.cl/migracion",
+    "name": "Migración de CRM y Contactos hacia TheIA",
+    "description": "Cambiarte a TheIA es simple y seguro: importamos tus contactos, negocios, etapas y notas desde tu CRM actual en menos de 24 horas y con 7 días de reversibilidad total.",
+    "inLanguage": "es-CL",
+    "isPartOf": { "@id": "https://theia.cl#website" },
+    "publisher": { "@id": "https://theia.cl#organization" }
+  }
+  </script>
+  <link rel="canonical" href="https://theia.cl/migracion" />
+  <link rel="icon" href="logo.png" type="image/png">
+
+  <meta name="description" content="Cambiarte a TheIA es simple y seguro: importamos tus contactos, negocios, etapas y notas desde tu CRM actual en menos de 24 horas y con 7 días de reversibilidad total." />
+  <meta name="keywords" content="migrar CRM Chile, importar contactos CRM WhatsApp, cambiar de CRM, migración de datos ventas, software comercial pyme" />
+  <meta name="author" content="TheIA" />
+  <meta name="geo.region" content="CL" />
+  <meta name="geo.placename" content="Santiago, Chile" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://theia.cl/migracion" />
+  <meta property="og:site_name" content="TheIA" />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:title" content="Migración de CRM y Contactos hacia TheIA | Sin Perder tu Historial" />
+  <meta property="og:description" content="Trae tus contactos, negocios y etapas a TheIA sin fricción. Proceso guiado en 24h y 7 días de reversibilidad total." />
+  <meta property="og:image" content="https://theia.cl/logo.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Migración de CRM hacia TheIA | Sin Perder tu Historial" />
+  <meta name="twitter:description" content="Trae tus contactos, negocios y etapas a TheIA sin fricción." />
+  <meta name="twitter:image" content="https://theia.cl/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="/site-nav.css">
+  <link rel="stylesheet" href="/site-cards.css">
+  <script src="/site-nav.js" defer></script>
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg2: #1e293b;
+      --card-bg: #1e293b;
+      --gold: #d4af37;
+      --gold-light: #ebca73;
+      --gold-glow: rgba(212, 175, 55, 0.25);
+      --glass: rgba(30, 41, 59, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --glass-border-gold: rgba(212, 175, 55, 0.3);
+      --text: #f8fafc;
+      --text-sub: rgba(255, 255, 255, 0.7);
+      --text-muted: rgba(255, 255, 255, 0.4);
+      --green: #34c77b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.6rem 1.35rem; border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; font-weight: 700;
+      text-decoration: none; cursor: pointer; border: none; transition: all 0.22s ease;
+      text-align: center; white-space: nowrap;
+    }
+
+    button.btn { border: none; }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #0f172a !important;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+    .btn-gold:hover {
+      background: var(--gold-light);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text) !important;
+      border: 1px solid var(--glass-border);
+    }
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-large {
+      padding: 0.85rem 1.75rem;
+      font-size: 0.95rem;
+    }
+
+    .dash-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--gold-light); background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--glass-border-gold); padding: 0.35rem 0.85rem;
+      border-radius: 20px; margin-bottom: 1.25rem;
+    }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Hero */
+    .migracion-hero {
+      padding: 9.5rem 0 5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .migracion-hero h1 {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+    }
+
+    .gold { color: var(--gold-light); }
+
+    .migracion-hero p.hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-sub);
+      max-width: 720px;
+      margin: 0 auto 2.25rem;
+      line-height: 1.65;
+    }
+
+    .hero-ctas {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .micro-copy {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    /* Grid Sections */
+    .section-title {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--text-sub);
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 3rem;
+      line-height: 1.6;
+    }
+
+    .cards-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 3rem;
+    }
+
+    .cards-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      text-align: left;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+      font-size: 0.92rem;
+      color: var(--text-sub);
+      line-height: 1.5;
+    }
+
+    .feature-list li svg {
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+
+    .badge-step {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #0f172a;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    /* FAQ Section */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .faq-card {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      text-align: left;
+    }
+
+    .faq-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .faq-card p {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      padding: 6rem 0;
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg) 0%, #172033 100%);
+      border-top: 1px solid var(--glass-border);
+    }
+
+    /* Footer */
+    footer {
+      background: #090d16;
+      border-top: 1px solid var(--glass-border);
+      padding: 4rem 0 2rem;
+      font-size: 0.88rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.2fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-col h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-light);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .footer-links-group a {
+      color: var(--text-sub);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links-group a:hover {
+      color: var(--text);
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid var(--glass-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-legal-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-legal-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-legal-links a:hover {
+      color: var(--text-sub);
+    }
+
+    @media (max-width: 960px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+      .migracion-hero {
+        padding-top: 7rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .cards-grid-2, .cards-grid-3, .faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER / NAVBAR -->
+  <nav class="site-header" data-site-nav data-site-nav-page="migracion" data-site-nav-source="migracion" aria-label="Navegación principal">
+    <a href="/" class="logo">
+      <img src="/logo.png" alt="TheIA — Atención de clientes confiable con IA para WhatsApp, Instagram y Web" width="100" height="100" />
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-nav-drawer">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-cta site-nav" data-site-nav-mount id="site-nav-drawer">
+      <!-- 1. Dropdown Soluciones -->
+      <div class="site-nav__group site-nav__group--solutions">
+        <button type="button" class="site-nav__trigger" aria-expanded="false" aria-controls="site-solutions-menu">
+          Soluciones
+          <svg class="site-nav__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div id="site-solutions-menu" class="site-nav__popover site-nav__popover--solutions" aria-label="Soluciones TheIA">
+          <a href="/atencion-cliente" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Atención</div>
+              <div class="site-nav__card-desc">WhatsApp, Instagram y Web con contexto</div>
+            </div>
+          </a>
+          <a href="/pulse" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">TheIA Pulse</div>
+              <div class="site-nav__card-desc">Copiloto por WhatsApp para el dueño</div>
+            </div>
+          </a>
+          <a href="/crm" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">CRM</div>
+              <div class="site-nav__card-desc">Gestión comercial desde la conversación</div>
+            </div>
+          </a>
+          <a href="/panel" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Panel de Control</div>
+              <div class="site-nav__card-desc">Supervisión y métricas en vivo</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. Enlace Directo Servicios -->
+      <a href="/servicios" class="site-nav__link">Servicios</a>
+
+      <!-- 3. Dropdown Industrias -->
+      <div class="site-nav__group site-nav__group--industries">
+        <button type="button" class="site-nav__trigger" aria-expanded="false" aria-controls="site-industries-menu">
+          Industrias
+          <svg class="site-nav__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div id="site-industries-menu" class="site-nav__popover site-nav__popover--industries" aria-label="Industrias TheIA">
+          <a href="/salud" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Salud</div>
+              <div class="site-nav__card-desc">Clínicas y centros médicos</div>
+            </div>
+          </a>
+          <a href="/automotriz" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Automotriz</div>
+              <div class="site-nav__card-desc">Talleres y concesionarias</div>
+            </div>
+          </a>
+          <a href="/comercio" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Comercio</div>
+              <div class="site-nav__card-desc">Retail y tiendas comerciales</div>
+            </div>
+          </a>
+          <a href="/casos" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Casos</div>
+              <div class="site-nav__card-desc">Resultados e historias de éxito</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- 4. Enlace Directo Cómo ayuda -->
+      <a href="/funciones" class="site-nav__link">Cómo ayuda</a>
+
+      <!-- 5. Enlace Directo Precios -->
+      <a href="/precios" class="site-nav__link">Precios</a>
+
+      <!-- 6. Dropdown Recursos -->
+      <div class="site-nav__group site-nav__group--resources">
+        <button type="button" class="site-nav__trigger" aria-expanded="false" aria-controls="site-resources-menu">
+          Recursos
+          <svg class="site-nav__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div id="site-resources-menu" class="site-nav__popover site-nav__popover--resources" aria-label="Recursos TheIA">
+          <a href="/blog/" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Blog</div>
+              <div class="site-nav__card-desc">Artículos, guías y novedades</div>
+            </div>
+          </a>
+          <a href="/criterios" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Criterios</div>
+              <div class="site-nav__card-desc">Pauta para evaluar agentes de IA</div>
+            </div>
+          </a>
+          <a href="/calculadora" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Calculadora</div>
+              <div class="site-nav__card-desc">Calcula el retorno de inversión</div>
+            </div>
+          </a>
+          <a href="/cumplimiento" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Cumplimiento</div>
+              <div class="site-nav__card-desc">Seguridad, privacidad y Ley 21.719</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- 7. Enlace Directo Nosotros -->
+      <a href="/nosotros" class="site-nav__link">Nosotros</a>
+
+      <!-- 8. Enlaces Directos Móviles (Drawer <= 960px) -->
+      <div class="site-nav__mobile-links">
+        <div class="site-nav__mobile-section-label">Soluciones</div>
+        <a href="/atencion-cliente" class="site-nav__link">Atención</a>
+        <a href="/pulse" class="site-nav__link">Pulse</a>
+        <a href="/crm" class="site-nav__link">CRM</a>
+        <a href="/panel" class="site-nav__link">Panel de Control</a>
+
+        <div class="site-nav__mobile-section-label">Servicios Especializados</div>
+        <a href="/servicios" class="site-nav__link">Servicios</a>
+
+        <div class="site-nav__mobile-section-label">Industrias</div>
+        <a href="/salud" class="site-nav__link">Salud</a>
+        <a href="/servicios-pyme" class="site-nav__link">Servicios Profesionales B2B</a>
+        <a href="/automotriz" class="site-nav__link">Automotriz</a>
+        <a href="/comercio" class="site-nav__link">Comercio</a>
+        <a href="/casos" class="site-nav__link">Casos</a>
+
+        <div class="site-nav__mobile-section-label">Plataforma & Precios</div>
+        <a href="/funciones" class="site-nav__link">Cómo ayuda</a>
+        <a href="/precios" class="site-nav__link">Precios</a>
+        <a href="/nosotros" class="site-nav__link">Nosotros</a>
+
+        <div class="site-nav__mobile-section-label">Recursos</div>
+        <a href="/blog/" class="site-nav__link">Blog</a>
+        <a href="/criterios" class="site-nav__link">Criterios</a>
+        <a href="/calculadora" class="site-nav__link">Calculadora</a>
+        <a href="/cumplimiento" class="site-nav__link">Cumplimiento</a>
+      </div>
+
+      <!-- 9. Demo CTA -->
+      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold site-nav__demo" onclick="theiaTrackCTA('demo','migracion')">Agenda una demo →</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <!-- HERO -->
+    <section class="migracion-hero">
+      <div class="container">
+        <div class="dash-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Migración sin fricción
+        </div>
+        <h1>Tus datos se vienen contigo.<br /><span class="gold">Sin perder tu historial comercial.</span></h1>
+        <p class="hero-sub">
+          Cambiarte a TheIA no es un salto al vacío. Importamos tus contactos, empresas, negocios, etapas y notas desde tu plataforma actual en menos de 24 horas y con 7 días de reversibilidad total.
+        </p>
+        <div class="hero-ctas">
+          <button type="button" class="btn btn-gold btn-large" onclick="openTheiaChat('migracion')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Planificar mi migración en vivo
+          </button>
+          <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" class="btn btn-ghost btn-large" target="_blank" rel="noopener" onclick="theiaTrackCTA('demo','migracion-hero')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
+            Agenda una demo guiada
+          </a>
+        </div>
+        <div class="micro-copy">
+          ✓ Proceso guiado en &lt; 24h · ✓ Reversible por 7 días · ✓ Tu equipo sigue atendiendo sin cortes
+        </div>
+      </div>
+    </section>
+
+    <!-- QUÉ SE MIGRA Y QUÉ NO (AC1, AC2) -->
+    <section style="padding: 4rem 0; background: var(--bg2); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+      <div class="container">
+        <h2 class="section-title">Claridad total: <span class="gold">qué se migra y qué no.</span></h2>
+        <p class="section-sub">Sin letra chica. Te explicamos con exactitud técnica qué traemos a TheIA y qué se conserva donde está.</p>
+
+        <div class="cards-grid-2">
+          <!-- Tarjeta: Qué se migra -->
+          <div class="theia-card theia-card--reading" style="border-color: rgba(52, 199, 123, 0.3);">
+            <div class="theia-card__visual">
+              <div class="piece-icon-wrap" style="background: rgba(52, 199, 123, 0.1); border-color: rgba(52, 199, 123, 0.3);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34c77b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+            </div>
+            <div class="theia-card__content">
+              <h3 style="color: var(--text);">Qué traemos a TheIA</h3>
+              <ul class="feature-list">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34c77b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong>Contactos y Empresas:</strong> Nombres, teléfonos en formato E.164, correos, RUTs y campos personalizados.</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34c77b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong>Negocios y Etapas (Deals):</strong> Cada oportunidad abierta o ganada con su valor estimado, etapa equivalente y fechas.</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34c77b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong>Notas y Tareas Internas:</strong> El historial de comentarios de tus vendedores y recordatorios pendientes vinculados al cliente.</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34c77b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong>Etiquetas y Segmentos:</strong> Tus tags comerciales para mantener agrupados a tus clientes VIP o recurrentes.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Tarjeta: Qué no se migra -->
+          <div class="theia-card theia-card--reading">
+            <div class="theia-card__visual">
+              <div class="piece-icon-wrap" style="background: rgba(255, 255, 255, 0.05);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+            </div>
+            <div class="theia-card__content">
+              <h3 style="color: var(--text);">Qué no se migra (y la razón técnica)</h3>
+              <ul class="feature-list">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  <span><strong>Conversaciones históricas de chat:</strong> Los mensajes pasados residen cifrados en WhatsApp y en Meta. TheIA inicia el contexto limpio desde el primer mensaje nuevo sin alterar los chats previos.</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  <span><strong>Automatizaciones propietarias:</strong> Los bots con lógica rígida o flujos de botones se reemplazan por el razonamiento natural de TheIA según tus reglas de negocio y precios.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EL PROCESO EN 3 PASOS (AC1) -->
+    <section style="padding: 5rem 0;">
+      <div class="container">
+        <h2 class="section-title">El proceso en <span class="gold">3 pasos sencillos.</span></h2>
+        <p class="section-sub">Acompañamiento directo por ingenieros en Chile. Nosotros hacemos el trabajo pesado.</p>
+
+        <div class="cards-grid-3">
+          <div class="theia-card theia-card--editorial">
+            <div class="theia-card__visual">
+              <div class="badge-step">1</div>
+            </div>
+            <div class="theia-card__content">
+              <h3>Exportas tus archivos</h3>
+              <p>Descargas tu base de contactos y negocios en formato CSV o Excel desde donde tienes tus datos hoy. Si necesitas ayuda, te guiamos paso a paso.</p>
+            </div>
+          </div>
+
+          <div class="theia-card theia-card--editorial">
+            <div class="theia-card__visual">
+              <div class="badge-step">2</div>
+            </div>
+            <div class="theia-card__content">
+              <h3>Validación y Carga Atómica</h3>
+              <p>Nuestro motor de importación verifica la integridad de las etapas, normaliza teléfonos a E.164 y carga los registros en un solo lote seguro.</p>
+            </div>
+          </div>
+
+          <div class="theia-card theia-card--editorial">
+            <div class="theia-card__visual">
+              <div class="badge-step">3</div>
+            </div>
+            <div class="theia-card__content">
+              <h3>7 Días de Reversibilidad</h3>
+              <p>Tienes 7 días completos para revisar tu nuevo embudo. Si algo no te convence, puedes deshacer la importación con un solo clic.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES (AC3) -->
+    <section style="padding: 5rem 0; background: var(--bg2); border-top: 1px solid var(--glass-border);">
+      <div class="container">
+        <h2 class="section-title">Preguntas frecuentes <span class="gold">al cambiarte.</span></h2>
+        <p class="section-sub">Resolvemos las dudas más habituales de quienes están evaluando migrar a TheIA.</p>
+
+        <div class="faq-grid">
+          <div class="faq-card">
+            <h3>¿Qué pasa con mi número de WhatsApp actual?</h3>
+            <p>Mantienes tu mismo número telefónico oficial. TheIA se conecta directamente a tu línea de WhatsApp Business a través de la API oficial de Meta sin interrumpir la atención de tus clientes.</p>
+          </div>
+
+          <div class="faq-card">
+            <h3>¿Cuánto demora todo el proceso de migración?</h3>
+            <p>El traspaso de contactos, empresas y negocios toma menos de 24 horas. Tu equipo de ventas puede continuar trabajando con normalidad mientras dejamos el embudo configurado.</p>
+          </div>
+
+          <div class="faq-card">
+            <h3>¿Qué ocurre si me arrepiento después de migrar?</h3>
+            <p>El motor de TheIA cuenta con una ventana de reversibilidad de 7 días. Si decides no continuar, puedes revertir el lote completo y eliminar los registros importados sin dejar datos huérfanos.</p>
+          </div>
+
+          <div class="faq-card">
+            <h3>¿Tendré que pagar licencias adicionales por cada vendedor?</h3>
+            <p>No. En TheIA pagas una tarifa plana mensual por tu negocio ($250.000 CLP/mes) con $0 de cobro adicional por usuario o ejecutivo que use el CRM o panel de control.</p>
+          </div>
+
+          <div class="faq-card">
+            <h3>¿Cómo se comparan los criterios de evaluación?</h3>
+            <p>Puedes revisar nuestra <a href="/criterios" style="color: var(--gold-light); font-weight: 700; text-decoration: underline;">pauta de criterios verificables</a> para comparar modelos de IA, costos y cumplimiento con la Ley 21.719.</p>
+          </div>
+
+          <div class="faq-card">
+            <h3>¿Dónde puedo ver más sobre el módulo CRM?</h3>
+            <p>Revisa la página completa de nuestro <a href="/crm" style="color: var(--gold-light); font-weight: 700; text-decoration: underline;">Módulo CRM Integrado</a> para conocer el tablero kanban, analíticas y gestión por conversación.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+      <div class="container">
+        <h2 class="section-title" style="margin-bottom: 1rem;">¿Listo para cambiarte a <span class="gold">TheIA?</span></h2>
+        <p class="section-sub" style="margin-bottom: 2rem;">
+          Te ayudamos a planificar la importación de tus datos y dejamos tu asistente operando con tus reglas comerciales.
+        </p>
+        <div class="hero-ctas">
+          <button type="button" class="btn btn-gold btn-large" onclick="openTheiaChat('migracion')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Planificar mi migración ahora
+          </button>
+          <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" class="btn btn-ghost btn-large" target="_blank" rel="noopener" onclick="theiaTrackCTA('demo','migracion-final')">
+            Agendar reunión con ingeniería
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Columna 1: Marca & Propósito -->
+        <div class="footer-col footer-col--brand">
+          <a href="/" class="logo"><img src="/logo.png" alt="TheIA — Agentes de IA para Negocios, Ventas y CRM" width="70" height="70" /></a>
+          <p>Agentes de IA para WhatsApp, Web y Redes Sociales. Automatiza ventas, cotizaciones y atención 24/7 con integración nativa a tu CRM.</p>
+          <p style="font-size:0.8rem;color:var(--gold-light);font-weight: 700;margin-top:0.25rem;">🔒 Privacidad y seguridad con enmascaramiento de datos.</p>
+        </div>
+
+        <!-- Columna 2: Productos TheIA -->
+        <div class="footer-col">
+          <h4>Productos</h4>
+          <div class="footer-links-group">
+            <a href="/atencion-cliente">Atención Omnicanal</a>
+            <a href="/pulse">TheIA Pulse</a>
+            <a href="/crm">CRM Integrado</a>
+            <a href="/panel">Panel de Control</a>
+          </div>
+        </div>
+
+        <!-- Columna 3: Plataforma & Recursos -->
+        <div class="footer-col">
+          <h4>Plataforma</h4>
+          <div class="footer-links-group">
+            <a href="/funciones">Funciones</a>
+            <a href="/precios">Planes y Precios</a>
+            <a href="/migracion">Migración de Datos</a>
+            <a href="/servicios">Servicios</a>
+            <a href="/criterios">Criterios de IA</a>
+            <a href="/blog/">Blog</a>
+            <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" onclick="theiaTrackCTA('demo','footer')" style="color:var(--gold-light);font-weight:700;">Agendar Demo →</a>
+          </div>
+        </div>
+
+        <!-- Columna 4: Contacto & Redes -->
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <div class="footer-links-group">
+            <a href="mailto:hola@theia.cl">hola@theia.cl</a>
+            <a href="https://wa.me/12063858350" target="_blank" rel="noopener" onclick="theiaTrackCTA('whatsapp','footer')">+1 (206) 385-8350</a>
+            <a href="https://www.linkedin.com/company/112228768/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>TheIA en LinkedIn</a>
+            <a href="https://www.instagram.com/theiacl_/" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" x2="17.51" y2="6.5"/></svg>@theiacl_</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">TheIA Agent by THEIA.CL © 2026 · Todos los derechos reservados.</div>
+        <div class="footer-legal-links">
+          <span class="footer-copy">Santiago, Chile</span>
+          <a href="/privacidad">Política de Privacidad</a>
+          <a href="/terminos.html">Términos de Servicio</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/webchat-cta.js"></script>
+  <script src="https://admin.theia.cl/static/js/webchat-widget.js" data-api-key="8da817eb-2cbf-42df-8b57-bb86288670de" data-api-url="https://admin.theia.cl" data-title="Asistente TheIA" data-color="#d4af37" data-prechat="false"></script>
+</body>
+</html>

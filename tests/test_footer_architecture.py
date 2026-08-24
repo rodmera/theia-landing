@@ -32,6 +32,9 @@ HTML_FILES_WITH_FOOTER = [
     ROOT / "comercio.html",
     ROOT / "automotriz.html",
     ROOT / "salud.html",
+    ROOT / "atencion-whatsapp.html",
+    ROOT / "cotizaciones-agendamiento.html",
+    ROOT / "seguimiento-equipo.html",
 ]
 
 

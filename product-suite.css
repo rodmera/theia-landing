@@ -20,7 +20,7 @@
   flex-direction: column;
   inline-size: 100%;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.5rem;
   min-height: 52px;
   margin-bottom: 1.1rem;
@@ -28,7 +28,8 @@
 
 .product-suite-card__header .piece-icon-wrap,
 .product-suite-card__header .piece-icon {
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
 }
 
 .product-suite-card__icon {
@@ -41,6 +42,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 0 !important;
 }
 
 .product-suite-card__content {

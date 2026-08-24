@@ -18,6 +18,7 @@ TheIA responde con contexto, escala a tu equipo con el resumen de la conversaci�
 - [Automotriz & Talleres](https://theia.cl/automotriz): Solución de atención, agendamiento de mantenciones y avisos de estado del vehículo por WhatsApp para talleres mecánicos y empresas automotrices.
 - [Comercio & Retail Local](https://theia.cl/comercio): Solución de atención 24/7 de consultas de catálogo, stock y despacho por WhatsApp e Instagram DM para tiendas y comercios locales.
 - [Alternativa Tarifa Plana CRM](https://theia.cl/alternativa-crm): Comparativa transparente del modelo de tarifa plana (desde $250.000/mes con $0 por asiento adicional) frente al cobro por usuario/vendedor.
+- [Migración de Datos CRM](https://theia.cl/migracion): Proceso transparente y reversible de importación de contactos, deals, etapas y notas desde tu CRM actual hacia TheIA en 24 horas.
 - [Servicios](https://theia.cl/servicios): Implementación y soporte
 - [Cumplimiento Ley 21.719](https://theia.cl/cumplimiento): Datos en Chile, residencia local
 
