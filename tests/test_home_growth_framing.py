@@ -19,14 +19,14 @@ def test_ac1_hero_growth_framing_copy_and_hierarchy():
     """HU-WEB-028 AC1: Hero principal con titular de crecimiento y micro-copy de valor."""
     content = INDEX_HTML.read_text(encoding="utf-8")
 
-    # 1. Titular principal conciso
-    assert "Más ventas y atención 24/7" in content, "Falta titular principal de crecimiento en hero"
-    assert "sin contratar más personal" in content, "Falta bajada en titular"
+    # 1. Titular principal
+    assert "Agentes de IA para tu negocio" in content, "Falta titular principal en hero"
+    assert "Vende, atiende y cotiza en piloto automático" in content, "Falta bajada en titular"
 
     # 2. Bajada comercial clara
-    assert "capturan leads" in content, "Falta captura de leads en bajada"
-    assert "cotizan con tus reglas de negocio" in content, "Falta cotización con reglas en bajada"
-    assert "gestionan tu pipeline" in content, "Falta gestión de pipeline en bajada"
+    assert "conecta tu WhatsApp y canales digitales" in content, "Falta canales digitales en bajada"
+    assert "catálogos y CRM" in content, "Falta CRM en bajada"
+    assert "puesta en marcha asistida en 7 días" in content, "Falta puesta en marcha en bajada"
 
     # 3. Micro-copy de valor
     assert "Puesta en marcha en <7 días" in content or "Puesta en marcha en &lt;7 días" in content, "Falta micro-copy de puesta en marcha"
