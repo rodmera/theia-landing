@@ -246,19 +246,23 @@ def test_registro_sin_jerga(mobile_page, path):
 # ──────────────── 5. CONSISTENCIA COMERCIAL (precio único, demo 30) ────────────────
 
 def test_precio_consistente():
-    """Plan mensual 'desde $250.000' y setup SIN precio fijo en precios.html.
+    """Plan mensual 'desde $250.000' y setup SIN precio fijo en precios.html e index.html.
 
     Cambio 2026-08-10: la mensualidad se comunica como 'desde $250.000' y el
     setup inicial deja de ser un valor fijo: se evalúa según el alcance de cada
-    implementación. El contrafactual es el valor antiguo $190.000: si vuelve a
-    aparecer, el sitio quedó desalineado."""
+    implementación. Los contrafactuales son valores antiguos ($190.000, 1.5 UF, 55.000):
+    si vuelven a aparecer, el sitio quedó desalineado."""
     root = Path(__file__).parent.parent
     precios_html = (root / "precios.html").read_text(encoding="utf-8")
+    index_html = (root / "index.html").read_text(encoding="utf-8")
     assert "desde $250.000" in precios_html, "precios.html no comunica la mensualidad 'desde $250.000'"
+    assert "desde $250.000" in index_html, "index.html no comunica la mensualidad 'desde $250.000'"
     assert "Pago único" not in precios_html, "el setup ya no se publica como monto fijo"
-    for f in ["index.html", "precios.html"]:
+    for f in ["index.html", "precios.html", "migracion.html", "alternativa-crm.html"]:
         html = (root / f).read_text(encoding="utf-8")
         assert "$190.000" not in html, f"{f} aún menciona el valor antiguo $190.000"
+        assert "1.5 UF" not in html, f"{f} aún menciona el valor antiguo 1.5 UF"
+        assert "55.000" not in html, f"{f} aún menciona el valor antiguo 55.000"
 
 
 def test_json_ld_declara_la_mensualidad_vigente():
