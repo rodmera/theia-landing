@@ -287,73 +287,6 @@
     .b2b-text h3 { font-family: 'Merriweather', serif; font-weight: 900; font-size: clamp(1.1rem, 2vw, 1.4rem); margin-bottom: 0.4rem; }
     .b2b-text p { font-size: 0.9rem; color: var(--text-sub); line-height: 1.6; max-width: 520px; }
 
-    /* Newsletter */
-    .newsletter-section {
-      padding: 6rem 0;
-      background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
-      border-top: 1px solid var(--glass-border);
-    }
-
-    .newsletter-box {
-      background: var(--glass);
-      border: 1px solid var(--glass-border-gold);
-      border-radius: 24px;
-      padding: 3.5rem 2rem;
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
-      backdrop-filter: blur(10px);
-      position: relative;
-      overflow: hidden;
-    }
-    .newsletter-box::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    }
-
-    .newsletter-box h2 {
-      font-family: 'Merriweather', serif;
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      margin-bottom: 1rem;
-    }
-    .newsletter-box p {
-      color: var(--text-sub);
-      margin-bottom: 2.5rem;
-      font-size: 1.05rem;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .newsletter-form { display: flex; gap: 1rem; max-width: 500px; margin: 0 auto; }
-    .newsletter-form input[type="email"] {
-      flex: 1;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--glass-border);
-      border-radius: 10px;
-      padding: 0.85rem 1.25rem;
-      color: white;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
-    .newsletter-form input[type="email"]:focus {
-      outline: none;
-      border-color: var(--gold);
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
-    }
-
-    .newsletter-success {
-      display: none;
-      color: var(--green);
-      font-weight: 700;
-      margin-top: 1.5rem;
-      animation: fadeInUp 0.4s ease;
-    }
-
     /* Footer */
     footer {
       background: var(--bg);
@@ -414,8 +347,6 @@
       .logo img { height: 60px; }
       .servicios-extra { padding: 8rem 1.25rem 3rem; }
       .b2b-inner { flex-direction: column; text-align: center; }
-      .newsletter-form { flex-direction: column; }
-      .newsletter-form button { width: 100%; }
       .footer-bottom { flex-direction: column; align-items: center; text-align: center; gap: 0.5rem; }
     }
   </style>
@@ -760,60 +691,30 @@
         </div>
       </div>
 
-      <!-- CTA de Consulta -->
-      <div class="reveal" style="text-align:center; display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-top:2.5rem;">
+      <!-- CTA de Consulta y Cierre -->
+      <div class="reveal" style="text-align:center; display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-top:3rem;">
         <a href="mailto:hola@theia.cl" class="btn btn-outline-gold" style="padding: 0.85rem 2rem; font-size: 0.95rem;">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
             style="margin-right:6px; vertical-align:middle;">
             <rect width="20" height="16" x="2" y="4" rx="2" />
             <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-          </svg>Consulta por estos servicios especializados
+          </svg>Consultar por servicios especializados
         </a>
-        <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" style="padding: 0.85rem 2rem; font-size: 0.95rem;" onclick="theiaTrackCTA('demo','servicios-catalogo')">Agenda una demo técnica →</a>
-      </div>
-    </div>
-  </section>
-      <div class="reveal" style="text-align:center; margin-top:2rem;">
-        <a href="mailto:hola@theia.cl" class="btn btn-outline-gold">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            style="margin-right:6px; vertical-align:middle;">
-            <rect width="20" height="16" x="2" y="4" rx="2" />
-            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-          </svg>Consulta por estos servicios
-        </a>
+        <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" style="padding: 0.85rem 2rem; font-size: 0.95rem;" onclick="theiaTrackCTA('demo','servicios-catalogo')">Agenda una reunión técnica →</a>
       </div>
     </div>
   </section>
 
+  <!-- B2B Banner de Proyectos a Medida -->
   <section class="b2b-banner">
     <div class="container">
       <div class="b2b-inner reveal">
         <div class="b2b-text">
-          <h3>¿Tienes un proyecto de IA más complejo? <span class="gold">Hablemos.</span></h3>
-          <p>Orquestación de agentes, integraciones LLM a medida, automatización de procesos internos — construimos soluciones IA para empresas que van más allá del producto estándar.</p>
+          <h3>¿Tienes un proyecto de IA o integración a medida? <span class="gold">Conversémoslo.</span></h3>
+          <p>Orquestación de agentes, integraciones LLM a medida, automatización de procesos internos — evaluamos la viabilidad técnica y construimos soluciones con soporte local en Chile.</p>
         </div>
-        <a href="#newsletter" class="btn btn-outline-gold" id="b2b-cta" style="white-space:nowrap;flex-shrink:0;">Dejar mi correo</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="newsletter-section" id="newsletter">
-    <div class="container">
-      <div class="newsletter-box reveal">
-        <h2 id="newsletter-title">Personas reales que te acompañan</h2>
-        <p id="newsletter-desc">Recibe consejos de automatización comercial, casos reales y nuestra asesoría de puesta en marcha directa.</p>
-        <form class="newsletter-form" id="waitlist-form">
-          <input type="email" name="email" placeholder="tu@email.com" required>
-          <input type="hidden" name="source" value="Landing Newsletter - Servicios">
-          <!-- Honeypot: invisible para humanos, bots lo llenan -->
-          <input type="text" name="website" id="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;">
-          <button type="submit" class="btn btn-gold">Unirse a la lista</button>
-        </form>
-        <div class="newsletter-success" id="newsletter-success">
-          &#10024; ¡Gracias! Te has unido correctamente a nuestra lista.
-        </div>
+        <a href="mailto:hola@theia.cl?subject=Proyecto%20IA%20a%20Medida%20-%20TheIA" class="btn btn-gold" style="white-space:nowrap;flex-shrink:0;">Contactar con Ingeniería →</a>
       </div>
     </div>
   </section>
@@ -902,55 +803,6 @@
       });
     }, { threshold: 0.08 });
     reveals.forEach(el => observer.observe(el));
-
-    // B2B CTA: cambia source y copy del form al hacer click
-    document.getElementById('b2b-cta').addEventListener('click', () => {
-      document.querySelector('input[name="source"]').value = 'B2B - Proyecto IA';
-      document.getElementById('newsletter-title').textContent = '¿Proyecto IA a medida?';
-      document.getElementById('newsletter-desc').textContent = 'Déjanos tu correo y nuestro equipo se contacta contigo para conversar sobre tu proyecto.';
-      waitlistForm.querySelector('button').textContent = 'Quiero conversar';
-    });
-
-    // Waitlist Form Script
-    const waitlistForm = document.getElementById('waitlist-form');
-    const newsletterSuccess = document.getElementById('newsletter-success');
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxwkLWd4nUMSz0LvL0HnsJ0dqNbNpsOIpXHtuPR8EuVCEQ74r_dRk0C1hO1DBml3aKF0w/exec';
-    const _formLoadTime = Date.now();
-
-    waitlistForm.addEventListener('submit', e => {
-      e.preventDefault();
-
-      // Anti-spam: honeypot (bots llenan campos ocultos)
-      if (document.getElementById('hp-field').value !== '') return;
-
-      // Anti-spam: time check (bots envían el form en < 3 segundos)
-      if (Date.now() - _formLoadTime < 3000) return;
-
-      const submitBtn = waitlistForm.querySelector('button');
-      submitBtn.disabled = true;
-      submitBtn.innerText = 'Enviando...';
-
-      const email = waitlistForm.querySelector('input[name="email"]').value;
-      const source = waitlistForm.querySelector('input[name="source"]').value;
-      const body = `email=${encodeURIComponent(email)}&source=${encodeURIComponent(source)}`;
-
-      fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: body
-      })
-      .then(() => {
-        waitlistForm.style.display = 'none';
-        newsletterSuccess.style.display = 'block';
-        theiaTrackCTA('newsletter', 'servicios');
-      })
-      .catch(error => {
-        console.error('Error!', error.message);
-        submitBtn.disabled = false;
-        submitBtn.innerText = 'Unirse a la lista';
-      });
-    });
   </script>
 
 
