@@ -5,7 +5,7 @@
 TheIA responde con contexto, escala a tu equipo con el resumen de la conversación cuando hace falta, y deja tu agenda de clientes donde la puedes ver. Atiende sobre Google Cloud con residencia local de datos y cumple la Ley 21.719.
 
 ## Producto
-- [TheIA Homepage](https://theia.cl): Página principal — "Atención al cliente para tu PYME. WhatsApp, Instagram y tu web, en un solo lugar."
+- [TheIA Homepage](https://theia.cl): Página principal — Partner de Inteligencia Artificial para Negocios en Chile con Reglas de Catálogo y Control
 - [Atención al cliente](https://theia.cl/atencion-cliente): Hub del ecosistema TheIA (Atención, Pulse, CRM, Plataforma)
 - [Funciones](https://theia.cl/funciones): Cómo ayuda — atiende y orienta, cotiza y agenda, tu equipo conserva el control
 - [Criterios para elegir atención con IA](https://theia.cl/criterios): 8 criterios verificables + calculadora de costo por modelo (sin nombrar marcas)

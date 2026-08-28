@@ -1,3 +1,4 @@
+// HU-WEB-029: Homologación Partner de IA y Consola de Reglas
 /* CTA compartido (HU-WEB-027): abre el WebChat propio y conserva WhatsApp como respaldo. */
 window.openTheiaChat = function openTheiaChat(source) {
   if (typeof window.theiaTrackCTA === 'function') {

@@ -1,0 +1,370 @@
+/* home-product-ui.css — Superficies operativas exclusivas de Home (HU-WEB-029) */
+
+/* 1. Bento Grid 2.0 de Capacidades Reales */
+.home-bento-section {
+  padding: 5.5rem 0;
+  background: var(--bg);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.home-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.home-bento-card {
+  background: var(--glass, rgba(15, 23, 42, 0.75));
+  border: 1px solid var(--glass-border, var(--hairline-base));
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: var(--e1);
+  transition: transform 0.25s var(--bezier-smooth), box-shadow 0.25s var(--bezier-smooth), border-color 0.25s var(--bezier-smooth);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 380px;
+}
+
+.home-bento-card:hover {
+  border-color: var(--glass-border-gold, rgba(212, 175, 55, 0.3));
+  box-shadow: var(--e3);
+  transform: translateY(-3px);
+}
+
+/* Distribución asimétrica de tarjetas */
+.home-bento-card--speed {
+  grid-column: span 7;
+}
+
+.home-bento-card--rules {
+  grid-column: span 5;
+}
+
+.home-bento-card--pulse {
+  grid-column: span 5;
+}
+
+.home-bento-card--crm {
+  grid-column: span 7;
+}
+
+@media (max-width: 960px) {
+  .home-bento-card--speed,
+  .home-bento-card--rules,
+  .home-bento-card--pulse,
+  .home-bento-card--crm {
+    grid-column: span 12;
+    min-height: auto;
+  }
+}
+
+/* Cabecera de cada tarjeta Bento */
+.home-bento-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.home-bento-card__tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gold-light, #ebca73);
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid var(--glass-border-gold, rgba(212, 175, 55, 0.25));
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.home-bento-card__tag--green {
+  color: #34c77b;
+  background: rgba(52, 199, 123, 0.1);
+  border-color: rgba(52, 199, 123, 0.25);
+}
+
+.home-bento-card__tag--indigo {
+  color: #818cf8;
+  background: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+/* Micro-UIs de Control */
+.home-ui__panel {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Micro-UI 1: Speed-to-lead Timer */
+.home-ui__timer-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(212, 175, 55, 0.06);
+  border: 1px solid var(--glass-border-gold);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.home-ui__timer-count {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--gold, #ebca73);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.home-ui__timer-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #34c77b;
+  background: rgba(52, 199, 123, 0.12);
+  border: 1px solid rgba(52, 199, 123, 0.3);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+}
+
+.home-ui__event-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  color: var(--text-sub);
+  line-height: 1.4;
+}
+
+/* Micro-UI 2: Switch de Reglas */
+.home-ui__rules-switch {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.home-ui__switch-btn {
+  flex: 1;
+  padding: 0.45rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 8px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-sub);
+  cursor: pointer;
+  transition: all 0.2s var(--bezier-smooth);
+}
+
+.home-ui__switch-btn:hover {
+  border-color: var(--glass-border-gold);
+  color: var(--text);
+}
+
+.home-ui__switch-btn.active {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: var(--glass-border-gold);
+  color: var(--gold-light, #ebca73);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.15);
+}
+
+.home-ui__rule-display {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.home-ui__rule-item {
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  font-size: 0.78rem;
+}
+
+.home-ui__rule-item--approved {
+  background: rgba(52, 199, 123, 0.08);
+  border-color: rgba(52, 199, 123, 0.3);
+}
+
+.home-ui__rule-item--blocked {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Micro-UI 3: TheIA Pulse */
+.home-ui__pulse-msg {
+  background: rgba(37, 211, 102, 0.06);
+  border: 1px solid rgba(37, 211, 102, 0.25);
+  border-radius: 10px;
+  padding: 0.75rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.home-ui__pulse-msg-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.35rem;
+  font-size: 0.72rem;
+}
+
+/* Micro-UI 4: CRM Ficha */
+.home-ui__crm-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  font-size: 0.78rem;
+}
+
+.home-ui__crm-cell {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  padding: 0.45rem 0.6rem;
+}
+
+.home-ui__crm-label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.15rem;
+}
+
+.home-ui__crm-val {
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Textos editoriales dentro del Bento */
+.home-bento-card__title {
+  font-family: 'Merriweather', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 0.5rem 0;
+}
+
+.home-bento-card__desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  color: var(--text-sub);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 2. Diagrama de Orquestación Omnicanal SVG (Componente B) */
+.home-orchestration-section {
+  padding: 5.5rem 0;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.home-ui__orchestration {
+  width: 100%;
+  max-width: 960px;
+  margin: 2.5rem auto 0;
+  background: var(--glass, rgba(15, 23, 42, 0.75));
+  border: 1px solid var(--glass-border, var(--hairline-base));
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--e2);
+  position: relative;
+  overflow: hidden;
+}
+
+.home-ui__svg-wrap {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.home-ui__svg-diagram {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Nodos interactivos del diagrama */
+.home-ui__channel-node {
+  cursor: pointer;
+  transition: transform 0.2s var(--bezier-smooth);
+}
+
+.home-ui__channel-node:hover {
+  transform: scale(1.05);
+}
+
+/* Rutas y pulsos de datos SVG */
+.home-ui__flow-path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.15);
+  stroke-width: 2;
+  stroke-dasharray: 6 6;
+  animation: dataFlow 20s linear infinite;
+  transition: stroke 0.3s var(--bezier-smooth), stroke-width 0.3s var(--bezier-smooth);
+}
+
+.home-ui__flow-path--wa {
+  stroke: rgba(37, 211, 102, 0.35);
+}
+
+.home-ui__flow-path--ig {
+  stroke: rgba(225, 48, 108, 0.35);
+}
+
+.home-ui__flow-path--web {
+  stroke: rgba(99, 102, 241, 0.35);
+}
+
+.home-ui__flow-path--out {
+  stroke: rgba(235, 202, 115, 0.4);
+}
+
+.home-ui__channel-node[data-channel="whatsapp"]:hover ~ svg .home-ui__flow-path--wa,
+.home-ui__orchestration:has(.home-ui__channel-node[data-channel="whatsapp"]:hover) .home-ui__flow-path--wa {
+  stroke: #25D366;
+  stroke-width: 3;
+  filter: drop-shadow(0 0 6px rgba(37, 211, 102, 0.6));
+}
+
+.home-ui__channel-node[data-channel="instagram"]:hover ~ svg .home-ui__flow-path--ig,
+.home-ui__orchestration:has(.home-ui__channel-node[data-channel="instagram"]:hover) .home-ui__flow-path--ig {
+  stroke: #E1306C;
+  stroke-width: 3;
+  filter: drop-shadow(0 0 6px rgba(225, 48, 108, 0.6));
+}
+
+.home-ui__channel-node[data-channel="web"]:hover ~ svg .home-ui__flow-path--web,
+.home-ui__orchestration:has(.home-ui__channel-node[data-channel="web"]:hover) .home-ui__flow-path--web {
+  stroke: #6366F1;
+  stroke-width: 3;
+  filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.6));
+}
+
+@keyframes dataFlow {
+  from {
+    stroke-dashoffset: 200;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Reducción de movimiento para accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .home-ui__flow-path {
+    animation: none !important;
+  }
+}
