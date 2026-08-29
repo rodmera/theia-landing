@@ -1,5 +1,5 @@
 /**
- * home-product-ui.js — Interactividad y micro-UIs de Home (HU-WEB-031)
+ * home-product-ui.js — Interactividad y micro-UIs de Home (HU-WEB-032)
  * Controla:
  * 1. Switch interactivo de reglas de catálogo vs freno de descuentos.
  * 2. Contador demostrativo de Speed-to-Lead (<60s).
