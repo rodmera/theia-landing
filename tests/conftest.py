@@ -35,6 +35,32 @@ MOBILE = {"viewport": {"width": 390, "height": 844}, "is_mobile": True,
                          "AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1")}
 DESKTOP = {"viewport": {"width": 1366, "height": 768}}
 
+# Flags de optimización de Chromium headless para Linux (35W TDP friendly)
+CHROMIUM_OPTIMIZED_ARGS = [
+    "--disable-gpu",
+    "--disable-software-rasterizer",
+    "--disable-dev-shm-usage",
+    "--no-sandbox",
+    "--disable-background-networking",
+    "--disable-background-timer-throttling",
+    "--disable-renderer-backgrounding",
+    "--disable-extensions",
+    "--disable-component-update",
+    "--disable-default-apps",
+    "--disable-sync",
+    "--disable-translate",
+    "--metrics-recording-only",
+    "--mute-audio",
+    "--no-first-run",
+    "--js-flags=--max-old-space-size=512",
+]
+
+
+@pytest.fixture(scope="session")
+def browser_type_launch_args():
+    """Optimiza el consumo de memoria y CPU de Chromium headless."""
+    return {"args": CHROMIUM_OPTIMIZED_ARGS}
+
 # Páginas estáticas del sitio (los _posts Jekyll requieren build de Pages — no van acá).
 PAGES = ["/", "/funciones.html", "/precios.html", "/servicios.html",
          "/panel.html", "/calculadora.html", "/pulse.html",
