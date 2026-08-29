@@ -11,7 +11,7 @@ TheIA responde con contexto, escala a tu equipo con el resumen de la conversaci�
 - [Criterios para elegir atención con IA](https://theia.cl/criterios): 8 criterios verificables + calculadora de costo por modelo (sin nombrar marcas)
 - [Precios](https://theia.cl/precios): Plan mensual desde CLP 250.000 por negocio, no por usuario. El setup inicial se evalúa según el alcance de cada implementación. Incluye el módulo CRM. Cargos de WhatsApp Business se informan por separado.
 - [Plataforma](https://theia.cl/plataforma): Panel de control y métricas
-- [TheIA Pulse](https://theia.cl/pulse): Copiloto del dueño por WhatsApp — resúmenes diarios, gestión de agenda, alertas
+- [TheIA Pulse](https://theia.cl/pulse): Copiloto ejecutivo por WhatsApp — briefing matutino 08:00, alertas en tiempo real y resumen de cierre 19:00 (HU-WEB-030)
 - [CRM](https://theia.cl/crm): Módulo CRM de TheIA — registra cada negocio que llega por WhatsApp, Instagram y la web, lo mueve por tus etapas y se actualiza desde la conversa. Complemento de la atención.
 - [Salud & Clínicas](https://theia.cl/salud): Solución de atención y confirmación de horas por WhatsApp para clínicas dentales, médicas y estéticas en Chile. Reduce inasistencias y descongestiona recepción.
 - [Servicios & Consultoría B2B](https://theia.cl/servicios-pyme): Solución de atención, calificación de prospectos y agendamiento de reuniones B2B por WhatsApp para consultoras y empresas de servicios.

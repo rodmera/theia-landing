@@ -356,88 +356,64 @@
       margin: 0 auto;
     }
 
-    /* Chat Simulation */
-    .chat-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--glass-border);
-      margin-bottom: 1rem;
-    }
-
-    .chat-avatar {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--indigo), var(--gold));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      box-shadow: 0 0 20px var(--gold-glow);
-    }
-
-    .chat-name {
-      font-family: 'Merriweather', serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
-
-    .chat-online {
-      font-size: 0.72rem;
-      color: var(--green);
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
-    .chat-online::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      background: var(--green);
-      border-radius: 50%;
-    }
-
-    .chat-msgs {
+    /* Executive Briefing Cards (HU-WEB-030) */
+    .pulse-events-box {
       display: flex;
       flex-direction: column;
-      gap: 0.65rem;
+      gap: 1.25rem;
     }
 
-    .msg {
-      max-width: 82%;
-      padding: 0.6rem 0.9rem;
-      border-radius: 14px;
-      font-size: 0.82rem;
-      line-height: 1.5;
-      opacity: 0;
-      animation: msgfade 0.3s ease forwards;
+    .pulse-event-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 1.4rem;
+      box-shadow: var(--e1);
+      transition: all 0.25s var(--bezier-smooth);
     }
 
-    .msg-user {
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      align-self: flex-start;
-      border-bottom-left-radius: 4px;
+    .pulse-event-card:hover {
+      border-color: var(--glass-border-gold);
+      box-shadow: var(--e3);
+      transform: translateY(-2px);
     }
 
-    .msg-bot {
-      background: linear-gradient(135deg, rgba(79, 70, 229, 0.5), rgba(79, 70, 229, 0.3));
-      border: 1px solid rgba(79, 70, 229, 0.4);
-      align-self: flex-end;
-      border-bottom-right-radius: 4px;
+    .pulse-event-card--morning { border-left: 3px solid var(--gold); }
+    .pulse-event-card--alert { border-left: 3px solid var(--green); }
+    .pulse-event-card--evening { border-left: 3px solid var(--indigo-light); }
+
+    .pulse-event-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.65rem;
+      font-size: 0.75rem;
     }
 
-    .msg:nth-child(1) { animation-delay: 0.2s }
-    .msg:nth-child(2) { animation-delay: 0.7s }
-    .msg:nth-child(3) { animation-delay: 1.2s }
-    .msg:nth-child(4) { animation-delay: 1.7s }
-    .msg:nth-child(5) { animation-delay: 2.2s }
+    .pulse-event-tag {
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
 
-    @keyframes msgfade {
-      from { opacity: 0; transform: translateY(6px) }
-      to { opacity: 1; transform: translateY(0) }
+    .pulse-event-time {
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .pulse-event-title {
+      font-family: 'Merriweather', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .pulse-event-body {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      line-height: 1.55;
     }
 
     /* Pulse Section */
@@ -972,7 +948,7 @@
           <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
         </svg> ✨ Copiloto Ejecutivo en WhatsApp</div>
       <h1 class="reveal">La salud de tus ventas y clientes.<br /><span class="gold">Directo en tu WhatsApp personal.</span></h1>
-      <p class="reveal">TheIA Pulse te envía briefings matutinos, alertas de prospectos calientes y resúmenes de cierre sin entrar a dashboards complejos ni perseguir a tu equipo.</p>
+      <p class="reveal">TheIA Pulse te envía briefings matutinos a las 08:00, alertas en tiempo real de leads calientes y resúmenes de cierre a las 19:00 sin entrar a dashboards complejos ni perseguir a tu equipo.</p>
     </div>
   </section>
 
@@ -980,48 +956,75 @@
   <section class="pulse" id="pulse" style="padding-top: 2rem;">
     <div class="container">
       <div class="pulse-layout" style="margin-top: 0;">
-        <div class="pulse-chat reveal">
-          <div class="chat-header">
-            <div class="chat-avatar">📊</div>
-            <div>
-              <div class="chat-name">TheIA Pulse</div>
-              <div class="chat-online">Tu copiloto de negocio</div>
+        <div class="pulse-events-box reveal">
+          <!-- Evento 1: Briefing Matutino -->
+          <div class="pulse-event-card pulse-event-card--morning">
+            <div class="pulse-event-header">
+              <span class="pulse-event-tag" style="color: var(--gold-light);">☀️ Briefing Matutino</span>
+              <span class="pulse-event-time">08:00 AM</span>
+            </div>
+            <div class="pulse-event-title">Prioridades y Citas del Día</div>
+            <div class="pulse-event-body">
+              • <strong>8 citas agendadas</strong> para hoy (3 de alto valor comercial).<br />
+              • <strong>4 leads calientes</strong> esperando confirmación de cotización.<br />
+              • <strong>Alerta:</strong> Consulta pendiente de repuestos enviada anoche.
             </div>
           </div>
-          <div class="chat-msgs">
-            <div class="msg msg-user" style="animation-delay:0.1s">¿Cómo estuvo ayer?</div>
-            <div class="msg msg-bot" style="animation-delay:0.6s">📊 Resumen de ayer:<br />• 12 reservas confirmadas<br />• 3 leads calientes<br />• NPS: 4.7/5 ⭐<br />• 2 cancelaciones (normal)<br /><br />Hoy tienes 8 citas. ¿Algo que quieras ajustar?</div>
-            <div class="msg msg-user" style="animation-delay:1.2s">Bloquea mi agenda mañana de 12 a 14</div>
-            <div class="msg msg-bot" style="animation-delay:1.7s">✅ Bloqueado mañana de 12:00 a 14:00. No se agendarán citas en ese horario.</div>
+
+          <!-- Evento 2: Alerta en Tiempo Real -->
+          <div class="pulse-event-card pulse-event-card--alert">
+            <div class="pulse-event-header">
+              <span class="pulse-event-tag" style="color: #34c77b;">⚡ Alerta en Tiempo Real</span>
+              <span class="pulse-event-time">14:35 PM</span>
+            </div>
+            <div class="pulse-event-title">Lead Prioritario Solicitó Cotización</div>
+            <div class="pulse-event-body">
+              <strong>Clínica San Lucas:</strong> Solicitó cotización para 8 sucursales por WhatsApp. Propuesta comercial generada y ficha lista en el CRM para tu equipo de cierre.
+            </div>
+          </div>
+
+          <!-- Evento 3: Resumen de Cierre -->
+          <div class="pulse-event-card pulse-event-card--evening">
+            <div class="pulse-event-header">
+              <span class="pulse-event-tag" style="color: #818cf8;">🌙 Resumen de Cierre</span>
+              <span class="pulse-event-time">19:00 PM</span>
+            </div>
+            <div class="pulse-event-title">Cierre de Jornada &amp; Compromisos</div>
+            <div class="pulse-event-body">
+              • <strong>14 cotizaciones entregadas</strong> en el día con $0 errores.<br />
+              • <strong>$4.200.000 CLP</strong> en oportunidades avanzadas a etapa de negociación.<br />
+              • <strong>0 compromisos vencidos:</strong> Todas las consultas del día fueron atendidas.
+            </div>
           </div>
         </div>
+
         <div class="pulse-features">
           <div class="pulse-feat reveal">
             <div class="pulse-feat-icon">📊</div>
             <div>
-              <div class="pulse-feat-name">Resumen diario automático</div>
-              <p class="pulse-feat-desc">Cada mañana recibes un briefing con las métricas del día anterior: reservas, leads, NPS y cancelaciones.</p>
+              <div class="pulse-feat-name">Briefing Matutino (08:00)</div>
+              <p class="pulse-feat-desc">Cada mañana recibes las prioridades comerciales, citas agendadas y leads que requieren atención para arrancar el día con claridad.</p>
+            </div>
+          </div>
+          <div class="pulse-feat reveal">
+            <div class="pulse-feat-icon">⚡</div>
+            <div>
+              <div class="pulse-feat-name">Alerta en Tiempo Real</div>
+              <p class="pulse-feat-desc">Aviso instantáneo en tu WhatsApp cuando entra una oportunidad de alto valor o una cuenta clave solicita una propuesta formal.</p>
+            </div>
+          </div>
+          <div class="pulse-feat reveal">
+            <div class="pulse-feat-icon">🌙</div>
+            <div>
+              <div class="pulse-feat-name">Resumen de Cierre (19:00)</div>
+              <p class="pulse-feat-desc">Visibilidad completa de ventas, cotizaciones enviadas y compromisos cumplidos al finalizar la jornada, sin perseguir a nadie.</p>
             </div>
           </div>
           <div class="pulse-feat reveal">
             <div class="pulse-feat-icon">🗓️</div>
             <div>
-              <div class="pulse-feat-name">Gestiona tu agenda con texto</div>
-              <p class="pulse-feat-desc">"Bloquea mi horario mañana de 12 a 14", "¿Cuántas citas hay el viernes?", "Cancela la cita de María López". Todo por WhatsApp.</p>
-            </div>
-          </div>
-          <div class="pulse-feat reveal">
-            <div class="pulse-feat-icon">🔔</div>
-            <div>
-              <div class="pulse-feat-name">Alertas inteligentes</div>
-              <p class="pulse-feat-desc">Si un cliente cancela 3 veces en un mes, Pulse te avisa. Detecta patrones que tú no tienes tiempo de ver.</p>
-            </div>
-          </div>
-          <div class="pulse-feat reveal">
-            <div class="pulse-feat-icon">⏰</div>
-            <div>
-              <div class="pulse-feat-name">Recordatorios personales</div>
-              <p class="pulse-feat-desc">"Recuérdame llamar al proveedor mañana a las 10". Pulse programa el recordatorio y te avisa por WhatsApp.</p>
+              <div class="pulse-feat-name">Gestión de Agenda por Voz o Texto</div>
+              <p class="pulse-feat-desc">"Bloquea mi horario mañana de 12 a 14", "¿Cuántas citas hay el viernes?". Todo se coordina directo por WhatsApp.</p>
             </div>
           </div>
         </div>

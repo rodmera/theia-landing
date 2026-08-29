@@ -1,4 +1,4 @@
-// HU-WEB-029: Homologación Partner de IA y Consola de Reglas
+// HU-WEB-030: Homologación Partner de IA y Consola de Reglas
 /**
  * site-nav.js — Módulo profundo de navegación pública TheIA (TASK-202608192246)
  */

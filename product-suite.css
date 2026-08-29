@@ -1,4 +1,4 @@
-/* HU-WEB-029: Homologación Partner de IA y Tokens Físicos */
+/* HU-WEB-030: Homologación Partner de IA y Tokens Físicos */
 /* product-suite.css — Composición y alineación simétrica de tarjetas de productos TheIA (TASK-202608192128) */
 
 .product-suite-grid {
@@ -14,6 +14,7 @@
   align-items: center;
   min-inline-size: 0;
   text-align: center;
+  padding: 2rem 1.5rem 1.75rem;
 }
 
 .product-suite-card__header {
