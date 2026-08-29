@@ -46,8 +46,8 @@ Actions en cada push (workflow `site-tests.yml`, screenshots móviles como artif
 # setup una vez
 python3 -m venv .venv-test && .venv-test/bin/pip install -r tests/requirements.txt
 .venv-test/bin/python -m playwright install chromium
-# correr (paralelo: -n 4, ~47s; antes >5 min)
-.venv-test/bin/python -m pytest tests/ -q -n 4
+# correr (paralelo: -n 2 controlado para 35W TDP, ~50s; antes >5 min)
+.venv-test/bin/python -m pytest tests/ -q -n 2
 # serial (diagnóstico, ~2.5 min)
 .venv-test/bin/python -m pytest tests/ -q
 ```

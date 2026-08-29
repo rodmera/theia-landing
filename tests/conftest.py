@@ -39,6 +39,11 @@ DESKTOP = {"viewport": {"width": 1366, "height": 768}}
 CHROMIUM_OPTIMIZED_ARGS = [
     "--disable-gpu",
     "--disable-software-rasterizer",
+    "--disable-gpu-compositing",
+    "--disable-webgl",
+    "--disable-3d-apis",
+    "--disable-accelerated-2d-canvas",
+    "--disable-accelerated-video-decode",
     "--disable-dev-shm-usage",
     "--no-sandbox",
     "--disable-background-networking",

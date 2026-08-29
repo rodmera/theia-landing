@@ -23,6 +23,8 @@ TheIA responde con contexto, escala a tu equipo con el resumen de la conversaci�
 - [Cumplimiento Ley 21.719](https://theia.cl/cumplimiento): Datos en Chile, residencia local
 
 ## Blog
+- [Adhesión al Código de Buenas Prácticas de IA 2026 de la CCS](https://theia.cl/blog/codigo-buenas-practicas-ia-ccs-2026/): Declaración y compromisos de TheIA en transparencia, supervisión humana y protección de datos (HU-WEB-033)
+- [El Mito del No-Code para PYMEs](https://theia.cl/blog/mito-no-code-para-pymes/): Tu negocio necesita ventas, no un segundo trabajo de ingeniería
 - [Agente IA vs Chatbot Tradicional](https://theia.cl/blog/agente-ia-vs-chatbot-tradicional/): Por qué un agente IA supera al chatbot con flujos fijos
 - [Automatizar Ventas WhatsApp en 7 Pasos](https://theia.cl/blog/automatizar-ventas-whatsapp-7-pasos/): Guía práctica para pymes
 - [Chatbot WhatsApp Chile - Guía Pymes](https://theia.cl/blog/chatbot-whatsapp-chile-guia-pymes/): Panorama del mercado chileno
