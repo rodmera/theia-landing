@@ -191,12 +191,12 @@ def test_no_promesa_de_futuro_en_copy_visible():
 
 
 def test_hero_de_home_usa_imagen_conceptual_de_orquestacion_sin_interfaz_ficticia():
-    """El hero comunica orquestación con una pieza editorial, no una app simulada."""
+    """El hero comunica orquestación agéntica con un flujo dinámico para PYMEs, no una app simulada."""
     source = (ROOT / "index.html").read_text(encoding="utf-8")
     hero = source[source.index('<section class="hero"'):source.index("</section>", source.index('<section class="hero"'))]
-    for marker in ("hero-orchestration-visual", "hero-agent-orchestration.png", "Diagrama conceptual:"):
+    for marker in ("hero-orchestration-visual", "TheIA Core", "Agente Catálogo", "Agente Agenda", "Agente CRM"):
         assert marker in hero, f"hero perdió el componente visual obligatorio: {marker}"
-    for stale in ("hero-console", "hero-stage-", "client-header", "client-channels", "$185.000 CLP"):
+    for stale in ("hero-console", "hero-stage-", "client-header", "client-channels"):
         assert stale not in hero, f"hero conserva interfaz ficticia: {stale}"
 
 

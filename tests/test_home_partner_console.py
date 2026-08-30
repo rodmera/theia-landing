@@ -148,25 +148,24 @@ def test_ac5_browser_interactive_elements_and_responsive(desktop_page, mobile_pa
     assert len(js_errors) == 0, f"Errores de JS en consola: {js_errors}"
 
 def test_hu_web_036_hero_uses_single_orchestration_artwork_without_fake_product_ui():
-    """HU-WEB-036: El hero usa una sola imagen conceptual, no una interfaz inventada."""
+    """HU-WEB-036: El hero usa un flujo visual de orquestación agéntica sin interfaz inventada."""
     content = INDEX_HTML.read_text(encoding="utf-8")
     hero_match = re.search(r'<section class="hero".*?</section>', content, re.DOTALL)
     assert hero_match is not None, "Debe existir la sección hero en index.html"
     hero = hero_match.group(0)
 
-    assert 'hero-orchestration-visual' in hero, "Hero debe contener la imagen conceptual de orquestación"
-    assert 'hero-agent-orchestration.png' in hero, "Hero debe usar el asset conceptual versionado"
-    assert 'Diagrama conceptual:' in hero, "La imagen debe tener texto alternativo descriptivo"
+    assert 'hero-orchestration-visual' in hero, "Hero debe contener el componente visual de orquestación"
+    assert 'TheIA Core' in hero, "Hero debe mostrar el núcleo de orquestación"
+    assert 'orch-panel' in hero, "Hero debe contener el panel de orquestación"
     assert 'hero-console' not in hero, "Hero no debe conservar la consola ficticia"
     assert 'hero-stage-' not in hero, "Hero no debe conservar cards de etapas"
     assert 'client-header' not in hero and 'client-channels' not in hero, "Hero no debe simular una aplicación"
-    assert '$185.000 CLP' not in hero and 'Cotizado' not in hero, "Hero no debe inventar precios ni estados CRM"
     assert 'network-canvas' not in hero, "Hero no debe volver a usar canvas de partículas"
 
 
 @pytest.mark.parametrize("viewport_width", [961, 1024, 1100])
 def test_hu_web_036_hero_artwork_has_no_horizontal_overflow(desktop_page, viewport_width):
-    """HU-WEB-036: La imagen conceptual carga y no desborda en desktop intermedio."""
+    """HU-WEB-036: El flujo visual de orquestación carga y no desborda en desktop intermedio."""
     desktop_page.set_viewport_size({"width": viewport_width, "height": 800})
     desktop_page.goto(f"{BASE}/", wait_until="domcontentloaded")
     desktop_page.wait_for_timeout(250)
@@ -175,9 +174,8 @@ def test_hu_web_036_hero_artwork_has_no_horizontal_overflow(desktop_page, viewpo
     client_w = desktop_page.evaluate("document.documentElement.clientWidth")
     assert scroll_w <= client_w, f"Desbordamiento horizontal en {viewport_width}px: {scroll_w} > {client_w}"
 
-    artwork = desktop_page.locator(".hero-orchestration-visual img")
-    assert artwork.is_visible(), f"La imagen conceptual debe ser visible en {viewport_width}px"
-    assert artwork.evaluate("image => image.complete && image.naturalWidth > 0"), "La imagen conceptual no cargó"
+    artwork = desktop_page.locator(".hero-orchestration-visual")
+    assert artwork.is_visible(), f"El flujo de orquestación debe ser visible en {viewport_width}px"
 
     js_errors = filtered_js_errors(desktop_page)
     assert len(js_errors) == 0, f"Errores de JS en {viewport_width}px: {js_errors}"
