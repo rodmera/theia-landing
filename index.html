@@ -587,16 +587,16 @@
     }
 
     .orch-panel {
-      background: rgba(15, 23, 42, 0.78);
+      background: rgba(15, 23, 42, 0.88);
       border: 1px solid rgba(212, 175, 55, 0.28);
-      border-radius: 16px;
-      padding: 1rem 1.15rem;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.75), 0 0 35px -10px rgba(212, 175, 55, 0.12);
+      border-radius: 18px;
+      padding: 1.15rem 1.25rem 1.1rem;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), 0 0 35px -10px rgba(212, 175, 55, 0.18);
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.85rem;
       position: relative;
       overflow: hidden;
     }
@@ -604,11 +604,11 @@
     .orch-panel::before {
       content: '';
       position: absolute;
-      top: -50px;
-      right: -50px;
-      width: 160px;
-      height: 160px;
-      background: radial-gradient(circle, rgba(79, 70, 229, 0.18), transparent 70%);
+      top: -60px;
+      right: -60px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.15), transparent 70%);
       pointer-events: none;
     }
 
@@ -617,340 +617,140 @@
       align-items: center;
       justify-content: space-between;
       gap: 0.5rem;
-      border-bottom: 1px solid var(--glass-border);
-      padding-bottom: 0.65rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 0.75rem;
       flex-wrap: wrap;
     }
 
     .orch-live-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      background: rgba(52, 199, 123, 0.12);
-      border: 1px solid rgba(52, 199, 123, 0.3);
+      gap: 0.5rem;
+      background: rgba(52, 199, 123, 0.15);
+      border: 1px solid rgba(52, 199, 123, 0.4);
       border-radius: 100px;
-      padding: 0.2rem 0.55rem;
-      font-size: 0.65rem;
-      font-weight: 700;
-      color: var(--green);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .orch-pulse-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 8px rgba(52, 199, 123, 0.8);
-      animation: livepulse 2s infinite;
-    }
-
-    .orch-scenario-tabs {
-      display: flex;
-      gap: 0.3rem;
-    }
-
-    .orch-tab {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--text-muted);
-      padding: 0.2rem 0.55rem;
-      border-radius: 6px;
+      padding: 0.25rem 0.65rem;
       font-size: 0.68rem;
       font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s ease;
+      color: #6ee7b7;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
       font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
-    .orch-tab:hover {
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--text);
+    .orch-pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #34c77b;
+      box-shadow: 0 0 8px #34c77b;
+      animation: livepulse 2s infinite;
     }
 
-    .orch-tab.active {
-      background: rgba(212, 175, 55, 0.15);
-      border-color: rgba(212, 175, 55, 0.4);
-      color: var(--gold-light);
+    .orch-meta-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #ebca73;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
-    .orch-scenario-card {
-      background: rgba(30, 41, 59, 0.55);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 9px;
-      padding: 0.6rem 0.75rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      transition: opacity 0.25s ease;
-    }
-
-    .orch-scenario-meta {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    .orch-channel-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      color: var(--text);
-    }
-
-    .orch-scenario-prompt {
-      margin: 0;
-      font-size: 0.78rem;
-      color: var(--text);
-      line-height: 1.4;
-      font-style: italic;
-    }
-
-    .orch-flow-container {
-      position: relative;
-      display: grid;
-      grid-template-columns: 105px 1fr;
-      gap: 1rem;
-      align-items: center;
-      padding: 0.2rem 0;
-    }
-
-    .orch-svg-canvas {
-      position: absolute;
-      inset: 0;
+    .orch-diagram-wrap {
       width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
+      position: relative;
     }
 
-    .orch-beam-base {
-      stroke: rgba(255, 255, 255, 0.07);
-      stroke-width: 2;
+    .orch-diagram-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      overflow: visible;
+    }
+
+    /* Trazo base de los circuitos */
+    .orch-bus-line {
+      stroke: rgba(255, 255, 255, 0.14);
+      stroke-width: 1.5;
       fill: none;
     }
 
-    .orch-beam-active {
-      stroke: var(--gold);
-      stroke-width: 2.5;
+    /* Pulso de luz animado viajando por los circuitos */
+    .orch-pulse-line {
       fill: none;
+      stroke-width: 2.25;
       stroke-linecap: round;
-      stroke-dasharray: 12 70;
-      animation: dash-flow 2.8s linear infinite;
-      filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.6));
+      stroke-dasharray: 24 160;
+      animation: circuit-pulse 5.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
 
-    .orch-beam-active.beam-2 {
-      animation-delay: 0.9s;
+    .orch-pulse-gold {
+      stroke: #ebca73;
+      filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.8));
     }
 
-    .orch-beam-active.beam-3 {
-      animation-delay: 1.8s;
+    .orch-pulse-indigo {
+      stroke: #818cf8;
+      filter: drop-shadow(0 0 4px rgba(99, 102, 241, 0.8));
     }
 
-    @keyframes dash-flow {
+    .orch-pulse-emerald {
+      stroke: #34c77b;
+      filter: drop-shadow(0 0 4px rgba(52, 199, 123, 0.8));
+    }
+
+    @keyframes circuit-pulse {
       0% {
-        stroke-dashoffset: 82;
+        stroke-dashoffset: 184;
+        opacity: 0.1;
+      }
+      15% {
+        opacity: 1;
+      }
+      85% {
+        opacity: 1;
       }
       100% {
         stroke-dashoffset: 0;
+        opacity: 0.2;
       }
     }
 
-    .orch-node.orch-core-node {
-      position: relative;
-      z-index: 2;
-      background: radial-gradient(circle at center, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95));
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      border-radius: 12px;
-      padding: 0.65rem 0.45rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 0.2rem;
-      box-shadow: 0 0 20px -5px rgba(212, 175, 55, 0.25);
+    .orch-gate-pulse {
+      animation: gate-glow 3.5s ease-in-out infinite;
     }
 
-    .orch-core-orbit {
-      position: absolute;
-      width: 48px;
-      height: 48px;
-      top: 8px;
-      border-radius: 50%;
-      border: 1px dashed rgba(212, 175, 55, 0.35);
-      animation: spin-orbit 14s linear infinite;
-      pointer-events: none;
-    }
-
-    @keyframes spin-orbit {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .orch-core-badge {
-      width: 28px;
-      height: 28px;
-      border-radius: 7px;
-      background: rgba(212, 175, 55, 0.12);
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 0.1rem;
-    }
-
-    .orch-node-title {
-      font-family: 'Merriweather', serif;
-      font-size: 0.74rem;
-      font-weight: 700;
-      color: var(--gold);
-      display: block;
-    }
-
-    .orch-node-sub {
-      font-size: 0.62rem;
-      color: var(--text-muted);
-      display: block;
-      line-height: 1.2;
-    }
-
-    .orch-core-tag {
-      font-size: 0.55rem;
-      font-weight: 700;
-      color: var(--green);
-      background: rgba(52, 199, 123, 0.12);
-      padding: 0.1rem 0.3rem;
-      border-radius: 4px;
-      margin-top: 0.1rem;
-    }
-
-    .orch-specialists-column {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-    }
-
-    .orch-agent-card {
-      background: rgba(30, 41, 59, 0.72);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 9px;
-      padding: 0.45rem 0.65rem;
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    .orch-agent-card:hover, .orch-agent-card.active {
-      border-color: rgba(212, 175, 55, 0.35);
-      background: rgba(30, 41, 59, 0.92);
-      transform: translateX(2px);
-      box-shadow: 0 4px 16px rgba(212, 175, 55, 0.1);
-    }
-
-    .orch-agent-icon {
-      width: 24px;
-      height: 24px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .orch-agent-body {
-      flex: 1;
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
-    }
-
-    .orch-agent-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.4rem;
-    }
-
-    .orch-agent-name {
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--text);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .orch-agent-status {
-      font-size: 0.62rem;
-      font-weight: 700;
-      color: var(--green);
-      white-space: nowrap;
-    }
-
-    .orch-agent-desc {
-      font-size: 0.62rem;
-      color: var(--text-muted);
-      line-height: 1.25;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .orch-result-strip {
-      background: linear-gradient(90deg, rgba(52, 199, 123, 0.1), rgba(212, 175, 55, 0.1));
-      border: 1px solid rgba(52, 199, 123, 0.28);
-      border-radius: 9px;
-      padding: 0.55rem 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-    }
-
-    .orch-result-icon {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: rgba(52, 199, 123, 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .orch-result-text {
-      font-size: 0.72rem;
-      line-height: 1.3;
-    }
-
-    .orch-result-title {
-      font-weight: 700;
-      color: var(--green);
-      margin-right: 0.3rem;
-    }
-
-    .orch-result-detail {
-      color: var(--text-sub);
+    @keyframes gate-glow {
+      0%, 100% {
+        stroke-opacity: 0.6;
+        filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.3));
+      }
+      50% {
+        stroke-opacity: 1;
+        filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.65));
+      }
     }
 
     .hero-orchestration-caption {
-      margin-top: 0.45rem;
+      margin-top: 0.35rem;
       text-align: center;
       color: var(--text-muted);
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       font-weight: 500;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.01em;
+      line-height: 1.4;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .orch-pulse-line,
+      .orch-pulse-dot,
+      .orch-gate-pulse {
+        animation: none !important;
+      }
     }
 
     .chat-header {
@@ -4149,143 +3949,199 @@
 
       <!-- Right Column: Visual conceptual de orquestación de agentes IA -->
       <div class="hero-orchestration-visual animate-load" style="animation-delay: 0.7s;" id="theia-orchestration-engine">
-        <div class="orch-panel">
-          <!-- Header: Status & Scenario Selector -->
+        <div class="orch-panel" role="region" aria-label="Diagrama de orquestación de agentes TheIA">
+          <!-- Header: Status & Pattern Badge -->
           <div class="orch-header">
             <div class="orch-live-badge">
-              <span class="orch-pulse-dot"></span>
-              <span>ORQUESTACIÓN EN VIVO</span>
+              <span class="orch-pulse-dot" aria-hidden="true"></span>
+              <span>Orquestación Multi-Agente</span>
             </div>
-            <div class="orch-scenario-tabs" id="orch-scenario-tabs">
-              <button type="button" class="orch-tab active" data-scenario="0" title="Ver caso de cotización y stock">1. Cotización</button>
-              <button type="button" class="orch-tab" data-scenario="1" title="Ver caso de agenda y reserva">2. Agenda</button>
-              <button type="button" class="orch-tab" data-scenario="2" title="Ver caso B2B o derivación">3. Registro CRM</button>
+            <div class="orch-meta-tag">
+              <span>Flujo Determinista</span>
             </div>
           </div>
 
-          <!-- Active Scenario Banner -->
-          <div class="orch-scenario-card">
-            <div class="orch-scenario-meta">
-              <span class="orch-channel-tag" id="orch-channel-tag">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
-                WhatsApp PYME
-              </span>
-              <span class="orch-scenario-title" id="orch-scenario-title">Caso Automotriz / Taller: Cotización &amp; Stock</span>
-            </div>
-            <p class="orch-scenario-prompt" id="orch-scenario-prompt">
-              &ldquo;Hola, necesito cotizar 4 neumáticos 205/55 R16 y saber si tienen stock para instalar mañana.&rdquo;
-            </p>
-          </div>
-
-          <!-- The Dynamic Visual Flow Diagram -->
-          <div class="orch-flow-container">
-            <!-- SVG Connecting Beams / Particles -->
-            <svg class="orch-svg-canvas" viewBox="0 0 480 210" preserveAspectRatio="none" aria-hidden="true">
+          <!-- The Pure Architectural SVG Diagram -->
+          <div class="orch-diagram-wrap">
+            <svg class="orch-diagram-svg" viewBox="0 0 785 380" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flujo de orquestación: Ingress multicanal conecta a TheIA Core, que coordina en paralelo a Agente Catálogo, Agente Agenda y Agente CRM, convergiendo en el Verification Gate dorado antes de entregar la acción validada en segundos.">
               <defs>
-                <linearGradient id="gold-beam-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="var(--indigo)" stop-opacity="0.2"/>
-                  <stop offset="50%" stop-color="var(--gold)" stop-opacity="0.9"/>
-                  <stop offset="100%" stop-color="var(--gold-light)" stop-opacity="0.2"/>
-                </linearGradient>
+                <!-- Subtle Blueprint Grid Pattern -->
+                <pattern id="orch-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255, 255, 255, 0.03)" stroke-width="1"/>
+                </pattern>
+
+                <!-- Ambient Radial Glows -->
+                <radialGradient id="core-glow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#4f46e5" stop-opacity="0.35"/>
+                  <stop offset="100%" stop-color="#4f46e5" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="gold-glow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#d4af37" stop-opacity="0.32"/>
+                  <stop offset="100%" stop-color="#d4af37" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="emerald-glow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#34c77b" stop-opacity="0.28"/>
+                  <stop offset="100%" stop-color="#34c77b" stop-opacity="0"/>
+                </radialGradient>
+
+                <!-- Drop Shadows -->
+                <filter id="gold-halo" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#d4af37" flood-opacity="0.45"/>
+                </filter>
+                <filter id="core-halo" x="-25%" y="-25%" width="150%" height="150%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#6366f1" flood-opacity="0.4"/>
+                </filter>
               </defs>
-              <!-- Lines from Orchestrator (X:135, Y:105) to 3 Specialists (X:300, Y:35), (X:300, Y:105), (X:300, Y:175) -->
-              <path class="orch-beam-base" d="M 135 105 C 210 105, 230 35, 295 35" />
-              <path class="orch-beam-base" d="M 135 105 C 210 105, 230 105, 295 105" />
-              <path class="orch-beam-base" d="M 135 105 C 210 105, 230 175, 295 175" />
 
-              <!-- Animated Pulses -->
-              <path class="orch-beam-active beam-1" d="M 135 105 C 210 105, 230 35, 295 35" />
-              <path class="orch-beam-active beam-2" d="M 135 105 C 210 105, 230 105, 295 105" />
-              <path class="orch-beam-active beam-3" d="M 135 105 C 210 105, 230 175, 295 175" />
+              <!-- Blueprint Background -->
+              <rect width="785" height="380" rx="14" fill="url(#orch-grid)" />
+
+              <!-- Ambient Glow Circles -->
+              <circle cx="215" cy="190" r="80" fill="url(#core-glow)" />
+              <circle cx="612" cy="190" r="80" fill="url(#gold-glow)" />
+              <circle cx="742" cy="190" r="50" fill="url(#emerald-glow)" />
+
+              <!-- ============================================== -->
+              <!-- 1. ORTHOGONAL CIRCUIT BUS LINES (BASE)         -->
+              <!-- ============================================== -->
+              <!-- Bus 1: Ingress (X:112, Y:190) -> Core (X:150, Y:190) -->
+              <path class="orch-bus-line" d="M 112 190 L 150 190" />
+
+              <!-- Fan-Out: Core (X:280, Y:190) -> 3 Workers (X:335, Y:72, Y:190, Y:308) -->
+              <!-- Top Branch: Worker 1 (Catálogo) -->
+              <path class="orch-bus-line" d="M 280 190 L 305 190 Q 313 190 313 182 L 313 80 Q 313 72 321 72 L 335 72" />
+              <!-- Middle Branch: Worker 2 (Agenda) -->
+              <path class="orch-bus-line" d="M 280 190 L 335 190" />
+              <!-- Bottom Branch: Worker 3 (CRM) -->
+              <path class="orch-bus-line" d="M 280 190 L 305 190 Q 313 190 313 198 L 313 300 Q 313 308 321 308 L 335 308" />
+
+              <!-- Fan-In: 3 Workers (X:500, Y:72, Y:190, Y:308) -> Gate (X:545, Y:190) -->
+              <!-- Top Branch -->
+              <path class="orch-bus-line" d="M 500 72 L 514 72 Q 522 72 522 80 L 522 182 Q 522 190 530 190 L 545 190" />
+              <!-- Middle Branch -->
+              <path class="orch-bus-line" d="M 500 190 L 545 190" />
+              <!-- Bottom Branch -->
+              <path class="orch-bus-line" d="M 500 308 L 514 308 Q 522 308 522 300 L 522 198 Q 522 190 530 190 L 545 190" />
+
+              <!-- Bus 3: Gate (X:680, Y:190) -> Delivery (X:712, Y:190) -->
+              <path class="orch-bus-line" d="M 680 190 L 712 190" stroke="rgba(52, 199, 123, 0.45)" />
+
+              <!-- ============================================== -->
+              <!-- 2. ANIMATED PULSES (PHOTON FLOW)               -->
+              <!-- ============================================== -->
+              <path class="orch-pulse-line orch-pulse-indigo" d="M 112 190 L 150 190" />
+              <path class="orch-pulse-line orch-pulse-indigo" d="M 280 190 L 305 190 Q 313 190 313 182 L 313 80 Q 313 72 321 72 L 335 72" style="animation-delay: 0.8s;" />
+              <path class="orch-pulse-line orch-pulse-indigo" d="M 280 190 L 335 190" style="animation-delay: 0.8s;" />
+              <path class="orch-pulse-line orch-pulse-indigo" d="M 280 190 L 305 190 Q 313 190 313 198 L 313 300 Q 313 308 321 308 L 335 308" style="animation-delay: 0.8s;" />
+
+              <path class="orch-pulse-line orch-pulse-gold" d="M 500 72 L 514 72 Q 522 72 522 80 L 522 182 Q 522 190 530 190 L 545 190" style="animation-delay: 2.1s;" />
+              <path class="orch-pulse-line orch-pulse-gold" d="M 500 190 L 545 190" style="animation-delay: 2.1s;" />
+              <path class="orch-pulse-line orch-pulse-gold" d="M 500 308 L 514 308 Q 522 308 522 300 L 522 198 Q 522 190 530 190 L 545 190" style="animation-delay: 2.1s;" />
+
+              <path class="orch-pulse-line orch-pulse-emerald" d="M 680 190 L 712 190" style="animation-delay: 3.4s;" />
+
+              <!-- ============================================== -->
+              <!-- 3. LAYER 1: INGRESS / SOLICITUD MULTICANAL     -->
+              <!-- ============================================== -->
+              <g class="orch-node-ingress" transform="translate(18, 155)">
+                <rect width="94" height="70" rx="10" fill="rgba(30, 41, 59, 0.9)" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1" />
+                <!-- 3 Channel Dots: WhatsApp, Instagram, Web -->
+                <circle cx="33" cy="20" r="5" fill="#25D366" />
+                <circle cx="47" cy="20" r="5" fill="#E1306C" />
+                <circle cx="61" cy="20" r="5" fill="#6366F1" />
+                <text x="47" y="44" text-anchor="middle" dominant-baseline="central" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#ffffff">Mensaje</text>
+                <text x="47" y="58" text-anchor="middle" dominant-baseline="central" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="500" fill="#94a3b8">WhatsApp · IG</text>
+              </g>
+
+              <!-- ============================================== -->
+              <!-- 4. LAYER 2: THEIA CORE (ORCHESTRATOR)          -->
+              <!-- ============================================== -->
+              <g class="orch-node-core" transform="translate(150, 145)">
+                <rect width="130" height="90" rx="12" fill="rgba(15, 23, 42, 0.96)" stroke="rgba(99, 102, 241, 0.6)" stroke-width="1.25" filter="url(#core-halo)" />
+                <circle cx="65" cy="45" r="38" fill="none" stroke="rgba(99, 102, 241, 0.25)" stroke-dasharray="3 3" />
+                <!-- Core Spark / Diamond Icon -->
+                <polygon points="65,18 72,25 65,32 58,25" fill="none" stroke="#818cf8" stroke-width="1.75" />
+                <text x="65" y="45" text-anchor="middle" dominant-baseline="central" font-family="'Merriweather', serif" font-size="13" font-weight="700" fill="#ebca73">TheIA Core</text>
+                <text x="65" y="60" text-anchor="middle" dominant-baseline="central" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" font-weight="600" fill="#cbd5e1">Enrutador Central</text>
+                <rect x="20" y="69" width="90" height="14" rx="4" fill="rgba(99, 102, 241, 0.22)" stroke="rgba(99, 102, 241, 0.5)" stroke-width="0.75" />
+                <text x="65" y="76" text-anchor="middle" dominant-baseline="central" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" font-weight="700" fill="#c7d2fe" letter-spacing="0.5">DESCOMPOSICIÓN</text>
+              </g>
+
+              <!-- ============================================== -->
+              <!-- 5. LAYER 3: 3 PARALLEL SPECIALIST WORKERS      -->
+              <!-- ============================================== -->
+              <!-- Worker 1: Agente Catálogo & Precios -->
+              <g class="orch-node-worker" transform="translate(335, 36)">
+                <rect width="165" height="72" rx="10" fill="rgba(30, 41, 59, 0.9)" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1" />
+                <!-- Icon Tag/Box -->
+                <rect x="12" y="15" width="26" height="26" rx="6" fill="rgba(212, 175, 55, 0.12)" stroke="rgba(212, 175, 55, 0.35)" />
+                <path d="M20 23 L26 23 L28 27 L22 31 L18 29 Z" fill="none" stroke="#ebca73" stroke-width="1.5" />
+                <circle cx="22" cy="25" r="1.2" fill="#ebca73" />
+                <text x="46" y="22" dominant-baseline="central" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#ffffff">Agente Catálogo</text>
+                <text x="46" y="37" dominant-baseline="central" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" font-weight="500" fill="#cbd5e1">Precios &amp; Stock Oficial</text>
+                <rect x="46" y="48" width="108" height="14" rx="3" fill="rgba(212, 175, 55, 0.1)" stroke="rgba(212, 175, 55, 0.25)" stroke-width="0.75" />
+                <text x="50" y="55" dominant-baseline="central" font-family="'Plus Jakarta Sans', sans-serif" font-size="7" font-weight="700" fill="#ebca73" letter-spacing="0.4">RAG DETERMINISTA</text>
+              </g>
+
+              <!-- Worker 2: Agente Agenda & Cupos -->
+              <g class="orch-node-worker" transform="translate(335, 154)">
+                <rect width="165" height="72" rx="10" fill="rgba(30, 41, 59, 0.9)" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1" />
+                <!-- Icon Calendar -->
+                <rect x="12" y="15" width="26" height="26" rx="6" fill="rgba(99, 102, 241, 0.12)" stroke="rgba(99, 102, 241, 0.35)" />
+                <rect x="18" y="22" width="14" height="12" rx="2" fill="none" stroke="#818cf8" stroke-width="1.5" />
+                <line x1="21" y1="20" x2="21" y2="22" stroke="#818cf8" stroke-width="1.5" />
+                <line x1="29" y1="20" x2="29" y2="22" stroke="#818cf8" stroke-width="1.5" />
+                <line x1="18" y1="26" x2="32" y2="26" stroke="#818cf8" stroke-width="1.2" />
+                <text x="46" y="22" dominant-baseline="central" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#ffffff">Agente Agenda</text>
+                <text x="46" y="37" dominant-baseline="central" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" font-weight="500" fill="#cbd5e1">Disponibilidad en Vivo</text>
+                <rect x="46" y="48" width="108" height="14" rx="3" fill="rgba(99, 102, 241, 0.12)" stroke="rgba(99, 102, 241, 0.25)" stroke-width="0.75" />
+                <text x="50" y="55" dominant-baseline="central" font-family="'Plus Jakarta Sans', sans-serif" font-size="7" font-weight="700" fill="#a5b4fc" letter-spacing="0.4">CALENDARIO EN VIVO</text>
+              </g>
+
+              <!-- Worker 3: Agente CRM & Contexto -->
+              <g class="orch-node-worker" transform="translate(335, 272)">
+                <rect width="165" height="72" rx="10" fill="rgba(30, 41, 59, 0.9)" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1" />
+                <!-- Icon CRM / User -->
+                <rect x="12" y="15" width="26" height="26" rx="6" fill="rgba(52, 199, 123, 0.12)" stroke="rgba(52, 199, 123, 0.35)" />
+                <circle cx="25" cy="24" r="4" fill="none" stroke="#34c77b" stroke-width="1.5" />
+                <path d="M17 32 C17 29, 21 28, 25 28 C29 28, 33 29, 33 32" fill="none" stroke="#34c77b" stroke-width="1.5" />
+                <text x="46" y="22" dominant-baseline="central" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#ffffff">Agente CRM</text>
+                <text x="46" y="37" dominant-baseline="central" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" font-weight="500" fill="#cbd5e1">Historial &amp; Contexto</text>
+                <rect x="46" y="48" width="108" height="14" rx="3" fill="rgba(52, 199, 123, 0.1)" stroke="rgba(52, 199, 123, 0.25)" stroke-width="0.75" />
+                <text x="50" y="55" dominant-baseline="central" font-family="'Plus Jakarta Sans', sans-serif" font-size="7" font-weight="700" fill="#6ee7b7" letter-spacing="0.4">PERFIL DE CLIENTE</text>
+              </g>
+
+              <!-- ============================================== -->
+              <!-- 6. LAYER 4: VERIFICATION GATE (PUNTO FOCAL)    -->
+              <!-- ============================================== -->
+              <g class="orch-node-gate orch-gate-pulse" transform="translate(545, 145)">
+                <rect width="135" height="90" rx="12" fill="rgba(26, 22, 15, 0.96)" stroke="#d4af37" stroke-width="1.5" filter="url(#gold-halo)" />
+                <!-- Shield Icon in Gold -->
+                <path d="M67.5 16 L77 20 L77 28 C77 36 67.5 41 67.5 41 C67.5 41 58 36 58 28 L58 20 Z" fill="rgba(212, 175, 55, 0.18)" stroke="#d4af37" stroke-width="1.75" />
+                <polyline points="63.5,28 66.5,31 72.5,25" fill="none" stroke="#ebca73" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+                <text x="67.5" y="48" text-anchor="middle" dominant-baseline="central" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#ffffff">Verification Gate</text>
+                <text x="67.5" y="62" text-anchor="middle" dominant-baseline="central" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" font-weight="600" fill="#cbd5e1">Valida tus reglas</text>
+                <rect x="15" y="71" width="105" height="14" rx="4" fill="rgba(212, 175, 55, 0.22)" stroke="rgba(212, 175, 55, 0.5)" stroke-width="0.75" />
+                <text x="67.5" y="78" text-anchor="middle" dominant-baseline="central" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" font-weight="700" fill="#ebca73" letter-spacing="0.5">CERO ALUCINACIONES</text>
+              </g>
+
+              <!-- ============================================== -->
+              <!-- 7. LAYER 5: ACTION & DELIVERY (EMERALD)        -->
+              <!-- ============================================== -->
+              <g class="orch-node-delivery" transform="translate(712, 155)">
+                <rect width="60" height="70" rx="10" fill="rgba(15, 35, 25, 0.92)" stroke="rgba(52, 199, 123, 0.6)" stroke-width="1.25" />
+                <!-- Success Checkmark Circle -->
+                <circle cx="30" cy="24" r="11" fill="rgba(52, 199, 123, 0.2)" stroke="#34c77b" stroke-width="1.75" />
+                <polyline points="25,24 28.5,27.5 35.5,20.5" fill="none" stroke="#34c77b" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+                <text x="30" y="46" text-anchor="middle" dominant-baseline="central" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="700" fill="#34c77b">Acción</text>
+                <text x="30" y="59" text-anchor="middle" dominant-baseline="central" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="600" fill="#cbd5e1">&lt; 2s</text>
+              </g>
             </svg>
-
-            <!-- Left: Orchestrator Core Node -->
-            <div class="orch-node orch-core-node">
-              <div class="orch-core-orbit"></div>
-              <div class="orch-core-badge">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                </svg>
-              </div>
-              <span class="orch-node-title">TheIA Core</span>
-              <span class="orch-node-sub">Enrutador &amp; Reglas</span>
-              <div class="orch-core-tag">Cero alucinaciones</div>
-            </div>
-
-            <!-- Right: 3 Coordinated Specialist Agents -->
-            <div class="orch-specialists-column">
-              <!-- Agent 1 -->
-              <div class="orch-agent-card agent-catalog active" id="orch-agent-1">
-                <div class="orch-agent-icon">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                    <line x1="12" y1="22.08" x2="12" y2="12"/>
-                  </svg>
-                </div>
-                <div class="orch-agent-body">
-                  <div class="orch-agent-header">
-                    <span class="orch-agent-name">Agente Catálogo &amp; Precios</span>
-                    <span class="orch-agent-status" id="agent-1-status">✓ 4 un. en bodega</span>
-                  </div>
-                  <span class="orch-agent-desc" id="agent-1-desc">Cruza SKU, stock y precios de lista oficiales</span>
-                </div>
-              </div>
-
-              <!-- Agent 2 -->
-              <div class="orch-agent-card agent-agenda" id="orch-agent-2">
-                <div class="orch-agent-icon">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--indigo-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                    <line x1="16" y1="2" x2="16" y2="6"/>
-                    <line x1="8" y1="2" x2="8" y2="6"/>
-                    <line x1="3" y1="10" x2="21" y2="10"/>
-                  </svg>
-                </div>
-                <div class="orch-agent-body">
-                  <div class="orch-agent-header">
-                    <span class="orch-agent-name">Agente Agenda &amp; Cupos</span>
-                    <span class="orch-agent-status" id="agent-2-status">✓ Slot 11:30 hrs</span>
-                  </div>
-                  <span class="orch-agent-desc" id="agent-2-desc">Valida disponibilidad real de taller o profesionales</span>
-                </div>
-              </div>
-
-              <!-- Agent 3 -->
-              <div class="orch-agent-card agent-crm" id="orch-agent-3">
-                <div class="orch-agent-icon">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                    <circle cx="9" cy="7" r="4"/>
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                  </svg>
-                </div>
-                <div class="orch-agent-body">
-                  <div class="orch-agent-header">
-                    <span class="orch-agent-name">Agente CRM &amp; Trazabilidad</span>
-                    <span class="orch-agent-status" id="agent-3-status">✓ Oportunidad creada</span>
-                  </div>
-                  <span class="orch-agent-desc" id="agent-3-desc">Registra lead, monto $340.000 y asigna ejecutivo</span>
-                </div>
-              </div>
-            </div>
           </div>
 
-          <!-- Output Result Strip (Action Resolved) -->
-          <div class="orch-result-strip">
-            <div class="orch-result-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-            </div>
-            <div class="orch-result-text">
-              <span class="orch-result-title" id="orch-result-title">Acción Resuelta en 1.8s:</span>
-              <span class="orch-result-detail" id="orch-result-detail">Cotización enviada al cliente + Instalación agendada + Ficha creada en CRM</span>
-            </div>
-          </div>
+          <!-- Caption -->
+          <p class="hero-orchestration-caption">Del mensaje a la respuesta validada en segundos · Coordinación multi-agente con reglas de negocio estrictas.</p>
         </div>
-        <p class="hero-orchestration-caption">Coordinación multi-agente en tiempo real para PYMEs.</p>
       </div>
       <!-- End Right Column -->
 
@@ -5418,127 +5274,6 @@
           }
           errEl.textContent = 'Error de conexión. Intenta de nuevo.';
         });
-      });
-    })();
-  </script>
-
-
-
-  <!-- Controlador de Orquestación Agéntica en Hero -->
-  <script>
-    (function () {
-      var scenarios = [
-        {
-          channelIcon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>',
-          channelName: 'WhatsApp PYME',
-          title: 'Caso Automotriz / Taller: Cotización &amp; Stock',
-          prompt: '“Hola, necesito cotizar 4 neumáticos 205/55 R16 y saber si tienen stock para instalar mañana.”',
-          agent1Status: '✓ 4 un. en bodega',
-          agent1Desc: 'Cruza SKU, stock y precios de lista oficiales',
-          agent2Status: '✓ Slot 11:30 hrs',
-          agent2Desc: 'Valida disponibilidad real de taller o profesionales',
-          agent3Status: '✓ Oportunidad creada',
-          agent3Desc: 'Registra lead, monto $340.000 y asigna ejecutivo',
-          resultTitle: 'Acción Resuelta en 1.8s:',
-          resultDetail: 'Cotización enviada al cliente + Instalación agendada + Ficha creada en CRM'
-        },
-        {
-          channelIcon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="#E1306C" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.79-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>',
-          channelName: 'Instagram DM',
-          title: 'Caso Clínica / Salud: Agenda &amp; Confirmación',
-          prompt: '“Buenas tardes, ¿tienen hora para evaluación dental este jueves y cuál es el arancel?”',
-          agent1Status: '✓ Arancel $35.000',
-          agent1Desc: 'Informa coberturas, convenios y valores vigentes',
-          agent2Status: '✓ Jueves 16:00 hrs',
-          agent2Desc: 'Bloquea cupo en agenda médica sincronizada',
-          agent3Status: '✓ Paciente registrado',
-          agent3Desc: 'Crea ficha de paciente y envía recordatorio automático',
-          resultTitle: 'Acción Resuelta en 1.5s:',
-          resultDetail: 'Cita reservada en agenda médica + Link de confirmación enviado por DM'
-        },
-        {
-          channelIcon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="#6366F1" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
-          channelName: 'WebChat TheIA',
-          title: 'Caso Servicios / B2B: Cotización Corporativa',
-          prompt: '“Quiero cotizar un plan para 15 colaboradores con factura y soporte prioritario.”',
-          agent1Status: '✓ Plan Pro $250.000',
-          agent1Desc: 'Aplica reglas comerciales B2B y condiciones de pago',
-          agent2Status: '✓ Onboarding &lt;7 días',
-          agent2Desc: 'Agenda sesión de puesta en marcha asistida',
-          agent3Status: '✓ Derivado a Consultor',
-          agent3Desc: 'Notifica al socio con contexto completo para cierre',
-          resultTitle: 'Acción Resuelta en 2.1s:',
-          resultDetail: 'Propuesta formal generada + Notificación inmediata al consultor de turno'
-        }
-      ];
-
-      var currentIdx = 0;
-      var timer = null;
-
-      function updateScenario(idx) {
-        currentIdx = idx;
-        var s = scenarios[idx];
-        var tabs = document.querySelectorAll('.orch-tab');
-        tabs.forEach(function (tab, i) {
-          if (i === idx) tab.classList.add('active');
-          else tab.classList.remove('active');
-        });
-
-        var card = document.querySelector('.orch-scenario-card');
-        if (card) {
-          card.style.opacity = '0.4';
-          setTimeout(function () {
-            var channelTag = document.getElementById('orch-channel-tag');
-            var scenarioTitle = document.getElementById('orch-scenario-title');
-            var scenarioPrompt = document.getElementById('orch-scenario-prompt');
-            var a1Status = document.getElementById('agent-1-status');
-            var a1Desc = document.getElementById('agent-1-desc');
-            var a2Status = document.getElementById('agent-2-status');
-            var a2Desc = document.getElementById('agent-2-desc');
-            var a3Status = document.getElementById('agent-3-status');
-            var a3Desc = document.getElementById('agent-3-desc');
-            var resTitle = document.getElementById('orch-result-title');
-            var resDetail = document.getElementById('orch-result-detail');
-
-            if (channelTag) channelTag.innerHTML = s.channelIcon + ' ' + s.channelName;
-            if (scenarioTitle) scenarioTitle.innerHTML = s.title;
-            if (scenarioPrompt) scenarioPrompt.innerHTML = s.prompt;
-            if (a1Status) a1Status.textContent = s.agent1Status;
-            if (a1Desc) a1Desc.textContent = s.agent1Desc;
-            if (a2Status) a2Status.textContent = s.agent2Status;
-            if (a2Desc) a2Desc.textContent = s.agent2Desc;
-            if (a3Status) a3Status.textContent = s.agent3Status;
-            if (a3Desc) a3Desc.textContent = s.agent3Desc;
-            if (resTitle) resTitle.textContent = s.resultTitle;
-            if (resDetail) resDetail.textContent = s.resultDetail;
-
-            card.style.opacity = '1';
-          }, 150);
-        }
-      }
-
-      function startCycle() {
-        stopCycle();
-        timer = setInterval(function () {
-          var next = (currentIdx + 1) % scenarios.length;
-          updateScenario(next);
-        }, 6500);
-      }
-
-      function stopCycle() {
-        if (timer) clearInterval(timer);
-      }
-
-      document.addEventListener('DOMContentLoaded', function () {
-        var tabBtns = document.querySelectorAll('.orch-tab');
-        tabBtns.forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            var idx = parseInt(btn.getAttribute('data-scenario') || '0', 10);
-            updateScenario(idx);
-            startCycle();
-          });
-        });
-        startCycle();
       });
     })();
   </script>
