@@ -147,69 +147,38 @@ def test_ac5_browser_interactive_elements_and_responsive(desktop_page, mobile_pa
     js_errors = filtered_js_errors(mobile_page)
     assert len(js_errors) == 0, f"Errores de JS en consola: {js_errors}"
 
-def test_hu_web_035_operational_console_three_stages_and_no_ai_mockup():
-    """HU-WEB-035 AC1 & AC2: Consola operativa sobria de 3 etapas, tokens canónicos y sin mockup IA."""
+def test_hu_web_036_hero_uses_single_orchestration_artwork_without_fake_product_ui():
+    """HU-WEB-036: El hero usa una sola imagen conceptual, no una interfaz inventada."""
     content = INDEX_HTML.read_text(encoding="utf-8")
     hero_match = re.search(r'<section class="hero".*?</section>', content, re.DOTALL)
     assert hero_match is not None, "Debe existir la sección hero en index.html"
     hero = hero_match.group(0)
 
-    # AC1: Sin canvas ni semáforos macOS ni emojis dentro de la consola
-    assert "network-canvas" not in hero, "Hero no debe contener canvas de red de partículas"
-    assert "#ef4444" not in hero, "Hero no debe usar semáforos rojos decorativos macOS"
-    # Sin emojis en consola
-    assert "🛡️" not in hero, "Consola no debe usar emoji de escudo"
-    assert "🔒" not in hero, "Consola no debe usar emoji de candado"
-    assert "⚡" not in hero, "Consola no debe usar emoji de rayo decorativo"
-
-    # AC1: Tres etapas de la consola operativa
-    assert "Etapa 1" in hero and "Consulta recibida" in hero, "Etapa 1 debe comunicar consulta recibida"
-    assert "Etapa 2" in hero and "Reglas validadas" in hero, "Etapa 2 debe comunicar control de reglas validadas"
-    assert "Etapa 3" in hero and "Oportunidad registrada" in hero, "Etapa 3 debe comunicar oportunidad registrada"
-    assert "$185.000 CLP" in hero, "Etapa 2 debe mostrar precio de catálogo oficial $185.000 CLP"
-    assert "Bloqueado" in hero, "Etapa 2 debe mostrar freno de descuentos bloqueado"
-    assert "CRM" in hero and "Cotizado" in hero, "Etapa 3 debe mostrar trazabilidad CRM"
-
-    # AC2: Tokens canónicos en consola (sin colores inventados #818cf8, #f59e0b)
-    assert "#818cf8" not in hero, "Hero no debe usar color #818cf8 fuera de tokens"
-    assert "#f59e0b" not in hero, "Hero no debe usar color #f59e0b fuera de tokens"
-    # Canales oficiales presentes con sus hex de marca
-    assert "#25D366" in hero, "Canal WhatsApp oficial debe estar presente (#25D366)"
-    assert "#6366F1" in hero, "Canal Web oficial debe estar presente (#6366F1)"
-    assert "#E1306C" in hero, "Canal Instagram oficial debe estar presente (#E1306C)"
+    assert 'hero-orchestration-visual' in hero, "Hero debe contener la imagen conceptual de orquestación"
+    assert 'hero-agent-orchestration.png' in hero, "Hero debe usar el asset conceptual versionado"
+    assert 'Diagrama conceptual:' in hero, "La imagen debe tener texto alternativo descriptivo"
+    assert 'hero-console' not in hero, "Hero no debe conservar la consola ficticia"
+    assert 'hero-stage-' not in hero, "Hero no debe conservar cards de etapas"
+    assert 'client-header' not in hero and 'client-channels' not in hero, "Hero no debe simular una aplicación"
+    assert '$185.000 CLP' not in hero and 'Cotizado' not in hero, "Hero no debe inventar precios ni estados CRM"
+    assert 'network-canvas' not in hero, "Hero no debe volver a usar canvas de partículas"
 
 
 @pytest.mark.parametrize("viewport_width", [961, 1024, 1100])
-def test_hu_web_035_hero_console_responsive_range_961_to_1100(desktop_page, viewport_width):
-    """HU-WEB-035 AC3: Consola operativa y cada fila interna sin desbordamiento ni recorte en 961-1100px."""
+def test_hu_web_036_hero_artwork_has_no_horizontal_overflow(desktop_page, viewport_width):
+    """HU-WEB-036: La imagen conceptual carga y no desborda en desktop intermedio."""
     desktop_page.set_viewport_size({"width": viewport_width, "height": 800})
     desktop_page.goto(f"{BASE}/", wait_until="domcontentloaded")
     desktop_page.wait_for_timeout(250)
 
-    # 1. Document scrollWidth <= clientWidth
     scroll_w = desktop_page.evaluate("document.documentElement.scrollWidth")
     client_w = desktop_page.evaluate("document.documentElement.clientWidth")
-    assert scroll_w <= client_w, f"Desbordamiento horizontal en {viewport_width}px: scrollWidth={scroll_w} > clientWidth={client_w}"
+    assert scroll_w <= client_w, f"Desbordamiento horizontal en {viewport_width}px: {scroll_w} > {client_w}"
 
-    # 2. .hero-console scrollWidth <= clientWidth
-    console = desktop_page.locator(".hero-console")
-    assert console.is_visible(), f"Consola debe ser visible en {viewport_width}px"
-    c_scroll = console.evaluate("el => el.scrollWidth")
-    c_client = console.evaluate("el => el.clientWidth")
-    assert c_scroll <= c_client, f".hero-console desborda en {viewport_width}px: scrollWidth={c_scroll} > clientWidth={c_client}"
-
-    # 3. Cada fila interna relevante (.hero-console-header, .hero-stage-head, .hero-stage-row, .hero-console-footer)
-    row_selectors = [".hero-console-header", ".hero-stage-head", ".hero-stage-row", ".hero-console-footer"]
-    for selector in row_selectors:
-        locators = desktop_page.locator(selector).all()
-        assert len(locators) > 0, f"No se encontraron elementos para {selector}"
-        for idx, el in enumerate(locators):
-            r_scroll = el.evaluate("node => node.scrollWidth")
-            r_client = el.evaluate("node => node.clientWidth")
-            assert r_scroll <= r_client, (
-                f"Elemento {selector}[{idx}] desborda en {viewport_width}px: scrollWidth={r_scroll} > clientWidth={r_client}"
-            )
+    artwork = desktop_page.locator(".hero-orchestration-visual img")
+    assert artwork.is_visible(), f"La imagen conceptual debe ser visible en {viewport_width}px"
+    assert artwork.evaluate("image => image.complete && image.naturalWidth > 0"), "La imagen conceptual no cargó"
 
     js_errors = filtered_js_errors(desktop_page)
-    assert len(js_errors) == 0, f"Errores de JS en consola en {viewport_width}px: {js_errors}"
+    assert len(js_errors) == 0, f"Errores de JS en {viewport_width}px: {js_errors}"
     desktop_page.set_viewport_size({"width": 1366, "height": 768})

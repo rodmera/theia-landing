@@ -578,176 +578,42 @@
       margin-bottom: 2.5rem;
     }
 
-    .hero-glass-card,
-    .hero-console {
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.09);
-      border-radius: 16px;
-      overflow: hidden;
+    .hero-orchestration-visual {
+      position: relative;
+      isolation: isolate;
+      margin: 0;
       min-width: 0;
     }
 
-    .hero-console-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.85rem 1.15rem;
-      background: rgba(30, 41, 59, 0.55);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      gap: 0.5rem;
-      min-width: 0;
+    .hero-orchestration-visual img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      border-radius: 2px;
+      box-shadow: 0 28px 70px -35px rgba(0, 0, 0, 0.85);
     }
 
-    .hero-console-title {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      min-width: 0;
+    .hero-orchestration-visual::after {
+      content: '';
+      position: absolute;
+      inset: auto 0 0;
+      height: 25%;
+      background: linear-gradient(transparent, var(--bg));
+      pointer-events: none;
     }
 
-    .hero-console-channels {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      flex-shrink: 0;
-      min-width: 0;
-    }
-
-    .hero-console-body {
-      padding: 1rem 1.15rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      min-width: 0;
-    }
-
-    .hero-stage-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 10px;
-      padding: 0.75rem 0.9rem;
-      min-width: 0;
-    }
-
-    .hero-stage-card--dark {
-      background: rgba(0, 0, 0, 0.25);
-      border-color: rgba(255, 255, 255, 0.07);
-    }
-
-    .hero-stage-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.35rem;
-      gap: 0.5rem;
-      min-width: 0;
-    }
-
-    .hero-stage-head-title {
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-      min-width: 0;
-    }
-
-    .hero-stage-head > *,
-    .hero-stage-head-title > * {
-      min-width: 0;
-    }
-
-    .hero-stage-tag {
-      font-size: 0.68rem;
-      font-weight: 700;
-      padding: 0.12rem 0.45rem;
-      border-radius: 4px;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      white-space: nowrap;
-      flex-shrink: 0;
-      min-width: 0;
-    }
-
-    .hero-stage-tag--ok {
-      color: var(--green);
-      background: rgba(52, 199, 123, 0.1);
-      border: 1px solid rgba(52, 199, 123, 0.25);
-    }
-
-    .hero-stage-tag--rule {
-      color: var(--indigo-light);
-      background: rgba(99, 102, 241, 0.12);
-      border: 1px solid rgba(99, 102, 241, 0.3);
-    }
-
-    .hero-stage-tag--lock {
-      color: var(--gold);
-      background: rgba(212, 175, 55, 0.1);
-      border: 1px solid var(--glass-border-gold);
-    }
-
-    .hero-stage-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem;
-      min-width: 0;
-    }
-
-    .hero-stage-row > * {
-      min-width: 0;
-    }
-
-    .hero-console-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(15, 23, 42, 0.95);
-      border-top: 1px solid rgba(255, 255, 255, 0.07);
-      padding: 0.55rem 1.15rem;
-      font-size: 0.7rem;
+    .hero-orchestration-caption {
+      position: absolute;
+      z-index: 1;
+      left: 1.25rem;
+      bottom: 1rem;
+      margin: 0;
       color: var(--text-sub);
-      gap: 0.5rem;
-      min-width: 0;
-    }
-
-    .hero-console-footer > * {
-      min-width: 0;
-    }
-
-    @media (min-width: 961px) and (max-width: 1100px) {
-      .hero-inner {
-        gap: 1.5rem;
-      }
-      .hero-console-header {
-        flex-wrap: wrap;
-        gap: 0.4rem;
-        padding: 0.75rem 0.9rem;
-      }
-      .hero-console-body {
-        padding: 0.85rem 0.9rem;
-        gap: 0.6rem;
-      }
-      .hero-stage-card {
-        padding: 0.65rem 0.75rem;
-      }
-      .hero-stage-head {
-        flex-wrap: wrap;
-        gap: 0.35rem;
-      }
-      .hero-stage-head-title {
-        flex-wrap: wrap;
-      }
-      .hero-stage-row {
-        flex-wrap: wrap;
-        gap: 0.35rem;
-      }
-      .hero-console-footer {
-        flex-wrap: wrap;
-        gap: 0.35rem;
-        padding: 0.5rem 0.9rem;
-      }
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
     }
 
     .chat-header {
@@ -966,16 +832,6 @@
       align-items: center;
       gap: 0.7rem;
       font-size: 0.82rem;
-    }
-
-    .hero-mobile-strip {
-      display: none;
-    }
-
-    @media (max-width: 960px) {
-      .hero-mobile-strip {
-        display: block;
-      }
     }
 
     .channel-row .ch-icon {
@@ -2856,7 +2712,7 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-glass-card {
+      .hero-orchestration-visual {
         display: none;
       }
 
@@ -3933,36 +3789,6 @@
             ✓ Puesta en marcha en &lt;7 días · ✓ Sin costo por usuario · ✓ Conectado a tu CRM y catálogos
           </p>
 
-          <!-- Mobile Compact Flow Strip (visibilidad exclusiva en pantallas <= 960px) -->
-          <div class="hero-mobile-strip" style="margin-top: 1.25rem; background: rgba(15, 23, 42, 0.75); border: 1px solid var(--glass-border); border-radius: 12px; padding: 0.85rem 1rem; width: 100%;">
-            <div style="font-size: 0.7rem; font-weight: 700; color: var(--gold-light); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.65rem; text-align: center;">
-              Control operacional en 3 pasos
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.75rem; color: var(--text);">
-              <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 0.4rem 0.65rem;">
-                <div style="display: flex; align-items: center; gap: 0.45rem;">
-                  <span style="width: 18px; height: 18px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); color: var(--gold-light); display: inline-flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 900;">1</span>
-                  <span style="font-weight: 700;">Consulta recibida</span>
-                </div>
-                <span style="font-size: 0.68rem; color: var(--green); font-weight: 700;">WA · Web · IG</span>
-              </div>
-              <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 0.4rem 0.65rem;">
-                <div style="display: flex; align-items: center; gap: 0.45rem;">
-                  <span style="width: 18px; height: 18px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); color: var(--gold-light); display: inline-flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 900;">2</span>
-                  <span style="font-weight: 700;">Regla de catálogo</span>
-                </div>
-                <span style="font-size: 0.68rem; color: var(--gold); font-weight: 700;">$185.000 CLP validado</span>
-              </div>
-              <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 0.4rem 0.65rem;">
-                <div style="display: flex; align-items: center; gap: 0.45rem;">
-                  <span style="width: 18px; height: 18px; border-radius: 50%; background: rgba(52, 199, 123, 0.2); color: #34c77b; display: inline-flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 900;">3</span>
-                  <span style="font-weight: 700;">Oportunidad en CRM</span>
-                </div>
-                <span style="font-size: 0.68rem; color: var(--green); font-weight: 700;">Ficha registrada</span>
-              </div>
-            </div>
-          </div>
-
           <!-- Hero Trust Strip: Google for Startups & NVIDIA Inception -->
           <div class="hero-trust-strip animate-load" style="animation-delay: 0.6s; margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--glass-border); display: flex; flex-direction: column; gap: 0.75rem;">
             <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem;">
@@ -3984,119 +3810,16 @@
       </div>
       <!-- End Left Column -->
 
-      <!-- Right Column: Consola Operativa TheIA (HU-WEB-035) -->
-      <div class="hero-glass-card hero-console animate-load" style="animation-delay: 0.7s; padding: 0;">
-        <!-- Header / Status Bar -->
-        <div class="client-header hero-console-header">
-          <div class="hero-console-title">
-            <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--green); display: inline-block;"></span>
-            <span style="font-size: 0.8rem; font-weight: 700; color: var(--text); letter-spacing: 0.02em;">TheIA Engine</span>
-            <span style="color: var(--text-muted); font-size: 0.75rem;">·</span>
-            <span style="font-size: 0.72rem; color: var(--text-sub); font-weight: 500;">Consola Operativa</span>
-          </div>
-          <div class="client-channels hero-console-channels">
-            <span style="color: #25D366; font-size: 0.68rem; font-weight: 700; background: rgba(37, 211, 102, 0.12); border: 1px solid rgba(37, 211, 102, 0.3); padding: 0.12rem 0.45rem; border-radius: 6px; display: inline-flex; align-items: center; gap: 0.25rem;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>WA
-            </span>
-            <span style="color: #6366F1; font-size: 0.68rem; font-weight: 700; background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.3); padding: 0.12rem 0.45rem; border-radius: 6px; display: inline-flex; align-items: center; gap: 0.25rem;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Web
-            </span>
-            <span style="color: #E1306C; font-size: 0.68rem; font-weight: 700; background: rgba(225, 48, 108, 0.12); border: 1px solid rgba(225, 48, 108, 0.3); padding: 0.12rem 0.45rem; border-radius: 6px; display: inline-flex; align-items: center; gap: 0.25rem;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>IG
-            </span>
-          </div>
-        </div>
-
-        <!-- Stages Container -->
-        <div class="hero-console-body">
-
-          <!-- Etapa 1: Consulta recibida -->
-          <div class="client-context hero-stage-card">
-            <div class="hero-stage-head">
-              <div class="hero-stage-head-title">
-                <span style="font-size: 0.68rem; font-weight: 700; color: var(--gold-light); text-transform: uppercase; letter-spacing: 0.06em;">Etapa 1 · Entrada</span>
-                <span style="color: var(--text-muted); font-size: 0.7rem;">·</span>
-                <span style="font-size: 0.72rem; color: var(--text-sub);">Speed-to-lead &lt;60s</span>
-              </div>
-              <span class="hero-stage-tag hero-stage-tag--ok">
-                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                Consulta recibida
-              </span>
-            </div>
-            <div style="font-size: 0.8rem; font-weight: 700; color: var(--text); line-height: 1.35;">
-              Prospecto solicita cotización y disponibilidad
-            </div>
-            <div style="font-size: 0.72rem; color: var(--text-sub); margin-top: 0.2rem;">
-              Canal WhatsApp · Contacto identificado y conversación en curso
-            </div>
-          </div>
-
-          <!-- Etapa 2: Regla de catálogo validada -->
-          <div class="hero-stage-card hero-stage-card--dark" style="display: flex; flex-direction: column; gap: 0.5rem;">
-            <div class="hero-stage-head">
-              <span style="font-size: 0.68rem; font-weight: 700; color: var(--gold-light); text-transform: uppercase; letter-spacing: 0.06em;">Etapa 2 · Control de Reglas</span>
-              <span class="hero-stage-tag hero-stage-tag--rule">
-                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                Reglas validadas
-              </span>
-            </div>
-
-            <!-- Regla Catálogo -->
-            <div class="hero-stage-row" style="padding-top: 0.25rem;">
-              <div style="display: flex; align-items: center; gap: 0.45rem; min-width: 0;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--indigo-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                <span style="font-size: 0.76rem; font-weight: 700; color: var(--text);">Catálogo Oficial: <span style="color: var(--gold);">$185.000 CLP</span></span>
-              </div>
-              <span style="font-size: 0.68rem; color: var(--green); font-weight: 700; display: inline-flex; align-items: center; gap: 0.25rem; white-space: nowrap;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                Aplicado
-              </span>
-            </div>
-
-            <!-- Regla Descuento -->
-            <div class="hero-stage-row" style="padding-top: 0.35rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
-              <div style="display: flex; align-items: center; gap: 0.45rem; min-width: 0;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                <span style="font-size: 0.76rem; font-weight: 700; color: var(--text);">Límites de Descuento Protegidos</span>
-              </div>
-              <span class="hero-stage-tag hero-stage-tag--lock">
-                <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                Bloqueado
-              </span>
-            </div>
-          </div>
-
-          <!-- Etapa 3: Oportunidad registrada -->
-          <div class="hero-stage-card">
-            <div class="hero-stage-head">
-              <span style="font-size: 0.68rem; font-weight: 700; color: var(--gold-light); text-transform: uppercase; letter-spacing: 0.06em;">Etapa 3 · Trazabilidad CRM</span>
-              <span class="hero-stage-tag hero-stage-tag--ok">
-                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                Oportunidad registrada
-              </span>
-            </div>
-            <div class="hero-stage-row">
-              <div style="font-size: 0.78rem; font-weight: 700; color: var(--text);">
-                Ficha creada en CRM · Etapa: <span style="color: var(--gold);">Cotizado</span>
-              </div>
-              <span style="font-size: 0.7rem; color: var(--text-sub); font-weight: 500; white-space: nowrap;">Alerta Pulse</span>
-            </div>
-            <div style="font-size: 0.72rem; color: var(--text-sub); margin-top: 0.2rem;">
-              Historial y cotización listos para seguimiento comercial
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Footer Bar of Console -->
-        <div class="hero-console-footer">
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            Operación con reglas bloqueadas
-          </span>
-          <span style="color: var(--text-muted); white-space: nowrap;">Sin respuestas inventadas</span>
-        </div>
-      </div>
+      <!-- Right Column: Visual conceptual de orquestación (HU-WEB-036) -->
+      <figure class="hero-orchestration-visual animate-load" style="animation-delay: 0.7s;">
+        <img
+          src="/hero-agent-orchestration.png"
+          width="1536"
+          height="1024"
+          alt="Diagrama conceptual: una solicitud se distribuye entre agentes especializados y vuelve como una acción resuelta."
+        />
+        <figcaption class="hero-orchestration-caption">Agentes, reglas y personas: una misma operación.</figcaption>
+      </figure>
       <!-- End Right Column -->
 
     </div>

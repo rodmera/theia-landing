@@ -190,29 +190,29 @@ def test_no_promesa_de_futuro_en_copy_visible():
     assert not findings, "copy visible promete futuro:\n" + "\n".join(findings)
 
 
-def test_hero_de_home_mantiene_consola_operativa_y_los_iconos_oficiales():
-    """El hero comunica una consola operativa de 3 etapas, no una conversación simulada."""
+def test_hero_de_home_usa_imagen_conceptual_de_orquestacion_sin_interfaz_ficticia():
+    """El hero comunica orquestación con una pieza editorial, no una app simulada."""
     source = (ROOT / "index.html").read_text(encoding="utf-8")
     hero = source[source.index('<section class="hero"'):source.index("</section>", source.index('<section class="hero"'))]
-    for marker in ("client-header", "client-channels", "client-context", "hero-console", "#25D366", "#E1306C", "#6366F1"):
+    for marker in ("hero-orchestration-visual", "hero-agent-orchestration.png", "Diagrama conceptual:"):
         assert marker in hero, f"hero perdió el componente visual obligatorio: {marker}"
-    assert "chat-bubble" not in hero.lower(), "hero volvió a usar burbujas de chat simuladas"
+    for stale in ("hero-console", "hero-stage-", "client-header", "client-channels", "$185.000 CLP"):
+        assert stale not in hero, f"hero conserva interfaz ficticia: {stale}"
 
 
-def test_hero_consola_operativa_respeta_la_composicion_desktop_y_mobile(desktop_page, mobile_page):
-    """Relación visual estable: consola operativa a la derecha en desktop, oculta en teléfono."""
+def test_hero_orquestacion_respeta_la_composicion_desktop_y_mobile(desktop_page, mobile_page):
+    """La pieza editorial queda a la derecha en desktop y se oculta en teléfono."""
     desktop_page.goto(BASE, wait_until="domcontentloaded")
     desktop_page.wait_for_timeout(300)
     heading = desktop_page.locator(".hero h1").bounding_box()
-    panel = desktop_page.locator(".hero-glass-card").bounding_box()
-    assert heading and panel, "hero sin título o consola operativa en desktop"
-    assert panel["x"] > heading["x"] + heading["width"] * 0.75, "consola operativa no queda al lado del mensaje"
+    visual = desktop_page.locator(".hero-orchestration-visual").bounding_box()
+    assert heading and visual, "hero sin título o imagen conceptual en desktop"
+    assert visual["x"] > heading["x"] + heading["width"] * 0.75, "imagen conceptual no queda al lado del mensaje"
 
     mobile_page.goto(BASE, wait_until="domcontentloaded")
     mobile_page.wait_for_timeout(300)
-    display = mobile_page.locator(".hero-glass-card").evaluate("el => getComputedStyle(el).display")
-    assert display == "none", f"consola operativa debe ocultarse en móvil, no {display}"
-
+    display = mobile_page.locator(".hero-orchestration-visual").evaluate("el => getComputedStyle(el).display")
+    assert display == "none", f"imagen conceptual debe ocultarse en móvil, no {display}"
 
 @pytest.mark.parametrize("path", PAGES)
 def test_roles_tipograficos_se_renderizan_en_el_navegador(mobile_page, path):
