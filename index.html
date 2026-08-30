@@ -280,7 +280,6 @@
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
       }
-      #network-canvas { display: none; }
     }
 
     html {
@@ -306,19 +305,6 @@
       opacity: 0.04;
       pointer-events: none;
       z-index: 0;
-    }
-
-    #network-canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.25;
-      mask-image: linear-gradient(to bottom, white 0%, white 50%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to bottom, white 0%, white 50%, transparent 100%);
     }
 
     nav {
@@ -505,9 +491,9 @@
       top: -20%;
       left: 50%;
       transform: translateX(-50%);
-      width: 1000px;
-      height: 800px;
-      background: radial-gradient(ellipse at center, rgba(79, 70, 229, 0.3) 0%, transparent 65%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(ellipse at center, rgba(79, 70, 229, 0.12) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -592,24 +578,176 @@
       margin-bottom: 2.5rem;
     }
 
-    .hero-glass-card {
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      border-radius: 24px;
-      padding: 1.75rem;
-      backdrop-filter: blur(20px);
-      position: relative;
+    .hero-glass-card,
+    .hero-console {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.09);
+      border-radius: 16px;
       overflow: hidden;
+      min-width: 0;
     }
 
-    .hero-glass-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 10%;
-      right: 10%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    .hero-console-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 1.15rem;
+      background: rgba(30, 41, 59, 0.55);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      gap: 0.5rem;
+      min-width: 0;
+    }
+
+    .hero-console-title {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      min-width: 0;
+    }
+
+    .hero-console-channels {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-shrink: 0;
+      min-width: 0;
+    }
+
+    .hero-console-body {
+      padding: 1rem 1.15rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      min-width: 0;
+    }
+
+    .hero-stage-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 0.75rem 0.9rem;
+      min-width: 0;
+    }
+
+    .hero-stage-card--dark {
+      background: rgba(0, 0, 0, 0.25);
+      border-color: rgba(255, 255, 255, 0.07);
+    }
+
+    .hero-stage-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.35rem;
+      gap: 0.5rem;
+      min-width: 0;
+    }
+
+    .hero-stage-head-title {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      min-width: 0;
+    }
+
+    .hero-stage-head > *,
+    .hero-stage-head-title > * {
+      min-width: 0;
+    }
+
+    .hero-stage-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.12rem 0.45rem;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+      min-width: 0;
+    }
+
+    .hero-stage-tag--ok {
+      color: var(--green);
+      background: rgba(52, 199, 123, 0.1);
+      border: 1px solid rgba(52, 199, 123, 0.25);
+    }
+
+    .hero-stage-tag--rule {
+      color: var(--indigo-light);
+      background: rgba(99, 102, 241, 0.12);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .hero-stage-tag--lock {
+      color: var(--gold);
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--glass-border-gold);
+    }
+
+    .hero-stage-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      min-width: 0;
+    }
+
+    .hero-stage-row > * {
+      min-width: 0;
+    }
+
+    .hero-console-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(15, 23, 42, 0.95);
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 0.55rem 1.15rem;
+      font-size: 0.7rem;
+      color: var(--text-sub);
+      gap: 0.5rem;
+      min-width: 0;
+    }
+
+    .hero-console-footer > * {
+      min-width: 0;
+    }
+
+    @media (min-width: 961px) and (max-width: 1100px) {
+      .hero-inner {
+        gap: 1.5rem;
+      }
+      .hero-console-header {
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        padding: 0.75rem 0.9rem;
+      }
+      .hero-console-body {
+        padding: 0.85rem 0.9rem;
+        gap: 0.6rem;
+      }
+      .hero-stage-card {
+        padding: 0.65rem 0.75rem;
+      }
+      .hero-stage-head {
+        flex-wrap: wrap;
+        gap: 0.35rem;
+      }
+      .hero-stage-head-title {
+        flex-wrap: wrap;
+      }
+      .hero-stage-row {
+        flex-wrap: wrap;
+        gap: 0.35rem;
+      }
+      .hero-console-footer {
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        padding: 0.5rem 0.9rem;
+      }
     }
 
     .chat-header {
@@ -672,7 +810,7 @@
     }
 
     .msg-user {
-      
+
       border: 1px solid rgba(255, 255, 255, 0.1);
       align-self: flex-start;
       border-bottom-left-radius: 4px;
@@ -3332,7 +3470,7 @@
     .newsletter-form input:focus {
       outline: none;
       border-color: var(--gold);
-      
+
       box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
     }
 
@@ -3420,7 +3558,7 @@
       .mobile-menu-open .menu-toggle span:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
       }
-      
+
       body.mobile-menu-open {
         overflow: hidden;
       }
@@ -3763,7 +3901,6 @@
 
   <main id="main-content">
   <section class="hero" style="position: relative; overflow: hidden;">
-    <canvas id="network-canvas"></canvas>
     <div class="hero-inner container">
       <!-- Left Column -->
       <div>
@@ -3797,24 +3934,31 @@
           </p>
 
           <!-- Mobile Compact Flow Strip (visibilidad exclusiva en pantallas <= 960px) -->
-          <div class="hero-mobile-strip" style="margin-top: 1.25rem; background: rgba(0,0,0,0.25); border: 1px solid var(--glass-border); border-radius: 12px; padding: 0.75rem 1rem; width: 100%;">
-            <div style="font-size: 0.7rem; font-weight: 700; color: var(--gold-light); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; text-align: center;">
-              El viaje de tu cliente con TheIA
+          <div class="hero-mobile-strip" style="margin-top: 1.25rem; background: rgba(15, 23, 42, 0.75); border: 1px solid var(--glass-border); border-radius: 12px; padding: 0.85rem 1rem; width: 100%;">
+            <div style="font-size: 0.7rem; font-weight: 700; color: var(--gold-light); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.65rem; text-align: center;">
+              Control operacional en 3 pasos
             </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.25rem; font-size: 0.75rem; font-weight: 700; color: var(--text);">
-              <div style="display: flex; align-items: center; gap: 0.25rem;">
-                <span style="width: 18px; height: 18px; border-radius: 50%; background: var(--gold); color: #0f172a; display: inline-flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 900;">1</span>
-                <span>Mensaje</span>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.75rem; color: var(--text);">
+              <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 0.4rem 0.65rem;">
+                <div style="display: flex; align-items: center; gap: 0.45rem;">
+                  <span style="width: 18px; height: 18px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); color: var(--gold-light); display: inline-flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 900;">1</span>
+                  <span style="font-weight: 700;">Consulta recibida</span>
+                </div>
+                <span style="font-size: 0.68rem; color: var(--green); font-weight: 700;">WA · Web · IG</span>
               </div>
-              <span style="color: var(--text-muted);">→</span>
-              <div style="display: flex; align-items: center; gap: 0.25rem;">
-                <span style="width: 18px; height: 18px; border-radius: 50%; background: rgba(255,255,255,0.1); color: var(--gold-light); display: inline-flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 900;">2</span>
-                <span>Contexto</span>
+              <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 0.4rem 0.65rem;">
+                <div style="display: flex; align-items: center; gap: 0.45rem;">
+                  <span style="width: 18px; height: 18px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); color: var(--gold-light); display: inline-flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 900;">2</span>
+                  <span style="font-weight: 700;">Regla de catálogo</span>
+                </div>
+                <span style="font-size: 0.68rem; color: var(--gold); font-weight: 700;">$185.000 CLP validado</span>
               </div>
-              <span style="color: var(--text-muted);">→</span>
-              <div style="display: flex; align-items: center; gap: 0.25rem;">
-                <span style="width: 18px; height: 18px; border-radius: 50%; background: #34c759; color: #0f172a; display: inline-flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 900;">3</span>
-                <span>Caso listo</span>
+              <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 0.4rem 0.65rem;">
+                <div style="display: flex; align-items: center; gap: 0.45rem;">
+                  <span style="width: 18px; height: 18px; border-radius: 50%; background: rgba(52, 199, 123, 0.2); color: #34c77b; display: inline-flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 900;">3</span>
+                  <span style="font-weight: 700;">Oportunidad en CRM</span>
+                </div>
+                <span style="font-size: 0.68rem; color: var(--green); font-weight: 700;">Ficha registrada</span>
               </div>
             </div>
           </div>
@@ -3840,101 +3984,117 @@
       </div>
       <!-- End Left Column -->
 
-      <!-- Right Column: Hero Shot de Producto (Mockup de Software de Alta Fidelidad) -->
-      <div class="hero-glass-card animate-load" style="animation-delay: 0.7s; padding: 0; background: rgba(15,23,42,0.85); border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 25px 60px -15px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.12); border-radius: 16px; overflow: hidden;">
-        <!-- App Titlebar / Window Header -->
-        <div class="client-header" style="display:flex; justify-content:space-between; align-items:center; padding: 0.75rem 1rem; background: rgba(30,41,59,0.5); border-bottom: 1px solid rgba(255,255,255,0.08);">
-          <div style="display:flex; align-items:center; gap:0.6rem;">
-            <div style="display:flex; gap:0.35rem;">
-              <span style="width:9px; height:9px; border-radius:50%; background:#ef4444; opacity:0.85; display:inline-block;"></span>
-              <span style="width:9px; height:9px; border-radius:50%; background:#f59e0b; opacity:0.85; display:inline-block;"></span>
-              <span style="width:9px; height:9px; border-radius:50%; background:#10b981; opacity:0.85; display:inline-block;"></span>
-            </div>
-            <span style="font-size:0.75rem; font-weight:700; color:var(--text-sub); display:inline-flex; align-items:center; gap:0.3rem;">
-              <span style="color:var(--text);">TheIA Suite</span> / Live Hub
-            </span>
+      <!-- Right Column: Consola Operativa TheIA (HU-WEB-035) -->
+      <div class="hero-glass-card hero-console animate-load" style="animation-delay: 0.7s; padding: 0;">
+        <!-- Header / Status Bar -->
+        <div class="client-header hero-console-header">
+          <div class="hero-console-title">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--green); display: inline-block;"></span>
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--text); letter-spacing: 0.02em;">TheIA Engine</span>
+            <span style="color: var(--text-muted); font-size: 0.75rem;">·</span>
+            <span style="font-size: 0.72rem; color: var(--text-sub); font-weight: 500;">Consola Operativa</span>
           </div>
-          <div class="client-channels" style="display:flex; align-items:center; gap:0.35rem;">
-            <span style="color:#25D366; font-size:0.68rem; font-weight:700; background:rgba(37,211,102,0.12); border:1px solid rgba(37,211,102,0.3); padding:0.12rem 0.45rem; border-radius:8px; display:inline-flex; align-items:center; gap:0.25rem;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="#25D366"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>WA
+          <div class="client-channels hero-console-channels">
+            <span style="color: #25D366; font-size: 0.68rem; font-weight: 700; background: rgba(37, 211, 102, 0.12); border: 1px solid rgba(37, 211, 102, 0.3); padding: 0.12rem 0.45rem; border-radius: 6px; display: inline-flex; align-items: center; gap: 0.25rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>WA
             </span>
-            <span style="color:#6366F1; font-size:0.68rem; font-weight:700; background:rgba(99,102,241,0.12); border:1px solid rgba(99,102,241,0.3); padding:0.12rem 0.45rem; border-radius:8px;">Web</span>
-            <span style="color:#E1306C; font-size:0.68rem; font-weight:700; background:rgba(225,48,108,0.12); border:1px solid rgba(225,48,108,0.3); padding:0.12rem 0.45rem; border-radius:8px;">IG</span>
+            <span style="color: #6366F1; font-size: 0.68rem; font-weight: 700; background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.3); padding: 0.12rem 0.45rem; border-radius: 6px; display: inline-flex; align-items: center; gap: 0.25rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Web
+            </span>
+            <span style="color: #E1306C; font-size: 0.68rem; font-weight: 700; background: rgba(225, 48, 108, 0.12); border: 1px solid rgba(225, 48, 108, 0.3); padding: 0.12rem 0.45rem; border-radius: 6px; display: inline-flex; align-items: center; gap: 0.25rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>IG
+            </span>
           </div>
         </div>
 
-        <!-- App Body Layout (Two Columns: Mini-Sidebar + Workspace) -->
-        <div style="display:flex; min-height: 250px;">
-          <!-- Left Mini-Sidebar (App Navigation Icons) -->
-          <div style="width: 44px; background: rgba(15,23,42,0.9); border-right: 1px solid rgba(255,255,255,0.06); display:flex; flex-direction:column; align-items:center; padding: 0.85rem 0; gap: 0.85rem;">
-            <!-- Inbox Active -->
-            <div style="width:28px; height:28px; border-radius:7px; background: rgba(99,102,241,0.2); border: 1px solid rgba(99,102,241,0.4); display:flex; align-items:center; justify-content:center; color: #818cf8;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <!-- Stages Container -->
+        <div class="hero-console-body">
+
+          <!-- Etapa 1: Consulta recibida -->
+          <div class="client-context hero-stage-card">
+            <div class="hero-stage-head">
+              <div class="hero-stage-head-title">
+                <span style="font-size: 0.68rem; font-weight: 700; color: var(--gold-light); text-transform: uppercase; letter-spacing: 0.06em;">Etapa 1 · Entrada</span>
+                <span style="color: var(--text-muted); font-size: 0.7rem;">·</span>
+                <span style="font-size: 0.72rem; color: var(--text-sub);">Speed-to-lead &lt;60s</span>
+              </div>
+              <span class="hero-stage-tag hero-stage-tag--ok">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Consulta recibida
+              </span>
             </div>
-            <!-- CRM -->
-            <div style="width:28px; height:28px; border-radius:7px; display:flex; align-items:center; justify-content:center; color: var(--text-sub); opacity: 0.6;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <div style="font-size: 0.8rem; font-weight: 700; color: var(--text); line-height: 1.35;">
+              Prospecto solicita cotización y disponibilidad
             </div>
-            <!-- Pulse -->
-            <div style="width:28px; height:28px; border-radius:7px; display:flex; align-items:center; justify-content:center; color: var(--text-sub); opacity: 0.6;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            </div>
-            <!-- Settings -->
-            <div style="margin-top:auto; width:28px; height:28px; border-radius:7px; display:flex; align-items:center; justify-content:center; color: var(--text-sub); opacity: 0.4;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <div style="font-size: 0.72rem; color: var(--text-sub); margin-top: 0.2rem;">
+              Canal WhatsApp · Contacto identificado y conversación en curso
             </div>
           </div>
 
-          <!-- Main Workspace (Clean Product Canvas) -->
-          <div style="flex:1; padding: 0.85rem 1rem; display:flex; flex-direction:column; gap:0.7rem;">
-            <!-- Live Action Bar (.client-context) -->
-            <div class="client-context" style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:10px; padding:0.5rem 0.75rem;">
-              <div style="display:flex; align-items:center; gap:0.5rem;">
-                <span style="width:7px; height:7px; border-radius:50%; background:#10b981; box-shadow:0 0 8px #10b981;"></span>
-                <span style="font-size:0.78rem; font-weight:700; color:var(--text);">Caso en atención</span>
-              </div>
-              <div style="display:flex; align-items:center; gap:0.4rem;">
-                <span style="font-size:0.68rem; font-weight:700; color:#34c77b; background:rgba(52,199,123,0.1); border:1px solid rgba(52,199,123,0.25); padding:0.1rem 0.4rem; border-radius:6px;">⚡ 1.2s</span>
-                <span style="font-size:0.68rem; font-weight:700; color:var(--gold); background:rgba(212,175,55,0.1); border:1px solid var(--glass-border-gold); padding:0.1rem 0.4rem; border-radius:6px;">$185.000</span>
-              </div>
+          <!-- Etapa 2: Regla de catálogo validada -->
+          <div class="hero-stage-card hero-stage-card--dark" style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <div class="hero-stage-head">
+              <span style="font-size: 0.68rem; font-weight: 700; color: var(--gold-light); text-transform: uppercase; letter-spacing: 0.06em;">Etapa 2 · Control de Reglas</span>
+              <span class="hero-stage-tag hero-stage-tag--rule">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Reglas validadas
+              </span>
             </div>
 
-            <!-- Product Interaction Showcase Card -->
-            <div style="background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.06); border-radius:10px; padding:0.75rem; display:flex; flex-direction:column; gap:0.5rem;">
-              <!-- Action 1: Regla de Catálogo Validada -->
-              <div style="display:flex; align-items:center; justify-content:space-between; gap:0.5rem;">
-                <div style="display:flex; align-items:center; gap:0.45rem;">
-                  <span style="width:18px; height:18px; border-radius:4px; background:rgba(99,102,241,0.2); color:#818cf8; display:inline-flex; align-items:center; justify-content:center; font-size:0.65rem;">🛡️</span>
-                  <span style="font-size:0.75rem; font-weight:700; color:var(--text);">Catálogo Oficial & Precios</span>
-                </div>
-                <span style="font-size:0.68rem; color:#34c77b; font-weight:700; background:rgba(52,199,123,0.1); padding:0.1rem 0.35rem; border-radius:4px;">Verificado</span>
+            <!-- Regla Catálogo -->
+            <div class="hero-stage-row" style="padding-top: 0.25rem;">
+              <div style="display: flex; align-items: center; gap: 0.45rem; min-width: 0;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--indigo-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                <span style="font-size: 0.76rem; font-weight: 700; color: var(--text);">Catálogo Oficial: <span style="color: var(--gold);">$185.000 CLP</span></span>
               </div>
-
-              <!-- Action 2: Freno a Descuento -->
-              <div style="display:flex; align-items:center; justify-content:space-between; gap:0.5rem; padding-top:0.35rem; border-top:1px solid rgba(255,255,255,0.04);">
-                <div style="display:flex; align-items:center; gap:0.45rem;">
-                  <span style="width:18px; height:18px; border-radius:4px; background:rgba(235,202,115,0.2); color:var(--gold); display:inline-flex; align-items:center; justify-content:center; font-size:0.65rem;">🔒</span>
-                  <span style="font-size:0.75rem; font-weight:700; color:var(--text);">Límites de Descuento</span>
-                </div>
-                <span style="font-size:0.68rem; color:#f59e0b; font-weight:700; background:rgba(245,158,11,0.1); padding:0.1rem 0.35rem; border-radius:4px;">Protegido</span>
-              </div>
-
-              <!-- Action 3: Sincronización CRM & Alerta Pulse -->
-              <div style="display:flex; align-items:center; justify-content:space-between; gap:0.5rem; padding-top:0.35rem; border-top:1px solid rgba(255,255,255,0.04);">
-                <div style="display:flex; align-items:center; gap:0.45rem;">
-                  <span style="width:18px; height:18px; border-radius:4px; background:rgba(52,199,123,0.2); color:#34c77b; display:inline-flex; align-items:center; justify-content:center; font-size:0.65rem;">✓</span>
-                  <span style="font-size:0.75rem; font-weight:700; color:var(--text);">Pipeline CRM & Alerta Pulse</span>
-                </div>
-                <span style="font-size:0.68rem; color:#34c77b; font-weight:700;">Sincronizado</span>
-              </div>
+              <span style="font-size: 0.68rem; color: var(--green); font-weight: 700; display: inline-flex; align-items: center; gap: 0.25rem; white-space: nowrap;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Aplicado
+              </span>
             </div>
 
-            <!-- Pipeline Visual Stage Bar -->
-            <div style="display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:8px; padding:0.4rem 0.65rem; font-size:0.7rem;">
-              <span style="color:var(--text-sub); font-weight:500;">Etapa: <strong style="color:var(--gold);">Cotizado</strong></span>
-              <span style="color:var(--text-sub); font-weight:500;">Cita: <strong style="color:var(--text);">Martes 10:30</strong></span>
+            <!-- Regla Descuento -->
+            <div class="hero-stage-row" style="padding-top: 0.35rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+              <div style="display: flex; align-items: center; gap: 0.45rem; min-width: 0;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span style="font-size: 0.76rem; font-weight: 700; color: var(--text);">Límites de Descuento Protegidos</span>
+              </div>
+              <span class="hero-stage-tag hero-stage-tag--lock">
+                <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Bloqueado
+              </span>
             </div>
           </div>
+
+          <!-- Etapa 3: Oportunidad registrada -->
+          <div class="hero-stage-card">
+            <div class="hero-stage-head">
+              <span style="font-size: 0.68rem; font-weight: 700; color: var(--gold-light); text-transform: uppercase; letter-spacing: 0.06em;">Etapa 3 · Trazabilidad CRM</span>
+              <span class="hero-stage-tag hero-stage-tag--ok">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Oportunidad registrada
+              </span>
+            </div>
+            <div class="hero-stage-row">
+              <div style="font-size: 0.78rem; font-weight: 700; color: var(--text);">
+                Ficha creada en CRM · Etapa: <span style="color: var(--gold);">Cotizado</span>
+              </div>
+              <span style="font-size: 0.7rem; color: var(--text-sub); font-weight: 500; white-space: nowrap;">Alerta Pulse</span>
+            </div>
+            <div style="font-size: 0.72rem; color: var(--text-sub); margin-top: 0.2rem;">
+              Historial y cotización listos para seguimiento comercial
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Footer Bar of Console -->
+        <div class="hero-console-footer">
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Operación con reglas bloqueadas
+          </span>
+          <span style="color: var(--text-muted); white-space: nowrap;">Sin respuestas inventadas</span>
         </div>
       </div>
       <!-- End Right Column -->
@@ -4323,7 +4483,7 @@
               <span style="font-size: 0.72rem; color: var(--gold-light);">100% Certeza</span>
             </div>
             <h3 class="home-bento-card__title">Consola de Reglas &amp; Catálogo</h3>
-            
+
             <div class="home-ui__panel">
               <div class="home-ui__rules-switch">
                 <button type="button" class="home-ui__switch-btn active" data-rule-toggle="normal">Precio Oficial</button>
@@ -4868,51 +5028,6 @@
 
 
   <script>
-    const canvas = document.getElementById('network-canvas');
-    const ctx = canvas.getContext('2d');
-    const heroEl = canvas.parentElement;
-    let W, H, nodes = [], canvasVisible = true;
-    function resize() { W = canvas.width = heroEl.offsetWidth; H = canvas.height = heroEl.offsetHeight; }
-    resize();
-    let resizeTimer;
-    window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(resize, 150); });
-    // Pause animation when hero is not visible (saves CPU/battery)
-    const canvasObs = new IntersectionObserver(([e]) => { canvasVisible = e.isIntersecting; }, { threshold: 0 });
-    canvasObs.observe(heroEl);
-    class Node {
-      constructor() { this.x = Math.random() * W; this.y = Math.random() * H; this.vx = (Math.random() - .5) * .4; this.vy = (Math.random() - .5) * .4; this.r = Math.random() * 2 + 1; }
-      update() {
-        this.x += this.vx; this.y += this.vy;
-        if (this.x < 0 || this.x > W) this.vx *= -1;
-        if (this.y < 0 || this.y > H) this.vy *= -1;
-      }
-    }
-    for (let i = 0; i < 80; i++) nodes.push(new Node());
-    function draw() {
-      if (!canvasVisible) { requestAnimationFrame(draw); return; }
-      ctx.clearRect(0, 0, W, H);
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 140) {
-            const a = (1 - dist / 140) * 0.35;
-            ctx.beginPath();
-            ctx.strokeStyle = i % 3 === 0 ? `rgba(212,175,55,${a})` : `rgba(79,70,229,${a})`;
-            ctx.lineWidth = 0.8;
-            ctx.moveTo(nodes[i].x, nodes[i].y); ctx.lineTo(nodes[j].x, nodes[j].y); ctx.stroke();
-          }
-        }
-      }
-      nodes.forEach((n, i) => {
-        n.update();
-        ctx.beginPath();
-        ctx.fillStyle = i % 4 === 0 ? 'rgba(212,175,55,0.8)' : 'rgba(79,70,229,0.7)';
-        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
-      });
-      requestAnimationFrame(draw);
-    }
-    draw();
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
@@ -5117,42 +5232,7 @@
     })();
   </script>
 
-  <script>
-    // Live Case Timeline Progression Cycle (Centro de Control Hero)
-    (function() {
-      let currentStep = 1;
-      const totalSteps = 4;
-      function advanceFlow() {
-        for (let i = 1; i <= totalSteps; i++) {
-          const stepEl = document.getElementById('flow-step-' + i);
-          const rowEl = document.getElementById('time-row-' + i);
-          if (stepEl) {
-            stepEl.style.color = (i === currentStep) ? 'var(--gold)' : 'var(--text-sub)';
-            const numBg = stepEl.querySelector('span');
-            if (numBg) {
-              numBg.style.background = (i === currentStep) ? 'var(--gold)' : 'rgba(255,255,255,0.1)';
-              numBg.style.color = (i === currentStep) ? '#0f172a' : 'var(--text)';
-            }
-          }
-          if (rowEl) {
-            if (i === currentStep) {
-              rowEl.style.background = 'rgba(212,175,55,0.12)';
-              rowEl.style.borderColor = 'var(--glass-border-gold)';
-              const timeLabel = rowEl.querySelector('span');
-              if (timeLabel) timeLabel.style.color = 'var(--gold-light)';
-            } else {
-              rowEl.style.background = 'rgba(255,255,255,0.02)';
-              rowEl.style.borderColor = 'var(--glass-border)';
-              const timeLabel = rowEl.querySelector('span');
-              if (timeLabel) timeLabel.style.color = 'var(--text-sub)';
-            }
-          }
-        }
-        currentStep = (currentStep % totalSteps) + 1;
-      }
-      setInterval(advanceFlow, 2800);
-    })();
-  </script>
+
 
   <!-- Superficies operativas exclusivas de Home (HU-WEB-033) -->
   <script src="/home-product-ui.js" defer></script>

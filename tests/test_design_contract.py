@@ -190,28 +190,28 @@ def test_no_promesa_de_futuro_en_copy_visible():
     assert not findings, "copy visible promete futuro:\n" + "\n".join(findings)
 
 
-def test_hero_de_home_mantiene_la_vista_360_y_los_iconos_oficiales():
-    """El hero comunica un producto de atención, no una conversación simulada."""
+def test_hero_de_home_mantiene_consola_operativa_y_los_iconos_oficiales():
+    """El hero comunica una consola operativa de 3 etapas, no una conversación simulada."""
     source = (ROOT / "index.html").read_text(encoding="utf-8")
     hero = source[source.index('<section class="hero"'):source.index("</section>", source.index('<section class="hero"'))]
-    for marker in ("client-header", "client-channels", "client-context", "#25D366", "#E1306C", "#6366F1"):
+    for marker in ("client-header", "client-channels", "client-context", "hero-console", "#25D366", "#E1306C", "#6366F1"):
         assert marker in hero, f"hero perdió el componente visual obligatorio: {marker}"
     assert "chat-bubble" not in hero.lower(), "hero volvió a usar burbujas de chat simuladas"
 
 
-def test_hero_360_respeta_la_composicion_desktop_y_mobile(desktop_page, mobile_page):
-    """Relación visual estable: panel a la derecha en desktop, oculto en teléfono."""
+def test_hero_consola_operativa_respeta_la_composicion_desktop_y_mobile(desktop_page, mobile_page):
+    """Relación visual estable: consola operativa a la derecha en desktop, oculta en teléfono."""
     desktop_page.goto(BASE, wait_until="domcontentloaded")
     desktop_page.wait_for_timeout(300)
     heading = desktop_page.locator(".hero h1").bounding_box()
     panel = desktop_page.locator(".hero-glass-card").bounding_box()
-    assert heading and panel, "hero sin título o panel Vista 360 en desktop"
-    assert panel["x"] > heading["x"] + heading["width"] * 0.75, "panel Vista 360 no queda al lado del mensaje"
+    assert heading and panel, "hero sin título o consola operativa en desktop"
+    assert panel["x"] > heading["x"] + heading["width"] * 0.75, "consola operativa no queda al lado del mensaje"
 
     mobile_page.goto(BASE, wait_until="domcontentloaded")
     mobile_page.wait_for_timeout(300)
     display = mobile_page.locator(".hero-glass-card").evaluate("el => getComputedStyle(el).display")
-    assert display == "none", f"panel Vista 360 debe ocultarse en móvil, no {display}"
+    assert display == "none", f"consola operativa debe ocultarse en móvil, no {display}"
 
 
 @pytest.mark.parametrize("path", PAGES)

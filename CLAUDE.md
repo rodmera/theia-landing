@@ -135,7 +135,7 @@ Variables CSS definidas en `:root` que controlan toda la paleta:
 
 **⛔ REGLA DURA — Vistas:**
 - El panel del hero y similares NO debe mostrar **sesiones de chat simuladas** (burbujas user/bot estilo chatbot). Eso refuerza la idea de TheIA como "solo un chatbot" y contradice el discurso paraguas.
-- Patrón vigente: **Vista 360 del cliente** (avatar con iniciales, nombre, estado, canales con conteo, contexto de la última conversación).
+- Patrón vigente (HU-WEB-035): **Consola operativa de tres etapas** (consulta recibida, regla de catálogo validada con precio y límites protegidos, y oportunidad registrada en CRM).
 
 **⛔ REGLA DURA — Widgets Flotantes y Frame del WebChat:**
 - En desktop (`min-width: 769px`), existe **un único widget flotante de atención** en la esquina inferior derecha: el asistente WebChat propio de TheIA (`#theia-widget-btn`). No duplicar ni amontonar botones flotantes en desktop (estilo Dapta.ai; WhatsApp va como barra en móvil y en CTAs orgánicos en desktop).
@@ -187,7 +187,7 @@ Las HUs del sitio viven en el **mismo backlog del vault que TheIA producto** (no
 Consultar: `python3 ~/projects/r2sport-whatsapp-bot/scripts/backlog.py --epica web`.
 - Los agentes que trabajen ACÁ solo toman HUs con `repo: theia-landing`. Las demás son del producto
   (r2sport-whatsapp-bot, otros gates) — no tomarlas desde este repo.
-- **Toda HU que toque front debe cumplir el Design System oficial** (`04-Procesos/Plantillas/202608121018 - Design System TheIA — documento oficial consolidado del ecosistema`): tipografías, paleta, iconos SVG, patrón de vista 360 y rutas de assets. El gate incluye `tests/test_design_contract.py`.
+- **Toda HU que toque front debe cumplir el Design System oficial** (`04-Procesos/Plantillas/202608121018 - Design System TheIA — documento oficial consolidado del ecosistema`): tipografías, paleta, iconos SVG, consola operativa de tres etapas y rutas de assets. El gate incluye `tests/test_design_contract.py`.
 - Cerrar una HU: mismo protocolo del vault (`estado: implementado` + `commit:` SOLO tras el deploy
   verificado en theia.cl).
 
