@@ -179,12 +179,12 @@
       background: linear-gradient(135deg, var(--gold), var(--gold-light));
       color: #0f172a;
       font-weight: 700;
-      box-shadow: 0 4px 20px var(--gold-glow);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     }
 
     .btn-gold:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(212, 175, 55, 0.45);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
     }
 
     .btn-ghost {
@@ -259,7 +259,7 @@
       text-decoration: none;
     }
 
-    .logo img { height: 100px; width: auto; display: block; filter: drop-shadow(0 0 10px var(--gold-glow)); }
+    .logo img { height: 100px; width: auto; display: block; }
 
     .nav-cta {
       display: flex;
@@ -331,7 +331,7 @@
       transform: translateX(-50%);
       width: 800px;
       height: 800px;
-      background: radial-gradient(circle, var(--gold-glow) 0%, transparent 60%);
+      background: transparent;
       opacity: 0.4;
       pointer-events: none;
     }
@@ -410,14 +410,14 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 1rem;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 0 0 12px var(--gold-glow);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
       transition: transform 0.3s ease, border-color 0.3s ease;
     }
 
     .piece-card:hover .piece-icon {
       transform: scale(1.06);
       border-color: var(--gold-light);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 18px var(--gold-glow);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
     }
 
     .piece-card h3 {

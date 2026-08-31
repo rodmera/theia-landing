@@ -108,7 +108,7 @@
     }
 
     .logo { display: flex; align-items: center; text-decoration: none; }
-    .logo img { height: 100px; width: auto; display: block; filter: drop-shadow(0 0 10px var(--gold-glow)); }
+    .logo img { height: 100px; width: auto; display: block; }
 
     .nav-cta { display: flex; align-items: center; gap: 0.75rem; }
     .nav-cta {
@@ -153,11 +153,11 @@
     .btn-ghost { background: transparent; color: var(--text-sub); border: 1px solid var(--glass-border); }
     .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
 
-    .btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #0f172a; font-weight: 700; box-shadow: 0 4px 20px var(--gold-glow); }
-    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(212, 175, 55, 0.45); }
+    .btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #0f172a; font-weight: 700; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35); }
 
-    .btn-whatsapp { background: #25D366; color: white; font-weight: 700; padding: 0.85rem 2rem; font-size: 1rem; border-radius: 10px; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); }
-    .btn-whatsapp:hover { background: #20bd5a; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(37, 211, 102, 0.45); }
+    .btn-whatsapp { background: #25D366; color: white; font-weight: 700; padding: 0.85rem 2rem; font-size: 1rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); }
+    .btn-whatsapp:hover { background: #20bd5a; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35); }
 
     /* Section typography */
     .section-title {
@@ -251,12 +251,12 @@
       -webkit-appearance: none; appearance: none;
       width: 24px; height: 24px; border-radius: 50%;
       background: var(--gold); cursor: pointer;
-      box-shadow: 0 0 10px var(--gold-glow);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     }
     .calc-slider::-moz-range-thumb {
       width: 24px; height: 24px; border-radius: 50%;
       background: var(--gold); cursor: pointer; border: none;
-      box-shadow: 0 0 10px var(--gold-glow);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     }
 
     .calc-chips { display: flex; gap: 0.5rem; flex-wrap: wrap; }

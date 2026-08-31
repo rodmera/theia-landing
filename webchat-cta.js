@@ -32,7 +32,7 @@ window.openTheiaChat = function openTheiaChat(source) {
       "#theia-widget-btn {" +
         "background: linear-gradient(135deg, #d4af37, #ebca73) !important;" +
         "color: #0f172a !important;" +
-        "box-shadow: 0 4px 20px rgba(212, 175, 55, 0.45) !important;" +
+        "box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;" +
         "border: 1px solid rgba(255, 255, 255, 0.4) !important;" +
         "width: 60px !important;" +
         "height: 60px !important;" +
@@ -44,7 +44,7 @@ window.openTheiaChat = function openTheiaChat(source) {
       "}" +
       "#theia-widget-btn:hover {" +
         "transform: scale(1.08) translateY(-2px) !important;" +
-        "box-shadow: 0 8px 28px rgba(212, 175, 55, 0.65) !important;" +
+        "box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45) !important;" +
       "}" +
       /* Tooltip Flotante */
       "#theia-widget-tooltip {" +

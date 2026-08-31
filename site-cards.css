@@ -87,15 +87,15 @@ a:focus-visible {
   width: 52px !important;
   height: 52px !important;
   border-radius: 12px !important;
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(79, 70, 229, 0.12)) !important;
-  border: 1px solid var(--glass-border-gold, rgba(212, 175, 55, 0.25)) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(212, 175, 55, 0.2) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   margin: 0 auto !important;
   margin-bottom: 0 !important;
   color: var(--gold-light, #f3e5ab) !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 0 0 12px var(--gold-glow, rgba(212, 175, 55, 0.15)) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
   transition: transform 0.3s var(--bezier-smooth), border-color 0.3s var(--bezier-smooth) !important;
   flex-shrink: 0 !important;
 }

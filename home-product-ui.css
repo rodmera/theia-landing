@@ -174,7 +174,6 @@
   background: rgba(212, 175, 55, 0.15);
   border-color: var(--glass-border-gold);
   color: var(--gold-light, #ebca73);
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.15);
 }
 
 .home-ui__rule-display {
@@ -336,21 +335,18 @@
 .home-ui__orchestration:has(.home-ui__channel-node[data-channel="whatsapp"]:hover) .home-ui__flow-path--wa {
   stroke: #25D366;
   stroke-width: 3;
-  filter: drop-shadow(0 0 6px rgba(37, 211, 102, 0.6));
 }
 
 .home-ui__channel-node[data-channel="instagram"]:hover ~ svg .home-ui__flow-path--ig,
 .home-ui__orchestration:has(.home-ui__channel-node[data-channel="instagram"]:hover) .home-ui__flow-path--ig {
   stroke: #E1306C;
   stroke-width: 3;
-  filter: drop-shadow(0 0 6px rgba(225, 48, 108, 0.6));
 }
 
 .home-ui__channel-node[data-channel="web"]:hover ~ svg .home-ui__flow-path--web,
 .home-ui__orchestration:has(.home-ui__channel-node[data-channel="web"]:hover) .home-ui__flow-path--web {
   stroke: #6366F1;
   stroke-width: 3;
-  filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.6));
 }
 
 @keyframes dataFlow {
