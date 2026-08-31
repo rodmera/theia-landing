@@ -1545,8 +1545,8 @@
       font-weight: 700;
       letter-spacing: 0.05em;
       color: var(--gold-light);
-      background: rgba(212, 175, 55, 0.1);
-      border: 1px solid var(--glass-border-gold);
+      background: rgba(212, 175, 55, 0.06);
+      border: 1px solid rgba(212, 175, 55, 0.2);
       padding: 0.35rem 0.85rem;
       border-radius: 999px;
       margin-bottom: 1.25rem;
@@ -1580,8 +1580,8 @@
       display: flex;
       align-items: flex-start;
       gap: 0.85rem;
-      background: rgba(15, 23, 42, 0.4);
-      border: 1px solid var(--glass-border);
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.07);
       border-radius: 12px;
       padding: 0.85rem 1.1rem;
     }
@@ -1607,12 +1607,11 @@
     }
 
     .pulse-spotlight__phone {
-      background: var(--glass);
-      border: 1px solid var(--glass-border-gold);
+      background: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 20px;
       padding: 1.5rem;
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4), 0 0 20px var(--gold-glow);
-      backdrop-filter: blur(20px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
     }
 
     .pulse-spotlight__phone-header {
@@ -1621,15 +1620,15 @@
       gap: 0.85rem;
       padding-bottom: 1rem;
       margin-bottom: 1.25rem;
-      border-bottom: 1px solid var(--glass-border);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .pulse-spotlight__avatar {
       width: 44px;
       height: 44px;
       border-radius: 12px;
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(79, 70, 229, 0.2));
-      border: 1px solid var(--glass-border-gold);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1644,7 +1643,7 @@
 
     .pulse-spotlight__phone-sub {
       font-size: 0.78rem;
-      color: var(--gold-light);
+      color: var(--text-sub);
       display: flex;
       align-items: center;
       gap: 0.35rem;
@@ -1658,14 +1657,14 @@
 
     .pulse-spotlight__moment {
       background: rgba(15, 23, 42, 0.7);
-      border: 1px solid var(--glass-border);
+      border: 1px solid rgba(255, 255, 255, 0.07);
       border-radius: 14px;
       padding: 1rem 1.15rem;
       transition: border-color 0.2s ease, transform 0.2s ease;
     }
 
     .pulse-spotlight__moment:hover {
-      border-color: var(--glass-border-gold);
+      border-color: rgba(255, 255, 255, 0.15);
       transform: translateY(-2px);
     }
 
@@ -1679,7 +1678,7 @@
     .pulse-spotlight__moment-title {
       font-size: 0.84rem;
       font-weight: 700;
-      color: var(--gold-light);
+      color: var(--text);
       display: flex;
       align-items: center;
       gap: 0.4rem;
@@ -1696,7 +1695,7 @@
 
     .pulse-spotlight__moment-body {
       font-size: 0.88rem;
-      color: var(--text);
+      color: var(--text-sub);
       line-height: 1.55;
       margin: 0;
     }
@@ -4351,7 +4350,7 @@
         <div class="pulse-spotlight__phone reveal">
           <div class="pulse-spotlight__phone-header">
             <div class="pulse-spotlight__avatar">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
             </div>
             <div>
               <div class="pulse-spotlight__phone-title">TheIA Pulse</div>
@@ -4372,9 +4371,9 @@
             </div>
 
             <!-- Momento 2: 14:35 PM -->
-            <div class="pulse-spotlight__moment" style="border-color: rgba(212, 175, 55, 0.4); background: rgba(212, 175, 55, 0.05);">
+            <div class="pulse-spotlight__moment">
               <div class="pulse-spotlight__moment-top">
-                <span class="pulse-spotlight__moment-title" style="color:var(--gold-light);">⚡ Alerta lead caliente</span>
+                <span class="pulse-spotlight__moment-title">⚡ Alerta lead caliente</span>
                 <span class="pulse-spotlight__time">14:35 PM</span>
               </div>
               <p class="pulse-spotlight__moment-body">
