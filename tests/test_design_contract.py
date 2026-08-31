@@ -354,3 +354,51 @@ def test_cards_glass_tipografia_consistente(mobile_page, path):
     }""")
     if state["count"]:
         assert not state["outliers"], f"{path}: cards con estilo no canónico: {state['outliers'][:6]}"
+
+
+@pytest.mark.parametrize("path", PAGES)
+def test_paleta_verde_restringida_a_whatsapp_y_status_dot(mobile_page, path):
+    """Regla dura 2026-08-31: El verde (#34c77b / #25D366) NO es color de acento de marca (es TheIA Gold).
+    El verde queda ESTRICTAMENTE restringido a:
+      1. Icono/botón oficial de WhatsApp (.btn-whatsapp, .footer-contact-badge--wa, fill/stroke de logo WA)
+      2. Micro-punto indicador de estado de 6px (● "En línea" / "En vivo")
+    Prohibido usar verde en titulares, subtítulos, precios, cifras monetarias, cantidades,
+    bordes de tarjetas o pastillas promocionales.
+    """
+    mobile_page.goto(BASE + path, wait_until="domcontentloaded")
+    violations = mobile_page.evaluate("""() => {
+        const issues = [];
+        const allElements = document.querySelectorAll('h1, h2, h3, h4, strong, p, span, div, a');
+        for (const el of allElements) {
+            // Ignorar elementos de WhatsApp y status dots
+            if (el.closest('.btn-whatsapp, .footer-contact-badge--wa, .footer-bottom-wa, #theia-widget-btn, .chat-online, .badge-dot, .live-dot')) {
+                continue;
+            }
+            if (el.classList.contains('btn-whatsapp') || el.classList.contains('badge-dot') || el.classList.contains('live-dot')) {
+                continue;
+            }
+            // Ignorar SVGs de logos oficiales
+            if (el.closest('svg') || el.tagName.toLowerCase() === 'svg') {
+                continue;
+            }
+
+            const style = getComputedStyle(el);
+            const color = style.color;
+            const bg = style.backgroundColor;
+            const border = style.borderColor;
+
+            // Detectar verdes (#34c77b = rgb(52, 199, 123), #25D366 = rgb(37, 211, 102), #10b981 = rgb(16, 185, 129))
+            const isGreen = str => {
+                if (!str) return false;
+                const s = str.toLowerCase();
+                return s.includes('52, 199, 123') || s.includes('37, 211, 102') || s.includes('16, 185, 129') || s.includes('#34c77b') || s.includes('#25d366') || s.includes('#10b981');
+            };
+
+            if (isGreen(color)) {
+                issues.push(`Texto verde en <${el.tagName.toLowerCase()}> "${el.textContent.trim().slice(0, 30)}": ${color}`);
+            }
+        }
+        return issues;
+    }""")
+    assert not violations, f"{path}: elementos con verde no autorizado:\n" + "\n".join(violations[:10])
+
