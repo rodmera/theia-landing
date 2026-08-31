@@ -201,7 +201,7 @@ def test_hero_de_home_usa_imagen_conceptual_de_orquestacion_sin_interfaz_fictici
 
 
 def test_hero_orquestacion_respeta_la_composicion_desktop_y_mobile(desktop_page, mobile_page):
-    """La pieza editorial queda a la derecha en desktop y se oculta en teléfono."""
+    """La pieza editorial queda a la derecha en desktop y se renderiza responsivamente en teléfono."""
     desktop_page.goto(BASE, wait_until="domcontentloaded")
     desktop_page.wait_for_timeout(300)
     heading = desktop_page.locator(".hero h1").bounding_box()
@@ -212,7 +212,14 @@ def test_hero_orquestacion_respeta_la_composicion_desktop_y_mobile(desktop_page,
     mobile_page.goto(BASE, wait_until="domcontentloaded")
     mobile_page.wait_for_timeout(300)
     display = mobile_page.locator(".hero-orchestration-visual").evaluate("el => getComputedStyle(el).display")
-    assert display == "none", f"imagen conceptual debe ocultarse en móvil, no {display}"
+    assert display != "none", f"imagen conceptual debe mostrarse en móvil, no {display}"
+    mob_visual = mobile_page.locator(".hero-orchestration-visual").bounding_box()
+    mob_heading = mobile_page.locator(".hero h1").bounding_box()
+    assert mob_visual and mob_heading, "hero sin elementos en móvil"
+    assert mob_visual["y"] > mob_heading["y"], "apoyo visual debe ubicarse debajo del título en móvil"
+    scroll_w = mobile_page.evaluate("document.documentElement.scrollWidth")
+    client_w = mobile_page.evaluate("document.documentElement.clientWidth")
+    assert scroll_w <= client_w, f"Desbordamiento horizontal en móvil: {scroll_w} > {client_w}"
 
 @pytest.mark.parametrize("path", PAGES)
 def test_roles_tipograficos_se_renderizan_en_el_navegador(mobile_page, path):

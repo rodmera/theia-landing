@@ -147,7 +147,7 @@ Variables CSS definidas en `:root` que controlan toda la paleta:
 
 ## Responsive
 
-- `≤960px`: colapsa grids a 1 columna, oculta el apoyo visual derecho del hero
+- `≤960px`: colapsa grids a 1 columna, adapta y renderiza responsivamente el apoyo visual del hero debajo de los CTAs
 - `≤600px`: nav simplificado, pain grid a 1 columna, footer apilado
 
 ## CTAs
