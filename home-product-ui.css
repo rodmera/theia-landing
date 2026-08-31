@@ -308,45 +308,28 @@
 /* Rutas y pulsos de datos SVG */
 .home-ui__flow-path {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.15);
-  stroke-width: 2;
-  stroke-dasharray: 6 6;
-  animation: dataFlow 20s linear infinite;
-  transition: stroke 0.3s var(--bezier-smooth), stroke-width 0.3s var(--bezier-smooth);
+  stroke: rgba(255, 255, 255, 0.14);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+  animation: dataFlow 24s linear infinite;
+  transition: stroke 0.25s var(--bezier-smooth), stroke-width 0.25s var(--bezier-smooth);
 }
 
-.home-ui__flow-path--wa {
-  stroke: rgba(37, 211, 102, 0.35);
-}
-
-.home-ui__flow-path--ig {
-  stroke: rgba(225, 48, 108, 0.35);
-}
-
-.home-ui__flow-path--web {
-  stroke: rgba(99, 102, 241, 0.35);
-}
-
+.home-ui__flow-path--wa,
+.home-ui__flow-path--ig,
+.home-ui__flow-path--web,
 .home-ui__flow-path--out {
-  stroke: rgba(235, 202, 115, 0.4);
+  stroke: rgba(255, 255, 255, 0.14);
 }
 
 .home-ui__channel-node[data-channel="whatsapp"]:hover ~ svg .home-ui__flow-path--wa,
-.home-ui__orchestration:has(.home-ui__channel-node[data-channel="whatsapp"]:hover) .home-ui__flow-path--wa {
-  stroke: #25D366;
-  stroke-width: 3;
-}
-
+.home-ui__orchestration:has(.home-ui__channel-node[data-channel="whatsapp"]:hover) .home-ui__flow-path--wa,
 .home-ui__channel-node[data-channel="instagram"]:hover ~ svg .home-ui__flow-path--ig,
-.home-ui__orchestration:has(.home-ui__channel-node[data-channel="instagram"]:hover) .home-ui__flow-path--ig {
-  stroke: #E1306C;
-  stroke-width: 3;
-}
-
+.home-ui__orchestration:has(.home-ui__channel-node[data-channel="instagram"]:hover) .home-ui__flow-path--ig,
 .home-ui__channel-node[data-channel="web"]:hover ~ svg .home-ui__flow-path--web,
 .home-ui__orchestration:has(.home-ui__channel-node[data-channel="web"]:hover) .home-ui__flow-path--web {
-  stroke: #6366F1;
-  stroke-width: 3;
+  stroke: rgba(255, 255, 255, 0.45);
+  stroke-width: 2;
 }
 
 @keyframes dataFlow {
