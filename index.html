@@ -3856,180 +3856,386 @@
         <div class="orch-panel" role="region" aria-label="Diagrama de orquestación de agentes TheIA">
           <!-- The Minimal Architectural SVG Diagram: Tripartite Multi-Agent Orchestration -->
           <div class="orch-diagram-wrap">
-            <svg class="orch-diagram-svg" viewBox="0 0 1000 450" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de orquestación de agentes TheIA: Fuentes y entradas, motor orquestador central y acciones ejecutadas validadas">
-              <defs>
-                <linearGradient id="pulse-bar-grad" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#d4af37" />
-                  <stop offset="100%" stop-color="#ebca73" />
-                </linearGradient>
-              </defs>
+            <svg class="orch-diagram-svg" viewBox="0 0 1000 550" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Orquestación Multi-Agente TheIA: Entradas del negocio, bucle agéntico con TheIA Core, supervisión de telemetría y validación determinista con Agente Catálogo, Agente Agenda y Agente CRM">
+  <defs>
+    <!-- Markers -->
+    <marker id="gold-arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#d4af37" />
+    </marker>
+    <marker id="coral-arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#f43f5e" />
+    </marker>
+    <marker id="cyan-arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#38bdf8" />
+    </marker>
+    <linearGradient id="hub-glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
 
-              <!-- COLUMN HEADERS -->
-              <text x="135" y="32" fill="#ebca73" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" letter-spacing="1.5" text-anchor="middle">FUENTES Y ENTRADAS</text>
-              <text x="135" y="49" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="500" text-anchor="middle">Tus canales de contacto</text>
+  <!-- ======================================================== -->
+  <!-- 1. CONTAINER IZQUIERDO: INPUTS (Entradas a TheIA)        -->
+  <!-- ======================================================== -->
+  <g transform="translate(15, 18)">
+    <!-- Container Box -->
+    <rect width="180" height="495" rx="14" fill="#0f172a" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1.2" />
+    
+    <!-- Header Pill -->
+    <rect x="16" y="14" width="148" height="26" rx="6" fill="#1e293b" />
+    <text x="90" y="31" fill="#cbd5e1" font-size="11" font-weight="700" letter-spacing="0.5" text-anchor="middle">Entradas del Negocio</text>
 
-              <text x="500" y="32" fill="#ebca73" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" letter-spacing="1.5" text-anchor="middle">EL ORQUESTADOR</text>
-              <text x="500" y="49" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="500" text-anchor="middle">Motor Multi-Agente TheIA</text>
+    <!-- Card 1: Canales Multicanal -->
+    <g transform="translate(14, 52)">
+      <rect width="152" height="132" rx="10" fill="#141c2e" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+      
+      <!-- Icon: Stacked Message Cards -->
+      <g transform="translate(54, 16)">
+        <rect x="6" y="0" width="44" height="34" rx="6" fill="#1e293b" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.2" />
+        <rect x="3" y="4" width="44" height="34" rx="6" fill="#1e293b" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1.2" />
+        <rect x="0" y="8" width="44" height="34" rx="6" fill="#141c2e" stroke="#d4af37" stroke-width="1.3" />
+        <line x1="8" y1="18" x2="36" y2="18" stroke="#ebca73" stroke-width="1.5" stroke-linecap="round" />
+        <line x1="8" y1="24" x2="28" y2="24" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" />
+        <line x1="8" y1="30" x2="20" y2="30" stroke="#64748b" stroke-width="1.5" stroke-linecap="round" />
+      </g>
+      
+      <text x="76" y="84" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">Canales Activos</text>
+      <text x="76" y="100" fill="#94a3b8" font-size="10" font-weight="500" text-anchor="middle">WhatsApp · Web · IG</text>
+      <text x="76" y="115" fill="#d4af37" font-size="9" font-weight="600" text-anchor="middle">Consultas en vivo</text>
+    </g>
 
-              <text x="865" y="32" fill="#ebca73" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" letter-spacing="1.5" text-anchor="middle">ACCIONES EJECUTADAS</text>
-              <text x="865" y="49" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="500" text-anchor="middle">Salidas de valor validadas</text>
+    <!-- Card 2: Catálogo & Precios -->
+    <g transform="translate(14, 196)">
+      <rect width="152" height="132" rx="10" fill="#141c2e" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+      
+      <!-- Icon: Book + Database -->
+      <g transform="translate(48, 16)">
+        <rect x="2" y="4" width="22" height="32" rx="3" fill="#1e293b" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1.2" />
+        <line x1="6" y1="12" x2="18" y2="12" stroke="#94a3b8" stroke-width="1.2" />
+        <line x1="6" y1="18" x2="16" y2="18" stroke="#94a3b8" stroke-width="1.2" />
+        <line x1="6" y1="24" x2="14" y2="24" stroke="#94a3b8" stroke-width="1.2" />
+        <g transform="translate(28, 4)">
+          <ellipse cx="12" cy="6" rx="11" ry="4.5" fill="#1e293b" stroke="#d4af37" stroke-width="1.2" />
+          <path d="M 1 6 L 1 16 C 1 18.5 6 20.5 12 20.5 C 18 20.5 23 18.5 23 16 L 23 6" fill="#141c2e" stroke="#d4af37" stroke-width="1.2" />
+          <path d="M 1 16 L 1 26 C 1 28.5 6 30.5 12 30.5 C 18 30.5 23 28.5 23 26 L 23 16" fill="#141c2e" stroke="#d4af37" stroke-width="1.2" />
+        </g>
+      </g>
+      
+      <text x="76" y="84" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">Agente Catálogo</text>
+      <text x="76" y="100" fill="#94a3b8" font-size="10" font-weight="500" text-anchor="middle">Stock y tarifas oficiales</text>
+      <text x="76" y="115" fill="#d4af37" font-size="9" font-weight="600" text-anchor="middle">Datos deterministas</text>
+    </g>
 
-              <!-- CONNECTING BÉZIER CURVES -->
-              <path d="M 255 96 C 315 96, 325 223, 365 223" stroke="rgba(212, 175, 55, 0.4)" stroke-width="1.6" stroke-dasharray="4 4" fill="none" />
-              <path d="M 255 180 C 315 180, 325 223, 365 223" stroke="rgba(212, 175, 55, 0.55)" stroke-width="1.6" stroke-dasharray="4 4" fill="none" />
-              <path d="M 255 264 C 315 264, 325 223, 365 223" stroke="rgba(212, 175, 55, 0.55)" stroke-width="1.6" stroke-dasharray="4 4" fill="none" />
-              <path d="M 255 348 C 315 348, 325 223, 365 223" stroke="rgba(212, 175, 55, 0.4)" stroke-width="1.6" stroke-dasharray="4 4" fill="none" />
+    <!-- Card 3: Reglas de Negocio -->
+    <g transform="translate(14, 340)">
+      <rect width="152" height="136" rx="10" fill="#141c2e" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+      
+      <!-- Icon: Shield + Calendar -->
+      <g transform="translate(53, 16)">
+        <rect x="0" y="4" width="46" height="34" rx="6" fill="#1e293b" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1.2" />
+        <line x1="0" y1="14" x2="46" y2="14" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.2" />
+        <rect x="8" y="0" width="4" height="6" rx="1" fill="#ebca73" />
+        <rect x="34" y="0" width="4" height="6" rx="1" fill="#ebca73" />
+        <path d="M 23 18 L 33 22 L 33 29 C 33 34 23 37 23 37 C 23 37 13 34 13 29 L 13 22 Z" fill="#141c2e" stroke="#d4af37" stroke-width="1.2" />
+        <polyline points="18 27 21 30 28 23" fill="none" stroke="#ebca73" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+      </g>
+      
+      <text x="76" y="86" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">Reglas &amp; Políticas</text>
+      <text x="76" y="102" fill="#94a3b8" font-size="10" font-weight="500" text-anchor="middle">Horarios y condiciones</text>
+      <text x="76" y="117" fill="#d4af37" font-size="9" font-weight="600" text-anchor="middle">Cero alucinaciones</text>
+    </g>
 
-              <path d="M 635 223 C 675 223, 685 96, 745 96" stroke="rgba(212, 175, 55, 0.4)" stroke-width="1.6" stroke-dasharray="4 4" fill="none" />
-              <path d="M 635 223 C 675 223, 685 180, 745 180" stroke="rgba(212, 175, 55, 0.55)" stroke-width="1.6" stroke-dasharray="4 4" fill="none" />
-              <path d="M 635 223 C 675 223, 685 264, 745 264" stroke="rgba(212, 175, 55, 0.55)" stroke-width="1.6" stroke-dasharray="4 4" fill="none" />
-              <path d="M 635 223 C 675 223, 685 348, 745 348" stroke="rgba(212, 175, 55, 0.4)" stroke-width="1.6" stroke-dasharray="4 4" fill="none" />
+    <!-- 3 Outflow Connector Ports (Right Edge) -->
+    <circle cx="180" cy="118" r="4.5" fill="#d4af37" stroke="#0f172a" stroke-width="1.5" />
+    <circle cx="180" cy="262" r="4.5" fill="#d4af37" stroke="#0f172a" stroke-width="1.5" />
+    <circle cx="180" cy="408" r="4.5" fill="#d4af37" stroke="#0f172a" stroke-width="1.5" />
+  </g>
 
-              <!-- LEFT COLUMN: 4 CARDS -->
-              <!-- Card 1: WhatsApp -->
-              <g transform="translate(15, 65)">
-                <rect width="240" height="62" rx="12" fill="#141c2e" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.2" />
-                <circle cx="32" cy="31" r="16" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
-                <path d="M 26 36 L 27 32.5 C 25.8 30.5 25.2 28.3 25.2 26 C 25.2 21.6 28.8 18 33.2 18 C 35.3 18 37.3 18.8 38.8 20.3 C 40.3 21.8 41.2 23.8 41.2 26 C 41.2 30.4 37.6 34 33.2 34 C 31.1 34 29 33.3 27.2 32.1 Z" fill="none" stroke="#25D366" stroke-width="1.4" stroke-linejoin="round" />
-                <path d="M 29.5 23.5 C 29.2 22.8 28.8 22.8 28.4 22.8 C 28.1 22.8 27.7 22.8 27.4 23.1 C 27.1 23.4 26.2 24.2 26.2 25.8 C 26.2 27.4 27.4 28.9 27.6 29.1 C 27.8 29.3 29.8 32.5 33 33.8 C 35.6 34.9 36.2 34.6 36.7 34.6 C 37.4 34.5 38.8 33.7 39.1 32.8 C 39.4 31.9 39.4 31.2 39.3 31 C 39.2 30.8 39 30.7 38.6 30.5 C 38.2 30.3 36.3 29.3 35.9 29.2 C 35.6 29.1 35.3 29 35.1 29.4 C 34.8 29.8 34.1 30.6 33.9 30.8 C 33.7 31.1 33.5 31.1 33.1 30.9 C 32.7 30.7 31.5 30.3 30.1 29 C 29 28 28.2 26.8 28 26.4 C 27.8 26 28 25.8 28.2 25.6 C 28.4 25.4 28.6 25.1 28.8 24.9 C 29 24.7 29.1 24.5 29.2 24.2 C 29.3 23.9 29.3 23.7 29.2 23.5 Z" fill="#25D366" />
-                <text x="58" y="26" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="13.5" font-weight="700">WhatsApp Business</text>
-                <text x="58" y="44" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="500">Nueva consulta de cliente</text>
-                <circle cx="240" cy="31" r="5" fill="#ebca73" stroke="#141c2e" stroke-width="1.5" />
-              </g>
+  <!-- Ingress Flow Curves from Inputs to Center Loop -->
+  <path d="M 195 136 C 220 136, 220 105, 240 105" fill="none" stroke="rgba(212, 175, 55, 0.5)" stroke-width="1.5" />
+  <path d="M 195 280 C 225 280, 230 265, 240 265" fill="none" stroke="rgba(212, 175, 55, 0.7)" stroke-width="1.5" />
+  <path d="M 195 426 C 220 426, 220 380, 240 380" fill="none" stroke="rgba(212, 175, 55, 0.5)" stroke-width="1.5" />
 
-              <!-- Card 2: Instagram -->
-              <g transform="translate(15, 149)">
-                <rect width="240" height="62" rx="12" fill="#141c2e" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.2" />
-                <circle cx="32" cy="31" r="16" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
-                <rect x="23" y="22" width="18" height="18" rx="5" fill="none" stroke="#cbd5e1" stroke-width="1.4" />
-                <circle cx="32" cy="31" r="4.5" fill="none" stroke="#cbd5e1" stroke-width="1.4" />
-                <circle cx="37" cy="26" r="1" fill="#cbd5e1" />
-                <text x="58" y="26" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="13.5" font-weight="700">Instagram Direct</text>
-                <text x="58" y="44" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="500">Mensaje directo (DM)</text>
-                <circle cx="240" cy="31" r="5" fill="#ebca73" stroke="#141c2e" stroke-width="1.5" />
-              </g>
+  <!-- ======================================================== -->
+  <!-- 2. CONTAINER CENTRAL: THEIA AGENTIC ORCHESTRATION LOOP   -->
+  <!-- ======================================================== -->
+  <g transform="translate(240, 18)">
+    <!-- Container Box -->
+    <rect width="470" height="495" rx="16" fill="#0f172a" stroke="rgba(212, 175, 55, 0.35)" stroke-width="1.4" />
+    
+    <!-- Header Pill -->
+    <rect x="135" y="14" width="200" height="26" rx="6" fill="#1e293b" />
+    <text x="235" y="31" fill="#ebca73" font-size="11" font-weight="800" letter-spacing="0.6" text-anchor="middle">Bucle de Orquestación TheIA</text>
 
-              <!-- Card 3: WebChat -->
-              <g transform="translate(15, 233)">
-                <rect width="240" height="62" rx="12" fill="#141c2e" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.2" />
-                <circle cx="32" cy="31" r="16" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
-                <circle cx="32" cy="31" r="8" fill="none" stroke="#6366F1" stroke-width="1.4" />
-                <ellipse cx="32" cy="31" rx="3.5" ry="8" fill="none" stroke="#6366F1" stroke-width="1.2" />
-                <line x1="24" y1="31" x2="40" y2="31" stroke="#6366F1" stroke-width="1.2" />
-                <text x="58" y="26" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="13.5" font-weight="700">WebChat en Vivo</text>
-                <text x="58" y="44" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="500">En tu sitio web oficial</text>
-                <circle cx="240" cy="31" r="5" fill="#ebca73" stroke="#141c2e" stroke-width="1.5" />
-              </g>
+    <!-- Inflow Port (Left middle) -->
+    <circle cx="0" cy="247" r="4.5" fill="#d4af37" stroke="#0f172a" stroke-width="1.5" />
 
-              <!-- Card 4: Catálogo & Precios -->
-              <g transform="translate(15, 317)">
-                <rect width="240" height="62" rx="12" fill="#141c2e" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.2" />
-                <circle cx="32" cy="31" r="16" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
-                <ellipse cx="32" cy="25" rx="7" ry="3" fill="none" stroke="#ebca73" stroke-width="1.3" />
-                <path d="M 25 25 L 25 31 C 25 33 28 34 32 34 C 36 34 39 33 39 31 L 39 25" fill="none" stroke="#ebca73" stroke-width="1.3" />
-                <path d="M 25 31 L 25 37 C 25 39 28 40 32 40 C 36 40 39 39 39 37 L 39 31" fill="none" stroke="#ebca73" stroke-width="1.3" />
-                <text x="58" y="26" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="13.5" font-weight="700">Catálogo &amp; Precios</text>
-                <text x="58" y="44" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="500">Reglas y stock oficiales</text>
-                <circle cx="240" cy="31" r="5" fill="#ebca73" stroke="#141c2e" stroke-width="1.5" />
-              </g>
+    <!-- ORBITAL RING (Circular Trajectory cx=235, cy=245, r=160) -->
+    <circle cx="235" cy="245" r="160" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1.2" stroke-dasharray="4 6" />
 
-              <!-- CENTER COLUMN: THEIA ENGINE (ORQUESTADOR CENTRAL) -->
-              <g transform="translate(365, 65)">
-                <rect width="270" height="314" rx="16" fill="#141c2e" stroke="rgba(212, 175, 55, 0.65)" stroke-width="1.7" />
-                
-                <!-- Central Hub Badge -->
-                <g transform="translate(18, 16)">
-                  <rect width="44" height="44" rx="10" fill="rgba(212, 175, 55, 0.1)" stroke="rgba(212, 175, 55, 0.4)" stroke-width="1.2" />
-                  <rect x="12" y="12" width="20" height="20" rx="4" fill="none" stroke="#ebca73" stroke-width="1.6" />
-                  <circle cx="22" cy="22" r="3" fill="#ebca73" />
-                  <line x1="17" y1="8" x2="17" y2="12" stroke="#ebca73" stroke-width="1.2" />
-                  <line x1="22" y1="8" x2="22" y2="12" stroke="#ebca73" stroke-width="1.2" />
-                  <line x1="27" y1="8" x2="27" y2="12" stroke="#ebca73" stroke-width="1.2" />
-                  
-                  <text x="54" y="21" fill="#ffffff" font-family="'Merriweather', serif" font-size="17" font-weight="700">TheIA Core</text>
-                  <text x="54" y="38" fill="#ebca73" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Orquestador Central</text>
-                </g>
+    <!-- CLOCKWISE ARCS WITH ARROWS (Carefully avoiding station badges) -->
+    <!-- Arc 1 -> 2 (Top to Right-Top) -->
+    <path d="M 282 100 A 160 160 0 0 1 375 180" fill="none" stroke="rgba(212, 175, 55, 0.85)" stroke-width="2" marker-end="url(#gold-arr)" stroke-dasharray="5 4" />
+    <!-- Arc 2 -> 3 (Right-Top to Right-Bottom) -->
+    <path d="M 390 280 A 160 160 0 0 1 332 370" fill="none" stroke="rgba(212, 175, 55, 0.85)" stroke-width="2" marker-end="url(#gold-arr)" stroke-dasharray="5 4" />
+    <!-- Arc 3 -> 4 (Right-Bottom to Left-Bottom) -->
+    <path d="M 285 398 A 160 160 0 0 1 185 398" fill="none" stroke="rgba(212, 175, 55, 0.85)" stroke-width="2" marker-end="url(#gold-arr)" stroke-dasharray="5 4" />
+    <!-- Arc 4 -> 5 (Left-Bottom to Left-Top) -->
+    <path d="M 98 335 A 160 160 0 0 1 82 245" fill="none" stroke="rgba(212, 175, 55, 0.85)" stroke-width="2" marker-end="url(#gold-arr)" stroke-dasharray="5 4" />
+    <!-- Arc 5 -> 1 (Left-Top to Top) -->
+    <path d="M 102 152 A 160 160 0 0 1 185 100" fill="none" stroke="rgba(212, 175, 55, 0.85)" stroke-width="2" marker-end="url(#gold-arr)" stroke-dasharray="5 4" />
 
-                <!-- Divider -->
-                <line x1="18" y1="74" x2="252" y2="74" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+    <!-- ============================================== -->
+    <!-- CENTRAL CORE: TheIA Core (Hexagon + Skills)    -->
+    <!-- ============================================== -->
+    <g transform="translate(235, 245)">
+      <!-- Outer Circle -->
+      <circle cx="0" cy="0" r="54" fill="#141c2e" stroke="rgba(212, 175, 55, 0.7)" stroke-width="1.8" />
+      <circle cx="0" cy="0" r="44" fill="#111827" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+      
+      <!-- Hexagonal Core Icon -->
+      <g transform="translate(0, -6)">
+        <polygon points="0,-16 14,-8 14,8 0,16 -14,8 -14,-8" fill="rgba(212, 175, 55, 0.12)" stroke="#ebca73" stroke-width="1.5" />
+        <circle cx="0" cy="0" r="4" fill="#ebca73" />
+        <circle cx="0" cy="-16" r="2.5" fill="#ebca73" />
+        <circle cx="14" cy="-8" r="2.5" fill="#ebca73" />
+        <circle cx="14" cy="8" r="2.5" fill="#ebca73" />
+        <circle cx="0" cy="16" r="2.5" fill="#ebca73" />
+        <circle cx="-14" cy="8" r="2.5" fill="#ebca73" />
+        <circle cx="-14" cy="-8" r="2.5" fill="#ebca73" />
+      </g>
+      <text x="0" y="24" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">TheIA Core</text>
 
-                <!-- 4 Process Rows -->
-                <g transform="translate(18, 92)">
-                  <circle cx="6" cy="11" r="3.5" fill="#ebca73" />
-                  <text x="18" y="15" fill="#f1f5f9" font-family="'Plus Jakarta Sans', sans-serif" font-size="12.5" font-weight="700">Enrutando consulta entrante...</text>
-                  
-                  <circle cx="6" cy="47" r="3.5" fill="#ebca73" />
-                  <text x="18" y="51" fill="#f1f5f9" font-family="'Plus Jakarta Sans', sans-serif" font-size="12.5" font-weight="700">Agente Catálogo: Precios y stock...</text>
+      <!-- 3 Sub-capabilities Pills below the Core -->
+      <!-- 1. Tools -->
+      <g transform="translate(-48, 62)">
+        <rect width="28" height="24" rx="6" fill="#141c2e" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" />
+        <path d="M 17 8 L 19 10 L 13 16 L 10 16 L 10 13 Z" fill="#ebca73" />
+        <circle cx="19" cy="9" r="2" fill="none" stroke="#ebca73" stroke-width="1" />
+        <text x="14" y="32" fill="#94a3b8" font-size="7.5" font-weight="700" text-anchor="middle">Tools</text>
+      </g>
 
-                  <circle cx="6" cy="83" r="3.5" fill="#ebca73" />
-                  <text x="18" y="87" fill="#f1f5f9" font-family="'Plus Jakarta Sans', sans-serif" font-size="12.5" font-weight="700">Agente Agenda: Cupos en Calendar...</text>
+      <!-- 2. Memory -->
+      <g transform="translate(-14, 62)">
+        <rect width="28" height="24" rx="6" fill="#141c2e" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" />
+        <ellipse cx="14" cy="7" rx="7" ry="2.5" fill="#1e293b" stroke="#ebca73" stroke-width="1" />
+        <path d="M 7 7 L 7 12 C 7 14 10 15 14 15 C 18 15 21 14 21 12 L 21 7" fill="none" stroke="#ebca73" stroke-width="1" />
+        <path d="M 7 12 L 7 17 C 7 19 10 20 14 20 C 18 20 21 19 21 17 L 21 12" fill="none" stroke="#ebca73" stroke-width="1" />
+        <text x="14" y="32" fill="#94a3b8" font-size="7.5" font-weight="700" text-anchor="middle">Memory</text>
+      </g>
 
-                  <circle cx="6" cy="119" r="3.5" fill="#ebca73" />
-                  <text x="18" y="123" fill="#f1f5f9" font-family="'Plus Jakarta Sans', sans-serif" font-size="12.5" font-weight="700">Agente CRM: Reglas e historial...</text>
-                </g>
+      <!-- 3. Rules -->
+      <g transform="translate(20, 62)">
+        <rect width="28" height="24" rx="6" fill="#141c2e" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" />
+        <polygon points="15,6 9,13 14,13 12,20 19,11 14,11" fill="#ebca73" />
+        <text x="14" y="32" fill="#94a3b8" font-size="7.5" font-weight="700" text-anchor="middle">Rules</text>
+      </g>
+    </g>
 
-                <!-- Progress Activity Bar -->
-                <g transform="translate(18, 252)">
-                  <rect width="234" height="6" rx="3" fill="rgba(255, 255, 255, 0.07)" />
-                  <rect width="175" height="6" rx="3" fill="url(#pulse-bar-grad)" />
-                  
-                  <text x="117" y="26" fill="#ebca73" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="800" letter-spacing="1.2" text-anchor="middle">VALIDACIÓN DETERMINISTA · &lt; 2s</text>
-                </g>
+    <!-- ============================================== -->
+    <!-- 5 ORBITAL STATIONS (NVIDIA AVO Style Badges)   -->
+    <!-- ============================================== -->
 
-                <!-- Connection Points on Left and Right of Central Box -->
-                <circle cx="0" cy="158" r="5.5" fill="#ebca73" stroke="#141c2e" stroke-width="1.5" />
-                <circle cx="270" cy="158" r="5.5" fill="#ebca73" stroke="#141c2e" stroke-width="1.5" />
-              </g>
+    <!-- Station 1: Contexto (Top cx=235, cy=85) -->
+    <g transform="translate(235, 85)">
+      <circle cx="0" cy="0" r="30" fill="#141c2e" stroke="#d4af37" stroke-width="1.8" />
+      <!-- Icon: Document with Magnifier -->
+      <g transform="translate(0, -2)">
+        <rect x="-10" y="-12" width="16" height="20" rx="2" fill="#1e293b" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1.2" />
+        <line x1="-6" y1="-7" x2="2" y2="-7" stroke="#cbd5e1" stroke-width="1" />
+        <line x1="-6" y1="-3" x2="2" y2="-3" stroke="#cbd5e1" stroke-width="1" />
+        <circle cx="4" cy="4" r="5" fill="#141c2e" stroke="#ebca73" stroke-width="1.3" />
+        <line x1="8" y1="8" x2="11" y2="11" stroke="#ebca73" stroke-width="1.5" stroke-linecap="round" />
+      </g>
+      <rect x="-42" y="36" width="84" height="20" rx="5" fill="#141c2e" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+      <text x="0" y="50" fill="#ffffff" font-size="10" font-weight="700" text-anchor="middle">1. Contexto</text>
+    </g>
 
-              <!-- RIGHT COLUMN: 4 OUTPUT CARDS WITH CHECKS -->
-              <!-- Card 1: Respuesta en < 2s -->
-              <g transform="translate(745, 65)">
-                <rect width="240" height="62" rx="12" fill="#141c2e" stroke="rgba(212, 175, 55, 0.4)" stroke-width="1.3" />
-                <circle cx="0" cy="31" r="5" fill="#ebca73" stroke="#141c2e" stroke-width="1.5" />
-                
-                <circle cx="24" cy="31" r="13" fill="rgba(212, 175, 55, 0.12)" stroke="rgba(212, 175, 55, 0.45)" stroke-width="1.2" />
-                <text x="24" y="36" fill="#ebca73" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" text-anchor="middle">✓</text>
-                
-                <text x="46" y="26" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700">Respuesta al Cliente</text>
-                <text x="46" y="44" fill="#cbd5e1" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="500">Enviada en &lt; 2s con precio real</text>
-              </g>
+    <!-- Station 2: Intención (Right Top cx=385, cy=180) -->
+    <g transform="translate(385, 180)">
+      <circle cx="0" cy="0" r="30" fill="#141c2e" stroke="#d4af37" stroke-width="1.8" />
+      <!-- Icon: Checklist/Plan -->
+      <g transform="translate(-1, -2)">
+        <rect x="-9" y="-12" width="18" height="22" rx="2" fill="#1e293b" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1.2" />
+        <rect x="-4" y="-14" width="8" height="3" rx="1" fill="#ebca73" />
+        <polyline points="-6,-6 -4,-4 -1,-8" fill="none" stroke="#ebca73" stroke-width="1.2" stroke-linecap="round" />
+        <line x1="2" y1="-6" x2="6" y2="-6" stroke="#94a3b8" stroke-width="1" />
+        <polyline points="-6,0 -4,2 -1,-2" fill="none" stroke="#ebca73" stroke-width="1.2" stroke-linecap="round" />
+        <line x1="2" y1="0" x2="6" y2="0" stroke="#94a3b8" stroke-width="1" />
+      </g>
+      <rect x="-38" y="36" width="76" height="20" rx="5" fill="#141c2e" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+      <text x="0" y="50" fill="#ffffff" font-size="10" font-weight="700" text-anchor="middle">2. Intención</text>
+    </g>
 
-              <!-- Card 2: Cupo en Calendar -->
-              <g transform="translate(745, 149)">
-                <rect width="240" height="62" rx="12" fill="#141c2e" stroke="rgba(212, 175, 55, 0.4)" stroke-width="1.3" />
-                <circle cx="0" cy="31" r="5" fill="#ebca73" stroke="#141c2e" stroke-width="1.5" />
-                
-                <circle cx="24" cy="31" r="13" fill="rgba(212, 175, 55, 0.12)" stroke="rgba(212, 175, 55, 0.45)" stroke-width="1.2" />
-                <text x="24" y="36" fill="#ebca73" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" text-anchor="middle">✓</text>
-                
-                <text x="46" y="26" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700">Cupo en Calendar</text>
-                <text x="46" y="44" fill="#cbd5e1" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="500">Horario reservado al instante</text>
-              </g>
+    <!-- Station 3: Especialistas (Right Bottom cx=335, cy=385) -->
+    <g transform="translate(335, 385)">
+      <circle cx="0" cy="0" r="30" fill="#141c2e" stroke="#d4af37" stroke-width="1.8" />
+      <!-- Icon: Parallel Specialists -->
+      <g transform="translate(0, -2)">
+        <rect x="-12" y="-10" width="24" height="18" rx="3" fill="#1e293b" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1.2" />
+        <text x="0" y="3" fill="#ebca73" font-size="9.5" font-weight="800" text-anchor="middle">$ · 📅</text>
+      </g>
+      <rect x="-48" y="36" width="96" height="20" rx="5" fill="#141c2e" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+      <text x="0" y="49" fill="#ffffff" font-size="10" font-weight="700" text-anchor="middle">3. Especialistas</text>
+      <text x="0" y="64" fill="#94a3b8" font-size="8" font-weight="600" text-anchor="middle">Agente Agenda · Agente CRM</text>
+    </g>
 
-              <!-- Card 3: Ficha en CRM -->
-              <g transform="translate(745, 233)">
-                <rect width="240" height="62" rx="12" fill="#141c2e" stroke="rgba(212, 175, 55, 0.4)" stroke-width="1.3" />
-                <circle cx="0" cy="31" r="5" fill="#ebca73" stroke="#141c2e" stroke-width="1.5" />
-                
-                <circle cx="24" cy="31" r="13" fill="rgba(212, 175, 55, 0.12)" stroke="rgba(212, 175, 55, 0.45)" stroke-width="1.2" />
-                <text x="24" y="36" fill="#ebca73" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" text-anchor="middle">✓</text>
-                
-                <text x="46" y="26" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700">Ficha en CRM Ventas</text>
-                <text x="46" y="44" fill="#cbd5e1" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="500">Lead y trazabilidad registrados</text>
-              </g>
+    <!-- Station 4: Validación (Left Bottom cx=135, cy=385) -->
+    <g transform="translate(135, 385)">
+      <circle cx="0" cy="0" r="30" fill="#141c2e" stroke="#d4af37" stroke-width="1.8" />
+      <!-- Icon: Terminal + Chart -->
+      <g transform="translate(0, -2)">
+        <rect x="-11" y="-11" width="22" height="15" rx="3" fill="#1e293b" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1.2" />
+        <polyline points="-8,-6 -5,-3 -8,0" fill="none" stroke="#ebca73" stroke-width="1.2" stroke-linecap="round" />
+        <line x1="-3" y1="0" x2="0" y2="0" stroke="#ebca73" stroke-width="1.2" />
+        <path d="M -9 8 Q -3 4 2 7 T 9 5" fill="none" stroke="#ebca73" stroke-width="1.3" />
+        <circle cx="9" cy="5" r="1.5" fill="#ebca73" />
+      </g>
+      <rect x="-44" y="36" width="88" height="20" rx="5" fill="#141c2e" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+      <text x="0" y="50" fill="#ffffff" font-size="10" font-weight="700" text-anchor="middle">4. Validación</text>
+    </g>
 
-              <!-- Card 4: Alerta TheIA Pulse -->
-              <g transform="translate(745, 317)">
-                <rect width="240" height="62" rx="12" fill="#141c2e" stroke="rgba(212, 175, 55, 0.4)" stroke-width="1.3" />
-                <circle cx="0" cy="31" r="5" fill="#ebca73" stroke="#141c2e" stroke-width="1.5" />
-                
-                <circle cx="24" cy="31" r="13" fill="rgba(212, 175, 55, 0.12)" stroke="rgba(212, 175, 55, 0.45)" stroke-width="1.2" />
-                <text x="24" y="36" fill="#ebca73" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" text-anchor="middle">✓</text>
-                
-                <text x="46" y="26" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700">Alerta TheIA Pulse</text>
-                <text x="46" y="44" fill="#cbd5e1" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="500">Aviso al WhatsApp del dueño</text>
-              </g>
-            </svg>
+    <!-- Station 5: Filtro Cero (Left Top cx=85, cy=180) -->
+    <g transform="translate(85, 180)">
+      <circle cx="0" cy="0" r="30" fill="#141c2e" stroke="#d4af37" stroke-width="1.8" />
+      <!-- Icon: Shield Check -->
+      <g transform="translate(0, -2)">
+        <path d="M 0,-12 L 8,-8 L 8,0 C 8,6 0,11 0,11 C 0,11 -8,6 -8,0 L -8,-8 Z" fill="#1e293b" stroke="#ebca73" stroke-width="1.3" />
+        <path d="M -3,-2 L 0,1 L 4,-4" fill="none" stroke="#ebca73" stroke-width="1.3" stroke-linecap="round" />
+      </g>
+      <rect x="-40" y="36" width="80" height="20" rx="5" fill="#141c2e" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+      <text x="0" y="50" fill="#ffffff" font-size="10" font-weight="700" text-anchor="middle">5. Filtro Cero</text>
+    </g>
+
+    <!-- Outflow Connector Node (Right middle towards Decision Gate) -->
+    <circle cx="470" cy="305" r="4.5" fill="#d4af37" stroke="#0f172a" stroke-width="1.5" />
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- 3. TOP-RIGHT: OBSERVABILIDAD / SUPERVISOR (Pulse Radar)  -->
+  <!-- ======================================================== -->
+  <g transform="translate(735, 18)">
+    <rect width="250" height="150" rx="14" fill="#0f172a" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1.2" />
+    
+    <!-- Header -->
+    <rect x="16" y="12" width="218" height="24" rx="6" fill="#1e293b" />
+    <text x="125" y="28" fill="#cbd5e1" font-size="11" font-weight="700" letter-spacing="0.5" text-anchor="middle">Supervisor / Telemetría</text>
+
+    <!-- Radar Circle Schematic (Left) -->
+    <g transform="translate(56, 88)">
+      <circle cx="0" cy="0" r="36" fill="#141c2e" stroke="rgba(212, 175, 55, 0.5)" stroke-width="1.2" />
+      <circle cx="0" cy="0" r="24" fill="none" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+      <circle cx="0" cy="0" r="12" fill="none" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+      <line x1="-36" y1="0" x2="36" y2="0" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" />
+      <line x1="0" y1="-36" x2="0" y2="36" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" />
+      <line x1="0" y1="0" x2="24" y2="-24" stroke="#d4af37" stroke-width="1.5" />
+      <circle cx="15" cy="-11" r="2.5" fill="#ebca73" />
+      <circle cx="-10" cy="16" r="2" fill="#ebca73" />
+      <circle cx="0" cy="0" r="3" fill="#d4af37" />
+    </g>
+
+    <!-- Mini Analytics / Sparklines (Right) -->
+    <g transform="translate(125, 48)">
+      <!-- Line Chart Box -->
+      <rect width="108" height="40" rx="6" fill="#141c2e" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+      <path d="M 10 28 Q 32 12 55 22 T 98 10" fill="none" stroke="#ebca73" stroke-width="1.5" />
+      <circle cx="98" cy="10" r="2.5" fill="#ebca73" />
+      
+      <!-- Bar Chart Box -->
+      <g transform="translate(0, 46)">
+        <rect width="108" height="40" rx="6" fill="#141c2e" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+        <rect x="14" y="20" width="12" height="14" rx="2" fill="#64748b" />
+        <rect x="34" y="14" width="12" height="20" rx="2" fill="#64748b" />
+        <rect x="54" y="8" width="12" height="26" rx="2" fill="#ebca73" />
+        <rect x="74" y="16" width="12" height="18" rx="2" fill="#64748b" />
+      </g>
+    </g>
+  </g>
+
+  <!-- Dotted line from Supervisor to Loop (Intervention signal) -->
+  <path d="M 735 93 C 715 93, 715 155, 695 155" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="3 3" />
+  <circle cx="735" cy="93" r="3.5" fill="#d4af37" />
+
+  <!-- ======================================================== -->
+  <!-- 4. BOTTOM-RIGHT: DECISION GATE & ACCIONES EJECUTADAS     -->
+  <!-- ======================================================== -->
+  <g transform="translate(735, 185)">
+    <!-- Container Box -->
+    <rect width="250" height="328" rx="14" fill="#0f172a" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1.2" />
+    
+    <!-- Candidate Card (Top) -->
+    <g transform="translate(14, 14)">
+      <rect width="222" height="60" rx="8" fill="#141c2e" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+      <!-- Doc icon -->
+      <g transform="translate(12, 13)">
+        <rect width="22" height="32" rx="3" fill="#1e293b" stroke="#d4af37" stroke-width="1.2" />
+        <line x1="5" y1="8" x2="17" y2="8" stroke="#ebca73" stroke-width="1.2" />
+        <line x1="5" y1="14" x2="15" y2="14" stroke="#94a3b8" stroke-width="1.2" />
+        <line x1="5" y1="20" x2="12" y2="20" stroke="#94a3b8" stroke-width="1.2" />
+      </g>
+      <text x="44" y="28" fill="#ffffff" font-size="12" font-weight="700">Respuesta Generada</text>
+      <text x="44" y="44" fill="#94a3b8" font-size="10.5" font-weight="500">Candidato de acción &lt; 2s</text>
+    </g>
+
+    <!-- Connector to Decision Diamond -->
+    <line x1="125" y1="74" x2="125" y2="94" stroke="#d4af37" stroke-width="1.5" marker-end="url(#gold-arr)" />
+
+    <!-- Decision Diamond: Verification Gate -->
+    <g transform="translate(125, 114)">
+      <polygon points="0,-20 22,0 0,20 -22,0" fill="#141c2e" stroke="#d4af37" stroke-width="1.8" />
+      <text x="0" y="4" fill="#ebca73" font-size="12" font-weight="900" text-anchor="middle">✓</text>
+    </g>
+
+    <!-- Branch A: Validated -> Output Execution (Down) -->
+    <line x1="125" y1="134" x2="125" y2="156" stroke="#d4af37" stroke-width="1.5" marker-end="url(#gold-arr)" />
+
+    <!-- Validated Output Stack (Bottom) -->
+    <g transform="translate(14, 160)">
+      <rect width="222" height="150" rx="8" fill="#141c2e" stroke="rgba(212, 175, 55, 0.4)" stroke-width="1.2" />
+      
+      <!-- Header inside output -->
+      <rect x="10" y="10" width="202" height="20" rx="4" fill="rgba(212, 175, 55, 0.08)" />
+      <text x="111" y="24" fill="#ebca73" font-size="9.5" font-weight="800" letter-spacing="0.5" text-anchor="middle">ACCIONES EN PRODUCCIÓN</text>
+
+      <!-- Action 1: WhatsApp Response -->
+      <g transform="translate(12, 40)">
+        <circle cx="10" cy="10" r="8" fill="rgba(212, 175, 55, 0.12)" />
+        <text x="10" y="13.5" fill="#ebca73" font-size="9" font-weight="800" text-anchor="middle">✓</text>
+        <text x="26" y="14" fill="#f1f5f9" font-size="11" font-weight="600">Respuesta WhatsApp &lt; 2s</text>
+      </g>
+      
+      <!-- Action 2: Calendar Booking -->
+      <g transform="translate(12, 74)">
+        <circle cx="10" cy="10" r="8" fill="rgba(212, 175, 55, 0.12)" />
+        <text x="10" y="13.5" fill="#ebca73" font-size="9" font-weight="800" text-anchor="middle">✓</text>
+        <text x="26" y="14" fill="#f1f5f9" font-size="11" font-weight="600">Cupo 15:30 en Calendar</text>
+      </g>
+
+      <!-- Action 3: CRM Record -->
+      <g transform="translate(12, 108)">
+        <circle cx="10" cy="10" r="8" fill="rgba(212, 175, 55, 0.12)" />
+        <text x="10" y="13.5" fill="#ebca73" font-size="9" font-weight="800" text-anchor="middle">✓</text>
+        <text x="26" y="14" fill="#f1f5f9" font-size="11" font-weight="600">Lead registrado en CRM</text>
+      </g>
+    </g>
+
+    <!-- Branch B: Failed -> Derivación Humana / Reintento (Right to Circle X) -->
+    <g transform="translate(180, 114)">
+      <line x1="-30" y1="0" x2="20" y2="0" stroke="#f43f5e" stroke-width="1.4" marker-end="url(#coral-arr)" stroke-dasharray="3 3" />
+      <circle cx="32" cy="0" r="10" fill="#141c2e" stroke="#f43f5e" stroke-width="1.3" />
+      <text x="32" y="3.5" fill="#f43f5e" font-size="10" font-weight="800" text-anchor="middle">✗</text>
+      <text x="32" y="18" fill="#f43f5e" font-size="7.5" font-weight="700" text-anchor="middle">Derivación</text>
+    </g>
+  </g>
+
+  <!-- Flow Connector from Center Loop to Candidate -->
+  <path d="M 710 323 C 722 323, 725 230, 745 230" fill="none" stroke="#d4af37" stroke-width="1.5" marker-end="url(#gold-arr)" />
+
+  <!-- Dotted Coral line returning from (✗) along the outside bottom perimeter back to Loop -->
+  <!-- Starts at right edge x=977, y=300 -> goes straight down to y=528 -> horizontal to x=320 -> up to Station 4 (Validation/Repair) -->
+  <path d="M 977 312 C 992 312, 992 528, 977 528 L 375 528 C 365 528, 365 428, 365 428" fill="none" stroke="#f43f5e" stroke-width="1.3" stroke-dasharray="4 4" marker-end="url(#coral-arr)" />
+  <text x="670" y="538" fill="#f43f5e" font-size="8.5" font-weight="700" letter-spacing="0.5" text-anchor="middle">REINTENTO / AJUSTE CONTEXTUAL (SCORE &lt; 1.0)</text>
+</svg>
           </div>
         </div>
       </div>
