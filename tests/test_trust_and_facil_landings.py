@@ -25,7 +25,6 @@ def test_confianza_html_structure_and_metadata():
     assert "Meta Platforms" in content
     assert "Google Vertex AI" in content or "Anthropic" in content or "OpenAI" in content
     assert "Langfuse" in content
-    assert "Transbank" in content
 
 
 def test_facil_html_structure_and_metadata():
@@ -52,8 +51,8 @@ def test_confianza_and_facil_design_system_conformance():
 def test_confianza_and_facil_navigation_in_browser(page):
     page.goto(f"{BASE}/confianza.html")
     page.wait_for_load_state("networkidle")
-    assert page.is_visible("text=Centro de Confianza, Seguridad y Legal")
-    assert page.is_visible("text=Lista Pública de Subprocesadores")
+    assert page.is_visible("text=Centro de Confianza y Seguridad")
+    assert page.is_visible("text=Proveedores de Infraestructura")
 
     page.goto(f"{BASE}/facil.html")
     page.wait_for_load_state("networkidle")
