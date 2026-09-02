@@ -21,6 +21,9 @@ TheIA responde con contexto, escala a tu equipo con el resumen de la conversaci�
 - [Migración de Datos CRM](https://theia.cl/migracion): Proceso transparente y reversible de importación de contactos, deals, etapas y notas desde tu CRM actual hacia TheIA en 24 horas.
 - [Servicios](https://theia.cl/servicios): Implementación y soporte
 - [Cumplimiento Ley 21.719](https://theia.cl/cumplimiento): Datos en Chile, residencia local
+- [Arquitectura & Orquestación B2B](https://theia.cl/orquestacion): Arquitectura determinista multi-agente para empresas (HU-WEB-039 / HU-WEB-040)
+- [Centro de Confianza & Legal](https://theia.cl/confianza): ToS, Privacidad, DPA y Lista de Subprocesadores (HU-WEB-034)
+- [Setup Fácil en 3 Audios](https://theia.cl/facil): Configuración conversacional sin código para PYMEs (HU-WEB-038)
 
 ## Blog
 - [Adhesión al Código de Buenas Prácticas de IA 2026 de la CCS](https://theia.cl/blog/codigo-buenas-practicas-ia-ccs-2026/): Declaración y compromisos de TheIA en transparencia, supervisión humana y protección de datos (HU-WEB-033)

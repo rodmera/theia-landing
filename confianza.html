@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- HU-WEB-034: Centro de Confianza y Legal (Trust Hub) — ToS, Privacidad, DPA y Subprocesadores -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Security Meta Tags -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://admin.theia.cl; connect-src 'self' https:;">
+
+  <!-- Cookie Consent + Analytics -->
+  <script src="/cc-init.js"></script>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Centro de Confianza & Legal — TheIA.cl · Seguridad, Privacidad y Compliance</title>
+
+  <!-- JSON-LD: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://theia.cl/confianza#webpage",
+    "url": "https://theia.cl/confianza",
+    "name": "Centro de Confianza & Legal — TheIA",
+    "description": "Centro de Confianza, Privacidad, Términos de Servicio, DPA y Lista de Subprocesadores de TheIA. Cumplimiento Ley 21.719 y Código de Buenas Prácticas CCS 2026.",
+    "inLanguage": "es-CL",
+    "isPartOf": { "@id": "https://theia.cl#website" },
+    "publisher": { "@id": "https://theia.cl#organization" }
+  }
+  </script>
+  <link rel="canonical" href="https://theia.cl/confianza" />
+  <link rel="icon" href="logo.png" type="image/png">
+
+  <meta name="description" content="Centro de Confianza, Privacidad, Términos de Servicio, DPA y Lista de Subprocesadores de TheIA. Cumplimiento Ley 21.719 y Código de Buenas Prácticas CCS 2026." />
+  <meta name="keywords" content="centro de confianza theia, privacidad ley 21719, dpa chile, subprocesadores ia, terminos servicio theia" />
+  <meta name="author" content="TheIA" />
+  <meta name="geo.region" content="CL" />
+  <meta name="geo.placename" content="Santiago, Chile" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://theia.cl/confianza" />
+  <meta property="og:site_name" content="TheIA" />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:title" content="Centro de Confianza & Legal — TheIA.cl" />
+  <meta property="og:description" content="Seguridad, privacidad, DPA y lista de subprocesadores de TheIA." />
+  <meta property="og:image" content="https://theia.cl/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Centro de Confianza & Legal — TheIA.cl" />
+  <meta name="twitter:description" content="Seguridad, privacidad, DPA y lista de subprocesadores de TheIA." />
+  <meta name="twitter:image" content="https://theia.cl/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="site-nav.css" />
+  <link rel="stylesheet" href="site-cards.css" />
+  <link rel="stylesheet" href="site-footer.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f172a;
+      --bg2: #141c2e;
+      --bg3: #1e293b;
+      --glass: rgba(15, 23, 42, 0.75);
+      --glass-border: rgba(255, 255, 255, 0.09);
+      --glass-border-gold: rgba(212, 175, 55, 0.3);
+      --gold: #d4af37;
+      --gold-light: #ebca73;
+      --text: #ffffff;
+      --text-sub: #94a3b8;
+      --text-muted: rgba(255, 255, 255, 0.57);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 0.75rem 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .logo-img {
+      height: 32px;
+      width: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      border-radius: 10px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #0f172a;
+      border: 1px solid var(--gold-light);
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-gold {
+      background: transparent;
+      color: var(--gold-light);
+      border: 1px solid var(--glass-border-gold);
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .btn-outline-gold:hover {
+      background: rgba(212, 175, 55, 0.08);
+      border-color: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .section-title {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      color: var(--text-sub);
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+
+    .gold {
+      color: var(--gold-light);
+    }
+
+    .dash-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-light);
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid var(--glass-border-gold);
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+
+    /* Hero */
+    .trust-hero {
+      padding: 8.5rem 0 4.5rem;
+      background: radial-gradient(circle at 50% 10%, rgba(212, 175, 55, 0.04) 0%, transparent 60%), var(--bg);
+      border-bottom: 1px solid var(--glass-border);
+      text-align: center;
+    }
+
+    /* 4 Docs Grid */
+    .trust-docs-section {
+      padding: 5rem 0;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .trust-docs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .trust-doc-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      padding: 2.25rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .trust-doc-card:hover {
+      border-color: var(--glass-border-gold);
+      transform: translateY(-3px);
+    }
+
+    .trust-doc-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--glass-border-gold);
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      align-self: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .trust-doc-card h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.3rem;
+      color: #ffffff;
+      margin-bottom: 0.6rem;
+    }
+
+    .trust-doc-card p {
+      color: var(--text-sub);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .trust-docs-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Subprocessors Table Section */
+    .subproc-section {
+      padding: 5.5rem 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .subproc-table-wrap {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      overflow-x: auto;
+      margin-top: 2rem;
+    }
+
+    .subproc-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .subproc-table th {
+      padding: 1.15rem 1.25rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #cbd5e1;
+      background: rgba(0, 0, 0, 0.3);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .subproc-table td {
+      padding: 1.15rem 1.25rem;
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      vertical-align: middle;
+    }
+
+    .subproc-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .subproc-entity {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .subproc-guarantee {
+      color: var(--gold-light);
+      font-size: 0.8rem;
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    /* DPA Summary Section */
+    .dpa-summary-section {
+      padding: 5.5rem 0;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .dpa-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .dpa-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+    }
+
+    .dpa-card h4 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.1rem;
+      color: #ffffff;
+      margin-bottom: 0.6rem;
+    }
+
+    .dpa-card p {
+      color: var(--text-sub);
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 900px) {
+      .dpa-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header / Navigation -->
+  <nav aria-label="Navegación principal">
+    <div class="nav-inner container">
+      <a href="/" class="logo-wrap" aria-label="TheIA Inicio">
+        <img src="logo.png" alt="TheIA" class="logo-img" width="120" height="32" />
+      </a>
+
+      <div class="site-nav">
+        <a href="/" class="site-nav__link">Inicio</a>
+        <a href="/orquestacion" class="site-nav__link">Arquitectura B2B</a>
+        <a href="/atencion-cliente" class="site-nav__link">Atención</a>
+        <a href="/crm" class="site-nav__link">CRM</a>
+        <a href="/precios" class="site-nav__link">Precios</a>
+        <a href="/confianza" class="site-nav__link site-nav__link--active" aria-current="page">Confianza & Legal</a>
+        <a href="/nosotros" class="site-nav__link">Nosotros</a>
+        <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" style="padding:0.4rem 0.9rem;font-size:0.82rem;margin-left:0.5rem;">Agenda una demo →</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="trust-hero">
+      <div class="container" style="max-width: 840px;">
+        <div class="dash-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;vertical-align:middle;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Centro de Confianza, Seguridad y Legal
+        </div>
+        <h1 class="section-title">Privacidad, Seguridad y Cumplimiento<br /><span class="gold">Transparente para tu Empresa.</span></h1>
+        <p class="section-sub" style="margin: 0 auto 2rem; max-width: 700px;">
+          Consolidamos nuestros Términos de Servicio, Política de Privacidad, Anexo de Tratamiento de Datos (DPA) y Lista de Subprocesadores bajo los estándares de la Ley 21.719 en Chile y el Código de Buenas Prácticas de IA 2026 de la CCS.
+        </p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <a href="#documentos" class="btn btn-gold">Ver Documentos Normativos →</a>
+          <a href="#subprocesadores" class="btn btn-outline-gold">Lista de Subprocesadores</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 Docs Grid Section -->
+    <section class="trust-docs-section" id="documentos">
+      <div class="container">
+        <div style="text-align: center; max-width: 760px; margin: 0 auto 3rem;">
+          <div class="dash-badge">Marco Contractual</div>
+          <h2 class="section-title">Documentación Normativa <span class="gold">Oficial.</span></h2>
+          <p class="section-sub">Todo lo que tu equipo legal, de seguridad o compras necesita para validar la contratación de TheIA.</p>
+        </div>
+
+        <div class="trust-docs-grid">
+          <div class="trust-doc-card">
+            <div>
+              <span class="trust-doc-badge">01 · Condiciones de Uso</span>
+              <h3>Términos de Servicio (ToS)</h3>
+              <p>Condiciones de suscripción, acuerdos de nivel de servicio (SLA), políticas de cobro sin costo por usuario y normativas de uso aceptable de la plataforma.</p>
+            </div>
+            <a href="/terminos" class="btn btn-outline-gold" style="align-self:flex-start;">Leer Términos de Servicio →</a>
+          </div>
+
+          <div class="trust-doc-card">
+            <div>
+              <span class="trust-doc-badge">02 · Protección de Datos</span>
+              <h3>Política de Privacidad</h3>
+              <p>Tratamiento de datos personales, finalidades, bases legales y mecanismos para el ejercicio de derechos de acceso, rectificación y supresión (Ley 21.719).</p>
+            </div>
+            <a href="/privacidad" class="btn btn-outline-gold" style="align-self:flex-start;">Leer Política de Privacidad →</a>
+          </div>
+
+          <div class="trust-doc-card">
+            <div>
+              <span class="trust-doc-badge">03 · Contrato B2B</span>
+              <h3>Anexo de Tratamiento de Datos (DPA)</h3>
+              <p>Contrato formal para clientes empresa: roles de Responsable vs Encargado, medidas técnicas y organizativas (TOMs) y compromiso de notificación de incidentes en &lt;72h.</p>
+            </div>
+            <a href="#dpa-resumen" class="btn btn-outline-gold" style="align-self:flex-start;">Revisar Marco DPA →</a>
+          </div>
+
+          <div class="trust-doc-card">
+            <div>
+              <span class="trust-doc-badge">04 · Cadena de Custodia</span>
+              <h3>Lista de Subprocesadores</h3>
+              <p>Inventario público y actualizado de proveedores de infraestructura, pasarelas e inferencia de modelos de IA con garantías explícitas de Zero-Training.</p>
+            </div>
+            <a href="#subprocesadores" class="btn btn-outline-gold" style="align-self:flex-start;">Ver Subprocesadores →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subprocessors Table Section -->
+    <section class="subproc-section" id="subprocesadores">
+      <div class="container">
+        <div style="text-align: center; max-width: 760px; margin: 0 auto;">
+          <div class="dash-badge">Transparencia de Terceros</div>
+          <h2 class="section-title">Lista Pública de <span class="gold">Subprocesadores.</span></h2>
+          <p class="section-sub">Proveedores autorizados que participan en la entrega de nuestra infraestructura, mensajería e inferencia de IA.</p>
+        </div>
+
+        <div class="subproc-table-wrap">
+          <table class="subproc-table">
+            <thead>
+              <tr>
+                <th>Entidad Legal</th>
+                <th>Servicio Prestado</th>
+                <th>Ubicación / Región</th>
+                <th>Garantía de Protección</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="subproc-entity">Google Cloud Platform (GCP)</td>
+                <td>Hosting principal, cómputo, base de datos y almacenamiento seguro</td>
+                <td>Santiago de Chile (southamerica-west1)</td>
+                <td><span class="subproc-guarantee">Soberanía Local / SOC 2</span></td>
+              </tr>
+              <tr>
+                <td class="subproc-entity">Meta Platforms Ireland Ltd.</td>
+                <td>API oficial de WhatsApp Business (mensajería en la nube)</td>
+                <td>EE.UU. / Europa</td>
+                <td><span class="subproc-guarantee">API Cloud Oficial</span></td>
+              </tr>
+              <tr>
+                <td class="subproc-entity">Google Vertex AI / Anthropic / OpenAI</td>
+                <td>Inferencia de modelos de lenguaje para agentes especializados</td>
+                <td>EE.UU. / Región empresarial</td>
+                <td><span class="subproc-guarantee">Zero-Training Agreement</span></td>
+              </tr>
+              <tr>
+                <td class="subproc-entity">Langfuse Inc.</td>
+                <td>Observabilidad técnica, telemetría de latencia y monitoreo de calidad</td>
+                <td>EE.UU. (Data Masked)</td>
+                <td><span class="subproc-guarantee">PII Masking Previo</span></td>
+              </tr>
+              <tr>
+                <td class="subproc-entity">Transbank S.A. / Flow Pagos</td>
+                <td>Pasarela de procesamiento de pagos y suscripciones en Chile</td>
+                <td>Santiago, Chile</td>
+                <td><span class="subproc-guarantee">PCI-DSS Nivel 1</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- DPA Summary Section -->
+    <section class="dpa-summary-section" id="dpa-resumen">
+      <div class="container">
+        <div style="text-align: center; max-width: 760px; margin: 0 auto;">
+          <div class="dash-badge">Compromisos de Seguridad</div>
+          <h2 class="section-title">Medidas Técnicas y Organizativas <span class="gold">(TOMs).</span></h2>
+          <p class="section-sub">Los estándares de ingeniería que garantizan la integridad de los datos de tu empresa.</p>
+        </div>
+
+        <div class="dpa-grid">
+          <div class="dpa-card">
+            <h4>Cifrado Integral</h4>
+            <p>Datos cifrados en tránsito mediante TLS 1.3 y en reposo mediante AES-256. Claves de cifrado gestionadas con rotación periódica.</p>
+          </div>
+          <div class="dpa-card">
+            <h4>Cláusula Zero-Training</h4>
+            <p>Tus conversaciones, catálogos y datos comerciales jamás se utilizan para re-entrenar modelos fundacionales públicos de terceros.</p>
+          </div>
+          <div class="dpa-card">
+            <h4>Aislamiento Multi-Tenant</h4>
+            <p>Bases de datos con particionamiento y aislamiento estricto por cliente. Ningún agente tiene acceso a datos de otras cuentas.</p>
+          </div>
+          <div class="dpa-card">
+            <h4>Notificación en &lt;72 Horas</h4>
+            <p>Compromiso contractual de notificación inmediata ante cualquier incidente de seguridad que comprometa datos personales.</p>
+          </div>
+          <div class="dpa-card">
+            <h4>Eliminación y Portabilidad</h4>
+            <p>Borrado definitivo de datos tras la finalización del servicio y exportación estructurada sin costos de rescate.</p>
+          </div>
+          <div class="dpa-card">
+            <h4>Canal Legal Dedicado</h4>
+            <p>Atención directa para oficiales de privacidad y due diligence en <code style="color:var(--gold-light);">privacidad@theia.cl</code>.</p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+          <a href="mailto:privacidad@theia.cl?subject=Solicitud%20de%20DPA%20Firmable%20TheIA" class="btn btn-gold">Solicitar DPA firmado para mi empresa →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer" style="padding: 4rem 0 2rem; background: #0b1120; border-top: 1px solid var(--glass-border);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 3rem;">
+        <div>
+          <a href="/" style="display:inline-block;margin-bottom:1rem;">
+            <img src="logo.png" alt="TheIA" width="110" height="30" />
+          </a>
+          <p style="color: var(--text-sub); font-size: 0.88rem; line-height: 1.6; max-width: 320px;">
+            Inteligencia Artificial determinista para procesos comerciales, atención y ventas de empresas en Chile.
+          </p>
+        </div>
+        <div>
+          <h4 style="color: #ffffff; font-size: 0.9rem; margin-bottom: 1rem; font-family:'Plus Jakarta Sans',sans-serif;">Soluciones</h4>
+          <ul style="list-style: none; font-size: 0.85rem; line-height: 2;">
+            <li><a href="/orquestacion" style="color: var(--text-sub); text-decoration: none;">Arquitectura B2B</a></li>
+            <li><a href="/atencion-cliente" style="color: var(--text-sub); text-decoration: none;">Atención</a></li>
+            <li><a href="/crm" style="color: var(--text-sub); text-decoration: none;">CRM</a></li>
+            <li><a href="/pulse" style="color: var(--text-sub); text-decoration: none;">Pulse</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: #ffffff; font-size: 0.9rem; margin-bottom: 1rem; font-family:'Plus Jakarta Sans',sans-serif;">Plataforma</h4>
+          <ul style="list-style: none; font-size: 0.85rem; line-height: 2;">
+            <li><a href="/funciones" style="color: var(--text-sub); text-decoration: none;">Cómo ayuda</a></li>
+            <li><a href="/precios" style="color: var(--text-sub); text-decoration: none;">Precios</a></li>
+            <li><a href="/nosotros" style="color: var(--text-sub); text-decoration: none;">Nosotros</a></li>
+            <li><a href="/casos" style="color: var(--text-sub); text-decoration: none;">Casos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: #ffffff; font-size: 0.9rem; margin-bottom: 1rem; font-family:'Plus Jakarta Sans',sans-serif;">Legal & Confianza</h4>
+          <ul style="list-style: none; font-size: 0.85rem; line-height: 2;">
+            <li><a href="/confianza" style="color: var(--gold-light); text-decoration: none;">Centro de Confianza</a></li>
+            <li><a href="/terminos" style="color: var(--text-sub); text-decoration: none;">Términos de Servicio</a></li>
+            <li><a href="/privacidad" style="color: var(--text-sub); text-decoration: none;">Privacidad</a></li>
+            <li><a href="/cumplimiento" style="color: var(--text-sub); text-decoration: none;">Ley 21.719</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255,255,255,0.06); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: var(--text-muted);">
+        <div>© 2026 THEIA SERVICIOS TECNOLÓGICOS SpA · Todos los derechos reservados.</div>
+        <div>Santiago, Chile · Google Cloud southamerica-west1</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
