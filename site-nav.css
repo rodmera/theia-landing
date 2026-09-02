@@ -49,6 +49,15 @@ nav.site-header .logo img {
   display: block !important;
 }
 
+/* Botón Hamburguesa móvil (estrictamente oculto en desktop) */
+.menu-toggle {
+  display: none !important;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
 /* Contenedor principal del navbar */
 .site-nav {
   display: flex;

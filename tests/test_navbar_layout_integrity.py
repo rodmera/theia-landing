@@ -43,6 +43,11 @@ def test_navbar_single_row_layout_desktop(page: Page, site_server: str, page_pat
     
     logo = page.locator("nav.site-header .logo, .site-header .logo").first
     nav_links = page.locator("nav.site-header .site-nav, .site-header .site-nav").first
+    menu_toggle = page.locator("nav.site-header .menu-toggle, .site-header .menu-toggle").first
+    
+    # En desktop, el botón hamburguesa móvil .menu-toggle debe estar estrictamente oculto (evita puntos/artefactos residuales)
+    if menu_toggle.count() > 0:
+        expect(menu_toggle).to_be_hidden()
     
     if logo.count() > 0 and nav_links.count() > 0:
         logo_box = logo.bounding_box()
