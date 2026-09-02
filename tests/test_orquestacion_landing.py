@@ -22,6 +22,14 @@ def test_orquestacion_html_exists_and_has_valid_metadata():
 def test_orquestacion_contains_4_layers_and_3_services():
     content = ORQUESTACION_HTML.read_text(encoding="utf-8")
 
+    # Closed-Loop Diagram
+    assert 'id="loop"' in content
+    assert "El Ciclo de Orquestación" in content
+    assert "Context Synthesis" in content
+    assert "Multimodal Elicitation" in content
+    assert "Adaptive Response" in content
+    assert "MULTI-TURN LOOP" in content
+
     # 4 Capas
     assert "Capa 1: Ingress & Pre-Flight Router" in content
     assert "Capa 2: Especialistas Paralelos" in content
