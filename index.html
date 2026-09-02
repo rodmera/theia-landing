@@ -3873,43 +3873,44 @@
                 </marker>
               </defs>
 
-              <!-- Orbital Flow Paths (Clockwise: 1 -> 2 -> 3 -> 1) -->
-              <!-- 1. Top Arc: Station 1 -> Station 2 -->
-              <path d="M 330 115 C 470 55, 470 55, 608 115" stroke="rgba(212, 175, 55, 0.45)" stroke-width="2" stroke-dasharray="6 6" fill="none" marker-end="url(#hero-gold-arrow)" />
-              
-              <!-- 2. Right Arc: Station 2 -> Station 3 -->
-              <path d="M 760 220 C 790 380, 710 500, 642 545" stroke="rgba(212, 175, 55, 0.45)" stroke-width="2" stroke-dasharray="6 6" fill="none" marker-end="url(#hero-gold-arrow)" />
-              
-              <!-- 3. Left Return Arc: Station 3 -> Station 1 -->
-              <path d="M 298 545 C 230 500, 150 380, 180 220" stroke="rgba(212, 175, 55, 0.45)" stroke-width="2" stroke-dasharray="6 6" fill="none" marker-end="url(#hero-gold-arrow)" />
+              <!-- 1. Circunferencia Orbital Perfecta Continua de Fondo -->
+              <circle cx="470" cy="345" r="275" fill="none" stroke="rgba(212, 175, 55, 0.16)" stroke-width="1.5" stroke-dasharray="4 6" />
 
-              <!-- Central Hub: TheIA Core (Orquestador Central) -->
-              <g transform="translate(470, 290)">
-                <!-- Outer faint orbit -->
-                <circle cx="0" cy="0" r="110" fill="none" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1.5" stroke-dasharray="4 8" />
-                <circle cx="0" cy="0" r="88" fill="#141c2e" stroke="rgba(212, 175, 55, 0.6)" stroke-width="1.8" />
-                <circle cx="0" cy="0" r="76" fill="rgba(255, 255, 255, 0.02)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+              <!-- 2. Arcos Direccionales de Flujo sobre la MISMA Circunferencia Matemática (Clockwise) -->
+              <!-- Arc 1: Superior (Estación 1 -> Estación 2) -->
+              <path d="M 265.5 161.0 A 275 275 0 0 1 674.5 161.0" stroke="rgba(212, 175, 55, 0.7)" stroke-width="2.2" stroke-dasharray="6 6" fill="none" marker-end="url(#hero-gold-arrow)" />
+              
+              <!-- Arc 2: Derecho (Estación 2 -> Estación 3) -->
+              <path d="M 738.9 287.8 A 275 275 0 0 1 599.1 587.8" stroke="rgba(212, 175, 55, 0.7)" stroke-width="2.2" stroke-dasharray="6 6" fill="none" marker-end="url(#hero-gold-arrow)" />
+              
+              <!-- Arc 3: Retorno Izquierdo (Estación 3 -> Estación 1) -->
+              <path d="M 340.9 587.8 A 275 275 0 0 1 198.7 296.8" stroke="rgba(212, 175, 55, 0.7)" stroke-width="2.2" stroke-dasharray="6 6" fill="none" marker-end="url(#hero-gold-arrow)" />
+
+              <!-- Central Hub: TheIA Core (Exactamente en el centro geométrico cx=470, cy=345) -->
+              <g transform="translate(470, 345)">
+                <circle cx="0" cy="0" r="110" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1.2" stroke-dasharray="4 8" />
+                <circle cx="0" cy="0" r="90" fill="#141c2e" stroke="rgba(212, 175, 55, 0.7)" stroke-width="1.8" />
+                <circle cx="0" cy="0" r="78" fill="rgba(255, 255, 255, 0.02)" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
                 
                 <!-- Chip Vector Center -->
-                <rect x="-15" y="-62" width="30" height="30" rx="7" fill="none" stroke="#ebca73" stroke-width="1.5" />
-                <circle cx="0" cy="-47" r="4.5" fill="#ebca73" />
-                <line x1="-9" y1="-67" x2="-9" y2="-62" stroke="#ebca73" stroke-width="1.4" />
-                <line x1="0" y1="-67" x2="0" y2="-62" stroke="#ebca73" stroke-width="1.4" />
-                <line x1="9" y1="-67" x2="9" y2="-62" stroke="#ebca73" stroke-width="1.4" />
+                <rect x="-14" y="-62" width="28" height="28" rx="6" fill="none" stroke="#ebca73" stroke-width="1.5" />
+                <circle cx="0" cy="-48" r="4" fill="#ebca73" />
+                <line x1="-8" y1="-67" x2="-8" y2="-62" stroke="#ebca73" stroke-width="1.3" />
+                <line x1="0" y1="-67" x2="0" y2="-62" stroke="#ebca73" stroke-width="1.3" />
+                <line x1="8" y1="-67" x2="8" y2="-62" stroke="#ebca73" stroke-width="1.3" />
 
-                <text x="0" y="-18" fill="#ebca73" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" letter-spacing="1.5" text-anchor="middle">BUCLE MULTI-TURNO</text>
-                <text x="0" y="8" fill="#ffffff" font-family="'Merriweather', serif" font-size="17" font-weight="700" text-anchor="middle">TheIA Core</text>
-                <text x="0" y="30" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="500" text-anchor="middle">Memoria del Negocio</text>
-                <text x="0" y="48" fill="rgba(255, 255, 255, 0.55)" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="400" text-anchor="middle">Cero Alucinaciones</text>
+                <text x="0" y="-20" fill="#ebca73" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" letter-spacing="1.5" text-anchor="middle">BUCLE MULTI-TURNO</text>
+                <text x="0" y="8" fill="#ffffff" font-family="'Merriweather', serif" font-size="17.5" font-weight="700" text-anchor="middle">TheIA Core</text>
+                <text x="0" y="32" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="500" text-anchor="middle">Memoria del Negocio</text>
+                <text x="0" y="50" fill="rgba(255, 255, 255, 0.55)" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="400" text-anchor="middle">Cero Alucinaciones</text>
               </g>
 
               <!-- ESTACIÓN 1: Entiende tu Negocio (Contexto) -->
-              <g transform="translate(30, 20)">
-                <rect width="300" height="200" rx="18" fill="#111827" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.2" />
+              <g transform="translate(40, 35)">
+                <rect width="290" height="200" rx="16" fill="#111827" stroke="rgba(255, 255, 255, 0.09)" stroke-width="1.2" />
                 
                 <!-- Header -->
                 <rect x="18" y="16" width="32" height="32" rx="8" fill="rgba(212, 175, 55, 0.1)" stroke="rgba(212, 175, 55, 0.3)" stroke-width="1" />
-                <!-- Brain/Neuronal icon -->
                 <circle cx="34" cy="32" r="5" fill="none" stroke="#ebca73" stroke-width="1.5" />
                 <circle cx="28" cy="28" r="2.5" fill="#ebca73" />
                 <circle cx="40" cy="28" r="2.5" fill="#ebca73" />
@@ -3921,54 +3922,53 @@
 
                 <!-- 3 Mini Cards -->
                 <g transform="translate(18, 64)">
-                  <rect width="264" height="36" rx="8" fill="#141c2e" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+                  <rect width="254" height="36" rx="8" fill="#141c2e" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
                   <text x="14" y="22" fill="#ebca73" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Agente Catálogo</text>
-                  <text x="250" y="22" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="500" text-anchor="end">Precios y Stock</text>
+                  <text x="240" y="22" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="500" text-anchor="end">Precios y Stock</text>
                 </g>
 
                 <g transform="translate(18, 106)">
-                  <rect width="264" height="36" rx="8" fill="#141c2e" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+                  <rect width="254" height="36" rx="8" fill="#141c2e" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
                   <text x="14" y="22" fill="#ebca73" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Agente Agenda</text>
-                  <text x="250" y="22" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="500" text-anchor="end">Horarios en Vivo</text>
+                  <text x="240" y="22" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="500" text-anchor="end">Horarios en Vivo</text>
                 </g>
 
                 <g transform="translate(18, 148)">
-                  <rect width="264" height="36" rx="8" fill="#141c2e" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+                  <rect width="254" height="36" rx="8" fill="#141c2e" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
                   <text x="14" y="22" fill="#ebca73" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Agente CRM</text>
-                  <text x="250" y="22" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="500" text-anchor="end">Reglas &amp; Historial</text>
+                  <text x="240" y="22" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="500" text-anchor="end">Reglas &amp; Historial</text>
                 </g>
               </g>
 
-              <!-- ESTACIÓN 2: Pregunta y Orienta (Multicanal) -->
-              <g transform="translate(610, 20)">
-                <rect width="300" height="200" rx="18" fill="#111827" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.2" />
+              <!-- ESTACIÓN 2: Pregunta y Orienta (Multicanal - Paleta Canónica TheIA) -->
+              <g transform="translate(610, 35)">
+                <rect width="290" height="200" rx="16" fill="#111827" stroke="rgba(255, 255, 255, 0.09)" stroke-width="1.2" />
                 
                 <!-- Header -->
-                <rect x="18" y="16" width="32" height="32" rx="8" fill="rgba(37, 211, 102, 0.08)" stroke="rgba(37, 211, 102, 0.25)" stroke-width="1" />
-                <!-- Chat Speech icon -->
-                <path d="M 28 26 L 40 26 C 42 26 43 27 43 29 L 43 35 C 43 37 42 38 40 38 L 33 38 L 29 41 L 29 38 L 28 38 C 26 38 25 37 25 35 L 25 29 C 25 27 26 26 28 26 Z" fill="none" stroke="#25D366" stroke-width="1.6" />
+                <rect x="18" y="16" width="32" height="32" rx="8" fill="rgba(212, 175, 55, 0.1)" stroke="rgba(212, 175, 55, 0.3)" stroke-width="1" />
+                <path d="M 28 26 L 40 26 C 42 26 43 27 43 29 L 43 35 C 43 37 42 38 40 38 L 33 38 L 29 41 L 29 38 L 28 38 C 26 38 25 37 25 35 L 25 29 C 25 27 26 26 28 26 Z" fill="none" stroke="#ebca73" stroke-width="1.5" />
                 
                 <text x="60" y="30" fill="#ffffff" font-family="'Merriweather', serif" font-size="14.5" font-weight="700">2. Pregunta y Orienta</text>
                 <text x="60" y="46" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="500">Interacción Multicanal</text>
 
-                <!-- Channel Pills -->
+                <!-- Channel Pills: Dark Slate Sobrio con Acentos Neutros (Cero verdes/rojos chillones) -->
                 <g transform="translate(18, 62)">
-                  <rect width="78" height="24" rx="12" fill="rgba(37, 211, 102, 0.1)" stroke="rgba(37, 211, 102, 0.25)" stroke-width="1" />
-                  <text x="39" y="16" fill="#25D366" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">WhatsApp</text>
+                  <rect width="76" height="24" rx="6" fill="#141c2e" stroke="rgba(255, 255, 255, 0.09)" stroke-width="1" />
+                  <text x="38" y="16" fill="#cbd5e1" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">WhatsApp</text>
                   
-                  <rect x="86" y="0" width="84" height="24" rx="12" fill="rgba(225, 48, 108, 0.08)" stroke="rgba(225, 48, 108, 0.2)" stroke-width="1" />
-                  <text x="128" y="16" fill="#f43f5e" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">Instagram</text>
+                  <rect x="84" y="0" width="82" height="24" rx="6" fill="#141c2e" stroke="rgba(255, 255, 255, 0.09)" stroke-width="1" />
+                  <text x="125" y="16" fill="#cbd5e1" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">Instagram</text>
 
-                  <rect x="178" y="0" width="86" height="24" rx="12" fill="rgba(99, 102, 241, 0.08)" stroke="rgba(99, 102, 241, 0.2)" stroke-width="1" />
-                  <text x="221" y="16" fill="#818cf8" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">WebChat</text>
+                  <rect x="174" y="0" width="80" height="24" rx="6" fill="#141c2e" stroke="rgba(255, 255, 255, 0.09)" stroke-width="1" />
+                  <text x="214" y="16" fill="#cbd5e1" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">WebChat</text>
                 </g>
 
                 <!-- Client Message Dialog -->
                 <g transform="translate(18, 98)">
-                  <rect width="264" height="88" rx="10" fill="#141c2e" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+                  <rect width="254" height="88" rx="10" fill="#141c2e" stroke="rgba(255, 255, 255, 0.07)" stroke-width="1" />
                   
                   <!-- Avatar -->
-                  <circle cx="24" cy="26" r="12" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1" />
+                  <circle cx="24" cy="26" r="12" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" />
                   <circle cx="24" cy="23" r="4.5" fill="#cbd5e1" />
                   <path d="M 17 33 C 17 29 20 28 24 28 C 28 28 31 29 31 33" fill="none" stroke="#cbd5e1" stroke-width="1.2" />
                   
@@ -3976,42 +3976,41 @@
                   <text x="44" y="38" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="500">Vía WhatsApp Business</text>
                   
                   <!-- Speech Quote -->
-                  <rect x="12" y="48" width="240" height="30" rx="6" fill="rgba(255, 255, 255, 0.03)" />
-                  <text x="20" y="67" fill="#e2e8f0" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="500">"¿Tienen cupo mañana y qué precio tiene?"</text>
+                  <rect x="12" y="48" width="230" height="30" rx="6" fill="rgba(255, 255, 255, 0.03)" />
+                  <text x="18" y="67" fill="#e2e8f0" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="500">"¿Tienen cupo mañana y qué precio tiene?"</text>
                 </g>
               </g>
 
-              <!-- ESTACIÓN 3: Responde con Control (Validación) -->
-              <g transform="translate(280, 460)">
-                <rect width="380" height="215" rx="18" fill="#111827" stroke="rgba(212, 175, 55, 0.4)" stroke-width="1.4" />
+              <!-- ESTACIÓN 3: Responde con Control (Validación Determinista) -->
+              <g transform="translate(280, 465)">
+                <rect width="380" height="215" rx="16" fill="#111827" stroke="rgba(212, 175, 55, 0.4)" stroke-width="1.4" />
                 
                 <!-- Header -->
                 <rect x="18" y="16" width="32" height="32" rx="8" fill="rgba(212, 175, 55, 0.1)" stroke="rgba(212, 175, 55, 0.3)" stroke-width="1" />
-                <!-- Shield Check icon -->
                 <path d="M 34 22 L 44 26 L 44 34 C 44 40 34 44 34 44 C 34 44 24 40 24 34 L 24 26 Z" fill="none" stroke="#ebca73" stroke-width="1.5" stroke-linejoin="round" />
                 <polyline points="30 33 33 36 39 29" fill="none" stroke="#ebca73" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
                 
                 <text x="60" y="29" fill="#ffffff" font-family="'Merriweather', serif" font-size="14.5" font-weight="700">3. Responde con Control</text>
                 <text x="60" y="46" fill="#ebca73" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="600">Validación Determinista · &lt; 2s</text>
 
-                <!-- Checklist items -->
+                <!-- Checklist items: Checks en TheIA Gold (#ebca73) -->
                 <g transform="translate(18, 62)">
                   <rect width="344" height="28" rx="6" fill="#141c2e" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1" />
-                  <text x="12" y="19" fill="#10b981" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">✓</text>
+                  <text x="12" y="19" fill="#ebca73" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">✓</text>
                   <text x="30" y="18" fill="#e2e8f0" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="500">Precios y stock oficiales cotejados</text>
                   <text x="332" y="18" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="500" text-anchor="end">100% Certeza</text>
                 </g>
 
                 <g transform="translate(18, 96)">
                   <rect width="344" height="28" rx="6" fill="#141c2e" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1" />
-                  <text x="12" y="19" fill="#10b981" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">✓</text>
+                  <text x="12" y="19" fill="#ebca73" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">✓</text>
                   <text x="30" y="18" fill="#e2e8f0" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="500">Cupo 15:30 hrs reservado en Calendar</text>
                   <text x="332" y="18" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="500" text-anchor="end">Sincronizado</text>
                 </g>
 
                 <g transform="translate(18, 130)">
                   <rect width="344" height="28" rx="6" fill="#141c2e" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1" />
-                  <text x="12" y="19" fill="#10b981" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">✓</text>
+                  <text x="12" y="19" fill="#ebca73" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">✓</text>
                   <text x="30" y="18" fill="#e2e8f0" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="500">Ficha y trazabilidad creada en CRM</text>
                   <text x="332" y="18" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="500" text-anchor="end">Alerta Pulse</text>
                 </g>
