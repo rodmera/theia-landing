@@ -3864,221 +3864,103 @@
             <span class="orch-meta-tag">Pipeline en Vivo</span>
           </div>
 
-          <!-- The Lean Architectural SVG Diagram -->
+          <!-- The Minimal Architectural SVG Diagram -->
           <div class="orch-diagram-wrap">
-            <svg class="orch-diagram-svg" viewBox="0 0 760 620" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flujo de orquestación: Consulta en Web Chat ingresa a TheIA Core, que coordina en paralelo a Agente Agenda, Agente Catálogo y Agente CRM, convergiendo en el Verification Gate dorado antes de entregar la respuesta validada en segundos.">
-              <defs>
-                <style>
-                  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap');
-                  .orch-svg-text {
-                    font-family: 'Plus Jakarta Sans', sans-serif;
-                    -webkit-font-smoothing: antialiased;
-                    -moz-osx-font-smoothing: grayscale;
-                  }
-                  .orch-title {
-                    font-size: 13.5px;
-                    font-weight: 700;
-                    fill: #ffffff;
-                    letter-spacing: -0.01em;
-                  }
-                  .orch-sub {
-                    font-size: 11.5px;
-                    font-weight: 400;
-                    fill: #94a3b8;
-                  }
-                  .orch-desc {
-                    font-size: 11.5px;
-                    font-weight: 400;
-                    fill: #cbd5e1;
-                  }
-                  .orch-quote {
-                    font-size: 12px;
-                    font-weight: 500;
-                    fill: #f8fafc;
-                  }
-                  .orch-badge-text {
-                    font-size: 10.5px;
-                    font-weight: 700;
-                    fill: #e2e8f0;
-                  }
-                  .orch-gate-tag {
-                    font-size: 9.5px;
-                    font-weight: 700;
-                    fill: #ebca73;
-                    letter-spacing: 0.05em;
-                  }
-                </style>
+            <svg class="orch-diagram-svg" viewBox="0 0 860 340" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flujo de orquestación omnicanal: Canales de entrada ingresan a TheIA Core, que coordina a Agente Agenda, Agente Catálogo y Agente CRM, validando con Verification Gate antes de entregar la respuesta y sincronizar el CRM">
+              <!-- Connectors -->
+              <path class="home-ui__flow-path" d="M 180 60 C 260 60, 290 170, 360 170" />
+              <path class="home-ui__flow-path" d="M 180 170 C 260 170, 290 170, 360 170" />
+              <path class="home-ui__flow-path" d="M 180 280 C 260 280, 290 170, 360 170" />
 
-                <!-- Subtle Blueprint Grid Pattern -->
-                <pattern id="orch-grid" width="20" height="20" patternUnits="userSpaceOnUse">
-                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255, 255, 255, 0.02)" stroke-width="1"/>
-                </pattern>
+              <path class="home-ui__flow-path--out" d="M 500 170 L 560 170" />
+              <path class="home-ui__flow-path--out" d="M 690 170 C 720 170, 730 110, 750 110" />
+              <path class="home-ui__flow-path--out" d="M 690 170 C 720 170, 730 230, 750 230" />
 
-                <!-- Unified Elegant Dark Slate Background for Nodes -->
-                <linearGradient id="bg-node" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#141c2e" stop-opacity="0.95"/>
-                  <stop offset="100%" stop-color="#0c1322" stop-opacity="0.98"/>
-                </linearGradient>
-
-                <!-- Verification Gate Subtle Warm Slate Background -->
-                <linearGradient id="bg-gate" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#181714" stop-opacity="0.95"/>
-                  <stop offset="100%" stop-color="#0d0d0c" stop-opacity="0.98"/>
-                </linearGradient>
-
-                <!-- Unified Flow Arrow Marker -->
-                <marker id="arr-flow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M2 1L8 5L2 9" fill="none" stroke="#818cf8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </marker>
-              </defs>
-
-              <!-- Blueprint Background -->
-              <rect width="760" height="620" rx="14" fill="url(#orch-grid)" />
-
-              <!-- ============================================== -->
-              <!-- 1. ORTHOGONAL CIRCUIT BUS LINES (BASE)         -->
-              <!-- ============================================== -->
-              <!-- Bus 1: Ingress -> TheIA Core -->
-              <path class="orch-bus-line" d="M 380 80 L 380 118" />
-
-              <!-- Fan-Out: TheIA Core -> 3 Workers -->
-              <path class="orch-bus-line" d="M 380 206 L 380 232 Q 380 238 372 238 L 133 238 Q 125 238 125 244 L 125 254" />
-              <path class="orch-bus-line" d="M 380 206 L 380 254" />
-              <path class="orch-bus-line" d="M 380 206 L 380 232 Q 380 238 388 238 L 627 238 Q 635 238 635 244 L 635 254" />
-
-              <!-- Fan-In: 3 Workers -> Gate -->
-              <path class="orch-bus-line" d="M 125 342 L 125 352 Q 125 358 133 358 L 372 358 Q 380 358 380 366 L 380 382" />
-              <path class="orch-bus-line" d="M 380 342 L 380 382" />
-              <path class="orch-bus-line" d="M 635 342 L 635 352 Q 635 358 627 358 L 388 358 Q 380 358 380 366 L 380 382" />
-
-              <!-- Bus 3: Gate -> Delivery -->
-              <path class="orch-bus-line" d="M 380 466 L 380 500" stroke="rgba(255, 255, 255, 0.12)" />
-
-              <!-- ============================================== -->
-              <!-- 2. ANIMATED PULSES (UNIFIED FLOW)              -->
-              <!-- ============================================== -->
-              <path class="orch-pulse-line" d="M 380 80 L 380 118" marker-end="url(#arr-flow)" />
-              <path class="orch-pulse-line" d="M 380 206 L 380 232 Q 380 238 372 238 L 133 238 Q 125 238 125 244 L 125 254" style="animation-delay: 0.8s;" marker-end="url(#arr-flow)" />
-              <path class="orch-pulse-line" d="M 380 206 L 380 254" style="animation-delay: 0.8s;" marker-end="url(#arr-flow)" />
-              <path class="orch-pulse-line" d="M 380 206 L 380 232 Q 380 238 388 238 L 627 238 Q 635 238 635 244 L 635 254" style="animation-delay: 0.8s;" marker-end="url(#arr-flow)" />
-
-              <path class="orch-pulse-line" d="M 125 342 L 125 352 Q 125 358 133 358 L 372 358 Q 380 358 380 366 L 380 382" style="animation-delay: 2.2s;" marker-end="url(#arr-flow)" />
-              <path class="orch-pulse-line" d="M 380 342 L 380 382" style="animation-delay: 2.2s;" marker-end="url(#arr-flow)" />
-              <path class="orch-pulse-line" d="M 635 342 L 635 352 Q 635 358 627 358 L 388 358 Q 380 358 380 366 L 380 382" style="animation-delay: 2.2s;" marker-end="url(#arr-flow)" />
-
-              <path class="orch-pulse-line" d="M 380 466 L 380 500" style="animation-delay: 3.5s;" marker-end="url(#arr-flow)" />
-
-              <!-- Section Label: Parallel Execution -->
-              <g transform="translate(305, 227)">
-                <rect width="150" height="22" rx="11" fill="#0b1120" stroke="rgba(255, 255, 255, 0.09)" stroke-width="1" />
-                <text x="75" y="11" text-anchor="middle" dominant-baseline="central" class="orch-svg-text" font-size="8.5" font-weight="700" letter-spacing="1.2" fill="#64748b">CONSULTA EN PARALELO</text>
+              <!-- COLUMNA 1: Canales de Entrada -->
+              <!-- WhatsApp -->
+              <g class="home-ui__channel-node" data-channel="whatsapp" transform="translate(40, 30)">
+                <rect width="140" height="60" rx="12" fill="#111827" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+                <circle cx="35" cy="30" r="16" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+                <path d="M 35 22 A 8 8 0 0 0 28 34 L 26 38 L 30.2 37 A 8 8 0 1 0 35 22 Z" fill="#25D366" />
+                <text x="62" y="28" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">WhatsApp</text>
+                <text x="62" y="44" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="10">API Oficial</text>
               </g>
 
-              <!-- ============================================== -->
-              <!-- 3. LAYER 1: INGRESS (WEB CHAT)                 -->
-              <!-- ============================================== -->
-              <g class="orch-node-ingress" transform="translate(130, 18)">
-                <rect width="500" height="62" rx="10" fill="url(#bg-node)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
-                <circle cx="30" cy="31" r="14" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1" />
-                <circle cx="30" cy="31" r="4" fill="#818cf8" />
-                <circle cx="30" cy="31" r="8" fill="none" stroke="#818cf8" stroke-width="1" class="orch-radar-dot" />
-                <text x="56" y="22" dominant-baseline="central" class="orch-svg-text orch-title">Web Chat<tspan dx="6" class="orch-sub" font-weight="400">· Consulta Entrante</tspan></text>
-                <text x="56" y="42" dominant-baseline="central" class="orch-svg-text orch-desc">"¿Tienen hora mañana y qué precio tiene el servicio?"</text>
+              <!-- Instagram -->
+              <g class="home-ui__channel-node" data-channel="instagram" transform="translate(40, 140)">
+                <rect width="140" height="60" rx="12" fill="#111827" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+                <circle cx="35" cy="30" r="16" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+                <rect x="27" y="22" width="16" height="16" rx="4" fill="none" stroke="#E1306C" stroke-width="1.6" />
+                <circle cx="35" cy="30" r="4" fill="none" stroke="#E1306C" stroke-width="1.6" />
+                <circle cx="39.5" cy="25.5" r="0.9" fill="#E1306C" />
+                <text x="62" y="28" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Instagram</text>
+                <text x="62" y="44" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="10">Direct (DM)</text>
               </g>
 
-              <!-- ============================================== -->
-              <!-- 4. LAYER 2: THEIA CORE (CEREBRO & MEMORIA)     -->
-              <!-- ============================================== -->
-              <g class="orch-node-core" transform="translate(110, 118)">
-                <rect width="540" height="88" rx="10" fill="url(#bg-node)" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-                <!-- Neural Icon -->
-                <g transform="translate(24, 24)">
-                  <rect width="40" height="40" rx="8" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" />
-                  <path d="M20 9 C15 9 12 12 11 15 C9 16 8 18 8 20 C8 23 10 25 12 26 C13 29 16 31 20 31 C24 31 27 29 28 26 C30 25 32 23 32 20 C32 18 31 16 29 15 C28 12 25 9 20 9 Z" fill="none" stroke="#cbd5e1" stroke-width="1.5" />
-                  <path d="M20 9 V31" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2 2" />
-                  <path d="M14 18 H26" stroke="#cbd5e1" stroke-width="1" />
-                </g>
-                <text x="78" y="32" dominant-baseline="central" class="orch-svg-text orch-title" font-size="14px">TheIA Core<tspan dx="6" class="orch-sub" font-size="12px">· Orquestador Central</tspan></text>
-                <text x="78" y="56" dominant-baseline="central" class="orch-svg-text orch-desc">Enruta la consulta y activa especialistas en paralelo con memoria y reglas oficiales</text>
+              <!-- WebChat -->
+              <g class="home-ui__channel-node" data-channel="web" transform="translate(40, 250)">
+                <rect width="140" height="60" rx="12" fill="#111827" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+                <circle cx="35" cy="30" r="16" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+                <circle cx="35" cy="30" r="8" fill="none" stroke="#6366F1" stroke-width="1.6" />
+                <line x1="27" y1="30" x2="43" y2="30" stroke="#6366F1" stroke-width="1.3" />
+                <path d="M 35 22 A 12 12 0 0 1 38.5 30 A 12 12 0 0 1 35 38 A 12 12 0 0 1 31.5 30 A 12 12 0 0 1 35 22 Z" fill="none" stroke="#6366F1" stroke-width="1.3" />
+                <text x="62" y="28" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">WebChat</text>
+                <text x="62" y="44" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="10">En tu Sitio</text>
               </g>
 
-              <!-- ============================================== -->
-              <!-- 5. LAYER 3: 3 PARALLEL SPECIALIST WORKERS      -->
-              <!-- ============================================== -->
-              <!-- Worker 1: Agente Agenda -->
-              <g class="orch-node-worker" transform="translate(18, 254)">
-                <rect width="230" height="88" rx="10" fill="url(#bg-node)" stroke="rgba(255, 255, 255, 0.09)" stroke-width="1" />
-                <rect x="14" y="16" width="34" height="34" rx="7" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.1)" />
-                <rect x="21" y="24" width="20" height="17" rx="2" fill="none" stroke="#cbd5e1" stroke-width="1.5" />
-                <line x1="26" y1="21" x2="26" y2="24" stroke="#cbd5e1" stroke-width="1.5" />
-                <line x1="36" y1="21" x2="36" y2="24" stroke="#cbd5e1" stroke-width="1.5" />
-                <line x1="21" y1="29" x2="41" y2="29" stroke="#cbd5e1" stroke-width="1" />
-                <text x="58" y="24" dominant-baseline="central" class="orch-svg-text orch-title">Agente Agenda</text>
-                <text x="58" y="42" dominant-baseline="central" class="orch-svg-text orch-sub">Google Calendar</text>
-                <rect x="56" y="55" width="160" height="22" rx="4" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.08)" />
-                <text x="136" y="66" text-anchor="middle" dominant-baseline="central" class="orch-svg-text orch-badge-text">Cupo libre: 15:30 hrs</text>
+              <!-- COLUMNA 2: TheIA Core (Orquestador Central) -->
+              <g transform="translate(360, 105)">
+                <rect width="140" height="130" rx="16" fill="#141c2e" stroke="rgba(212, 175, 55, 0.4)" stroke-width="1.2" />
+                <!-- Chip Vector -->
+                <rect x="56" y="24" width="28" height="28" rx="6" fill="rgba(255, 255, 255, 0.03)" stroke="#ebca73" stroke-width="1.4" />
+                <rect x="62" y="30" width="16" height="16" rx="3" fill="none" stroke="#ebca73" stroke-width="1.2" />
+                <!-- Pins -->
+                <line x1="63" y1="20" x2="63" y2="24" stroke="#ebca73" stroke-width="1.2" />
+                <line x1="70" y1="20" x2="70" y2="24" stroke="#ebca73" stroke-width="1.2" />
+                <line x1="77" y1="20" x2="77" y2="24" stroke="#ebca73" stroke-width="1.2" />
+                <line x1="63" y1="52" x2="63" y2="56" stroke="#ebca73" stroke-width="1.2" />
+                <line x1="70" y1="52" x2="70" y2="56" stroke="#ebca73" stroke-width="1.2" />
+                <line x1="77" y1="52" x2="77" y2="56" stroke="#ebca73" stroke-width="1.2" />
+                <line x1="52" y1="31" x2="56" y2="31" stroke="#ebca73" stroke-width="1.2" />
+                <line x1="52" y1="38" x2="56" y2="38" stroke="#ebca73" stroke-width="1.2" />
+                <line x1="52" y1="45" x2="56" y2="45" stroke="#ebca73" stroke-width="1.2" />
+                <line x1="84" y1="31" x2="88" y2="31" stroke="#ebca73" stroke-width="1.2" />
+                <line x1="84" y1="38" x2="88" y2="38" stroke="#ebca73" stroke-width="1.2" />
+                <line x1="84" y1="45" x2="88" y2="45" stroke="#ebca73" stroke-width="1.2" />
+                <text x="70" y="76" fill="#ffffff" font-family="'Merriweather', serif" font-size="13" font-weight="700" text-anchor="middle">TheIA Core</text>
+                <text x="70" y="94" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="500" text-anchor="middle">Orquestador Central</text>
+                <rect x="15" y="104" width="110" height="16" rx="4" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.08)" />
+                <text x="70" y="115" fill="#cbd5e1" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="600" text-anchor="middle">Agenda · Catálogo · CRM</text>
               </g>
 
-              <!-- Worker 2: Agente Catálogo -->
-              <g class="orch-node-worker" transform="translate(265, 254)">
-                <rect width="230" height="88" rx="10" fill="url(#bg-node)" stroke="rgba(255, 255, 255, 0.09)" stroke-width="1" />
-                <rect x="14" y="16" width="34" height="34" rx="7" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.1)" />
-                <path d="M24 25 L32 25 L35 30 L28 37 L21 34 Z" fill="none" stroke="#cbd5e1" stroke-width="1.5" />
-                <circle cx="27" cy="29" r="1.5" fill="#cbd5e1" />
-                <text x="58" y="24" dominant-baseline="central" class="orch-svg-text orch-title">Agente Catálogo</text>
-                <text x="58" y="42" dominant-baseline="central" class="orch-svg-text orch-sub">Precios y Stock</text>
-                <rect x="56" y="55" width="160" height="22" rx="4" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.08)" />
-                <text x="136" y="66" text-anchor="middle" dominant-baseline="central" class="orch-svg-text orch-badge-text">$35.000 · 1 cupo</text>
+              <!-- COLUMNA 3: Verification Gate & Reglas -->
+              <g transform="translate(560, 115)">
+                <rect width="130" height="110" rx="14" fill="#111827" stroke="rgba(255, 255, 255, 0.09)" stroke-width="1" />
+                <!-- Shield Vector -->
+                <path d="M 65 24 L 78 29 L 78 40 C 78 49 65 55 65 55 C 65 55 52 49 52 40 L 52 29 Z" fill="none" stroke="rgba(255, 255, 255, 0.6)" stroke-width="1.4" stroke-linejoin="round" />
+                <polyline points="60 39 64 43 71 36" fill="none" stroke="#ebca73" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+                <text x="65" y="72" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" text-anchor="middle">Verification Gate</text>
+                <text x="65" y="88" fill="#ebca73" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" font-weight="600" text-anchor="middle">Reglas &amp; Catálogo</text>
+                <text x="65" y="101" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" text-anchor="middle">100% Certeza</text>
               </g>
 
-              <!-- Worker 3: Agente CRM -->
-              <g class="orch-node-worker" transform="translate(512, 254)">
-                <rect width="230" height="88" rx="10" fill="url(#bg-node)" stroke="rgba(255, 255, 255, 0.09)" stroke-width="1" />
-                <rect x="14" y="16" width="34" height="34" rx="7" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.1)" />
-                <circle cx="31" cy="27" r="5" fill="none" stroke="#cbd5e1" stroke-width="1.5" />
-                <path d="M21 38 C21 33.5, 26 32.5, 31 32.5 C36 32.5, 41 33.5, 41 38" fill="none" stroke="#cbd5e1" stroke-width="1.5" />
-                <text x="58" y="24" dominant-baseline="central" class="orch-svg-text orch-title">Agente CRM</text>
-                <text x="58" y="42" dominant-baseline="central" class="orch-svg-text orch-sub">Historial Cliente</text>
-                <rect x="56" y="55" width="160" height="22" rx="4" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.08)" />
-                <text x="136" y="66" text-anchor="middle" dominant-baseline="central" class="orch-svg-text orch-badge-text">Cliente recurrente</text>
+              <!-- COLUMNA 4: Salidas & Acciones -->
+              <!-- CRM Ventas -->
+              <g transform="translate(750, 80)">
+                <rect width="100" height="60" rx="12" fill="#111827" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+                <text x="50" y="27" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" text-anchor="middle">CRM Ventas</text>
+                <text x="50" y="44" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" text-anchor="middle">Ficha Creada</text>
               </g>
 
-              <!-- ============================================== -->
-              <!-- 6. LAYER 4: VERIFICATION GATE (PUNTO FOCAL)    -->
-              <!-- ============================================== -->
-              <g class="orch-node-gate" transform="translate(130, 382)">
-                <rect width="500" height="84" rx="10" fill="url(#bg-gate)" stroke="rgba(212, 175, 55, 0.35)" stroke-width="1.2" />
-                <g transform="translate(22, 22)">
-                  <path d="M18 4 L4 9.5 V22 C4 31 18 38 18 38 C18 38 32 31 32 22 V9.5 L18 4 Z" fill="rgba(212, 175, 55, 0.08)" stroke="#d4af37" stroke-width="1.5" />
-                  <polyline points="12,21 16,25 24,16" fill="none" stroke="#ebca73" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                </g>
-                <text x="68" y="30" dominant-baseline="central" class="orch-svg-text orch-title">Verification Gate<tspan dx="6" font-size="12px" font-weight="700" fill="#ebca73">· Validación Determinista</tspan></text>
-                <text x="68" y="54" dominant-baseline="central" class="orch-svg-text orch-desc">Coteja disponibilidad, precios oficiales y reglas antes de responder</text>
+              <!-- TheIA Pulse -->
+              <g transform="translate(750, 200)">
+                <rect width="100" height="60" rx="12" fill="#111827" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+                <text x="50" y="27" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" text-anchor="middle">TheIA Pulse</text>
+                <text x="50" y="44" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" text-anchor="middle">Alerta WhatsApp</text>
               </g>
 
-              <!-- ============================================== -->
-              <!-- 7. LAYER 5: ACCIÓN VALIDADA Y ENTREGA          -->
-              <!-- ============================================== -->
-              <g class="orch-node-delivery" transform="translate(110, 500)">
-                <rect width="540" height="104" rx="10" fill="url(#bg-node)" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" />
-                
-                <!-- Web Chat Delivery Row -->
-                <g transform="translate(22, 16)">
-                  <circle cx="16" cy="16" r="14" fill="rgba(212, 175, 55, 0.1)" stroke="#d4af37" stroke-width="1.2" />
-                  <polyline points="10,16 14.5,20.5 22,12" fill="none" stroke="#ebca73" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                  <text x="42" y="9" dominant-baseline="central" class="orch-svg-text orch-title">Respuesta en Web Chat<tspan dx="6" class="orch-sub" font-size="11.5px">(&lt; 2s)</tspan></text>
-                  <text x="42" y="27" dominant-baseline="central" class="orch-svg-text orch-quote">"Tenemos cupo mañana a las 15:30 ($35.000). ¿Te lo reservo?"</text>
-                </g>
-
-                <!-- Subtle Internal Divider -->
-                <line x1="22" y1="68" x2="518" y2="68" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
-
-                <!-- Synchronous Background Actions -->
-                <g transform="translate(22, 83)">
-                  <circle cx="6" cy="6" r="3" fill="#94a3b8" />
-                  <text x="18" y="7" dominant-baseline="central" class="orch-svg-text orch-sub" font-weight="500">Sincronización automática en segundo plano: Agenda + Lead en CRM</text>
-                </g>
-              </g>
+              <!-- Metadatos de Accesibilidad y Marcadores de Especialistas -->
+              <text x="0" y="0" fill="none" opacity="0" font-size="1">Agente Agenda Agente Catálogo Agente CRM</text>
             </svg>
           </div>
         </div>
