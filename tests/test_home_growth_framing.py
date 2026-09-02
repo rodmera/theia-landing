@@ -42,10 +42,10 @@ def test_ac2_and_ac3_acompanamiento_local_and_speed_to_lead():
     """HU-WEB-028 AC2, AC3: Sección de acompañamiento experto e impacto de velocidad de respuesta."""
     content = INDEX_HTML.read_text(encoding="utf-8")
 
-    # AC3: Mensaje explícito de acompañamiento local
+    # AC3: Mensaje explícito de acompañamiento asistido
     assert "No te dejamos solo con una herramienta" in content, "Falta titular de acompañamiento experto"
-    assert "Ingenieros en Chile" in content, "Falta mención a ingenieros en Chile"
-    assert "Soporte Cercano en Chile" in content, "Falta tarjeta de soporte cercano en Chile"
+    assert "Puesta en Marcha Asistida" in content, "Falta mención a puesta en marcha asistida"
+    assert "Acompañamiento Continuo" in content, "Falta tarjeta de acompañamiento continuo"
 
     # AC2: Propuesta Speed-to-Lead
     assert "Velocidad de Respuesta" in content, "Falta tarjeta de velocidad de respuesta"

@@ -552,7 +552,7 @@
    SECCIÓN: HÁBLALE A THEIA (INTÉRPRETE COGNITIVO CERO CÓDIGO)
    ========================================================================== */
 .setup-cero-friccion {
-  padding: 6rem 0 5rem 0;
+  padding: 4.5rem 0;
   border-top: 1px solid var(--glass-border);
   position: relative;
 }
@@ -890,7 +890,7 @@
    SECCIÓN: CONECTA TUS AGENTES CON THEIA (ORQUESTACIÓN Y OPTIMIZACIÓN)
    ========================================================================== */
 .conecta-agentes-section {
-  padding: 6rem 0 5rem 0;
+  padding: 4.5rem 0;
   border-top: 1px solid var(--glass-border);
   position: relative;
 }
@@ -1071,6 +1071,10 @@
   }
   .conecta-logos-wrap {
     padding: 1.5rem 1.25rem;
+  }
+  .setup-cero-friccion,
+  .conecta-agentes-section {
+    padding: 3.5rem 0;
   }
 }
 
