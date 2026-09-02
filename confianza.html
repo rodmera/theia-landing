@@ -62,9 +62,10 @@
     href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
     rel="stylesheet" />
 
-  <link rel="stylesheet" href="site-nav.css" />
-  <link rel="stylesheet" href="site-cards.css" />
-  <link rel="stylesheet" href="site-footer.css" />
+  <link rel="stylesheet" href="/site-nav.css">
+  <script src="/site-nav.js" defer></script>
+  <link rel="stylesheet" href="/site-cards.css" />
+  <link rel="stylesheet" href="/site-footer.css">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -377,22 +378,199 @@
 
 <body>
   <!-- Header / Navigation -->
-  <nav aria-label="Navegación principal">
-    <div class="nav-inner container">
-      <a href="/" class="logo-wrap" aria-label="TheIA Inicio">
-        <img src="logo.png" alt="TheIA" class="logo-img" width="120" height="32" />
-      </a>
-
-      <div class="site-nav">
-        <a href="/" class="site-nav__link">Inicio</a>
-        <a href="/orquestacion" class="site-nav__link">Arquitectura B2B</a>
-        <a href="/atencion-cliente" class="site-nav__link">Atención</a>
-        <a href="/crm" class="site-nav__link">CRM</a>
-        <a href="/precios" class="site-nav__link">Precios</a>
-        <a href="/confianza" class="site-nav__link site-nav__link--active" aria-current="page">Confianza & Legal</a>
-        <a href="/nosotros" class="site-nav__link">Nosotros</a>
-        <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" style="padding:0.4rem 0.9rem;font-size:0.82rem;margin-left:0.5rem;">Agenda una demo →</a>
+    <a href="#main-content" class="skip-link">Saltar al contenido</a>
+  <nav class="site-header" data-site-nav data-site-nav-page="confianza" data-site-nav-source="confianza" aria-label="Navegación principal">
+    <a href="/" class="logo">
+      <img src="/logo.png" alt="TheIA — Atención de clientes confiable con IA para WhatsApp, Instagram y Web" width="100" height="100" />
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-nav-drawer">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-cta site-nav" data-site-nav-mount id="site-nav-drawer">
+      <!-- 1. Dropdown Soluciones -->
+      <div class="site-nav__group site-nav__group--solutions">
+        <button type="button" class="site-nav__trigger" aria-expanded="false" aria-controls="site-solutions-menu">
+          Soluciones
+          <svg class="site-nav__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div id="site-solutions-menu" class="site-nav__popover site-nav__popover--solutions" aria-label="Soluciones TheIA">
+          <a href="/atencion-cliente" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Atención</div>
+              <div class="site-nav__card-desc">WhatsApp, Instagram y Web con contexto</div>
+            </div>
+          </a>
+          <a href="/pulse" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">TheIA Pulse</div>
+              <div class="site-nav__card-desc">Copiloto por WhatsApp para el dueño</div>
+            </div>
+          </a>
+          <a href="/crm" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">CRM</div>
+              <div class="site-nav__card-desc">Gestión comercial desde la conversación</div>
+            </div>
+          </a>
+          <a href="/panel" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Panel de Control</div>
+              <div class="site-nav__card-desc">Supervisión y métricas en vivo</div>
+            </div>
+          </a>
+          <a href="/orquestacion" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Arquitectura B2B</div>
+              <div class="site-nav__card-desc">Orquestación multi-agente determinista</div>
+            </div>
+          </a>
+        </div>
       </div>
+
+      <!-- 2. Enlace Directo Servicios -->
+      <a href="/servicios" class="site-nav__link">Servicios</a>
+
+      <!-- 3. Dropdown Industrias -->
+      <div class="site-nav__group site-nav__group--industries">
+        <button type="button" class="site-nav__trigger" aria-expanded="false" aria-controls="site-industries-menu">
+          Industrias
+          <svg class="site-nav__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div id="site-industries-menu" class="site-nav__popover site-nav__popover--industries" aria-label="Industrias TheIA">
+          <a href="/salud" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Salud</div>
+              <div class="site-nav__card-desc">Clínicas y centros médicos</div>
+            </div>
+          </a>
+          <a href="/automotriz" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Automotriz</div>
+              <div class="site-nav__card-desc">Talleres y concesionarias</div>
+            </div>
+          </a>
+          <a href="/comercio" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Comercio</div>
+              <div class="site-nav__card-desc">Retail y tiendas comerciales</div>
+            </div>
+          </a>
+          <a href="/casos" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Casos</div>
+              <div class="site-nav__card-desc">Resultados e historias de éxito</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- 4. Enlace Directo Cómo ayuda -->
+      <a href="/funciones" class="site-nav__link">Cómo ayuda</a>
+
+      <!-- 5. Enlace Directo Precios -->
+      <a href="/precios" class="site-nav__link">Precios</a>
+
+      <!-- 6. Dropdown Recursos -->
+      <div class="site-nav__group site-nav__group--resources">
+        <button type="button" class="site-nav__trigger" aria-expanded="false" aria-controls="site-resources-menu">
+          Recursos
+          <svg class="site-nav__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div id="site-resources-menu" class="site-nav__popover site-nav__popover--resources" aria-label="Recursos TheIA">
+          <a href="/blog/" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Blog</div>
+              <div class="site-nav__card-desc">Artículos, guías y novedades</div>
+            </div>
+          </a>
+          <a href="/criterios" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Criterios</div>
+              <div class="site-nav__card-desc">Pauta para evaluar agentes de IA</div>
+            </div>
+          </a>
+          <a href="/calculadora" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Calculadora</div>
+              <div class="site-nav__card-desc">Calcula el retorno de inversión</div>
+            </div>
+          </a>
+          <a href="/cumplimiento" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Cumplimiento</div>
+              <div class="site-nav__card-desc">Seguridad, privacidad y Ley 21.719</div>
+            </div>
+          </a>
+          <a href="/confianza" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Confianza & Legal</div>
+              <div class="site-nav__card-desc">DPA, subprocesadores y seguridad</div>
+            </div>
+          </a>
+          <a href="/facil" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Setup en 3 Audios</div>
+              <div class="site-nav__card-desc">Activación ágil para tu negocio</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- 7. Enlace Directo Nosotros -->
+      <a href="/nosotros" class="site-nav__link">Nosotros</a>
+
+      <!-- 8. Enlaces Directos Móviles (Drawer <= 960px) -->
+      <div class="site-nav__mobile-links">
+        <div class="site-nav__mobile-section-label">Soluciones</div>
+        <a href="/atencion-cliente" class="site-nav__link">Atención</a>
+        <a href="/pulse" class="site-nav__link">Pulse</a>
+        <a href="/crm" class="site-nav__link">CRM</a>
+        <a href="/panel" class="site-nav__link">Panel de Control</a>
+        <a href="/orquestacion" class="site-nav__link">Arquitectura B2B</a>
+
+        <div class="site-nav__mobile-section-label">Servicios Especializados</div>
+        <a href="/servicios" class="site-nav__link">Servicios</a>
+
+        <div class="site-nav__mobile-section-label">Industrias</div>
+        <a href="/salud" class="site-nav__link">Salud</a>
+        <a href="/servicios-pyme" class="site-nav__link">Servicios Profesionales B2B</a>
+        <a href="/automotriz" class="site-nav__link">Automotriz</a>
+        <a href="/comercio" class="site-nav__link">Comercio</a>
+        <a href="/casos" class="site-nav__link">Casos</a>
+
+        <div class="site-nav__mobile-section-label">Plataforma & Precios</div>
+        <a href="/funciones" class="site-nav__link">Cómo ayuda</a>
+        <a href="/precios" class="site-nav__link">Precios</a>
+        <a href="/nosotros" class="site-nav__link">Nosotros</a>
+
+        <div class="site-nav__mobile-section-label">Recursos</div>
+        <a href="/blog/" class="site-nav__link">Blog</a>
+        <a href="/criterios" class="site-nav__link">Criterios</a>
+        <a href="/calculadora" class="site-nav__link">Calculadora</a>
+        <a href="/cumplimiento" class="site-nav__link">Cumplimiento</a>
+        <a href="/confianza" class="site-nav__link">Confianza & Legal</a>
+        <a href="/facil" class="site-nav__link">Setup en 3 Audios</a>
+      </div>
+
+      <!-- 9. Demo CTA -->
+      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold site-nav__demo" onclick="theiaTrackCTA('demo','confianza')">Agenda una demo →</a>
     </div>
   </nav>
 
@@ -564,50 +742,82 @@
   </main>
 
   <!-- Global Footer -->
-  <footer class="site-footer" style="padding: 4rem 0 2rem; background: #0b1120; border-top: 1px solid var(--glass-border);">
-    <div class="container">
-      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 3rem;">
-        <div>
-          <a href="/" style="display:inline-block;margin-bottom:1rem;">
-            <img src="logo.png" alt="TheIA" width="110" height="30" />
-          </a>
-          <p style="color: var(--text-sub); font-size: 0.88rem; line-height: 1.6; max-width: 320px;">
-            Inteligencia Artificial determinista para procesos comerciales, atención y ventas de empresas en Chile.
-          </p>
-        </div>
-        <div>
-          <h4 style="color: #ffffff; font-size: 0.9rem; margin-bottom: 1rem; font-family:'Plus Jakarta Sans',sans-serif;">Soluciones</h4>
-          <ul style="list-style: none; font-size: 0.85rem; line-height: 2;">
-            <li><a href="/orquestacion" style="color: var(--text-sub); text-decoration: none;">Arquitectura B2B</a></li>
-            <li><a href="/atencion-cliente" style="color: var(--text-sub); text-decoration: none;">Atención</a></li>
-            <li><a href="/crm" style="color: var(--text-sub); text-decoration: none;">CRM</a></li>
-            <li><a href="/pulse" style="color: var(--text-sub); text-decoration: none;">Pulse</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 style="color: #ffffff; font-size: 0.9rem; margin-bottom: 1rem; font-family:'Plus Jakarta Sans',sans-serif;">Plataforma</h4>
-          <ul style="list-style: none; font-size: 0.85rem; line-height: 2;">
-            <li><a href="/funciones" style="color: var(--text-sub); text-decoration: none;">Cómo ayuda</a></li>
-            <li><a href="/precios" style="color: var(--text-sub); text-decoration: none;">Precios</a></li>
-            <li><a href="/nosotros" style="color: var(--text-sub); text-decoration: none;">Nosotros</a></li>
-            <li><a href="/casos" style="color: var(--text-sub); text-decoration: none;">Casos</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 style="color: #ffffff; font-size: 0.9rem; margin-bottom: 1rem; font-family:'Plus Jakarta Sans',sans-serif;">Legal & Confianza</h4>
-          <ul style="list-style: none; font-size: 0.85rem; line-height: 2;">
-            <li><a href="/confianza" style="color: var(--gold-light); text-decoration: none;">Centro de Confianza</a></li>
-            <li><a href="/terminos" style="color: var(--text-sub); text-decoration: none;">Términos de Servicio</a></li>
-            <li><a href="/privacidad" style="color: var(--text-sub); text-decoration: none;">Privacidad</a></li>
-            <li><a href="/cumplimiento" style="color: var(--text-sub); text-decoration: none;">Ley 21.719</a></li>
-          </ul>
+    <footer>
+    <div class="footer-inner">
+      <!-- Columna 1: Marca & Propósito -->
+      <div class="footer-col footer-col--brand">
+        <a href="/" class="logo"><img src="/logo.png" alt="TheIA — Agentes de IA para Negocios, Ventas y CRM" width="70" height="70" /></a>
+        <p>Agentes de IA para WhatsApp, Web y Redes Sociales. Automatiza ventas, cotizaciones y atención 24/7 con integración nativa a tu CRM.</p>
+        <p style="font-size:0.8rem;color:var(--gold-light);font-weight: 700;margin-top:0.25rem;">🔒 Privacidad y seguridad con enmascaramiento de datos.</p>
+      </div>
+
+      <!-- Columna 2: Productos TheIA -->
+      <div class="footer-col">
+        <h4>Productos</h4>
+        <div class="footer-links-group">
+          <a href="/atencion-cliente">Atención Omnicanal</a>
+          <a href="/pulse">TheIA Pulse</a>
+          <a href="/crm">CRM Integrado</a>
+          <a href="/panel">Panel de Control</a>
+          <a href="/orquestacion">Arquitectura B2B</a>
         </div>
       </div>
-      <div style="border-top: 1px solid rgba(255,255,255,0.06); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: var(--text-muted);">
-        <div>© 2026 THEIA SERVICIOS TECNOLÓGICOS SpA · Todos los derechos reservados.</div>
-        <div>Santiago, Chile · Google Cloud southamerica-west1</div>
+
+      <!-- Columna 3: Plataforma & Recursos -->
+      <div class="footer-col">
+        <h4>Plataforma</h4>
+        <div class="footer-links-group">
+          <a href="/facil">Setup en 3 Audios</a>
+          <a href="/funciones">Funciones</a>
+          <a href="/precios">Planes y Precios</a>
+          <a href="/servicios">Servicios</a>
+          <a href="/blog/">Blog</a>
+          <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" onclick="theiaTrackCTA('demo','footer')" style="color:var(--gold-light);font-weight:700;">Agendar Demo →</a>
+        </div>
+      </div>
+
+      <!-- Columna 4: Contacto & Redes -->
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <div class="footer-links-group">
+          <a href="mailto:hola@theia.cl" class="footer-contact-link">
+            <span class="footer-contact-badge footer-contact-badge--mail">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </span>
+            <span>hola@theia.cl</span>
+          </a>
+          <a href="https://wa.me/12063858350" target="_blank" rel="noopener" onclick="theiaTrackCTA('whatsapp','footer')" class="footer-contact-link">
+            <span class="footer-contact-badge footer-contact-badge--wa">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.62C9.36 7.62 9.09 7.68 8.87 7.93C8.64 8.17 8 8.78 8 10.02C8 11.26 8.91 12.45 9.03 12.62C9.16 12.79 10.79 15.3 13.28 16.38C15.36 17.27 15.78 17.1 16.23 17.05C16.68 17.01 17.68 16.46 17.89 15.88C18.1 15.3 18.1 14.81 18.03 14.7C17.97 14.59 17.81 14.53 17.56 14.41C17.31 14.28 16.08 13.68 15.86 13.59C15.63 13.51 15.47 13.47 15.3 13.72C15.14 13.97 14.67 14.53 14.53 14.7C14.39 14.86 14.24 14.88 13.99 14.76C13.74 14.63 12.93 14.37 11.98 13.52C11.23 12.85 10.73 12.03 10.6 11.8C10.46 11.55 10.58 11.42 10.71 11.3C10.82 11.19 10.96 11 11.09 10.86C11.21 10.71 11.26 10.61 11.34 10.44C11.42 10.27 11.38 10.13 11.32 10C11.26 9.88 10.76 8.66 10.56 8.16C10.36 7.68 10.16 7.74 10 7.74C9.86 7.73 9.7 7.62 9.53 7.62Z"/></svg>
+            </span>
+            <span>+1 (206) 385-8350</span>
+          </a>
+          <a href="https://www.linkedin.com/company/112228768/" target="_blank" rel="noopener" class="footer-contact-link">
+            <span class="footer-contact-badge footer-contact-badge--li">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28Z"/></svg>
+            </span>
+            <span>TheIA en LinkedIn</span>
+          </a>
+          <a href="https://www.instagram.com/theiacl_/" target="_blank" rel="noopener" class="footer-contact-link">
+            <span class="footer-contact-badge footer-contact-badge--ig">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </span>
+            <span>@theiacl_</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">TheIA Agent by THEIA.CL © 2026 · Todos los derechos reservados.</div>
+      <div class="footer-legal-links">
+        <span class="footer-copy">Santiago, Chile</span>
+        <a href="/privacidad">Política de Privacidad</a>
+        <a href="/terminos.html">Términos de Servicio</a>
+        <a href="/confianza">Confianza & DPA</a>
       </div>
     </div>
   </footer>
+  <script src="/webchat-cta.js"></script>
+  <script src="https://admin.theia.cl/static/js/webchat-widget.js" data-api-key="8da817eb-2cbf-42df-8b57-bb86288670de" data-api-url="https://admin.theia.cl" data-title="Asistente TheIA" data-color="#d4af37" data-prechat="false"></script>
 </body>
 </html>

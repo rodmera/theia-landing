@@ -35,6 +35,9 @@ HTML_FILES_WITH_FOOTER = [
     ROOT / "atencion-whatsapp.html",
     ROOT / "cotizaciones-agendamiento.html",
     ROOT / "seguimiento-equipo.html",
+    ROOT / "orquestacion.html",
+    ROOT / "confianza.html",
+    ROOT / "facil.html",
 ]
 
 
