@@ -88,16 +88,14 @@
       node.addEventListener('mouseenter', function () {
         const path = orchestrationContainer.querySelector('.home-ui__flow-path--' + channel);
         if (path) {
-          path.style.strokeWidth = '3.5';
-          path.style.opacity = '1';
+          path.classList.add('active-flow');
         }
       });
 
       node.addEventListener('mouseleave', function () {
         const path = orchestrationContainer.querySelector('.home-ui__flow-path--' + channel);
         if (path) {
-          path.style.strokeWidth = '';
-          path.style.opacity = '';
+          path.classList.remove('active-flow');
         }
       });
     });

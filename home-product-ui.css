@@ -298,11 +298,20 @@
 /* Nodos interactivos del diagrama */
 .home-ui__channel-node {
   cursor: pointer;
-  transition: transform 0.2s var(--bezier-smooth);
 }
 
-.home-ui__channel-node:hover {
-  transform: scale(1.05);
+.home-ui__channel-node rect,
+.home-ui__channel-node circle {
+  transition: stroke 0.2s var(--bezier-smooth), fill 0.2s var(--bezier-smooth);
+}
+
+.home-ui__channel-node:hover rect:first-child {
+  stroke: rgba(255, 255, 255, 0.24);
+  fill: #162032;
+}
+
+.home-ui__channel-node:hover circle {
+  stroke: rgba(255, 255, 255, 0.15);
 }
 
 /* Rutas y pulsos de datos SVG */
@@ -311,7 +320,6 @@
   stroke: rgba(255, 255, 255, 0.14);
   stroke-width: 1.5;
   stroke-dasharray: 4 4;
-  animation: dataFlow 24s linear infinite;
   transition: stroke 0.25s var(--bezier-smooth), stroke-width 0.25s var(--bezier-smooth);
 }
 
@@ -327,25 +335,10 @@
 .home-ui__channel-node[data-channel="instagram"]:hover ~ svg .home-ui__flow-path--ig,
 .home-ui__orchestration:has(.home-ui__channel-node[data-channel="instagram"]:hover) .home-ui__flow-path--ig,
 .home-ui__channel-node[data-channel="web"]:hover ~ svg .home-ui__flow-path--web,
-.home-ui__orchestration:has(.home-ui__channel-node[data-channel="web"]:hover) .home-ui__flow-path--web {
+.home-ui__orchestration:has(.home-ui__channel-node[data-channel="web"]:hover) .home-ui__flow-path--web,
+.home-ui__flow-path.active-flow {
   stroke: rgba(255, 255, 255, 0.45);
   stroke-width: 2;
-}
-
-@keyframes dataFlow {
-  from {
-    stroke-dashoffset: 200;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-/* Reducción de movimiento para accesibilidad */
-@media (prefers-reduced-motion: reduce) {
-  .home-ui__flow-path {
-    animation: none !important;
-  }
 }
 
 /* 3. Sección Setup Cero Fricción (HU-WEB-037) */
