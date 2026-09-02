@@ -34,7 +34,7 @@ def test_facil_html_structure_and_metadata():
     assert "<title>Tu Agente de WhatsApp en 3 Audios" in content
     assert 'canonical" href="https://theia.cl/facil"' in content
     assert "3 Simples Pasos" in content or "3 Audios" in content
-    assert "Clínica Dental" in content
+    assert "Centro Veterinario" in content or "Veterinaria" in content
     assert "Taller Mecánico" in content
     assert "Abogados" in content
     assert "btn-whatsapp" in content

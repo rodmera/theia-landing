@@ -88,3 +88,24 @@ def test_ac6_no_horizontal_overflow_mobile(mobile_page):
     assert scroll_w <= client_w, f"Overflow horizontal detectado en home: scrollWidth={scroll_w} > clientWidth={client_w}"
 
     assert len(filtered_js_errors(mobile_page)) == 0, "Cero errores de JS en consola"
+
+
+def test_agentes_especialistas_section_present_and_clean():
+    """Verifica que la sección de Agentes Especialistas exista con los 6 agentes y sin clínicas dentales."""
+    content = INDEX_HTML.read_text(encoding="utf-8")
+
+    assert 'id="agentes-especialistas"' in content
+    assert "Agentes Especialistas" in content
+    assert "Agente de Atención al Cliente" in content
+    assert "Agente de Agendamiento &amp; Reservas" in content or "Agente de Agendamiento & Reservas" in content
+    assert "Agente de Cotización &amp; Ventas" in content or "Agente de Cotización & Ventas" in content
+    assert "Agente de Seguimiento &amp; CRM" in content or "Agente de Seguimiento & CRM" in content
+    assert "Agente para Salud &amp; Bienestar" in content or "Agente para Salud & Bienestar" in content
+    assert "Agente para Servicios Técnicos" in content
+
+    # Verificación de exclusión de clínica dental
+    assert "Clínica Dental" not in content
+    assert "clínica dental" not in content
+    assert "Dr. Matías Silva" not in content
+    assert "limpiezas dentales" not in content
+
