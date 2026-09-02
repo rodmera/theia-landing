@@ -402,3 +402,36 @@ def test_paleta_verde_restringida_a_whatsapp_y_status_dot(mobile_page, path):
     }""")
     assert not violations, f"{path}: elementos con verde no autorizado:\n" + "\n".join(violations[:10])
 
+
+@pytest.mark.parametrize("path", PAGES)
+def test_dash_badges_conformes_a_theia_gold(mobile_page, path):
+    """Regla dura de Design System: Los .dash-badge (eyebrows/pastillas de sección)
+    deben usar paleta TheIA Gold (color dorado / gold-light) y fondos dorados sutiles,
+    PROHIBIENDO el uso de tonos morados / índigo (#4f46e5 / #818cf8 / rgb(79, 70, 229)).
+    """
+    mobile_page.goto(BASE + path, wait_until="domcontentloaded")
+    violations = mobile_page.evaluate("""() => {
+        const issues = [];
+        const badges = document.querySelectorAll('.dash-badge');
+        for (const badge of badges) {
+            const style = getComputedStyle(badge);
+            const color = style.color;
+            const bg = style.backgroundColor;
+            const border = style.borderColor;
+
+            // Detectar morados / índigos (79, 70, 229 o 129, 140, 248)
+            const isPurple = str => {
+                if (!str) return false;
+                const s = str.toLowerCase();
+                return s.includes('79, 70, 229') || s.includes('129, 140, 248') || s.includes('99, 102, 241') || s.includes('168, 85, 247');
+            };
+
+            if (isPurple(color) || isPurple(bg) || isPurple(border)) {
+                issues.push(`Badge morado no conforme en "${badge.textContent.trim().slice(0, 30)}": color=${color}, bg=${bg}, border=${border}`);
+            }
+        }
+        return issues;
+    }""")
+    assert not violations, f"{path}: .dash-badge con morado/índigo no autorizado:\n" + "\n".join(violations[:10])
+
+
