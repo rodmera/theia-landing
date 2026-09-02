@@ -53,13 +53,9 @@ def test_ac2_and_ac3_acompanamiento_local_and_speed_to_lead():
 
 
 def test_ac4_bento_stats_metrics():
-    """HU-WEB-028 AC4: Bento stats con 4 métricas clave de alto impacto."""
+    """HU-WEB-028 AC4: Sección metrics-banner eliminada para evitar ruido visual bajo el Hero."""
     content = INDEX_HTML.read_text(encoding="utf-8")
-
-    assert "24/7 / 365" in content, "Falta stat 24/7 / 365"
-    assert "&lt; 60s" in content or "< 60s" in content, "Falta stat < 60s"
-    assert "100% Certeza" in content, "Falta stat 100% Certeza"
-    assert "$0 Extra" in content, "Falta stat $0 Extra"
+    assert "metrics-banner" not in content, "metrics-banner debe estar eliminada para evitar ruido visual bajo el Hero"
 
 
 def test_ac5_design_system_trust_strip_and_logos(desktop_page):
