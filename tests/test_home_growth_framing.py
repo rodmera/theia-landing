@@ -20,12 +20,12 @@ def test_ac1_hero_growth_framing_copy_and_hierarchy():
     content = INDEX_HTML.read_text(encoding="utf-8")
 
     # 1. Titular principal
-    assert "Inteligencia Artificial para tu negocio" in content, "Falta titular principal en hero"
-    assert "Con tus reglas, precios y control" in content, "Falta bajada en titular"
+    assert "Agentes de IA que" in content, "Falta titular principal en hero"
+    assert "impulsan tu negocio" in content, "Falta bajada en titular"
 
     # 2. Bajada comercial clara
     assert "catálogos reales" in content, "Falta catálogos en bajada"
-    assert "agendan en tiempo real" in content, "Falta agendamiento en bajada"
+    assert "agenda en tiempo real" in content or "agendan en tiempo real" in content, "Falta agendamiento en bajada"
     assert "Sin alucinaciones" in content, "Falta sin alucinaciones en bajada"
 
     # 3. Micro-copy de valor
