@@ -70,3 +70,24 @@ def test_navbar_mobile_toggle_layout(page: Page, site_server: str, page_path: st
     header_box = header.bounding_box()
     assert header_box is not None
     assert header_box["height"] < 130, f"Navbar móvil demasiado alto en {page_path}"
+
+
+@pytest.mark.parametrize("page_path", HTML_PAGES)
+def test_h1_not_overlapped_by_navbar(page: Page, site_server: str, page_path: str):
+    """Verifica mecánicamente que el título principal (h1) nunca quede tapado o solapado por el navbar fijo."""
+    page.set_viewport_size({"width": 1280, "height": 800})
+    page.goto(f"{site_server}{page_path}", wait_until="domcontentloaded")
+    
+    header = page.locator("nav.site-header, .site-header").first
+    h1 = page.locator("h1").first
+    
+    if header.count() > 0 and h1.count() > 0:
+        header_box = header.bounding_box()
+        h1_box = h1.bounding_box()
+        assert header_box is not None and h1_box is not None
+        header_bottom = header_box["y"] + header_box["height"]
+        assert h1_box["y"] >= header_bottom - 2, (
+            f"El H1 en {page_path} está tapado por el navbar! "
+            f"Navbar llega hasta y={header_bottom}px pero H1 comienza en y={h1_box['y']}px"
+        )
+
