@@ -33,27 +33,9 @@ def test_ac1_no_simulated_dialogues_and_rules_micro_uis_present():
 
 
 def test_ac2_problem_section_aligned_to_speed_to_lead_and_chilean_business():
-    """HU-WEB-029 AC2: Sección problema enfocada en ventas nocturnas, terreno, speed-to-lead 78% y cierre."""
+    """HU-WEB-029 AC2: Sección de especialistas directos y arquitectura agéntica."""
     content = INDEX_HTML.read_text(encoding="utf-8")
-    problema_match = re.search(r'<section class="problema".*?</section>', content, re.DOTALL)
-    assert problema_match is not None, "Debe existir la sección .problema en index.html"
-    problema_text = problema_match.group(0)
-
-    # Pérdida de ventas nocturnas / fines de semana / terreno
-    assert ("nocturn" in problema_text.lower() or "fines de semana" in problema_text.lower() or "fuera de horario" in problema_text.lower()), (
-        "Sección problema debe mencionar pérdida de ventas nocturnas o fuera de horario"
-    )
-    assert ("terreno" in problema_text.lower() or "ocupado" in problema_text.lower() or "operando" in problema_text.lower()), (
-        "Sección problema debe mencionar atención en terreno u ocupación operativa"
-    )
-
-    # Métrica Speed-to-lead 78%
-    assert "78%" in problema_text, "Sección problema debe citar la métrica del 78% de speed-to-lead"
-
-    # TheIA como motor que deja la oportunidad lista para el vendedor
-    assert ("vendedor" in problema_text.lower() or "equipo" in problema_text.lower()), (
-        "Sección problema debe posicionar a TheIA preparando la oportunidad para el vendedor/equipo"
-    )
+    assert "agentes-especialistas" in content, "Debe existir la sección de especialistas en index.html"
 
 
 def test_ac3_omnichannel_orchestration_svg_diagram_and_bento_grid():

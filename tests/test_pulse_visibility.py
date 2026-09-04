@@ -67,7 +67,7 @@ def test_navbar_contiene_enlace_a_pulse_en_orden_correcto(page_path):
 
 
 def test_home_seccion_pulse_spotlight_ubicacion_y_semantica():
-    """index.html debe tener la sección .pulse-spotlight entre .productos-paraguas y .problema."""
+    """index.html debe tener la sección .pulse-spotlight entre .productos-paraguas y .servicios-especializados."""
     content = INDEX_HTML.read_text(encoding="utf-8")
     
     assert "pulse-spotlight" in content, "index.html debe contener la clase .pulse-spotlight"
@@ -76,14 +76,14 @@ def test_home_seccion_pulse_spotlight_ubicacion_y_semantica():
     pos_spotlight = content.find('class="pulse-spotlight')
     if pos_spotlight == -1:
         pos_spotlight = content.find("pulse-spotlight")
-    pos_problema = content.find('class="problema"')
+    pos_servicios = content.find('class="servicios-especializados"')
     
     assert pos_paraguas != -1, "No se encontró .productos-paraguas en index.html"
     assert pos_spotlight != -1, "No se encontró .pulse-spotlight en index.html"
-    assert pos_problema != -1, "No se encontró .problema en index.html"
+    assert pos_servicios != -1, "No se encontró .servicios-especializados en index.html"
     
-    assert pos_paraguas < pos_spotlight < pos_problema, (
-        "La sección .pulse-spotlight debe estar ubicada después de .productos-paraguas y antes de .problema"
+    assert pos_paraguas < pos_spotlight < pos_servicios, (
+        "La sección .pulse-spotlight debe estar ubicada después de .productos-paraguas y antes de .servicios-especializados"
     )
     
     # Validar selectores requeridos por la especificación técnica
