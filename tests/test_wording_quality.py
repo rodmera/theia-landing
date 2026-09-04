@@ -324,7 +324,7 @@ def test_wording_no_echoing_reiterativo_en_parrafos():
     for file in MARKETING_HTML_FILES:
         content = file.read_text(encoding="utf-8")
         content_clean = re.sub(r"<(script|style|nav|footer)[^>]*>.*?</\1>", " ", content, flags=re.S | re.I)
-        items = re.findall(r"<(?:p|li)[^>]*>(.*?)</(?:p|li)>", content_clean, flags=re.S | re.I)
+        items = re.findall(r"<(?:p|li)\b[^>]*>(.*?)</(?:p|li)>", content_clean, flags=re.S | re.I)
         for item in items:
             text = re.sub(r"<[^>]+>", " ", item)
             text = re.sub(r"\s+", " ", text).strip()
@@ -332,8 +332,8 @@ def test_wording_no_echoing_reiterativo_en_parrafos():
                 continue
 
             words = [
-                w.lower() for w in re.findall(r"\b[a-záéíóúñ]{4,}\b", text)
-                if w.lower() not in SPANISH_STOP_WORDS
+                w for w in re.findall(r"\b[a-záéíóúñ]{4,}\b", text.lower())
+                if w not in SPANISH_STOP_WORDS
             ]
             counts = collections.Counter(words)
             for word, count in counts.items():
@@ -374,3 +374,121 @@ def test_wording_cohesion_titulo_subtitulo_sin_tautologia():
                 )
 
     assert not violations, "Tautologías o falta de cohesión título-subtítulo:\n" + "\n".join(violations)
+
+
+def test_wording_no_consecutive_headings_echo():
+    """Valida que no exista 'Heading Stacking Echo': dos titulares contiguos (H1->H2 o H2->H2)
+    no pueden arrancar con la misma palabra clave ni compartir el 60% de sus términos de contenido."""
+    violations = []
+    heading_stop_words = SPANISH_STOP_WORDS | {
+        "de", "la", "el", "en", "y", "a", "los", "las", "un", "una", "por", "con",
+        "tu", "tus", "su", "sus", "que", "te", "o", "al", "del", "no", "si", "más"
+    }
+
+    for file in MARKETING_HTML_FILES:
+        content = file.read_text(encoding="utf-8")
+        content_clean = re.sub(r"<(script|style|nav|footer)[^>]*>.*?</\1>", " ", content, flags=re.S | re.I)
+
+        headings = []
+        for m in re.finditer(r"<(h[12])\b[^>]*>(.*?)</\1>", content_clean, flags=re.S | re.I):
+            txt = re.sub(r"<[^>]+>", " ", m.group(2)).strip()
+            txt = re.sub(r"\s+", " ", txt)
+            words = [w for w in re.findall(r"\b[a-záéíóúñ]{4,}\b", txt.lower()) if w not in heading_stop_words]
+            headings.append((m.group(1), txt, words))
+
+        for i in range(len(headings) - 1):
+            t1, txt1, w1 = headings[i]
+            t2, txt2, w2 = headings[i + 1]
+
+            # 1. Mismo término inicial de contenido (ej. H1 'Agentes...' y H2 'Agentes...')
+            if w1 and w2 and w1[0] == w2[0]:
+                violations.append(
+                    f"{file.name} → Eco entre titulares contiguos ({t1} → {t2}): ambos inician con '{w1[0]}'.\n"
+                    f"   {t1}: \"{txt1}\"\n   {t2}: \"{txt2}\""
+                )
+
+            # 2. Solapamiento excesivo de palabras clave entre titulares contiguos
+            if w1 and w2:
+                overlap = set(w1).intersection(set(w2))
+                ratio = len(overlap) / min(len(set(w1)), len(set(w2)))
+                if ratio >= 0.6:
+                    violations.append(
+                        f"{file.name} → Solapamiento excesivo ({ratio:.0%}) entre titulares contiguos ({t1} → {t2}): "
+                        f"palabras comunes: {list(overlap)}.\n"
+                        f"   {t1}: \"{txt1}\"\n   {t2}: \"{txt2}\""
+                    )
+
+    assert not violations, "Ecos o redundancias entre titulares contiguos detectados:\n" + "\n".join(violations)
+
+
+def test_wording_no_badge_heading_tautology():
+    """Valida que no exista tautología ni eco léxico entre una pastilla (.dash-badge) y el H2 que le sigue."""
+    violations = []
+    badge_stop_words = SPANISH_STOP_WORDS | {
+        "de", "la", "el", "en", "y", "a", "los", "las", "un", "una", "por", "con",
+        "tu", "tus", "su", "sus", "que", "te", "o", "al", "del", "no", "si", "más"
+    }
+
+    for file in MARKETING_HTML_FILES:
+        content = file.read_text(encoding="utf-8")
+        content_clean = re.sub(r"<(script|style|nav|footer)[^>]*>.*?</\1>", " ", content, flags=re.S | re.I)
+
+        for m in re.finditer(r"<(?:div|span)\b[^>]*class=['\"][^'\"]*dash-badge[^'\"]*['\"][^>]*>(.*?)</(?:div|span)>\s*<h2\b[^>]*>(.*?)</h2>", content_clean, flags=re.S | re.I):
+            badge_txt = re.sub(r"<[^>]+>", " ", m.group(1)).strip()
+            h2_txt = re.sub(r"<[^>]+>", " ", m.group(2)).strip()
+            b_words = [w for w in re.findall(r"\b[a-záéíóúñ]{4,}\b", badge_txt.lower()) if w not in badge_stop_words]
+            h_words = [w for w in re.findall(r"\b[a-záéíóúñ]{4,}\b", h2_txt.lower()) if w not in badge_stop_words]
+
+            # 1. Misma palabra inicial
+            if b_words and h_words and b_words[0] == h_words[0]:
+                violations.append(
+                    f"{file.name} → Pastilla y H2 inician con la misma palabra '{b_words[0]}':\n"
+                    f"   Badge: \"{badge_txt}\"\n   H2: \"{h2_txt}\""
+                )
+
+            # 2. Solapamiento de contenido >= 50%
+            if b_words and h_words:
+                overlap = set(b_words).intersection(set(h_words))
+                ratio = len(overlap) / len(set(b_words))
+                if ratio >= 0.5:
+                    violations.append(
+                        f"{file.name} → Tautología pastilla-H2 ({ratio:.0%} solapamiento): "
+                        f"palabras comunes: {list(overlap)}.\n"
+                        f"   Badge: \"{badge_txt}\"\n   H2: \"{h2_txt}\""
+                    )
+
+    assert not violations, "Tautologías o redundancias entre pastilla y titular detectadas:\n" + "\n".join(violations)
+
+
+def test_wording_fold_anchor_diversity():
+    """Valida que en el primer pliegue del Home (index.html) no se sature el vocabulario:
+    H1, la primera pastilla y el primer H2 no pueden iniciar con la misma palabra clave de anclaje."""
+    index_file = ROOT / "index.html"
+    content = index_file.read_text(encoding="utf-8")
+    content_clean = re.sub(r"<(script|style|nav|footer)[^>]*>.*?</\1>", " ", content, flags=re.S | re.I)
+
+    h1_match = re.search(r"<h1\b[^>]*>(.*?)</h1>", content_clean, flags=re.S | re.I)
+    badge_match = re.search(r"<(?:div|span)\b[^>]*class=['\"][^'\"]*dash-badge[^'\"]*['\"][^>]*>(.*?)</(?:div|span)>", content_clean, flags=re.S | re.I)
+    h2_match = re.search(r"<h2\b[^>]*>(.*?)</h2>", content_clean, flags=re.S | re.I)
+
+    assert h1_match and badge_match and h2_match, "Elementos clave del Hero no encontrados en index.html"
+
+    stop_words = SPANISH_STOP_WORDS | {"de", "la", "el", "en", "y", "a", "para", "que", "tu"}
+
+    h1_txt = re.sub(r"<[^>]+>", " ", h1_match.group(1)).strip()
+    badge_txt = re.sub(r"<[^>]+>", " ", badge_match.group(1)).strip()
+    h2_txt = re.sub(r"<[^>]+>", " ", h2_match.group(1)).strip()
+
+    h1_words = [w for w in re.findall(r"\b[a-záéíóúñ]{4,}\b", h1_txt.lower()) if w not in stop_words]
+    badge_words = [w for w in re.findall(r"\b[a-záéíóúñ]{4,}\b", badge_txt.lower()) if w not in stop_words]
+    h2_words = [w for w in re.findall(r"\b[a-záéíóúñ]{4,}\b", h2_txt.lower()) if w not in stop_words]
+
+    leading_words = [words[0] for words in [h1_words, badge_words, h2_words] if words]
+    counts = collections.Counter(leading_words)
+    duplicates = [word for word, count in counts.items() if count > 1]
+
+    assert not duplicates, (
+        f"Saturación de palabra ancla en el primer pliegue de index.html: palabra '{duplicates[0]}' "
+        f"repetida como inicio en los elementos principales del Hero:\n"
+        f"   H1: \"{h1_txt}\"\n   Badge: \"{badge_txt}\"\n   Primer H2: \"{h2_txt}\""
+    )

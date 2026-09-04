@@ -338,20 +338,54 @@ class FrontendUXAuditor:
 
             # 7. Echoing dentro de párrafos
             content_clean = re.sub(r"<(script|style|nav|footer)[^>]*>.*?</\1>", " ", content, flags=re.S | re.I)
-            items = re.findall(r"<(?:p|li)[^>]*>(.*?)</(?:p|li)>", content_clean, flags=re.S | re.I)
+            items = re.findall(r"<(?:p|li)\b[^>]*>(.*?)</(?:p|li)>", content_clean, flags=re.S | re.I)
             for item in items:
                 text = re.sub(r"<[^>]+>", " ", item)
                 text = re.sub(r"\s+", " ", text).strip()
                 if len(text) < 40 or "©" in text:
                     continue
                 words = [
-                    w.lower() for w in re.findall(r"\b[a-záéíóúñ]{4,}\b", text)
-                    if w.lower() not in SPANISH_STOP_WORDS
+                    w for w in re.findall(r"\b[a-záéíóúñ]{4,}\b", text.lower())
+                    if w not in SPANISH_STOP_WORDS
                 ]
                 counts = collections.Counter(words)
                 for word, count in counts.items():
                     if count >= 3:
                         self.log_warning(file, 0, "WORDING-ECHOING", f"Palabra '{word}' repetida {count} veces en párrafo: \"{text[:70]}...\"")
+
+            # 8. Eco entre titulares contiguos (Heading Stacking Echo)
+            heading_stop = SPANISH_STOP_WORDS | {"de", "la", "el", "en", "y", "a", "los", "las", "un", "una", "por", "con", "tu", "tus", "su", "sus", "que", "te", "o", "al", "del", "no", "si"}
+            headings = []
+            for m in re.finditer(r"<(h[12])\b[^>]*>(.*?)</\1>", content_clean, flags=re.S | re.I):
+                txt = re.sub(r"<[^>]+>", " ", m.group(2)).strip()
+                txt = re.sub(r"\s+", " ", txt)
+                w_list = [w for w in re.findall(r"\b[a-záéíóúñ]{4,}\b", txt.lower()) if w not in heading_stop]
+                headings.append((m.group(1), txt, w_list))
+
+            for i in range(len(headings) - 1):
+                t1, txt1, w1 = headings[i]
+                t2, txt2, w2 = headings[i + 1]
+                if w1 and w2 and w1[0] == w2[0]:
+                    self.log_error(file, 0, "WORDING-HEADING-ECHO", f"Titulares contiguos ({t1} → {t2}) inician con la misma palabra '{w1[0]}': \"{txt1[:50]}\" vs \"{txt2[:50]}\"")
+                if w1 and w2:
+                    overlap = set(w1).intersection(set(w2))
+                    ratio = len(overlap) / min(len(set(w1)), len(set(w2)))
+                    if ratio >= 0.6:
+                        self.log_error(file, 0, "WORDING-HEADING-OVERLAP", f"Solapamiento excesivo ({ratio:.0%}) entre titulares contiguos: palabras {list(overlap)}")
+
+            # 9. Tautología entre pastilla (.dash-badge) y H2 adyacente
+            for m in re.finditer(r"<(?:div|span)\b[^>]*class=['\"][^'\"]*dash-badge[^'\"]*['\"][^>]*>(.*?)</(?:div|span)>\s*<h2\b[^>]*>(.*?)</h2>", content_clean, flags=re.S | re.I):
+                b_txt = re.sub(r"<[^>]+>", " ", m.group(1)).strip()
+                h2_txt = re.sub(r"<[^>]+>", " ", m.group(2)).strip()
+                b_w = [w for w in re.findall(r"\b[a-záéíóúñ]{4,}\b", b_txt.lower()) if w not in heading_stop]
+                h_w = [w for w in re.findall(r"\b[a-záéíóúñ]{4,}\b", h2_txt.lower()) if w not in heading_stop]
+                if b_w and h_w and b_w[0] == h_w[0]:
+                    self.log_error(file, 0, "WORDING-BADGE-ECHO", f"Pastilla y H2 inician con la misma palabra '{b_w[0]}': \"{b_txt}\" vs \"{h2_txt[:50]}\"")
+                if b_w and h_w:
+                    overlap = set(b_w).intersection(set(h_w))
+                    ratio = len(overlap) / len(set(b_w))
+                    if ratio >= 0.5:
+                        self.log_error(file, 0, "WORDING-BADGE-TAUTOLOGY", f"Tautología pastilla-H2 ({ratio:.0%}): palabras {list(overlap)}")
 
     def run(self) -> bool:
         print(f"🔍 Iniciando Auditoría Frontend & UX en: {self.target_dir}")
