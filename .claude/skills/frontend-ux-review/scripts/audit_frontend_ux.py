@@ -243,6 +243,21 @@ class FrontendUXAuditor:
                     if re.search(r"\b" + re.escape(promise) + r"\b", clean_line, re.I):
                         self.log_error(file, idx, "UX-FUTURE-PROMISE", f"Promesa de futuro no autorizada en copy visible: {promise!r}")
 
+    def audit_svg_validity(self):
+        """Audita que ningún elemento <svg> use atributos XML inválidos como width='auto' o height='auto'."""
+        for file in self.html_files:
+            content = file.read_text(encoding="utf-8", errors="ignore")
+            lines = content.splitlines()
+            for idx, line in enumerate(lines, 1):
+                if "<svg" in line:
+                    matches = re.findall(r"<svg\b[^>]*>", line, re.I)
+                    for tag in matches:
+                        if re.search(r'\b(?:width|height)\s*=\s*["\']auto["\']', tag, re.I):
+                            self.log_error(
+                                file, idx, "SVG-INVALID-ATTR",
+                                f"<svg> con width='auto' o height='auto' inválido en XML SVG (lanza error en consola Chromium). Usar style='height: auto;'."
+                            )
+
     def audit_wording_and_editorial_quality(self):
         """Valida calidad editorial, ausencia de pleonasmos, meta-lenguaje, fluff y echoing."""
         brand_checks = [
@@ -348,6 +363,7 @@ class FrontendUXAuditor:
         self.audit_section_titles()
         self.audit_color_and_palettes()
         self.audit_ux_content_and_promises()
+        self.audit_svg_validity()
         self.audit_wording_and_editorial_quality()
 
         print("\n📊 RESULTADOS:")

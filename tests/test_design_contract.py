@@ -552,4 +552,24 @@ def test_subtitulos_de_seccion_homologados_estrictamente(desktop_page, path):
     assert not violations, f"{path}: subtítulos de sección no conformes:\n" + "\n".join(violations)
 
 
+def test_svg_attributes_validity():
+    """Verifica que ningún elemento <svg> contenga atributos XML no válidos como width='auto' o height='auto'.
+    En la especificación W3C SVG 1.1/2, 'auto' es un valor de CSS, no un valor válido de atributo XML, y lanza
+    un error de parser en la consola de Chromium: Error: <svg> attribute height: Expected length, 'auto'.
+    """
+    violations = []
+    for file in SITE_HTML:
+        if not file.is_file():
+            continue
+        content = file.read_text(encoding="utf-8")
+        svg_tags = re.findall(r"<svg\b[^>]*>", content, re.I)
+        for tag in svg_tags:
+            if re.search(r'\b(?:width|height)\s*=\s*["\']auto["\']', tag, re.I):
+                violations.append(
+                    f"{file.name}: <svg> contiene width='auto' o height='auto' no válido en XML SVG. "
+                    f"Debe utilizarse CSS 'style=\"height: auto;\"' en su lugar:\n  {tag[:120]}"
+                )
+    assert not violations, "Elementos SVG con atributos inválidos:\n" + "\n".join(violations)
+
+
 

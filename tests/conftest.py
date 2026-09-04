@@ -98,11 +98,12 @@ def site_server():
 
 @pytest.fixture(scope="session")
 def mobile_page(browser):
-    """Página con viewport móvil (el default de la suite) + captura de errores JS."""
+    """Página con viewport móvil (el default de la suite) + captura de errores JS y de consola."""
     ctx = browser.new_context(**MOBILE)
     page = ctx.new_page()
     page.js_errors = []
     page.on("pageerror", lambda e: page.js_errors.append(str(e)))
+    page.on("console", lambda msg: page.js_errors.append(f"Console error: {msg.text}") if msg.type == "error" else None)
     yield page
     ctx.close()
 
@@ -113,6 +114,7 @@ def desktop_page(browser):
     page = ctx.new_page()
     page.js_errors = []
     page.on("pageerror", lambda e: page.js_errors.append(str(e)))
+    page.on("console", lambda msg: page.js_errors.append(f"Console error: {msg.text}") if msg.type == "error" else None)
     yield page
     ctx.close()
 
