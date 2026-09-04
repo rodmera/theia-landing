@@ -16,7 +16,6 @@ import os
 import re
 import sys
 from pathlib import Path
-from bs4 import BeautifulSoup
 
 CANONICAL_FAMILIES = {"merriweather", "plus jakarta sans", "inherit"}
 CANONICAL_WEIGHTS = {"400", "500", "700", "900"}
@@ -279,11 +278,11 @@ class FrontendUXAuditor:
                             self.log_error(file, idx, "WORDING-NAMING", f"Naming '{actual}' debe ser '{expected}'")
 
             # 7. Echoing dentro de párrafos
-            soup = BeautifulSoup(content, "html.parser")
-            for p in soup.find_all(["p", "li"]):
-                if p.find_parents(["nav", "footer", "script", "style"]):
-                    continue
-                text = p.get_text(" ", strip=True)
+            content_clean = re.sub(r"<(script|style|nav|footer)[^>]*>.*?</\1>", " ", content, flags=re.S | re.I)
+            items = re.findall(r"<(?:p|li)[^>]*>(.*?)</(?:p|li)>", content_clean, flags=re.S | re.I)
+            for item in items:
+                text = re.sub(r"<[^>]+>", " ", item)
+                text = re.sub(r"\s+", " ", text).strip()
                 if len(text) < 40 or "©" in text:
                     continue
                 words = [

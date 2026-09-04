@@ -10,7 +10,6 @@ Basado en las mejores prácticas de la industria:
 import collections
 from pathlib import Path
 import re
-from bs4 import BeautifulSoup
 import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -262,12 +261,11 @@ def test_wording_no_echoing_reiterativo_en_parrafos():
     violations = []
     for file in MARKETING_HTML_FILES:
         content = file.read_text(encoding="utf-8")
-        soup = BeautifulSoup(content, "html.parser")
-        for p in soup.find_all(["p", "li"]):
-            # Omitir menús de navegación, pies de página o avisos legales
-            if p.find_parents(["nav", "footer", "script", "style"]):
-                continue
-            text = p.get_text(" ", strip=True)
+        content_clean = re.sub(r"<(script|style|nav|footer)[^>]*>.*?</\1>", " ", content, flags=re.S | re.I)
+        items = re.findall(r"<(?:p|li)[^>]*>(.*?)</(?:p|li)>", content_clean, flags=re.S | re.I)
+        for item in items:
+            text = re.sub(r"<[^>]+>", " ", item)
+            text = re.sub(r"\s+", " ", text).strip()
             if len(text) < 40 or "©" in text:
                 continue
 
@@ -290,38 +288,27 @@ def test_wording_cohesion_titulo_subtitulo_sin_tautologia():
     violations = []
     for file in MARKETING_HTML_FILES:
         content = file.read_text(encoding="utf-8")
-        soup = BeautifulSoup(content, "html.parser")
-        sections = soup.find_all("section")
-        for s in sections:
-            h2 = s.find("h2")
-            if not h2:
+        sections = re.findall(r"<section[^>]*>(.*?)</section>", content, flags=re.S | re.I)
+        for sec in sections:
+            h2_match = re.search(r"<h2[^>]*>(.*?)</h2>", sec, flags=re.S | re.I)
+            sub_match = re.search(r"class=['\"][^'\"]*section-sub[^'\"]*['\"][^>]*>(.*?)</", sec, flags=re.S | re.I)
+            if not h2_match or not sub_match:
                 continue
-            h2_text = h2.get_text(" ", strip=True)
-            sub = s.find(class_=re.compile(r"section-sub"))
-            if not sub:
-                continue
-            sub_text = sub.get_text(" ", strip=True)
 
-            # Extraer palabras clave significativas
-            h_words = {
-                w.lower() for w in re.findall(r"\b[a-záéíóúñ]{4,}\b", h2_text)
-                if w.lower() not in SPANISH_STOP_WORDS
-            }
-            s_words = {
-                w.lower() for w in re.findall(r"\b[a-záéíóúñ]{4,}\b", sub_text)
-                if w.lower() not in SPANISH_STOP_WORDS
-            }
+            h2_text = re.sub(r"<[^>]+>", " ", h2_match.group(1))
+            h2_text = re.sub(r"\s+", " ", h2_text).strip()
 
-            # Si el subtítulo tiene menos de 4 palabras o no aporta información adicional
+            sub_text = re.sub(r"<[^>]+>", " ", sub_match.group(1))
+            sub_text = re.sub(r"\s+", " ", sub_text).strip()
+
             if len(sub_text.split()) < 4:
                 violations.append(
-                    f"{file.name} [{s.get('id', 'section')}] → Subtítulo demasiado breve o vacío: '{sub_text}'"
+                    f"{file.name} → Subtítulo demasiado breve o vacío: '{sub_text}'"
                 )
 
-            # Si el subtítulo es idéntico al título
             if h2_text.strip().lower() == sub_text.strip().lower():
                 violations.append(
-                    f"{file.name} [{s.get('id', 'section')}] → Tautología total entre título y subtítulo: '{h2_text}'"
+                    f"{file.name} → Tautología total entre título y subtítulo: '{h2_text}'"
                 )
 
     assert not violations, "Tautologías o falta de cohesión título-subtítulo:\n" + "\n".join(violations)
