@@ -75,7 +75,7 @@ def test_ac5_design_system_trust_strip_and_logos(desktop_page):
     nvidia_badge = trust_strip.locator("img[src='/nvidia-inception-program-badge.png']")
     assert nvidia_badge.is_visible()
     height = nvidia_badge.evaluate("el => el.offsetHeight")
-    assert height == 44, f"Badge NVIDIA debe tener 44px de altura, tiene {height}px"
+    assert height == 54, f"Badge NVIDIA debe tener 54px de altura, tiene {height}px"
 
 
 def test_ac6_no_horizontal_overflow_mobile(mobile_page):
