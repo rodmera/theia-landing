@@ -188,6 +188,17 @@ de la clínica o del almacén. TODO el copy del sitio se escribe en SU lenguaje:
   cercano y transparencia de costos.
 - Español chileno, tuteo, directo. Frases cortas. Cero superlativos vacíos.
 
+**⛔ REGLA DURA — Wording, Calidad Editorial y Anti-Redundancia (2026-09-04):**
+El copy visible de marketing en todas las páginas debe superar los contratos de calidad editorial basados en las mejores prácticas de UX Writing (NN/g, Torrey Podmajersky, Sarah Richards):
+1. **Cero Pleonasmos y Tautologías:** Prohibido "completamente gratis", "totalmente automático", "reintentar de nuevo", "lapso de tiempo", "resumen breve", "resultado final", "planes a futuro", "solución integral completa", "bucle circular", "innovación novedosa".
+2. **Cero Meta-Lenguaje Obvio de Interfaz:** Prohibido "haz clic aquí", "presiona el botón para", "a continuación te mostramos", "en esta sección puedes ver". Los botones y enlaces deben emplear verbos de acción directos ("Probar demo", "Ver catálogo", "Escribir por WhatsApp").
+3. **Tuteo Chileno Estándar Consistente:** Prohibido alternar con ustedeo ("su negocio", "sus clientes", "su empresa", "usted", "comuníquese") o voseo ("tenés", "hacés", "podés"). Todo el copy de producto habla de "tú" ("tu negocio", "atiende", "conversa", "prueba").
+4. **Cero Fluff y Buzzwords Vacías:** Prohibido "de última generación", "de vanguardia", "de clase mundial", "revolucionario", "sin precedentes", "disruptivo", "paradigma", "holístico", "sinergia", "customer-centric", "seamless", "game-changer".
+5. **Anti-Echoing en Párrafos:** Prohibido repetir la misma palabra clave sustantiva o verbal 3 o más veces dentro de un mismo párrafo `<p>` o bloque `<li>` sin justificación estilística.
+6. **Cohesión Título ↔ Subtítulo:** El subtítulo (`.section-sub`) no debe ser un eco tautológico que repita mecánicamente las mismas palabras del título H2; debe aportar contexto explicativo, valor o justificación operativa.
+7. **Integridad de Naming Canónico:** "TheIA" estricto (prohibido "Theia", "TheIa", "THEIA" fuera de razón social), "WhatsApp" estricto (prohibido "Whatsapp", "whatsap"), "Instagram", "Google Gemini", "Google Calendar", "Ley 21.719".
+8. **Enforcement Mecánico:** Suite determinista `tests/test_wording_quality.py` y skill `frontend-ux-review` (`audit_frontend_ux.py`). Todo fallo bloquea el CI.
+
 ## Backlog (desde 2026-07-18)
 
 Las HUs del sitio viven en el **mismo backlog del vault que TheIA producto** (notas `HU-WEB-*` en

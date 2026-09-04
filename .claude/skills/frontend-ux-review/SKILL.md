@@ -29,6 +29,14 @@ Skill obligatorio para todo desarrollo frontend en TheIA. Asegura que cada panta
 - **Tono Canónico:**
   - Registro chileno profesional y directo ("la persona de a pie detrás del mesón": clientes, plata, pedidos, agendar, responder a tiempo).
   - PROHIBIDA la jerga de startup: "unicornio", "SaaS", "Serie A", "escalar", "stack", etc.
+- **Wording & Calidad Editorial (Reglas de Expertos: NN/g, Podmajersky, Richards):**
+  - **Cero Pleonasmos y Tautologías:** Prohibido "completamente gratis", "totalmente automático", "reintentar de nuevo", "lapso de tiempo", "resumen breve", "resultado final", "planes a futuro", "solución integral completa", "bucle circular".
+  - **Cero Meta-Lenguaje Obvio de UI:** Prohibido "haz clic aquí", "presiona el botón para", "a continuación te mostramos", "en esta sección puedes ver". Los botones deben usar verbos de acción directos.
+  - **Tuteo Consistente:** Tuteo chileno estándar ("tu negocio", "atiende", "conversa", "prueba", "configura"). Prohibido mezclar ustedeo ("su negocio", "sus clientes", "su empresa", "usted") o voseo ("tenés", "hacés").
+  - **Cero Fluff y Buzzwords Vacías:** Prohibido "de última generación", "de vanguardia", "de clase mundial", "revolucionario", "sin precedentes", "disruptivo", "paradigma", "holístico", "sinergia", "customer-centric", "seamless".
+  - **Anti-Echoing en Párrafos:** Prohibido repetir la misma palabra sustantiva/verbal 3 o más veces dentro de un mismo párrafo o bloque de texto sin justificación estilística.
+  - **Cohesión Título ↔ Subtítulo:** El subtítulo (`.section-sub`) no debe ser un eco tautológico que repita las mismas palabras del título; debe aportar contexto explicativo, valor o justificación operativa.
+  - **Integridad de Naming de Marcas:** "TheIA" estricto (no "Theia", "TheIa", "THEIA"), "WhatsApp" estricto (no "Whatsapp"), "Instagram", "Google Gemini", "Ley 21.719".
 - **Verdad Comercial & Closed-World:**
   - PROHIBIDO el uso de "próximamente", "soon", "avísame" o promesas de módulos en desarrollo. Lo que está en la web debe operar hoy en producción.
 

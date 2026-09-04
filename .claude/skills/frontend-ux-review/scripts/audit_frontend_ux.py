@@ -11,16 +11,92 @@ Valida:
 """
 
 import argparse
+import collections
 import os
 import re
 import sys
 from pathlib import Path
+from bs4 import BeautifulSoup
 
 CANONICAL_FAMILIES = {"merriweather", "plus jakarta sans", "inherit"}
 CANONICAL_WEIGHTS = {"400", "500", "700", "900"}
 FORBIDDEN_PROMISES = ["próximamente", "próximas", "avísame", "en camino", "coming soon"]
 GREEN_COLORS = ["#34c77b", "#25d366", "#10b981", "rgb(52, 199, 123)", "rgb(37, 211, 102)", "rgb(16, 185, 129)"]
 PURPLE_COLORS = ["#4f46e5", "#818cf8", "#6366f1", "#a855f7", "rgb(79, 70, 229)", "rgb(129, 140, 248)"]
+
+# Reglas de Wording y UX Writing (NN/g, Torrey Podmajersky, Sarah Richards)
+PLEONASMS = [
+    (r"\bcompletamente gratis\b", "usar 'gratis' o 'sin costo'"),
+    (r"\btotalmente gratis\b", "usar 'gratis' o 'sin costo'"),
+    (r"\btotalmente autom[aá]tico\b", "usar 'automático'"),
+    (r"\bcompletamente autom[aá]tico\b", "usar 'automático'"),
+    (r"\breintentar de nuevo\b", "usar 'reintentar'"),
+    (r"\bvolver a repetir\b", "usar 'repetir'"),
+    (r"\brepetir de nuevo\b", "usar 'repetir'"),
+    (r"\blapso de tiempo\b", "usar 'plazo' o 'tiempo'"),
+    (r"\bper[ií]odo de tiempo\b", "usar 'período' o 'plazo'"),
+    (r"\bresumen breve\b", "usar 'resumen'"),
+    (r"\bresultado final\b", "usar 'resultado'"),
+    (r"\bplanes a futuro\b", "usar 'planes'"),
+    (r"\bsoluci[oó]n integral completa\b", "usar 'solución integral'"),
+    (r"\binnovaci[oó]n novedosa\b", "usar 'innovación'"),
+    (r"\bprever de antemano\b", "usar 'prever'"),
+    (r"\bcolaborar conjuntamente\b", "usar 'colaborar'"),
+    (r"\bbucle circular\b", "usar 'bucle' o 'ciclo'"),
+]
+
+META_UI = [
+    (r"\bhaz clic aqu[ií]\b", "usar verbo de acción directo"),
+    (r"\bhaga clic aqu[ií]\b", "usar verbo de acción directo"),
+    (r"\bclick aqu[ií]\b", "usar verbo de acción directo"),
+    (r"\btoca el bot[oó]n para\b", "usar verbo de acción directo"),
+    (r"\bpresiona el bot[oó]n para\b", "usar verbo de acción directo"),
+    (r"\ba continuaci[oó]n te mostramos\b", "ir directo a la información"),
+    (r"\ben la siguiente secci[oó]n te presentamos\b", "ir directo a la información"),
+    (r"\ben esta secci[oó]n puedes ver\b", "ir directo a la información"),
+]
+
+FLUFF_PATTERNS = [
+    (r"\bde [uú]ltima generaci[oó]n\b", "especificar modelo o capacidad concreta"),
+    (r"\bde vanguardia\b", "especificar beneficio operativo/técnico concreto"),
+    (r"\bde clase mundial\b", "especificar certificaciones o métricas"),
+    (r"\brevolucionari[ao]s?\b", "usar lenguaje sobrio y concreto"),
+    (r"\bsin precedentes\b", "usar lenguaje sobrio y comprobable"),
+    (r"\bdisruptiv[ao]s?\b", "usar lenguaje sobrio y concreto"),
+    (r"\bparadigma\b", "usar lenguaje claro"),
+    (r"\bhol[ií]stic[ao]s?\b", "usar lenguaje claro"),
+    (r"\bsinergia\b", "usar lenguaje claro"),
+    (r"\bcustomer-centric\b", "usar 'centrado en el cliente'"),
+    (r"\bseamless\b", "usar 'fluido' o 'sin fricción'"),
+]
+
+USTEDEO_PATTERNS = [
+    (r"\bsu negocio\b", "usar 'tu negocio' (tuteo estándar)"),
+    (r"\bsus clientes\b", "usar 'tus clientes' (tuteo estándar)"),
+    (r"\bsu empresa\b", "usar 'tu empresa' (tuteo estándar)"),
+    (r"\busted\b", "usar tuteo consistente ('tú')"),
+    (r"\bcomun[ií]quese\b", "usar 'comunícate'"),
+]
+
+VOSEO_PATTERNS = [
+    (r"\btenés\b", "usar 'tienes'"),
+    (r"\bpodés\b", "usar 'puedes'"),
+    (r"\bquerés\b", "usar 'quieres'"),
+    (r"\bsabés\b", "usar 'sabes'"),
+    (r"\bhacés\b", "usar 'haces'"),
+]
+
+SPANISH_STOP_WORDS = {
+    "de", "la", "el", "en", "y", "a", "que", "los", "del", "se", "las", "por",
+    "un", "para", "con", "no", "una", "su", "al", "es", "lo", "como", "más",
+    "o", "pero", "sus", "le", "ha", "si", "sin", "sobre", "este", "ya",
+    "entre", "cuando", "todo", "esta", "ser", "son", "dos", "también", "fue",
+    "era", "muy", "hasta", "desde", "está", "mi", "porque", "qué", "solo",
+    "han", "yo", "hay", "vez", "puede", "todos", "así", "nos", "ni", "parte",
+    "tiene", "él", "uno", "donde", "bien", "tiempo", "mismo", "ese", "ahora",
+    "cada", "e", "vida", "otro", "después", "te", "tu", "tus", "tuya", "tuyo",
+    "tan", "tanto", "tanta", "estos", "estas", "theia", "agente", "agentes"
+}
 
 
 class FrontendUXAuditor:
@@ -130,6 +206,95 @@ class FrontendUXAuditor:
                     if re.search(r"\b" + re.escape(promise) + r"\b", clean_line, re.I):
                         self.log_error(file, idx, "UX-FUTURE-PROMISE", f"Promesa de futuro no autorizada en copy visible: {promise!r}")
 
+    def audit_wording_and_editorial_quality(self):
+        """Valida calidad editorial, ausencia de pleonasmos, meta-lenguaje, fluff y echoing."""
+        brand_checks = [
+            (re.compile(r"\bTheia\b"), "TheIA"),
+            (re.compile(r"\bTheIa\b"), "TheIA"),
+            (re.compile(r"\bTHEIA\b(?!\.(?:CL|cl)|\s+SERVICIOS|\s+SpA)"), "TheIA"),
+            (re.compile(r"\bWhatsapp\b"), "WhatsApp"),
+            (re.compile(r"\bwhatsap\b", re.I), "WhatsApp"),
+            (re.compile(r"\bwhats\b(?!\s+app)", re.I), "WhatsApp"),
+            (re.compile(r"\bInstagram\b", re.I), "Instagram"),
+            (re.compile(r"\bley\s+21\.?719\b"), "Ley 21.719"),
+        ]
+
+        for file in self.html_files:
+            if file.name in ["privacidad.html", "terminos.html"]:
+                continue
+            content = file.read_text(encoding="utf-8", errors="ignore")
+            lines = content.splitlines()
+            in_json_ld = False
+
+            for idx, line in enumerate(lines, 1):
+                if '<script type="application/ld+json"' in line:
+                    in_json_ld = True
+                if in_json_ld:
+                    if "</script>" in line:
+                        in_json_ld = False
+                    continue
+                if any(tag in line for tag in ["<script", "<style", "<!--", "href=", "src=", "http://", "https://"]):
+                    continue
+
+                clean_line = re.sub(r"<[^>]+>", " ", line)
+                clean_line = re.sub(r"\s+", " ", clean_line).strip()
+                if not clean_line:
+                    continue
+
+                # 1. Pleonasmos
+                for pattern, recommendation in PLEONASMS:
+                    match = re.search(pattern, clean_line, re.I)
+                    if match:
+                        self.log_error(file, idx, "WORDING-PLEONASMO", f"Pleonasmo '{match.group()}'. Recomendación: {recommendation}")
+
+                # 2. Meta-lenguaje
+                for pattern, recommendation in META_UI:
+                    match = re.search(pattern, clean_line, re.I)
+                    if match:
+                        self.log_error(file, idx, "WORDING-META-UI", f"Meta-lenguaje obvio '{match.group()}'. Recomendación: {recommendation}")
+
+                # 3. Fluff / Buzzwords
+                for pattern, recommendation in FLUFF_PATTERNS:
+                    match = re.search(pattern, clean_line, re.I)
+                    if match:
+                        self.log_error(file, idx, "WORDING-FLUFF", f"Buzzword/Fluff '{match.group()}'. Recomendación: {recommendation}")
+
+                # 4. Ustedeo
+                for pattern, recommendation in USTEDEO_PATTERNS:
+                    match = re.search(pattern, clean_line, re.I)
+                    if match:
+                        self.log_error(file, idx, "WORDING-USTEDEO", f"Inconsistencia de persona (ustedeo) '{match.group()}'. Recomendación: {recommendation}")
+
+                # 5. Voseo
+                for pattern, recommendation in VOSEO_PATTERNS:
+                    match = re.search(pattern, clean_line, re.I)
+                    if match:
+                        self.log_error(file, idx, "WORDING-VOSEO", f"Voseo no permitido '{match.group()}'. Recomendación: {recommendation}")
+
+                # 6. Brand naming
+                for regex, expected in brand_checks:
+                    for match in regex.finditer(clean_line):
+                        actual = match.group()
+                        if actual != expected and actual.lower() == expected.lower():
+                            self.log_error(file, idx, "WORDING-NAMING", f"Naming '{actual}' debe ser '{expected}'")
+
+            # 7. Echoing dentro de párrafos
+            soup = BeautifulSoup(content, "html.parser")
+            for p in soup.find_all(["p", "li"]):
+                if p.find_parents(["nav", "footer", "script", "style"]):
+                    continue
+                text = p.get_text(" ", strip=True)
+                if len(text) < 40 or "©" in text:
+                    continue
+                words = [
+                    w.lower() for w in re.findall(r"\b[a-záéíóúñ]{4,}\b", text)
+                    if w.lower() not in SPANISH_STOP_WORDS
+                ]
+                counts = collections.Counter(words)
+                for word, count in counts.items():
+                    if count >= 3:
+                        self.log_warning(file, 0, "WORDING-ECHOING", f"Palabra '{word}' repetida {count} veces en párrafo: \"{text[:70]}...\"")
+
     def run(self) -> bool:
         print(f"🔍 Iniciando Auditoría Frontend & UX en: {self.target_dir}")
         print(f"📄 Archivos HTML analizados: {len(self.html_files)}")
@@ -140,6 +305,7 @@ class FrontendUXAuditor:
         self.audit_section_titles()
         self.audit_color_and_palettes()
         self.audit_ux_content_and_promises()
+        self.audit_wording_and_editorial_quality()
 
         print("\n📊 RESULTADOS:")
         if self.warnings:
