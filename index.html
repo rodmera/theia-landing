@@ -1178,18 +1178,20 @@
       line-height: 1.2;
       text-align: center;
       margin-bottom: 0.75rem;
+      color: var(--text, #ffffff);
     }
 
-    .section-title .gold {
+    .section-title .gold,
+    .section-title span.gold {
       color: var(--gold);
     }
 
     .section-sub {
       text-align: center;
       color: var(--text-sub);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      max-width: 560px;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      max-width: 680px;
       margin: 0 auto 3rem;
     }
 
@@ -2829,8 +2831,10 @@
     .cta-final h2 {
       font-family: 'Merriweather', serif;
       font-weight: 900;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      letter-spacing: -0.025em;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      text-align: center;
       margin-bottom: 0.75rem;
     }
 
@@ -2840,7 +2844,7 @@
 
     .cta-final p {
       color: var(--text-sub);
-      font-size: 1rem;
+      font-size: 1.05rem;
       margin-bottom: 2.5rem;
     }
 
@@ -4295,7 +4299,7 @@
           Puesta en Marcha Asistida
         </div>
         <h2 class="section-title reveal">No te dejamos solo con una herramienta <span class="gold">y un manual.</span></h2>
-        <p class="section-sub reveal" style="max-width: 680px; margin: 0 auto;">Configuramos, conectamos tus catálogos y calibramos tus agentes para que vendan y atiendan con 100% de precisión desde la primera semana.</p>
+        <p class="section-sub reveal">Configuramos, conectamos tus catálogos y calibramos tus agentes para que vendan y atiendan con 100% de precisión desde la primera semana.</p>
       </div>
 
       <div class="pain-grid">
@@ -4786,8 +4790,8 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
           Ingeniería de Agentes & Servicios Especializados
         </div>
-        <h2 class="section-title reveal" style="font-family:'Merriweather',serif; font-weight: 900; font-size:clamp(2rem, 3.5vw, 3rem); margin-bottom:0.75rem;">Servicios Especializados de IA & <span class="gold">Ingeniería de Agentes.</span></h2>
-        <p class="section-sub reveal" style="color:var(--text-sub); font-size:1.05rem; line-height:1.7; max-width:760px; margin:0 auto;">
+        <h2 class="section-title reveal">Servicios Especializados de IA & <span class="gold">Ingeniería de Agentes.</span></h2>
+        <p class="section-sub reveal">
           Más allá del asistente estándar: diseñamos, entrenamos, testeamos e integramos agentes autónomos a la medida de tu operación comercial con estándares de ingeniería de vanguardia.
         </p>
       </div>
@@ -4869,8 +4873,8 @@
   <section class="cta-final">
     <div class="container">
       <div class="reveal">
-        <h2>¿Listo para activar los agentes de IA<br /><span class="gold">en tu negocio?</span></h2>
-        <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--text-sub);">Prueba la atención de TheIA conversando ahora mismo en vivo o agenda una demo personalizada de 30 minutos con nuestro equipo.</p>
+        <h2 class="section-title reveal">¿Listo para activar los agentes de IA<br /><span class="gold">en tu negocio?</span></h2>
+        <p class="section-sub reveal" style="margin: 0 auto 2rem;">Prueba la atención de TheIA conversando ahora mismo en vivo o agenda una demo personalizada de 30 minutos con nuestro equipo.</p>
         <div class="cta-btns" style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
           <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
             <button type="button" class="btn btn-gold" onclick="theiaTrackCTA('widget-open','cta-final'); if(window.theiaChatOpen){theiaChatOpen('cta-final');} else {window.open('https://wa.me/12063858350?text=Hola%2C%20quiero%20probar%20TheIA','_blank');}">
