@@ -4016,312 +4016,151 @@
       <div class="hero-orchestration-visual animate-load" style="animation-delay: 0.7s;" id="theia-orchestration-engine">
                         <div class="orch-panel" role="region" aria-label="Diagrama de orquestación agéntica TheIA">
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 640" width="100%" height="auto" style="font-family: 'Plus Jakarta Sans', sans-serif; display: block; user-select: none;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" width="100%" height="auto" style="font-family: 'Plus Jakarta Sans', sans-serif; display: block; user-select: none;">
   <defs>
-    <marker id="arr-main-dark" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#38bdf8" />
+    <marker id="arr-subtle" viewBox="0 0 8 8" refX="5" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 6 4 L 0 6.5 z" fill="rgba(255, 255, 255, 0.4)" />
     </marker>
-    <marker id="arr-orange-dark" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#ea580c" />
-    </marker>
-    <marker id="arr-green-dark" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#16a34a" />
+    <marker id="arr-gold" viewBox="0 0 8 8" refX="5" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 6 4 L 0 6.5 z" fill="#d4af37" />
     </marker>
   </defs>
 
-  <!-- Outer Canvas Frame -->
-  <rect width="1100" height="640" rx="16" fill="#0e1726" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.5" />
+  <!-- Lienzo base sutil -->
+  <rect width="880" height="420" rx="14" fill="#0c1424" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
 
   <!-- ========================================== -->
-  <!-- 1. LEFT CONTAINER: INSUMOS                  -->
+  <!-- 1. COLUMNA IZQUIERDA: INSUMOS              -->
   <!-- ========================================== -->
-  <g transform="translate(24, 24)">
-    <rect width="194" height="592" rx="12" fill="#131d31" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-    <rect x="15" y="14" width="164" height="32" rx="6" fill="#1e293b" />
-    <text x="97" y="35" text-anchor="middle" font-size="14" font-weight="800" fill="#f8fafc">Insumos y Contexto</text>
+  <text x="44" y="50" font-size="10" font-weight="700" fill="#64748b" letter-spacing="0.14em">INSUMOS</text>
 
-    <!-- Card 1: WhatsApp -->
-    <g transform="translate(12, 58)">
-      <rect width="170" height="150" rx="10" fill="#18243c" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-      <g transform="translate(55, 14)">
-        <rect x="8" y="0" width="50" height="40" rx="6" fill="#1e293b" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-        <rect x="4" y="5" width="50" height="40" rx="6" fill="#1e293b" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-        <rect x="0" y="10" width="50" height="40" rx="6" fill="#18243c" stroke="#25D366" stroke-width="1.8" />
-        <circle cx="25" cy="30" r="10" fill="rgba(37,211,102,0.15)" />
-        <path d="M 28 27 A 4 4 0 0 1 24 32 A 4 4 0 0 1 22 31.5 L 20 32 L 20.6 30 A 4 4 0 0 1 20.5 27 A 4 4 0 0 1 25 23 A 4 4 0 0 1 28 27 Z" fill="none" stroke="#25D366" stroke-width="1.8"/>
-      </g>
-      <text x="85" y="88" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">WhatsApp</text>
-      <text x="85" y="109" text-anchor="middle" font-size="12" font-weight="600" fill="#e2e8f0">Mensajes en vivo</text>
-      <text x="85" y="128" text-anchor="middle" font-size="11" fill="#94a3b8">Historial de clientes</text>
-      <circle cx="170" cy="77" r="5" fill="#18243c" stroke="#38bdf8" stroke-width="2.5" />
-    </g>
-
-    <!-- Card 2: Catálogo -->
-    <g transform="translate(12, 224)">
-      <rect width="170" height="164" rx="10" fill="#18243c" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-      <g transform="translate(50, 14)">
-        <rect x="0" y="0" width="20" height="26" rx="3" fill="#1e293b" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-        <line x1="4" y1="6" x2="16" y2="6" stroke="#94a3b8" stroke-width="1.4" />
-        <line x1="4" y1="12" x2="14" y2="12" stroke="#94a3b8" stroke-width="1.4" />
-        <rect x="25" y="0" width="20" height="26" rx="3" fill="#1e293b" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-        <circle cx="35" cy="8" r="3" fill="none" stroke="#94a3b8" stroke-width="1.4" />
-        <line x1="29" y1="16" x2="41" y2="16" stroke="#94a3b8" stroke-width="1.4" />
-        <rect x="50" y="0" width="20" height="26" rx="3" fill="#1e293b" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-        <ellipse cx="60" cy="5" rx="8" ry="3" fill="none" stroke="#94a3b8" stroke-width="1.4" />
-        <path d="M 52 5 L 52 20 Q 60 25, 68 20 L 68 5" fill="none" stroke="#94a3b8" stroke-width="1.4" />
-        <path d="M 10 26 L 10 32 L 60 32 L 60 26" fill="none" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.4" />
-        <line x1="35" y1="32" x2="35" y2="40" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.4" />
-        <rect x="20" y="40" width="30" height="18" rx="4" fill="#1e293b" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-        <text x="35" y="53" text-anchor="middle" font-size="10" font-weight="800" fill="#e2e8f0">&lt;/&gt;</text>
-      </g>
-      <text x="85" y="98" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">Agente Catálogo</text>
-      <text x="85" y="119" text-anchor="middle" font-size="12" font-weight="600" fill="#e2e8f0">Base de datos real</text>
-      <text x="85" y="138" text-anchor="middle" font-size="11" fill="#94a3b8">Precios verificados</text>
-      <circle cx="170" cy="82" r="5" fill="#18243c" stroke="#38bdf8" stroke-width="2.5" />
-    </g>
-
-    <!-- Card 3: Agenda -->
-    <g transform="translate(12, 404)">
-      <rect width="170" height="164" rx="10" fill="#18243c" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-      <g transform="translate(50, 14)">
-        <circle cx="16" cy="18" r="14" fill="#1e293b" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-        <path d="M 11 18 L 14.5 21.5 L 21 14.5" fill="none" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
-        <circle cx="54" cy="18" r="14" fill="#1e293b" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-        <path d="M 44 24 A 10 10 0 1 1 64 24" fill="none" stroke="#94a3b8" stroke-width="1.8" />
-        <line x1="54" y1="18" x2="60" y2="12" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" />
-      </g>
-      <text x="85" y="86" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">Agente Agenda</text>
-      <text x="85" y="107" text-anchor="middle" font-size="12" font-weight="600" fill="#e2e8f0">Google Calendar</text>
-      <text x="85" y="126" text-anchor="middle" font-size="11" fill="#94a3b8">Políticas de negocio</text>
-      <circle cx="170" cy="82" r="5" fill="#18243c" stroke="#38bdf8" stroke-width="2.5" />
-    </g>
+  <!-- Fila 1: WhatsApp -->
+  <g transform="translate(44, 74)">
+    <rect width="144" height="40" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+    <svg x="14" y="10" width="20" height="20" viewBox="0 0 24 24" fill="#25D366">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
+    </svg>
+    <text x="44" y="25" font-size="12.5" font-weight="600" fill="#f8fafc">WhatsApp</text>
   </g>
 
-  <!-- INTELLIGENT ROUTING WIRES -->
-  <path d="M 206 155 C 235 155, 235 90, 390 90" fill="none" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arr-main-dark)" />
-  <path d="M 206 330 C 260 330, 280 320, 345 320" fill="none" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arr-main-dark)" />
-  <path d="M 206 510 C 260 510, 270 510, 340 510" fill="none" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arr-main-dark)" />
+  <!-- Fila 2: Agente Catálogo -->
+  <g transform="translate(44, 174)">
+    <rect width="144" height="40" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+    <svg x="14" y="10" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+    </svg>
+    <text x="44" y="25" font-size="12.5" font-weight="600" fill="#f8fafc">Agente Catálogo</text>
+  </g>
+
+  <!-- Fila 3: Agente Agenda -->
+  <g transform="translate(44, 274)">
+    <rect width="144" height="40" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+    <svg x="14" y="10" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+      <line x1="16" y1="2" x2="16" y2="6"/>
+      <line x1="8" y1="2" x2="8" y2="6"/>
+      <line x1="3" y1="10" x2="21" y2="10"/>
+    </svg>
+    <text x="44" y="25" font-size="12.5" font-weight="600" fill="#f8fafc">Agente Agenda</text>
+  </g>
+
+  <!-- Árbol de Insumos hacia Interpreta -->
+  <path d="M 188 94 L 216 94" fill="none" stroke="rgba(255, 255, 255, 0.22)" stroke-width="1.25" />
+  <path d="M 188 194 L 216 194 L 216 94" fill="none" stroke="rgba(255, 255, 255, 0.22)" stroke-width="1.25" />
+  <path d="M 188 294 L 216 294 L 216 194" fill="none" stroke="rgba(255, 255, 255, 0.22)" stroke-width="1.25" />
+  <circle cx="216" cy="194" r="2.5" fill="rgba(255,255,255,0.4)" />
+  <circle cx="216" cy="294" r="2.5" fill="rgba(255,255,255,0.4)" />
+  <path d="M 216 94 L 244 94" fill="none" stroke="rgba(255, 255, 255, 0.22)" stroke-width="1.25" marker-end="url(#arr-subtle)" />
 
   <!-- ========================================== -->
-  <!-- 2. CENTER CONTAINER: THEIA AGENTIC LOOP    -->
+  <!-- 2. NÚCLEO: ORQUESTACIÓN AGÉNTICA           -->
   <!-- ========================================== -->
-  <g transform="translate(248, 24)">
-    <rect width="518" height="592" rx="14" fill="#131d31" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.5" />
-    <rect x="110" y="12" width="298" height="34" rx="8" fill="#1e293b" />
-    <text x="259" y="34" text-anchor="middle" font-size="14.5" font-weight="800" fill="#f8fafc">Bucle de Orquestación Agéntica</text>
+  <text x="395" y="50" text-anchor="middle" font-size="10" font-weight="700" fill="#64748b" letter-spacing="0.14em">ORQUESTACIÓN AGÉNTICA</text>
 
-    <!-- Main Orbit Circle -->
-    <circle cx="259" cy="310" r="175" fill="none" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.5" stroke-dasharray="6 6" />
+  <!-- Circuito cerrado -->
+  <path d="M 368 94 L 424 94" fill="none" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1.25" marker-end="url(#arr-subtle)" />
+  <path d="M 490 114 L 490 268" fill="none" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1.25" marker-end="url(#arr-subtle)" />
+  <path d="M 430 294 L 374 294" fill="none" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1.25" marker-end="url(#arr-subtle)" />
+  <path d="M 308 274 L 308 120" fill="none" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1.25" marker-end="url(#arr-subtle)" />
 
-    <!-- Big Directional Arrows -->
-    <path d="M 320 162 A 175 175 0 0 1 405 235" fill="none" stroke="#38bdf8" stroke-width="3" marker-end="url(#arr-main-dark)" />
-    <path d="M 432 322 A 175 175 0 0 1 390 420" fill="none" stroke="#38bdf8" stroke-width="3" marker-end="url(#arr-main-dark)" />
-    <path d="M 315 482 A 175 175 0 0 1 205 482" fill="none" stroke="#38bdf8" stroke-width="3" marker-end="url(#arr-main-dark)" />
-    <path d="M 130 420 A 175 175 0 0 1 88 322" fill="none" stroke="#38bdf8" stroke-width="3" marker-end="url(#arr-main-dark)" />
-    <path d="M 115 235 A 175 175 0 0 1 200 162" fill="none" stroke="#38bdf8" stroke-width="3" marker-end="url(#arr-main-dark)" />
+  <!-- Nodos -->
+  <g transform="translate(248, 75)">
+    <rect width="120" height="38" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+    <text x="60" y="24" text-anchor="middle" font-size="13" font-weight="600" fill="#f8fafc">Interpreta</text>
+  </g>
 
-    <!-- CENTER HUB: THEIA CORE -->
-    <g transform="translate(259, 310)">
-      <circle cx="0" cy="0" r="84" fill="none" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.5" stroke-dasharray="4 4" />
-      <circle cx="0" cy="0" r="76" fill="#0f172a" stroke="#ebca73" stroke-width="2.2" />
+  <g transform="translate(430, 75)">
+    <rect width="120" height="38" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+    <text x="60" y="24" text-anchor="middle" font-size="13" font-weight="600" fill="#f8fafc">Planifica</text>
+  </g>
 
-      <!-- Isometric Neural Hexagon -->
-      <g transform="translate(0, -22)">
-        <polygon points="0,-18 16,-8 16,10 0,20 -16,10 -16,-8" fill="none" stroke="#ebca73" stroke-width="1.8" />
-        <circle cx="0" cy="-18" r="2.5" fill="#ebca73" />
-        <circle cx="16" cy="-8" r="2.5" fill="#ebca73" />
-        <circle cx="16" cy="10" r="2.5" fill="#ebca73" />
-        <circle cx="0" cy="20" r="2.5" fill="#ebca73" />
-        <circle cx="-16" cy="10" r="2.5" fill="#ebca73" />
-        <circle cx="-16" cy="-8" r="2.5" fill="#ebca73" />
-        <rect x="-6" y="-6" width="12" height="12" rx="2" fill="none" stroke="#ebca73" stroke-width="1.5" />
-      </g>
+  <g transform="translate(430, 275)">
+    <rect width="120" height="38" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+    <text x="60" y="24" text-anchor="middle" font-size="13" font-weight="600" fill="#f8fafc">Ejecuta</text>
+  </g>
 
-      <text x="0" y="14" text-anchor="middle" font-family="'Merriweather', serif" font-size="15.5" font-weight="900" fill="#ffffff">TheIA Core</text>
-      <text x="0" y="30" text-anchor="middle" font-size="11" font-weight="800" fill="#ebca73" letter-spacing="0.08em">ORQUESTADOR</text>
+  <g transform="translate(248, 275)">
+    <rect width="120" height="38" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+    <text x="60" y="24" text-anchor="middle" font-size="13" font-weight="600" fill="#f8fafc">Valida</text>
+  </g>
 
-      <g transform="translate(0, 44)">
-        <rect x="-72" y="0" width="44" height="24" rx="4" fill="#1e293b" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1.2" />
-        <text x="-50" y="16" text-anchor="middle" font-size="10.5" font-weight="700" fill="#ffffff">Tools</text>
-
-        <rect x="-24" y="0" width="48" height="24" rx="4" fill="#1e293b" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1.2" />
-        <text x="0" y="16" text-anchor="middle" font-size="10.5" font-weight="700" fill="#ffffff">Memoria</text>
-
-        <rect x="28" y="0" width="44" height="24" rx="4" fill="#1e293b" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1.2" />
-        <text x="50" y="16" text-anchor="middle" font-size="10.5" font-weight="700" fill="#ffffff">Reglas</text>
-      </g>
-    </g>
-
-    <!-- 5 LARGE NODES WITH HIGH-VISIBILITY CARDS -->
-    <!-- Node 1: 1 Interpreta -->
-    <g transform="translate(259, 135)">
-      <circle cx="0" cy="-18" r="35" fill="#0f172a" stroke="#38bdf8" stroke-width="2.5" />
-      <rect x="-10" y="-30" width="16" height="20" rx="2" fill="none" stroke="#38bdf8" stroke-width="2" />
-      <line x1="-6" y1="-24" x2="2" y2="-24" stroke="#38bdf8" stroke-width="1.6" />
-      <line x1="-6" y1="-20" x2="0" y2="-20" stroke="#38bdf8" stroke-width="1.6" />
-      <circle cx="4" cy="-14" r="6" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
-      <line x1="8" y1="-10" x2="13" y2="-5" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" />
-
-      <rect x="-68" y="18" width="136" height="38" rx="7" fill="#18243c" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.4" />
-      <text x="0" y="34" text-anchor="middle" font-size="13.5" font-weight="800" fill="#ffffff">1. Interpreta</text>
-      <text x="0" y="49" text-anchor="middle" font-size="10.5" font-weight="600" fill="#e2e8f0">Intención y contexto</text>
-    </g>
-
-    <!-- Node 2: 2 Planifica -->
-    <g transform="translate(426, 255)">
-      <circle cx="0" cy="-18" r="35" fill="#0f172a" stroke="#38bdf8" stroke-width="2.5" />
-      <rect x="-10" y="-30" width="20" height="24" rx="3" fill="none" stroke="#38bdf8" stroke-width="2" />
-      <rect x="-5" y="-33" width="10" height="5" rx="1.5" fill="#0f172a" stroke="#38bdf8" stroke-width="1.6" />
-      <line x1="-5" y1="-22" x2="5" y2="-22" stroke="#38bdf8" stroke-width="1.6" />
-      <line x1="-5" y1="-16" x2="5" y2="-16" stroke="#38bdf8" stroke-width="1.6" />
-      <line x1="-5" y1="-10" x2="2" y2="-10" stroke="#38bdf8" stroke-width="1.6" />
-
-      <rect x="-68" y="18" width="136" height="38" rx="7" fill="#18243c" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.4" />
-      <text x="0" y="34" text-anchor="middle" font-size="13.5" font-weight="800" fill="#ffffff">2. Planifica</text>
-      <text x="0" y="49" text-anchor="middle" font-size="10.5" font-weight="600" fill="#e2e8f0">Selecciona agente</text>
-    </g>
-
-    <!-- Node 3: 3 Ejecuta -->
-    <g transform="translate(362, 455)">
-      <circle cx="0" cy="-18" r="35" fill="#0f172a" stroke="#38bdf8" stroke-width="2.5" />
-      <rect x="-13" y="-28" width="26" height="20" rx="3" fill="none" stroke="#38bdf8" stroke-width="2" />
-      <line x1="-13" y1="-21" x2="13" y2="-21" stroke="#38bdf8" stroke-width="1.4" />
-      <text x="0" y="-11" text-anchor="middle" font-size="10" font-weight="800" fill="#38bdf8">&lt;/&gt;</text>
-
-      <rect x="-68" y="18" width="136" height="38" rx="7" fill="#18243c" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.4" />
-      <text x="0" y="34" text-anchor="middle" font-size="13.5" font-weight="800" fill="#ffffff">3. Ejecuta</text>
-      <text x="0" y="49" text-anchor="middle" font-size="10.5" font-weight="600" fill="#e2e8f0">Genera candidato</text>
-    </g>
-
-    <!-- Node 4: 4 Valida -->
-    <g transform="translate(156, 455)">
-      <circle cx="0" cy="-18" r="35" fill="#0f172a" stroke="#38bdf8" stroke-width="2.5" />
-      <circle cx="0" cy="-18" r="10" fill="none" stroke="#38bdf8" stroke-width="2" />
-      <line x1="0" y1="-18" x2="5" y2="-23" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" />
-
-      <rect x="-68" y="18" width="136" height="38" rx="7" fill="#18243c" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.4" />
-      <text x="0" y="34" text-anchor="middle" font-size="13.5" font-weight="800" fill="#ffffff">4. Valida</text>
-      <text x="0" y="49" text-anchor="middle" font-size="10.5" font-weight="600" fill="#e2e8f0">Scoring determinista</text>
-    </g>
-
-    <!-- Node 5: 5 Auto-corrige -->
-    <g transform="translate(92, 255)">
-      <circle cx="0" cy="-18" r="35" fill="#0f172a" stroke="#38bdf8" stroke-width="2.5" />
-      <circle cx="-3" cy="-18" r="7" fill="none" stroke="#38bdf8" stroke-width="1.8" />
-      <line x1="-3" y1="-25" x2="-3" y2="-11" stroke="#38bdf8" stroke-width="1.6" />
-      <line x1="-10" y1="-18" x2="4" y2="-18" stroke="#38bdf8" stroke-width="1.6" />
-      <path d="M 4 -12 L 11 -19 M 8 -22 L 13 -17" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" />
-
-      <rect x="-68" y="18" width="136" height="38" rx="7" fill="#18243c" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.4" />
-      <text x="0" y="34" text-anchor="middle" font-size="13.5" font-weight="800" fill="#ffffff">5. Auto-corrige</text>
-      <text x="0" y="49" text-anchor="middle" font-size="10.5" font-weight="600" fill="#e2e8f0">Reparación interna</text>
-    </g>
+  <!-- HUB CENTRAL: TheIA Core -->
+  <g transform="translate(399, 194)">
+    <circle cx="0" cy="0" r="54" fill="#0e1726" stroke="#d4af37" stroke-width="1.5" stroke-opacity="0.75" />
+    <circle cx="0" cy="0" r="48" fill="none" stroke="rgba(212, 175, 55, 0.18)" stroke-dasharray="3 3" />
+    <path d="M 0 -22 L 3 -15 L 10 -12 L 3 -9 L 0 -2 L -3 -9 L -10 -12 L -3 -15 Z" fill="#d4af37" opacity="0.85"/>
+    <text x="0" y="3" text-anchor="middle" font-family="'Merriweather', serif" font-size="14" font-weight="700" fill="#ffffff">TheIA Core</text>
+    <text x="0" y="21" text-anchor="middle" font-size="9" font-weight="700" fill="#d4af37" letter-spacing="0.12em">ORQUESTADOR</text>
   </g>
 
   <!-- ========================================== -->
-  <!-- 3. SUPERVISOR GUARDRAIL (TOP RIGHT)        -->
+  <!-- 3. SUPERVISIÓN, ENTREGA & AUTO-CORRECCIÓN  -->
   <!-- ========================================== -->
-  <g transform="translate(786, 24)">
-    <rect width="290" height="190" rx="12" fill="#131d31" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-    <rect x="55" y="12" width="180" height="28" rx="6" fill="#1e293b" />
-    <text x="145" y="31" text-anchor="middle" font-size="13.5" font-weight="800" fill="#f8fafc">Supervisor Guardrail</text>
 
-    <g transform="translate(18, 50)">
-      <circle cx="50" cy="58" r="44" fill="#18243c" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1.5" />
-      <circle cx="50" cy="58" r="30" fill="none" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-      <circle cx="50" cy="58" r="15" fill="none" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-      <line x1="6" y1="58" x2="94" y2="58" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-      <line x1="50" y1="14" x2="50" y2="102" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-      <line x1="50" y1="58" x2="80" y2="28" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" />
-      <circle cx="70" cy="38" r="4" fill="#16a34a" />
-
-      <g transform="translate(110, 8)">
-        <rect width="144" height="46" rx="6" fill="#18243c" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-        <polyline points="14,34 40,24 75,28 105,14 130,18" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-        <circle cx="105" cy="14" r="3" fill="#16a34a" />
-
-        <rect y="54" width="144" height="46" rx="6" fill="#18243c" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-        <rect x="20" y="74" width="12" height="18" rx="2" fill="#38bdf8" />
-        <rect x="42" y="66" width="12" height="26" rx="2" fill="#38bdf8" />
-        <rect x="64" y="60" width="12" height="32" rx="2" fill="#38bdf8" />
-        <rect x="86" y="70" width="12" height="22" rx="2" fill="#38bdf8" />
-        <rect x="108" y="58" width="12" height="34" rx="2" fill="#38bdf8" />
-      </g>
-    </g>
-
-    <text x="145" y="174" text-anchor="middle" font-size="11.5" font-weight="700" fill="#e2e8f0">Auditoría determinista en tiempo real</text>
+  <!-- Supervisor Guardrail (Superior Derecha) -->
+  <g transform="translate(630, 75)">
+    <rect width="190" height="38" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+    <svg x="16" y="10" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    </svg>
+    <text x="44" y="24" font-size="12.5" font-weight="600" fill="#f8fafc">Supervisor Guardrail</text>
   </g>
 
-  <!-- Intervention -->
-  <path d="M 786 140 C 740 140, 740 255, 715 255" fill="none" stroke="#ea580c" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arr-orange-dark)" />
-  <circle cx="786" cy="140" r="4" fill="#ea580c" />
-  <text x="736" y="196" text-anchor="middle" font-size="11" font-weight="800" fill="#ea580c">intervención</text>
+  <!-- Flujo horizontal de Candidato hacia el Punto de Decisión -->
+  <path d="M 490 194 L 716 194" fill="none" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1.25" marker-end="url(#arr-subtle)" />
+  <circle cx="490" cy="194" r="2.5" fill="rgba(255,255,255,0.4)" />
 
-  <!-- ========================================== -->
-  <!-- 4. CANDIDATO & EJECUCIÓN (RIGHT BOTTOM)    -->
-  <!-- ========================================== -->
-  <path d="M 680 355 L 775 355" fill="none" stroke="#38bdf8" stroke-width="2.5" marker-end="url(#arr-main-dark)" />
-  <path d="M 830 214 L 830 285" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4 4" />
-  <circle cx="830" cy="214" r="4" fill="#94a3b8" />
+  <!-- Línea de Supervisión -->
+  <line x1="725" y1="113" x2="725" y2="178" stroke="rgba(255, 255, 255, 0.22)" stroke-width="1" stroke-dasharray="3 4" marker-end="url(#arr-subtle)" />
 
-  <!-- Candidate Card -->
-  <g transform="translate(775, 290)">
-    <rect width="112" height="130" rx="10" fill="#131d31" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.5" />
-    <rect x="12" y="10" width="88" height="24" rx="4" fill="#1e293b" />
-    <text x="56" y="27" text-anchor="middle" font-size="12" font-weight="800" fill="#f8fafc">Candidato</text>
-    
-    <rect x="38" y="42" width="36" height="46" rx="4" fill="#18243c" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.5" />
-    <line x1="45" y1="52" x2="67" y2="52" stroke="#94a3b8" stroke-width="1.8" />
-    <line x1="45" y1="62" x2="63" y2="62" stroke="#94a3b8" stroke-width="1.8" />
-    <line x1="45" y1="72" x2="59" y2="72" stroke="#94a3b8" stroke-width="1.8" />
+  <!-- Punto de Decisión -->
+  <circle cx="725" cy="194" r="14" fill="#172235" stroke="#d4af37" stroke-width="1.5" />
+  <circle cx="725" cy="194" r="3.5" fill="#d4af37" />
 
-    <text x="56" y="106" text-anchor="middle" font-size="12.5" font-weight="800" fill="#ffffff">Respuesta</text>
-    <text x="56" y="121" text-anchor="middle" font-size="10" font-weight="600" fill="#94a3b8">scoring f(C)</text>
+  <!-- Bifurcación 1: Aprobado -> Entrega -->
+  <path d="M 739 194 L 766 194" fill="none" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1.25" marker-end="url(#arr-subtle)" />
+
+  <!-- Bloque Entrega -->
+  <g transform="translate(772, 161)">
+    <rect width="78" height="66" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+    <text x="39" y="20" text-anchor="middle" font-size="9.5" font-weight="700" fill="#d4af37" letter-spacing="0.08em">ENTREGA</text>
+    <text x="39" y="38" text-anchor="middle" font-size="11" font-weight="600" fill="#f8fafc">WhatsApp</text>
+    <text x="39" y="54" text-anchor="middle" font-size="10.5" font-weight="600" fill="#94a3b8">Agente CRM</text>
   </g>
 
-  <!-- Diamond Gate -->
-  <path d="M 887 355 L 915 355" fill="none" stroke="rgba(255, 255, 255, 0.3)" stroke-width="2.2" marker-end="url(#arr-main-dark)" />
-  <g transform="translate(930, 355)">
-    <polygon points="0,-18 18,0 0,18 -18,0" fill="#18243c" stroke="#16a34a" stroke-width="2.5" />
-    <path d="M -6 0 L -2 4 L 6 -4" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- Bifurcación 2: Rechazado -> Auto-corrección -->
+  <path d="M 725 208 L 725 268" fill="none" stroke="rgba(212, 175, 55, 0.5)" stroke-width="1.25" stroke-dasharray="3 3" marker-end="url(#arr-gold)" />
+
+  <!-- Cápsula Auto-corrección -->
+  <g transform="translate(650, 275)">
+    <rect width="150" height="38" rx="8" fill="#172235" stroke="rgba(212, 175, 55, 0.4)" stroke-width="1" />
+    <text x="75" y="24" text-anchor="middle" font-size="12" font-weight="600" fill="#ebca73">Auto-corrección</text>
   </g>
 
-  <path d="M 948 355 L 980 355" fill="none" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arr-green-dark)" />
-  <text x="964" y="344" text-anchor="middle" font-size="10.5" font-weight="800" fill="#16a34a">aprobado</text>
-
-  <!-- Executed Outcome Stack -->
-  <g transform="translate(982, 265)">
-    <rect width="94" height="180" rx="10" fill="#131d31" stroke="#16a34a" stroke-width="2" />
-    <rect x="8" y="10" width="78" height="24" rx="4" fill="rgba(22,163,74,0.15)" />
-    <text x="47" y="27" text-anchor="middle" font-size="11.5" font-weight="900" fill="#16a34a">EJECUTADO</text>
-
-    <g transform="translate(8, 44)">
-      <rect width="78" height="38" rx="6" fill="#18243c" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-      <text x="39" y="24" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">WhatsApp</text>
-    </g>
-    <g transform="translate(8, 88)">
-      <rect width="78" height="38" rx="6" fill="#18243c" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-      <text x="39" y="24" text-anchor="middle" font-size="12" font-weight="800" fill="#ffffff">Calendar</text>
-    </g>
-    <g transform="translate(8, 132)">
-      <rect width="78" height="38" rx="6" fill="#18243c" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.2" />
-      <text x="39" y="24" text-anchor="middle" font-size="11.5" font-weight="800" fill="#ffffff">Agente CRM</text>
-    </g>
-  </g>
-
-  <!-- 5. REPAIR & RETRY LOOP -->
-  <path d="M 930 373 L 930 460" fill="none" stroke="#ea580c" stroke-width="2.2" stroke-dasharray="4 4" />
-  <g transform="translate(930, 474)">
-    <circle cx="0" cy="0" r="14" fill="#18243c" stroke="#ea580c" stroke-width="2.2" />
-    <path d="M -4.5 -4.5 L 4.5 4.5 M 4.5 -4.5 L -4.5 4.5" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round" />
-  </g>
-
-  <!-- Orange Loop along bottom border -->
-  <path d="M 930 488 L 930 610 Q 930 626, 912 626 L 358 626 Q 340 626, 340 610 L 340 430" fill="none" stroke="#ea580c" stroke-width="2.8" marker-end="url(#arr-orange-dark)" />
-
-  <rect x="535" y="612" width="200" height="26" rx="5" fill="#0e1726" stroke="#ea580c" stroke-width="1.5" />
-  <text x="635" y="630" text-anchor="middle" font-size="11" font-weight="900" fill="#ea580c" letter-spacing="0.06em">AUTO-CORRECCIÓN Y REPARACIÓN</text>
-
+  <!-- Retorno Externo Limpio por debajo sin cruces hacia Ejecuta -->
+  <path d="M 725 313 L 725 356 Q 725 370, 705 370 L 510 370 Q 490 370, 490 356 L 490 319" fill="none" stroke="#d4af37" stroke-width="1.25" stroke-dasharray="4 4" marker-end="url(#arr-gold)" />
 </svg>
 
         </div>
