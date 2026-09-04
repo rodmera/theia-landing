@@ -57,18 +57,14 @@ def test_ac2_problem_section_aligned_to_speed_to_lead_and_chilean_business():
 
 
 def test_ac3_omnichannel_orchestration_svg_diagram_and_bento_grid():
-    """HU-WEB-029 AC3: Diagrama de orquestación omnicanal SVG y Bento Grid 2.0."""
+    """HU-WEB-029 AC3 / HU-WEB-036: Orquestación agéntica integrada en el Hero."""
     content = INDEX_HTML.read_text(encoding="utf-8")
 
-    # Componente B: Diagrama de Orquestación Omnicanal SVG
-    assert "home-ui__orchestration" in content or "orchestration-diagram" in content or "home-orchestration" in content, (
-        "index.html debe contener el contenedor del Diagrama de Orquestación Omnicanal"
+    assert "hero-orchestration-visual" in content or "orch-panel" in content, (
+        "index.html debe contener el flujo de orquestación agéntica en el Hero"
     )
-    # Canales oficiales presentes con sus colores de marca
-    assert "#25D366" in content, "Diagrama debe incluir WhatsApp (#25D366)"
-    assert "#E1306C" in content, "Diagrama debe incluir Instagram (#E1306C)"
-    assert "#6366F1" in content, "Diagrama debe incluir Web (#6366F1)"
-    assert "TheIA Engine" in content or "theia-engine" in content.lower(), "Diagrama debe incluir TheIA Engine central"
+    assert "#25D366" in content, "Debe incluir color oficial de WhatsApp (#25D366)"
+    assert "TheIA Core" in content, "Debe incluir TheIA Core central"
 
 
 def test_ac4_physical_design_tokens_and_site_cards_homologation():
