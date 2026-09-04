@@ -87,6 +87,45 @@ VOSEO_PATTERNS = [
     (r"\bhacés\b", "usar 'haces'"),
 ]
 
+# 5. AI Slop, clichés sintéticos de LLMs y fórmulas vacías de marketing
+AI_SLOP_PATTERNS = [
+    (r"\bal siguiente nivel\b", "usar resultado u objetivo operativo concreto"),
+    (r"\bdesbloquea(?:r|s)? (?:el|tu)?\s*potencial\b", "especificar capacidad operativa real"),
+    (r"\bdesata(?:r|s)? (?:el|tu)?\s*potencial\b", "especificar capacidad operativa real"),
+    (r"\bempodera(?:r|s)?\b", "usar verbos concretos ('gestiona', 'organiza', 'decide')"),
+    (r"\bimagina un mundo\b", "ir directo al problema de la PYME"),
+    (r"\ben el mundo (?:actual|de hoy|vertiginoso|din[aá]mico)\b", "ir directo a la realidad comercial"),
+    (r"\bel futuro (?:es hoy|ya est[aá] aqu[ií])\b", "especificar qué hace la herramienta hoy"),
+    (r"\bes importante (?:destacar|se[ñn]alar|mencionar)\b", "eliminar muletilla e ir directo al dato"),
+    (r"\bvale la pena (?:se[ñn]alar|destacar|mencionar)\b", "eliminar muletilla e ir directo al dato"),
+    (r"\bes crucial (?:comprender|entender|destacar)\b", "eliminar muletilla e ir directo al dato"),
+    (r"\bdise[ñn]ado meticulosamente\b", "especificar arquitectura y estándares reales"),
+    (r"\bun tapiz de\b", "cliché de traducción de LLM"),
+    (r"\bun faro de\b", "metáfora vacía de LLM"),
+    (r"\bun catalizador\b", "metáfora vacía de LLM"),
+    (r"\bun testimonio de\b", "cliché de traducción de LLM"),
+    (r"\bla soluci[oó]n definitiva\b", "afirmación hiperbólica vacía"),
+    (r"\btodo lo que necesitas y m[aá]s\b", "especificar módulos y funciones concretas"),
+    (r"\bsatisfacer todas tus necesidades\b", "especificar alcance real"),
+    (r"\bexperiencia inigualable\b", "superlativo vacío"),
+    (r"\bpotencia al m[aá]ximo\b", "especificar impacto concreto"),
+    (r"\bmaximiza tus resultados\b", "especificar métrica o impacto"),
+    (r"\bun viaje hacia\b", "metáfora vacía de LLM"),
+    (r"\ben conclusi[oó]n\b", "cierre escolar innecesario"),
+    (r"\ben definitiva\b", "muletilla de relleno"),
+    (r"\binteligencia artificial avanzada\b", "especificar modelo o capacidad concreta"),
+    (r"\bia avanzada\b", "especificar modelo o capacidad concreta"),
+    (r"\btransformaci[oó]n digital\b", "especificar procesos o sistemas concretos"),
+    (r"\bsoluciones a la medida\b", "especificar servicios de ingeniería o integración"),
+    (r"\bf[aá]cil y r[aá]pido\b", "especificar tiempos reales de respuesta o setup"),
+    (r"\br[aá]pido y sencillo\b", "especificar tiempos reales de respuesta o setup"),
+    (r"\bl[ií]der en el mercado\b", "afirmación no demostrada"),
+    (r"\bpioner[ao]s? en\b", "afirmación no demostrada"),
+    (r"\bmultiplica tus ventas\b", "afirmación hiperbólica sin evidencia"),
+    (r"\bde la noche a la ma[ñn]ana\b", "afirmación irreal"),
+    (r"\bingresos pasivos\b", "lenguaje engañoso de marketing"),
+]
+
 # Stop words en español para el análisis de repetición léxica (echoing)
 SPANISH_STOP_WORDS = {
     "de", "la", "el", "en", "y", "a", "que", "los", "del", "se", "las", "por",
@@ -153,6 +192,29 @@ def test_wording_no_fluff_superlativos_vacios_ni_anglicismos():
                         f"{file.name}:{idx} → Buzzword/Fluff '{match.group()}' detectado. Sugerencia: {recommendation}"
                     )
     assert not violations, "Fluff o buzzwords vacías encontradas en copy visible:\n" + "\n".join(violations)
+
+
+def test_wording_no_ai_slop_ni_cliches_genericos():
+    """Valida la ausencia de fórmulas trilladas de IA (AI slop) y clichés de marketing vacíos."""
+    violations = []
+    for file in MARKETING_HTML_FILES:
+        content = file.read_text(encoding="utf-8")
+        lines = content.splitlines()
+        for idx, line in enumerate(lines, 1):
+            if any(tag in line for tag in ["<script", "<style", "<!--"]):
+                continue
+            clean_line = re.sub(r"<[^>]+>", " ", line)
+            clean_line = re.sub(r"\s+", " ", clean_line).strip()
+            if not clean_line:
+                continue
+
+            for pattern, recommendation in AI_SLOP_PATTERNS:
+                match = re.search(pattern, clean_line, re.I)
+                if match:
+                    violations.append(
+                        f"{file.name}:{idx} → AI Slop / Cliché '{match.group()}' detectado. Sugerencia: {recommendation}"
+                    )
+    assert not violations, "Fórmulas de AI slop o clichés genéricos encontrados en copy visible:\n" + "\n".join(violations)
 
 
 def test_wording_tuteo_chileno_consistente_sin_ustedeo_ni_voseo():
