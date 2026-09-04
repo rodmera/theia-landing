@@ -435,3 +435,121 @@ def test_dash_badges_conformes_a_theia_gold(mobile_page, path):
     assert not violations, f"{path}: .dash-badge con morado/índigo no autorizado:\n" + "\n".join(violations[:10])
 
 
+def test_static_no_hay_overrides_inline_ni_css_en_titulos():
+    """Design System Regla Dura (2026-09-04): Los títulos de sección (h2, .section-title)
+    deben seguir deterministamente el sistema de diseño central.
+    Está PROHIBIDO el uso de estilos inline con font-size o font-weight en h1/h2,
+    así como overrides en archivos CSS secundarios que reduzcan el peso a 700 o
+    desalineen la escala clamp(2rem, 3.5vw, 3rem).
+    """
+    violations = []
+    # 1. Chequeo de estilos inline en HTML
+    for file in SITE_HTML:
+        if not file.exists():
+            continue
+        source = file.read_text(encoding="utf-8")
+        for match in re.finditer(r'<h[12][^>]*style="[^"]*(?:font-size|font-weight)[^"]*"[^>]*>', source, re.I):
+            violations.append(f"{file.relative_to(ROOT)}:{line_number(source, match.start())} → {match.group()!r}")
+
+    # 2. Chequeo de CSS secundarios para evitar overrides no autorizados en .section-title
+    for css_file in ROOT.glob("*.css"):
+        source = css_file.read_text(encoding="utf-8")
+        for match in re.finditer(r'([^{]+)\{\s*[^}]*font-weight\s*:\s*700[^}]*\}', source, re.I):
+            selector = match.group(1).strip()
+            if "section-title" in selector or "-header h2" in selector:
+                violations.append(f"{css_file.relative_to(ROOT)}: override no permitido en {selector!r} con font-weight: 700")
+    assert not violations, "Overrides no permitidos en títulos de sección:\n" + "\n".join(violations)
+
+
+@pytest.mark.parametrize("path", PAGES)
+def test_titulos_de_seccion_homologados_estrictamente(desktop_page, path):
+    """Design System Regla Dura (2026-09-04): TODOS los títulos de sección (.section-title)
+    en todas las páginas de marketing deben computar exactamente:
+      - font-family: Merriweather
+      - font-weight: 900 (PROHIBIDO degradar a 700 en títulos de sección)
+      - color: blanco (#ffffff)
+      - span.gold / .gold: #d4af37 (TheIA Gold, PROHIBIDO #ebca73 o colores deslavados)
+      - font-size: clamp(2rem, 3.5vw, 3rem) -> entre 40px y 48px en desktop
+      - line-height: 1.2
+    """
+    if path in SUBTITULO_EXCLUIDAS:
+        pytest.skip(f"{path}: página legal/blog, estructura propia")
+    desktop_page.goto(BASE + path, wait_until="domcontentloaded")
+    violations = desktop_page.evaluate("""() => {
+        const issues = [];
+        const headings = [...document.querySelectorAll('.section-title')].filter(el => !el.closest('[hidden]'));
+        for (const h of headings) {
+            const cs = getComputedStyle(h);
+            const fam = cs.fontFamily.toLowerCase();
+            const weight = cs.fontWeight;
+            const size = parseFloat(cs.fontSize);
+            const color = cs.color;
+
+            if (!fam.includes('merriweather')) {
+                issues.push(`"${h.textContent.trim().slice(0, 30)}": familia no Merriweather (${cs.fontFamily})`);
+            }
+            if (weight !== '900') {
+                issues.push(`"${h.textContent.trim().slice(0, 30)}": peso ${weight} (debe ser 900)`);
+            }
+            if (size < 38 || size > 49) {
+                issues.push(`"${h.textContent.trim().slice(0, 30)}": tamaño ${size}px fuera del clamp(2rem, 3.5vw, 3rem)`);
+            }
+            if (color !== 'rgb(255, 255, 255)') {
+                issues.push(`"${h.textContent.trim().slice(0, 30)}": color ${color} (debe ser blanco rgb(255, 255, 255))`);
+            }
+
+            // Validar spans dorados dentro del título
+            const goldSpans = h.querySelectorAll('.gold, span.gold');
+            for (const g of goldSpans) {
+                const gc = getComputedStyle(g).color;
+                if (!gc.includes('212, 175, 55')) {
+                    issues.push(`"${h.textContent.trim().slice(0, 30)}" span dorado con color ${gc} (debe ser TheIA Gold rgb(212, 175, 55))`);
+                }
+            }
+        }
+        return issues;
+    }""")
+    assert not violations, f"{path}: títulos de sección no conformes:\n" + "\n".join(violations)
+
+
+@pytest.mark.parametrize("path", PAGES)
+def test_subtitulos_de_seccion_homologados_estrictamente(desktop_page, path):
+    """Design System Regla Dura (2026-09-04): TODOS los subtítulos (.section-sub)
+    en todas las páginas de marketing deben computar:
+      - font-family: Plus Jakarta Sans
+      - font-weight: 400 o 500
+      - font-size: 1.05rem (16.8px)
+      - max-width: <= 680px
+    """
+    if path in SUBTITULO_EXCLUIDAS:
+        pytest.skip(f"{path}: página legal/blog, estructura propia")
+    desktop_page.goto(BASE + path, wait_until="domcontentloaded")
+    violations = desktop_page.evaluate("""() => {
+        const issues = [];
+        const subs = [...document.querySelectorAll('.section-sub')].filter(el => !el.closest('[hidden]'));
+        for (const s of subs) {
+            const cs = getComputedStyle(s);
+            const fam = cs.fontFamily.toLowerCase();
+            const weight = cs.fontWeight;
+            const size = cs.fontSize;
+            const maxW = parseFloat(cs.maxWidth);
+
+            if (!fam.includes('plus jakarta sans')) {
+                issues.push(`"${s.textContent.trim().slice(0, 30)}": familia no Plus Jakarta Sans (${cs.fontFamily})`);
+            }
+            if (weight !== '400' && weight !== '500') {
+                issues.push(`"${s.textContent.trim().slice(0, 30)}": peso ${weight} (debe ser 400 o 500)`);
+            }
+            if (size !== '16.8px') {
+                issues.push(`"${s.textContent.trim().slice(0, 30)}": tamaño ${size} (debe ser 16.8px / 1.05rem)`);
+            }
+            if (maxW > 685) {
+                issues.push(`"${s.textContent.trim().slice(0, 30)}": max-width ${maxW}px excede 680px`);
+            }
+        }
+        return issues;
+    }""")
+    assert not violations, f"{path}: subtítulos de sección no conformes:\n" + "\n".join(violations)
+
+
+

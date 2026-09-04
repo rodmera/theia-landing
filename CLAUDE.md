@@ -129,6 +129,14 @@ Variables CSS definidas en `:root` que controlan toda la paleta:
 - NO usar pesos que no estén en la lista (Merriweather 800, Plus Jakarta 600 — el navegador hace fallback y se rompe la consistencia visual).
 - Pesos canónicos: **Merriweather 900** para H1/H2 principales; **700** para H3/sub-headings. **Plus Jakarta 700** para botones/UI importante; **500** para cuerpo destacado; **400** para texto normal.
 
+**⛔ REGLA DURA — Homologación Estricta de Títulos de Sección (H2) y Subtítulos (2026-09-04):**
+- TODOS los títulos de sección (`h2`, `.section-title`, `.cta-final h2`) de TODAS las páginas deben compartir exactamente los mismos tokens:
+  - Familia y Peso: `Merriweather 900` exclusivamente (`font-weight: 900; font-family: 'Merriweather', serif;`). PROHIBIDO degradar a 700 en H2 de sección.
+  - Tamaño fluido canónico: `font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 0.75rem; text-align: center; color: var(--text, #ffffff);`.
+  - Spans dorados (`span.gold`, `.gold`): `color: var(--gold);` (`#d4af37`, TheIA Gold). PROHIBIDO usar `#ebca73` o `--gold-light` en títulos de sección.
+  - Subtítulos (`.section-sub`): `font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.05rem; line-height: 1.65; color: var(--text-sub); max-width: 680px; margin: 0 auto 3rem; text-align: center;`.
+- PROHIBIDO introducir overrides en archivos CSS secundarios (como `home-product-ui.css`, `.specialists-header h2`, `.setup-header h2`, etc.) o usar estilos inline `style="..."` que alteren el font-size o font-weight de los títulos.
+
 **⛔ REGLA DURA — Iconos de canales:**
 - NO usar emojis genéricos (💬, 📷, 🌐) para representar canales oficiales en paneles visuales.
 - SÍ usar SVGs inline con los logos oficiales y colores de marca: WhatsApp `#25D366`, Instagram `#E1306C`, Web `#6366F1`.
