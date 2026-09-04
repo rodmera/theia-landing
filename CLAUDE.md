@@ -137,6 +137,11 @@ Variables CSS definidas en `:root` que controlan toda la paleta:
   - Subtítulos (`.section-sub`): `font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.05rem; line-height: 1.65; color: var(--text-sub); max-width: 680px; margin: 0 auto 3rem; text-align: center;`.
 - PROHIBIDO introducir overrides en archivos CSS secundarios (como `home-product-ui.css`, `.specialists-header h2`, `.setup-header h2`, etc.) o usar estilos inline `style="..."` que alteren el font-size o font-weight de los títulos.
 
+**⛔ REGLA DURA — Validez XML de SVG y Consola Limpia de Navegador (2026-09-04):**
+- PROHIBIDO utilizar `width="auto"` o `height="auto"` como atributos XML dentro de etiquetas `<svg>`. En la especificación XML de SVG solo se admiten longitudes numéricas o porcentajes. El valor `"auto"` dispara un error de parser en Chromium (`Error: <svg> attribute height: Expected length, "auto"`). Usar siempre CSS `style="height: auto;"` en su lugar.
+- Toda prueba Playwright (`tests/conftest.py`) intercepta automáticamente `page.on("console")` de tipo error; cualquier advertencia o fallo interno del navegador en Chromium rompe la suite de tests.
+- Ejecutar obligatoriamente el skill de auditoría `python3 .agents/skills/frontend-ux-review/scripts/audit_frontend_ux.py` antes de commitear. El skill está disponible de forma universal en el repositorio (`.agents/` y `.claude/`) y en los 5 agentes del ecosistema.
+
 **⛔ REGLA DURA — Iconos de canales:**
 - NO usar emojis genéricos (💬, 📷, 🌐) para representar canales oficiales en paneles visuales.
 - SÍ usar SVGs inline con los logos oficiales y colores de marca: WhatsApp `#25D366`, Instagram `#E1306C`, Web `#6366F1`.
@@ -236,13 +241,14 @@ citado en el código, la HU está implementada y **no puede volver** a un estado
 ## Gate de este repo (no hay pytest — el gate es otro)
 
 Antes de commitear a `main` (main = deploy directo a theia.cl vía Pages):
-1. **Correr la suite:** `.venv-test/bin/python -m pytest tests/ -q` — verde obligatorio.
-2. Servir local (`python3 -m http.server 8080`) y revisar la página tocada + home en desktop y móvil.
-3. Verificar TODOS los links/CTAs tocados (no romper el link de agendar demo ni el WhatsApp).
-4. **Consistencia comercial:** precios/planes/claims deben coincidir con el brochure y el system
+1. **Auditoría Frontend & UX:** `python3 .agents/skills/frontend-ux-review/scripts/audit_frontend_ux.py` — debe salir 100% verde (0 errores, 0 warnings).
+2. **Correr la suite:** `.venv-test/bin/python -m pytest tests/ -q` — verde obligatorio (incluye validación de consola limpia sin errores Chromium).
+3. Servir local (`python3 -m http.server 8080`) y revisar la página tocada + home en desktop y móvil.
+4. Verificar TODOS los links/CTAs tocados (no romper el link de agendar demo ni el WhatsApp).
+5. **Consistencia comercial:** precios/planes/claims deben coincidir con el brochure y el system
    prompt del bot (incidente EXP-010: el bot y el material deben decir LO MISMO). Si tocas precios,
    revisa las tres fuentes.
-5. Tras el push, verificar theia.cl + el run de `site-tests.yml` en Actions en vivo (Pages tarda ~1-2 min) — el deploy ES el push, no hay
+6. Tras el push, verificar theia.cl + el run de `site-tests.yml` en Actions en vivo (Pages tarda ~1-2 min) — el deploy ES el push, no hay
    staging.
 
 ## Autoría en Git
