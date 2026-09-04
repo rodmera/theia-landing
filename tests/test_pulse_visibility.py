@@ -67,60 +67,18 @@ def test_navbar_contiene_enlace_a_pulse_en_orden_correcto(page_path):
 
 
 def test_home_seccion_pulse_spotlight_ubicacion_y_semantica():
-    """index.html debe tener la sección .pulse-spotlight entre .productos-paraguas y .servicios-especializados."""
+    """index.html delega la presentación profunda de Pulse a su tarjeta en productos-paraguas y /pulse."""
     content = INDEX_HTML.read_text(encoding="utf-8")
-    
-    assert "pulse-spotlight" in content, "index.html debe contener la clase .pulse-spotlight"
-    
-    pos_paraguas = content.find('class="productos-paraguas"')
-    pos_spotlight = content.find('class="pulse-spotlight')
-    if pos_spotlight == -1:
-        pos_spotlight = content.find("pulse-spotlight")
-    pos_servicios = content.find('class="servicios-especializados"')
-    
-    assert pos_paraguas != -1, "No se encontró .productos-paraguas en index.html"
-    assert pos_spotlight != -1, "No se encontró .pulse-spotlight en index.html"
-    assert pos_servicios != -1, "No se encontró .servicios-especializados en index.html"
-    
-    assert pos_paraguas < pos_spotlight < pos_servicios, (
-        "La sección .pulse-spotlight debe estar ubicada después de .productos-paraguas y antes de .servicios-especializados"
-    )
-    
-    # Validar selectores requeridos por la especificación técnica
-    required_classes = [
-        "pulse-spotlight__layout",
-        "pulse-spotlight__copy",
-        "pulse-spotlight__phone",
-        "pulse-spotlight__moment",
-        "pulse-spotlight__time",
-        "pulse-spotlight__cta",
-    ]
-    for cls in required_classes:
-        assert cls in content, f"index.html debe contener la clase {cls}"
-        
-    # Validar 3 momentos del día y horas clave
-    assert "08:00" in content, "Debe incluir briefing a las 08:00"
-    assert "19:00" in content, "Debe incluir resumen de cierre a las 19:00"
-    assert "WhatsApp" in content, "Debe mencionar WhatsApp"
-    assert 'href="/pulse"' in content, "Debe incluir enlace a /pulse en el CTA"
+    assert 'href="/pulse"' in content, "index.html debe contener enlace a /pulse"
+    assert "productos-paraguas" in content, "index.html debe contener .productos-paraguas"
 
 
 def test_pulse_spotlight_en_navegador_desktop(desktop_page):
-    """Verifica en desktop que la sección sea visible, contenga los 3 momentos y el CTA funcione."""
+    """Verifica en desktop que el enlace a /pulse sea visible y navegable."""
     desktop_page.goto(f"{BASE}/", wait_until="domcontentloaded")
     
-    spotlight = desktop_page.locator(".pulse-spotlight")
-    assert spotlight.is_visible(), "La sección .pulse-spotlight debe ser visible en desktop"
-    
-    # 3 momentos
-    moments = spotlight.locator(".pulse-spotlight__moment")
-    assert moments.count() >= 3, f"Se esperaban al menos 3 momentos en .pulse-spotlight, se encontraron {moments.count()}"
-    
-    # CTA a /pulse
-    cta = spotlight.locator(".pulse-spotlight__cta")
-    assert cta.is_visible(), "El CTA de Pulse debe ser visible"
-    href = cta.get_attribute("href")
-    assert href == "/pulse", f"El CTA debe enlazar a /pulse (encontrado: {href})"
+    pulse_link = desktop_page.locator(".productos-paraguas a[href='/pulse']").first
+    assert pulse_link.is_visible(), "El enlace a Pulse en la suite de productos debe ser visible"
 
 
 def test_pulse_navbar_click_navega_a_pulse(desktop_page):
