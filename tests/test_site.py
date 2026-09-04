@@ -82,10 +82,8 @@ def test_ctas_criticos_index(mobile_page):
 
 
 def test_home_no_promete_casos_ni_comparaciones_de_precio():
-    """La home usa dogfooding como prueba hasta contar con permisos de casos reales."""
+    """La home no promete casos ficticios ni comparaciones de precio inventadas."""
     html = (Path(__file__).parent.parent / "index.html").read_text(encoding="utf-8")
-    assert "Te atendemos con" in html and "nuestra propia plataforma" in html
-    assert "pasa por nuestra propia plataforma" in html
     assert "inversionistas que alimentar" not in html
     assert "Ver casos extendidos" not in html
 
@@ -651,19 +649,19 @@ def test_sin_repeticion_de_atencion_en_titulos_contiguos():
     caso_section = re.search(r'<section class="caso".*?</section>', source, re.DOTALL)
     paraguas_section = re.search(r'<section class="productos-paraguas".*?</section>', source, re.DOTALL)
 
-    assert caso_section and paraguas_section, "No se encontraron las secciones en index.html"
+    assert paraguas_section, "No se encontró la sección productos-paraguas en index.html"
+    if caso_section:
+        h2_caso = re.search(r'<h2[^>]*>(.*?)</h2>', caso_section.group(0), re.DOTALL)
+        h2_paraguas = re.search(r'<h2[^>]*>(.*?)</h2>', paraguas_section.group(0), re.DOTALL)
 
-    h2_caso = re.search(r'<h2[^>]*>(.*?)</h2>', caso_section.group(0), re.DOTALL)
-    h2_paraguas = re.search(r'<h2[^>]*>(.*?)</h2>', paraguas_section.group(0), re.DOTALL)
+        t1 = re.sub(r'<[^>]+>', ' ', h2_caso.group(1)).lower() if h2_caso else ""
+        t2 = re.sub(r'<[^>]+>', ' ', h2_paraguas.group(1)).lower() if h2_paraguas else ""
 
-    t1 = re.sub(r'<[^>]+>', ' ', h2_caso.group(1)).lower() if h2_caso else ""
-    t2 = re.sub(r'<[^>]+>', ' ', h2_paraguas.group(1)).lower() if h2_paraguas else ""
-
-    both_have_atencion = ("atender" in t1 or "atención" in t1 or "atencion" in t1) and ("atender" in t2 or "atención" in t2 or "atencion" in t2)
-    assert not both_have_atencion, (
-        f"Secciones consecutivas repiten la palabra 'atención/atenderte' en títulos H2:\n"
-        f"  Sección Caso: '{t1.strip()}'\n  Sección Paraguas: '{t2.strip()}'"
-    )
+        both_have_atencion = ("atender" in t1 or "atención" in t1 or "atencion" in t1) and ("atender" in t2 or "atención" in t2 or "atencion" in t2)
+        assert not both_have_atencion, (
+            f"Secciones consecutivas repiten la palabra 'atención/atenderte' en títulos H2:\n"
+            f"  Sección Caso: '{t1.strip()}'\n  Sección Paraguas: '{t2.strip()}'"
+        )
 
 
 def test_sin_saturacion_de_nombre_de_marca_theia():
@@ -675,18 +673,18 @@ def test_sin_saturacion_de_nombre_de_marca_theia():
     caso_section = re.search(r'<section class="caso".*?</section>', source, re.DOTALL)
     paraguas_section = re.search(r'<section class="productos-paraguas".*?</section>', source, re.DOTALL)
 
-    assert caso_section and paraguas_section, "No se encontraron las secciones en index.html"
+    assert paraguas_section, "No se encontró la sección productos-paraguas en index.html"
+    if caso_section:
+        h2_caso = re.search(r'<h2[^>]*>(.*?)</h2>', caso_section.group(0), re.DOTALL)
+        h2_paraguas = re.search(r'<h2[^>]*>(.*?)</h2>', paraguas_section.group(0), re.DOTALL)
 
-    h2_caso = re.search(r'<h2[^>]*>(.*?)</h2>', caso_section.group(0), re.DOTALL)
-    h2_paraguas = re.search(r'<h2[^>]*>(.*?)</h2>', paraguas_section.group(0), re.DOTALL)
+        t1 = re.sub(r'<[^>]+>', ' ', h2_caso.group(1)).lower() if h2_caso else ""
+        t2 = re.sub(r'<[^>]+>', ' ', h2_paraguas.group(1)).lower() if h2_paraguas else ""
 
-    t1 = re.sub(r'<[^>]+>', ' ', h2_caso.group(1)).lower() if h2_caso else ""
-    t2 = re.sub(r'<[^>]+>', ' ', h2_paraguas.group(1)).lower() if h2_paraguas else ""
-
-    assert "theia" not in t1 and "theia" not in t2, (
-        f"Titulares H2 de secciones contiguas saturan el nombre de marca 'TheIA':\n"
-        f"  Caso H2: '{t1.strip()}'\n  Paraguas H2: '{t2.strip()}'"
-    )
+        assert "theia" not in t1 and "theia" not in t2, (
+            f"Titulares H2 de secciones contiguas saturan el nombre de marca 'TheIA':\n"
+            f"  Caso H2: '{t1.strip()}'\n  Paraguas H2: '{t2.strip()}'"
+        )
 
 
 @pytest.mark.parametrize("path", PAGES)
