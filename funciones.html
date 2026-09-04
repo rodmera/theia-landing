@@ -268,13 +268,18 @@
     .group-header h2 {
       font-family: 'Merriweather', serif;
       font-weight: 900;
-      font-size: clamp(1.4rem, 2.5vw, 2rem);
-      margin-bottom: 0.5rem;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
     }
 
     .group-header p {
       color: var(--text-sub);
-      font-size: 0.92rem;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      max-width: 680px;
+      margin: 0 auto;
     }
 
     .group-tag {
@@ -516,13 +521,19 @@
     .cta-final h2 {
       font-family: 'Merriweather', serif;
       font-weight: 900;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      letter-spacing: -0.025em;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      text-align: center;
       margin-bottom: 0.75rem;
     }
 
     .cta-final p {
-      color: var(--text-sub); font-size: 1rem; margin-bottom: 2.5rem;
+      color: var(--text-sub);
+      font-size: 1.05rem;
+      line-height: 1.65;
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
     }
 
     .cta-btns {
@@ -967,8 +978,8 @@
     <div class="container">
       <div class="group-header reveal">
         <span class="group-tag">1. Atención</span>
-        <h2>Atiende y <span class="gold">orienta.</span></h2>
-        <p>Para que nadie quede esperando y cada consulta se convierta en oportunidad.</p>
+        <h2 class="section-title">Atiende y <span class="gold">orienta.</span></h2>
+        <p class="section-sub">Para que nadie quede esperando y cada consulta se convierta en oportunidad.</p>
       </div>
       <div class="feat-grid">
         <div class="feat-card reveal">
@@ -1051,8 +1062,8 @@
     <div class="container">
       <div class="group-header reveal">
         <span class="group-tag">2. Continuidad</span>
-        <h2>Cotiza, agenda y <span class="gold">hace seguimiento.</span></h2>
-        <p>Los siguientes pasos quedan más ordenados, sin perseguir conversaciones a mano.</p>
+        <h2 class="section-title">Cotiza, agenda y <span class="gold">hace seguimiento.</span></h2>
+        <p class="section-sub">Los siguientes pasos quedan más ordenados, sin perseguir conversaciones a mano.</p>
       </div>
       <div class="feat-grid">
         <div class="feat-card reveal">
@@ -1124,8 +1135,8 @@
     <div class="container">
       <div class="group-header reveal">
         <span class="group-tag">3. Equipo</span>
-        <h2>Tu equipo conserva el <span class="gold">control.</span></h2>
-        <p>TheIA acompaña la atención; no reemplaza a las personas cuando su criterio hace falta.</p>
+        <h2 class="section-title">Tu equipo conserva el <span class="gold">control.</span></h2>
+        <p class="section-sub">TheIA acompaña la atención; no reemplaza a las personas cuando su criterio hace falta.</p>
       </div>
       <div class="feat-grid">
         <div class="feat-card reveal">
@@ -1319,8 +1330,8 @@
   <!-- ═══════════════════════════════════════════════════ -->
   <section class="cta-final">
     <div class="container">
-      <h2 class="reveal">Pruébala antes de<br /><span class="gold">decidir.</span></h2>
-      <p class="reveal">Probar conversación en vivo ahora o agenda una demo para revisar cómo se adapta a tu negocio.</p>
+      <h2 class="section-title reveal">Pruébala antes de<br /><span class="gold">decidir.</span></h2>
+      <p class="section-sub reveal">Prueba la conversación en vivo ahora o agenda una demo para revisar cómo se adapta a tu negocio.</p>
       <div class="cta-btns reveal">
         <button type="button" class="btn btn-gold" onclick="openTheiaChat('funciones-cta')">Probar conversación en vivo</button>
         <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" class="btn btn-ghost" target="_blank" rel="noopener" onclick="theiaTrackCTA('demo','funciones-cta')">

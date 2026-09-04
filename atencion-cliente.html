@@ -567,13 +567,20 @@
     }
 
     .cta-final h2 {
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      text-align: center;
       margin-bottom: 0.75rem;
     }
 
     .cta-final p {
       color: var(--text-sub);
-      max-width: 600px;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      max-width: 680px;
       margin: 0 auto 2rem;
     }
 
@@ -1102,8 +1109,8 @@
   <section class="cta-final">
     <div class="container">
       <div class="reveal">
-        <h2>¿Listo para cerrar más ventas y atender 24/7?</h2>
-        <p>Una demo de 30 minutos. Vemos tu caso, te mostramos TheIA funcionando con tu tipo de clientes y decides con información, no con promesas.</p>
+        <h2 class="section-title">¿Listo para cerrar más ventas y atender 24/7?</h2>
+        <p class="section-sub" style="margin: 0 auto 2rem;">Una demo de 30 minutos. Vemos tu caso, te mostramos TheIA funcionando con tu tipo de clientes y decides con información, no con promesas.</p>
         <div class="cta-buttons">
           <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" style="padding: 0.85rem 2rem; font-size: 1rem; border-radius: 10px;" onclick="theiaTrackCTA('demo','atencion-cliente-cta')">Agenda una demo →</a>
           <a href="https://wa.me/12063858350" target="_blank" rel="noopener" class="btn btn-whatsapp" onclick="theiaTrackCTA('whatsapp','atencion-cliente-cta')">
