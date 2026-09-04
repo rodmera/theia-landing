@@ -943,17 +943,17 @@
   background: var(--bg2, #141c2e);
   border: 1px solid var(--glass-border);
   border-radius: 16px;
-  padding: 2.25rem 2.5rem;
+  padding: 2.75rem 2.5rem;
   text-align: center;
 }
 
 .conecta-logos-title {
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #94a3b8;
-  margin-bottom: 1.75rem;
+  margin-bottom: 2rem;
 }
 
 .conecta-logos-grid {
@@ -967,22 +967,24 @@
 .logo-item {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  color: #94a3b8;
-  font-size: 0.95rem;
+  gap: 0.8rem;
+  color: #e2e8f0;
+  font-size: 1.1rem;
   font-weight: 700;
-  opacity: 0.75;
-  transition: opacity 0.2s, color 0.2s;
+  opacity: 0.88;
+  transition: opacity 0.2s, color 0.2s, transform 0.2s;
 }
 
 .logo-item:hover {
   opacity: 1;
   color: #ffffff;
+  transform: translateY(-2px);
 }
 
 .logo-svg {
-  width: 22px;
-  height: 22px;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
   fill: currentColor;
 }
 
@@ -1023,10 +1025,19 @@
     padding: 1.5rem 1.25rem;
   }
   .conecta-logos-grid {
-    gap: 1.25rem 2rem;
+    gap: 1.5rem 2rem;
   }
   .conecta-logos-wrap {
-    padding: 1.5rem 1.25rem;
+    padding: 1.75rem 1.25rem;
+  }
+  .logo-item {
+    font-size: 0.98rem;
+    gap: 0.65rem;
+  }
+  .logo-svg {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
   }
   .setup-cero-friccion,
   .conecta-agentes-section,
