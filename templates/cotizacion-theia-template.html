@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ titulo }} — {{ cliente }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg2: #1e293b;
+      --gold: #d4af37;
+      --gold-light: #ebca73;
+      --glass: rgba(255, 255, 255, 0.04);
+      --glass-border: rgba(255, 255, 255, 0.10);
+      --glass-border-gold: rgba(212, 175, 55, 0.35);
+      --text: #ffffff;
+      --text-sub: rgba(255, 255, 255, 0.80);
+      --text-muted: rgba(255, 255, 255, 0.55);
+    }
+
+    @page {
+      size: letter portrait;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11.5px;
+      line-height: 1.5;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      width: 8.5in;
+      height: 11in;
+      max-height: 11in;
+      margin: 0 auto;
+      padding: 0.6in 0.65in;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    /* HEADER */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--glass-border-gold);
+    }
+    .logo-img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .emisor-info {
+      text-align: right;
+      font-size: 9.5px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+    .emisor-name {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 10.5px;
+      letter-spacing: 0.3px;
+    }
+
+    /* TITLE BAR */
+    .title-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 18px;
+      margin-bottom: 14px;
+    }
+    h1 {
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+      font-size: 20px;
+      color: var(--text);
+      letter-spacing: -0.2px;
+    }
+    .meta-tag {
+      font-size: 10px;
+      color: var(--gold-light);
+      font-weight: 600;
+      background: rgba(212, 175, 55, 0.1);
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid var(--glass-border-gold);
+    }
+
+    /* CLIENT CARD */
+    .client-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .client-row {
+      display: flex;
+      font-size: 11px;
+    }
+    .client-label {
+      font-weight: 600;
+      color: var(--gold);
+      min-width: 80px;
+    }
+    .client-val {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* SECTION TITLE */
+    h2 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h2::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--glass-border);
+    }
+
+    /* BULLETS */
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 20px;
+    }
+    .feature-list li {
+      position: relative;
+      padding-left: 16px;
+      color: var(--text-sub);
+      font-size: 11px;
+    }
+    .feature-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 14px;
+      line-height: 1;
+    }
+    .feature-list strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* PRICING TABLE */
+    .pricing-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border: 1px solid var(--glass-border-gold);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      background: var(--glass);
+    }
+    .pricing-table th {
+      background: var(--bg2);
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 10.5px;
+      text-align: left;
+      padding: 9px 14px;
+      border-bottom: 1px solid var(--glass-border-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .pricing-table td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--glass-border);
+      vertical-align: middle;
+      font-size: 11px;
+    }
+    .pricing-table tr:last-child td {
+      border-bottom: none;
+    }
+    .col-price {
+      text-align: right;
+      white-space: nowrap;
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .price-sub {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    /* EXCLUSIONS */
+    .exclusions-box {
+      background: rgba(15, 23, 42, 0.4);
+      border-left: 2px solid var(--gold);
+      padding: 10px 14px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .exclusions-box p {
+      font-size: 9.5px;
+      color: var(--text-sub);
+      line-height: 1.45;
+    }
+
+    /* SIGNATURES ONLY (NO NEXT STEPS) */
+    .footer-actions {
+      border-top: 1px solid var(--glass-border);
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .sig-line {
+      font-size: 9.5px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+    .sig-line strong {
+      color: var(--text);
+      font-size: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo-container">
+      <img src="{{ logo_data_uri }}" alt="TheIA" class="logo-img">
+    </div>
+    <div class="emisor-info">
+      <div class="emisor-name">{{ corporate.razon_social }}</div>
+      <div>RUT: {{ corporate.rut }} · {{ corporate.email }} · {{ corporate.web }}</div>
+      <div>{{ corporate.direccion }}</div>
+    </div>
+  </header>
+
+  <!-- TITLE & METAS -->
+  <div>
+    <div class="title-bar">
+      <h1>{{ titulo }}</h1>
+      <div class="meta-tag">Fecha: {{ fecha }} · Validez: {{ validez }}</div>
+    </div>
+
+    <!-- CLIENT DETAILS -->
+    <div class="client-card">
+      <div class="client-row">
+        <span class="client-label">Cliente:</span>
+        <span class="client-val">{{ cliente }}</span>
+      </div>
+      <div class="client-row">
+        <span class="client-label">Contacto:</span>
+        <span class="client-val">{{ contacto }}</span>
+      </div>
+      <div class="client-row">
+        <span class="client-label">Canales:</span>
+        <span class="client-val">{{ canales }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALCANCE DE LA SOLUCIÓN -->
+  <section>
+    <h2>Qué Incluye la Solución</h2>
+    <ul class="feature-list">
+      {% for title, desc in alcance_items %}
+      <li><strong>{{ title }}:</strong> {{ desc }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <!-- INVERSIÓN -->
+  <section>
+    <h2>Inversión</h2>
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th style="width: 28%;">Concepto</th>
+          <th style="width: 48%;">Detalle</th>
+          <th style="width: 24%; text-align: right;">Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for concepto, detalle, valor, sub in inversion_items %}
+        <tr>
+          <td><strong>{{ concepto }}</strong></td>
+          <td>{{ detalle }}</td>
+          <td class="col-price">{{ valor }}<span class="price-sub">{{ sub }}</span></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <!-- CONDICIONES Y EXCLUSIONES -->
+  <section>
+    <h2>Condiciones y Exclusiones</h2>
+    <div class="exclusions-box">
+      {% for title, desc in condiciones_items %}
+      <p>• <strong>{{ title }}:</strong> {{ desc }}</p>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- SIGNATURES ONLY -->
+  <footer class="footer-actions">
+    <div class="sig-line">
+      <strong>{{ corporate.razon_social }}</strong><br>
+      {{ corporate.emisor_nombre }} · {{ corporate.emisor_cargo }}
+    </div>
+    <div class="sig-line" style="text-align: right;">
+      <strong>{{ cliente_firmante }}</strong>
+    </div>
+  </footer>
+
+</body>
+</html>
