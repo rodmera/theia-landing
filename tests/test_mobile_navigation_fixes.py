@@ -32,13 +32,13 @@ def test_t1_crm_action_is_canonical_link_not_button():
 
 
 def test_t2_mobile_click_conocer_crm_navigates_to_crm(mobile_page):
-    """HU-WEB-027 AC1, AC4: Al pulsar 'Conocer CRM →' en home móvil se navega a /crm con status 200."""
-    mobile_page.goto(f"{BASE}/", wait_until="domcontentloaded")
+    """HU-WEB-027 AC1, AC4: Al pulsar 'Conocer CRM →' en atencion-cliente móvil se navega a /crm con status 200."""
+    mobile_page.goto(f"{BASE}/atencion-cliente.html", wait_until="domcontentloaded")
     mobile_page.wait_for_timeout(200)
 
     # Buscar el enlace específico de la tarjeta CRM
     crm_action = mobile_page.locator(".product-suite-card__action[href='/crm']")
-    assert crm_action.count() >= 1, "Enlace .product-suite-card__action con href='/crm' no encontrado en home"
+    assert crm_action.count() >= 1, "Enlace .product-suite-card__action con href='/crm' no encontrado en atencion-cliente"
 
     crm_action.first.scroll_into_view_if_needed()
     crm_action.first.click()
@@ -52,7 +52,7 @@ def test_t2_mobile_click_conocer_crm_navigates_to_crm(mobile_page):
 
 def test_t3_click_conocer_crm_does_not_open_webchat(mobile_page):
     """HU-WEB-027 AC1: Pulsar 'Conocer CRM →' debe navegar nativamente sin invocar openTheiaChat."""
-    mobile_page.goto(f"{BASE}/", wait_until="domcontentloaded")
+    mobile_page.goto(f"{BASE}/atencion-cliente.html", wait_until="domcontentloaded")
     mobile_page.wait_for_timeout(200)
 
     crm_action = mobile_page.locator(".product-suite-card__action[href='/crm']").first

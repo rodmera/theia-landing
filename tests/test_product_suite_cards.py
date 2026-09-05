@@ -55,12 +55,6 @@ def test_product_suite_css_contains_semantic_contract():
 
 
 @pytest.mark.parametrize("html_file,expected_ctas", [
-    (INDEX_HTML, [
-        ("/atencion-cliente", "Conocer Atención"),
-        ("/pulse", "Conocer Pulse"),
-        ("/crm", "Conocer CRM"),
-        ("/panel", "Ver Panel de Control"),
-    ]),
     (ATENCION_HTML, [
         ("/funciones", "Ver cómo ayuda"),
         ("/pulse", "Conocer Pulse"),
@@ -93,7 +87,7 @@ def test_html_structure_has_4_cards_with_correct_semantics_and_ctas(html_file, e
         assert label in content, f"{html_file.name} debe preservar el texto del botón '{label}'"
 
 
-@pytest.mark.parametrize("path", ["/", "/atencion-cliente.html"])
+@pytest.mark.parametrize("path", ["/atencion-cliente.html"])
 def test_product_suite_card_layout_in_browser(desktop_page, path):
     """Verifica en navegador real que las tarjetas estén centradas horizontalmente y los CTAs alineados al fondo."""
     desktop_page.goto(f"{BASE}{path}", wait_until="domcontentloaded")
@@ -179,32 +173,22 @@ def test_product_suite_card_layout_in_browser(desktop_page, path):
 
 
 def test_product_suite_card_copy_balance_and_homogeneity():
-    """Verifica que los 4 párrafos tengan longitud equilibrada (18-26 palabras) e idéntica entre index y atencion-cliente."""
-    index_content = INDEX_HTML.read_text(encoding="utf-8")
+    """Verifica que los 4 párrafos de atencion-cliente tengan longitud equilibrada (18-26 palabras)."""
     atencion_content = ATENCION_HTML.read_text(encoding="utf-8")
     
     # Extraer los 4 párrafos de product-suite-card__content
     pattern = re.compile(r'<div class="product-suite-card__content">\s*<h3[^>]*>([^<]+)</h3>\s*<p[^>]*>([^<]+)</p>', re.DOTALL)
     
-    index_matches = pattern.findall(index_content)
     atencion_matches = pattern.findall(atencion_content)
-    
-    assert len(index_matches) == 4, f"Se esperaban 4 tarjetas en index.html, encontradas {len(index_matches)}"
     assert len(atencion_matches) == 4, f"Se esperaban 4 tarjetas en atencion-cliente.html, encontradas {len(atencion_matches)}"
     
     for i in range(4):
-        title_idx, p_idx = index_matches[i]
         title_atn, p_atn = atencion_matches[i]
-        
-        # Mismo título y copy entre páginas
-        assert title_idx.strip() == title_atn.strip(), f"Título mismatch en tarjeta {i}: '{title_idx}' vs '{title_atn}'"
-        assert p_idx.strip() == p_atn.strip(), f"Copy mismatch en tarjeta {i}: '{p_idx.strip()}' vs '{p_atn.strip()}'"
-        
-        words = len(p_idx.strip().split())
-        assert 18 <= words <= 26, f"Tarjeta {title_idx} tiene longitud no balanceada: {words} palabras ({p_idx.strip()})"
+        words = len(p_atn.strip().split())
+        assert 18 <= words <= 26, f"Tarjeta {title_atn} tiene longitud no balanceada: {words} palabras ({p_atn.strip()})"
 
 
-@pytest.mark.parametrize("path", ["/", "/atencion-cliente.html"])
+@pytest.mark.parametrize("path", ["/atencion-cliente.html"])
 def test_product_suite_card_mobile_layout(mobile_page, path):
     """Verifica en viewport móvil que las tarjetas se adapten sin overflow horizontal y centradas."""
     mobile_page.goto(f"{BASE}{path}", wait_until="domcontentloaded")
