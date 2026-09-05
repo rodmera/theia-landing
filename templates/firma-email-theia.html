@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Firma de Correo Oficial — TheIA</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      padding: 40px 20px;
+      background: #f1f5f9;
+      color: #0f172a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      max-width: 680px;
+      width: 100%;
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+    .sub {
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 24px;
+    }
+    .instructions {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: #334155;
+    }
+    .instructions strong {
+      color: #0f172a;
+    }
+    .card-wrap {
+      margin-bottom: 32px;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .tag {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #475569;
+    }
+    .btn-copy {
+      background: #0f172a;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 7px 14px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .btn-copy:hover {
+      background: #d4af37;
+      color: #0f172a;
+    }
+    .signature-card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .signature-card.dark-canvas {
+      background: #060b13;
+      border: 1px solid #1e293b;
+    }
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      background: #10b981;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 18px;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .toast.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Firma Oficial TheIA para Correo Electrónico</h1>
+  <div class="sub">No uses capturas de pantalla (pierden enlaces y dejan artefactos). Usa el botón de copiado directo para pegar HTML nativo en Gmail.</div>
+
+  <div class="instructions">
+    <strong>Cómo instalarla en Gmail en 2 pasos:</strong><br>
+    1. Haz clic en el botón <strong>«Copiar Firma»</strong> de la opción que prefieras.<br>
+    2. En tu Gmail (<code>rodrigo@theia.cl</code>), entra a <strong>Configuración (engranaje) &rarr; Ver todos los ajustes &rarr; General &rarr; Firma</strong>, pega con <kbd>Ctrl + V</kbd> y guarda los cambios al final.
+  </div>
+
+  <!-- OPCIÓN A: ADAPTATIVA / TRANSPARENTE -->
+  <div class="card-wrap">
+    <div class="card-header">
+      <div class="tag">Opción A: Fondo Transparente (Recomendada — Se adapta a claro y oscuro)</div>
+      <button class="btn-copy" onclick="copySignature('sig-transparent')">📋 Copiar Firma Adaptativa</button>
+    </div>
+    <div class="signature-card">
+      <div id="sig-transparent">
+        <table cellpadding="0" cellspacing="0" border="0" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 13px; line-height: 1.4; color: #1e293b; border-collapse: collapse;">
+          <tr>
+            <td valign="top" style="padding-right: 18px; border-right: 2px solid #d4af37; vertical-align: top;">
+              <a href="https://theia.cl" target="_blank" rel="noopener" style="text-decoration: none; display: block;">
+                <img src="https://theia.cl/logo-tight.png" alt="TheIA" width="65" height="57" style="display: block; border: 0; outline: none; width: 65px; height: auto;" />
+              </a>
+            </td>
+            <td valign="top" style="padding-left: 18px; vertical-align: top;">
+              <div style="font-size: 15px; font-weight: 700; color: #0f172a; letter-spacing: -0.2px; line-height: 1.2;">
+                Rodrigo Mera R.
+              </div>
+              <div style="font-size: 12px; font-weight: 600; color: #d4af37; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 3px; margin-bottom: 6px;">
+                Founder & CEO <span style="color: #94a3b8; font-weight: 400; margin: 0 2px;">·</span> TheIA
+              </div>
+              <div style="font-size: 12px; color: #475569; margin-bottom: 14px; line-height: 1.4;">
+                <a href="mailto:rodrigo@theia.cl" style="color: #475569; text-decoration: none; font-weight: 500;">rodrigo@theia.cl</a>
+                <span style="color: #cbd5e1; margin: 0 5px;">|</span>
+                <a href="tel:+56977298344" style="color: #475569; text-decoration: none; font-weight: 500;">+56 9 7729 8344</a>
+                <span style="color: #cbd5e1; margin: 0 5px;">|</span>
+                <a href="https://theia.cl" target="_blank" rel="noopener" style="color: #d4af37; font-weight: 600; text-decoration: none;">theia.cl</a>
+              </div>
+              <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
+                <tr>
+                  <td valign="middle" style="padding-right: 14px; vertical-align: middle;">
+                    <a href="https://cloud.google.com/startup" target="_blank" rel="noopener" style="text-decoration: none; display: inline-block;">
+                      <img src="https://theia.cl/google-for-startups-badge.png" alt="Google for Startups" height="28" style="display: block; border: 0; outline: none; height: 28px; width: auto;" />
+                    </a>
+                  </td>
+                  <td valign="middle" style="vertical-align: middle;">
+                    <a href="https://www.nvidia.com/es-la/startups/" target="_blank" rel="noopener" style="text-decoration: none; display: inline-block;">
+                      <img src="https://theia.cl/nvidia-inception-program-badge.png" alt="NVIDIA Inception Program" height="36" style="display: block; border: 0; outline: none; height: 36px; width: auto; border-radius: 3px;" />
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPCIÓN B: TARJETA OSCURA INTEGRADA -->
+  <div class="card-wrap">
+    <div class="card-header">
+      <div class="tag">Opción B: Tarjeta Oscura Slate (Fondo #0b1320 propio en HTML, sin screenshot)</div>
+      <button class="btn-copy" onclick="copySignature('sig-dark-card')">📋 Copiar Tarjeta Oscura</button>
+    </div>
+    <div class="signature-card dark-canvas">
+      <div id="sig-dark-card">
+        <table cellpadding="0" cellspacing="0" border="0" style="background-color: #0b1320; border: 1px solid #1e293b; border-radius: 8px; padding: 18px 22px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 13px; line-height: 1.4; color: #ffffff; width: auto; max-width: 540px; border-collapse: separate;">
+          <tr>
+            <td valign="top" style="padding-right: 18px; border-right: 2px solid #d4af37; vertical-align: top;">
+              <a href="https://theia.cl" target="_blank" rel="noopener" style="text-decoration: none; display: block;">
+                <img src="https://theia.cl/logo-tight.png" alt="TheIA" width="65" height="57" style="display: block; border: 0; outline: none; width: 65px; height: auto;" />
+              </a>
+            </td>
+            <td valign="top" style="padding-left: 18px; vertical-align: top;">
+              <div style="font-size: 15px; font-weight: 700; color: #ffffff; letter-spacing: -0.2px; line-height: 1.2;">
+                Rodrigo Mera R.
+              </div>
+              <div style="font-size: 12px; font-weight: 600; color: #d4af37; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 3px; margin-bottom: 6px;">
+                Founder & CEO <span style="color: #64748b; font-weight: 400; margin: 0 2px;">·</span> TheIA
+              </div>
+              <div style="font-size: 12px; color: #94a3b8; margin-bottom: 14px; line-height: 1.4;">
+                <a href="mailto:rodrigo@theia.cl" style="color: #94a3b8; text-decoration: none; font-weight: 500;">rodrigo@theia.cl</a>
+                <span style="color: #475569; margin: 0 5px;">|</span>
+                <a href="tel:+56977298344" style="color: #94a3b8; text-decoration: none; font-weight: 500;">+56 9 7729 8344</a>
+                <span style="color: #475569; margin: 0 5px;">|</span>
+                <a href="https://theia.cl" target="_blank" rel="noopener" style="color: #d4af37; font-weight: 600; text-decoration: none;">theia.cl</a>
+              </div>
+              <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
+                <tr>
+                  <td valign="middle" style="padding-right: 14px; vertical-align: middle;">
+                    <a href="https://cloud.google.com/startup" target="_blank" rel="noopener" style="text-decoration: none; display: inline-block;">
+                      <img src="https://theia.cl/google-for-startups-badge.png" alt="Google for Startups" height="28" style="display: block; border: 0; outline: none; height: 28px; width: auto;" />
+                    </a>
+                  </td>
+                  <td valign="middle" style="vertical-align: middle;">
+                    <a href="https://www.nvidia.com/es-la/startups/" target="_blank" rel="noopener" style="text-decoration: none; display: inline-block;">
+                      <img src="https://theia.cl/nvidia-inception-program-badge.png" alt="NVIDIA Inception Program" height="36" style="display: block; border: 0; outline: none; height: 36px; width: auto; border-radius: 3px;" />
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div id="toast" class="toast">Firma copiada al portapapeles. Pégala en Gmail con Ctrl + V</div>
+
+<script>
+  function copySignature(elementId) {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+
+    // Crear rango y selección para copiar HTML enriquecido
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+
+    try {
+      // Usar execCommand('copy') que coloca text/html nativo en el clipboard
+      document.execCommand('copy');
+      showToast();
+    } catch (err) {
+      // Fallback a Clipboard API si disponible
+      if (navigator.clipboard && window.ClipboardItem) {
+        const htmlBlob = new Blob([el.innerHTML], { type: 'text/html' });
+        const textBlob = new Blob([el.innerText], { type: 'text/plain' });
+        navigator.clipboard.write([
+          new ClipboardItem({ 'text/html': htmlBlob, 'text/plain': textBlob })
+        ]).then(showToast);
+      }
+    }
+    selection.removeAllRanges();
+  }
+
+  function showToast() {
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2800);
+  }
+</script>
+
+</body>
+</html>
