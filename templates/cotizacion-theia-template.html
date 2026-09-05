@@ -247,11 +247,14 @@
       line-height: 1.4;
     }
 
-    /* FOOTER SIGNATURE & PARTNERS */
+    /* FOOTER SIGNATURE & PARTNERS - SPLIT BILATERAL */
     .footer-actions {
       border-top: 1px solid var(--glass-border);
-      padding-top: 10px;
+      padding-top: 12px;
       margin-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     .sig-block {
       display: flex;
@@ -276,7 +279,6 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      margin-top: 10px;
     }
     .badge-gfs {
       display: flex;
@@ -288,7 +290,7 @@
       letter-spacing: 0.2px;
     }
     .badge-nv {
-      height: 20px;
+      height: 22px;
       width: auto;
       border-radius: 3px;
       box-shadow: 0 1px 4px rgba(0,0,0,0.25);
@@ -379,25 +381,25 @@
     </div>
   </section>
 
-  <!-- SIGNATURE & PARTNERS -->
+  <!-- SIGNATURE & PARTNERS (SPLIT BILATERAL) -->
   <footer class="footer-actions">
     <div class="sig-block">
       <div class="sig-company">{{ corporate.razon_social }}</div>
       <div class="sig-name">{{ corporate.emisor_nombre }} · {{ corporate.emisor_cargo }}</div>
-      <div class="footer-partner-logos">
-        <div class="badge-gfs">
-          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
-            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
-            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.29v3.13C3.26 21.3 7.37 24 12 24z"/>
-            <path fill="#FBBC05" d="M5.28 14.24a7.19 7.19 0 0 1 0-4.48V6.63H1.29a11.97 11.97 0 0 0 0 10.74l3.99-3.13z"/>
-            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.37 0 3.26 2.7 1.29 6.63l3.99 3.13c.95-2.85 3.6-4.96 6.72-4.96z"/>
-          </svg>
-          Google for Startups
-        </div>
-        {% if nvidia_badge_uri %}
-        <img src="{{ nvidia_badge_uri }}" alt="NVIDIA Inception Program" class="badge-nv">
-        {% endif %}
+    </div>
+    <div class="footer-partner-logos">
+      <div class="badge-gfs">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+          <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.29v3.13C3.26 21.3 7.37 24 12 24z"/>
+          <path fill="#FBBC05" d="M5.28 14.24a7.19 7.19 0 0 1 0-4.48V6.63H1.29a11.97 11.97 0 0 0 0 10.74l3.99-3.13z"/>
+          <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.37 0 3.26 2.7 1.29 6.63l3.99 3.13c.95-2.85 3.6-4.96 6.72-4.96z"/>
+        </svg>
+        Google for Startups
       </div>
+      {% if nvidia_badge_uri %}
+      <img src="{{ nvidia_badge_uri }}" alt="NVIDIA Inception Program" class="badge-nv">
+      {% endif %}
     </div>
   </footer>
 
