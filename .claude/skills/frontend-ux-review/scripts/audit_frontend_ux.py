@@ -258,6 +258,35 @@ class FrontendUXAuditor:
                                 f"<svg> con width='auto' o height='auto' inválido en XML SVG (lanza error en consola Chromium). Usar style='height: auto;'."
                             )
 
+    def audit_no_emojis_as_icons(self):
+        """Audita que ningún contenedor de icono o tarjeta use emojis en lugar de SVGs vectoriales."""
+        pictorial_emojis = re.compile(
+            "["
+            "\U0001F300-\U0001F5FF"  # Miscellaneous Symbols and Pictographs
+            "\U0001F600-\U0001F64F"  # Emoticons
+            "\U0001F680-\U0001F6FF"  # Transport and Map Symbols
+            "\U0001F900-\U0001F9FF"  # Supplemental Symbols and Pictographs
+            "\U0001FA70-\U0001FAFF"  # Symbols and Pictographs Extended-A
+            "\u26A1"                 # High Voltage / Zap (⚡)
+            "\u2600-\u2604\u260E\u2611\u2614\u2615\u2618\u261D\u2620-\u263A\u2648-\u2653\u2660-\u2668\u267B\u267F\u2692-\u269C\u26A0\u26AA\u26AB\u26B0\u26B1\u26BD\u26BE\u26C4\u26C5\u26CE\u26CF\u26D1\u26D4\u26E9\u26EA\u26F0-\u26F5\u26F7-\u26FA\u26FD"
+            "]+",
+            flags=re.UNICODE,
+        )
+        for file in self.html_files:
+            content = file.read_text(encoding="utf-8", errors="ignore")
+            content_clean = re.sub(r"<(script|style)[^>]*>.*?</\1>", "", content, flags=re.S)
+            for m in re.finditer(r"<([a-z0-9]+)\b[^>]*class=['\"][^'\"]*(?:icon|visual)[^'\"]*['\"][^>]*>(.*?)</\1>", content_clean, flags=re.S | re.I):
+                tag_content = m.group(2)
+                text_inside = re.sub(r"<[^>]+>", "", tag_content).strip()
+                if text_inside:
+                    matches = pictorial_emojis.findall(text_inside)
+                    if matches:
+                        line_no = content[:m.start()].count("\n") + 1
+                        self.log_error(
+                            file, line_no, "ICON-EMOJI-FORBIDDEN",
+                            f"Contenedor visual '{m.group(0)[:50]}' usa emojis ({matches}) en vez de SVG vectorial homologado."
+                        )
+
     def audit_wording_and_editorial_quality(self):
         """Valida calidad editorial, ausencia de pleonasmos, meta-lenguaje, fluff y echoing."""
         brand_checks = [
@@ -398,6 +427,7 @@ class FrontendUXAuditor:
         self.audit_color_and_palettes()
         self.audit_ux_content_and_promises()
         self.audit_svg_validity()
+        self.audit_no_emojis_as_icons()
         self.audit_wording_and_editorial_quality()
 
         print("\n📊 RESULTADOS:")

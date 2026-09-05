@@ -572,4 +572,40 @@ def test_svg_attributes_validity():
     assert not violations, "Elementos SVG con atributos inválidos:\n" + "\n".join(violations)
 
 
+def test_no_emojis_in_card_icons_across_all_pages():
+    """Design System Regla Dura: Los contenedores de iconos y tarjetas deben usar
+    iconografía vectorial SVG homologada, prohibiendo el uso de emojis crudos como iconos estructurales.
+    """
+    pictorial_emojis = re.compile(
+        "["
+        "\U0001F300-\U0001F5FF"  # Miscellaneous Symbols and Pictographs
+        "\U0001F600-\U0001F64F"  # Emoticons
+        "\U0001F680-\U0001F6FF"  # Transport and Map Symbols
+        "\U0001F900-\U0001F9FF"  # Supplemental Symbols and Pictographs
+        "\U0001FA70-\U0001FAFF"  # Symbols and Pictographs Extended-A
+        "\u26A1"                 # High Voltage / Zap (⚡)
+        "\u2600-\u2604\u260E\u2611\u2614\u2615\u2618\u261D\u2620-\u263A\u2648-\u2653\u2660-\u2668\u267B\u267F\u2692-\u269C\u26A0\u26AA\u26AB\u26B0\u26B1\u26BD\u26BE\u26C4\u26C5\u26CE\u26CF\u26D1\u26D4\u26E9\u26EA\u26F0-\u26F5\u26F7-\u26FA\u26FD"
+        "]+",
+        flags=re.UNICODE,
+    )
+    violations = []
+    for file in SITE_HTML:
+        if not file.is_file():
+            continue
+        content = file.read_text(encoding="utf-8")
+        content_clean = re.sub(r"<(script|style)[^>]*>.*?</\1>", "", content, flags=re.S)
+        
+        for m in re.finditer(r"<([a-z0-9]+)\b[^>]*class=['\"][^'\"]*(?:icon|visual)[^'\"]*['\"][^>]*>(.*?)</\1>", content_clean, flags=re.S | re.I):
+            tag_content = m.group(2)
+            text_inside = re.sub(r"<[^>]+>", "", tag_content).strip()
+            if text_inside:
+                matches = pictorial_emojis.findall(text_inside)
+                if matches:
+                    violations.append(
+                        f"{file.name}: elemento visual '{m.group(0)[:60]}' contiene emojis crudos {matches} en vez de SVG vectorial."
+                    )
+    assert not violations, "Contenedores visuales con emojis en lugar de SVGs:\n" + "\n".join(violations)
+
+
+
 

@@ -142,6 +142,11 @@ Variables CSS definidas en `:root` que controlan toda la paleta:
 - Toda prueba Playwright (`tests/conftest.py`) intercepta automáticamente `page.on("console")` de tipo error; cualquier advertencia o fallo interno del navegador en Chromium rompe la suite de tests.
 - Ejecutar obligatoriamente el skill de auditoría `python3 .agents/skills/frontend-ux-review/scripts/audit_frontend_ux.py` antes de commitear. El skill está disponible de forma universal en el repositorio (`.agents/` y `.claude/`) y en los 5 agentes del ecosistema.
 
+**⛔ REGLA DURA — Cero Emojis como Iconos Estructurales o de Tarjetas (2026-09-04):**
+- PROHIBIDO utilizar emojis crudos (⚡, 🛡️, 🔌, 📊, 🌙, 🗓️, etc.) como iconos en tarjetas, contenedores visuales (`.conecta-card-icon`, `.pulse-feat-icon`, `piece-icon-wrap`, `*-icon`) o cabeceras de componentes.
+- Todos los iconos estructurales de tarjetas deben ser vectores SVG homologados (Lucide / Feather / Design System) en color TheIA Gold (`stroke="currentColor"` con contenedor en `color: var(--gold, #d4af37)`), con `stroke-width="2"` y trazo limpio. Los emojis son dependientes de plataforma, no escalan con tokens de diseño y degradan la calidad visual.
+- El auditor automático `audit_frontend_ux.py` y la suite de tests (`test_design_contract.py::test_no_emojis_in_card_icons_across_all_pages`) bloquean mecánicamente cualquier emoji dentro de contenedores visuales.
+
 **⛔ REGLA DURA — Iconos de canales:**
 - NO usar emojis genéricos (💬, 📷, 🌐) para representar canales oficiales en paneles visuales.
 - SÍ usar SVGs inline con los logos oficiales y colores de marca: WhatsApp `#25D366`, Instagram `#E1306C`, Web `#6366F1`.

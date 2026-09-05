@@ -906,13 +906,19 @@
   height: 44px;
   border-radius: 12px;
   background: rgba(212, 175, 55, 0.08);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  color: var(--gold-light, #ebca73);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  color: var(--gold, #d4af37);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.25rem;
-  font-size: 1.2rem;
+  flex-shrink: 0;
+  transition: transform 0.3s var(--bezier-smooth), border-color 0.3s var(--bezier-smooth);
+}
+
+.conecta-card:hover .conecta-card-icon {
+  transform: scale(1.06);
+  border-color: var(--gold, #d4af37);
 }
 
 .conecta-card-title {
@@ -934,9 +940,11 @@
   display: inline-block;
   margin-top: auto;
   padding-top: 1.25rem;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  color: var(--gold-light, #ebca73);
+  color: var(--gold, #d4af37);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .conecta-logos-wrap {
