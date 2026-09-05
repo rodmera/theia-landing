@@ -253,17 +253,30 @@
       padding-top: 14px;
       display: flex;
       justify-content: space-between;
+      align-items: flex-start;
+    }
+    .sig-block {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .sig-block-right {
+      text-align: right;
       align-items: flex-end;
     }
-    .sig-line {
-      font-size: 11px;
-      color: var(--text-muted);
-      line-height: 1.45;
-      white-space: pre-line;
-    }
-    .sig-line strong {
+    .sig-company {
+      font-size: 11.5px;
+      font-weight: 700;
       color: var(--text);
-      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      line-height: 1.3;
+    }
+    .sig-name {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      line-height: 1.3;
     }
   </style>
 </head>
@@ -352,12 +365,13 @@
 
   <!-- SIGNATURES ONLY -->
   <footer class="footer-actions">
-    <div class="sig-line">
-      <strong>{{ corporate.razon_social }}</strong><br>
-      {{ corporate.emisor_nombre }} · {{ corporate.emisor_cargo }}
+    <div class="sig-block">
+      <div class="sig-company">{{ corporate.razon_social }}</div>
+      <div class="sig-name">{{ corporate.emisor_nombre }} · {{ corporate.emisor_cargo }}</div>
     </div>
-    <div class="sig-line" style="text-align: right;">
-      <strong>{{ cliente_firmante }}</strong>
+    <div class="sig-block sig-block-right">
+      <div class="sig-company">{{ cliente_empresa }}</div>
+      <div class="sig-name">{{ cliente_representante }}</div>
     </div>
   </footer>
 
