@@ -194,7 +194,7 @@ def test_hero_de_home_usa_imagen_conceptual_de_orquestacion_sin_interfaz_fictici
     """El hero comunica orquestación agéntica con un flujo dinámico para PYMEs, no una app simulada."""
     source = (ROOT / "index.html").read_text(encoding="utf-8")
     hero = source[source.index('<section class="hero"'):source.index("</section>", source.index('<section class="hero"'))]
-    for marker in ("hero-orchestration-visual", "TheIA Core", "Agente Catálogo", "Agente Agenda", "Agente CRM"):
+    for marker in ("hero-orchestration-visual", "TheIA Core", "Catálogo &amp; Stock", "Agenda &amp; Citas", "Supervisión &amp; Reglas"):
         assert marker in hero, f"hero perdió el componente visual obligatorio: {marker}"
     for stale in ("hero-console", "hero-stage-", "client-header", "client-channels"):
         assert stale not in hero, f"hero conserva interfaz ficticia: {stale}"
