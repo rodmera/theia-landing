@@ -573,6 +573,75 @@
       position: relative;
     }
 
+    /* Animaciones sutiles de orquestación en vivo (TheIA Engine) */
+    @keyframes orch-spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes orch-dash-loop {
+      to { stroke-dashoffset: -16; }
+    }
+    @keyframes orch-dash-down {
+      to { stroke-dashoffset: -14; }
+    }
+    @keyframes orch-pulse-aura {
+      0% { transform: scale(1); opacity: 0.45; }
+      50% { opacity: 0.15; }
+      100% { transform: scale(1.28); opacity: 0; }
+    }
+    @keyframes orch-step-glow {
+      0%, 100% { stroke: rgba(255, 255, 255, 0.1); fill: #172235; }
+      15% { stroke: #d4af37; fill: #1a2538; }
+      30% { stroke: rgba(255, 255, 255, 0.1); fill: #172235; }
+    }
+    @keyframes orch-dot-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.35); }
+    }
+    @keyframes orch-decision-pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.18); opacity: 0.75; }
+    }
+
+    .orch-spin-ring {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: orch-spin 24s linear infinite;
+    }
+    .orch-aura-ring {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: orch-pulse-aura 4s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+    }
+    .orch-flow-line {
+      animation: orch-dash-loop 1.4s linear infinite;
+    }
+    .orch-flow-down {
+      animation: orch-dash-down 1.4s linear infinite;
+    }
+    .orch-step-1 { animation: orch-step-glow 6s ease-in-out infinite; animation-delay: 0s; }
+    .orch-step-2 { animation: orch-step-glow 6s ease-in-out infinite; animation-delay: 1.5s; }
+    .orch-step-3 { animation: orch-step-glow 6s ease-in-out infinite; animation-delay: 3s; }
+    .orch-step-4 { animation: orch-step-glow 6s ease-in-out infinite; animation-delay: 4.5s; }
+    .orch-live-dot {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: orch-dot-pulse 2.5s ease-in-out infinite;
+    }
+    .orch-decision-dot {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: orch-decision-pulse 3s ease-in-out infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .orch-spin-ring, .orch-aura-ring, .orch-flow-line, .orch-flow-down,
+      .orch-step-1, .orch-step-2, .orch-step-3, .orch-step-4, .orch-live-dot,
+      .orch-decision-dot {
+        animation: none !important;
+      }
+    }
+
     .orch-header {
       display: flex;
       justify-content: space-between;
@@ -4045,6 +4114,7 @@
       <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
     </svg>
     <text x="44" y="26" font-size="12.5" font-weight="600" fill="#f8fafc">WhatsApp</text>
+    <circle class="orch-live-dot" cx="144" cy="21" r="3.5" fill="#25D366" />
   </g>
 
   <!-- Fila 2: Catálogo & Stock -->
@@ -4091,29 +4161,30 @@
 
   <!-- Nodos de Orquestación -->
   <g transform="translate(258, 77)">
-    <rect width="126" height="40" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+    <rect class="orch-step-1" width="126" height="40" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
     <text x="63" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#f8fafc">Interpreta</text>
   </g>
 
   <g transform="translate(444, 77)">
-    <rect width="126" height="40" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+    <rect class="orch-step-2" width="126" height="40" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
     <text x="63" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#f8fafc">Planifica</text>
   </g>
 
   <g transform="translate(444, 279)">
-    <rect width="126" height="40" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+    <rect class="orch-step-3" width="126" height="40" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
     <text x="63" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#f8fafc">Ejecuta</text>
   </g>
 
   <g transform="translate(258, 279)">
-    <rect width="126" height="40" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+    <rect class="orch-step-4" width="126" height="40" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
     <text x="63" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#f8fafc">Valida</text>
   </g>
 
   <!-- HUB CENTRAL: TheIA Core (CERO iconos superpuestos, tipografía pura y sobria) -->
   <g transform="translate(414, 198)">
+    <circle class="orch-aura-ring" cx="0" cy="0" r="56" fill="none" stroke="#d4af37" stroke-width="1.5" />
     <circle cx="0" cy="0" r="56" fill="#0e1726" stroke="#d4af37" stroke-width="1.5" stroke-opacity="0.8" />
-    <circle cx="0" cy="0" r="50" fill="none" stroke="rgba(212, 175, 55, 0.18)" stroke-dasharray="3 3" />
+    <circle class="orch-spin-ring" cx="0" cy="0" r="50" fill="none" stroke="rgba(212, 175, 55, 0.28)" stroke-dasharray="3 3" />
     <text x="0" y="-3" text-anchor="middle" font-family="'Merriweather', serif" font-size="15" font-weight="700" fill="#ffffff">TheIA Core</text>
     <text x="0" y="17" text-anchor="middle" font-size="9" font-weight="700" fill="#d4af37" letter-spacing="0.14em">ORQUESTADOR</text>
   </g>
@@ -4136,11 +4207,11 @@
   <circle cx="506" cy="198" r="2.5" fill="rgba(255,255,255,0.4)" />
 
   <!-- Línea de Supervisión (Vertical punteada hacia el Punto de Decisión) -->
-  <line x1="746" y1="117" x2="746" y2="182" stroke="rgba(255, 255, 255, 0.22)" stroke-width="1" stroke-dasharray="3 4" marker-end="url(#arr-subtle)" />
+  <line class="orch-flow-down" x1="746" y1="117" x2="746" y2="182" stroke="rgba(212, 175, 55, 0.45)" stroke-width="1" stroke-dasharray="3 4" marker-end="url(#arr-subtle)" />
 
   <!-- Punto de Decisión -->
   <circle cx="746" cy="198" r="14" fill="#172235" stroke="#d4af37" stroke-width="1.5" />
-  <circle cx="746" cy="198" r="3.5" fill="#d4af37" />
+  <circle class="orch-decision-dot" cx="746" cy="198" r="3.5" fill="#d4af37" />
 
   <!-- Bifurcación 1: Aprobado -> Respuesta (Caja AMPLIA Y HOLGADA de 112px, padding perfecto) -->
   <path d="M 760 198 L 788 198" fill="none" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1.25" marker-end="url(#arr-subtle)" />
@@ -4162,7 +4233,7 @@
   </g>
 
   <!-- Retorno Externo por debajo sin cruces hacia Ejecuta -->
-  <path d="M 746 319 L 746 358 Q 746 372, 726 372 L 526 372 Q 506 372, 506 358 L 506 321" fill="none" stroke="#d4af37" stroke-width="1.25" stroke-dasharray="4 4" marker-end="url(#arr-gold)" />
+  <path class="orch-flow-line" d="M 746 319 L 746 358 Q 746 372, 726 372 L 526 372 Q 506 372, 506 358 L 506 321" fill="none" stroke="#d4af37" stroke-width="1.25" stroke-dasharray="4 4" marker-end="url(#arr-gold)" />
 </svg>
 
         </div>
