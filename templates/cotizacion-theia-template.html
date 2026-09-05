@@ -70,11 +70,20 @@
       color: var(--text-muted);
       line-height: 1.45;
     }
+    .emisor-info a {
+      color: var(--gold-light);
+      text-decoration: none;
+    }
     .emisor-name {
       font-weight: 700;
       color: var(--text);
       font-size: 11.5px;
       letter-spacing: 0.3px;
+    }
+    a.doc-link, .doc-link {
+      color: var(--gold);
+      text-decoration: underline;
+      text-underline-offset: 2px;
     }
 
     /* TITLE BAR */
@@ -263,11 +272,13 @@
   <!-- HEADER -->
   <header class="header">
     <div class="logo-container">
-      <img src="{{ logo_data_uri }}" alt="TheIA" class="logo-img">
+      <a href="{{ corporate.web }}" target="_blank" rel="noopener">
+        <img src="{{ logo_data_uri }}" alt="TheIA" class="logo-img">
+      </a>
     </div>
     <div class="emisor-info">
       <div class="emisor-name">{{ corporate.razon_social }}</div>
-      <div>RUT: {{ corporate.rut }} · {{ corporate.email }} · {{ corporate.web }}</div>
+      <div>RUT: {{ corporate.rut }} · <a href="mailto:{{ corporate.email }}">{{ corporate.email }}</a> · <a href="{{ corporate.web }}" target="_blank" rel="noopener">{{ corporate.web }}</a></div>
       <div>{{ corporate.direccion }}</div>
     </div>
   </header>
@@ -334,7 +345,7 @@
     <h2>Condiciones y Exclusiones</h2>
     <div class="exclusions-box">
       {% for title, desc in condiciones_items %}
-      <p>• <strong>{{ title }}:</strong> {{ desc }}</p>
+      <p>• <strong>{{ title }}:</strong> {{ desc | safe }}</p>
       {% endfor %}
     </div>
   </section>
