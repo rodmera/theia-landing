@@ -22,6 +22,10 @@ CANONICAL_WEIGHTS = {"400", "500", "700", "900"}
 FORBIDDEN_PROMISES = ["próximamente", "próximas", "avísame", "en camino", "coming soon"]
 GREEN_COLORS = ["#34c77b", "#25d366", "#10b981", "rgb(52, 199, 123)", "rgb(37, 211, 102)", "rgb(16, 185, 129)"]
 PURPLE_COLORS = ["#4f46e5", "#818cf8", "#6366f1", "#a855f7", "rgb(79, 70, 229)", "rgb(129, 140, 248)"]
+ROGUE_COLORS = [
+    (r"\b#(?:0284c7|38bdf8|0ea5e9|06b6d4|22d3ee|38b6ff|00ffff)\b", "Cyan / Sky Blue (#0284c7, #38bdf8...)"),
+    (r"\b#(?:e11d48|f43f5e|d946ef|7c3aed|a855f7|9333ea|c026d3)\b", "Fucsia / Púrpura no canónico (#e11d48, #7c3aed...)"),
+]
 
 # Reglas de Wording y UX Writing (NN/g, Torrey Podmajersky, Sarah Richards)
 PLEONASMS = [
@@ -310,12 +314,12 @@ class FrontendUXAuditor:
                     )
 
     def audit_color_and_palettes(self):
-        """Valida que el verde esté restringido y los badges no usen morado."""
-        targets = self.html_files if self.is_static_site else [f for f in self.html_files if "admin" not in str(f).lower()]
-        css_targets = self.css_files if self.is_static_site else [f for f in self.css_files if "admin" not in str(f).lower()]
-        for file in targets + css_targets:
+        """Valida que los colores y gradientes se ajusten estrictamente al Design System (restringiendo verde y prohibiendo colores no canónicos)."""
+        for file in self.html_files + self.css_files:
             content = file.read_text(encoding="utf-8", errors="ignore")
-            lines = content.splitlines()
+            # Para HTML, eliminar scripts internos para no evaluar código JS
+            clean_content = re.sub(r'<script\b[^>]*>.*?</script>', '', content, flags=re.DOTALL | re.I) if file.suffix.lower() in [".html", ".htm"] else content
+            lines = clean_content.splitlines()
             for idx, line in enumerate(lines, 1):
                 # Ignorar si es la regla canónica de .btn-whatsapp, status-dot o declaración de variables
                 if any(k in line.lower() for k in [".btn-whatsapp", "status-dot", "live-dot", "--green:", "svg", "fill=", "stroke="]):
@@ -332,6 +336,12 @@ class FrontendUXAuditor:
                     for purple in PURPLE_COLORS:
                         if purple in line.lower():
                             self.log_error(file, idx, "PALETTE-DASH-BADGE", f"Badge con tono morado/índigo no autorizado ({purple}): debe usar TheIA Gold")
+
+                # Detección de colores no canónicos ajenos a la paleta oficial TheIA (cyan, sky blue, fucsia, púrpura...)
+                for pattern, desc in ROGUE_COLORS:
+                    if re.search(pattern, line, re.I):
+                        if not any(ign in line.lower() for ign in ["href=", "src=", "content=", "data-", "http"]):
+                            self.log_error(file, idx, "PALETTE-NON-CANONICAL-COLOR", f"Color o gradiente ajeno a la paleta oficial de TheIA detectado ({desc}). Debe usar Executive Slate (#0f172a), TheIA Gold (#d4af37), Índigo (#4f46e5) o tonos neutros.")
 
     def audit_ux_content_and_promises(self):
         """Valida que no haya promesas de futuro vacías ni copy no verificado."""
