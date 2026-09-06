@@ -783,11 +783,11 @@
   background: rgba(212, 175, 55, 0.08);
   border: 1px solid rgba(212, 175, 55, 0.35);
   border-radius: 12px;
-  padding: 1rem 1.25rem;
+  padding: 0.85rem 1.25rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: center;
+  gap: 0.5rem;
   margin-top: auto;
 }
 
@@ -798,17 +798,6 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-}
-
-.output-badge {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--gold-light, #ebca73);
-  background: var(--bg2, #141c2e);
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  padding: 0.3rem 0.75rem;
-  border-radius: 9999px;
-  white-space: nowrap;
 }
 
 /* Fila de 3 Casos de Uso */
@@ -1017,9 +1006,8 @@
     padding: 0.85rem 1rem;
   }
   .engine-output-pill {
-    padding: 0.85rem 1rem;
-    flex-wrap: wrap;
-    gap: 0.65rem;
+    padding: 0.75rem 1rem;
+    justify-content: center;
   }
   .setup-cases-row {
     grid-template-columns: 1fr;
