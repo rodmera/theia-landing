@@ -347,11 +347,22 @@ class FrontendUXAuditor:
                         if purple in line.lower():
                             self.log_error(file, idx, "PALETTE-DASH-BADGE", f"Badge con tono morado/índigo no autorizado ({purple}): debe usar TheIA Gold")
 
+                # Chequeo de cifras monetarias con text-success (verde prohibido en dinero)
+                if "text-success" in line.lower() and re.search(r'[\$€£]|\bCLP\b|\bUSD\b', line, re.I):
+                    self.log_error(file, idx, "FINANCIAL-AMOUNT-GREEN", "Cifra monetaria o precio usando clase 'text-success'. El Design System prohíbe el uso de verde en precios, cifras monetarias y cantidades (usar Slate 900 #0f172a o TheIA Gold #d4af37).")
+
                 # Detección de colores no canónicos ajenos a la paleta oficial TheIA (cyan, sky blue, fucsia, púrpura...)
                 for pattern, desc in ROGUE_COLORS:
                     if re.search(pattern, line, re.I):
                         if not any(ign in line.lower() for ign in ["href=", "src=", "content=", "data-", "http"]):
                             self.log_error(file, idx, "PALETTE-NON-CANONICAL-COLOR", f"Color o gradiente ajeno a la paleta oficial de TheIA detectado ({desc}). Debe usar Executive Slate (#0f172a), TheIA Gold (#d4af37), Índigo (#4f46e5) o tonos neutros.")
+
+        # Prohibir .nav-link.active global con border-left en CSS (fuga de estilos de sidebar a tabs)
+        for file in self.css_files:
+            content = file.read_text(encoding="utf-8", errors="ignore")
+            for m in re.finditer(r'(?:^|[,\n\}])\s*\.nav-link\.active[^{]*\{[^}]*border-left(?:-color)?\s*:\s*(?!none)[^;!}]+', content, re.I):
+                line_no = content.count("\n", 0, m.start()) + 1
+                self.log_error(file, line_no, "GLOBAL-NAV-LINK-SIDEBAR-LEAK", "Regla '.nav-link.active' con 'border-left' no está acotada a '.sidebar'. Esto corrompe las pestañas y navs interiores.")
 
     def audit_ux_content_and_promises(self):
         """Valida que no haya promesas de futuro vacías ni copy no verificado."""
