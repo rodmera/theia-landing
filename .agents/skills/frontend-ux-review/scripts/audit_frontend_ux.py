@@ -442,6 +442,144 @@ class FrontendUXAuditor:
                     "Sección #servicios-especializados contiene botón redundante de demo que compite con el enlace principal a /servicios."
                 )
 
+    def audit_accessibility_and_wcag(self):
+        """Audita accesibilidad WCAG AA: alt en imágenes, type en botones, labels en inputs y H1 único."""
+        for file in self.html_files:
+            content = file.read_text(encoding="utf-8", errors="ignore")
+            clean = re.sub(r"<(script|style)[^>]*>.*?</\1>", "", content, flags=re.S)
+
+            # 1. H1 único por página (excepto redirect plataforma.html)
+            if file.name != "plataforma.html":
+                h1_matches = re.findall(r'<h1\b[^>]*>(.*?)</h1>', clean, re.S | re.I)
+                if len(h1_matches) != 1:
+                    self.log_error(file, 0, "A11Y-H1-COUNT", f"La página debe tener exactamente un <h1> (encontrados {len(h1_matches)}).")
+
+            # 2. Atributo alt en todas las imágenes
+            for m in re.finditer(r'<img\b([^>]*)>', clean, re.I):
+                attrs = m.group(1)
+                line_no = content[:m.start()].count("\n") + 1
+                if not re.search(r'\balt\s*=', attrs, re.I) or re.search(r'\balt\s*=\s*["\']\s*["\']', attrs, re.I):
+                    self.log_error(file, line_no, "A11Y-IMG-NO-ALT", f"Imagen sin atributo 'alt' descriptivo: {m.group(0)[:60]}")
+
+            # 3. type="button" o type="submit" explícito en todos los botones
+            for m in re.finditer(r'<button\b([^>]*)>', clean, re.I):
+                attrs = m.group(1)
+                line_no = content[:m.start()].count("\n") + 1
+                if not re.search(r'\btype\s*=', attrs, re.I):
+                    self.log_error(file, line_no, "A11Y-BTN-NO-TYPE", f"Botón sin atributo 'type' explícito: {m.group(0)[:60]}")
+
+            # 4. Input con label o aria-label
+            for m in re.finditer(r'<input\b([^>]*)>', clean, re.I):
+                attrs = m.group(1)
+                if re.search(r'\btype=["\']hidden["\']', attrs, re.I):
+                    continue
+                line_no = content[:m.start()].count("\n") + 1
+                has_aria = re.search(r'\baria-label(?:ledby)?=["\']', attrs, re.I)
+                has_label = False
+                inp_id = re.search(r'\bid=["\']([^"\']+)["\']', attrs, re.I)
+                if inp_id:
+                    i_id = inp_id.group(1)
+                    if re.search(rf'<label\b[^>]*\bfor=["\']{re.escape(i_id)}["\']', clean, re.I):
+                        has_label = True
+                if not has_aria and not has_label:
+                    self.log_error(file, line_no, "A11Y-INPUT-NO-LABEL", f"Input sin etiqueta <label for='...'> ni aria-label: {m.group(0)[:60]}")
+
+    def audit_broken_links_and_anchors(self):
+        """Audita que no existan enlaces rotos, hashes vacíos ni anclas huérfanas en el sitio."""
+        post_slugs = set()
+        posts_dir = self.target_dir / "_posts"
+        if posts_dir.is_dir():
+            for p in posts_dir.glob("*.md"):
+                m = re.match(r'^\d{4}-\d{2}-\d{2}-(.+)\.md$', p.name)
+                if m:
+                    post_slugs.add(m.group(1))
+
+        index_file = self.target_dir / "index.html"
+        index_ids = set()
+        if index_file.is_file():
+            index_clean = re.sub(r"<(script|style)[^>]*>.*?</\1>", "", index_file.read_text(encoding="utf-8", errors="ignore"), flags=re.S)
+            index_ids = set(re.findall(r'\bid=["\']([^"\']+)["\']', index_clean))
+
+        for file in self.html_files:
+            content = file.read_text(encoding="utf-8", errors="ignore")
+            clean = re.sub(r"<(script|style)[^>]*>.*?</\1>", "", content, flags=re.S)
+            page_ids = set(re.findall(r'\bid=["\']([^"\']+)["\']', clean))
+
+            for m in re.finditer(r'<a\b[^>]*href=["\']([^"\']+)["\']', clean, re.I):
+                href = m.group(1).strip()
+                line_no = content[:m.start()].count("\n") + 1
+
+                # 1. Prohibido href="#"
+                if href == "#":
+                    self.log_error(file, line_no, "LINK-EMPTY-HASH", f"Enlace vacío href='#' detectado (causa saltos no deseados): {m.group(0)[:60]}")
+                    continue
+
+                # 2. Anclas en la misma página href="#algo"
+                if href.startswith("#"):
+                    anchor = href.lstrip("#")
+                    if anchor and anchor not in page_ids:
+                        self.log_error(file, line_no, "LINK-BROKEN-ANCHOR", f"Ancla interna '#{anchor}' no existe en {file.name}")
+                    continue
+
+                # 3. Anclas cruzadas a la home href="/#algo"
+                if href.startswith("/#"):
+                    anchor = href.lstrip("/#")
+                    if anchor and anchor not in index_ids:
+                        self.log_error(file, line_no, "LINK-BROKEN-HOME-ANCHOR", f"Ancla cruzada '/#{anchor}' no existe en index.html")
+                    continue
+
+                # 4. Enlaces internos absolutos href="/..."
+                if href.startswith("/") and not href.startswith("//"):
+                    path_part = href.split("?")[0].split("#")[0]
+                    if path_part in ["", "/"]:
+                        continue
+                    if path_part.startswith("/blog/"):
+                        slug = path_part.strip("/").split("/")[-1]
+                        if slug and slug not in post_slugs and slug != "blog":
+                            self.log_error(file, line_no, "LINK-BROKEN-BLOG-POST", f"Post de blog no encontrado: {href}")
+                        continue
+                    if path_part.endswith("/"):
+                        p_dir = self.target_dir / path_part.strip("/") / "index.html"
+                        if not p_dir.is_file():
+                            self.log_error(file, line_no, "LINK-BROKEN-DIRECTORY", f"Directorio destino no encontrado: {href}")
+                        continue
+                    if "." in path_part.split("/")[-1]:
+                        p_file = self.target_dir / path_part.lstrip("/")
+                        if not p_file.is_file():
+                            self.log_error(file, line_no, "LINK-BROKEN-STATIC-FILE", f"Archivo estático no encontrado: {href}")
+                        continue
+                    # Ruta sin extensión
+                    p_html = self.target_dir / f"{path_part.lstrip('/')}.html"
+                    p_dir = self.target_dir / path_part.lstrip("/") / "index.html"
+                    if not p_html.is_file() and not p_dir.is_file():
+                        self.log_error(file, line_no, "LINK-BROKEN-INTERNAL", f"Página interna no encontrada: {href}")
+
+    def audit_asset_integrity(self):
+        """Audita que todos los recursos locales referenciados (imágenes, scripts, CSS) existan en disco."""
+        for file in self.html_files:
+            content = file.read_text(encoding="utf-8", errors="ignore")
+            # src="..."
+            for m in re.finditer(r'\bsrc=["\'](/[^"\']+)["\']', content, re.I):
+                src = m.group(1).strip()
+                if src.startswith("//"):
+                    continue
+                clean_src = src.split("?")[0].split("#")[0]
+                target = self.target_dir / clean_src.lstrip("/")
+                if not target.is_file():
+                    line_no = content[:m.start()].count("\n") + 1
+                    self.log_error(file, line_no, "ASSET-NOT-FOUND", f"Recurso local no encontrado en disco: {src}")
+
+            # link rel="stylesheet" href="/..."
+            for m in re.finditer(r'<link\b[^>]*\brel=["\']stylesheet["\'][^>]*\bhref=["\'](/[^"\']+)["\']', content, re.I):
+                href = m.group(1).strip()
+                if href.startswith("//"):
+                    continue
+                clean_href = href.split("?")[0].split("#")[0]
+                target = self.target_dir / clean_href.lstrip("/")
+                if not target.is_file():
+                    line_no = content[:m.start()].count("\n") + 1
+                    self.log_error(file, line_no, "CSS-NOT-FOUND", f"Hoja de estilos local no encontrada en disco: {href}")
+
     def run(self) -> bool:
         print(f"🔍 Iniciando Auditoría Frontend & UX en: {self.target_dir}")
         print(f"📄 Archivos HTML analizados: {len(self.html_files)}")
@@ -456,6 +594,9 @@ class FrontendUXAuditor:
         self.audit_no_emojis_as_icons()
         self.audit_wording_and_editorial_quality()
         self.audit_card_layout_and_cta_consistency()
+        self.audit_accessibility_and_wcag()
+        self.audit_broken_links_and_anchors()
+        self.audit_asset_integrity()
 
         print("\n📊 RESULTADOS:")
         if self.warnings:

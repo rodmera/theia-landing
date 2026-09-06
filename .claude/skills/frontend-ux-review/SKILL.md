@@ -37,7 +37,7 @@ Skill obligatorio para todo desarrollo frontend en TheIA. Asegura que cada panta
   - **Cero AI Slop y Clichés Sintéticos de LLMs:** Prohibido fórmulas vacías como "al siguiente nivel", "desbloquear/desatar tu potencial", "empoderar", "imagina un mundo donde", "en el mundo vertiginoso de hoy", "el futuro es hoy", "es importante destacar", "vale la pena señalar", "diseñado meticulosamente", "la solución definitiva", "un tapiz de", "un faro de", "potencia al máximo", "transformación digital". Todo copy debe aterrizar en hechos, números y procesos operativos reales.
   - **Anti-Echoing en Párrafos:** Prohibido repetir la misma palabra sustantiva/verbal 3 o más veces dentro de un mismo párrafo o bloque de texto sin justificación estilística.
   - **Cohesión Título ↔ Subtítulo:** El subtítulo (`.section-sub`) no debe ser un eco tautológico que repita las mismas palabras del título; debe aportar contexto explicativo, valor o justificación operativa.
-  - **Integridad de Naming de Marcas:** "TheIA" estricto (no "Theia", "TheIa", "THEIA"), "WhatsApp" estricto (no "Whatsapp"), "Instagram", "Google Gemini", "Ley 21.719".
+  - **Integridad de Naming de Marcas:** "TheIA" estricto (no "Theia", "TheIa", "THEIA"), "WhatsApp" estricto (no "Whatsapp"), "Instagram", "Google Gemini".
 - **Verdad Comercial & Closed-World:**
   - PROHIBIDO el uso de "próximamente", "soon", "avísame" o promesas de módulos en desarrollo. Lo que está en la web debe operar hoy en producción.
 
@@ -67,6 +67,14 @@ Skill obligatorio para todo desarrollo frontend en TheIA. Asegura que cada panta
   - PROHIBIDO introducir selectores compuestos en CSS secundarios (`.specialists-header h2`, `.setup-header h2`) que alteren font-size o font-weight.
   - PROHIBIDO usar `style="font-size:..."` o `style="font-weight:..."` inline en encabezados.
 
+### Consistencia de Alineación en Tarjetas (Layout Alignment)
+- **Alineación a la Izquierda en Home:** Todas las tarjetas con título y descripción en `index.html` (`.specialist-card`, `.determinista-card`, `.conecta-card`, `.theia-card` en home) deben tener su icono, título y descripción rigurosamente alineados a la izquierda (`text-align: left`).
+- **Prohibición de Texto Centrado en Párrafos de Tarjetas:** Centrar párrafos de 3 o más líneas degrada la legibilidad y genera bordes desiguales.
+
+### Cero Canibalización de CTAs y Taxonomía Limpia
+- **Sin Botones Duales Redundantes:** En secciones teaser o de catálogo (como `#servicios-especializados`), prohibido agregar botones duales de agendamiento que compitan con el enlace al catálogo principal.
+- **Footer Taxonómico:** Las columnas de navegación del footer (`.footer-links-group`) son exclusivas para enlaces a páginas internas del sitio. Prohibido intercalar enlaces de agendamiento (Google Calendar) o botones destacados en las listas de navegación.
+
 ### Paleta de Colores
 - Fondo dark slate: `#0f172a` (`--bg`), `#1e293b` (`--bg2`), `#334155` (`--bg3`).
 - Acento de marca: TheIA Gold (`#d4af37`), oro claro (`#ebca73`).
@@ -78,39 +86,26 @@ Skill obligatorio para todo desarrollo frontend en TheIA. Asegura que cada panta
 
 ---
 
-## 3. Navegación Mobile & Responsive
+## 3. Accesibilidad WCAG AA & Integridad Técnica
 
+- **Imágenes:** Todo elemento `<img>` debe contar con un atributo `alt` descriptivo no vacío.
+- **Botones Interactivos:** Todo `<button>` debe declarar explícitamente `type="button"` o `type="submit"`.
+- **Formularios:** Todo campo `<input>` debe contar con su correspondiente `<label for="...">` o `aria-label`.
+- **Enlaces & Navegación:**
+  - PROHIBIDO enlaces vacíos `href="#"` (provocan saltos inesperados y añaden fragmentos espurios a la URL).
+  - Todo enlace interno y ancla (`#...`, `/#...`) debe resolver a una página o ID existente en disco.
+- **Touch Targets en Mobile:**
+  - Todo elemento interactivo debe tener un área táctil mínima de **44 × 44 px** con al menos 8 px de margen.
 - **Cero Desbordamiento Horizontal:**
   - Regla mecánica: `document.documentElement.scrollWidth <= document.documentElement.clientWidth` en cualquier resolución móvil (360px a 430px).
-- **Touch Targets:**
-  - Todo elemento interactivo (botones, enlaces, selectores) debe tener un área táctil mínima de **44 × 44 px** con al menos 8 px de margen de separación.
-- **Formularios en iOS Safari:**
-  - Los campos `<input>`, `<textarea>` y `<select>` deben tener `font-size: 16px` (o 1rem) para evitar el zoom automático disruptivo en iPhone.
-- **Colapso Inteligente de Grids:**
-  - Grids de 3 o 4 columnas deben colapsar limpiamente a 1 columna en pantallas `<= 960px` o `<= 600px`.
-  - El apoyo visual del Hero debe posicionarse debajo de los CTAs en móvil, nunca comprimido lateralmente.
 
 ---
 
-## 4. Filosofía "Menos es Más" (Look & Feel Ejecutivo)
-
-- **Aire y Respiración:**
-  - Priorizar márgenes generosos (`padding: 4rem 0` a `6rem 0` entre secciones) en lugar de amontonar micro-tarjetas.
-- **Cero Saturación Visual:**
-  - Evitar arcoíris cromáticos. Un fondo oscuro técnico con acentos TheIA Gold transmite autoridad y sobriedad ejecutiva.
-- **Contraste Accesible (WCAG AA):**
-  - Mínimo 4.5:1 para texto normal, 3:1 para texto grande o UI. Prohibido texto dorado claro sobre blanco o gris oscuro sobre fondo negro.
-- **Microinteracciones y Feedback:**
-  - Transiciones suaves de 150 a 250ms con curvas bezier (`cubic-bezier(0.16, 1, 0.3, 1)`).
-  - Estados `:hover` sutiles con realce de borde (`--glass-border-gold`) y elevación máxima de 3px.
-
----
-
-## 5. Protocolo de Verificación Mecánica (Checklist Obligatorio)
+## 4. Protocolo de Verificación Mecánica (Checklist Obligatorio)
 
 Antes de entregar o desplegar cualquier desarrollo frontend:
 
-1. **Auditoría Estática Automática:**
+1. **Auditoría Estática Automática (11 Módulos):**
    ```bash
    python3 ~/.claude/skills/frontend-ux-review/scripts/audit_frontend_ux.py --repo ~/projects/theia-landing
    ```
