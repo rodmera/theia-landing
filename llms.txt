@@ -26,8 +26,9 @@ TheIA atiende consultas con contexto, cotiza con precisión, agenda reuniones y 
 - [Setup Fácil en 3 Audios](https://theia.cl/facil): Configuración conversacional sin código para PYMEs (HU-WEB-038)
 - [Nosotros](https://theia.cl/nosotros): Equipo fundador con +20 años de experiencia en tecnología, banca, retail y atención comercial en Chile.
 
-## Modelos y Herramientas Compatibles
-TheIA funciona como capa de enlace y despliegue a WhatsApp y Web para modelos y agentes propios:
+## Sistemas, E-Commerce y Modelos Compatibles
+TheIA funciona como capa de enlace, sincronización y despliegue a WhatsApp y Web para sistemas de negocio y modelos de IA:
+- E-Commerce, ERP & CRM: Shopify, Jumpseller, WooCommerce, Odoo, Google Calendar, HubSpot.
 - Modelos LLM: OpenAI (GPT-4o, o3-mini), Anthropic Claude (Opus, Sonnet), Google Gemini (Flash, Pro), DeepSeek (V3, R1), Meta Llama (Llama 3.3).
 - Herramientas y Frameworks de Agentes: Claude Code, Codex, Hermes Agent, LangChain, Langfuse, Model Context Protocol (MCP), CrewAI, Ollama, Herdr y OpenClaw.
 
