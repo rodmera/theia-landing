@@ -62,29 +62,15 @@ Cubre: smoke de las 10 páginas, overflow horizontal móvil, errores JS, CTAs cr
 (incluido el número BLOQUEADO), links internos, regla de registro (jerga prohibida),
 consistencia comercial ($250.000, demo 30 min) y sticky WhatsApp.
 
-### Estándar Canónico de Tarjetas / Cards (Regla Dura, 2026-08-19)
+### Estándar Canónico de Tarjetas / Cards (Regla Dura, 2026-08-19; actualizada 2026-09-05)
 
-**PROHIBIDO** inventar estilos inline, alinear íconos a la izquierda o pegar los apoyos visuales a los títulos. Toda tarjeta (`.theia-card`) en las 26 páginas del sitio DEBE gobernarse exclusivamente por `site-cards.css` respetando la estructura semántica canónica:
-
-```html
-<div class="theia-card">
-  <div class="theia-card__visual">
-    <div class="piece-icon-wrap">
-      <!-- SVG width="24" height="24" stroke="var(--gold-light)" -->
-    </div>
-  </div>
-  <div class="theia-card__content">
-    <h3>Título de la Tarjeta</h3>
-    <p>Descripción clara y concisa...</p>
-  </div>
-</div>
-```
-
-**Reglas de Maquetación de Cards:**
-1. **Apoyo Visual Centrado:** `.theia-card__visual` SIEMPRE está centrado horizontalmente (`align-self: center`, `justify-content: center`) con exactamente `margin-bottom: 1.25rem` (20px) de separación con el título. Jamás pegado al texto.
-2. **Dimensiones del Badge:** `.piece-icon-wrap` mide `52px × 52px`, `border-radius: 12px`, fondo `rgba(212, 175, 55, 0.08)` y borde `1px solid var(--glass-border-gold)`.
-3. **Contenido Centrado:** `.theia-card__content` tiene título `h3` (`Merriweather`, 1.15rem, margin-bottom: 0.65rem) y descripción `p` (`Plus Jakarta Sans`, 0.9rem, line-height: 1.65, color `var(--text-sub)`), ambos rigurosamente centrados (`text-align: center`).
-4. **Contenedor:** `.theia-card` tiene `padding: 2.25rem 1.75rem`, `border-radius: 18px`, fondo `var(--glass)`, borde `1px solid var(--glass-border)` y hover con glow dorado (`transform: translateY(-4px)`).
+**PROHIBIDO** inventar estilos inline arbitrarios o mezclar alineaciones discordantes dentro de una misma página.
+1. **Alineación en Homepage (`index.html`):** Para mantener un ritmo visual predecible y escaneable (patrón en F de NN/g), TODAS las tarjetas de contenido en la home (`.specialist-card`, `.determinista-card`, `.conecta-card`, y `.theia-card` en `#servicios-especializados` y `.acompanamiento-section`) deben tener su apoyo visual, título y descripción rigurosamente alineados a la izquierda (`text-align: left`). Prohibido centrar párrafos largos o iconos en la landing home.
+2. **Tarjetas de Catálogo Editorial en Subpáginas:** Las tarjetas editoriales en subpáginas (`precios.html`, `servicios.html`, etc.) gobernadas por `site-cards.css` mantienen su estructura canónica:
+   - Badge `.piece-icon-wrap` de `52px × 52px`, `border-radius: 12px`, fondo `rgba(212, 175, 55, 0.08)` y borde `1px solid var(--glass-border-gold)`.
+   - Título `h3` (`Merriweather`, 1.15rem, margin-bottom: 0.65rem) y descripción `p` (`Plus Jakarta Sans`, 0.9rem, line-height: 1.65, color `var(--text-sub)`).
+3. **Cero Canibalización de CTAs en Secciones Teaser:** En secciones de catálogo o resumen (como `#servicios-especializados`), está prohibido agregar botones duales de agendamiento que compitan con el enlace de destino principal o saturen la vista frente al header sticky y el CTA final.
+4. **Taxonomía Limpia en Footer:** Las columnas de `.footer-links-group` pertenecen exclusivamente a enlaces de páginas internas de navegación. Queda estrictamente prohibido intercalar enlaces de agendamiento (Google Calendar, botones con flecha o estilos destacados) en las listas de navegación del footer.
 
 ### Estándar de QA de Interacción Frontend (Regla Dura, 2026-08-19)
 

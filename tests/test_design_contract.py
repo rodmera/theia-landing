@@ -607,5 +607,68 @@ def test_no_emojis_in_card_icons_across_all_pages():
     assert not violations, "Contenedores visuales con emojis en lugar de SVGs:\n" + "\n".join(violations)
 
 
+def test_no_demo_cta_mixed_in_footer_navigation():
+    """El footer debe ser taxonómico y limpio: no debe mezclar CTAs de agendamiento/demo en columnas de enlaces."""
+    violations = []
+    for file in SITE_HTML:
+        if not file.is_file():
+            continue
+        content = file.read_text(encoding="utf-8")
+        for m in re.finditer(r'<div class=["\']footer-links-group["\']>(.*?)</div>', content, re.DOTALL):
+            group_content = m.group(1)
+            if re.search(r'calendar\.app\.google|Agendar?\s+Demo', group_content, re.I):
+                violations.append(f"{file.name}: Enlace CTA de demo intercalado en .footer-links-group.")
+    assert not violations, "Enlaces de demo encontrados en columnas de navegación del footer:\n" + "\n".join(violations)
+
+
+def test_servicios_especializados_single_focused_cta():
+    """#servicios-especializados en index.html debe tener un único CTA enfocado a /servicios sin botón dual de demo."""
+    index_file = ROOT / "index.html"
+    content = index_file.read_text(encoding="utf-8")
+    sec_match = re.search(r'<section[^>]*id=["\']servicios-especializados["\'][^>]*>(.*?)</section>', content, re.DOTALL)
+    assert sec_match, "No se encontró la sección #servicios-especializados en index.html"
+    sec_html = sec_match.group(1)
+    
+    assert "/servicios" in sec_html, "Debe contener el enlace principal a /servicios"
+    assert not re.search(r'Agenda.*demo', sec_html, re.I), (
+        "La sección #servicios-especializados no debe tener botón redundante de agendar demo (canibaliza el enlace al catálogo)."
+    )
+
+
+def test_home_cards_left_aligned_consistency(desktop_page):
+    """En la home, las tarjetas de contenido de servicios-especializados y acompañamiento deben tener textos e iconos alineados a la izquierda."""
+    desktop_page.goto(f"{BASE}/", wait_until="domcontentloaded")
+    desktop_page.wait_for_timeout(300)
+    
+    # 1. Servicios especializados
+    servicios_cards = desktop_page.locator("#servicios-especializados .theia-card")
+    count = servicios_cards.count()
+    assert count >= 3, f"Se esperaban al menos 3 tarjetas en servicios-especializados, encontradas {count}"
+    
+    for i in range(count):
+        card = servicios_cards.nth(i)
+        h3 = card.locator("h3").first
+        p = card.locator("p").first
+        h3_align = h3.evaluate("el => window.getComputedStyle(el).textAlign")
+        p_align = p.evaluate("el => window.getComputedStyle(el).textAlign")
+        assert h3_align in ["left", "start"], f"Tarjeta {i} de servicios-especializados debe tener h3 text-align: left, computa: {h3_align}"
+        assert p_align in ["left", "start"], f"Tarjeta {i} de servicios-especializados debe tener p text-align: left, computa: {p_align}"
+    
+    # 2. Acompañamiento
+    acomp_cards = desktop_page.locator(".acompanamiento-section .theia-card")
+    acomp_count = acomp_cards.count()
+    assert acomp_count >= 3, f"Se esperaban al menos 3 tarjetas en acompañamiento, encontradas {acomp_count}"
+    
+    for i in range(acomp_count):
+        card = acomp_cards.nth(i)
+        h3 = card.locator("h3").first
+        p = card.locator("p").first
+        h3_align = h3.evaluate("el => window.getComputedStyle(el).textAlign")
+        p_align = p.evaluate("el => window.getComputedStyle(el).textAlign")
+        assert h3_align in ["left", "start"], f"Tarjeta {i} de acompañamiento debe tener h3 text-align: left, computa: {h3_align}"
+        assert p_align in ["left", "start"], f"Tarjeta {i} de acompañamiento debe tener p text-align: left, computa: {p_align}"
+
+
+
 
 

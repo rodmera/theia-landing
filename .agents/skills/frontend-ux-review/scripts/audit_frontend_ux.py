@@ -416,6 +416,32 @@ class FrontendUXAuditor:
                     if ratio >= 0.5:
                         self.log_error(file, 0, "WORDING-BADGE-TAUTOLOGY", f"Tautología pastilla-H2 ({ratio:.0%}): palabras {list(overlap)}")
 
+    def audit_card_layout_and_cta_consistency(self):
+        """Audita la consistencia de alineación de tarjetas y previene la canibalización de CTAs."""
+        # 1. No enlaces de agendamiento/demo ni estilos de botón mezclados en columnas del footer
+        for file in self.html_files:
+            content = file.read_text(encoding="utf-8", errors="ignore")
+            for m in re.finditer(r'<div class=["\']footer-links-group["\']>(.*?)</div>', content, re.DOTALL):
+                group_content = m.group(1)
+                if re.search(r'calendar\.app\.google|Agendar?\s+Demo', group_content, re.I):
+                    line_no = content[:m.start()].count("\n") + 1
+                    self.log_error(
+                        file, line_no, "FOOTER-CTA-IN-NAV-GROUP",
+                        "Enlace CTA de agendamiento intercalado en columna navegacional .footer-links-group. El footer debe ser taxonómico y limpio."
+                    )
+
+        # 2. No botones duales redundantes de agendamiento en secciones intermedias de catálogo/teaser
+        index_file = self.target_dir / "index.html"
+        if index_file.is_file():
+            index_content = index_file.read_text(encoding="utf-8", errors="ignore")
+            servicios_sec = re.search(r'<section[^>]*id=["\']servicios-especializados["\'][^>]*>(.*?)</section>', index_content, re.DOTALL)
+            if servicios_sec and re.search(r'Agenda.*demo', servicios_sec.group(1), re.I):
+                line_no = index_content[:servicios_sec.start()].count("\n") + 1
+                self.log_error(
+                    index_file, line_no, "CTA-CANIBALIZATION-DUAL",
+                    "Sección #servicios-especializados contiene botón redundante de demo que compite con el enlace principal a /servicios."
+                )
+
     def run(self) -> bool:
         print(f"🔍 Iniciando Auditoría Frontend & UX en: {self.target_dir}")
         print(f"📄 Archivos HTML analizados: {len(self.html_files)}")
@@ -429,6 +455,7 @@ class FrontendUXAuditor:
         self.audit_svg_validity()
         self.audit_no_emojis_as_icons()
         self.audit_wording_and_editorial_quality()
+        self.audit_card_layout_and_cta_consistency()
 
         print("\n📊 RESULTADOS:")
         if self.warnings:

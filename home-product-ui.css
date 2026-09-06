@@ -1205,5 +1205,43 @@
   }
 }
 
+/* ==========================================================================
+   HOMOLOGACIÓN DE ALINEACIÓN DE TARJETAS EN HOME (APOYO GRÁFICO Y TEXTO A LA IZQUIERDA)
+   Garantiza consistencia visual con .specialist-card, .determinista-card y .conecta-card
+   ========================================================================== */
+.servicios-especializados .theia-card,
+.acompanamiento-section .theia-card {
+  text-align: left !important;
+  align-items: flex-start !important;
+}
+
+.servicios-especializados .theia-card__visual,
+.acompanamiento-section .theia-card__visual {
+  align-self: flex-start !important;
+  justify-content: flex-start !important;
+  margin-bottom: 1.25rem !important;
+}
+
+.servicios-especializados .theia-card__visual .piece-icon-wrap,
+.acompanamiento-section .theia-card__visual .piece-icon-wrap {
+  margin: 0 !important;
+}
+
+.servicios-especializados .theia-card__content,
+.acompanamiento-section .theia-card__content {
+  align-items: flex-start !important;
+  text-align: left !important;
+}
+
+.servicios-especializados .theia-card__content h3,
+.acompanamiento-section .theia-card__content h3 {
+  text-align: left !important;
+}
+
+.servicios-especializados .theia-card__content p,
+.acompanamiento-section .theia-card__content p {
+  text-align: left !important;
+}
+
 
 
