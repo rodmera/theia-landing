@@ -413,25 +413,27 @@ class FrontendUXAuditor:
             (re.compile(r"\bley\s+21\.?719\b"), "Ley 21.719"),
         ]
 
-        targets = self.html_files if self.is_static_site else [f for f in self.html_files if "admin" not in str(f).lower()]
+        targets = self.html_files
         for file in targets:
             if file.name in ["privacidad.html", "terminos.html"]:
                 continue
             content = file.read_text(encoding="utf-8", errors="ignore")
             lines = content.splitlines()
-            in_json_ld = False
-
+            in_block = False
             for idx, line in enumerate(lines, 1):
-                if '<script type="application/ld+json"' in line:
-                    in_json_ld = True
-                if in_json_ld:
-                    if "</script>" in line:
-                        in_json_ld = False
+                if re.search(r"<(script|style)\b", line, re.I):
+                    in_block = True
+                if in_block:
+                    if re.search(r"</(script|style)>", line, re.I):
+                        in_block = False
                     continue
-                if any(tag in line for tag in ["<script", "<style", "<!--", "href=", "src=", "http://", "https://"]):
+                if any(tag in line for tag in ["<!--", "href=", "src=", "http://", "https://"]):
                     continue
 
-                clean_line = re.sub(r"<[^>]+>", " ", line)
+                line_no_code = re.sub(r"<code>.*?</code>", " ", line, flags=re.I)
+                clean_line = re.sub(r'\{%.*?%\}', ' ', line_no_code)
+                clean_line = re.sub(r'\{\{.*?\}\}', ' ', clean_line)
+                clean_line = re.sub(r"<[^>]+>", " ", clean_line)
                 clean_line = re.sub(r"\s+", " ", clean_line).strip()
                 if not clean_line:
                     continue
@@ -481,6 +483,8 @@ class FrontendUXAuditor:
 
             # 7. Echoing dentro de párrafos
             content_clean = re.sub(r"<(script|style|nav|footer)[^>]*>.*?</\1>", " ", content, flags=re.S | re.I)
+            content_clean = re.sub(r"\{%.*?%\}", " ", content_clean, flags=re.S)
+            content_clean = re.sub(r"\{\{.*?\}\}", " ", content_clean, flags=re.S)
             items = re.findall(r"<(?:p|li)\b[^>]*>(.*?)</(?:p|li)>", content_clean, flags=re.S | re.I)
             for item in items:
                 text = re.sub(r"<[^>]+>", " ", item)
@@ -694,6 +698,44 @@ class FrontendUXAuditor:
                     line_no = content[:m.start()].count("\n") + 1
                     self.log_error(file, line_no, "CSS-NOT-FOUND", f"Hoja de estilos local no encontrada en disco: {href}")
 
+    def audit_no_raw_english_in_ui(self):
+        """Valida que no existan etiquetas, insignias (badges) o cadenas tecnicas en ingles crudo en la interfaz."""
+        raw_english_badges = [
+            (re.compile(r"\bNeed\b", re.I), "Necesidad"),
+            (re.compile(r"\bAuthority\b", re.I), "Poder de Decisión / Autoridad"),
+            (re.compile(r"\bBudget\b", re.I), "Presupuesto"),
+            (re.compile(r"\bSituation\b", re.I), "Situación"),
+            (re.compile(r"\bProblem\b", re.I), "Problema"),
+            (re.compile(r"\bImplication\b", re.I), "Impacto"),
+            (re.compile(r"\bNeed-Payoff\b", re.I), "Beneficio"),
+            (re.compile(r"\bPending\b", re.I), "Pendiente"),
+        ]
+
+        badge_re = re.compile(r'<span[^>]*class=["\'][^"\']*badge[^"\']*["\'][^>]*>(.*?)</span>', re.DOTALL | re.IGNORECASE)
+
+        for file in self.html_files:
+            content = file.read_text(encoding="utf-8", errors="ignore")
+            for m in badge_re.finditer(content):
+                raw_badge_html = m.group(1)
+                text = re.sub(r"<[^>]+>", "", raw_badge_html).strip()
+                if not text:
+                    continue
+                for pat, es_term in raw_english_badges:
+                    if pat.search(text) and not any(es in text.lower() for es in ["necesidad", "situación", "problema", "impacto", "beneficio", "decisión", "presupuesto", "pendiente"]):
+                        line_no = content[:m.start()].count("\n") + 1
+                        self.log_error(
+                            file, line_no, "UI-RAW-ENGLISH-BADGE",
+                            f"Insignia (badge) contiene término en inglés crudo: '{text}'. Debe traducirse al español canónico (ej. '{es_term}')."
+                        )
+
+            # Verificar cadenas técnicas de frameworks no formateadas en la UI
+            for m in re.finditer(r'\bBANT_LITE\b', content):
+                line_no = content[:m.start()].count("\n") + 1
+                self.log_error(
+                    file, line_no, "UI-RAW-TECHNICAL-STRING",
+                    "Cadena técnica 'BANT_LITE' mostrada en interfaz de usuario. Debe formatearse como 'BANT'."
+                )
+
     def run(self) -> bool:
         print(f"🔍 Iniciando Auditoría Frontend & UX en: {self.target_dir}")
         print(f"📄 Archivos HTML analizados: {len(self.html_files)}")
@@ -716,6 +758,7 @@ class FrontendUXAuditor:
         self.audit_ux_content_and_promises()
         self.audit_svg_validity()
         self.audit_no_emojis_as_icons()
+        self.audit_no_raw_english_in_ui()
         self.audit_wording_and_editorial_quality()
 
         print("\n📊 RESULTADOS:")
