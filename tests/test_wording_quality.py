@@ -492,3 +492,29 @@ def test_wording_fold_anchor_diversity():
         f"repetida como inicio en los elementos principales del Hero:\n"
         f"   H1: \"{h1_txt}\"\n   Badge: \"{badge_txt}\"\n   Primer H2: \"{h2_txt}\""
     )
+
+
+def test_wording_section_headings_conciseness_and_density():
+    """Valida que los titulares H2 de sección (.section-title) no sean ridículamente largos
+    (máximo 13 palabras y 85 caracteres) ni peguen oraciones compuestas con punto seguido.
+    Las buenas prácticas de UX Writing (NN/g, Julian Shapiro) exigen titulares concisos de 5 a 8 palabras
+    que se escaneen en máximo 2 líneas visuales en viewport desktop y mobile."""
+    violations = []
+    for file in MARKETING_HTML_FILES:
+        content = file.read_text(encoding="utf-8")
+        for m in re.finditer(r'<h2\b[^>]*class=["\'][^"\']*section-title[^"\']*["\'][^>]*>(.*?)</h2>', content, re.I | re.S):
+            h2_inner = m.group(1)
+            clean_text = re.sub(r'<[^>]+>', ' ', h2_inner)
+            clean_text = re.sub(r'\s+', ' ', clean_text).strip()
+            words = clean_text.split()
+
+            if len(words) > 13 or len(clean_text) > 85:
+                violations.append(
+                    f"{file.name} → H2 excesivamente largo ({len(words)} palabras, {len(clean_text)} caracteres): {clean_text!r}"
+                )
+            if len(words) > 13 and re.search(r'[a-záéíóúñ]{3,}\.\s+[A-ZÁÉÍÓÚÑ]', clean_text):
+                violations.append(
+                    f"{file.name} → H2 compuesto con dos oraciones completas unidas por punto: {clean_text!r}"
+                )
+
+    assert not violations, "Titulares H2 excesivamente largos o con oraciones compuestas detectados:\n" + "\n".join(violations)

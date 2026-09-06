@@ -228,6 +228,38 @@ class FrontendUXAuditor:
                     line_no = content.count("\n", 0, match.start()) + 1
                     self.log_error(file, line_no, "CSS-TITLE-OVERRIDE", f"Override CSS secundario proscrito en {selector!r} con font-weight: 700")
 
+        # 4. Validar concisión y densidad de títulos de sección (máx 13 palabras, máx 85 caracteres en landing)
+        # Las buenas prácticas de UX Writing (NN/g, Julian Shapiro) exigen H2 concisos de 5-8 palabras (máx 12-13)
+        # y máx 2 líneas visuales. Títulos que superan los 85 caracteres provocan "muros de texto"
+        # que fatigan la lectura y quiebran en 3-4 líneas en viewport display.
+        for file in marketing_html:
+            if "terminos.html" in file.name or "privacidad.html" in file.name:
+                continue
+            content = file.read_text(encoding="utf-8", errors="ignore")
+            for m in re.finditer(r'<h2\b[^>]*class=["\'][^"\']*section-title[^"\']*["\'][^>]*>(.*?)</h2>', content, re.I | re.S):
+                h2_inner = m.group(1)
+                clean_text = re.sub(r'<[^>]+>', ' ', h2_inner)
+                clean_text = re.sub(r'\s+', ' ', clean_text).strip()
+                words = clean_text.split()
+                line_no = content.count("\n", 0, m.start()) + 1
+
+                if len(words) > 13 or len(clean_text) > 85:
+                    self.log_error(
+                        file,
+                        line_no,
+                        "HEADING-EXCESSIVE-LENGTH",
+                        f"Titular H2 excesivamente largo ({len(words)} palabras, {len(clean_text)} caracteres). "
+                        f"Las buenas prácticas de UX Writing (NN/g) exigen máx 10-12 palabras / 85 chars para no saturar la pantalla con 3-4 líneas: {clean_text!r}"
+                    )
+                if len(words) > 13 and re.search(r'[a-záéíóúñ]{3,}\.\s+[A-ZÁÉÍÓÚÑ]', clean_text):
+                    self.log_error(
+                        file,
+                        line_no,
+                        "HEADING-COMPOUND-SENTENCE",
+                        f"Titular H2 contiene dos oraciones completas unidas con punto seguido. "
+                        f"Un titular debe comunicar una sola promesa/idea; los detalles pertenecen al subtítulo: {clean_text!r}"
+                    )
+
     def audit_admin_and_app_ui(self):
         """Valida que las interfaces de aplicación/admin mantengan consistencia estructural y tipográfica pura (Plus Jakarta Sans)."""
         admin_templates = [
