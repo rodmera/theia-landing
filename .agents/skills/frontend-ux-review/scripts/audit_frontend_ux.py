@@ -313,6 +313,16 @@ class FrontendUXAuditor:
                         f"Botón con estilo inline de fondo negro/slate ({val}). Prohibido botones negros en la paleta de TheIA."
                     )
 
+            # Prohibir selectores de botones o filtros activos con fondo negro/slate
+            for m in re.finditer(r'\.(?:btn[^\s{]*|tab[^\s{]*)\.active[^{]*\{[^}]*background(?:-color)?\s*:\s*([^;!}]+)', content, re.I):
+                val = m.group(1).strip().lower()
+                if any(b in val for b in black_colors):
+                    line_no = content.count("\n", 0, m.start()) + 1
+                    self.log_error(
+                        file, line_no, "BUTTON-FILTER-ACTIVE-BLACK",
+                        f"Filtro/botón activo con fondo negro/slate ({val}). Los elementos activos interactivos en TheIA deben usar Índigo (#4f46e5) o TheIA Gold (#d4af37)."
+                    )
+
     def audit_color_and_palettes(self):
         """Valida que los colores y gradientes se ajusten estrictamente al Design System (restringiendo verde y prohibiendo colores no canónicos)."""
         for file in self.html_files + self.css_files:
