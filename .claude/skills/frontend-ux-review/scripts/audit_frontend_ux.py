@@ -139,10 +139,23 @@ SPANISH_STOP_WORDS = {
 class FrontendUXAuditor:
     def __init__(self, target_dir: Path):
         self.target_dir = target_dir.resolve()
-        self.html_files = sorted(list(self.target_dir.glob("*.html")))
-        self.css_files = sorted(list(self.target_dir.glob("*.css")))
+        html_candidates = set(self.target_dir.glob("*.html"))
+        html_candidates.update(self.target_dir.glob("app/templates/**/*.html"))
+        
+        # Filtrar carpeta templates/ suelta si es sólo de exportación de landing (cotizaciones/firmas)
+        self.html_files = sorted([
+            f for f in html_candidates
+            if not (f.is_relative_to(self.target_dir / "templates") and not (self.target_dir / "app").is_dir())
+        ])
+
+        css_candidates = set(self.target_dir.glob("*.css"))
+        css_candidates.update(self.target_dir.glob("app/static/css/**/*.css"))
+        self.css_files = sorted(list(css_candidates))
+
         self.errors = []
         self.warnings = []
+        self.is_static_site = (self.target_dir / "index.html").is_file() and not (self.target_dir / "app").is_dir()
+        self.is_app_repo = (self.target_dir / "app").is_dir() or any("admin" in str(f).lower() for f in self.html_files)
 
     def log_error(self, file_path: Path, line_no: int, rule: str, detail: str):
         rel = file_path.relative_to(self.target_dir) if file_path.is_relative_to(self.target_dir) else file_path
@@ -156,6 +169,7 @@ class FrontendUXAuditor:
         """Valida que no existan fuentes no cargadas ni pesos ilegales."""
         font_family_re = re.compile(r"font-family\s*:\s*([^;}]+)", re.I)
         font_weight_re = re.compile(r"font-weight\s*:\s*(\d+)\b", re.I)
+        allowed_weights = CANONICAL_WEIGHTS | {"600"} if self.is_app_repo else CANONICAL_WEIGHTS
 
         for file in self.html_files + self.css_files:
             content = file.read_text(encoding="utf-8", errors="ignore")
@@ -172,12 +186,13 @@ class FrontendUXAuditor:
                 # Pesos numéricos
                 for match in font_weight_re.finditer(line):
                     w = match.group(1)
-                    if w not in CANONICAL_WEIGHTS:
-                        self.log_error(file, idx, "TYPO-WEIGHT", f"Peso {w} no cargado en el bundle oficial (válidos: 400, 500, 700, 900)")
+                    if w not in allowed_weights:
+                        self.log_error(file, idx, "TYPO-WEIGHT", f"Peso {w} no cargado en el bundle oficial (válidos: {sorted(list(allowed_weights))})")
 
     def audit_section_titles(self):
         """Valida que todos los títulos de sección estén estrictamente homologados."""
-        for file in self.html_files:
+        marketing_html = [f for f in self.html_files if "template" not in str(f).lower() and "admin" not in str(f).lower()]
+        for file in marketing_html:
             content = file.read_text(encoding="utf-8", errors="ignore")
             lines = content.splitlines()
 
@@ -209,9 +224,59 @@ class FrontendUXAuditor:
                     line_no = content.count("\n", 0, match.start()) + 1
                     self.log_error(file, line_no, "CSS-TITLE-OVERRIDE", f"Override CSS secundario proscrito en {selector!r} con font-weight: 700")
 
+    def audit_admin_and_app_ui(self):
+        """Valida que las interfaces de aplicación/admin mantengan consistencia estructural y tipográfica pura (Plus Jakarta Sans)."""
+        admin_templates = [
+            f for f in self.html_files 
+            if "/admin/" in str(f).lower() or "\\admin\\" in str(f).lower() or f.name.startswith("admin_")
+        ]
+        admin_css = [
+            f for f in self.css_files 
+            if "theme" in f.name.lower() or "admin" in f.name.lower()
+        ]
+
+        # 1. Prohibir Merriweather / serif en templates de admin y aplicación
+        serif_re = re.compile(r"font-family\s*:\s*[^;}]*(?:merriweather|(?<!sans-)serif)", re.I)
+        for file in admin_templates:
+            content = file.read_text(encoding="utf-8", errors="ignore")
+            lines = content.splitlines()
+            for idx, line in enumerate(lines, 1):
+                # Ignorar tags script o comentarios
+                if "<script" in line or "font-sans-serif" in line or "google" in line:
+                    continue
+                m = serif_re.search(line)
+                if m:
+                    self.log_error(
+                        file, idx, "APP-SERIF-PROHIBITED",
+                        f"Uso de fuente serif en interfaz de aplicación/admin: {m.group()!r}. Las vistas admin deben usar estrictamente Plus Jakarta Sans."
+                    )
+
+        # 2. Prohibir que CSS de admin asigne Merriweather por defecto a encabezados
+        for file in admin_css:
+            content = file.read_text(encoding="utf-8", errors="ignore")
+            for m in re.finditer(r'([^{]+)\{\s*[^}]*font-family\s*:\s*[^;}]*merriweather[^}]*\}', content, re.I):
+                selector = m.group(1).strip()
+                line_no = content.count("\n", 0, m.start()) + 1
+                self.log_error(
+                    file, line_no, "APP-CSS-SERIF-PROHIBITED",
+                    f"Regla CSS de admin asigna fuente serif a {selector!r}. Toda la UI de administración debe ser Plus Jakarta Sans."
+                )
+
+        # 3. Consistencia de estructura de encabezado: toda vista admin que extiende base.html debe implementar block page_header
+        for file in admin_templates:
+            content = file.read_text(encoding="utf-8", errors="ignore")
+            if 'extends "admin/base.html"' in content or "extends 'admin/base.html'" in content:
+                if "{% block page_header %}" not in content:
+                    self.log_error(
+                        file, 1, "APP-MISSING-PAGE-HEADER",
+                        "Plantilla extiende 'admin/base.html' pero no implementa '{% block page_header %}'. Esto provoca colisión con el saludo fallback y títulos duplicados."
+                    )
+
     def audit_color_and_palettes(self):
         """Valida que el verde esté restringido y los badges no usen morado."""
-        for file in self.html_files + self.css_files:
+        targets = self.html_files if self.is_static_site else [f for f in self.html_files if "admin" not in str(f).lower()]
+        css_targets = self.css_files if self.is_static_site else [f for f in self.css_files if "admin" not in str(f).lower()]
+        for file in targets + css_targets:
             content = file.read_text(encoding="utf-8", errors="ignore")
             lines = content.splitlines()
             for idx, line in enumerate(lines, 1):
@@ -233,7 +298,8 @@ class FrontendUXAuditor:
 
     def audit_ux_content_and_promises(self):
         """Valida que no haya promesas de futuro vacías ni copy no verificado."""
-        for file in self.html_files:
+        targets = self.html_files if self.is_static_site else [f for f in self.html_files if "admin" not in str(f).lower()]
+        for file in targets:
             content = file.read_text(encoding="utf-8", errors="ignore")
             lines = content.splitlines()
             for idx, line in enumerate(lines, 1):
@@ -300,7 +366,8 @@ class FrontendUXAuditor:
             (re.compile(r"\bley\s+21\.?719\b"), "Ley 21.719"),
         ]
 
-        for file in self.html_files:
+        targets = self.html_files if self.is_static_site else [f for f in self.html_files if "admin" not in str(f).lower()]
+        for file in targets:
             if file.name in ["privacidad.html", "terminos.html"]:
                 continue
             content = file.read_text(encoding="utf-8", errors="ignore")
@@ -587,16 +654,21 @@ class FrontendUXAuditor:
         print("-" * 60)
 
         self.audit_typography()
-        self.audit_section_titles()
+        if self.is_static_site:
+            self.audit_section_titles()
+            self.audit_card_layout_and_cta_consistency()
+            self.audit_accessibility_and_wcag()
+            self.audit_broken_links_and_anchors()
+            self.audit_asset_integrity()
+
+        if self.is_app_repo:
+            self.audit_admin_and_app_ui()
+
         self.audit_color_and_palettes()
         self.audit_ux_content_and_promises()
         self.audit_svg_validity()
         self.audit_no_emojis_as_icons()
         self.audit_wording_and_editorial_quality()
-        self.audit_card_layout_and_cta_consistency()
-        self.audit_accessibility_and_wcag()
-        self.audit_broken_links_and_anchors()
-        self.audit_asset_integrity()
 
         print("\n📊 RESULTADOS:")
         if self.warnings:

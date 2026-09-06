@@ -55,7 +55,26 @@ Skill obligatorio para todo desarrollo frontend en TheIA. Asegura que cada panta
   - `700` (Bold): Botones, CTAs y UI destacada.
 - **PROHIBIDO:** Cargar Inter, Roboto, Montserrat o cualquier otra familia no declarada.
 
-### Títulos y Subtítulos de Sección Homologados (Regla Dura 2026-09-04)
+### Tipografía en Interfaces de Aplicación y Panel Admin (Regla Dura)
+- **100% Plus Jakarta Sans en Aplicación/Admin:** En paneles de administración, dashboards SaaS y herramientas operativas (`admin.theia.cl` / `r2sport-whatsapp-bot`), toda la interfaz (encabezados H1-H6, barras de herramientas, saludos de usuario, tablas, botones, formularios y tarjetas) debe usar rigurosamente **Plus Jakarta Sans** (`400`, `500`, `600`, `700`).
+- **PROHIBIDO Serif en UI de Aplicación:** Queda estrictamente PROHIBIDO usar `Merriweather` o fuentes serif en toolbars, saludos de usuario (`Hola, ...`), encabezados de vistas administrativas o cards operativas. La tipografía serif `Merriweather` está reservada con exclusividad para titulares editoriales y marketing del sitio público (`theia.cl`).
+- **Consistencia Estructural de Encabezados Admin (`page_header`):** Toda plantilla de vista administrativa que extienda `admin/base.html` DEBE implementar obligatoriamente el bloque `{% block page_header %}` con la estructura canónica:
+  ```html
+  {% block page_header %}
+  <div class="d-flex justify-content-between align-items-center flex-grow-1 me-3">
+      <div>
+          <h5 class="fw-bold mb-1" style="letter-spacing: -0.01em;">[Título de la Vista]</h5>
+          <p class="text-secondary mb-0 small">[Descripción o alcance breve]</p>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+          <!-- Acciones o botones principales de la vista -->
+      </div>
+  </div>
+  {% endblock %}
+  ```
+  Prohibido omitir `page_header` y colocar títulos en el cuerpo del contenido, pues provoca colisión con el saludo por defecto y duplicidad visual en pantalla.
+
+### Títulos y Subtítulos de Sección Homologados en Landing (Regla Dura 2026-09-04)
 - **Títulos (`.section-title` / H2):**
   - `font-family: 'Merriweather', serif; font-weight: 900;`
   - `font-size: clamp(2rem, 3.5vw, 3rem);`
@@ -105,11 +124,15 @@ Skill obligatorio para todo desarrollo frontend en TheIA. Asegura que cada panta
 
 Antes de entregar o desplegar cualquier desarrollo frontend:
 
-1. **Auditoría Estática Automática (11 Módulos):**
+1. **Auditoría Estática Automática (11 Módulos - Landing o Admin):**
    ```bash
+   # Para el sitio web / landing:
    python3 ~/.claude/skills/frontend-ux-review/scripts/audit_frontend_ux.py --repo ~/projects/theia-landing
+   
+   # Para el panel de administración (FastAPI/Jinja):
+   python3 ~/.claude/skills/frontend-ux-review/scripts/audit_frontend_ux.py --repo ~/projects/r2sport-whatsapp-bot
    ```
-   *Debe resultar en 0 errores.*
+   *Ambos deben resultar en 0 errores.*
 
 2. **Suite de Pruebas de Contrato de Diseño:**
    ```bash
