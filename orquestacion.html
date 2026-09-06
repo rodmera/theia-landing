@@ -1492,10 +1492,10 @@
         descEl.textContent = 'Tu sistema tiene bases sólidas de recuperación o herramientas, pero carece de compuertas estrictas de validación de salida y suites continuas de evals adversariales.';
         listEl.innerHTML += '<li>Incorporar Verification Gate con ALCE span grounding para verificar que toda afirmación numérica esté respaldada.</li>';
         listEl.innerHTML += '<li>Diseñar suite de Evals automatizadas (Gate 2) para prevenir regresiones silenciosas en cambios de prompts.</li>';
-        listEl.innerHTML += '<li>Implementar PII Masking pre-API y aislamiento de contexto multi-tenant para cumplimiento Ley 21.719.</li>';
+        listEl.innerHTML += '<li>Implementar PII Masking pre-API y aislamiento de contexto multi-tenant para protección de datos confidenciales.</li>';
       } else {
         titleEl.textContent = 'Arquitectura Determinista Robusta (Estándar SOTA)';
-        titleEl.style.color = '#38bdf8';
+        titleEl.style.color = 'var(--gold, #d4af37)';
         descEl.textContent = 'Excelente madurez técnica. Tu arquitectura implementa separación de roles, validación neuro-simbólica y aislamiento de contexto.';
         listEl.innerHTML += '<li>Optimizar latencia de routing en Capa 1 para mantener respuestas sub-2s a escala.</li>';
         listEl.innerHTML += '<li>Auditar esquemas de memoria bi-temporal para transacciones de alta concurrencia.</li>';
