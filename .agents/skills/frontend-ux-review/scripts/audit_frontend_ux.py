@@ -272,6 +272,43 @@ class FrontendUXAuditor:
                         "Plantilla extiende 'admin/base.html' pero no implementa '{% block page_header %}'. Esto provoca colisión con el saludo fallback y títulos duplicados."
                     )
 
+    def audit_button_palettes(self):
+        """Valida que los botones interactivos respeten la paleta canónica: Índigo (#4f46e5) o TheIA Gold (#d4af37), prohibiendo fondos negros/slate (#0f172a / #000)."""
+        black_colors = ["#0f172a", "#0b1320", "#000000", "#000", "black"]
+
+        for file in self.css_files:
+            content = file.read_text(encoding="utf-8", errors="ignore")
+            # Prohibir --brand-primary asignado a slate/negro
+            for m in re.finditer(r'--brand-primary\s*:\s*([^;}]+)', content, re.I):
+                val = m.group(1).strip().lower()
+                if any(b in val for b in black_colors):
+                    line_no = content.count("\n", 0, m.start()) + 1
+                    self.log_error(
+                        file, line_no, "BUTTON-COLOR-BLACK",
+                        f"--brand-primary configurado con tono negro/slate ({val}). Los botones primarios en TheIA deben usar Índigo (#4f46e5 / #4338ca) o TheIA Gold (#d4af37)."
+                    )
+
+            # Prohibir .btn-primary con fondo negro/slate directo
+            for m in re.finditer(r'\.btn-primary[^{]*\{[^}]*background(?:-color)?\s*:\s*([^;}]+)', content, re.I):
+                val = m.group(1).strip().lower()
+                if any(b in val for b in black_colors):
+                    line_no = content.count("\n", 0, m.start()) + 1
+                    self.log_error(
+                        file, line_no, "BUTTON-COLOR-BLACK",
+                        f".btn-primary configurado con fondo negro/slate ({val}). Debe usar Índigo (#4f46e5) o TheIA Gold."
+                    )
+
+        for file in self.html_files:
+            content = file.read_text(encoding="utf-8", errors="ignore")
+            for m in re.finditer(r'<button\b[^>]*style="[^"]*background(?:-color)?\s*:\s*([^;"]+)[^"]*"[^>]*>', content, re.I):
+                val = m.group(1).strip().lower()
+                if any(b in val for b in black_colors):
+                    line_no = content.count("\n", 0, m.start()) + 1
+                    self.log_error(
+                        file, line_no, "BUTTON-INLINE-BLACK",
+                        f"Botón con estilo inline de fondo negro/slate ({val}). Prohibido botones negros en la paleta de TheIA."
+                    )
+
     def audit_color_and_palettes(self):
         """Valida que el verde esté restringido y los badges no usen morado."""
         targets = self.html_files if self.is_static_site else [f for f in self.html_files if "admin" not in str(f).lower()]
@@ -665,6 +702,7 @@ class FrontendUXAuditor:
             self.audit_admin_and_app_ui()
 
         self.audit_color_and_palettes()
+        self.audit_button_palettes()
         self.audit_ux_content_and_promises()
         self.audit_svg_validity()
         self.audit_no_emojis_as_icons()
