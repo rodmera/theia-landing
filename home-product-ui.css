@@ -858,7 +858,9 @@
    ========================================================================== */
 .conecta-agentes-section {
   padding: 4.5rem 0;
+  background: var(--bg2);
   border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
   position: relative;
 }
 
@@ -870,9 +872,16 @@
 
 .conecta-pillars {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.75rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
   margin-bottom: 3.5rem;
+}
+
+@media (max-width: 1100px) {
+  .conecta-pillars {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
 }
 
 .conecta-card {
@@ -942,15 +951,6 @@
   border-radius: 16px;
   padding: 2.75rem 2.5rem;
   text-align: center;
-}
-
-.conecta-logos-title {
-  font-size: 0.88rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #94a3b8;
-  margin-bottom: 2rem;
 }
 
 .conecta-logos-grid {
@@ -1221,6 +1221,10 @@
   text-align: left !important;
 }
 
+.servicios-especializados .theia-card h3,
+.servicios-especializados .theia-card p,
+.servicios-especializados .conecta-card-title,
+.servicios-especializados .conecta-card-text,
 .servicios-especializados .theia-card__content h3,
 .acompanamiento-section .theia-card__content h3 {
   text-align: left !important;
