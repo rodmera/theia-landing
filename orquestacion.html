@@ -1144,10 +1144,206 @@
     <!-- Comparison Section -->
     <section class="comp-section">
       <div class="container">
-        <div style="text-align: center; max-width: 760px; margin: 0 auto;">
+        <div style="text-align: center; max-width: 760px; margin: 0 auto 2.5rem;">
           <div class="dash-badge">Contraste de Ingeniería</div>
           <h2 class="section-title">Chatbots Tradicionales vs.<br /><span class="gold">TheIA Deterministic Engine.</span></h2>
           <p class="section-sub">Por qué los prompts monolíticos fallan en procesos de negocio reales y cómo la arquitectura determinista elimina el riesgo operativo.</p>
+        </div>
+
+        <!-- Showcase: Los bucles dan vueltas. Los grafos avanzan (Graph Engineering) -->
+        <div class="gvl-container reveal">
+          <div class="gvl-header">
+            <div class="dash-badge" style="margin-bottom: 0.75rem;">Graph Engineering vs. Loops</div>
+            <h3 class="gvl-main-title">Los bucles dan vueltas. <span class="gold">Los grafos avanzan.</span></h3>
+            <p class="gvl-main-sub">Mismo modelo, mismos tokens y las mismas 6 ejecuciones en ambos lados. Mira el resultado que obtienes:</p>
+          </div>
+
+          <div class="gvl-comparison-grid">
+            <!-- Panel Izquierdo: Un Bucle Tradicional -->
+            <div class="gvl-panel gvl-panel-loop">
+              <div class="gvl-panel-badge gvl-badge-loop">Chatbot Tradicional / Wrapper LLM</div>
+              <h4 class="gvl-panel-title">Un Bucle Cerrado Ciego</h4>
+              <p class="gvl-panel-desc">Un único prompt intentando resolver todo en una sola conversación continua.</p>
+
+              <!-- SVG Loop Schematic -->
+              <div class="gvl-schematic-wrap">
+                <svg class="gvl-loop-svg" viewBox="0 0 320 290" width="320" height="250" style="max-width: 100%; height: auto;">
+                  <!-- Círculo punteado del ciclo -->
+                  <circle cx="160" cy="130" r="85" fill="none" stroke="rgba(217, 119, 6, 0.35)" stroke-width="2" stroke-dasharray="6,6" />
+                  <!-- Flechas o dirección circular -->
+                  <path d="M 160 45 A 85 85 0 0 1 245 130" fill="none" stroke="#d97706" stroke-width="2" />
+                  <polygon points="245,133 249,124 241,124" fill="#d97706" />
+                  
+                  <path d="M 245 130 A 85 85 0 0 1 160 215" fill="none" stroke="#d97706" stroke-width="2" />
+                  <polygon points="157,215 166,219 166,211" fill="#d97706" />
+
+                  <!-- Nodos del ciclo -->
+                  <!-- 1. Generar (Top) -->
+                  <g transform="translate(160, 45)">
+                    <circle r="16" fill="#141c2e" stroke="#d97706" stroke-width="2" />
+                    <circle r="6" fill="#d97706" />
+                    <text y="-20" text-anchor="middle" fill="#f8fafc" font-size="11" font-weight="700" font-family="'Plus Jakarta Sans', sans-serif">Generar</text>
+                  </g>
+
+                  <!-- 2. Verificar (Right) -->
+                  <g transform="translate(245, 130)">
+                    <circle r="16" fill="#141c2e" stroke="#d97706" stroke-width="2" />
+                    <circle r="6" fill="#d97706" />
+                    <text x="24" y="4" text-anchor="start" fill="#f8fafc" font-size="11" font-weight="700" font-family="'Plus Jakarta Sans', sans-serif">Verificar</text>
+                  </g>
+
+                  <!-- 3. Corregir (Bottom) -->
+                  <g transform="translate(160, 215)">
+                    <circle r="16" fill="#141c2e" stroke="#d97706" stroke-width="2" />
+                    <circle r="6" fill="#d97706" />
+                    <text y="28" text-anchor="middle" fill="#f8fafc" font-size="11" font-weight="700" font-family="'Plus Jakarta Sans', sans-serif">Corregir</text>
+                  </g>
+
+                  <!-- 4. Reintentar (Left) -->
+                  <g transform="translate(75, 130)">
+                    <circle r="16" fill="#141c2e" stroke="#d97706" stroke-width="2" />
+                    <circle r="6" fill="#d97706" />
+                    <text x="-24" y="4" text-anchor="end" fill="#f8fafc" font-size="11" font-weight="700" font-family="'Plus Jakarta Sans', sans-serif">Reintentar</text>
+                  </g>
+
+                  <!-- Centro del ciclo -->
+                  <g transform="translate(160, 122)">
+                    <text y="-10" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="600" text-transform="uppercase" letter-spacing="1">Paso 2 de 6</text>
+                    <text y="14" text-anchor="middle" fill="#f59e0b" font-size="20" font-weight="900" font-family="'Merriweather', serif">1 tarea</text>
+                    <text y="30" text-anchor="middle" fill="#64748b" font-size="10">sigue siendo la misma</text>
+                  </g>
+                </svg>
+              </div>
+
+              <div class="gvl-panel-footer">
+                <p class="gvl-footer-muted">Se vuelve ligeramente mejor en la única tarea que recibió.</p>
+                <p class="gvl-footer-alert">Nunca decide que existe una segunda tarea.</p>
+              </div>
+            </div>
+
+            <!-- Panel Derecho: Un Grafo Agéntico -->
+            <div class="gvl-panel gvl-panel-graph">
+              <div class="gvl-panel-badge gvl-badge-graph">TheIA Deterministic Engine</div>
+              <h4 class="gvl-panel-title">Un Grafo Multi-Especialista</h4>
+              <p class="gvl-panel-desc">Descomposición determinista en agentes paralelos con validación en código a 0 tokens.</p>
+
+              <!-- SVG Graph Schematic -->
+              <div class="gvl-schematic-wrap">
+                <svg class="gvl-graph-svg" viewBox="0 0 320 290" width="320" height="250" style="max-width: 100%; height: auto;">
+                  <!-- Conectores superiores desde el Splitter a los 3 nodos -->
+                  <path d="M 160 48 C 160 65, 65 75, 65 100" fill="none" stroke="rgba(79, 70, 229, 0.45)" stroke-width="2" stroke-dasharray="4,4" />
+                  <path d="M 160 48 L 160 100" fill="none" stroke="rgba(212, 175, 55, 0.55)" stroke-width="2" stroke-dasharray="4,4" />
+                  <path d="M 160 48 C 160 65, 255 75, 255 100" fill="none" stroke="rgba(34, 197, 94, 0.45)" stroke-width="2" stroke-dasharray="4,4" />
+
+                  <!-- Conectores inferiores desde los 3 nodos hacia Merge -->
+                  <path d="M 65 150 C 65 170, 120 180, 140 185" fill="none" stroke="rgba(79, 70, 229, 0.45)" stroke-width="2" stroke-dasharray="4,4" />
+                  <path d="M 160 150 L 160 183" fill="none" stroke="rgba(212, 175, 55, 0.55)" stroke-width="2" stroke-dasharray="4,4" />
+                  <path d="M 255 150 C 255 170, 200 180, 180 185" fill="none" stroke="rgba(34, 197, 94, 0.45)" stroke-width="2" stroke-dasharray="4,4" />
+
+                  <!-- 1. Nodo Splitter (Top) -->
+                  <g transform="translate(160, 32)">
+                    <circle r="18" fill="#141c2e" stroke="#4f46e5" stroke-width="2" />
+                    <path d="M -7 -4 L 7 -4 M -7 0 L 7 0 M -7 4 L 7 4" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" />
+                    <text y="-22" text-anchor="middle" fill="#a5b4fc" font-size="11" font-weight="700" font-family="'Plus Jakarta Sans', sans-serif">Divisor (Splitter)</text>
+                  </g>
+
+                  <!-- 3 Nodos en paralelo -->
+                  <!-- Especialista A: Catálogo -->
+                  <g transform="translate(65, 125)">
+                    <circle r="25" fill="rgba(79, 70, 229, 0.12)" stroke="#4f46e5" stroke-width="2" />
+                    <circle r="19" fill="#141c2e" stroke="rgba(79, 70, 229, 0.4)" stroke-dasharray="3,3" />
+                    <text y="4" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">Catálogo</text>
+                    <text y="36" text-anchor="middle" fill="#94a3b8" font-size="9">micro-loop</text>
+                  </g>
+
+                  <!-- Especialista B: Agenda -->
+                  <g transform="translate(160, 125)">
+                    <circle r="25" fill="rgba(212, 175, 55, 0.12)" stroke="#d4af37" stroke-width="2" />
+                    <circle r="19" fill="#141c2e" stroke="rgba(212, 175, 55, 0.4)" stroke-dasharray="3,3" />
+                    <text y="4" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">Agenda</text>
+                    <text y="36" text-anchor="middle" fill="#94a3b8" font-size="9">micro-loop</text>
+                  </g>
+
+                  <!-- Especialista C: Precios -->
+                  <g transform="translate(255, 125)">
+                    <circle r="25" fill="rgba(34, 197, 94, 0.12)" stroke="#22c55e" stroke-width="2" />
+                    <circle r="19" fill="#141c2e" stroke="rgba(34, 197, 94, 0.4)" stroke-dasharray="3,3" />
+                    <text y="4" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">Precios</text>
+                    <text y="36" text-anchor="middle" fill="#94a3b8" font-size="9">micro-loop</text>
+                  </g>
+
+                  <!-- Caja de Consolidación (Merge) -->
+                  <g transform="translate(160, 208)">
+                    <rect x="-95" y="-14" width="190" height="28" rx="8" fill="#0f172a" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="4,4" />
+                    <text y="4" text-anchor="middle" fill="#d4af37" font-size="11" font-weight="700">Merge en Código · 0 Tokens</text>
+                  </g>
+
+                  <!-- Resultado final -->
+                  <g transform="translate(160, 260)">
+                    <text text-anchor="middle" fill="#22c55e" font-size="14" font-weight="900" font-family="'Merriweather', serif">✓ 3 tareas resueltas en paralelo</text>
+                  </g>
+                </svg>
+              </div>
+
+              <div class="gvl-panel-footer">
+                <p class="gvl-footer-muted">El bucle no desapareció: se trasladó adentro de cada especialista.</p>
+                <p class="gvl-footer-success">Resuelve 3 procesos distintos sin mezclar instrucciones ni alucinar.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Barra Comparativa de Rendimiento -->
+          <div class="gvl-benchmark-card">
+            <div class="gvl-benchmark-header">
+              <span class="gvl-benchmark-title">6 ejecuciones comparadas frente a frente:</span>
+            </div>
+
+            <div class="gvl-bar-row">
+              <div class="gvl-bar-label">Un bucle tradicional:</div>
+              <div class="gvl-bar-track">
+                <div class="gvl-bar-fill gvl-fill-amber" style="width: 33%;"></div>
+              </div>
+              <div class="gvl-bar-val gvl-val-amber">1 tarea</div>
+            </div>
+
+            <div class="gvl-bar-row">
+              <div class="gvl-bar-label">Un grafo TheIA:</div>
+              <div class="gvl-bar-track">
+                <div class="gvl-bar-fill gvl-fill-gold" style="width: 100%;"></div>
+              </div>
+              <div class="gvl-bar-val gvl-val-gold">3 tareas resueltas</div>
+            </div>
+          </div>
+
+          <!-- Grid de Métricas / KPI Pills -->
+          <div class="gvl-kpi-grid">
+            <div class="gvl-kpi-pill">
+              <span class="gvl-kpi-num">6</span>
+              <span class="gvl-kpi-txt">ejecuciones en ambos lados</span>
+            </div>
+            <div class="gvl-kpi-pill gvl-kpi-warn">
+              <span class="gvl-kpi-num">1</span>
+              <span class="gvl-kpi-txt">tarea resuelta en el bucle</span>
+            </div>
+            <div class="gvl-kpi-pill gvl-kpi-succ">
+              <span class="gvl-kpi-num">3</span>
+              <span class="gvl-kpi-txt">tareas resueltas en el grafo</span>
+            </div>
+            <div class="gvl-kpi-pill gvl-kpi-info">
+              <span class="gvl-kpi-num">0</span>
+              <span class="gvl-kpi-txt">tokens de costo adicional</span>
+            </div>
+          </div>
+
+          <!-- Manifiesto / Conclusión Arquitectural -->
+          <div class="gvl-takeaway-box">
+            <div class="gvl-takeaway-tag">Principio de Arquitectura</div>
+            <h4 class="gvl-takeaway-title">"El bucle vive dentro de un nodo. El grafo vive entre ellos."</h4>
+            <p class="gvl-takeaway-desc">
+              Un bucle solo perfecciona una única unidad de trabajo: <strong>es incapaz de hacer que una segunda tarea exista</strong>.
+              Esa decisión ocurre un nivel más arriba, en la arquitectura de orquestación, o sencillamente no ocurre jamás.
+            </p>
+          </div>
         </div>
 
         <div class="comp-table-wrap">
