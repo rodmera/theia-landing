@@ -669,6 +669,37 @@ def test_home_cards_left_aligned_consistency(desktop_page):
         assert p_align in ["left", "start"], f"Tarjeta {i} de acompañamiento debe tener p text-align: left, computa: {p_align}"
 
 
+def test_firma_email_theia_design_contract():
+    """Valida que la firma oficial de correo cumpla el Design System TheIA y no tenga fugas de tráfico."""
+    import re
+    from pathlib import Path
+    
+    sig_path = Path(__file__).parent.parent / "templates" / "firma-email-theia.html"
+    assert sig_path.is_file(), f"No se encontró la plantilla de firma en {sig_path}"
+    
+    content = sig_path.read_text(encoding="utf-8")
+    
+    # 1. Cero fugas de tráfico: Los badges de Google for Startups y NVIDIA Inception son estáticos
+    assert "cloud.google.com" not in content, "Firma no debe tener enlaces salientes a cloud.google.com (fuga de tráfico)"
+    assert "nvidia.com" not in content, "Firma no debe tener enlaces salientes a nvidia.com (fuga de tráfico)"
+    
+    # 2. Enlaces propios de TheIA permanecen
+    assert 'href="https://theia.cl"' in content, "Firma debe enlazar al sitio oficial theia.cl"
+    assert 'href="mailto:rodrigo@theia.cl"' in content, "Firma debe tener enlace mailto oficial"
+    assert 'href="tel:+56977298344"' in content, "Firma debe tener enlace telefónico oficial"
+    
+    # 3. Assets institucionales oficiales presentes
+    assert "logo-tight.png" in content, "Firma debe incluir logo-tight.png"
+    assert "google-for-startups-badge.png" in content, "Firma debe incluir badge Google for Startups"
+    assert "nvidia-inception-program-badge.png" in content, "Firma debe incluir badge NVIDIA Inception"
+    
+    # 4. Paleta canónica TheIA
+    assert "#d4af37" in content.lower(), "Firma debe incluir TheIA Gold #d4af37"
+    assert "#0f172a" in content.lower(), "Firma debe incluir Slate 900 #0f172a"
+    assert "#0b1320" in content.lower(), "Firma debe incluir Dark Slate #0b1320 para tarjeta oscura"
+
+
+
 
 
 

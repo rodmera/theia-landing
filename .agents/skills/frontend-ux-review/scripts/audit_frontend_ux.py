@@ -789,6 +789,46 @@ class FrontendUXAuditor:
                     "Cadena técnica 'BANT_LITE' mostrada en interfaz de usuario. Debe formatearse como 'BANT'."
                 )
 
+    def audit_email_signatures(self):
+        """Audita plantillas de firma de correo oficial (Design System, enlaces externos no autorizados, assets)."""
+        sig_files = []
+        templates_dir = self.target_dir / "templates"
+        if templates_dir.is_dir():
+            sig_files.extend(templates_dir.glob("*firma*.html"))
+        sig_files.extend([f for f in self.target_dir.glob("*firma*.html") if f not in sig_files])
+
+        for sig_file in sig_files:
+            content = sig_file.read_text(encoding="utf-8", errors="ignore")
+
+            # 1. Regla Dura: Cero fugas de tráfico (badges de partners no deben ser links externos a nvidia/google)
+            leak_matches = re.findall(r'<a\s+[^>]*href=["\'](https?://(?:www\.)?(?:nvidia\.com|cloud\.google\.com)[^"\']*)["\']', content, re.I)
+            if leak_matches:
+                for leak_url in leak_matches:
+                    self.log_error(
+                        sig_file, 1, "SIGNATURE-TRAFFIC-LEAK",
+                        f"La firma contiene un enlace saliente no autorizado a partner externo ('{leak_url}'). Los badges deben ser estáticos sin fuga de tráfico."
+                    )
+
+            # 2. Paleta Canónica: TheIA Gold (#d4af37)
+            if "#d4af37" not in content.lower():
+                self.log_error(
+                    sig_file, 1, "SIGNATURE-MISSING-GOLD",
+                    "La firma oficial de TheIA debe incorporar TheIA Gold (#d4af37) en el divisor y títulos."
+                )
+
+            # 3. Assets Canónicos de TheIA
+            required_assets = [
+                "logo-tight.png",
+                "google-for-startups-badge.png",
+                "nvidia-inception-program-badge.png",
+            ]
+            for asset in required_assets:
+                if asset not in content:
+                    self.log_error(
+                        sig_file, 1, "SIGNATURE-MISSING-ASSET",
+                        f"La firma oficial carece del asset institucional requerido '{asset}'."
+                    )
+
     def run(self) -> bool:
         print(f"🔍 Iniciando Auditoría Frontend & UX en: {self.target_dir}")
         print(f"📄 Archivos HTML analizados: {len(self.html_files)}")
@@ -813,6 +853,7 @@ class FrontendUXAuditor:
         self.audit_no_emojis_as_icons()
         self.audit_no_raw_english_in_ui()
         self.audit_wording_and_editorial_quality()
+        self.audit_email_signatures()
 
         print("\n📊 RESULTADOS:")
         if self.warnings:
