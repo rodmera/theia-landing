@@ -78,6 +78,11 @@ consistencia comercial ($250.000, demo 30 min) y sticky WhatsApp.
 - **Simulación continua obligatoria:** Todo menú desplegable o popover debe validarse simulando el trayecto del mouse con `page.mouse.move()` en pasos interpolados desde el botón hasta la tarjeta interior, verificando que no ocurra `mouseleave` prematuro.
 - **Doble gatillo mandatorio (Hover + Click Pinning):** Los dropdowns deben soportar apertura por hover con puente continuo sin gaps (padding/margin estructural) Y persistencia con clic (estado pinned) para accesibilidad y usabilidad táctil.
 
+### El único QA que vale es el que simula el dolor del cliente real (Regla Dura, 2026-09-07 — Lección Rondanelli)
+
+- **Prohibido conformarse con aserciones sintácticas aisladas:** Que una suite de tests o linter pase en verde no significa que el producto esté listo. Las aserciones mecánicas aisladas casi nos cuestan una cuenta comercial cuando el cliente real sufre fricciones, objeciones o inconsistencias visuales no cubiertas por tests unitarios.
+- **Simulación holística de recorrido:** Todo QA, testing o verificación previa a dar por terminado un cambio debe simular el dolor, las objeciones comerciales y el flujo de navegación del cliente real de punta a punta (legibilidad, jerarquía, contrastes, escaneabilidad, copy honesto sin tecnicismos ni clichés, y ausencia de fricciones). Si el cliente real sufre o se frustra, el desarrollo está ROTO.
+
 ## Despliegue
 
 GitHub Pages publica automáticamente desde la rama `main`. El archivo `CNAME` contiene `theia.cl` para el dominio personalizado. No se requiere ningún paso adicional — hacer push a `main` es suficiente para desplegar.
