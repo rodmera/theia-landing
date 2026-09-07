@@ -308,6 +308,18 @@ class FrontendUXAuditor:
                         "Plantilla extiende 'admin/base.html' pero no implementa '{% block page_header %}'. Esto provoca colisión con el saludo fallback y títulos duplicados."
                     )
 
+        # 4. Prohibir tarjetas raw unstyled de Bootstrap en templates de admin
+        card_re = re.compile(r'<div[^>]*class=["\']card(?:\s+mb-\d)?["\']', re.I)
+        for file in admin_templates:
+            content = file.read_text(encoding="utf-8", errors="ignore")
+            lines = content.splitlines()
+            for idx, line in enumerate(lines, 1):
+                if card_re.search(line) and "border-0" not in line and "shadow" not in line and "rounded" not in line and "style=" not in line and "card-premium" not in line:
+                    self.log_error(
+                        file, idx, "APP-UNSTYLED-BOOTSTRAP-CARD",
+                        f"Tarjeta raw unstyled de Bootstrap detectada: {line.strip()!r}. Las tarjetas en el panel admin deben usar el estándar ejecutivo (ej. 'card border-0 shadow-sm rounded-4' o 'card card-premium')."
+                    )
+
     def audit_button_palettes(self):
         """Valida que los botones interactivos respeten la paleta canónica: Índigo (#4f46e5) o TheIA Gold (#d4af37), prohibiendo fondos negros/slate (#0f172a / #000)."""
         black_colors = ["#0f172a", "#0b1320", "#000000", "#000", "black"]
