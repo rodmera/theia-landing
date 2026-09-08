@@ -1574,9 +1574,9 @@
 
 .managed-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 3rem;
-  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: stretch;
 }
 
 @media (max-width: 992px) {
@@ -1589,16 +1589,19 @@
 .managed-steps {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  justify-content: space-between;
+  gap: 1.15rem;
+  height: 100%;
 }
 
 .managed-step-card {
   display: flex;
   gap: 1.25rem;
-  padding: 1.5rem;
+  padding: 1.6rem 1.5rem;
   background: rgba(15, 23, 42, 0.6);
   border: 1px solid var(--glass-border);
-  border-radius: 14px;
+  border-radius: 16px;
+  flex: 1;
   transition: transform 0.25s var(--bezier-smooth), border-color 0.25s var(--bezier-smooth);
 }
 
@@ -1647,6 +1650,12 @@
   margin: 0;
 }
 
+.managed-live-preview {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .agent-pod-card {
   background: #0b1320;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1654,6 +1663,10 @@
   padding: 1.75rem;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .agent-pod-header {
@@ -1792,17 +1805,6 @@
   font-size: 0.72rem;
   color: #64748b;
   margin-top: 0.2rem;
-}
-
-.managed-cta-box {
-  margin-top: 1.5rem;
-  text-align: center;
-}
-
-.managed-cta-subtext {
-  font-size: 0.8rem;
-  color: #64748b;
-  margin-top: 0.6rem;
 }
 
 
