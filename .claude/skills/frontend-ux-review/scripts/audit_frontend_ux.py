@@ -367,6 +367,16 @@ class FrontendUXAuditor:
                         f"Filtro/botón activo con fondo negro/slate ({val}). Los elementos activos interactivos en TheIA deben usar Índigo (#4f46e5) o TheIA Gold (#d4af37)."
                     )
 
+            # Prohibir botones de acción en page_header usando btn-outline-primary
+            for header_match in re.finditer(r'\{%\s*block\s+page_header\s*%\}([\s\S]*?)\{%\s*endblock\s*%\}', content, re.I):
+                header_html = header_match.group(1)
+                for btn_match in re.finditer(r'<[a-z]+\b[^>]*class="[^"]*btn-outline-primary[^"]*"[^>]*>', header_html, re.I):
+                    line_no = content.count("\n", 0, header_match.start() + btn_match.start()) + 1
+                    self.log_error(
+                        file, line_no, "HEADER-ACTION-OUTLINE-PRIMARY",
+                        f"Acción de cabecera con 'btn-outline-primary' ({btn_match.group(0)!r}). En el panel admin, las acciones en page_header deben usar botones sólidos Índigo canónico (.btn-primary) o TheIA Gold (.btn-gold); nunca botones outline transparentes/blancos que pierden peso visual."
+                    )
+
     def audit_color_and_palettes(self):
         """Valida que los colores y gradientes se ajusten estrictamente al Design System (restringiendo verde y prohibiendo colores no canónicos)."""
         for file in self.html_files + self.css_files:
