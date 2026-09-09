@@ -633,6 +633,79 @@ class FrontendUXAuditor:
                     "Sección #servicios-especializados contiene botón redundante de demo que compite con el enlace principal a /servicios."
                 )
 
+    def audit_footer_consistency(self):
+        """Audita la homologación estructural del footer canónico de 4 columnas en todas las páginas públicas."""
+        for file in self.html_files:
+            content = file.read_text(encoding="utf-8", errors="ignore")
+            if "<footer" not in content:
+                continue
+
+            # 1. Enlace a site-footer.css en <head>
+            if 'href="/site-footer.css"' not in content and 'href="site-footer.css"' not in content:
+                self.log_error(
+                    file, 1, "FOOTER-MISSING-CSS",
+                    "Página con <footer> no enlaza /site-footer.css en su <head>."
+                )
+
+            # 2. Estructura canónica de 4 columnas en .footer-inner
+            m_footer = re.search(r'<footer\b[^>]*>(.*?)</footer>', content, re.DOTALL)
+            if not m_footer:
+                continue
+            footer_html = m_footer.group(1)
+            start_pos = m_footer.start()
+            line_no = content[:start_pos].count("\n") + 1
+
+            if '<div class="footer-inner">' not in footer_html:
+                self.log_error(
+                    file, line_no, "FOOTER-MISSING-INNER",
+                    "El <footer> debe contener un contenedor <div class=\"footer-inner\"> para layout canónico."
+                )
+            else:
+                cols = re.findall(r'<div class=["\']footer-col\b[^"\']*["\']>', footer_html)
+                if len(cols) != 4:
+                    self.log_error(
+                        file, line_no, "FOOTER-INVALID-COLUMN-COUNT",
+                        f"El <footer> tiene {len(cols)} columnas .footer-col en vez de las 4 canónicas (Marca, Productos, Plataforma, Contacto)."
+                    )
+
+            # 3. Columna 4 Contacto debe contener al menos 4 enlaces (email, whatsapp, linkedin, instagram)
+            m_col4 = re.search(r'<h4>Contacto</h4>\s*<div class=["\']footer-links-group["\']>(.*?)</div>', footer_html, re.DOTALL)
+            if m_col4:
+                col4_links = re.findall(r'<a\b', m_col4.group(1))
+                if len(col4_links) < 4:
+                    self.log_error(
+                        file, line_no, "FOOTER-MISSING-SOCIAL-LINKS",
+                        f"Columna Contacto solo tiene {len(col4_links)} enlaces. Debe incluir Email, WhatsApp, LinkedIn e Instagram."
+                    )
+
+            # 4. Barra inferior .footer-bottom y enlaces legales canónicos
+            if '<div class="footer-bottom">' not in footer_html:
+                self.log_error(
+                    file, line_no, "FOOTER-MISSING-BOTTOM",
+                    "El <footer> debe contener la barra inferior <div class=\"footer-bottom\">."
+                )
+            else:
+                if '<div class="footer-legal-links">' not in footer_html:
+                    self.log_error(
+                        file, line_no, "FOOTER-MISSING-LEGAL-LINKS",
+                        "El .footer-bottom debe usar <div class=\"footer-legal-links\"> para enlaces legales en flexbox."
+                    )
+                if re.search(r'class=["\']footer-legal["\']', footer_html) or re.search(r'class=["\']footer-bottom-inner["\']', footer_html):
+                    self.log_error(
+                        file, line_no, "FOOTER-LEGACY-UNSTYLED-CLASSES",
+                        "Uso de clases no estilizadas o legacy (.footer-legal o .footer-bottom-inner) en el footer."
+                    )
+                # Links legales obligatorios
+                m_legal = re.search(r'<div class=["\']footer-legal-links["\']>(.*?)</div>', footer_html, re.DOTALL)
+                if m_legal:
+                    legal_html = m_legal.group(1)
+                    if "/privacidad" not in legal_html:
+                        self.log_error(file, line_no, "FOOTER-LEGAL-MISSING-PRIVACY", "Falta enlace a /privacidad en .footer-legal-links.")
+                    if "/terminos.html" not in legal_html:
+                        self.log_error(file, line_no, "FOOTER-LEGAL-MISSING-TERMS", "Falta enlace a /terminos.html en .footer-legal-links.")
+                    if "/confianza" not in legal_html:
+                        self.log_error(file, line_no, "FOOTER-LEGAL-MISSING-TRUST", "Falta enlace a /confianza en .footer-legal-links.")
+
     def audit_accessibility_and_wcag(self):
         """Audita accesibilidad WCAG AA: alt en imágenes, type en botones, labels en inputs y H1 único."""
         for file in self.html_files:
@@ -859,6 +932,7 @@ class FrontendUXAuditor:
         if self.is_static_site:
             self.audit_section_titles()
             self.audit_card_layout_and_cta_consistency()
+            self.audit_footer_consistency()
             self.audit_accessibility_and_wcag()
             self.audit_broken_links_and_anchors()
             self.audit_asset_integrity()

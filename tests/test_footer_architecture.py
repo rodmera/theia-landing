@@ -14,31 +14,12 @@ from conftest import BASE, ROOT
 
 SITE_FOOTER_CSS = ROOT / "site-footer.css"
 
-HTML_FILES_WITH_FOOTER = [
-    ROOT / "index.html",
-    ROOT / "atencion-cliente.html",
-    ROOT / "pulse.html",
-    ROOT / "crm.html",
-    ROOT / "panel.html",
-    ROOT / "funciones.html",
-    ROOT / "precios.html",
-    ROOT / "servicios.html",
-    ROOT / "casos.html",
-    ROOT / "nosotros.html",
-    ROOT / "calculadora.html",
-    ROOT / "criterios.html",
-    ROOT / "alternativa-crm.html",
-    ROOT / "servicios-pyme.html",
-    ROOT / "comercio.html",
-    ROOT / "automotriz.html",
-    ROOT / "salud.html",
-    ROOT / "atencion-whatsapp.html",
-    ROOT / "cotizaciones-agendamiento.html",
-    ROOT / "seguimiento-equipo.html",
-    ROOT / "orquestacion.html",
-    ROOT / "confianza.html",
-    ROOT / "facil.html",
-]
+EXCLUDED_NON_MARKETING = {"404.html", "plataforma.html", "privacidad.html", "terminos.html", "cumplimiento.html"}
+
+HTML_FILES_WITH_FOOTER = sorted([
+    f for f in ROOT.glob("*.html")
+    if not f.name.startswith("google") and f.name not in EXCLUDED_NON_MARKETING and "<footer" in f.read_text(encoding="utf-8")
+])
 
 
 def test_site_footer_css_exists_and_has_rules():
@@ -72,6 +53,7 @@ def test_all_pages_link_site_footer_css():
 
 def test_all_pages_have_canonical_4_column_footer_structure():
     """Todas las páginas deben tener la estructura canónica de 4 columnas y footer-bottom."""
+    assert len(HTML_FILES_WITH_FOOTER) >= 24, "Debe haber al menos 24 páginas públicas con footer canónico"
     for html_file in HTML_FILES_WITH_FOOTER:
         content = html_file.read_text(encoding="utf-8")
         assert "<footer>" in content, f"{html_file.name} debe contener <footer>"
@@ -81,8 +63,15 @@ def test_all_pages_have_canonical_4_column_footer_structure():
         assert "<h4>Plataforma</h4>" in content, f"{html_file.name} debe contener columna Plataforma"
         assert "<h4>Contacto</h4>" in content, f"{html_file.name} debe contener columna Contacto"
         assert '<div class="footer-bottom">' in content, f"{html_file.name} debe contener .footer-bottom"
+        assert '<div class="footer-legal-links">' in content, f"{html_file.name} debe contener .footer-legal-links"
+        assert "footer-legal " not in content and 'class="footer-legal"' not in content, (
+            f"{html_file.name} no debe usar la clase desactualizada .footer-legal"
+        )
         assert "/privacidad" in content, f"{html_file.name} debe enlazar política de privacidad"
         assert "/terminos.html" in content, f"{html_file.name} debe enlazar términos de servicio"
+        assert "/confianza" in content, f"{html_file.name} debe enlazar confianza & DPA"
+        assert "TheIA en LinkedIn" in content or "linkedin.com" in content, f"{html_file.name} debe enlazar LinkedIn en Contacto"
+        assert "@theiacl_" in content or "instagram.com" in content, f"{html_file.name} debe enlazar Instagram en Contacto"
 
 
 def test_footer_desktop_layout_playwright(desktop_page):
@@ -128,3 +117,24 @@ def test_footer_mobile_layout_playwright(mobile_page):
     boxes = [cols.nth(i).bounding_box() for i in range(4)]
     for i in range(3):
         assert boxes[i]["y"] < boxes[i+1]["y"], f"Las columnas deben estar apiladas verticalmente en móvil"
+
+
+def test_inmobiliaria_footer_layout_playwright(desktop_page, mobile_page):
+    """Verifica que /inmobiliaria tenga el footer canónico completo y sin overflow en desktop y móvil."""
+    # Desktop
+    desktop_page.goto(f"{BASE}/inmobiliaria")
+    desktop_page.wait_for_selector("footer")
+    footer = desktop_page.locator("footer")
+    assert footer.is_visible()
+    cols = desktop_page.locator("footer .footer-inner > .footer-col")
+    assert cols.count() == 4
+    legal = desktop_page.locator("footer .footer-legal-links a")
+    assert legal.count() == 3
+    
+    # Mobile
+    mobile_page.goto(f"{BASE}/inmobiliaria")
+    mobile_page.wait_for_selector("footer")
+    scroll_w = mobile_page.evaluate("document.documentElement.scrollWidth")
+    inner_w = mobile_page.evaluate("window.innerWidth")
+    assert scroll_w <= inner_w + 1
+
