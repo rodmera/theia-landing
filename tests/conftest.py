@@ -72,7 +72,7 @@ PAGES = ["/", "/funciones.html", "/precios.html", "/servicios.html",
          "/casos.html", "/nosotros.html", "/privacidad.html", "/terminos.html", "/blog/",
          "/atencion-whatsapp.html", "/cotizaciones-agendamiento.html", "/seguimiento-equipo.html",
          "/atencion-cliente.html", "/criterios.html", "/cumplimiento.html", "/crm.html", "/salud.html", "/servicios-pyme.html", "/automotriz.html", "/comercio.html", "/alternativa-crm.html", "/migracion.html",
-         "/orquestacion.html", "/confianza.html", "/facil.html"]
+         "/orquestacion.html", "/confianza.html", "/facil.html", "/inmobiliaria.html"]
 
 
 def _wait_port(port, timeout=15):

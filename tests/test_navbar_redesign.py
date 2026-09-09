@@ -33,6 +33,7 @@ ACTIVE_NAV_MAP = {
     "/servicios-pyme.html": "/servicios-pyme",
     "/automotriz.html": "/automotriz",
     "/comercio.html": "/comercio",
+    "/inmobiliaria.html": "/inmobiliaria",
     "/casos.html": "/casos",
     "/funciones.html": "/funciones",
     "/cotizaciones-agendamiento.html": "/funciones",

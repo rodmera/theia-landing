@@ -62,7 +62,7 @@ TheIA actúa como puente de orquestación y despliegue para los siguientes siste
 - **Automotriz & Talleres (https://theia.cl/automotriz):** Agendamiento de mantenciones por kilometraje, cotización de repuestos por patente y modelo, y notificaciones de avance de reparación.
 - **Servicios Profesionales & B2B (https://theia.cl/servicios-pyme):** Calificación de prospectos de consultoría, agenda de reuniones de diagnóstico y seguimiento comercial.
 - **Comercio & Retail Local (https://theia.cl/comercio):** Consultas de catálogo, stock disponible, costos y tiempos de despacho por WhatsApp e Instagram DM.
-- **Inmobiliarias & Corretaje:** Filtro de requerimientos (comuna, presupuesto, dormitorios), envío de fichas técnicas de propiedades y agendamiento de visitas a terreno.
+- **Inmobiliarias & Corretaje (https://theia.cl/inmobiliaria):** Atención 24/7 con fidelidad estricta de fichas, filtro de requerimientos (comuna, presupuesto, dormitorios), recomendación proactiva de alternativas de la cartera y agendamiento coordinado de visitas a terreno con silencio automático ante el corredor.
 
 ---
 

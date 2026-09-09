@@ -20,13 +20,16 @@ COMERCIO_HTML = ROOT / "comercio.html"
 CRITERIOS_HTML = ROOT / "criterios.html"
 ALTERNATIVA_CRM_HTML = ROOT / "alternativa-crm.html"
 
+INMOBILIARIA_HTML = ROOT / "inmobiliaria.html"
+
 VERTICAL_PAGES = [
     "servicios-pyme.html",
     "salud.html",
     "automotriz.html",
     "comercio.html",
     "criterios.html",
-    "alternativa-crm.html"
+    "alternativa-crm.html",
+    "inmobiliaria.html"
 ]
 
 
@@ -95,6 +98,29 @@ def test_ac5_criterios_and_alternativa_crm(desktop_page):
     alt_content = ALTERNATIVA_CRM_HTML.read_text(encoding="utf-8")
     assert "250.000" in alt_content
     assert "usuario" in alt_content.lower() or "asiento" in alt_content.lower()
+
+
+def test_ac7_inmobiliaria(desktop_page):
+    """AC7: Corretaje de Propiedades (inmobiliaria.html) con fidelidad estricta de fichas, silencio humano y agendamiento."""
+    desktop_page.goto(f"{BASE}/inmobiliaria.html", wait_until="domcontentloaded")
+    desktop_page.wait_for_timeout(200)
+
+    # Verificar H1 temático
+    h1 = desktop_page.locator("h1.hero-title").first
+    assert h1.is_visible()
+    h1_text = h1.text_content().lower()
+    assert "corretaje de propiedades" in h1_text
+
+    # Verificar contenido estático
+    content = INMOBILIARIA_HTML.read_text(encoding="utf-8")
+    assert "fidelidad estricta" in content.lower()
+    assert "silencio" in content.lower()
+    assert "visita" in content.lower()
+    assert "250.000" in content
+
+    # Cero errores JS críticos
+    critical_errors = filtered_js_errors(desktop_page)
+    assert not critical_errors, f"Errores JS en inmobiliaria.html: {critical_errors}"
 
 
 @pytest.mark.parametrize("page_name", VERTICAL_PAGES)
