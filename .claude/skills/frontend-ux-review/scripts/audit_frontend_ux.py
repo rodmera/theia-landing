@@ -922,6 +922,36 @@ class FrontendUXAuditor:
                         f"La firma oficial carece del asset institucional requerido '{asset}'."
                     )
 
+    def audit_navbar_hero_clearance(self):
+        """Audita que las secciones iniciales / hero tengan padding-top suficiente para no ser solapadas por el navbar fijo (~136px)."""
+        if not self.is_static_site:
+            return
+
+        for file in self.html_files:
+            content = file.read_text(encoding="utf-8", errors="ignore")
+            if 'site-nav.css' not in content:
+                continue
+
+            for style_m in re.finditer(r'<style[^>]*>(.*?)</style>', content, re.DOTALL | re.IGNORECASE):
+                style_css = style_m.group(1)
+                desktop_css = re.sub(r'@media[^{]*\{(?:[^{}]+|\{[^{}]*\})*\}', '', style_css, flags=re.DOTALL)
+
+                matches = re.finditer(r'(\.hero(?:-[a-z0-9_-]+)?|main)\s*\{([^}]*padding[^}]*)\}', desktop_css, re.I)
+                for m in matches:
+                    selector = m.group(1).strip()
+                    rules = m.group(2)
+                    p_match = re.search(r'padding(?:-top)?\s*:\s*([0-9.]+)(rem|px)', rules, re.I)
+                    if p_match:
+                        val = float(p_match.group(1))
+                        unit = p_match.group(2).lower()
+                        px_val = val * 16 if unit == "rem" else val
+                        if px_val < 150:
+                            line_no = content[:style_m.start() + m.start()].count("\n") + 1
+                            self.log_error(
+                                file, line_no, "HERO-NAVBAR-INSUFFICIENT-CLEARANCE",
+                                f"Selector '{selector}' tiene padding superior de {val}{unit} ({px_val:.0f}px), insuficiente para librar el navbar fijo (~136px) en desktop (mínimo exigido 10rem / 160px)."
+                            )
+
     def run(self) -> bool:
         print(f"🔍 Iniciando Auditoría Frontend & UX en: {self.target_dir}")
         print(f"📄 Archivos HTML analizados: {len(self.html_files)}")
@@ -933,6 +963,7 @@ class FrontendUXAuditor:
             self.audit_section_titles()
             self.audit_card_layout_and_cta_consistency()
             self.audit_footer_consistency()
+            self.audit_navbar_hero_clearance()
             self.audit_accessibility_and_wcag()
             self.audit_broken_links_and_anchors()
             self.audit_asset_integrity()

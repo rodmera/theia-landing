@@ -1,31 +1,13 @@
+from pathlib import Path
 import pytest
 from playwright.sync_api import Page, expect
 
-HTML_PAGES = [
-    "/index.html",
-    "/facil.html",
-    "/confianza.html",
-    "/orquestacion.html",
-    "/precios.html",
-    "/servicios.html",
-    "/atencion-cliente.html",
-    "/crm.html",
-    "/panel.html",
-    "/pulse.html",
-    "/nosotros.html",
-    "/casos.html",
-    "/funciones.html",
-    "/salud.html",
-    "/automotriz.html",
-    "/comercio.html",
-    "/servicios-pyme.html",
-    "/alternativa-crm.html",
-    "/calculadora.html",
-    "/criterios.html",
-    "/cumplimiento.html",
-    "/privacidad.html",
-    "/terminos.html",
-]
+ROOT = Path(__file__).resolve().parent.parent
+EXCLUDED = {"404.html", "plataforma.html"}
+HTML_PAGES = sorted([
+    f"/{f.name}" for f in ROOT.glob("*.html")
+    if not f.name.startswith("google") and f.name not in EXCLUDED
+])
 
 @pytest.mark.parametrize("page_path", HTML_PAGES)
 def test_navbar_single_row_layout_desktop(page: Page, site_server: str, page_path: str):
@@ -73,21 +55,32 @@ def test_navbar_mobile_toggle_layout(page: Page, site_server: str, page_path: st
 
 
 @pytest.mark.parametrize("page_path", HTML_PAGES)
-def test_h1_not_overlapped_by_navbar(page: Page, site_server: str, page_path: str):
-    """Verifica mecánicamente que el título principal (h1) nunca quede tapado o solapado por el navbar fijo."""
+def test_hero_content_and_badges_not_overlapped_by_navbar(page: Page, site_server: str, page_path: str):
+    """Verifica que ningún elemento de contenido inicial (badge, pill o h1) quede tapado o solapado por el navbar fijo."""
     page.set_viewport_size({"width": 1280, "height": 800})
     page.goto(f"{site_server}{page_path}", wait_until="domcontentloaded")
     
     header = page.locator("nav.site-header, .site-header").first
-    h1 = page.locator("h1").first
+    if header.count() == 0 or not header.is_visible():
+        return
+
+    header_box = header.bounding_box()
+    assert header_box is not None
+    header_bottom = header_box["y"] + header_box["height"]
     
-    if header.count() > 0 and h1.count() > 0:
-        header_box = header.bounding_box()
-        h1_box = h1.bounding_box()
-        assert header_box is not None and h1_box is not None
-        header_bottom = header_box["y"] + header_box["height"]
-        assert h1_box["y"] >= header_bottom - 2, (
-            f"El H1 en {page_path} está tapado por el navbar! "
-            f"Navbar llega hasta y={header_bottom}px pero H1 comienza en y={h1_box['y']}px"
+    # 1. Verificar primer elemento de contenido visible en main o sección inicial
+    first_target = page.locator(
+        "main .dash-badge, section.hero .dash-badge, .hero-vertical .dash-badge, "
+        "section:first-of-type .dash-badge, section:first-of-type .badge, "
+        "main h1, section.hero h1, .hero-vertical h1, h1"
+    ).first
+    
+    if first_target.count() > 0 and first_target.is_visible():
+        target_box = first_target.bounding_box()
+        assert target_box is not None
+        assert target_box["y"] >= header_bottom + 15, (
+            f"Elemento inicial '{first_target.text_content()[:40]}' en {page_path} está solapado por el navbar! "
+            f"Navbar llega hasta y={header_bottom:.1f}px pero el elemento comienza en y={target_box['y']:.1f}px "
+            f"(clearance={target_box['y'] - header_bottom:.1f}px, mínimo exigido 15px)"
         )
 
