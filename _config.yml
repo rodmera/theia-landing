@@ -12,6 +12,8 @@ plugins:
 include:
   - robots.txt
   - llms.txt
+  - llms-full.txt
+  - pricing.md
   - sitemap.xml
 
 exclude:

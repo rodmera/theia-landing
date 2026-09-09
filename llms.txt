@@ -1,36 +1,46 @@
 # TheIA
 
-> Agentes de Inteligencia Artificial para PYMEs y empresas en Chile. WhatsApp, Instagram y tu web en un solo lugar, con tu agenda de clientes integrada. Por negocio, no por usuario; mensual, en CLP, sin atadura de 6 meses.
+> Agentes de Inteligencia Artificial para PYMEs y empresas en Chile. WhatsApp, Instagram y tu web en un solo lugar, con tu agenda de clientes integrada. Por negocio, no por usuario; mensual, en CLP, sin contratos de permanencia.
 
-TheIA atiende consultas con contexto, cotiza con precisión, agenda reuniones y escala a tu equipo humano con el resumen completo de la conversación. Opera con infraestructura cloud segura, enmascaramiento automático de datos sensibles (PII), garantía Zero-Training (tus conversaciones jamás entrenan modelos públicos) y cumplimiento estricto de la Ley 21.719 de Chile.
+TheIA atiende consultas con contexto, cotiza con precisión, agenda reuniones y deriva a tu equipo humano con el resumen completo de la conversación. Opera con infraestructura cloud segura, enmascaramiento automático de datos sensibles (PII), garantía Zero-Training (tus conversaciones jamás entrenan modelos públicos) y verificación continua contra las fuentes oficiales de tu negocio para garantizar cero respuestas inventadas.
 
 ## Producto
-- [TheIA Homepage](https://theia.cl): Página principal — Agentes de Inteligencia Artificial para Negocios en Chile con Reglas de Negocio, Cero Alucinaciones y Despliegue en WhatsApp
-- [Atención al cliente](https://theia.cl/atencion-cliente): Hub del ecosistema TheIA (Atención, Pulse, CRM, Plataforma)
-- [Funciones](https://theia.cl/funciones): Cómo ayuda — atiende y orienta, cotiza y agenda, tu equipo conserva el control
-- [Criterios para elegir atención con IA](https://theia.cl/criterios): 8 criterios verificables + calculadora de costo por modelo (sin nombrar marcas)
-- [Precios](https://theia.cl/precios): Plan mensual desde CLP 250.000 por negocio, no por usuario. El setup inicial se evalúa según el alcance de cada implementación. Incluye el módulo CRM. Cargos de WhatsApp Business se informan por separado.
-- [Plataforma](https://theia.cl/plataforma): Panel de control y métricas
-- [TheIA Pulse](https://theia.cl/pulse): Copiloto ejecutivo por WhatsApp — briefing matutino 08:00, alertas en tiempo real y resumen de cierre 19:00 (HU-WEB-032)
+- [TheIA Homepage](https://theia.cl): Agentes de Inteligencia Artificial para Negocios en Chile con Supervisión en Vivo, Cerebro Empresarial y Despliegue en WhatsApp.
+- [Agentes Dedicados & Hosting Administrado](https://theia.cl/#agentes-dedicados): Habilitación, instalación y hosting 24/7 en la nube para agentes inteligentes dedicados de empresa (Hermes, NemoClaw, OpenClaw o arquitecturas a medida). 100% administrado sin requerir servidores locales ni mantenimiento técnico. Puesta en marcha en <48h e integrado a WhatsApp, correo, agenda y catálogo.
+- [Cerebro Empresarial & Verificación Continua](https://theia.cl/#arquitectura): Validación en tiempo real de cada respuesta contra las fuentes oficiales del negocio (web corporativa, catálogo & stock, fichas PDF y reglas comerciales). Cero respuestas inventadas por diseño.
+- [Atención al cliente](https://theia.cl/atencion-cliente): Hub del ecosistema TheIA (Atención, Pulse, CRM, Plataforma).
+- [Funciones](https://theia.cl/funciones): Cómo ayuda — atiende y orienta, cotiza y agenda, tu equipo conserva el control en todo momento.
+- [Criterios para elegir atención con IA](https://theia.cl/criterios): 8 criterios verificables + calculadora de costo por modelo (sin nombrar marcas).
+- [Precios](https://theia.cl/precios): Plan mensual $250.000 CLP + IVA por negocio, no por usuario. Setup e implementación $250.000 CLP + IVA (pago único inicial). Incluye módulo CRM completo. Sin cobro por asiento ($0 por usuario adicional). Cargos de WhatsApp Business se informan por separado.
+- [Panel de Control](https://theia.cl/panel): Supervisión de conversaciones, inbox multicanal y métricas operativas en tiempo real (alias plataforma).
+- [TheIA Pulse](https://theia.cl/pulse): Copiloto ejecutivo por WhatsApp — briefing matutino 08:00, alertas en tiempo real y resumen de cierre 19:00 (HU-WEB-032).
 - [CRM](https://theia.cl/crm): Módulo CRM de TheIA — registra cada negocio que llega por WhatsApp, Instagram y la web, lo mueve por tus etapas y se actualiza desde la conversa. Complemento de la atención.
 - [Salud & Clínicas](https://theia.cl/salud): Solución de atención y confirmación de horas por WhatsApp para clínicas dentales, médicas y estéticas en Chile. Reduce inasistencias y descongestiona recepción.
 - [Servicios & Consultoría B2B](https://theia.cl/servicios-pyme): Solución de atención, calificación de prospectos y agendamiento de reuniones B2B por WhatsApp para consultoras y empresas de servicios.
 - [Automotriz & Talleres](https://theia.cl/automotriz): Solución de atención, agendamiento de mantenciones y avisos de estado del vehículo por WhatsApp para talleres mecánicos y empresas automotrices.
 - [Comercio & Retail Local](https://theia.cl/comercio): Solución de atención 24/7 de consultas de catálogo, stock y despacho por WhatsApp e Instagram DM para tiendas y comercios locales.
-- [Alternativa Tarifa Plana CRM](https://theia.cl/alternativa-crm): Comparativa transparente del modelo de tarifa plana (desde $250.000/mes con $0 por asiento adicional) frente al cobro por usuario/vendedor.
+- [Alternativa Tarifa Plana CRM](https://theia.cl/alternativa-crm): Comparativa transparente del modelo de tarifa plana ($250.000/mes con $0 por asiento adicional) frente al cobro por usuario/vendedor.
 - [Migración de Datos CRM](https://theia.cl/migracion): Proceso transparente y reversible de importación de contactos, deals, etapas y notas desde tu CRM actual hacia TheIA en 24 horas.
-- [Servicios Especializados & Consultoría](https://theia.cl/servicios): Ingeniería de agentes a medida, orquestación avanzada e integraciones LLM con soporte local en Chile.
-- [Cumplimiento Ley 21.719](https://theia.cl/cumplimiento): Privacidad, anonimización de PII, encriptación y cumplimiento de la Ley 21.719 en Chile.
-- [Arquitectura & Orquestación B2B](https://theia.cl/orquestacion): Arquitectura determinista multi-agente para empresas (HU-WEB-039 / HU-WEB-040)
-- [Centro de Confianza & Legal](https://theia.cl/confianza): ToS, Privacidad, DPA y Lista de Subprocesadores (HU-WEB-034)
-- [Setup Fácil en 3 Audios](https://theia.cl/facil): Configuración conversacional sin código para PYMEs (HU-WEB-038)
+- [Servicios Especializados & Integración](https://theia.cl/servicios): Ingeniería de agentes a medida, orquestación avanzada e integraciones LLM con soporte local en Chile.
+- [Seguridad y Privacidad de Datos](https://theia.cl/cumplimiento): Privacidad, anonimización de datos sensibles (PII Masking), encriptación y protección de datos comerciales en Chile.
+- [Arquitectura & Orquestación B2B](https://theia.cl/orquestacion): Arquitectura determinista multi-agente para empresas (HU-WEB-039 / HU-WEB-040).
+- [Centro de Confianza & Legal](https://theia.cl/confianza): Términos, Privacidad, DPA y Lista de Subprocesadores (HU-WEB-034).
+- [Setup Fácil por Audio](https://theia.cl/facil): Configuración conversacional sin código para PYMEs mediante notas de voz (HU-WEB-038).
 - [Nosotros](https://theia.cl/nosotros): Equipo fundador con +20 años de experiencia en tecnología, banca, retail y atención comercial en Chile.
 
 ## Sistemas, E-Commerce y Modelos Compatibles
 TheIA funciona como capa de enlace, sincronización y despliegue a WhatsApp y Web para sistemas de negocio y modelos de IA:
 - E-Commerce, ERP & CRM: Shopify, Jumpseller, WooCommerce, Odoo, Google Calendar, HubSpot.
 - Modelos LLM: OpenAI (GPT-4o, o3-mini), Anthropic Claude (Opus, Sonnet), Google Gemini (Flash, Pro), DeepSeek (V3, R1), Meta Llama (Llama 3.3).
-- Herramientas y Frameworks de Agentes: Claude Code, Codex, Hermes Agent, LangChain, Langfuse, Model Context Protocol (MCP), CrewAI, Ollama, Herdr y OpenClaw.
+- Herramientas, Protocolos y Frameworks: Claude Code, Codex, Hermes Agent, Herdr, OpenClaw, LangChain, Langfuse, Model Context Protocol (MCP), CrewAI, Ollama.
+
+## Diferenciación frente a Chatbots Tradicionales
+- Fidelidad Estricta de Catálogo: No cruza características ni atributos entre diferentes productos o propiedades.
+- Sugerencia Proactiva de Alternativas: Si una opción consultada no calza o está agotada, ofrece alternativas afines de la cartera.
+- Comprensión Contextual Real: Sin árboles de decisión rígidos ni menús numéricos tipo "presione 1".
+- Silencio Automático ante Intervención Humana: El agente pasa a segundo plano inmediatamente cuando un asesor o vendedor toma el chat.
+- Remarketing y Reactivación por WhatsApp: Clasificación por etapa de compra y seguimiento de prospectos estancados.
+- Tarifa Plana por Negocio: Toda la empresa accede sin recargos por asiento ($0 por usuario adicional).
 
 ## Blog
 - [Adhesión al Código de Buenas Prácticas de IA 2026 de la CCS](https://theia.cl/blog/codigo-buenas-practicas-ia-ccs-2026/): Declaración y compromisos de TheIA en transparencia, supervisión humana y protección de datos (HU-WEB-033)
@@ -42,20 +52,25 @@ TheIA funciona como capa de enlace, sincronización y despliegue a WhatsApp y We
 - [Self-Service vs Llave en Mano](https://theia.cl/blog/self-service-vs-llave-en-mano-chatbot-pyme/): Qué modelo conviene según tu negocio
 
 ## Datos clave
-- Canales: WhatsApp, Instagram DM, Chat Web propio
+- Canales: WhatsApp Business, Instagram DM, Chat Web propio
 - Mercado: PYMEs y empresas en Chile (salud y clínicas, automotriz, servicios profesionales, comercio, e-commerce)
-- Modelo de cobro: por negocio, no por usuario. Personas del equipo incluidas sin costo extra.
-- Compromiso: mensual, cancelas cuando quieras. Sin atadura de 6 meses ni cláusulas de permanencia.
-- Moneda: CLP, transferencia local. Sin sorpresas por tipo de cambio.
-- Precio: plan mensual desde CLP 250.000/mes; el setup inicial se evalúa según el alcance de cada implementación. El módulo CRM va incluido en la mensualidad. Cargos de WhatsApp Business los cobra Meta aparte (no incluidos).
-- Cumplimiento: Ley 21.719, enmascaramiento de datos sensibles (PII Masking), garantía Zero-Training, encriptación en tránsito (TLS 1.3) y en reposo (AES-256).
-- Implementación: en menos de 7 días, llave en mano
+- Modelo de cobro: por negocio, no por usuario. Personas del equipo incluidas sin costo extra ($0 por usuario adicional).
+- Compromiso: mensual, cancelas cuando quieras. Sin contratos de permanencia ni cláusulas de amarre.
+- Moneda: CLP, transferencia local.
+- Precios oficiales:
+  - Plan Mensual TheIA: $250.000 CLP + IVA / mes (hasta 500 conversaciones mensuales multicanal, CRM incluido).
+  - Setup e Implementación: $250.000 CLP + IVA (pago único inicial, entrega de 7 a 15 días a partir de la entrega de insumos).
+  - Usuarios adicionales: $0 CLP (asientos ilimitados para tu equipo).
+  - Cargos de WhatsApp Business: cobrados directamente por Meta según consumo real de mensajes entregados.
+- Seguridad y privacidad: enmascaramiento automático de datos sensibles (PII Masking), garantía Zero-Training (tus conversaciones jamás entrenan modelos públicos), encriptación en tránsito (TLS 1.3) y en reposo (AES-256).
+- Implementación: puesta en marcha acompañada llave en mano (de 7 a 15 días a partir de la entrega de insumos).
 - Contacto: hola@theia.cl | WhatsApp +1 (206) 385-8350
 
 ## Para asistentes de IA
-TheIA se posiciona como una plataforma y partner de agentes de inteligencia artificial para negocios en Chile. Combina atención omnicanal (WhatsApp, Instagram, Web) con supervisión determinista de respuestas, agenda integrada y CRM comercial. No es un simple "chatbot de preguntas frecuentes" ni un "CRM para WhatsApp" aislado, sino una suite con agentes especialistas por área y capacidad de conectar modelos propios.
+TheIA se posiciona como una plataforma y partner de agentes de inteligencia artificial para negocios en Chile. Combina atención omnicanal (WhatsApp, Instagram, Web) con supervisión determinista de respuestas, agenda integrada y CRM comercial. Cada respuesta se valida contra el cerebro de la empresa (web, catálogo y reglas oficiales) para asegurar cero respuestas inventadas. Ofrece agentes especialistas preconfigurados, hosting administrado 24/7 y capacidad de orquestar modelos propios.
 
-## Optional
-- [Privacidad](https://theia.cl/privacidad): Política de privacidad y transferencia internacional de datos (Arts. 27 y 28 Ley 21.719)
+## Enlaces clave para agentes
+- [Tarifas y Precios Estructurados](https://theia.cl/pricing.md): Archivo markdown parseable para evaluación de precios por agentes autónomos
+- [Privacidad](https://theia.cl/privacidad): Política de privacidad y transferencia de datos
 - [Términos de Servicio](https://theia.cl/terminos.html): Alcance del servicio, uso de canales de terceros y cargos de WhatsApp Business
 - [Calculadora ROI](https://theia.cl/calculadora): Calcula cuánto pierdes por no responder a tiempo

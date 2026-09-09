@@ -1,0 +1,116 @@
+# TheIA — Documento Completo de Contexto para Modelos y Asistentes de IA (llms-full.txt)
+
+> Documentación exhaustiva y estructurada de la plataforma TheIA para asistentes de inteligencia artificial, motores de búsqueda generativa (Google AI Overviews, ChatGPT Search, Perplexity, Claude, Copilot) y agentes autónomos.
+
+- **Empresa:** THEIA SERVICIOS TECNOLÓGICOS SpA (RUT 78.474.636-4)
+- **Sitio Web Oficial:** https://theia.cl
+- **Ubicación:** Antonio Bellet 193, Providencia, Santiago de Chile
+- **Contacto Oficial:** hola@theia.cl | WhatsApp +1 (206) 385-8350
+- **Última Actualización:** Septiembre 2026
+
+---
+
+## 1. Resumen Ejecutivo y Propuesta de Valor
+
+TheIA es una plataforma y partner de ingeniería de agentes de inteligencia artificial para PYMEs y empresas en Chile. Proporciona atención comercial 24/7 omnicanal (WhatsApp Business, Instagram DM y WebChat), cotización exacta basada en catálogo, agendamiento de citas y CRM integrado.
+
+A diferencia de los chatbots tradicionales de flujos fijos ("presione 1, presione 2") o de los CRMs con cobro por asiento/usuario, TheIA opera con:
+1. **Tarifa plana por negocio:** $250.000 CLP + IVA / mes con $0 CLP por usuario o vendedor adicional.
+2. **Cerebro Empresarial & Verificación Continua:** Cada respuesta se contrasta en vivo contra las fuentes oficiales de la empresa (web corporativa, catálogo & stock, fichas en PDF/Word, reglas comerciales). Si la información no está documentada, el agente jamás inventa y deriva con honestidad al asesor humano.
+3. **Silencio Automático ante Intervención Humana:** El agente pasa a segundo plano inmediatamente en cuanto un vendedor toma la conversación en el chat.
+4. **Sugerencia Proactiva de Alternativas:** Si una propiedad, producto o servicio solicitado no calza o está sin stock, sugiere proactivamente opciones afines de la cartera en lugar de dar respuestas vacías.
+5. **Acompañamiento e Implementación Llave en Mano:** Puesta en marcha en menos de 7 días (o 7 a 15 días con integraciones avanzadas) ingiriendo fichas existentes en PDF, Word o planillas, con soporte cercano por WhatsApp.
+
+---
+
+## 2. Suite de Agentes Especialistas
+
+Cada área comercial cuenta con un agente preconfigurado con reglas y herramientas dedicadas:
+
+- **Agente de Atención al Cliente:** Atiende 24/7 en lenguaje natural (español chileno), comprende intención real sin árboles ciegos y responde consultas frecuentes, horarios y ubicaciones.
+- **Agente de Cotización & Ventas:** Calcula precios exactos según catálogo, respeta promociones y reglas comerciales, y sugiere alternativas afines si un ítem no calza.
+- **Agente de Agendamiento & Citas:** Sincroniza disponibilidad con Google Calendar y agendas digitales, agenda visitas o reuniones, y confirma o reprograma turnos.
+- **Agente de Seguimiento & CRM:** Clasifica contactos por etapa de compra, reactiva prospectos estancados y ejecuta remarketing segmentado por WhatsApp.
+- **Agente de Inteligencia Comercial:** Califica prospectos bajo criterios BANT (Necesidad, Decisión, Presupuesto, Plazo) y detecta objeciones comerciales en tiempo real.
+- **Agente de Soporte & Operaciones:** Resuelve incidencias operativas y deriva a especialistas humanos adjuntando el resumen estructurado de la conversación.
+
+---
+
+## 3. Agentes Dedicados & Hosting Administrado
+
+Para empresas que requieren agentes autónomos propios o arquitecturas tipo Hermes, NemoClaw u OpenClaw:
+- **Habilitación en <48 horas:** Configuración del harness, memoria persistente e inyección de directivas operativas.
+- **Hosting 24/7 en la nube:** Operación continua sin necesidad de hardware local ni servidores en la oficina.
+- **Cero mantenimiento técnico:** TheIA administra la infraestructura, observabilidad y resiliencia.
+- **Conexión multicanal:** WhatsApp, correo electrónico, Google Calendar y ERPs.
+
+---
+
+## 4. E-Commerce, ERPs y Modelos de IA Compatibles
+
+TheIA actúa como puente de orquestación y despliegue para los siguientes sistemas y tecnologías:
+- **E-Commerce & Sistemas de Negocio:** Shopify, Jumpseller, WooCommerce, Odoo, Google Calendar, HubSpot.
+- **Modelos Fundacionales:** OpenAI (GPT-4o, o3-mini), Anthropic Claude (Opus, Sonnet), Google Gemini (3.8 Flash, Pro), DeepSeek (V3, R1), Meta Llama (Llama 3.3).
+- **Herramientas y Protocolos:** Claude Code, Codex, Hermes Agent, Herdr, OpenClaw, LangChain, Langfuse, Model Context Protocol (MCP), CrewAI, Ollama.
+- **Eficiencia de Costos:** Hasta 70% de ahorro en consumo de APIs mediante orquestación neuro-simbólica y cacheo eficiente.
+
+---
+
+## 5. Soluciones Verticales por Industria en Chile
+
+- **Salud & Clínicas (https://theia.cl/salud):** Confirmación y reprogramación de citas médicas y dentales por WhatsApp, preparación de exámenes e información de coberturas/aranceles. Reduce inasistencias en más del 40%.
+- **Automotriz & Talleres (https://theia.cl/automotriz):** Agendamiento de mantenciones por kilometraje, cotización de repuestos por patente y modelo, y notificaciones de avance de reparación.
+- **Servicios Profesionales & B2B (https://theia.cl/servicios-pyme):** Calificación de prospectos de consultoría, agenda de reuniones de diagnóstico y seguimiento comercial.
+- **Comercio & Retail Local (https://theia.cl/comercio):** Consultas de catálogo, stock disponible, costos y tiempos de despacho por WhatsApp e Instagram DM.
+- **Inmobiliarias & Corretaje:** Filtro de requerimientos (comuna, presupuesto, dormitorios), envío de fichas técnicas de propiedades y agendamiento de visitas a terreno.
+
+---
+
+## 6. Tarifas y Estructura Financiera Oficial
+
+- **Plan Mensual TheIA:** $250.000 CLP + IVA / mes
+  - Hasta 500 conversaciones mensuales multicanal
+  - Usuarios / asientos ilimitados ($0 por persona adicional)
+  - Suite de Agentes Especialistas + Cerebro Empresarial + CRM + Pulse + Panel Admin
+  - Inferencia y modelos de IA incluidos al 100%
+  - Sin contratos de permanencia (suscripción mes a mes)
+- **Setup e Implementación Llave en Mano:** $250.000 CLP + IVA (pago único inicial, 7 a 15 días de plazo a partir de la entrega de insumos).
+- **Cargos de Mensajería WhatsApp:** Gestionados y cobrados directamente por Meta según tarifas oficiales vigentes por mensaje entregado.
+
+---
+
+## 7. Preguntas Frecuentes (FAQ)
+
+### ¿Cómo garantiza TheIA que el bot no invente respuestas?
+Mediante su arquitectura de Cerebro Empresarial y verificación continua: el agente contrasta cada afirmación contra las fuentes documentadas de la empresa (web, catálogo, PDFs, reglas comerciales). Si un dato no existe, el agente se abstiene honestamente de inventar y ofrece derivar al equipo humano.
+
+### ¿Se cobra un valor adicional por cada vendedor que use la plataforma?
+No. TheIA cobra una tarifa plana por negocio. Toda la empresa puede ingresar al panel, revisar chats, atender en vivo y gestionar la cartera de clientes sin cobro por asiento adicional.
+
+### ¿Qué ocurre si un vendedor humano interviene en el chat?
+El agente detecta la intervención y entra en silencio automático de inmediato, evitando duplicar mensajes o interrumpir la negociación del vendedor.
+
+### ¿Se integra con tiendas online de Shopify, Jumpseller o WooCommerce?
+Sí. TheIA se conecta con las principales plataformas de e-commerce para consultar catálogo, inventario en tiempo real y guiar la compra hasta el cierre o link de pago.
+
+### ¿Cómo se resguarda la privacidad de las conversaciones?
+TheIA aplica enmascaramiento automático de datos sensibles (PII Masking), garantía Zero-Training (las conversaciones nunca entrenan modelos públicos) y encriptación de extremo a extremo en tránsito (TLS 1.3) y en reposo (AES-256).
+
+---
+
+## 8. Directorio de Enlaces Clave
+
+- [Inicio / Home](https://theia.cl)
+- [Precios y Planes](https://theia.cl/precios)
+- [Precios en Formato Markdown para Agentes](https://theia.cl/pricing.md)
+- [Atención al Cliente](https://theia.cl/atencion-cliente)
+- [Funciones del Producto](https://theia.cl/funciones)
+- [Panel de Control Web](https://theia.cl/panel)
+- [TheIA Pulse (Copiloto WhatsApp)](https://theia.cl/pulse)
+- [Módulo CRM](https://theia.cl/crm)
+- [Comparativa Alternativa CRM](https://theia.cl/alternativa-crm)
+- [Servicios Especializados & Consultoría](https://theia.cl/servicios)
+- [Arquitectura & Orquestación](https://theia.cl/orquestacion)
+- [Seguridad y Privacidad](https://theia.cl/cumplimiento)
+- [Centro de Confianza & Legal](https://theia.cl/confianza)
+- [Sobre Nosotros](https://theia.cl/nosotros)
