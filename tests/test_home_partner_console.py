@@ -120,6 +120,19 @@ def test_hu_web_036_hero_uses_single_orchestration_artwork_without_fake_product_
     assert 'client-header' not in hero and 'client-channels' not in hero, "Hero no debe simular una aplicación"
     assert 'network-canvas' not in hero, "Hero no debe volver a usar canvas de partículas"
 
+    # Verificación de video de orquestación agéntica TheIA
+    assert '<video' in hero, "Hero debe contener el elemento video de orquestación"
+    assert 'autoplay' in hero and 'loop' in hero and 'muted' in hero and 'playsinline' in hero, (
+        "El video del Hero debe contar con atributos autoplay, loop, muted y playsinline"
+    )
+    assert 'theia-agent-orchestration.mp4' in hero, "El video debe referenciar theia-agent-orchestration.mp4"
+    assert 'theia-agent-orchestration-poster.png' in hero, "El video debe tener imagen poster de respaldo"
+
+    root_dir = INDEX_HTML.parent
+    assert (root_dir / 'theia-agent-orchestration.mp4').exists(), "Archivo theia-agent-orchestration.mp4 debe existir en raíz"
+    assert (root_dir / 'theia-agent-orchestration.webm').exists(), "Archivo theia-agent-orchestration.webm debe existir en raíz"
+    assert (root_dir / 'theia-agent-orchestration-poster.png').exists(), "Archivo theia-agent-orchestration-poster.png debe existir en raíz"
+
 
 @pytest.mark.parametrize("viewport_width", [961, 1024, 1100])
 def test_hu_web_036_hero_artwork_has_no_horizontal_overflow(desktop_page, viewport_width):

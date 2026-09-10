@@ -15,6 +15,9 @@ include:
   - llms-full.txt
   - pricing.md
   - sitemap.xml
+  - theia-agent-orchestration.mp4
+  - theia-agent-orchestration.webm
+  - theia-agent-orchestration-poster.png
 
 exclude:
   - CHANGELOG.md

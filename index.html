@@ -605,34 +605,121 @@
     .orch-panel {
       background: transparent;
       border: none;
-      border-radius: 20px;
+      border-radius: 16px;
       padding: 0;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
       position: relative;
     }
 
-    /* Animaciones sutiles de orquestación en vivo (TheIA Engine) */
-    @keyframes orch-data-flow {
-      to { stroke-dashoffset: -38; }
+    .orch-video-wrapper {
+      background: #0e1726;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
-    @keyframes orch-dot-pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(1.3); }
+    .orch-video-header {
+      height: 38px;
+      background: #131d2e;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
     }
-
-    .orch-data-pulse {
-      animation: orch-data-flow 2.8s linear infinite;
-      pointer-events: none;
+    .orch-video-dots {
+      display: flex;
+      gap: 6px;
     }
-    .orch-live-dot {
-      transform-box: fill-box;
-      transform-origin: center;
-      animation: orch-dot-pulse 2.5s ease-in-out infinite;
+    .orch-video-dots .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
     }
-
-    @media (prefers-reduced-motion: reduce) {
-      .orch-data-pulse, .orch-live-dot {
-        animation: none !important;
+    .orch-video-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #94a3b8;
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .orch-video-title .gold-text {
+      color: var(--gold, #d4af37);
+      font-weight: 700;
+    }
+    .orch-video-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #e2e8f0;
+      background: rgba(37, 211, 102, 0.12);
+      border: 1px solid rgba(37, 211, 102, 0.35);
+      padding: 2px 9px;
+      border-radius: 20px;
+    }
+    .orch-video-badge .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #25D366;
+    }
+    .orch-video-body {
+      position: relative;
+      width: 100%;
+      background: #0b1320;
+      line-height: 0;
+    }
+    .orch-video-media {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .orch-video-footer {
+      height: 38px;
+      background: #101929;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 14px;
+    }
+    .orch-video-caption {
+      font-size: 10.5px;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .orch-video-caption .step-tag {
+      color: #94a3b8;
+      font-weight: 500;
+    }
+    .orch-video-caption .step-tag.highlight {
+      color: var(--gold, #d4af37);
+      font-weight: 700;
+    }
+    .orch-video-caption .step-sep {
+      color: rgba(255, 255, 255, 0.2);
+    }
+    @media (max-width: 768px) {
+      .orch-video-caption {
+        font-size: 9px;
+        gap: 4px;
+      }
+      .orch-video-header {
+        padding: 0 10px;
+      }
+      .orch-video-title {
+        font-size: 10px;
       }
     }
 
@@ -4072,120 +4159,53 @@
       </div>
       <!-- End Left Column -->
 
-      <!-- Right Column: Visual conceptual de orquestación de agentes IA -->
+      <!-- Right Column: Video de orquestación de agentes IA -->
       <div class="hero-orchestration-visual animate-load" style="animation-delay: 0.7s;" id="theia-orchestration-engine">
-        <div class="orch-panel" role="region" aria-label="Diagrama de orquestación agéntica TheIA">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500" width="100%" style="height: auto; font-family: 'Plus Jakarta Sans', sans-serif; display: block; user-select: none;" role="img" aria-labelledby="hero-loop-title hero-loop-desc">
-            <title id="hero-loop-title">Diagrama de Orquestación Agéntica TheIA</title>
-            <desc id="hero-loop-desc">Circuito cerrado de 6 estaciones que fluyen en sentido horario alrededor de TheIA Core: WhatsApp, Interpretación, Catálogo y Stock, Supervisión y Reglas, Agenda y Citas, y Registro CRM.</desc>
-            <defs>
-              <marker id="arr-subtle" viewBox="0 0 8 8" refX="5" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-                <path d="M 0 1.5 L 6 4 L 0 6.5 z" fill="rgba(255, 255, 255, 0.35)" />
-              </marker>
-              <marker id="arr-gold" viewBox="0 0 8 8" refX="5" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-                <path d="M 0 1.5 L 6 4 L 0 6.5 z" fill="#d4af37" />
-              </marker>
-            </defs>
-
-            <!-- Lienzo base con esquinas redondeadas y borde sutil -->
-            <rect width="920" height="500" rx="16" fill="#0b1320" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
-
-            <!-- Encabezado sutil -->
-            <text x="460" y="32" text-anchor="middle" font-size="10.5" font-weight="700" fill="#64748b" letter-spacing="0.20em">ORQUESTACIÓN</text>
-
-            <!-- Anillo base de conexión (R=180 en C=460, 250) -->
-            <path d="M 542.4 90.0 A 180 180 0 0 1 601.7 138.9" fill="none" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.2" marker-end="url(#arr-subtle)"/>
-            <path d="M 625.8 179.9 A 180 180 0 0 1 626.4 318.7" fill="none" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.2" marker-end="url(#arr-subtle)"/>
-            <path d="M 602.6 359.9 A 180 180 0 0 1 543.7 409.3" fill="none" stroke="rgba(212, 175, 55, 0.35)" stroke-width="1.2" marker-end="url(#arr-gold)"/>
-            <path d="M 377.6 410.0 A 180 180 0 0 1 318.3 361.1" fill="none" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.2" marker-end="url(#arr-subtle)"/>
-            <path d="M 294.2 320.1 A 180 180 0 0 1 293.6 181.3" fill="none" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.2" marker-end="url(#arr-subtle)"/>
-            <path d="M 317.4 140.1 A 180 180 0 0 1 376.3 90.7" fill="none" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.2" marker-end="url(#arr-subtle)"/>
-
-            <!-- Pulso sutil de información viajando por las líneas del circuito -->
-            <path class="orch-data-pulse" d="M 542.4 90.0 A 180 180 0 0 1 601.7 138.9" fill="none" stroke="#d4af37" stroke-width="1.4" stroke-dasharray="6 32"/>
-            <path class="orch-data-pulse" d="M 625.8 179.9 A 180 180 0 0 1 626.4 318.7" fill="none" stroke="#d4af37" stroke-width="1.4" stroke-dasharray="6 32"/>
-            <path class="orch-data-pulse" d="M 602.6 359.9 A 180 180 0 0 1 543.7 409.3" fill="none" stroke="#d4af37" stroke-width="1.4" stroke-dasharray="6 32"/>
-            <path class="orch-data-pulse" d="M 377.6 410.0 A 180 180 0 0 1 318.3 361.1" fill="none" stroke="#d4af37" stroke-width="1.4" stroke-dasharray="6 32"/>
-            <path class="orch-data-pulse" d="M 294.2 320.1 A 180 180 0 0 1 293.6 181.3" fill="none" stroke="#d4af37" stroke-width="1.4" stroke-dasharray="6 32"/>
-            <path class="orch-data-pulse" d="M 317.4 140.1 A 180 180 0 0 1 376.3 90.7" fill="none" stroke="#d4af37" stroke-width="1.4" stroke-dasharray="6 32"/>
-
-            <!-- Spokes hacia TheIA Core -->
-            <path d="M 460 90 V 213" fill="none" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1" stroke-dasharray="3 4" marker-end="url(#arr-subtle)"/>
-            <path d="M 532 165 L 485 215" fill="none" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1" stroke-dasharray="3 4" marker-end="url(#arr-subtle)"/>
-            <path d="M 532 335 L 485 285" fill="none" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1" stroke-dasharray="3 4" marker-end="url(#arr-subtle)"/>
-            <path d="M 460 410 V 287" fill="none" stroke="rgba(212, 175, 55, 0.4)" stroke-width="1.1" stroke-dasharray="3 4" marker-end="url(#arr-gold)"/>
-            <path d="M 388 335 L 435 285" fill="none" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1" stroke-dasharray="3 4" marker-end="url(#arr-subtle)"/>
-            <path d="M 388 165 L 435 215" fill="none" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1" stroke-dasharray="3 4" marker-end="url(#arr-subtle)"/>
-
-            <!-- 1. Station 0 (Top): WhatsApp -->
-            <g transform="translate(376, 50)">
-              <rect width="168" height="40" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.10)" stroke-width="1" />
-              <svg x="14" y="10" width="20" height="20" viewBox="0 0 24 24" fill="#25D366">
-                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
-              </svg>
-              <text x="42" y="25" font-size="13" font-weight="600" fill="#f8fafc">WhatsApp</text>
-              <circle class="orch-live-dot" cx="150" cy="20" r="3" fill="#25D366" />
-            </g>
-
-            <!-- 2. Station 1 (Top-Right): Interpreta -->
-            <g transform="translate(532, 140)">
-              <rect width="168" height="40" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.10)" stroke-width="1" />
-              <svg x="14" y="11" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2 12h5l3 7 4-14 3 7h5"/>
-              </svg>
-              <text x="42" y="25" font-size="13" font-weight="600" fill="#f8fafc">Interpreta</text>
-            </g>
-
-            <!-- 3. Station 2 (Bottom-Right): Catálogo & Stock -->
-            <g transform="translate(532, 320)">
-              <rect width="168" height="40" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.10)" stroke-width="1" />
-              <svg x="14" y="11" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <ellipse cx="12" cy="5" rx="9" ry="3"/>
-                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-              </svg>
-              <text x="42" y="25" font-size="12.5" font-weight="600" fill="#f8fafc">Catálogo &amp; Stock</text>
-            </g>
-
-            <!-- 4. Station 3 (Bottom, FOCAL DORADA): Supervisión & Reglas -->
-            <g transform="translate(376, 410)">
-              <rect width="168" height="40" rx="8" fill="rgba(212, 175, 55, 0.08)" stroke="#d4af37" stroke-width="1.3" />
-              <svg x="14" y="11" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
-              <text x="40" y="25" font-size="12" font-weight="700" fill="#d4af37">Supervisión &amp; Reglas</text>
-            </g>
-
-            <!-- 5. Station 4 (Bottom-Left): Agenda & Citas -->
-            <g transform="translate(220, 320)">
-              <rect width="168" height="40" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.10)" stroke-width="1" />
-              <svg x="14" y="11" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                <line x1="16" y1="2" x2="16" y2="6"/>
-                <line x1="8" y1="2" x2="8" y2="6"/>
-                <line x1="3" y1="10" x2="21" y2="10"/>
-              </svg>
-              <text x="42" y="25" font-size="12.5" font-weight="600" fill="#f8fafc">Agenda &amp; Citas</text>
-            </g>
-
-            <!-- 6. Station 5 (Top-Left): Registro CRM -->
-            <g transform="translate(220, 140)">
-              <rect width="168" height="40" rx="8" fill="#172235" stroke="rgba(255, 255, 255, 0.10)" stroke-width="1" />
-              <svg x="14" y="11" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <polyline points="16 11 18 13 22 9"/>
-              </svg>
-              <text x="42" y="25" font-size="12.5" font-weight="600" fill="#f8fafc">Registro CRM</text>
-            </g>
-
-            <!-- HUB CENTRAL: TheIA Core (Limpio, sobrio, sin auras borrosas) -->
-            <g transform="translate(365, 215)">
-              <rect width="190" height="70" rx="10" fill="#172235" stroke="#d4af37" stroke-width="1.3" />
-              <text x="95" y="28" text-anchor="middle" font-size="8.5" font-weight="700" fill="#d4af37" letter-spacing="0.16em">ORQUESTADOR</text>
-              <text x="95" y="51" text-anchor="middle" font-family="'Merriweather', serif" font-size="16" font-weight="900" fill="#ffffff">TheIA Core</text>
-            </g>
-          </svg>
+        <div class="orch-panel" role="region" aria-label="Demostración en video de orquestación agéntica TheIA">
+          <div class="orch-video-wrapper">
+            <div class="orch-video-header">
+              <div class="orch-video-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+              <div class="orch-video-title">
+                <span class="gold-text">TheIA Core</span> · Orquestación en Vivo
+              </div>
+              <div class="orch-video-badge">
+                <span class="pulse-dot"></span>
+                <span>En Producción</span>
+              </div>
+            </div>
+            <div class="orch-video-body">
+              <video
+                class="orch-video-media"
+                src="/theia-agent-orchestration.mp4"
+                poster="/theia-agent-orchestration-poster.png"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="metadata"
+                aria-label="Orquestación agéntica TheIA en tiempo real: WhatsApp, Catálogo &amp; Stock, Supervisión &amp; Reglas, Agenda &amp; Citas"
+              >
+                <source src="/theia-agent-orchestration.mp4" type="video/mp4" />
+                <source src="/theia-agent-orchestration.webm" type="video/webm" />
+                Tu navegador no soporta reproducción de video HTML5.
+              </video>
+            </div>
+            <div class="orch-video-footer">
+              <div class="orch-video-caption">
+                <span class="step-tag">WhatsApp</span>
+                <span class="step-sep">→</span>
+                <span class="step-tag">Catálogo &amp; Stock</span>
+                <span class="step-sep">→</span>
+                <span class="step-tag highlight">Supervisión &amp; Reglas</span>
+                <span class="step-sep">→</span>
+                <span class="step-tag">Agenda &amp; Citas</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <!-- End Right Column -->
