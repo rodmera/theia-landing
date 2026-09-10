@@ -952,6 +952,42 @@ class FrontendUXAuditor:
                                 f"Selector '{selector}' tiene padding superior de {val}{unit} ({px_val:.0f}px), insuficiente para librar el navbar fijo (~136px) en desktop (mínimo exigido 10rem / 160px)."
                             )
 
+    def audit_hero_video_framing(self):
+        """Audita que los contenedores de video del Hero mantengan una única ventana limpia sin doble marco anidado ni footers redundantes."""
+        if not self.is_static_site:
+            return
+
+        for file in self.html_files:
+            content = file.read_text(encoding="utf-8", errors="ignore")
+            if 'orch-video-wrapper' not in content:
+                continue
+
+            # 1. Prohibir footers redundantes de pasos dentro del wrapper de video
+            if 'orch-video-footer' in content:
+                line_no = content[:content.find('orch-video-footer')].count('\n') + 1
+                self.log_error(
+                    file, line_no, "HERO-VIDEO-REDUNDANT-FOOTER",
+                    "El contenedor .orch-video-wrapper no debe contener .orch-video-footer (el video ya incluye telemetría y desglose; el footer duplica pasos y desbalancea el layout)."
+                )
+
+            # 2. Verificar que haya exactamente un encabezado de ventana
+            headers = re.findall(r'class=["\'][^"\']*orch-video-header[^"\']*["\']', content)
+            if len(headers) > 1:
+                self.log_error(
+                    file, 1, "HERO-VIDEO-DUPLICATE-HEADER",
+                    f"Se detectaron {len(headers)} encabezados .orch-video-header en {file.name}. Solo debe existir un único marco de ventana."
+                )
+
+            # 3. Validar integridad de archivos de video asociados en la raíz
+            root_dir = file.parent
+            for asset_name in ['theia-agent-orchestration.mp4', 'theia-agent-orchestration.webm', 'theia-agent-orchestration-poster.png']:
+                asset_path = root_dir / asset_name
+                if not asset_path.exists():
+                    self.log_error(
+                        file, 1, "HERO-VIDEO-MISSING-ASSET",
+                        f"El recurso requerido del Hero '{asset_name}' no existe en disco en {asset_path}."
+                    )
+
     def run(self) -> bool:
         print(f"🔍 Iniciando Auditoría Frontend & UX en: {self.target_dir}")
         print(f"📄 Archivos HTML analizados: {len(self.html_files)}")
@@ -964,6 +1000,7 @@ class FrontendUXAuditor:
             self.audit_card_layout_and_cta_consistency()
             self.audit_footer_consistency()
             self.audit_navbar_hero_clearance()
+            self.audit_hero_video_framing()
             self.audit_accessibility_and_wcag()
             self.audit_broken_links_and_anchors()
             self.audit_asset_integrity()

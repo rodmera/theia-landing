@@ -133,6 +133,35 @@ def test_hu_web_036_hero_uses_single_orchestration_artwork_without_fake_product_
     assert (root_dir / 'theia-agent-orchestration.webm').exists(), "Archivo theia-agent-orchestration.webm debe existir en raíz"
     assert (root_dir / 'theia-agent-orchestration-poster.png').exists(), "Archivo theia-agent-orchestration-poster.png debe existir en raíz"
 
+    # QA anti-duplicación de ventana: no debe contener footers de pasos redundantes
+    assert 'orch-video-footer' not in hero, "Hero no debe contener .orch-video-footer (duplica información interna del video)"
+
+
+def test_hu_web_037_hero_video_single_window_no_duplication(desktop_page):
+    """HU-WEB-037: Verifica que el Hero use un único marco de ventana sin duplicación de headers ni footers redundantes."""
+    desktop_page.goto(f"{BASE}/", wait_until="domcontentloaded")
+    desktop_page.wait_for_timeout(300)
+
+    # 1. Exactamente un encabezado de ventana (.orch-video-header)
+    headers = desktop_page.locator(".orch-video-header")
+    assert headers.count() == 1, f"Debe existir exactamente un marco de ventana (.orch-video-header), encontrados: {headers.count()}"
+
+    # 2. Cero footers redundantes en el wrapper
+    footers = desktop_page.locator(".orch-video-footer")
+    assert footers.count() == 0, "No debe existir .orch-video-footer (duplicaba los pasos ya presentes en el video)"
+
+    # 3. Video visible y sin desborde
+    video = desktop_page.locator(".orch-video-media")
+    assert video.is_visible(), "El video del Hero debe ser visible"
+    box = video.bounding_box()
+    assert box and box["width"] > 300 and box["height"] > 150, f"Dimensiones inválidas del video: {box}"
+
+    # 4. Aspect ratio de la ventana ~1.7 - 2.0
+    wrapper = desktop_page.locator(".orch-video-wrapper")
+    w_box = wrapper.bounding_box()
+    aspect = w_box["width"] / w_box["height"]
+    assert 1.5 <= aspect <= 2.2, f"Aspect ratio de la ventana de orquestación fuera de rango armónico: {aspect:.2f}"
+
 
 @pytest.mark.parametrize("viewport_width", [961, 1024, 1100])
 def test_hu_web_036_hero_artwork_has_no_horizontal_overflow(desktop_page, viewport_width):
