@@ -52,7 +52,7 @@ TheIA actúa como puente de orquestación y despliegue para los siguientes siste
 - **E-Commerce & Sistemas de Negocio:** Shopify, Jumpseller, WooCommerce, Odoo, Google Calendar, HubSpot.
 - **Modelos Fundacionales:** OpenAI (GPT-4o, o3-mini), Anthropic Claude (Opus, Sonnet), Google Gemini (3.8 Flash, Pro), DeepSeek (V3, R1), Meta Llama (Llama 3.3).
 - **Herramientas y Protocolos:** Claude Code, Codex, Hermes Agent, Herdr, OpenClaw, LangChain, Langfuse, Model Context Protocol (MCP), CrewAI, Ollama.
-- **Eficiencia de Costos:** Hasta 70% de ahorro en consumo de APIs mediante orquestación neuro-simbólica y cacheo eficiente.
+- **Eficiencia de Costos:** Hasta 70% de ahorro en consumo de tokens mediante orquestación eficiente y reutilización de memoria.
 
 ---
 
