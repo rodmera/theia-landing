@@ -1001,7 +1001,7 @@
         <div style="text-align: center; max-width: 760px; margin: 0 auto 3rem;">
           <div class="dash-badge">Arquitectura de Bucle Cerrado</div>
           <h2 class="section-title">El Ciclo de Orquestación <span class="gold">Multi-Turno.</span></h2>
-          <p class="section-sub">Un flujo continuo donde cada interacción sintetiza contexto, consulta especialistas en paralelo y valida respuestas con reglas deterministas antes de cerrar el bucle.</p>
+          <p class="section-sub">Cada interacción sintetiza contexto, consulta especialistas en paralelo y valida respuestas en código antes de responder.</p>
         </div>
 
         <div class="loop-wrap">
@@ -1068,14 +1068,14 @@
         <div style="text-align: center; max-width: 760px; margin: 0 auto 3.5rem;">
           <div class="dash-badge">Arquitectura de Ejecución</div>
           <h2 class="section-title">El Pipeline Determinista de <span class="gold">4 Capas.</span></h2>
-          <p class="section-sub">Cada consulta entrante recorre un flujo riguroso de validación donde el modelo de lenguaje jamás toma decisiones operativas de forma aislada.</p>
+          <p class="section-sub">Cada consulta recorre un flujo donde el modelo de lenguaje jamás toma decisiones operativas en solitario.</p>
         </div>
 
         <div class="arch-layer-card">
           <div class="arch-layer-num">01</div>
           <div class="arch-layer-info">
             <h3>Capa 1: Ingress & Pre-Flight Router</h3>
-            <p>Clasificación instantánea de intención y validación de restricciones negativas. Si la consulta involucra premisas no documentadas, el sistema inyecta directivas de abstención en Turno 1 sin gastar ciclos de reintento.</p>
+            <p>Clasificación instantánea de intención y abstención en Turno 1 ante datos no documentados.</p>
             <div class="arch-layer-tags">
               <span class="arch-tag">Fast Intent Routing</span>
               <span class="arch-tag">Negative Constraint Pre-Flight</span>
@@ -1092,7 +1092,7 @@
           <div class="arch-layer-num">02</div>
           <div class="arch-layer-info">
             <h3>Capa 2: Especialistas Paralelos (Diamond Pattern)</h3>
-            <p>Descomposición atómica de la tarea. En lugar de un chatbot genérico, múltiples agentes especializados (Catálogo, Agenda, CRM) resuelven sub-tareas en paralelo con contexto 100% aislado.</p>
+            <p>Descomposición en especialistas dedicados (Catálogo, Agenda, CRM) que resuelven en paralelo con contexto aislado.</p>
             <div class="arch-layer-tags">
               <span class="arch-tag">Agente Catálogo & ERP</span>
               <span class="arch-tag">Agente Calendario</span>
@@ -1109,7 +1109,7 @@
           <div class="arch-layer-num">03</div>
           <div class="arch-layer-info">
             <h3>Capa 3: Verification Gate (Neuro-Simbólico)</h3>
-            <p>Compuerta mecánica antes de responder. Cálculos monetarios, disponibilidad horaria y reglas de negocio son verificados por código simbólico determinista, complementado con Closed-World Entailment.</p>
+            <p>Compuerta mecánica en código: precios, agendas y reglas de negocio verificadas antes de responder.</p>
             <div class="arch-layer-tags">
               <span class="arch-tag">Closed-World Entailment</span>
               <span class="arch-tag">Symbolic Math Engine</span>
@@ -1126,7 +1126,7 @@
           <div class="arch-layer-num">04</div>
           <div class="arch-layer-info">
             <h3>Capa 4: Transacciones & Memoria Bi-Temporal</h3>
-            <p>Persistencia con separación estricta entre tiempo de validez y tiempo de transacción. Sincronización asíncrona hacia CRM, ERP y notificaciones a humanos sin bloquear la velocidad de respuesta al cliente.</p>
+            <p>Sincronización asíncrona hacia CRM, ERP y alertas a humanos sin retrasar la respuesta al cliente.</p>
             <div class="arch-layer-tags">
               <span class="arch-tag">Bi-Temporal Tiers</span>
               <span class="arch-tag">Atomic Storage</span>
@@ -1155,7 +1155,7 @@
           <div class="gvl-header">
             <div class="dash-badge" style="margin-bottom: 0.75rem;">Graph Engineering vs. Loops</div>
             <h3 class="gvl-main-title">Los bucles dan vueltas. <span class="gold">Los grafos avanzan.</span></h3>
-            <p class="gvl-main-sub">Mismo modelo, mismos tokens y las mismas 6 ejecuciones en ambos lados. Mira el resultado que obtienes:</p>
+            <p class="gvl-main-sub">Mismo modelo y 6 ejecuciones en ambos lados. Mira la diferencia de resultados:</p>
           </div>
 
           <div class="gvl-comparison-grid">
