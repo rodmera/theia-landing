@@ -121,12 +121,16 @@ def desktop_page(browser):
 
 @pytest.fixture(autouse=True)
 def _reset_js_errors(request):
-    """Limpia la lista de errores JS antes de cada test para no arrastrar estado en fixtures de sesión."""
+    """Limpia la lista de errores JS y restaura viewports antes de cada test."""
     for fix in ("mobile_page", "desktop_page"):
         if fix in request.fixturenames:
             p = request.getfixturevalue(fix)
             if hasattr(p, "js_errors"):
                 p.js_errors.clear()
+            if fix == "desktop_page" and hasattr(p, "set_viewport_size"):
+                p.set_viewport_size(DESKTOP["viewport"])
+            elif fix == "mobile_page" and hasattr(p, "set_viewport_size"):
+                p.set_viewport_size(MOBILE["viewport"])
 
 
 def filtered_js_errors(page):

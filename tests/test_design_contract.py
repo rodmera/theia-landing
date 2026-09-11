@@ -191,32 +191,30 @@ def test_no_promesa_de_futuro_en_copy_visible():
 
 
 def test_hero_de_home_usa_imagen_conceptual_de_orquestacion_sin_interfaz_ficticia():
-    """El hero comunica orquestación agéntica con un flujo dinámico para PYMEs, no una app simulada."""
+    """El hero comunica la propuesta de valor con un diseño ultra-minimalista centrado, no una app simulada."""
     source = (ROOT / "index.html").read_text(encoding="utf-8")
     hero = source[source.index('<section class="hero"'):source.index("</section>", source.index('<section class="hero"'))]
-    for marker in ("hero-orchestration-visual", "TheIA Core", "Catálogo &amp; Stock", "Agenda &amp; Citas", "Supervisión &amp; Reglas"):
-        assert marker in hero, f"hero perdió el componente visual obligatorio: {marker}"
+    for marker in ("hero-inner", "Agentes de IA que", "Probar Asistente en Vivo", "Google for Startups"):
+        assert marker in hero, f"hero perdió el componente obligatorio: {marker}"
     for stale in ("hero-console", "hero-stage-", "client-header", "client-channels"):
         assert stale not in hero, f"hero conserva interfaz ficticia: {stale}"
 
 
 def test_hero_orquestacion_respeta_la_composicion_desktop_y_mobile(desktop_page, mobile_page):
-    """La pieza editorial queda a la derecha en desktop y se renderiza responsivamente en teléfono."""
+    """El hero ultra-minimalista se centra en desktop y se renderiza responsivamente en teléfono sin desbordes."""
     desktop_page.goto(BASE, wait_until="domcontentloaded")
     desktop_page.wait_for_timeout(300)
     heading = desktop_page.locator(".hero h1").bounding_box()
-    visual = desktop_page.locator(".hero-orchestration-visual").bounding_box()
-    assert heading and visual, "hero sin título o imagen conceptual en desktop"
-    assert visual["x"] > heading["x"] + heading["width"] * 0.75, "imagen conceptual no queda al lado del mensaje"
+    btns = desktop_page.locator(".hero-btns").bounding_box()
+    assert heading and btns, "hero sin título o botones en desktop"
+    assert btns["y"] > heading["y"], "botones deben ubicarse debajo del título"
 
     mobile_page.goto(BASE, wait_until="domcontentloaded")
     mobile_page.wait_for_timeout(300)
-    display = mobile_page.locator(".hero-orchestration-visual").evaluate("el => getComputedStyle(el).display")
-    assert display != "none", f"imagen conceptual debe mostrarse en móvil, no {display}"
-    mob_visual = mobile_page.locator(".hero-orchestration-visual").bounding_box()
     mob_heading = mobile_page.locator(".hero h1").bounding_box()
-    assert mob_visual and mob_heading, "hero sin elementos en móvil"
-    assert mob_visual["y"] > mob_heading["y"], "apoyo visual debe ubicarse debajo del título en móvil"
+    mob_btns = mobile_page.locator(".hero-btns").bounding_box()
+    assert mob_heading and mob_btns, "hero sin elementos en móvil"
+    assert mob_btns["y"] > mob_heading["y"], "botones deben ubicarse debajo del título en móvil"
     scroll_w = mobile_page.evaluate("document.documentElement.scrollWidth")
     client_w = mobile_page.evaluate("document.documentElement.clientWidth")
     assert scroll_w <= client_w, f"Desbordamiento horizontal en móvil: {scroll_w} > {client_w}"

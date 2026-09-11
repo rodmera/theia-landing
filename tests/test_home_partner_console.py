@@ -39,11 +39,11 @@ def test_ac2_problem_section_aligned_to_speed_to_lead_and_chilean_business():
 
 
 def test_ac3_omnichannel_orchestration_svg_diagram_and_bento_grid():
-    """HU-WEB-029 AC3 / HU-WEB-036: Orquestación agéntica integrada en el Hero."""
+    """HU-WEB-029 AC3 / HU-WEB-036: Orquestación agéntica integrada en la plataforma."""
     content = INDEX_HTML.read_text(encoding="utf-8")
 
-    assert "hero-orchestration-visual" in content or "orch-panel" in content, (
-        "index.html debe contener el flujo de orquestación agéntica en el Hero"
+    assert "hero-inner" in content, (
+        "index.html debe contener el Hero centrado hero-inner"
     )
     assert "#25D366" in content, "Debe incluir color oficial de WhatsApp (#25D366)"
     assert "TheIA Core" in content, "Debe incluir TheIA Core central"
@@ -112,60 +112,38 @@ def test_hu_web_036_hero_uses_single_orchestration_artwork_without_fake_product_
     assert hero_match is not None, "Debe existir la sección hero en index.html"
     hero = hero_match.group(0)
 
-    assert 'hero-orchestration-visual' in hero, "Hero debe contener el componente visual de orquestación"
-    assert 'TheIA Core' in hero, "Hero debe mostrar el núcleo de orquestación"
-    assert 'orch-panel' in hero, "Hero debe contener el panel de orquestación"
+    assert 'hero-inner' in hero, "Hero debe contener el contenedor centrado hero-inner"
+    assert 'Probar Asistente en Vivo' in hero, "Hero debe contener el CTA principal"
+    assert 'Google for Startups' in hero, "Hero debe contener el respaldo Google for Startups"
     assert 'hero-console' not in hero, "Hero no debe conservar la consola ficticia"
     assert 'hero-stage-' not in hero, "Hero no debe conservar cards de etapas"
     assert 'client-header' not in hero and 'client-channels' not in hero, "Hero no debe simular una aplicación"
     assert 'network-canvas' not in hero, "Hero no debe volver a usar canvas de partículas"
 
-    # Verificación de video de orquestación agéntica TheIA
-    assert '<video' in hero, "Hero debe contener el elemento video de orquestación"
-    assert 'autoplay' in hero and 'loop' in hero and 'muted' in hero and 'playsinline' in hero, (
-        "El video del Hero debe contar con atributos autoplay, loop, muted y playsinline"
-    )
-    assert 'theia-agent-orchestration.mp4' in hero, "El video debe referenciar theia-agent-orchestration.mp4"
-    assert 'theia-agent-orchestration-poster.png' in hero, "El video debe tener imagen poster de respaldo"
 
-    root_dir = INDEX_HTML.parent
-    assert (root_dir / 'theia-agent-orchestration.mp4').exists(), "Archivo theia-agent-orchestration.mp4 debe existir en raíz"
-    assert (root_dir / 'theia-agent-orchestration.webm').exists(), "Archivo theia-agent-orchestration.webm debe existir en raíz"
-    assert (root_dir / 'theia-agent-orchestration-poster.png').exists(), "Archivo theia-agent-orchestration-poster.png debe existir en raíz"
-
-    # QA anti-duplicación de ventana: no debe contener footers de pasos redundantes
-    assert 'orch-video-footer' not in hero, "Hero no debe contener .orch-video-footer (duplica información interna del video)"
-
-
-def test_hu_web_037_hero_video_single_window_no_duplication(desktop_page):
-    """HU-WEB-037: Verifica que el Hero use un único marco de ventana sin duplicación de headers ni footers redundantes."""
+def test_hu_web_037_hero_ultra_minimalist_centered_layout(desktop_page):
+    """HU-WEB-037: Verifica que el Hero use una disposición ultra-minimalista centrada y limpia."""
     desktop_page.goto(f"{BASE}/", wait_until="domcontentloaded")
     desktop_page.wait_for_timeout(300)
 
-    # 1. Exactamente un encabezado de ventana (.orch-video-header)
-    headers = desktop_page.locator(".orch-video-header")
-    assert headers.count() == 1, f"Debe existir exactamente un marco de ventana (.orch-video-header), encontrados: {headers.count()}"
+    # 1. Contenedor centrado
+    hero_inner = desktop_page.locator(".hero-inner")
+    assert hero_inner.is_visible(), "El contenedor .hero-inner debe ser visible"
+    box = hero_inner.bounding_box()
+    assert box and box["width"] <= 920, f"El ancho del Hero centrado debe ser compacto (<= 920px), medido: {box['width']}"
 
-    # 2. Cero footers redundantes en el wrapper
-    footers = desktop_page.locator(".orch-video-footer")
-    assert footers.count() == 0, "No debe existir .orch-video-footer (duplicaba los pasos ya presentes en el video)"
+    # 2. Botón CTA visible y centrado
+    btn = desktop_page.locator(".hero .btn-gold")
+    assert btn.is_visible(), "El botón CTA principal debe ser visible en el Hero"
 
-    # 3. Video visible y sin desborde
-    video = desktop_page.locator(".orch-video-media")
-    assert video.is_visible(), "El video del Hero debe ser visible"
-    box = video.bounding_box()
-    assert box and box["width"] > 300 and box["height"] > 150, f"Dimensiones inválidas del video: {box}"
-
-    # 4. Aspect ratio de la ventana ~1.7 - 2.0
-    wrapper = desktop_page.locator(".orch-video-wrapper")
-    w_box = wrapper.bounding_box()
-    aspect = w_box["width"] / w_box["height"]
-    assert 1.5 <= aspect <= 2.2, f"Aspect ratio de la ventana de orquestación fuera de rango armónico: {aspect:.2f}"
+    # 3. Trust strip presente
+    trust = desktop_page.locator(".hero-trust-strip")
+    assert trust.is_visible(), "La franja de confianza con Google y NVIDIA debe ser visible"
 
 
 @pytest.mark.parametrize("viewport_width", [961, 1024, 1100])
-def test_hu_web_036_hero_artwork_has_no_horizontal_overflow(desktop_page, viewport_width):
-    """HU-WEB-036: El flujo visual de orquestación carga y no desborda en desktop intermedio."""
+def test_hu_web_036_hero_has_no_horizontal_overflow(desktop_page, viewport_width):
+    """HU-WEB-036: El Hero ultra-minimalista no desborda horizontalmente en ningún ancho de pantalla."""
     desktop_page.set_viewport_size({"width": viewport_width, "height": 800})
     desktop_page.goto(f"{BASE}/", wait_until="domcontentloaded")
     desktop_page.wait_for_timeout(250)
@@ -174,8 +152,8 @@ def test_hu_web_036_hero_artwork_has_no_horizontal_overflow(desktop_page, viewpo
     client_w = desktop_page.evaluate("document.documentElement.clientWidth")
     assert scroll_w <= client_w, f"Desbordamiento horizontal en {viewport_width}px: {scroll_w} > {client_w}"
 
-    artwork = desktop_page.locator(".hero-orchestration-visual")
-    assert artwork.is_visible(), f"El flujo de orquestación debe ser visible en {viewport_width}px"
+    hero = desktop_page.locator(".hero")
+    assert hero.is_visible(), f"El Hero debe ser visible en {viewport_width}px"
 
     js_errors = filtered_js_errors(desktop_page)
     assert len(js_errors) == 0, f"Errores de JS en {viewport_width}px: {js_errors}"
