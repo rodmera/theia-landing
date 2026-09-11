@@ -16,10 +16,10 @@ TheIA es una plataforma y partner de ingeniería de agentes de inteligencia arti
 
 A diferencia de los chatbots tradicionales de flujos fijos ("presione 1, presione 2") o de los CRMs con cobro por asiento/usuario, TheIA opera con:
 1. **Tarifa plana por negocio:** $250.000 CLP + IVA / mes con $0 CLP por usuario o vendedor adicional.
-2. **Cerebro Empresarial & Verificación Continua:** Cada respuesta se contrasta en vivo contra las fuentes oficiales de la empresa (web corporativa, catálogo & stock, fichas en PDF/Word, reglas comerciales). Si la información no está documentada, el agente jamás inventa y deriva con honestidad al asesor humano.
+2. **Cerebro Empresarial & Verificación Continua:** Cada respuesta se contrasta en vivo contra las fuentes oficiales de la empresa (web corporativa, catálogo & stock, documentos y reglas comerciales). Si la información no está documentada, el agente jamás inventa y deriva con honestidad al asesor humano.
 3. **Silencio Automático ante Intervención Humana:** El agente pasa a segundo plano inmediatamente en cuanto un vendedor toma la conversación en el chat.
 4. **Sugerencia Proactiva de Alternativas:** Si una propiedad, producto o servicio solicitado no calza o está sin stock, sugiere proactivamente opciones afines de la cartera en lugar de dar respuestas vacías.
-5. **Acompañamiento e Implementación Llave en Mano:** Puesta en marcha en menos de 7 días (o 7 a 15 días con integraciones avanzadas) ingiriendo fichas existentes en PDF, Word o planillas, con soporte cercano por WhatsApp.
+5. **Acompañamiento e Implementación Llave en Mano:** Puesta en marcha en menos de 7 días (o 7 a 15 días con integraciones avanzadas) cargando tus documentos, catálogos o planillas existentes, con soporte cercano por WhatsApp.
 
 ---
 
@@ -36,7 +36,7 @@ Cada área comercial cuenta con un agente preconfigurado con reglas y herramient
 
 ---
 
-## 3. Agentes Dedicados & Hosting Administrado
+## 3. Agentes Dedicados & Operación en la Nube
 
 Para empresas que requieren agentes autónomos propios o arquitecturas tipo Hermes, NemoClaw u OpenClaw:
 - **Habilitación en <48 horas:** Configuración del harness, memoria persistente e inyección de directivas operativas.

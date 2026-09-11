@@ -31,7 +31,7 @@
 - **Precio:** $250.000 CLP + IVA (pago único inicial)
 - **Plazo de entrega:** De 7 a 15 días a partir de la entrega de insumos (catálogo, listas de precios y reglas del negocio)
 - **Alcance del servicio:**
-  - Ingesta y estructuración de la base de conocimiento (catálogo de productos/servicios, preguntas frecuentes, PDFs, fichas comerciales)
+  - Carga y estructuración de la información de tu negocio (catálogo de productos y servicios, preguntas frecuentes, políticas y listas de precios)
   - Configuración de reglas de negocio, tono de comunicación (español chileno), derivación y límites operativos
   - Conexión y verificación de canales: WhatsApp Business Cloud API, Instagram DM y WebChat
   - Integración con agenda digital (Google Calendar) y sincronización con tiendas e-commerce (Shopify, Jumpseller, WooCommerce, Odoo)
@@ -39,8 +39,8 @@
 
 ---
 
-## 3. Agentes Dedicados & Hosting Administrado
-- **Servicio:** Habilitación, despliegue y hosting 24/7 en la nube para agentes inteligentes dedicados de empresa (Hermes, NemoClaw, OpenClaw o arquitecturas a medida)
+## 3. Agentes Dedicados & Operación en la Nube
+- **Servicio:** Habilitación, despliegue y operación 24/7 en la nube para agentes inteligentes dedicados de empresa (Hermes, NemoClaw, OpenClaw o arquitecturas a medida)
 - **Disponibilidad:** 24/7 en infraestructura cloud de alta disponibilidad
 - **Mantenimiento:** 100% administrado por TheIA — sin requerir servidores locales ni mantenimiento técnico
 - **Plazo de puesta en marcha:** Menos de 48 horas

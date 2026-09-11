@@ -6,8 +6,8 @@ TheIA atiende consultas con contexto, cotiza con precisión, agenda reuniones y 
 
 ## Producto
 - [TheIA Homepage](https://theia.cl): Agentes de Inteligencia Artificial para Negocios en Chile con Supervisión en Vivo, Cerebro Empresarial y Despliegue en WhatsApp.
-- [Agentes Dedicados & Hosting Administrado](https://theia.cl/#agentes-dedicados): Habilitación, instalación y hosting 24/7 en la nube para agentes inteligentes dedicados de empresa (Hermes, NemoClaw, OpenClaw o arquitecturas a medida). 100% administrado sin requerir servidores locales ni mantenimiento técnico. Puesta en marcha en <48h e integrado a WhatsApp, correo, agenda y catálogo.
-- [Cerebro Empresarial & Verificación Continua](https://theia.cl/#arquitectura): Validación en tiempo real de cada respuesta contra las fuentes oficiales del negocio (web corporativa, catálogo & stock, fichas PDF y reglas comerciales). Cero respuestas inventadas por diseño.
+- [Agentes Dedicados para tu Empresa](https://theia.cl/#agentes-dedicados): Habilitación, instalación y operación 24/7 en la nube para agentes inteligentes dedicados de tu empresa. 100% en la nube sin requerir servidores locales ni mantenimiento técnico. Puesta en marcha en <48h e integrado a WhatsApp, correo, agenda y catálogo.
+- [Cerebro Empresarial & Verificación Continua](https://theia.cl/#arquitectura): Validación en tiempo real de cada respuesta contra las fuentes oficiales del negocio (web corporativa, catálogo & stock, documentos y reglas comerciales). Cero respuestas inventadas por diseño.
 - [Atención al cliente](https://theia.cl/atencion-cliente): Hub del ecosistema TheIA (Atención, Pulse, CRM, Plataforma).
 - [Funciones](https://theia.cl/funciones): Cómo ayuda — atiende y orienta, cotiza y agenda, tu equipo conserva el control en todo momento.
 - [Criterios para elegir atención con IA](https://theia.cl/criterios): 8 criterios verificables + calculadora de costo por modelo (sin nombrar marcas).
@@ -23,7 +23,7 @@ TheIA atiende consultas con contexto, cotiza con precisión, agenda reuniones y 
 - [Alternativa Tarifa Plana CRM](https://theia.cl/alternativa-crm): Comparativa transparente del modelo de tarifa plana ($250.000/mes con $0 por asiento adicional) frente al cobro por usuario/vendedor.
 - [Migración de Datos CRM](https://theia.cl/migracion): Proceso transparente y reversible de importación de contactos, deals, etapas y notas desde tu CRM actual hacia TheIA en 24 horas.
 - [Servicios Especializados & Integración](https://theia.cl/servicios): Ingeniería de agentes a medida, orquestación avanzada e integraciones LLM con soporte local en Chile.
-- [Seguridad y Privacidad de Datos](https://theia.cl/cumplimiento): Privacidad, anonimización de datos sensibles (PII Masking), encriptación y protección de datos comerciales en Chile.
+- [Seguridad y Privacidad de Datos](https://theia.cl/cumplimiento): Privacidad, protección de datos sensibles de clientes, encriptación y resguardo de información comercial en Chile.
 - [Arquitectura & Orquestación B2B](https://theia.cl/orquestacion): Arquitectura determinista multi-agente para empresas (HU-WEB-039 / HU-WEB-040).
 - [Centro de Confianza & Legal](https://theia.cl/confianza): Términos, Privacidad, DPA y Lista de Subprocesadores (HU-WEB-034).
 - [Setup Fácil por Audio](https://theia.cl/facil): Configuración conversacional sin código para PYMEs mediante notas de voz (HU-WEB-038).
