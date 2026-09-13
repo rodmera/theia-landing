@@ -512,7 +512,7 @@ def test_titulos_de_seccion_homologados_estrictamente(desktop_page, path):
 
 @pytest.mark.parametrize("path", PAGES)
 def test_subtitulos_de_seccion_homologados_estrictamente(desktop_page, path):
-    """Design System Regla Dura (2026-09-04): TODOS los subtítulos (.section-sub)
+    """Design System Regla Dura (2026-09-04 / 2026-09-12): TODOS los subtítulos (.section-sub y .hero-sub)
     en todas las páginas de marketing deben computar:
       - font-family: Plus Jakarta Sans
       - font-weight: 400 o 500
@@ -524,7 +524,7 @@ def test_subtitulos_de_seccion_homologados_estrictamente(desktop_page, path):
     desktop_page.goto(BASE + path, wait_until="domcontentloaded")
     violations = desktop_page.evaluate("""() => {
         const issues = [];
-        const subs = [...document.querySelectorAll('.section-sub')].filter(el => !el.closest('[hidden]'));
+        const subs = [...document.querySelectorAll('.section-sub, .hero-sub')].filter(el => !el.closest('[hidden]'));
         for (const s of subs) {
             const cs = getComputedStyle(s);
             const fam = cs.fontFamily.toLowerCase();

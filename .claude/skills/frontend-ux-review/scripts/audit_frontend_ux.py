@@ -260,6 +260,34 @@ class FrontendUXAuditor:
                         f"Un titular debe comunicar una sola promesa/idea; los detalles pertenecen al subtítulo: {clean_text!r}"
                     )
 
+        # 5. Validar homologación estricta de subtítulos (.section-sub y .hero-sub)
+        # Regla dura del Design System: font-size estrictamente 1.05rem (16.8px) y max-width <= 680px
+        for file in self.html_files + self.css_files:
+            content = file.read_text(encoding="utf-8", errors="ignore")
+            for m in re.finditer(r'(\.(?:section-sub|hero-sub))\s*\{([^}]+)\}', content, re.I):
+                selector = m.group(1)
+                rules = m.group(2)
+                line_no = content.count("\n", 0, m.start()) + 1
+                
+                m_size = re.search(r'font-size\s*:\s*([^;]+)', rules, re.I)
+                if m_size:
+                    val = m_size.group(1).strip().lower()
+                    if val != "1.05rem" and val != "16.8px":
+                        self.log_error(
+                            file, line_no, "SUBTITLE-FONT-SIZE-OVERRIDE",
+                            f"Subtítulo {selector!r} define font-size: {val!r}. Debe ser estrictamente 1.05rem (16.8px) según el Design System."
+                        )
+                m_maxw = re.search(r'max-width\s*:\s*([^;]+)', rules, re.I)
+                if m_maxw:
+                    val = m_maxw.group(1).strip().lower()
+                    if re.match(r'^\d+px$', val):
+                        px_val = int(val.replace("px", ""))
+                        if px_val > 680:
+                            self.log_error(
+                                file, line_no, "SUBTITLE-MAX-WIDTH-OVERRIDE",
+                                f"Subtítulo {selector!r} define max-width: {val!r} (>680px). Debe ser máx 680px para óptima legibilidad."
+                            )
+
     def audit_admin_and_app_ui(self):
         """Valida que las interfaces de aplicación/admin mantengan consistencia estructural y tipográfica pura (Plus Jakarta Sans)."""
         admin_templates = [
