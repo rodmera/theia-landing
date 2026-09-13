@@ -194,7 +194,7 @@ def test_hero_de_home_usa_imagen_conceptual_de_orquestacion_sin_interfaz_fictici
     """El hero comunica la propuesta de valor con un diseño ultra-minimalista centrado, no una app simulada."""
     source = (ROOT / "index.html").read_text(encoding="utf-8")
     hero = source[source.index('<section class="hero"'):source.index("</section>", source.index('<section class="hero"'))]
-    for marker in ("hero-inner", "Agentes de IA que", "Probar Asistente en Vivo", "Google for Startups"):
+    for marker in ("hero-inner", "Implementamos agentes de IA", "Probar Asistente en Vivo", "Google for Startups"):
         assert marker in hero, f"hero perdió el componente obligatorio: {marker}"
     for stale in ("hero-console", "hero-stage-", "client-header", "client-channels"):
         assert stale not in hero, f"hero conserva interfaz ficticia: {stale}"
