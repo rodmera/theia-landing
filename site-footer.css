@@ -157,6 +157,14 @@ footer {
 .footer-copy {
   color: var(--text-muted, rgba(255, 255, 255, 0.57));
   font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.footer-corporate {
+  color: var(--text-muted, rgba(255, 255, 255, 0.45));
+  font-size: 0.76rem;
+  margin-top: 0.25rem;
+  line-height: 1.4;
 }
 
 .footer-legal-links {
