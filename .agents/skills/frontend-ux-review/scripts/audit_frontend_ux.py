@@ -445,7 +445,7 @@ class FrontendUXAuditor:
                 self.log_error(file, line_no, "GLOBAL-NAV-LINK-SIDEBAR-LEAK", "Regla '.nav-link.active' con 'border-left' no está acotada a '.sidebar'. Esto corrompe las pestañas y navs interiores.")
 
     def audit_ux_content_and_promises(self):
-        """Valida que no haya promesas de futuro vacías ni copy no verificado."""
+        """Valida que no haya promesas de futuro vacías, plazos no respaldados ni copy no verificado."""
         targets = self.html_files if self.is_static_site else [f for f in self.html_files if "admin" not in str(f).lower()]
         for file in targets:
             content = file.read_text(encoding="utf-8", errors="ignore")
@@ -456,6 +456,15 @@ class FrontendUXAuditor:
                 for promise in FORBIDDEN_PROMISES:
                     if re.search(r"\b" + re.escape(promise) + r"\b", clean_line, re.I):
                         self.log_error(file, idx, "UX-FUTURE-PROMISE", f"Promesa de futuro no autorizada en copy visible: {promise!r}")
+
+                # Prohibir promesas de plazos de implementación no respaldados (<7 días, menos de 7 días, en 7 días)
+                if re.search(r'(?:<|&lt;|menos de|en)\s*7\s*d[ií]as', clean_line, re.I):
+                    if "reversib" not in clean_line.lower():
+                        self.log_error(
+                            file, idx, "UX-UNSUBSTANTIATED-TIMELINE",
+                            f"Promesa de plazo de implementación no respaldada detectada en copy: {clean_line[:60]!r}. "
+                            f"Prohibido prometer '<7 días' o 'menos de 7 días'; usar 'puesta en marcha asistida' o 'llave en mano'."
+                        )
 
     def audit_svg_validity(self):
         """Audita que ningún elemento <svg> use atributos XML inválidos como width='auto' o height='auto'."""

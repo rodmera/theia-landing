@@ -29,7 +29,7 @@ def test_ac1_hero_growth_framing_copy_and_hierarchy():
     assert "Sin alucinaciones" in content, "Falta sin alucinaciones en bajada"
 
     # 3. Micro-copy de valor
-    assert "Puesta en marcha en <7 días" in content or "Puesta en marcha en &lt;7 días" in content, "Falta micro-copy de puesta en marcha"
+    assert "Implementación llave en mano" in content or "Puesta en marcha asistida" in content or "Puesta en Marcha Asistida" in content, "Falta micro-copy de puesta en marcha"
     assert "Sin costo por usuario" in content, "Falta micro-copy de costo por usuario"
     assert "Conectado a tu CRM" in content, "Falta micro-copy de CRM"
 

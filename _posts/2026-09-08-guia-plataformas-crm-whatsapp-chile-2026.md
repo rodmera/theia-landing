@@ -61,7 +61,7 @@ El enfoque desarrollado por **TheIA** responde a una necesidad no resuelta por l
   * **Tarifa plana en moneda local:** Plan único de **$250.000 CLP + IVA / mes** (hasta 500 conversaciones multicanal) con **$0 por asiento adicional**, permitiendo que todo el equipo comercial acceda al CRM y al panel sin sobrecostos.
   * **Fidelidad estricta de catálogo (Closed-World):** El agente responde exclusivamente con la información real de tu empresa (web, fichas PDF, inventario y catálogo), eliminando el riesgo de que invente precios, promociones o características de productos.
   * **Silencio automático ante intervención humana:** En cuanto un vendedor o asesor interviene en el chat, el agente entra en modo silencioso al instante, evitando conversaciones cruzadas.
-  * **Puesta en marcha asistida en menos de 7 días:** No entregamos una consola vacía para que la configures solo; nos encargamos de ingerir tus fichas comerciales en Word, PDF o planillas y entregar el agente 100% operativo.
+  * **Puesta en marcha asistida y llave en mano:** No entregamos una consola vacía para que la configures solo; nos encargamos de ingerir tus fichas comerciales en Word, PDF o planillas y entregar el agente 100% operativo.
   * **Soporte humano cercano por WhatsApp:** Acompañamiento directo en horario hábil con equipo de ingeniería en Chile.
 * **Puntos a considerar:**
   * No está diseñado como un ERP transaccional para megacorporaciones multinacionales con decenas de miles de contactos diarios; su foco está puesto en la eficiencia comercial, la certeza de respuesta y la rentabilidad del segmento SMB.
@@ -76,7 +76,7 @@ El enfoque desarrollado por **TheIA** responde a una necesidad no resuelta por l
 | **Moneda de pago** | Dólares / Tarjeta extranjera | Dólares / Tarjeta extranjera | Dólares / Tarjeta extranjera | **Pesos Chilenos (CLP) con factura local** |
 | **Tipo de automatización** | Árboles rígidos y botones | IA conversacional corporativa | Flujos visuales de palabras clave | **IA contextual con fidelidad estricta de catálogo** |
 | **Intervención humana** | Manual en el chat | Asignación según flujo | Manual en el chat | **Silencio automático al entrar asesor humano** |
-| **Puesta en marcha** | Configuración por el cliente | Autoservicio guiado | Autoservicio (DIY) | **Llave en mano asistida en < 7 días** |
+| **Puesta en marcha** | Configuración por el cliente | Autoservicio guiado | Autoservicio (DIY) | **Llave en mano asistida por equipo** |
 | **Soporte operativo** | Tickets en plataforma global | Mesa corporativa | Foros y tickets en inglés | **Atención cercana y directa por WhatsApp** |
 
 ---

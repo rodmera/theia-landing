@@ -81,7 +81,7 @@ No hay nada de malo en pedir ayuda. De hecho, es la decisión más inteligente q
 
 ---
 
-*En TheIA configuramos tu agente de ventas de principio a fin. En menos de 7 días está atendiendo clientes por WhatsApp, Instagram y tu sitio web. [Agenda una demo](https://calendar.app.google/ZDjEtqCXTJVxzi7bA) y te mostramos cómo funciona. Revisa todas las [funciones incluidas](/funciones) y nuestros [precios](/precios).*
+*En TheIA configuramos tu agente de ventas de principio a fin, dejándolo 100% operativo para atender clientes por WhatsApp, Instagram y tu sitio web. [Agenda una demo](https://calendar.app.google/ZDjEtqCXTJVxzi7bA) y te mostramos cómo funciona. Revisa todas las [funciones incluidas](/funciones) y nuestros [precios](/precios).*
 
 ---
 
