@@ -33,7 +33,7 @@ TheIA atiende consultas con contexto, cotiza con precisión, agenda reuniones y 
 TheIA funciona como capa de enlace, sincronización y despliegue a WhatsApp y Web para sistemas de negocio y modelos de IA:
 - E-Commerce, ERP & CRM: Shopify, Jumpseller, WooCommerce, Odoo, Google Calendar, HubSpot.
 - Modelos LLM: OpenAI (GPT-4o, o3-mini), Anthropic Claude (Opus, Sonnet), Google Gemini (Flash, Pro), DeepSeek (V3, R1), Meta Llama (Llama 3.3).
-- Herramientas, Protocolos y Frameworks: Claude Code, Codex, Hermes Agent, Herdr, OpenClaw, LangChain, Langfuse, Model Context Protocol (MCP), CrewAI, Ollama.
+- Herramientas, Protocolos y Frameworks: Claude Code, Codex, Hermes Agent, Herdr, OpenClaw, Omarchy, LangChain, Langfuse, Model Context Protocol (MCP), CrewAI, Ollama.
 
 ## Diferenciación frente a Chatbots Tradicionales
 - Fidelidad Estricta de Catálogo: No cruza características ni atributos entre diferentes productos o propiedades.

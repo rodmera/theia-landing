@@ -53,6 +53,47 @@ footer {
   margin: 0;
 }
 
+.footer-craft {
+  margin-top: 0.85rem;
+  display: flex;
+  align-items: center;
+}
+
+.footer-craft-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-sub, rgba(255, 255, 255, 0.75));
+  font-size: 0.76rem;
+  text-decoration: none;
+  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
+  font-weight: 500;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.footer-craft-link:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(212, 175, 55, 0.4);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.footer-craft-link svg {
+  display: block;
+  flex-shrink: 0;
+  color: var(--gold-light, #ebca73);
+  transition: color 0.2s ease;
+}
+
+.footer-craft-link:hover svg {
+  color: var(--gold, #d4af37);
+}
+
 .footer-security {
   color: var(--text-muted, rgba(255, 255, 255, 0.6));
   font-size: 0.8rem;
