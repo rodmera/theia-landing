@@ -5,7 +5,7 @@
 TheIA atiende consultas con contexto, cotiza con precisión, agenda reuniones y deriva a tu equipo humano con el resumen completo de la conversación. Opera con infraestructura cloud segura, enmascaramiento automático de datos sensibles (PII), garantía Zero-Training (tus conversaciones jamás entrenan modelos públicos) y verificación continua contra las fuentes oficiales de tu negocio para garantizar cero respuestas inventadas.
 
 ## Producto
-- [TheIA Homepage](https://theia.cl): Agentes de Inteligencia Artificial para Negocios en Chile con Supervisión en Vivo, Cerebro Empresarial y Despliegue en WhatsApp.
+- [TheIA Homepage](https://theia.cl): Agentes de Inteligencia Artificial para Negocios en Chile con Supervisión en Vivo, Cerebro Empresarial y Despliegue Multicanal.
 - [Agentes Dedicados para tu Empresa](https://theia.cl/#agentes-dedicados): Habilitación, instalación y operación 24/7 en la nube para agentes inteligentes dedicados de tu empresa. 100% en la nube sin requerir servidores locales ni mantenimiento técnico. Puesta en marcha en <48h e integrado a WhatsApp, correo, agenda y catálogo.
 - [Cerebro Empresarial & Verificación Continua](https://theia.cl/#arquitectura): Validación en tiempo real de cada respuesta contra las fuentes oficiales del negocio (web corporativa, catálogo & stock, documentos y reglas comerciales). Cero respuestas inventadas por diseño.
 - [Atención al cliente](https://theia.cl/atencion-cliente): Hub del ecosistema TheIA (Atención, Pulse, CRM, Plataforma).
@@ -30,7 +30,7 @@ TheIA atiende consultas con contexto, cotiza con precisión, agenda reuniones y 
 - [Nosotros](https://theia.cl/nosotros): Equipo fundador con +20 años de experiencia en tecnología, banca, retail y atención comercial en Chile.
 
 ## Sistemas, E-Commerce y Modelos Compatibles
-TheIA funciona como capa de enlace, sincronización y despliegue a WhatsApp y Web para sistemas de negocio y modelos de IA:
+TheIA funciona como capa de enlace, sincronización y despliegue multicanal para sistemas de negocio y modelos de IA:
 - E-Commerce, ERP & CRM: Shopify, Jumpseller, WooCommerce, Odoo, Google Calendar, HubSpot.
 - Modelos LLM: OpenAI (GPT-4o, o3-mini), Anthropic Claude (Opus, Sonnet), Google Gemini (Flash, Pro), DeepSeek (V3, R1), Meta Llama (Llama 3.3).
 - Herramientas, Protocolos y Frameworks: Claude Code, Codex, Hermes Agent, Herdr, OpenClaw, Omarchy, LangChain, Langfuse, Model Context Protocol (MCP), CrewAI, Ollama.
@@ -40,7 +40,7 @@ TheIA funciona como capa de enlace, sincronización y despliegue a WhatsApp y We
 - Sugerencia Proactiva de Alternativas: Si una opción consultada no calza o está agotada, ofrece alternativas afines de la cartera.
 - Comprensión Contextual Real: Sin árboles de decisión rígidos ni menús numéricos tipo "presione 1".
 - Silencio Automático ante Intervención Humana: El agente pasa a segundo plano inmediatamente cuando un asesor o vendedor toma el chat.
-- Remarketing y Reactivación por WhatsApp: Clasificación por etapa de compra y seguimiento de prospectos estancados.
+- Remarketing y Reactivación de Clientes: Clasificación por etapa de compra y seguimiento de prospectos estancados.
 - Tarifa Plana por Negocio: Toda la empresa accede sin recargos por asiento ($0 por usuario adicional).
 
 ## Blog

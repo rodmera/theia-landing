@@ -30,7 +30,7 @@ Cada área comercial cuenta con un agente preconfigurado con reglas y herramient
 - **Agente de Atención al Cliente:** Atiende 24/7 en lenguaje natural (español chileno), comprende intención real sin árboles ciegos y responde consultas frecuentes, horarios y ubicaciones.
 - **Agente de Cotización & Ventas:** Calcula precios exactos según catálogo, respeta promociones y reglas comerciales, y sugiere alternativas afines si un ítem no calza.
 - **Agente de Agendamiento & Citas:** Sincroniza disponibilidad con Google Calendar y agendas digitales, agenda visitas o reuniones, y confirma o reprograma turnos.
-- **Agente de Seguimiento & CRM:** Clasifica contactos por etapa de compra, reactiva prospectos estancados y ejecuta remarketing segmentado por WhatsApp.
+- **Agente de Seguimiento & CRM:** Clasifica contactos por etapa de compra, reactiva prospectos estancados y ejecuta remarketing segmentado en tus canales de contacto.
 - **Agente de Inteligencia Comercial:** Califica prospectos bajo criterios BANT (Necesidad, Decisión, Presupuesto, Plazo) y detecta objeciones comerciales en tiempo real.
 - **Agente de Soporte & Operaciones:** Resuelve incidencias operativas y deriva a especialistas humanos adjuntando el resumen estructurado de la conversación.
 
