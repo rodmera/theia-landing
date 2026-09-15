@@ -201,13 +201,6 @@ footer {
   line-height: 1.5;
 }
 
-.footer-corporate {
-  color: var(--text-muted, rgba(255, 255, 255, 0.45));
-  font-size: 0.76rem;
-  margin-top: 0.25rem;
-  line-height: 1.4;
-}
-
 .footer-legal-links {
   display: flex;
   gap: 1.25rem;
