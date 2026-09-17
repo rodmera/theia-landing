@@ -398,6 +398,8 @@ nav.site-header .logo img {
     position: fixed;
     top: 0;
     right: -100%;
+    left: auto !important;
+    bottom: auto !important;
     width: 85%;
     max-width: 320px;
     height: 100vh;
