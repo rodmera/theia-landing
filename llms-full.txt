@@ -15,7 +15,7 @@
 TheIA es una plataforma y partner de ingeniería de agentes de inteligencia artificial para PYMEs y empresas en Chile. Proporciona atención comercial 24/7 omnicanal (WhatsApp Business, Instagram DM y WebChat), cotización exacta basada en catálogo, agendamiento de citas y CRM integrado.
 
 A diferencia de los chatbots tradicionales de flujos fijos ("presione 1, presione 2") o de los CRMs con cobro por asiento/usuario, TheIA opera con:
-1. **Tarifa plana por negocio:** $250.000 CLP + IVA / mes con $0 CLP por usuario o vendedor adicional.
+1. **Tarifa transparente:** Plan mensual desde $250.000 CLP + IVA / mes con $0 CLP por usuario adicional. Setup inicial llave en mano desde $250.000 CLP + IVA.
 2. **Cerebro Empresarial & Verificación Continua:** Cada respuesta se contrasta en vivo contra las fuentes oficiales de la empresa (web corporativa, catálogo & stock, documentos y reglas comerciales). Si la información no está documentada, el agente jamás inventa y deriva con honestidad al asesor humano.
 3. **Silencio Automático ante Intervención Humana:** El agente pasa a segundo plano inmediatamente en cuanto un vendedor toma la conversación en el chat.
 4. **Sugerencia Proactiva de Alternativas:** Si una propiedad, producto o servicio solicitado no calza o está sin stock, sugiere proactivamente opciones afines de la cartera en lugar de dar respuestas vacías.

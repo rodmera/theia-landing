@@ -5,7 +5,7 @@
 TheIA atiende consultas con contexto, cotiza con precisión, agenda reuniones y deriva a tu equipo humano con el resumen completo de la conversación. Opera con infraestructura cloud segura, enmascaramiento automático de datos sensibles (PII), garantía Zero-Training (tus conversaciones jamás entrenan modelos públicos) y verificación continua contra las fuentes oficiales de tu negocio para garantizar cero respuestas inventadas.
 
 ## Producto
-- [TheIA Homepage](https://theia.cl): Agentes de Inteligencia Artificial para Negocios en Chile con Supervisión en Vivo, Cerebro Empresarial y Despliegue Multicanal.
+- [TheIA Homepage](https://theia.cl): Multiplica la capacidad de tu negocio con agentes de IA llave en mano. Cotizaciones, atención, agenda y CRM conectados a tus catálogos y sistemas reales.
 - [Agentes Dedicados para tu Empresa](https://theia.cl/#agentes-dedicados): Habilitación, instalación y operación 24/7 en la nube para agentes inteligentes dedicados de tu empresa. 100% en la nube sin requerir servidores locales ni mantenimiento técnico. Puesta en marcha en <48h e integrado a WhatsApp, correo, agenda y catálogo.
 - [Cerebro Empresarial & Verificación Continua](https://theia.cl/#arquitectura): Validación en tiempo real de cada respuesta contra las fuentes oficiales del negocio (web corporativa, catálogo & stock, documentos y reglas comerciales). Cero respuestas inventadas por diseño.
 - [Atención al cliente](https://theia.cl/atencion-cliente): Hub del ecosistema TheIA (Atención, Pulse, CRM, Plataforma).
