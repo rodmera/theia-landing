@@ -6,38 +6,45 @@
 
 ---
 
-## 1. Plan Mensual TheIA
+## 1. Plan Asistente (Entrada MiPYME)
+- **Precio:** $79.000 CLP + IVA / mes
+- **Setup Inicial:** $49.000 CLP + IVA (Llave en mano en 48 horas)
+- **Conversaciones incluidas:** Hasta 150 conversaciones mensuales
+- **Usuarios / Asientos:** Ilimitados ($0 CLP por usuario o vendedor adicional)
+- **Canal integrado:** WhatsApp Business Cloud API (1 canal oficial)
+- **Integraciones incluidas:** 1 integración básica a elegir (Catálogo en planilla Google Sheets/Excel O Google Calendar)
+- **Módulos incluidos:**
+  - Asistente de Negocio General 24/7 (atención de dudas, horarios y cotizaciones con catálogo oficial)
+  - Silencio humano automático cuando un vendedor toma la conversación
+  - TheIA Pulse diario: resumen ejecutivo de jornada a las 19:00 hrs directo al WhatsApp del dueño
+  - Panel de control web básico con historial de contactos
+- **Contrato:** Suscripción mensual sin plazo mínimo de permanencia. Cargos de Meta deslindados según uso real.
+
+---
+
+## 2. Plan Pro (Crecimiento & Especialistas)
 - **Precio:** $250.000 CLP + IVA / mes
-- **Conversaciones incluidas:** Hasta 500 conversaciones mensuales multicanal
+- **Setup Inicial:** $250.000 CLP + IVA (Llave en mano avanzado)
+- **Conversaciones incluidas:** Hasta 750 conversaciones mensuales multicanal
 - **Usuarios / Asientos:** Ilimitados ($0 CLP por usuario, vendedor o agente humano adicional)
 - **Canales integrados:**
   - WhatsApp Business Cloud API
   - Instagram DM
   - WebChat propio (widget para tu sitio web)
 - **Módulos incluidos en la mensualidad:**
-  - Suite de Agentes Especialistas: Atención al Cliente 24/7, Cotización & Ventas, Agendamiento de Citas, Seguimiento & CRM, Inteligencia Comercial (BANT)
-  - Cerebro Empresarial: Verificación en tiempo real contra catálogo de productos, inventario, web oficial y políticas de la empresa (cero alucinaciones)
-  - TheIA Pulse: Copiloto ejecutivo por WhatsApp (briefing matutino 08:00, alertas en tiempo real y resumen de cierre 19:00)
+  - Suite de Agentes Especialistas: Atención al Cliente 24/7, Cotización & Ventas, Agendamiento de Citas, Seguimiento & CRM, Inteligencia Comercial
+  - Cerebro Empresarial: Verificación en tiempo real contra catálogo de productos, inventario, web oficial y políticas de la empresa
+  - TheIA Pulse en tiempo real: Briefing matutino 08:00, alertas instantáneas de oportunidades calientes y resumen de cierre 19:00
   - Módulo CRM: Pipeline comercial visual por etapas, embudo de ventas y registro automático de prospectos
-  - Panel de Control Web: Supervisión de conversaciones en vivo, intervención humana con un clic e historial unificado
-  - Modelos de IA e Inferencia: 100% incluidos en el plan (sin costos extra por tokens de LLM)
-  - Soporte Operativo: Soporte técnico continuo en horario hábil y acompañamiento local en Chile
-- **Contrato y Permanencia:** Suscripción mensual sin plazo mínimo de permanencia (cancelas cuando quieras sin penalidad)
-- **Cargos de Mensajería Meta:** Los cargos oficiales de mensajería de WhatsApp Business son fijados y cobrados directamente por Meta según los mensajes entregados fuera de la ventana de servicio (se deslindan de la suscripción de TheIA; ver https://theia.cl/terminos.html)
+  - Integraciones avanzadas ilimitadas: Sincronización con Shopify, Jumpseller, WooCommerce, Bsale, Defontana, Google Calendar y planillas
+  - Panel de Control Web completo y soporte prioritario
+- **Contrato:** Suscripción mensual sin plazo mínimo de permanencia. Cargos de Meta deslindados según uso real.
 
 ---
 
-## 2. Setup e Implementación Llave en Mano
-- **Precio:** $250.000 CLP + IVA (pago único inicial)
-- **Plazo de entrega:** De 7 a 15 días a partir de la entrega de insumos (catálogo, listas de precios y reglas del negocio)
-- **Alcance del servicio:**
-  - Carga y estructuración de la información de tu negocio (catálogo de productos y servicios, preguntas frecuentes, políticas y listas de precios)
-  - Configuración de reglas de negocio, tono de comunicación (español chileno), derivación y límites operativos
-  - Conexión y verificación de canales: WhatsApp Business Cloud API, Instagram DM y WebChat
-  - Integración con agenda digital (Google Calendar) y sincronización con tiendas e-commerce (Shopify, Jumpseller, WooCommerce, Odoo)
-  - Marcha blanca, pruebas de estrés E2E de validación y capacitación inicial a tu equipo
-
----
+## 3. Plan Empresa (A Medida)
+- **Precio:** Desde $450.000 CLP + IVA / mes (Setup a evaluar según integración)
+- **Alcance:** Múltiples números de WhatsApp, conexiones por API a sistemas legados o ERPs propios, SLA dedicado y agentes dedicados en la nube.
 
 ## 3. Agentes Dedicados & Operación en la Nube
 - **Servicio:** Habilitación, despliegue y operación 24/7 en la nube para agentes inteligentes dedicados de empresa (Hermes, NemoClaw, OpenClaw o arquitecturas a medida)
