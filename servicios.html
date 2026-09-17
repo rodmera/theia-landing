@@ -173,6 +173,13 @@
     .btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #0f172a; font-weight: 700; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); }
     .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35); }
 
+    .btn-whatsapp {
+      background: #25D366; color: #ffffff !important; font-weight: 700;
+      padding: 0.85rem 2rem; font-size: 1rem; border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); text-decoration: none;
+    }
+    .btn-whatsapp:hover { background: #20bd5a; transform: translateY(-2px); color: #ffffff !important; }
+
     .btn-outline-gold {
       background: transparent; color: var(--gold);
       border: 2px solid var(--gold); padding: 0.85rem 2rem;
@@ -962,15 +969,35 @@
     </div>
   </section>
 
-  <!-- B2B Banner de Proyectos a Medida -->
-  <section class="b2b-banner">
+  <!-- Consultoría de IA & Asesoría Especializada -->
+  <section class="b2b-banner" id="consultoria">
     <div class="container">
-      <div class="b2b-inner reveal">
+      <div class="b2b-inner reveal" style="padding: 2.5rem; background: var(--glass); border: 1px solid var(--glass-border-gold); border-radius: 20px;">
         <div class="b2b-text">
-          <h3>¿Tienes un proyecto de IA o integración a medida? <span class="gold">Conversémoslo.</span></h3>
-          <p>Orquestación de agentes, integraciones LLM a medida, automatización de procesos internos — evaluamos la viabilidad técnica y construimos soluciones con soporte local en Chile.</p>
+          <div class="dash-badge" style="margin-bottom: 0.75rem;">Servicio Complementario · Consultoría &amp; Asesoría</div>
+          <h3 style="font-family: 'Merriweather', serif; font-size: 1.6rem; margin-bottom: 1rem;">Consultoría de IA para <span class="gold">Empresas y Líderes.</span></h3>
+          <p style="color: var(--text-sub); line-height: 1.65; margin-bottom: 1.25rem;">
+            Más allá de nuestra plataforma, ponemos a disposición nuestra experiencia en arquitectura de agentes, optimización de consumo de tokens y puesta en marcha técnica:
+          </p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 1.5rem;">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 12px; padding: 1.25rem;">
+              <h4 style="color: var(--gold-light); font-size: 1rem; margin-bottom: 0.4rem; font-weight: 700;">Para Empresas</h4>
+              <p style="font-size: 0.85rem; color: var(--text-sub); line-height: 1.5; margin: 0;">Auditoría de arquitectura, evaluación de precisión operativa, reducción de costos en APIs/tokens e integración con tus sistemas centrales.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 12px; padding: 1.25rem;">
+              <h4 style="color: var(--gold-light); font-size: 1rem; margin-bottom: 0.4rem; font-weight: 700;">Para Personas &amp; Líderes</h4>
+              <p style="font-size: 0.85rem; color: var(--text-sub); line-height: 1.5; margin: 0;">Sesiones estratégicas 1:1 para fundadores, CTOs y gerentes de producto que buscan diseñar e implementar agentes en sus organizaciones.</p>
+            </div>
+          </div>
         </div>
-        <a href="mailto:hola@theia.cl?subject=Proyecto%20IA%20a%20Medida%20-%20TheIA" class="btn btn-gold" style="white-space:nowrap;flex-shrink:0;">Contactar con Ingeniería →</a>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+          <a href="https://wa.me/12063858350?text=Hola%20TheIA%2C%20me%20interesa%20consultor%C3%ADa%20en%20agentes%20de%20IA" target="_blank" rel="noopener" class="btn btn-whatsapp">
+            Consultar por WhatsApp
+          </a>
+          <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold">
+            Agendar conversación técnica →
+          </a>
+        </div>
       </div>
     </div>
   </section>
