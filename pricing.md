@@ -8,7 +8,7 @@
 
 ## 1. Plan Asistente (Entrada MiPYME)
 - **Precio:** $79.000 CLP + IVA / mes
-- **Setup Inicial:** $49.000 CLP + IVA (Llave en mano en 48 horas)
+- **Setup Inicial:** $49.000 CLP + IVA (Llave en mano en 2 semanas)
 - **Conversaciones incluidas:** Hasta 150 conversaciones mensuales
 - **Usuarios / Asientos:** Ilimitados ($0 CLP por usuario o vendedor adicional)
 - **Canal integrado:** WhatsApp Business Cloud API (1 canal oficial)
@@ -50,7 +50,7 @@
 - **Servicio:** Habilitación, despliegue y operación 24/7 en la nube para agentes inteligentes dedicados de empresa (Hermes, NemoClaw, OpenClaw o arquitecturas a medida)
 - **Disponibilidad:** 24/7 en infraestructura cloud de alta disponibilidad
 - **Mantenimiento:** 100% administrado por TheIA — sin requerir servidores locales ni mantenimiento técnico
-- **Plazo de puesta en marcha:** Menos de 48 horas
+- **Plazo de puesta en marcha:** 2 semanas (incluye tramitación de canales y marcha blanca)
 - **Cotización:** Evaluación según requerimientos y escala de la empresa
 
 ---

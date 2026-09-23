@@ -39,7 +39,7 @@ Cada área comercial cuenta con un agente preconfigurado con reglas y herramient
 ## 3. Agentes Dedicados & Operación en la Nube
 
 Para empresas que requieren agentes autónomos propios o arquitecturas tipo Hermes, NemoClaw u OpenClaw:
-- **Habilitación en <48 horas:** Configuración del harness, memoria persistente e inyección de directivas operativas.
+- **Habilitación en 2 semanas:** Configuración del harness, memoria persistente e inyección de directivas operativas.
 - **Hosting 24/7 en la nube:** Operación continua sin necesidad de hardware local ni servidores en la oficina.
 - **Cero mantenimiento técnico:** TheIA administra la infraestructura, observabilidad y resiliencia.
 - **Conexión multicanal:** WhatsApp, correo electrónico, Google Calendar y ERPs.
