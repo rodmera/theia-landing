@@ -68,7 +68,7 @@ def browser_type_launch_args():
 
 # Páginas estáticas del sitio (los _posts Jekyll requieren build de Pages — no van acá).
 PAGES = ["/", "/funciones.html", "/precios.html", "/servicios.html",
-         "/panel.html", "/calculadora.html", "/pulse.html",
+         "/panel.html", "/calculadora.html", "/pulse.html", "/cerebro.html",
          "/casos.html", "/nosotros.html", "/privacidad.html", "/terminos.html", "/blog/",
          "/atencion-whatsapp.html", "/cotizaciones-agendamiento.html", "/seguimiento-equipo.html",
          "/atencion-cliente.html", "/criterios.html", "/cumplimiento.html", "/crm.html", "/salud.html", "/servicios-pyme.html", "/automotriz.html", "/comercio.html", "/alternativa-crm.html", "/migracion.html",

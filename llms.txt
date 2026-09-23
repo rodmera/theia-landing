@@ -23,6 +23,7 @@ TheIA atiende consultas con contexto, cotiza con precisión, agenda reuniones y 
 - [Alternativa Tarifa Plana CRM](https://theia.cl/alternativa-crm): Comparativa transparente del modelo de tarifa plana ($250.000/mes con $0 por asiento adicional) frente al cobro por usuario/vendedor.
 - [Migración de Datos CRM](https://theia.cl/migracion): Proceso transparente y reversible de importación de contactos, deals, etapas y notas desde tu CRM actual hacia TheIA en 24 horas.
 - [Servicios Especializados & Integración](https://theia.cl/servicios): Ingeniería de agentes a medida, orquestación avanzada e integraciones LLM con soporte local en Chile.
+- [TheIA Cerebro Empresarial](https://theia.cl/cerebro): La IA de tu empresa implementada llave en mano. Conexión de documentos, ERP, planillas y minutas de reuniones para toma de decisiones y automatización interna sin programar.
 - [Seguridad y Privacidad de Datos](https://theia.cl/cumplimiento): Privacidad, protección de datos sensibles de clientes, encriptación y resguardo de información comercial en Chile.
 - [Arquitectura & Orquestación B2B](https://theia.cl/orquestacion): Arquitectura determinista multi-agente para empresas (HU-WEB-039 / HU-WEB-040).
 - [Centro de Confianza & Legal](https://theia.cl/confianza): Términos, Privacidad, DPA y Lista de Subprocesadores (HU-WEB-034).

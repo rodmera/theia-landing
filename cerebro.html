@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Security Meta Tags -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://admin.theia.cl; connect-src 'self' https:;">
+
+  <!-- Cookie Consent + Analytics -->
+  <script src="/cc-init.js"></script>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>TheIA Cerebro — La IA de tu empresa implementada llave en mano</title>
+  <link rel="canonical" href="https://theia.cl/cerebro" />
+  <link rel="icon" href="/logo.png" type="image/png">
+
+  <meta name="description"
+    content="TheIA Cerebro centraliza tus documentos, planillas, ERP y reuniones en un cerebro privado con IA. Toma decisiones con datos reales y automatiza procesos internos llave en mano." />
+  <meta name="keywords"
+    content="IA para empresas Chile, cerebro empresarial IA, integraciones IA pymes, IA llave en mano, TheIA Cerebro, toma decisiones IA, automatizacion procesos pymes" />
+  <meta name="author" content="TheIA" />
+  <meta name="geo.region" content="CL" />
+  <meta name="geo.placename" content="Santiago, Chile" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://theia.cl/cerebro" />
+  <meta property="og:site_name" content="TheIA" />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:title" content="TheIA Cerebro — La IA de tu empresa implementada llave en mano" />
+  <meta property="og:description"
+    content="Centraliza tus documentos, planillas y reuniones en un cerebro privado con IA. Decisiones con datos reales sin contratar ingenieros." />
+  <meta property="og:image" content="https://theia.cl/logo.png" />
+  <meta property="og:image:width" content="500" />
+  <meta property="og:image:height" content="500" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="TheIA Cerebro — La IA de tu empresa implementada llave en mano" />
+  <meta name="twitter:description"
+    content="Centraliza tus documentos, planillas y reuniones en un cerebro privado con IA. Decisiones con datos reales sin contratar ingenieros." />
+  <meta name="twitter:image" content="https://theia.cl/logo.png" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "TheIA Cerebro",
+    "url": "https://theia.cl/cerebro",
+    "description": "La IA de tu empresa implementada llave en mano. Conecta documentos, ERP, planillas y reuniones para toma de decisiones y automatización interna.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://theia.cl",
+      "name": "TheIA"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="/site-nav.css" />
+  <link rel="stylesheet" href="/site-cards.css" />
+  <link rel="stylesheet" href="/site-footer.css" />
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0f172a;
+      --bg2: #1e293b;
+      --bg3: #334155;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-border-gold: rgba(212, 175, 55, 0.4);
+      --gold: #d4af37;
+      --gold-light: #ebca73;
+      --gold-glow: rgba(212, 175, 55, 0.25);
+      --indigo: #4f46e5;
+      --indigo-light: #6366f1;
+      --text: #ffffff;
+      --text-sub: rgba(255, 255, 255, 0.7);
+      --text-muted: rgba(255, 255, 255, 0.4);
+      --green: #34c77b;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    section {
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Section Titles Homologados */
+    .section-title {
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+      text-align: center;
+      color: var(--text, #ffffff);
+    }
+
+    .section-title .gold {
+      color: var(--gold);
+    }
+
+    .section-sub {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--text-sub);
+      max-width: 680px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+
+    /* Badge */
+    .dash-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: var(--gold-light);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Hero */
+    .cerebro-hero {
+      padding: 8.5rem 0 5rem;
+      text-align: center;
+      background: radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.12) 0%, rgba(15, 23, 42, 0) 70%);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #0f172a;
+      border: 1px solid var(--gold);
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-gold {
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      border: 1px solid var(--glass-border);
+    }
+
+    .btn-outline-gold:hover {
+      border-color: var(--glass-border-gold);
+      color: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      background: #25d366;
+      color: #ffffff;
+      border: 1px solid #25d366;
+    }
+
+    .btn-whatsapp:hover {
+      background: #20ba59;
+      transform: translateY(-2px);
+    }
+
+    /* Grid de Pilares Lean */
+    .lean-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    @media (max-width: 860px) {
+      .lean-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .lean-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 2rem 1.75rem;
+      text-align: left;
+      transition: all 0.25s ease;
+    }
+
+    .lean-card:hover {
+      border-color: var(--glass-border-gold);
+      transform: translateY(-3px);
+    }
+
+    .lean-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid var(--glass-border-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+
+    .lean-card h3 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 0.65rem;
+      color: var(--text);
+    }
+
+    .lean-card p {
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: var(--text-sub);
+    }
+
+    /* Sección Pasos */
+    .steps-section {
+      padding: 5rem 0;
+      background: var(--bg2);
+      border-top: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 860px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .step-item {
+      background: var(--bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      position: relative;
+    }
+
+    .step-num {
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .step-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .step-desc {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--text-sub);
+    }
+
+    /* Casos de Uso */
+    .use-cases-section {
+      padding: 5rem 0;
+    }
+
+    .use-case-box {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 2.25rem;
+      margin-bottom: 1.5rem;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .use-case-box {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+
+    .use-case-header h3 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--gold-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .use-case-header span {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .use-case-body p {
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: var(--text-sub);
+      margin-bottom: 0.75rem;
+    }
+
+    .use-case-quote {
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 3px solid var(--gold);
+      padding: 0.75rem 1rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      font-style: italic;
+    }
+
+    /* CTA Final */
+    .cta-final {
+      padding: 6rem 0;
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
+      border-top: 1px solid var(--glass-border);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navegación Homologada -->
+  <nav class="site-header" data-site-nav data-site-nav-page="cerebro" data-site-nav-source="cerebro" aria-label="Navegación principal">
+    <a href="/" class="logo">
+      <img src="/logo.png" alt="TheIA — Inteligencia Artificial para Empresas" width="100" height="100" />
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-nav-drawer">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-cta site-nav" data-site-nav-mount id="site-nav-drawer">
+      <!-- 1. Dropdown Soluciones -->
+      <div class="site-nav__group site-nav__group--solutions">
+        <button type="button" class="site-nav__trigger site-nav__trigger--active" aria-expanded="false" aria-controls="site-solutions-menu">
+          Soluciones
+          <svg class="site-nav__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div id="site-solutions-menu" class="site-nav__popover site-nav__popover--solutions" aria-label="Soluciones TheIA">
+          <a href="/atencion-cliente" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Atención</div>
+              <div class="site-nav__card-desc">WhatsApp, Instagram y Web con contexto</div>
+            </div>
+          </a>
+          <a href="/pulse" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">TheIA Pulse</div>
+              <div class="site-nav__card-desc">Copiloto por WhatsApp para el dueño</div>
+            </div>
+          </a>
+          <a href="/cerebro" class="site-nav__card site-nav__card--active" aria-current="page">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">TheIA Cerebro</div>
+              <div class="site-nav__card-desc">La IA de tu empresa llave en mano</div>
+            </div>
+          </a>
+          <a href="/crm" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">CRM</div>
+              <div class="site-nav__card-desc">Gestión comercial desde la conversación</div>
+            </div>
+          </a>
+          <a href="/panel" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Panel de Control</div>
+              <div class="site-nav__card-desc">Supervisión y métricas en vivo</div>
+            </div>
+          </a>
+          <a href="/orquestacion" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Arquitectura B2B</div>
+              <div class="site-nav__card-desc">Datos exactos y control total</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. Enlace Directo Servicios -->
+      <a href="/servicios" class="site-nav__link">Servicios</a>
+
+      <!-- 3. Dropdown Industrias -->
+      <div class="site-nav__group site-nav__group--industries">
+        <button type="button" class="site-nav__trigger" aria-expanded="false" aria-controls="site-industries-menu">
+          Industrias
+          <svg class="site-nav__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div id="site-industries-menu" class="site-nav__popover site-nav__popover--industries" aria-label="Industrias TheIA">
+          <a href="/salud" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Salud</div>
+              <div class="site-nav__card-desc">Clínicas y centros médicos</div>
+            </div>
+          </a>
+          <a href="/automotriz" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Automotriz</div>
+              <div class="site-nav__card-desc">Talleres y concesionarias</div>
+            </div>
+          </a>
+          <a href="/comercio" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Comercio</div>
+              <div class="site-nav__card-desc">Retail y tiendas comerciales</div>
+            </div>
+          </a>
+          <a href="/casos" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Casos</div>
+              <div class="site-nav__card-desc">Resultados e historias de éxito</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- 4. Enlace Directo Cómo ayuda -->
+      <a href="/funciones" class="site-nav__link">Cómo ayuda</a>
+
+      <!-- 5. Enlace Directo Precios -->
+      <a href="/precios" class="site-nav__link">Precios</a>
+
+      <!-- 6. Dropdown Recursos -->
+      <div class="site-nav__group site-nav__group--resources">
+        <button type="button" class="site-nav__trigger" aria-expanded="false" aria-controls="site-resources-menu">
+          Recursos
+          <svg class="site-nav__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div id="site-resources-menu" class="site-nav__popover site-nav__popover--resources" aria-label="Recursos TheIA">
+          <a href="/blog/" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Blog</div>
+              <div class="site-nav__card-desc">Artículos, guías y novedades</div>
+            </div>
+          </a>
+          <a href="/criterios" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Criterios</div>
+              <div class="site-nav__card-desc">Pauta para evaluar agentes de IA</div>
+            </div>
+          </a>
+          <a href="/calculadora" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Calculadora</div>
+              <div class="site-nav__card-desc">Calcula el retorno de inversión</div>
+            </div>
+          </a>
+          <a href="/cumplimiento" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Cumplimiento</div>
+              <div class="site-nav__card-desc">Seguridad, privacidad y Ley 21.719</div>
+            </div>
+          </a>
+          <a href="/confianza" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Confianza & Legal</div>
+              <div class="site-nav__card-desc">DPA, subprocesadores y seguridad</div>
+            </div>
+          </a>
+          <a href="/facil" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Setup en 3 Audios</div>
+              <div class="site-nav__card-desc">Activación ágil para tu negocio</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- 7. Enlace Directo Nosotros -->
+      <a href="/nosotros" class="site-nav__link">Nosotros</a>
+
+      <!-- 8. Enlaces Directos Móviles (Drawer <= 960px) -->
+      <div class="site-nav__mobile-links">
+        <div class="site-nav__mobile-section-label">Soluciones</div>
+        <a href="/atencion-cliente" class="site-nav__link">Atención</a>
+        <a href="/pulse" class="site-nav__link">Pulse</a>
+        <a href="/cerebro" class="site-nav__link">Cerebro</a>
+        <a href="/crm" class="site-nav__link">CRM</a>
+        <a href="/panel" class="site-nav__link">Panel de Control</a>
+        <a href="/orquestacion" class="site-nav__link">Arquitectura B2B</a>
+
+        <div class="site-nav__mobile-section-label">Servicios Especializados</div>
+        <a href="/servicios" class="site-nav__link">Servicios</a>
+
+        <div class="site-nav__mobile-section-label">Industrias</div>
+        <a href="/salud" class="site-nav__link">Salud</a>
+        <a href="/servicios-pyme" class="site-nav__link">Servicios Profesionales B2B</a>
+        <a href="/automotriz" class="site-nav__link">Automotriz</a>
+        <a href="/comercio" class="site-nav__link">Comercio</a>
+        <a href="/casos" class="site-nav__link">Casos</a>
+
+        <div class="site-nav__mobile-section-label">Plataforma & Precios</div>
+        <a href="/funciones" class="site-nav__link">Cómo ayuda</a>
+        <a href="/precios" class="site-nav__link">Precios</a>
+        <a href="/nosotros" class="site-nav__link">Nosotros</a>
+
+        <div class="site-nav__mobile-section-label">Recursos</div>
+        <a href="/blog/" class="site-nav__link">Blog</a>
+        <a href="/criterios" class="site-nav__link">Criterios</a>
+        <a href="/calculadora" class="site-nav__link">Calculadora</a>
+        <a href="/cumplimiento" class="site-nav__link">Cumplimiento</a>
+        <a href="/confianza" class="site-nav__link">Confianza & Legal</a>
+        <a href="/facil" class="site-nav__link">Setup en 3 Audios</a>
+      </div>
+
+      <!-- 9. Demo CTA -->
+      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold site-nav__demo" onclick="theiaTrackCTA('demo','cerebro')">Agenda una demo →</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <!-- Hero Lean -->
+    <section class="cerebro-hero">
+      <div class="container" style="max-width: 860px;">
+        <div class="dash-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          Nuevo Producto · Modo Llave en Mano
+        </div>
+        <h1 class="section-title">La Inteligencia Artificial de tu Negocio, <span class="gold">Llave en Mano.</span></h1>
+        <p class="section-sub">
+          Centraliza tus documentos, planillas, ERP y reuniones en un cerebro privado con IA. Toma decisiones con datos reales y automatiza tareas internas sin contratar ingenieros ni cambiar tus sistemas.
+        </p>
+        <div class="hero-actions">
+          <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold">
+            Agendar levantamiento técnico (30 min) →
+          </a>
+          <a href="https://wa.me/12063858350?text=Hola%20TheIA%2C%20quiero%20conocer%20TheIA%20Cerebro%20para%20mi%20empresa" target="_blank" rel="noopener" class="btn btn-whatsapp">
+            Consultar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pilares Lean -->
+    <section style="padding: 4rem 0;">
+      <div class="container">
+        <div style="text-align: center; max-width: 680px; margin: 0 auto 3rem;">
+          <h2 class="section-title">El Conocimiento de tu Empresa <span class="gold">Trabajando para Ti.</span></h2>
+          <p class="section-sub">Deja de buscar en veinte carpetas o esperar semanas por un informe. TheIA conecta tus datos y responde al instante.</p>
+        </div>
+
+        <div class="lean-grid">
+          <!-- Pilar 1 -->
+          <div class="lean-card">
+            <div class="lean-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
+            </div>
+            <h3>Conexión Total de Fuentes</h3>
+            <p>Conectamos lo que ya usas: carpetas de Google Drive, planillas contables, acuerdos en correos, facturación ERP y minutas de reuniones de gerencia.</p>
+          </div>
+
+          <!-- Pilar 2 -->
+          <div class="lean-card">
+            <div class="lean-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+            </div>
+            <h3>Toma de Decisiones en Vivo</h3>
+            <p>Pregunta en español y con números reales de tu negocio. El cerebro cruza ventas contra costos y te entrega respuestas citando el documento de origen exacto.</p>
+          </div>
+
+          <!-- Pilar 3 -->
+          <div class="lean-card">
+            <div class="lean-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <h3>Cero Trabajo Técnico</h3>
+            <p>Nosotros hacemos el levantamiento, limpiamos tus datos, configuramos los permisos de seguridad y calibramos los agentes. Te entregamos el sistema listo para operar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cómo Funciona (3 Pasos) -->
+    <section class="steps-section">
+      <div class="container">
+        <div style="text-align: center; max-width: 680px; margin: 0 auto 3rem;">
+          <h2 class="section-title">Puesta en Marcha en <span class="gold">3 Semanas.</span></h2>
+          <p class="section-sub">Un proceso estructurado para que tu equipo adopte IA sin fricción ni desvíos operativos.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-item">
+            <div class="step-num">01</div>
+            <div class="step-title">Levantamiento & Conexión</div>
+            <div class="step-desc">Identificamos los documentos clave, planillas operativas y sistemas que tu negocio utiliza a diario. Conectamos los accesos bajo estricta confidencialidad.</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">02</div>
+            <div class="step-title">Estructuración & Reglas</div>
+            <div class="step-desc">TheIA limpia y organiza tu información en un cerebro unificado. Definimos qué áreas pueden consultar cada dato para asegurar permisos transparentes.</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">03</div>
+            <div class="step-title">Despliegue & Operación</div>
+            <div class="step-desc">Tu equipo y tú acceden desde un canal privado (chat o web). Capacitamos a tus colaboradores y monitoreamos el desempeño 24/7 en la nube.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Casos de Uso Concretos -->
+    <section class="use-cases-section">
+      <div class="container">
+        <div style="text-align: center; max-width: 680px; margin: 0 auto 3rem;">
+          <h2 class="section-title">Casos de Uso para <span class="gold">la Dirección y el Equipo.</span></h2>
+          <p class="section-sub">Respuestas concretas para los dolores operativos que frenan a las empresas en crecimiento.</p>
+        </div>
+
+        <!-- Caso 1 -->
+        <div class="use-case-box">
+          <div class="use-case-header">
+            <span>Control de Gestión</span>
+            <h3>Márgenes & Costos</h3>
+          </div>
+          <div class="use-case-body">
+            <p>Cruza las ventas del ERP contra las planillas de costos de compra sin tener que armar tablas dinámicas complejas.</p>
+            <div class="use-case-quote">"¿Cuál fue el margen real de la categoría repuestos este mes y qué proveedores aumentaron tarifas?"</div>
+          </div>
+        </div>
+
+        <!-- Caso 2 -->
+        <div class="use-case-box">
+          <div class="use-case-header">
+            <span>Operaciones & Gerencia</span>
+            <h3>Acuerdos de Reuniones</h3>
+          </div>
+          <div class="use-case-body">
+            <p>Indexa los audios y minutas de comités o reuniones para que ningún compromiso asumido por jefaturas quede en el aire.</p>
+            <div class="use-case-quote">"¿Qué compromisos se acordaron en la reunión comercial del martes y cuáles están pendientes?"</div>
+          </div>
+        </div>
+
+        <!-- Caso 3 -->
+        <div class="use-case-box">
+          <div class="use-case-header">
+            <span>Legal & Proveedores</span>
+            <h3>Contratos & Políticas</h3>
+          </div>
+          <div class="use-case-body">
+            <p>Revisa cláusulas de garantía, plazos de entrega y condiciones especiales acordadas con clientes o proveedores en segundos.</p>
+            <div class="use-case-quote">"¿Qué penalización aplica si el proveedor logístico se atrasa más de 48 horas según el contrato vigente?"</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-final">
+      <div class="container" style="max-width: 720px;">
+        <h2 class="section-title">Lleva la IA a tu Negocio <span class="gold">sin Complicaciones.</span></h2>
+        <p class="section-sub" style="margin-bottom: 2rem;">
+          Evaluemos en 30 minutos qué procesos y documentos de tu empresa se pueden conectar hoy para empezar a ahorrar tiempo de inmediato.
+        </p>
+        <div class="hero-actions">
+          <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold">
+            Agendar conversación técnica (30 min) →
+          </a>
+          <a href="https://wa.me/12063858350?text=Hola%20TheIA%2C%20quiero%20evaluar%20TheIA%20Cerebro%20en%20mi%20empresa" target="_blank" rel="noopener" class="btn btn-whatsapp">
+            Hablar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Homologado -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-col footer-col--brand">
+        <a href="/" class="logo"><img src="/logo.png" alt="TheIA — Inteligencia Artificial para Negocios" width="70" height="70" /></a>
+        <p>Agentes e infraestructura de Inteligencia Artificial para empresas. Acelera la atención de clientes y la toma de decisiones con datos reales de tu negocio.</p>
+        <div class="footer-craft">
+          <a href="https://omarchy.org" target="_blank" rel="noopener" class="footer-craft-link" title="Software desarrollado en Omarchy Linux">
+            <svg class="footer-craft-icon" viewBox="0 0 1200 1200" width="13" height="13" fill="currentColor"><path clip-rule="evenodd" d="m1200 1200h-480v-80h400v-1040h-479.996v160h-400v720h720v-720h-80v-80h159.996v880h-400v160h-640v-1200h1200zm-1120-80h480v-80h-400l.004-400h-80.004zm0-560h80.004v-400h400v-80h-480.004z" fill-rule="evenodd"/></svg>
+            <span>Desarrollado en Omarchy Linux</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Productos</h4>
+        <div class="footer-links-group">
+          <a href="/atencion-cliente">Atención & Ventas</a>
+          <a href="/pulse">TheIA Pulse</a>
+          <a href="/cerebro">TheIA Cerebro</a>
+          <a href="/crm">CRM Comercial</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <div class="footer-links-group">
+          <a href="/nosotros">Nosotros</a>
+          <a href="/precios">Precios</a>
+          <a href="/confianza">Confianza & Legal</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <div class="footer-links-group">
+          <a href="/privacidad.html">Privacidad</a>
+          <a href="/terminos.html">Términos</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">TheIA Agent by THEIA.CL © 2026 · Todos los derechos reservados.</div>
+      <div class="footer-legal-links">
+        <a href="/privacidad">Política de Privacidad</a>
+        <a href="/terminos.html">Términos de Servicio</a>
+        <a href="/confianza">Confianza & DPA</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/site-nav.js"></script>
+  <!-- TheIA Web Chat Widget (carga desde backend — updates automáticos) -->
+  <script src="/webchat-cta.js"></script>
+  <script src="https://admin.theia.cl/static/js/webchat-widget.js"
+          data-api-key="8da817eb-2cbf-42df-8b57-bb86288670de"
+          data-api-url="https://admin.theia.cl"
+          data-title="Asistente TheIA"
+          data-color="#d4af37"
+          data-welcome="¡Hola! 👋 ¿Qué te trae por aquí?"
+          data-prechat="false"
+          data-welcome-replies="Ver precios,Cómo funciona,Agendar demo">
+  </script>
+</body>
+
+</html>
