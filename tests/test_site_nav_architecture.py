@@ -68,8 +68,8 @@ def test_surface_loads_assets_and_has_nav_contract(page_path):
     assert "data-site-nav-source" in content, f"{file.name} debe incluir atributo data-site-nav-source"
 
 
-def test_desktop_three_dropdowns_interaction(desktop_page):
-    """Verifica en desktop que los 3 dropdowns (Soluciones, Industrias, Recursos) funcionen de forma independiente."""
+def test_desktop_two_dropdowns_interaction(desktop_page):
+    """Verifica en desktop que los 2 dropdowns simplificados (Soluciones, Recursos) funcionen de forma independiente."""
     desktop_page.goto(f"{BASE}/", wait_until="domcontentloaded")
     desktop_page.wait_for_timeout(200)
     
@@ -83,24 +83,11 @@ def test_desktop_three_dropdowns_interaction(desktop_page):
     assert popover_sol.is_visible()
     assert popover_sol.locator("a[href='/atencion-cliente']").count() == 1
     assert popover_sol.locator("a[href='/pulse']").count() == 1
+    assert popover_sol.locator("a[href='/cerebro']").count() == 1
     assert popover_sol.locator("a[href='/crm']").count() == 1
     assert popover_sol.locator("a[href='/panel']").count() == 1
     
-    # 2. Dropdown Industrias
-    ind_trigger = desktop_page.locator(".site-nav__trigger:has-text('Industrias')").first
-    assert ind_trigger.is_visible()
-    ind_trigger.hover()
-    desktop_page.wait_for_timeout(150)
-    
-    popover_ind = desktop_page.locator("#site-industries-menu, .site-nav__popover--industries").first
-    assert popover_ind.is_visible()
-    assert popover_ind.locator("a[href='/salud']").count() == 1
-    assert popover_ind.locator("a[href='/servicios-pyme']").count() == 0
-    assert popover_ind.locator("a[href='/automotriz']").count() == 1
-    assert popover_ind.locator("a[href='/comercio']").count() == 1
-    assert popover_ind.locator("a[href='/casos']").count() == 1
-    
-    # 3. Dropdown Recursos
+    # 2. Dropdown Recursos
     rec_trigger = desktop_page.locator(".site-nav__trigger:has-text('Recursos')").first
     assert rec_trigger.is_visible()
     rec_trigger.hover()
@@ -112,10 +99,9 @@ def test_desktop_three_dropdowns_interaction(desktop_page):
     assert popover_rec.locator("a[href='/criterios']").count() == 1
     assert popover_rec.locator("a[href='/calculadora']").count() == 1
     assert popover_rec.locator("a[href='/cumplimiento']").count() == 1
+    assert popover_rec.locator("a[href='/casos']").count() == 1
     
-    # Enlaces directos visibles en orden lógico (Servicios -> Cómo ayuda -> Precios -> [Recursos] -> Nosotros)
-    assert desktop_page.locator(".site-nav > a[href='/servicios']").first.is_visible()
-    assert desktop_page.locator(".site-nav > a[href='/funciones']").first.is_visible()
+    # Enlaces directos visibles en orden lógico (Precios -> Nosotros -> Demo)
     assert desktop_page.locator(".site-nav > a[href='/precios']").first.is_visible()
     assert desktop_page.locator(".site-nav > a[href='/nosotros']").first.is_visible()
     assert desktop_page.locator(".site-nav .site-nav__demo").first.is_visible()

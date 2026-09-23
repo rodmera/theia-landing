@@ -32,35 +32,33 @@ def get_html_file(path_str):
 
 @pytest.mark.parametrize("page_path", NAV_SURFACES)
 def test_navbar_exact_order_and_b2b_label(page_path):
-    """Verifica que el navbar tenga Servicios en 2da posición y 'Servicios Profesionales B2B' en Industrias."""
+    """Verifica que el navbar tenga el orden simplificado y 'Servicios Profesionales B2B' en enlaces móviles."""
     file = get_html_file(page_path)
     content = file.read_text(encoding="utf-8")
     
-    # 1. En Industrias dropdown, la etiqueta de /servicios-pyme es 'Servicios Profesionales B2B'
+    # 1. Enlaces móviles / recursos contienen 'Servicios Profesionales B2B'
     assert 'Servicios Profesionales B2B' in content, f"{file.name} debe contener la etiqueta 'Servicios Profesionales B2B'"
     
-    # 2. Orden de enlaces directos / dropdowns en desktop:
-    # Soluciones -> Servicios -> Industrias -> Cómo ayuda -> Precios -> Recursos -> Nosotros
+    # 2. Orden simplificado de navegación en desktop:
+    # Soluciones -> Precios -> Recursos -> Nosotros
     pos_soluciones = content.find('site-nav__group--solutions')
-    pos_servicios = content.find('href="/servicios"')
-    pos_industrias = content.find('site-nav__group--industries')
-    pos_funciones = content.find('href="/funciones"')
     pos_precios = content.find('href="/precios"')
     pos_recursos = content.find('site-nav__group--resources')
     pos_nosotros = content.find('href="/nosotros"')
     
     assert pos_soluciones != -1, f"Falta Soluciones en {file.name}"
-    assert pos_servicios != -1, f"Falta enlace directo Servicios en {file.name}"
-    assert pos_industrias != -1, f"Falta Industrias en {file.name}"
-    assert pos_funciones != -1, f"Falta Cómo ayuda en {file.name}"
     assert pos_precios != -1, f"Falta Precios en {file.name}"
     assert pos_recursos != -1, f"Falta Recursos en {file.name}"
     assert pos_nosotros != -1, f"Falta Nosotros en {file.name}"
     
-    assert pos_soluciones < pos_servicios < pos_industrias < pos_funciones < pos_precios < pos_recursos < pos_nosotros, (
+    assert pos_soluciones < pos_precios < pos_recursos < pos_nosotros, (
         f"En {file.name}, el orden de navegación debe ser exactamente: "
-        f"Soluciones -> Servicios -> Industrias -> Cómo ayuda -> Precios -> Recursos -> Nosotros."
+        f"Soluciones -> Precios -> Recursos -> Nosotros."
     )
+    
+    # 3. Servicios y Funciones están disponibles como recursos / enlaces
+    assert 'href="/servicios"' in content, f"Falta enlace a /servicios en {file.name}"
+    assert 'href="/funciones"' in content, f"Falta enlace a /funciones en {file.name}"
 
 
 def test_home_and_servicios_contain_specialized_ai_pillars():
@@ -85,20 +83,20 @@ def test_home_and_servicios_contain_specialized_ai_pillars():
 
 
 def test_desktop_navbar_order_in_browser(desktop_page):
-    """Verifica en desktop que la barra superior renderice en la secuencia visual exacta."""
+    """Verifica en desktop que la barra superior renderice en la secuencia visual simplificada."""
     desktop_page.goto(f"{BASE}/", wait_until="domcontentloaded")
     desktop_page.wait_for_timeout(200)
     
-    # 2da posición debe ser el enlace directo 'Servicios'
+    # 2da posición es el enlace directo 'Precios'
     second_nav_item = desktop_page.locator(".site-nav > a, .site-nav > .site-nav__group").nth(1)
-    assert second_nav_item.inner_text().strip() == "Servicios"
-    assert second_nav_item.get_attribute("href") == "/servicios"
+    assert second_nav_item.inner_text().strip() == "Precios"
+    assert second_nav_item.get_attribute("href") == "/precios"
     
-    # Hover en Industrias muestra las 4 industrias canónicas (sin duplicar servicios)
-    ind_trigger = desktop_page.locator(".site-nav__trigger:has-text('Industrias')").first
-    ind_trigger.hover()
+    # Hover en Recursos muestra Servicios Especializados
+    rec_trigger = desktop_page.locator(".site-nav__trigger:has-text('Recursos')").first
+    rec_trigger.hover()
     desktop_page.wait_for_timeout(150)
     
-    ind_popover = desktop_page.locator("#site-industries-menu")
-    assert ind_popover.locator("a[href='/servicios-pyme']").count() == 0
-    assert ind_popover.locator("a[href='/salud']").is_visible()
+    rec_popover = desktop_page.locator("#site-resources-menu")
+    assert rec_popover.locator("a[href='/servicios']").is_visible()
+    assert rec_popover.locator("a[href='/casos']").is_visible()

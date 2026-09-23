@@ -29,12 +29,12 @@ ACTIVE_NAV_MAP = {
     "/crm.html": "/crm",
     "/alternativa-crm.html": "/crm",
     "/panel.html": "/panel",
-    "/salud.html": "/salud",
+    "/salud.html": "/casos",
     "/servicios.html": "/servicios",
-    "/servicios-pyme.html": "/servicios-pyme",
-    "/automotriz.html": "/automotriz",
-    "/comercio.html": "/comercio",
-    "/inmobiliaria.html": "/inmobiliaria",
+    "/servicios-pyme.html": "/servicios",
+    "/automotriz.html": "/casos",
+    "/comercio.html": "/casos",
+    "/inmobiliaria.html": "/casos",
     "/casos.html": "/casos",
     "/funciones.html": "/funciones",
     "/cotizaciones-agendamiento.html": "/funciones",
@@ -114,10 +114,10 @@ def test_navbar_visual_desktop_styles(desktop_page):
     desktop_page.goto(f"{BASE}/", wait_until="domcontentloaded")
     desktop_page.wait_for_timeout(200)
     
-    # En desktop, los enlaces visibles directos son las 4 secciones (Servicios, Cómo ayuda, Precios, Nosotros)
+    # En desktop simplificado, los enlaces visibles directos son 2 secciones (Precios, Nosotros)
     direct_links = desktop_page.locator(".site-nav > .site-nav__link")
     count = direct_links.count()
-    assert count == 4, f"Se esperaban 4 enlaces de texto directos en desktop, se encontraron {count}"
+    assert count == 2, f"Se esperaban 2 enlaces de texto directos en desktop (Precios, Nosotros), se encontraron {count}"
     
     for i in range(count):
         link = direct_links.nth(i)
@@ -132,10 +132,10 @@ def test_navbar_visual_desktop_styles(desktop_page):
             f"En desktop, el enlace {i} tiene fondo de botón: {bg_color}"
         )
     
-    # Disparadores de dropdown también son texto limpio
+    # Disparadores de dropdown simplificados: Soluciones y Recursos
     triggers = desktop_page.locator(".site-nav__trigger")
-    assert triggers.count() == 3
-    for i in range(3):
+    assert triggers.count() == 2, f"Se esperaban 2 disparadores de dropdown (Soluciones, Recursos), se encontraron {triggers.count()}"
+    for i in range(2):
         trig = triggers.nth(i)
         assert trig.is_visible()
         trig_border = trig.evaluate("el => getComputedStyle(el).borderWidth")
