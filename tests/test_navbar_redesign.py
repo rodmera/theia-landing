@@ -25,6 +25,7 @@ ACTIVE_NAV_MAP = {
     "/atencion-cliente.html": "/atencion-cliente",
     "/atencion-whatsapp.html": "/atencion-cliente",
     "/pulse.html": "/pulse",
+    "/cerebro.html": "/cerebro",
     "/crm.html": "/crm",
     "/alternativa-crm.html": "/crm",
     "/panel.html": "/panel",

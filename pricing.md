@@ -42,20 +42,27 @@
 
 ---
 
-## 3. Plan Empresa (A Medida)
-- **Precio:** Desde $450.000 CLP + IVA / mes (Setup a evaluar según integración)
-- **Alcance:** Múltiples números de WhatsApp, conexiones por API a sistemas legados o ERPs propios, SLA dedicado y agentes dedicados en la nube.
-
-## 3. Agentes Dedicados & Operación en la Nube
-- **Servicio:** Habilitación, despliegue y operación 24/7 en la nube para agentes inteligentes dedicados de empresa (Hermes, NemoClaw, OpenClaw o arquitecturas a medida)
-- **Disponibilidad:** 24/7 en infraestructura cloud de alta disponibilidad
-- **Mantenimiento:** 100% administrado por TheIA — sin requerir servidores locales ni mantenimiento técnico
-- **Plazo de puesta en marcha:** 2 semanas (incluye tramitación de canales y marcha blanca)
-- **Cotización:** Evaluación según requerimientos y escala de la empresa
+## 3. TheIA Cerebro (Llave en Mano)
+- **Precio:** $150.000 CLP + IVA / mes
+- **Setup Inicial:** $150.000 CLP + IVA (Puesta en marcha en 3 semanas)
+- **Alcance:** Conexión de carpetas de Google Drive, planillas contables (Sheets/Excel), facturación ERP (Bsale, Defontana, Softland) y minutas de reuniones de gerencia.
+- **Usuarios / Colaboradores:** Ilimitados ($0 CLP por persona adicional)
+- **Módulos incluidos:**
+  - Cerebro privado con IA para consultas estratégicas y toma de decisiones con datos reales
+  - Indexación de acuerdos de comités y minutas
+  - Cruce de ventas contra costos operativos
+  - Permisos por área y estricta confidencialidad de datos
+- **Contrato:** Suscripción mensual sin plazo de permanencia.
 
 ---
 
-## 4. Comparativa de Costos vs. Chatbots Tradicionales y CRMs por Asiento
+## 4. Plan Empresa (A Medida)
+- **Precio:** Desde $450.000 CLP + IVA / mes (Setup a evaluar según integración)
+- **Alcance:** Múltiples números de WhatsApp, conexiones por API a sistemas legados o ERPs propios, SLA dedicado y agentes dedicados en la nube.
+
+---
+
+## 5. Comparativa de Costos vs. Chatbots Tradicionales y CRMs por Asiento
 
 | Criterio | TheIA | CRM Tradicional / Cobro por Asiento | Chatbots con Menús Numéricos |
 | :--- | :--- | :--- | :--- |
@@ -68,7 +75,7 @@
 
 ---
 
-## 5. Datos de Contacto y Contratación
+## 6. Datos de Contacto y Contratación
 - **Razón Social:** THEIA SERVICIOS TECNOLÓGICOS SpA
 - **RUT:** 78.474.636-4
 - **Sitio Web Oficial:** https://theia.cl
