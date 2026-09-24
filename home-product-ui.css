@@ -2208,33 +2208,28 @@
   }
 }
 
+.theia-card.triada-card,
 .triada-card {
   background: var(--glass, rgba(15, 23, 42, 0.75));
   border: 1px solid var(--glass-border);
   border-radius: 16px;
-  padding: 2rem 1.75rem;
+  padding: 2.25rem 2rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  align-items: flex-start !important;
+  text-align: left !important;
   transition: transform 0.25s var(--bezier-smooth), border-color 0.25s var(--bezier-smooth), box-shadow 0.25s var(--bezier-smooth);
   box-shadow: var(--e1);
 }
 
+.theia-card.triada-card:hover,
 .triada-card:hover {
   transform: translateY(-3px);
   border-color: var(--glass-border-gold);
   box-shadow: var(--e2);
 }
 
-.triada-card__top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 1.25rem;
-}
-
+.theia-card.triada-card .triada-card__icon,
 .triada-card__icon {
   width: 44px;
   height: 44px;
@@ -2245,45 +2240,35 @@
   align-items: center;
   justify-content: center;
   color: var(--gold);
+  margin-bottom: 1.25rem;
+  margin-left: 0 !important;
+  align-self: flex-start !important;
 }
 
-.triada-card__badge {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--gold-light);
-  background: rgba(212, 175, 55, 0.08);
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-}
-
+.theia-card.triada-card .triada-card__title,
 .triada-card__title {
   font-family: 'Merriweather', serif;
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--text);
   margin-bottom: 0.75rem;
-  text-align: left;
+  text-align: left !important;
+  align-self: flex-start !important;
 }
 
+.theia-card.triada-card p,
+.theia-card.triada-card .triada-card__desc,
 .triada-card__desc {
-  font-size: 0.92rem;
-  line-height: 1.65;
-  color: var(--text-sub);
-  margin-bottom: 1.25rem;
+  font-size: 0.95rem !important;
+  line-height: 1.65 !important;
+  color: var(--text-sub) !important;
+  margin-bottom: 1.5rem !important;
   flex-grow: 1;
-  text-align: left;
+  text-align: left !important;
+  align-self: flex-start !important;
 }
 
-.triada-card__pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-bottom: 1.5rem;
-}
-
+.theia-card.triada-card .triada-card__link,
 .triada-card__link {
   display: inline-flex;
   align-items: center;
@@ -2294,7 +2279,8 @@
   text-decoration: none;
   transition: color 0.2s ease, transform 0.2s ease;
   margin-top: auto;
-  text-align: left;
+  text-align: left !important;
+  align-self: flex-start !important;
 }
 
 .triada-card__link:hover {
