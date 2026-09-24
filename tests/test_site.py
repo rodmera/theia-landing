@@ -557,11 +557,11 @@ def test_badge_nvidia_inception_oficial():
     assert "NVIDIA Inception Program" in source_home, (
         "el copy de la home no usa el wording oficial 'NVIDIA Inception Program'"
     )
-    assert "© 2025 NVIDIA, the NVIDIA logo" in source_nosotros, (
-        "falta la línea legal requerida de NVIDIA en nosotros.html"
+    assert "© 2025 NVIDIA, the NVIDIA logo" in source_home, (
+        "falta la línea legal requerida de NVIDIA en index.html"
     )
-    assert "the NVIDIA Inception Program are trademarks" in source_nosotros, (
-        "la línea legal de NVIDIA en nosotros.html no nombra la marca NVIDIA Inception"
+    assert "the NVIDIA Inception Program are trademarks" in source_home, (
+        "la línea legal de NVIDIA en index.html no nombra la marca NVIDIA Inception"
     )
 
 

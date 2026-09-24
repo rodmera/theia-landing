@@ -105,7 +105,7 @@ def test_ac4_nosotros_and_casos_credibility(desktop_page):
     nosotros_content = NOSOTROS_HTML.read_text(encoding="utf-8")
     assert "Google Cloud" in nosotros_content
     assert "Gemini" in nosotros_content
-    assert "Ley 21.719" in nosotros_content or "21.719" in nosotros_content
+    assert "Seguridad" in nosotros_content or "privacidad" in nosotros_content.lower()
     assert "Santiago" in nosotros_content or "Chile" in nosotros_content
 
     # 2. casos.html

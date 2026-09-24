@@ -50,18 +50,14 @@ def test_home_hero_contains_trust_strip():
 
 
 def test_nosotros_contains_manifiesto_and_respaldo_tech():
-    """nosotros.html debe contener el Manifiesto completo y el Respaldo Tecnológico con línea legal de NVIDIA."""
+    """nosotros.html debe contener el Manifiesto y el Respaldo Tecnológico con Google Cloud y Gemini."""
     content = NOSOTROS_HTML.read_text(encoding="utf-8")
     
     assert "Por qué existe" in content or "manifiesto" in content, "nosotros.html debe contener el Manifiesto"
-    assert "La tecnología de las grandes marcas" in content or "respaldo-tech" in content, (
-        "nosotros.html debe contener el Respaldo Tecnológico"
-    )
+    assert "respaldo-tech" in content, "nosotros.html debe contener el Respaldo Tecnológico"
     assert "Google Cloud" in content
     assert "Google Gemini" in content
-    assert "NVIDIA Inception" in content
-    assert "/nvidia-inception-program-badge.png" in content
-    assert "NVIDIA Inception Program are trademarks" in content, "nosotros.html debe incluir la línea legal de NVIDIA"
+    assert "Seguridad" in content
 
 
 def test_cumplimiento_contains_security_pillars():
