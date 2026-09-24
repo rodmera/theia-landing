@@ -95,6 +95,7 @@ def test_t4_single_nosotros_link_visible_in_mobile_drawer(mobile_page):
 def test_t5_mobile_click_nosotros_navigates_and_closes_drawer(mobile_page):
     """HU-WEB-027 AC3, AC4: Clic en 'Nosotros' en el drawer móvil navega a /nosotros y cierra el menú."""
     mobile_page.goto(f"{BASE}/", wait_until="domcontentloaded")
+    mobile_page.evaluate("() => { const b = document.getElementById('theia-cookie-banner'); if (b) b.remove(); }")
     mobile_page.wait_for_timeout(200)
 
     menu_toggle = mobile_page.locator(".menu-toggle")

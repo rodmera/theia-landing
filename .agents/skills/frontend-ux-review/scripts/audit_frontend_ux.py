@@ -683,6 +683,22 @@ class FrontendUXAuditor:
                         "Encabezado <h*> incrustado indebidamente dentro de .theia-card__visual. Los títulos deben residir en .theia-card__content para garantizar alineación y simetría axial."
                     )
 
+            # 4. Prohibición de pastillas secundarias o tags amontonados dentro de tarjetas de producto
+            for m in re.finditer(r'<span[^>]*class=["\'][^"\']*(?:specialist-tool-pill|triada-card__pills)[^"\']*["\'][^>]*>', content):
+                line_no = content[:m.start()].count("\n") + 1
+                self.log_error(
+                    file, line_no, "CARD-OVERLOADED-PILLS",
+                    "Pastilla secundaria detectada dentro de una tarjeta de producto. Las tarjetas deben mantener una jerarquía limpia (icono, título, descripción) sin saturación de tags."
+                )
+
+            # 5. Prohibición de badges secundarios en cabecera de tarjetas
+            for m in re.finditer(r'<span[^>]*class=["\'][^"\']*(?:specialist-card__badge|conecta-card-badge|triada-card__badge)[^"\']*["\'][^>]*>', content):
+                line_no = content[:m.start()].count("\n") + 1
+                self.log_error(
+                    file, line_no, "CARD-DUAL-HEADER-BADGE",
+                    "Badge secundario detectado compitiendo con el icono en cabecera de tarjeta. Debe quedar solo el apoyo visual canónico."
+                )
+
     def audit_footer_consistency(self):
         """Audita la homologación estructural del footer canónico de 4 columnas en todas las páginas públicas."""
         for file in self.html_files:
