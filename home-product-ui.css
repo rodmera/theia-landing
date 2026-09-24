@@ -1201,16 +1201,17 @@
 }
 
 .setup-case-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
   background: rgba(212, 175, 55, 0.08);
   border: 1px solid rgba(212, 175, 55, 0.25);
   color: var(--gold-light, #ebca73);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  flex-shrink: 0;
 }
 
 .setup-case-title {
@@ -1279,11 +1280,11 @@
 }
 
 .conecta-card-icon {
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   border-radius: 12px;
   background: rgba(212, 175, 55, 0.08);
-  border: 1px solid rgba(212, 175, 55, 0.28);
+  border: 1px solid rgba(212, 175, 55, 0.25);
   color: var(--gold, #d4af37);
   display: flex;
   align-items: center;
@@ -1500,15 +1501,17 @@
 }
 
 .specialist-card__icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
   background: rgba(212, 175, 55, 0.08);
-  border: 1px solid rgba(212, 175, 55, 0.28);
+  border: 1px solid rgba(212, 175, 55, 0.25);
   color: var(--gold-light, #ebca73);
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 1.25rem;
+  flex-shrink: 0;
 }
 
 .specialist-card__badge {
@@ -2231,8 +2234,8 @@
 
 .theia-card.triada-card .triada-card__icon,
 .triada-card__icon {
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   border-radius: 12px;
   background: rgba(212, 175, 55, 0.08);
   border: 1px solid var(--glass-border-gold);
@@ -2243,6 +2246,7 @@
   margin-bottom: 1.25rem;
   margin-left: 0 !important;
   align-self: flex-start !important;
+  flex-shrink: 0;
 }
 
 .theia-card.triada-card .triada-card__title,

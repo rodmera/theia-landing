@@ -1349,8 +1349,8 @@
     }
 
     .piece-icon-wrap {
-      width: 50px;
-      height: 50px;
+      width: 52px;
+      height: 52px;
       border-radius: 12px;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(212, 175, 55, 0.2);
@@ -1360,6 +1360,7 @@
       margin-bottom: 1rem;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
       transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      flex-shrink: 0;
     }
 
     .glass-card:hover .piece-icon-wrap {
@@ -2065,8 +2066,8 @@
     }
 
     .dash-feat-icon {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
       flex-shrink: 0;
       border-radius: 12px;
       background: linear-gradient(135deg, rgba(79, 70, 229, 0.3), rgba(79, 70, 229, 0.08));
@@ -2365,14 +2366,14 @@
     .pulse-feat-icon {
       font-size: 1.5rem;
       flex-shrink: 0;
-      width: 40px;
-      height: 40px;
+      width: 52px;
+      height: 52px;
       display: flex;
       align-items: center;
       justify-content: center;
       background: var(--glass);
       border: 1px solid var(--glass-border);
-      border-radius: 10px;
+      border-radius: 12px;
     }
 
     .pulse-feat-name {
@@ -2786,8 +2787,8 @@
     }
 
     .extra-icon {
-      width: 50px;
-      height: 50px;
+      width: 52px;
+      height: 52px;
       border-radius: 12px;
       background: rgba(99, 102, 241, 0.1);
       border: 1px solid rgba(99, 102, 241, 0.25);
@@ -2795,6 +2796,7 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 1.1rem;
+      flex-shrink: 0;
     }
 
     .extra-name {
@@ -4134,104 +4136,56 @@
       <div class="specialists-grid">
         <!-- 1. Agente de Atención al Cliente -->
         <div class="specialist-card reveal">
-          <div class="specialist-card__top">
-            <div class="specialist-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            </div>
-            <span class="specialist-card__badge">Soporte 24/7</span>
+          <div class="specialist-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           </div>
           <h3 class="specialist-card__title">Agente de Atención al Cliente</h3>
           <p class="specialist-card__desc">Atiende consultas 24/7 con comprensión de intención real. Silencio automático inmediato cuando un asesor humano toma el chat.</p>
-          <div class="specialist-card__tools">
-            <span class="specialist-tool-pill">Comprensión de Contexto</span>
-            <span class="specialist-tool-pill">Modo Silencio Humano</span>
-            <span class="specialist-tool-pill">Atención Multicanal</span>
-          </div>
         </div>
 
         <!-- 2. Agente de Agendamiento & Reservas -->
         <div class="specialist-card reveal">
-          <div class="specialist-card__top">
-            <div class="specialist-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            </div>
-            <span class="specialist-card__badge">Gestión de Citas</span>
+          <div class="specialist-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           </div>
           <h3 class="specialist-card__title">Agente de Agendamiento &amp; Reservas</h3>
           <p class="specialist-card__desc">Sincroniza Google Calendar en tiempo real, bloquea cupos y envía recordatorios para evitar inasistencias.</p>
-          <div class="specialist-card__tools">
-            <span class="specialist-tool-pill">Google Calendar</span>
-            <span class="specialist-tool-pill">Cupos en Vivo</span>
-            <span class="specialist-tool-pill">Cero Inasistencias</span>
-          </div>
         </div>
 
         <!-- 3. Agente de Cotización & Ventas -->
         <div class="specialist-card reveal">
-          <div class="specialist-card__top">
-            <div class="specialist-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-            </div>
-            <span class="specialist-card__badge">Conversión Comercial</span>
+          <div class="specialist-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
           </div>
           <h3 class="specialist-card__title">Agente de Cotización &amp; Ventas</h3>
           <p class="specialist-card__desc">Cotiza con tu catálogo y stock en vivo. Si una opción no calza, sugiere alternativas afines para no perder la venta.</p>
-          <div class="specialist-card__tools">
-            <span class="specialist-tool-pill">Catálogo Oficial</span>
-            <span class="specialist-tool-pill">Sugerencia de Alternativas</span>
-            <span class="specialist-tool-pill">Cálculo de Precios</span>
-          </div>
         </div>
 
         <!-- 4. Agente de Seguimiento & CRM -->
         <div class="specialist-card reveal">
-          <div class="specialist-card__top">
-            <div class="specialist-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <span class="specialist-card__badge">Seguimiento Comercial</span>
+          <div class="specialist-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
           <h3 class="specialist-card__title">Agente de Seguimiento &amp; CRM</h3>
           <p class="specialist-card__desc">Clasifica prospectos por etapa de compra, reactiva leads estancados y ejecuta remarketing en tus canales de contacto.</p>
-          <div class="specialist-card__tools">
-            <span class="specialist-tool-pill">Segmentación de Clientes</span>
-            <span class="specialist-tool-pill">Reactivación de Clientes</span>
-            <span class="specialist-tool-pill">Historial Comercial</span>
-          </div>
         </div>
 
         <!-- 5. Agente para Salud & Bienestar -->
         <div class="specialist-card reveal">
-          <div class="specialist-card__top">
-            <div class="specialist-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            </div>
-            <span class="specialist-card__badge">Salud &amp; Centros Médicos</span>
+          <div class="specialist-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
           </div>
           <h3 class="specialist-card__title">Agente para Salud &amp; Bienestar</h3>
           <p class="specialist-card__desc">Informa aranceles, confirma citas médicas y resguarda datos confidenciales.</p>
-          <div class="specialist-card__tools">
-            <span class="specialist-tool-pill">Aranceles</span>
-            <span class="specialist-tool-pill">Filtro de Consultas</span>
-            <span class="specialist-tool-pill">Datos Confidenciales</span>
-          </div>
         </div>
 
         <!-- 6. Agente para Servicios Técnicos & Talleres -->
         <div class="specialist-card reveal">
-          <div class="specialist-card__top">
-            <div class="specialist-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-            </div>
-            <span class="specialist-card__badge">Operaciones &amp; Talleres</span>
+          <div class="specialist-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
           </div>
           <h3 class="specialist-card__title">Agente para Servicios Técnicos</h3>
           <p class="specialist-card__desc">Cotiza por modelo o kilometraje, asigna horas de taller y notifica estados de entrega.</p>
-          <div class="specialist-card__tools">
-            <span class="specialist-tool-pill">Por Modelo</span>
-            <span class="specialist-tool-pill">Órdenes de Trabajo</span>
-            <span class="specialist-tool-pill">Avisos de Retiro</span>
-          </div>
         </div>
       </div>
     </div>
@@ -4701,7 +4655,6 @@
           <p class="conecta-card-text">
             Sincronización en tiempo real con Shopify, Jumpseller, WooCommerce, Mercado Libre u Odoo para consultar stock y compras.
           </p>
-          <span class="conecta-card-badge">Orquestación Multi-Agente &amp; Integraciones</span>
         </div>
 
         <div class="conecta-card theia-card reveal">
@@ -4712,7 +4665,6 @@
           <p class="conecta-card-text">
             Conexión con Google Sheets, Excel, Bsale, Defontana o Softland para cotizar con precios y reglas de tu operación comercial.
           </p>
-          <span class="conecta-card-badge">Auditoría &amp; Control</span>
         </div>
 
         <div class="conecta-card theia-card reveal">
@@ -4723,7 +4675,6 @@
           <p class="conecta-card-text">
             Integrado a WhatsApp, Instagram, WebChat y Google Calendar para agendar citas sin errores ni dobles reservas.
           </p>
-          <span class="conecta-card-badge">Operación Continua</span>
         </div>
 
         <div class="conecta-card theia-card reveal">
@@ -4734,7 +4685,6 @@
           <p class="conecta-card-text">
             ¿Usas un software a medida o base de datos propia? Nos conectamos mediante API o webhook sin que toques código.
           </p>
-          <span class="conecta-card-badge">Agent Harness &amp; Llave en Mano</span>
         </div>
       </div>
 
