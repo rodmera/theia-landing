@@ -670,6 +670,19 @@ class FrontendUXAuditor:
                     "Sección #servicios-especializados contiene botón redundante de demo que compite con el enlace principal a /servicios."
                 )
 
+        # 3. Separación estructural canónica y simetría axial en .theia-card:
+        # Los encabezados (h3, h4) NUNCA deben vivir dentro de .theia-card__visual (éste es exclusivo para el icono/badge).
+        for file in self.html_files:
+            content = file.read_text(encoding="utf-8", errors="ignore")
+            for m in re.finditer(r'<div[^>]*class=["\'][^"\']*theia-card__visual[^"\']*["\'][^>]*>(.*?)</div>', content, re.DOTALL):
+                visual_content = m.group(1)
+                if re.search(r'<h[2-6]\b', visual_content, re.I):
+                    line_no = content[:m.start()].count("\n") + 1
+                    self.log_error(
+                        file, line_no, "CARD-TITLE-IN-VISUAL-WRAPPER",
+                        "Encabezado <h*> incrustado indebidamente dentro de .theia-card__visual. Los títulos deben residir en .theia-card__content para garantizar alineación y simetría axial."
+                    )
+
     def audit_footer_consistency(self):
         """Audita la homologación estructural del footer canónico de 4 columnas en todas las páginas públicas."""
         for file in self.html_files:
