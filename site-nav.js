@@ -1,4 +1,4 @@
-// HU-WEB-044: Soporte navegación Pack Despegue (auditoria-contactabilidad.html)
+// HU-WEB-043 / HU-WEB-044: Soporte navegación Radar Mercado Público y Pack Despegue
 /**
  * site-nav.js — Módulo profundo de navegación pública TheIA (TASK-202608192246)
  */
