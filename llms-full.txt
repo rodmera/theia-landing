@@ -2,7 +2,7 @@
 
 > Documentación exhaustiva y estructurada de la plataforma TheIA para asistentes de inteligencia artificial, motores de búsqueda generativa (Google AI Overviews, ChatGPT Search, Perplexity, Claude, Copilot) y agentes autónomos.
 
-- **Empresa:** THEIA SERVICIOS TECNOLÓGICOS SpA (RUT 78.474.636-4)
+- **Empresa:** THEIA SERVICIOS TECNOLÓGICOS SpA
 - **Sitio Web Oficial:** https://theia.cl
 - **Ubicación:** Antonio Bellet 193, Providencia, Santiago de Chile
 - **Contacto Oficial:** hola@theia.cl | WhatsApp +1 (206) 385-8350

@@ -38,7 +38,7 @@ Las tres páginas cumplen rigurosamente con el Design System oficial, los contra
    - Pruebas automatizadas de la oferta Pack Despegue, tarifa, componentes, límites de alcance y llamadas orgánicas.
 
 5. **`salud-publica.html`** (HU-WEB-042):
-   - Landing de contactabilidad para salud pública con pabellón Compra Ágil (THEIA SERVICIOS TECNOLÓGICOS SpA, RUT 78.474.636-4), 6 módulos operativos SOME, consola de reglas diurnas/festivos y proceso en 48 horas.
+   - Landing de contactabilidad para salud pública con pabellón Compra Ágil (THEIA SERVICIOS TECNOLÓGICOS SpA), 6 módulos operativos SOME, consola de reglas diurnas/festivos y proceso en 48 horas.
 
 6. **`tests/test_salud_publica_page.py`** (HU-WEB-042):
    - Suite de pruebas de contenido, pabellón Compra Ágil, ausencia de precios fijos y antislop.

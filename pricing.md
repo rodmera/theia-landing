@@ -77,7 +77,7 @@
 
 ## 6. Datos de Contacto y Contratación
 - **Razón Social:** THEIA SERVICIOS TECNOLÓGICOS SpA
-- **RUT:** 78.474.636-4
+- **Razón Social:** THEIA SERVICIOS TECNOLÓGICOS SpA
 - **Sitio Web Oficial:** https://theia.cl
 - **Página de Precios:** https://theia.cl/precios
 - **Correo Electrónico:** hola@theia.cl

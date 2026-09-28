@@ -30,7 +30,7 @@ def test_salud_publica_page_content_and_pillars():
     required_keywords = [
         "salud pública", "pacientes", "confirmación", "recordatorios",
         "whatsapp", "sms", "contingencia", "some", "compra ágil",
-        "78.474.636-4", "48 horas", "cesfam", "hospital"
+        "48 horas", "cesfam", "hospital"
     ]
     missing = [w for w in required_keywords if w not in visible]
     assert not missing, f"salud-publica.html no contiene vocabulario operativo clave: {missing}"
