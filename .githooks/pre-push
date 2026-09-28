@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+# Candado Mecánico de Ramas — theia-landing
+# Impide que cualquier agente o proceso haga push directo a main sin validación.
+#
+# Para autorizar push explícito a main:
+#     ALLOW_MAIN_PUSH=1 git push origin main
+#     GATE3=si git push origin main
+
+REMOTO="$1"
+URL="$2"
+PROTEGIDAS="^refs/heads/(main|master)$"
+
+while read -r _local_ref _local_sha remote_ref _remote_sha; do
+    if [[ "$remote_ref" =~ $PROTEGIDAS ]]; then
+        if [ "${ALLOW_MAIN_PUSH:-}" != "1" ] && [ "${GATE3:-}" != "si" ]; then
+            echo "" >&2
+            echo "🛑 [BRANCH GUARD] Push directo a 'main' bloqueado mecanicamente." >&2
+            echo "   Rama de destino protegida: $remote_ref" >&2
+            echo "   Los agentes deben trabajar en su rama 'feat/hu-...'." >&2
+            echo "   Para autorizar integracion o deploy a main:" >&2
+            echo "       ALLOW_MAIN_PUSH=1 git push origin main" >&2
+            echo "" >&2
+            exit 1
+        fi
+
+        # Si viene con autorizacion, ejecuta validacion local obligatoria antes de enviar a GitHub
+        echo "🔍 [PRE-PUSH GATE] Validando calidad frontend y responsive antes del push a main..." >&2
+
+        # 1. Auditoria Frontend UX
+        if [ -f ".agents/skills/frontend-ux-review/scripts/audit_frontend_ux.py" ]; then
+            if ! python3 .agents/skills/frontend-ux-review/scripts/audit_frontend_ux.py > /dev/null 2>&1; then
+                echo "❌ [PRE-PUSH GATE ERROR] audit_frontend_ux.py fallo. Corrige antes de pasar a main." >&2
+                exit 1
+            fi
+        fi
+
+        # 2. Wording quality test
+        if [ -f ".venv-test/bin/python" ] && [ -f "tests/test_wording_quality.py" ]; then
+            if ! .venv-test/bin/python -m pytest tests/test_wording_quality.py -q > /dev/null 2>&1; then
+                echo "❌ [PRE-PUSH GATE ERROR] test_wording_quality.py fallo. Bloqueando push." >&2
+                exit 1
+            fi
+        fi
+
+        echo "✅ [PRE-PUSH GATE] Validaciones locales aprobadas. Procediendo con push a main." >&2
+    fi
+done
+
+exit 0
