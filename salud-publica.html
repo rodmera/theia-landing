@@ -100,22 +100,31 @@
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
+      padding: 0.65rem 1.4rem;
+      border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
       font-weight: 700;
       text-decoration: none;
       cursor: pointer;
-      transition: all 0.2s ease;
       border: none;
+      transition: all 0.22s ease;
+      touch-action: manipulation;
+      text-align: center;
+      white-space: nowrap;
     }
 
     .btn-gold {
-      background: linear-gradient(135deg, var(--gold) 0%, #b89628 100%);
-      color: #0f172a;
-      box-shadow: 0 4px 15px var(--gold-glow);
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #0f172a !important;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     }
     .btn-gold:hover {
-      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+      color: #0f172a !important;
     }
 
     .btn-ghost {

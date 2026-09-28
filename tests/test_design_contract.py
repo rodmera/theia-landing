@@ -697,6 +697,39 @@ def test_firma_email_theia_design_contract():
     assert "#0b1320" in content.lower(), "Firma debe incluir Dark Slate #0b1320 para tarjeta oscura"
 
 
+@pytest.mark.parametrize("path", [p for p in PAGES if not p.startswith("/blog")])
+def test_botones_tienen_tokens_visuales_minimos_padding_y_border_radius(mobile_page, path):
+    """Valida que todos los botones (.btn, .btn-gold, .btn-ghost, .btn-whatsapp) tengan altura >= 32px, padding horizontal >= 12px y border-radius >= 6px."""
+    mobile_page.goto(BASE + path, wait_until="domcontentloaded")
+    violations = mobile_page.evaluate("""() => {
+        const btns = document.querySelectorAll('.btn, .btn-gold, .btn-ghost, .btn-whatsapp');
+        const errors = [];
+        btns.forEach((btn, idx) => {
+            const style = window.getComputedStyle(btn);
+            const rect = btn.getBoundingClientRect();
+            const pl = parseFloat(style.paddingLeft) || 0;
+            const pr = parseFloat(style.paddingRight) || 0;
+            const br = parseFloat(style.borderRadius) || 0;
+            const text = (btn.textContent || '').trim().replace(/\\s+/g, ' ').substring(0, 30);
+
+            // Si el botón no es visible, saltar
+            if (rect.width === 0 || rect.height === 0 || style.display === 'none') return;
+
+            if (rect.height < 32) {
+                errors.push(`[${idx}] "${text}" altura colapsada (${rect.height}px < 32px)`);
+            }
+            if (pl < 12 || pr < 12) {
+                errors.push(`[${idx}] "${text}" padding horizontal insuficiente (l:${pl}px, r:${pr}px < 12px)`);
+            }
+            if (br < 6) {
+                errors.push(`[${idx}] "${text}" border-radius insuficiente (${br}px < 6px)`);
+            }
+        });
+        return errors;
+    }""")
+    assert not violations, f"Violación de tokens de botón en {path}:\n" + "\n".join(violations)
+
+
 
 
 
