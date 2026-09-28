@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- HU-WEB-042: Landing de Solucion Salud Publica y Hospitales -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Security Meta Tags -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://admin.theia.cl; connect-src 'self' https:;">
+
+  <!-- Cookie Consent + Analytics -->
+  <script src="/cc-init.js"></script>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Contactabilidad de Pacientes y Confirmación de Citas para Salud Pública | TheIA</title>
+
+  <!-- JSON-LD: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://theia.cl/salud-publica#webpage",
+    "url": "https://theia.cl/salud-publica",
+    "name": "Contactabilidad de Pacientes y Confirmación de Citas para Salud Pública (TheIA)",
+    "description": "Recordatorios por WhatsApp con respaldo automático SMS, confirmación en un toque y contingencia masiva de agendas. Operativo en 48 horas para Hospitales y CESFAMs de Chile.",
+    "inLanguage": "es-CL",
+    "isPartOf": { "@id": "https://theia.cl#website" },
+    "publisher": { "@id": "https://theia.cl#organization" }
+  }
+  </script>
+  <link rel="canonical" href="https://theia.cl/salud-publica" />
+  <link rel="icon" href="logo.png" type="image/png">
+
+  <meta name="description" content="Recordatorios por WhatsApp con respaldo automático SMS, confirmación en un toque y contingencia masiva de agendas. Operativo en 48 horas para Hospitales y CESFAMs de Chile." />
+  <meta name="keywords" content="contactabilidad pacientes Chile, confirmacion citas medicas salud publica, recordatorio WhatsApp CESFAM, Compra Agil salud, contingencia SOME hospital" />
+  <meta name="author" content="TheIA" />
+  <meta name="geo.region" content="CL" />
+  <meta name="geo.placename" content="Santiago, Chile" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://theia.cl/salud-publica" />
+  <meta property="og:site_name" content="TheIA" />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:title" content="Contactabilidad de Pacientes y Confirmación de Citas para Salud Pública | TheIA" />
+  <meta property="og:description" content="Recordatorios por WhatsApp con respaldo automático SMS, confirmación en un toque y contingencia masiva de agendas. Operativo en 48 horas para Hospitales y CESFAMs de Chile." />
+  <meta property="og:image" content="https://theia.cl/logo.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Contactabilidad de Pacientes para Salud Pública | TheIA" />
+  <meta name="twitter:description" content="Recordatorios por WhatsApp con respaldo automático SMS, confirmación en un toque y contingencia masiva de agendas." />
+  <meta name="twitter:image" content="https://theia.cl/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f172a;
+      --bg2: #1e293b;
+      --bg3: #334155;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-border-gold: rgba(212, 175, 55, 0.4);
+      --gold: #d4af37;
+      --gold-light: #ebca73;
+      --gold-glow: rgba(212, 175, 55, 0.25);
+      --indigo: #4f46e5;
+      --indigo-light: #6366f1;
+      --text: #ffffff;
+      --text-sub: rgba(255, 255, 255, 0.7);
+      --text-muted: rgba(255, 255, 255, 0.4);
+      --green: #34c77b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold) 0%, #b89628 100%);
+      color: #0f172a;
+      box-shadow: 0 4px 15px var(--gold-glow);
+    }
+    .btn-gold:hover {
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+    }
+
+    .btn-ghost {
+      background: var(--glass);
+      color: var(--text);
+      border: 1px solid var(--glass-border);
+    }
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .btn-whatsapp {
+      background: #25d366;
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0 1.75rem;
+      height: 48px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
+    }
+    .btn-whatsapp:hover {
+      background: #20bd5a;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 9.5rem 0 4.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .dash-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid var(--glass-border-gold);
+      color: var(--gold);
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p.lead {
+      font-size: 1.05rem;
+      color: var(--text-sub);
+      max-width: 760px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .cta-btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .cta-btns .btn {
+      margin: 0 !important;
+      height: 48px;
+      padding: 0 1.75rem;
+      font-size: 0.95rem;
+      border-radius: 10px;
+    }
+
+    /* Credenciales Compra Publica */
+    .salud-credenciales {
+      padding: 4.5rem 0;
+      background: var(--bg2);
+      border-top: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .credenciales-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .credencial-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .credencial-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.5rem;
+    }
+
+    .credencial-main {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .credencial-sub {
+      color: var(--text-sub);
+      font-size: 0.84rem;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* Seccion Operacion */
+    .salud-operacion {
+      padding: 5rem 0;
+    }
+
+    .salud-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+
+    .salud-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      transition: all 0.25s ease;
+    }
+
+    .salud-card:hover {
+      border-color: var(--glass-border-gold);
+      transform: translateY(-2px);
+    }
+
+    .salud-title {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text);
+      margin-bottom: 0.65rem;
+    }
+
+    .salud-desc {
+      color: var(--text-sub);
+      font-size: 0.9rem;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* Consola Reglas SOME */
+    .salud-consola {
+      padding: 5rem 0;
+      background: var(--bg2);
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .reglas-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .regla-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      text-align: left;
+    }
+
+    .regla-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .regla-header strong {
+      font-size: 0.92rem;
+      color: var(--text);
+    }
+
+    .regla-badge {
+      color: var(--gold-light);
+      font-weight: 700;
+      font-size: 0.75rem;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+    }
+
+    .regla-desc {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Proceso */
+    .proceso {
+      padding: 5rem 0;
+      background: var(--bg);
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .step-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      padding: 2rem 1.5rem;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid var(--glass-border-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+      font-size: 1.15rem;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+
+    .step-name {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-bottom: 0.65rem;
+    }
+
+    .step-desc {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* CTA Final */
+    .cta-final {
+      padding: 5.5rem 0;
+      text-align: center;
+      background: var(--bg2);
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .section-title {
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+      text-align: center;
+      color: var(--text);
+    }
+
+    .section-sub {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--text-sub);
+      max-width: 680px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+
+    .gold { color: var(--gold); }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .credenciales-grid { grid-template-columns: repeat(2, 1fr); }
+      .salud-grid { grid-template-columns: 1fr; }
+      .reglas-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .credenciales-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <link rel="stylesheet" href="/site-nav.css">
+  <link rel="stylesheet" href="/site-footer.css">
+  <link rel="stylesheet" href="/site-cards.css">
+  <script src="/site-nav.js" defer></script>
+</head>
+
+<body>
+  <!-- Header / Navigation -->
+  <nav class="site-header" data-site-nav data-site-nav-page="salud-publica" data-site-nav-source="salud-publica-nav" aria-label="Navegación principal">
+    <a href="/" class="logo">
+      <img src="/logo.png" alt="TheIA" width="100" height="100" />
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-nav-drawer">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-cta site-nav" data-site-nav-mount id="site-nav-drawer">
+      <!-- 1. Dropdown Soluciones -->
+      <div class="site-nav__group site-nav__group--solutions">
+        <button type="button" class="site-nav__trigger" aria-expanded="false" aria-controls="site-solutions-menu">
+          Soluciones
+          <svg class="site-nav__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div id="site-solutions-menu" class="site-nav__popover site-nav__popover--solutions" aria-label="Soluciones TheIA">
+          <a href="/atencion-cliente" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Atención &amp; Ventas</div>
+              <div class="site-nav__card-desc">WhatsApp, Instagram y Web con contexto</div>
+            </div>
+          </a>
+          <a href="/pulse" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">TheIA Pulse</div>
+              <div class="site-nav__card-desc">Copiloto por WhatsApp para el dueño</div>
+            </div>
+          </a>
+          <a href="/cerebro" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">TheIA Cerebro</div>
+              <div class="site-nav__card-desc">La IA de tu empresa llave en mano</div>
+            </div>
+          </a>
+          <a href="/crm" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">CRM Integrado</div>
+              <div class="site-nav__card-desc">Gestión comercial desde la conversación</div>
+            </div>
+          </a>
+          <a href="/panel" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Panel de Control</div>
+              <div class="site-nav__card-desc">Supervisión y métricas en vivo</div>
+            </div>
+          </a>
+          <a href="/orquestacion" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Arquitectura B2B</div>
+              <div class="site-nav__card-desc">Datos exactos y control total</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. Enlace Directo Precios -->
+      <a href="/precios" class="site-nav__link">Precios</a>
+
+      <!-- 3. Dropdown Recursos -->
+      <div class="site-nav__group site-nav__group--resources">
+        <button type="button" class="site-nav__trigger site-nav__trigger--active" aria-expanded="false" aria-controls="site-resources-menu">
+          Recursos
+          <svg class="site-nav__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div id="site-resources-menu" class="site-nav__popover site-nav__popover--resources" aria-label="Recursos TheIA">
+          <a href="/blog/" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Blog</div>
+              <div class="site-nav__card-desc">Artículos, guías y novedades</div>
+            </div>
+          </a>
+          <a href="/calculadora" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Calculadora ROI</div>
+              <div class="site-nav__card-desc">Calcula el retorno de inversión</div>
+            </div>
+          </a>
+          <a href="/criterios" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Criterios de IA</div>
+              <div class="site-nav__card-desc">Pauta para evaluar agentes en PYMEs</div>
+            </div>
+          </a>
+          <a href="/cumplimiento" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Cumplimiento &amp; Legal</div>
+              <div class="site-nav__card-desc">Seguridad y estándares de privacidad</div>
+            </div>
+          </a>
+          <a href="/confianza" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Confianza &amp; DPA</div>
+              <div class="site-nav__card-desc">DPA, subprocesadores y seguridad</div>
+            </div>
+          </a>
+          <a href="/casos" class="site-nav__card site-nav__card--active" aria-current="page">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Casos por Industria</div>
+              <div class="site-nav__card-desc">Salud, comercio, servicios e inmobiliaria</div>
+            </div>
+          </a>
+          <a href="/facil" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Setup en 3 Audios</div>
+              <div class="site-nav__card-desc">Activación ágil para tu negocio</div>
+            </div>
+          </a>
+          <a href="/funciones" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Cómo ayuda</div>
+              <div class="site-nav__card-desc">Funcionalidades y capacidades TheIA</div>
+            </div>
+          </a>
+          <a href="/servicios" class="site-nav__card">
+            <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <div class="site-nav__card-text">
+              <div class="site-nav__card-title">Servicios Especializados</div>
+              <div class="site-nav__card-desc">Ingeniería a medida e integraciones LLM</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- 4. Enlace Directo Nosotros -->
+      <a href="/nosotros" class="site-nav__link">Nosotros</a>
+
+      <!-- 5. Enlaces Directos Móviles (Drawer <= 960px) -->
+      <div class="site-nav__mobile-links">
+        <div class="site-nav__mobile-section-label">Soluciones</div>
+        <a href="/atencion-cliente" class="site-nav__link">Atención &amp; Ventas</a>
+        <a href="/pulse" class="site-nav__link">Pulse</a>
+        <a href="/cerebro" class="site-nav__link">TheIA Cerebro</a>
+        <a href="/crm" class="site-nav__link">CRM</a>
+        <a href="/panel" class="site-nav__link">Panel de Control</a>
+        <a href="/orquestacion" class="site-nav__link">Arquitectura B2B</a>
+
+        <div class="site-nav__mobile-section-label">Precios</div>
+        <a href="/precios" class="site-nav__link">Planes y Precios</a>
+
+        <div class="site-nav__mobile-section-label">Industrias &amp; Casos</div>
+        <a href="/salud" class="site-nav__link">Salud</a>
+        <a href="/salud-publica" class="site-nav__link">Salud Pública</a>
+        <a href="/servicios-pyme" class="site-nav__link">Servicios Profesionales B2B</a>
+        <a href="/automotriz" class="site-nav__link">Automotriz</a>
+        <a href="/comercio" class="site-nav__link">Comercio</a>
+        <a href="/inmobiliaria" class="site-nav__link">Inmobiliaria</a>
+        <a href="/casos" class="site-nav__link">Casos de Éxito</a>
+
+        <div class="site-nav__mobile-section-label">Recursos</div>
+        <a href="/blog/" class="site-nav__link">Blog</a>
+        <a href="/calculadora" class="site-nav__link">Calculadora ROI</a>
+        <a href="/criterios" class="site-nav__link">Criterios</a>
+        <a href="/cumplimiento" class="site-nav__link">Cumplimiento</a>
+        <a href="/funciones" class="site-nav__link">Cómo ayuda</a>
+        <a href="/servicios" class="site-nav__link">Servicios</a>
+
+        <div class="site-nav__mobile-section-label">Empresa</div>
+        <a href="/nosotros" class="site-nav__link">Nosotros</a>
+      </div>
+
+      <!-- 6. Demo CTA -->
+      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold site-nav__demo" onclick="theiaTrackCTA('demo','salud-publica-nav')">Agenda una demo →</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="dash-badge reveal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-3"/><path d="M9 9h1"/><path d="M9 13h1"/><path d="M9 17h1"/></svg>
+        Proveedor Activo en Mercado Público · Disponible vía Compra Ágil
+      </div>
+      <h1 class="reveal">Contactabilidad de Pacientes y Confirmación de Citas para <span class="gold">Salud Pública.</span></h1>
+      <p class="lead reveal">Recordatorios por WhatsApp con respaldo automático SMS, confirmación en un toque y contingencia masiva de agendas. Operativo en 48 horas para Hospitales y CESFAMs de Chile.</p>
+      
+      <div class="cta-btns reveal">
+        <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" onclick="theiaTrackCTA('demo','salud-publica-hero')">Coordinar reunión técnica →</a>
+        <a href="https://wa.me/12063858350?text=Hola%2C%20me%20interesa%20evaluar%20TheIA%20para%20Salud%20P%C3%BAblica" target="_blank" rel="noopener" class="btn btn-ghost" onclick="theiaTrackCTA('whatsapp','salud-publica-hero')">Consultar por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pabellón de Credenciales Institucionales y Compra Pública -->
+  <section class="salud-credenciales">
+    <div class="container">
+      <h2 class="section-title reveal">Contratación directa y habilitación en <span class="gold">48 horas hábiles.</span></h2>
+      <p class="section-sub reveal">Datos institucionales para emisión de Orden de Compra expedita sin requerir licitaciones extensas.</p>
+
+      <div class="credenciales-grid">
+        <div class="credencial-card reveal">
+          <div class="credencial-tag">Registro Oficial</div>
+          <div class="credencial-main">THEIA SERVICIOS TECNOLÓGICOS SpA</div>
+          <p class="credencial-sub">RUT: 78.474.636-4. Proveedor activo registrado en Mercado Público y ChileCompra.</p>
+        </div>
+
+        <div class="credencial-card reveal">
+          <div class="credencial-tag">Mecanismo de Compra</div>
+          <div class="credencial-main">Disponible vía Compra Ágil</div>
+          <p class="credencial-sub">Cotización formal inmediata y adjudicación directa bajo la normativa de compras públicas.</p>
+        </div>
+
+        <div class="credencial-card reveal">
+          <div class="credencial-tag">Plazo de Entrega</div>
+          <div class="credencial-main">Puesta en Marcha en 2 Días</div>
+          <p class="credencial-sub">Habilitación técnica en 48 horas hábiles tras la recepción conforme de la Orden de Compra.</p>
+        </div>
+
+        <div class="credencial-card reveal">
+          <div class="credencial-tag">Seguridad Institucional</div>
+          <div class="credencial-main">Privacidad Asistencial</div>
+          <p class="credencial-sub">Cumplimiento de estándares de privacidad exigidos para salud, con cifrado y resguardo de nóminas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Módulos Operativos (Oferta Técnica Compra Ágil) -->
+  <section class="salud-operacion">
+    <div class="container">
+      <h2 class="section-title reveal">Módulos operativos diseñados para <span class="gold">la red asistencial.</span></h2>
+      <p class="section-sub reveal">Capacidades técnicas concretas para resolver la inasistencia y contingencia de citaciones sin alterar los sistemas locales.</p>
+
+      <div class="salud-grid">
+        <!-- Modulo 1: Canal Dual -->
+        <div class="salud-card reveal theia-card">
+          <div class="theia-card__visual">
+            <div class="piece-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/>
+              </svg>
+            </div>
+          </div>
+          <div class="theia-card__content">
+            <div class="salud-title">Canal Dual con Respaldo SMS</div>
+            <p class="salud-desc">Notificación interactiva por WhatsApp con fecha, hora, box y profesional. Respaldo automático por SMS para pacientes con teléfonos básicos o sin plan de datos activo.</p>
+          </div>
+        </div>
+
+        <!-- Modulo 2: Confirmacion y Liberacion -->
+        <div class="salud-card reveal theia-card">
+          <div class="theia-card__visual">
+            <div class="piece-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+          </div>
+          <div class="theia-card__content">
+            <div class="salud-title">Confirmación y Liberación en Pantalla</div>
+            <p class="salud-desc">Botones interactivos táctiles para confirmar asistencia o liberar el cupo de inmediato, permitiendo reasignar la hora médica a pacientes en lista de espera.</p>
+          </div>
+        </div>
+
+        <!-- Modulo 3: Contingencia SOME -->
+        <div class="salud-card reveal theia-card">
+          <div class="theia-card__visual">
+            <div class="piece-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+            </div>
+          </div>
+          <div class="theia-card__content">
+            <div class="salud-title">Módulo de Contingencia y Cancelación Masiva</div>
+            <p class="salud-desc">Herramienta para que el equipo SOME suspenda agendas completas y avise a los pacientes afectados ante licencias médicas imprevistas, paro o boxes inhabilitados.</p>
+          </div>
+        </div>
+
+        <!-- Modulo 4: Ingesta Excel/CSV -->
+        <div class="salud-card reveal theia-card">
+          <div class="theia-card__visual">
+            <div class="piece-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/>
+              </svg>
+            </div>
+          </div>
+          <div class="theia-card__content">
+            <div class="salud-title">Ingesta sin Integraciones Complejas</div>
+            <p class="salud-desc">Carga diaria de nóminas mediante planillas Excel o CSV exportadas directamente desde el sistema local del establecimiento (Rayen, Omesh, TrackCare) con normalización telefónica.</p>
+          </div>
+        </div>
+
+        <!-- Modulo 5: Panel SOME y Metricas -->
+        <div class="salud-card reveal theia-card">
+          <div class="theia-card__visual">
+            <div class="piece-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+              </svg>
+            </div>
+          </div>
+          <div class="theia-card__content">
+            <div class="salud-title">Panel SOME y Reportería en Tiempo Real</div>
+            <p class="salud-desc">Métricas de entrega, lectura, confirmación y cancelación agrupadas por servicio clínico o policlínico para la toma de decisiones del equipo directivo.</p>
+          </div>
+        </div>
+
+        <!-- Modulo 6: Resguardo Asistencial -->
+        <div class="salud-card reveal theia-card">
+          <div class="theia-card__visual">
+            <div class="piece-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+          </div>
+          <div class="theia-card__content">
+            <div class="salud-title">Resguardo de Privacidad Asistencial</div>
+            <p class="salud-desc">Cifrado en tránsito y reposo, desestigmatización de patologías sensibles en mensajes y cumplimiento de estándares de privacidad exigidos para salud.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consola de Reglas SOME y Calendario Nacional -->
+  <section class="salud-consola">
+    <div class="container" style="max-width: 960px;">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <div class="dash-badge reveal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Reglas de Contacto Asistencial
+        </div>
+        <h2 class="section-title reveal">Certeza operativa y reglas de contacto <span class="gold">en días hábiles.</span></h2>
+        <p class="section-sub reveal">Despacho diurno programado, respeto estricto del calendario nacional de feriados y protección del paciente.</p>
+      </div>
+
+      <div class="theia-card reveal" style="padding: 2rem; max-width: 820px; margin: 0 auto; text-align: left; align-items: stretch;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass-border); padding-bottom: 1rem; margin-bottom: 1.25rem;">
+          <div style="font-family: 'Merriweather', serif; font-weight: 700; font-size: 1.05rem; color: var(--gold-light);">Parámetros de Entrega Asistencial</div>
+          <span style="background: rgba(212, 175, 55, 0.1); color: var(--gold-light); border: 1px solid rgba(212, 175, 55, 0.25); font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px;">Operación Verificada</span>
+        </div>
+
+        <div class="reglas-grid">
+          <!-- Regla 1: Ventana Diurna -->
+          <div class="regla-item">
+            <div class="regla-header">
+              <strong>Ventana Diurna Anti-Spam</strong>
+              <span class="regla-badge">08:30 a 19:30</span>
+            </div>
+            <p class="regla-desc">Notificaciones enviadas en horario hábil diurno para evitar contactabilidad molesta a pacientes.</p>
+          </div>
+
+          <!-- Regla 2: Anticipacion para Lunes y Feriados -->
+          <div class="regla-item">
+            <div class="regla-header">
+              <strong>Anticipación en Festivos</strong>
+              <span class="regla-badge">Viernes 11:00-16:00</span>
+            </div>
+            <p class="regla-desc">Citaciones de lunes o post-feriado se notifican el día hábil previo para asegurar confirmación.</p>
+          </div>
+
+          <!-- Regla 3: Desestigmatizacion Clinica -->
+          <div class="regla-item">
+            <div class="regla-header">
+              <strong>Protección de Diagnósticos</strong>
+              <span class="regla-badge">Control de Salud</span>
+            </div>
+            <p class="regla-desc">Ofuscación automática de patologías sensibles a términos neutros en la notificación al usuario.</p>
+          </div>
+
+          <!-- Regla 4: Normalizacion de Telefonos -->
+          <div class="regla-item">
+            <div class="regla-header">
+              <strong>Normalización Telefónica</strong>
+              <span class="regla-badge">+569 / Red Fija</span>
+            </div>
+            <p class="regla-desc">Corrección automática de prefijos y detección de canal óptimo para evitar fallos de envío.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proceso de Puesta en Marcha -->
+  <section class="proceso">
+    <div class="container">
+      <h2 class="section-title reveal">Puesta en marcha en <span class="gold">3 pasos simples.</span></h2>
+      <p class="section-sub reveal">Sin instalaciones en servidores locales ni proyectos de desarrollo prolongados.</p>
+
+      <div class="steps">
+        <div class="step-card reveal theia-card">
+          <div class="theia-card__visual">
+            <div class="step-num">01</div>
+          </div>
+          <div class="theia-card__content">
+            <div class="step-name">Exportas tu nómina local</div>
+            <p class="step-desc">Subes la planilla Excel o CSV de citaciones desde tu sistema habitual en minutos.</p>
+          </div>
+        </div>
+        <div class="step-card reveal theia-card">
+          <div class="theia-card__visual">
+            <div class="step-num">02</div>
+          </div>
+          <div class="theia-card__content">
+            <div class="step-name">Configuramos los mensajes oficiales</div>
+            <p class="step-desc">Validamos las plantillas interactivas con el equipo SOME, incluyendo profesional, box, fecha y hora.</p>
+          </div>
+        </div>
+        <div class="step-card reveal theia-card">
+          <div class="theia-card__visual">
+            <div class="step-num">03</div>
+          </div>
+          <div class="theia-card__content">
+            <div class="step-name">Emisión de orden de compra y activación</div>
+            <p class="step-desc">Habilitación en 48 horas vía Compra Ágil, con seguimiento y reportería en vivo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-final">
+    <div class="container">
+      <h2 class="section-title reveal">¿Quieres evaluar la contactabilidad en <span class="gold">tu establecimiento?</span></h2>
+      <p class="section-sub reveal">Coordina una sesión técnica de 30 minutos o solicita la cotización para Compra Ágil.</p>
+      
+      <div class="cta-btns reveal">
+        <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold btn-large" onclick="theiaTrackCTA('demo','salud-publica-cta')">Coordinar reunión técnica →</a>
+        <a href="https://wa.me/12063858350?text=Hola%2C%20me%20interesa%20evaluar%20TheIA%20para%20Salud%20P%C3%BAblica" target="_blank" rel="noopener" class="btn btn-whatsapp" onclick="theiaTrackCTA('whatsapp','salud-publica-cta')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          Escríbenos por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Canónico -->
+  <footer>
+    <div class="footer-inner">
+      <!-- Columna 1: Marca & Propósito -->
+      <div class="footer-col footer-col--brand">
+        <a href="/" class="logo"><img src="/logo.png" alt="TheIA" width="70" height="70" /></a>
+        <p>Atención de clientes confiable con IA para WhatsApp, Web y Redes Sociales. Conectada a tu operación y tus sistemas habituales.</p>
+        <div class="footer-craft">
+          <a href="https://omarchy.org" target="_blank" rel="noopener" class="footer-craft-link" title="Software desarrollado en Omarchy Linux">
+            <svg class="footer-craft-icon" viewBox="0 0 1200 1200" width="13" height="13" fill="currentColor"><path clip-rule="evenodd" d="m1200 1200h-480v-80h400v-1040h-479.996v160h-400v720h720v-720h-80v-80h159.996v880h-400v160h-640v-1200h1200zm-1120-80h480v-80h-400l.004-400h-80.004zm0-560h80.004v-400h400v-80h-480.004z" fill-rule="evenodd"/></svg>
+            <span>Desarrollado en Omarchy Linux</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Columna 2: Productos TheIA -->
+      <div class="footer-col">
+        <h4>Productos</h4>
+        <div class="footer-links-group">
+          <a href="/atencion-cliente">Atención &amp; Ventas</a>
+          <a href="/pulse">TheIA Pulse</a>
+          <a href="/cerebro">TheIA Cerebro</a>
+          <a href="/crm">CRM Integrado</a>
+          <a href="/panel">Panel de Control</a>
+          <a href="/orquestacion">Arquitectura B2B</a>
+        </div>
+      </div>
+
+      <!-- Columna 3: Plataforma & Recursos -->
+      <div class="footer-col">
+        <h4>Plataforma</h4>
+        <div class="footer-links-group">
+          <a href="/facil">Setup en 3 Audios</a>
+          <a href="/funciones">Funciones</a>
+          <a href="/precios">Planes y Precios</a>
+          <a href="/salud-publica">Salud Pública</a>
+          <a href="/servicios">Servicios</a>
+          <a href="/blog/">Blog</a>
+        </div>
+      </div>
+
+      <!-- Columna 4: Contacto & Redes -->
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <div class="footer-links-group">
+          <a href="mailto:hola@theia.cl" class="footer-contact-link">
+            <span class="footer-contact-badge footer-contact-badge--mail">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </span>
+            <span>hola@theia.cl</span>
+          </a>
+          <a href="https://wa.me/12063858350" target="_blank" rel="noopener" onclick="theiaTrackCTA('whatsapp','footer')" class="footer-contact-link">
+            <span class="footer-contact-badge footer-contact-badge--wa">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.62C9.36 7.62 9.09 7.68 8.87 7.93C8.64 8.17 8 8.78 8 10.02C8 11.26 8.91 12.45 9.03 12.62C9.16 12.79 10.79 15.3 13.28 16.38C15.36 17.27 15.78 17.1 16.23 17.05C16.68 17.01 17.68 16.46 17.89 15.88C18.1 15.3 18.1 14.81 18.03 14.7C17.97 14.59 17.81 14.53 17.56 14.41C17.31 14.28 16.08 13.68 15.86 13.59C15.63 13.51 15.47 13.47 15.3 13.72C15.14 13.97 14.67 14.53 14.53 14.7C14.39 14.86 14.24 14.88 13.99 14.76C13.74 14.63 12.93 14.37 11.98 13.52C11.23 12.85 10.73 12.03 10.6 11.8C10.46 11.55 10.58 11.42 10.71 11.3C10.82 11.19 10.96 11 11.09 10.86C11.21 10.71 11.26 10.61 11.34 10.44C11.42 10.27 11.38 10.13 11.32 10C11.26 9.88 10.76 8.66 10.56 8.16C10.36 7.68 10.16 7.74 10 7.74C9.86 7.73 9.7 7.62 9.53 7.62Z"/></svg>
+            </span>
+            <span>+1 (206) 385-8350</span>
+          </a>
+          <a href="https://www.linkedin.com/company/112228768/" target="_blank" rel="noopener" class="footer-contact-link">
+            <span class="footer-contact-badge footer-contact-badge--li">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28Z"/></svg>
+            </span>
+            <span>TheIA en LinkedIn</span>
+          </a>
+          <a href="https://www.instagram.com/theiacl_/" target="_blank" rel="noopener" class="footer-contact-link">
+            <span class="footer-contact-badge footer-contact-badge--ig">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </span>
+            <span>@theiacl_</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">TheIA Agent by THEIA.CL © 2026 · Todos los derechos reservados.</div>
+      <div class="footer-legal-links">
+        <a href="/privacidad">Política de Privacidad</a>
+        <a href="/terminos.html">Términos de Servicio</a>
+        <a href="/confianza">Confianza &amp; DPA</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WebChat Widget -->
+  <script src="/webchat-cta.js"></script>
+  <script src="https://admin.theia.cl/static/js/webchat-widget.js"
+          data-api-key="8da817eb-2cbf-42df-8b57-bb86288670de"
+          data-api-url="https://admin.theia.cl"
+          data-title="Asistente TheIA"
+          data-color="#d4af37"
+          data-welcome="Hola. ¿En qué podemos ayudarte respecto a soluciones de salud pública?"
+          data-prechat="false"
+          data-welcome-replies="Reunión técnica,Compra Ágil,Ver módulos">
+  </script>
+</body>
+
+</html>

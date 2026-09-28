@@ -30,6 +30,7 @@ ACTIVE_NAV_MAP = {
     "/alternativa-crm.html": "/crm",
     "/panel.html": "/panel",
     "/salud.html": "/casos",
+    "/salud-publica.html": "/casos",
     "/servicios.html": "/servicios",
     "/servicios-pyme.html": "/servicios",
     "/automotriz.html": "/casos",
