@@ -1,4 +1,4 @@
-// HU-WEB-042: Soporte navegación landing Salud Pública (salud-publica.html)
+// HU-WEB-044: Soporte navegación Pack Despegue (auditoria-contactabilidad.html)
 /**
  * site-nav.js — Módulo profundo de navegación pública TheIA (TASK-202608192246)
  */

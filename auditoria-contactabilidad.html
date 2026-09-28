@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-  <!-- HU-WEB-042: Landing de Solucion Salud Publica y Hospitales -->
+  <!-- HU-WEB-044: Landing de Evaluacion y Auditoria de Contactabilidad y No-Show -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -16,44 +16,44 @@
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
-  <title>Contactabilidad de Pacientes y Confirmación de Citas para Salud Pública | TheIA</title>
+  <title>Pack Despegue: Diagnóstico de Contactabilidad y Análisis de Mercado Público | TheIA</title>
 
   <!-- JSON-LD: WebPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://theia.cl/salud-publica#webpage",
-    "url": "https://theia.cl/salud-publica",
-    "name": "Contactabilidad de Pacientes y Confirmación de Citas para Salud Pública (TheIA)",
-    "description": "Recordatorios por WhatsApp con respaldo automático SMS, confirmación en un toque y contingencia masiva de agendas. Operativo en 48 horas para Hospitales y CESFAMs de Chile.",
+    "@id": "https://theia.cl/auditoria-contactabilidad#webpage",
+    "url": "https://theia.cl/auditoria-contactabilidad",
+    "name": "Pack Despegue: Diagnóstico de Contactabilidad y Análisis de Mercado Público (TheIA)",
+    "description": "Evaluamos en vivo la respuesta de tus canales y analizamos 1 Compra Ágil en Mercado Público con entrega en 72 horas. Tarifa fija de $50.000 CLP + IVA, 100% abonable a tu plan TheIA.",
     "inLanguage": "es-CL",
     "isPartOf": { "@id": "https://theia.cl#website" },
     "publisher": { "@id": "https://theia.cl#organization" }
   }
   </script>
-  <link rel="canonical" href="https://theia.cl/salud-publica" />
+  <link rel="canonical" href="https://theia.cl/auditoria-contactabilidad" />
   <link rel="icon" href="logo.png" type="image/png">
 
-  <meta name="description" content="Recordatorios por WhatsApp con respaldo automático SMS, confirmación en un toque y contingencia masiva de agendas. Operativo en 48 horas para Hospitales y CESFAMs de Chile." />
-  <meta name="keywords" content="contactabilidad pacientes Chile, confirmacion citas medicas salud publica, recordatorio WhatsApp CESFAM, Compra Agil salud, contingencia SOME hospital" />
+  <meta name="description" content="Evaluamos en vivo la respuesta de tus canales y analizamos 1 Compra Ágil en Mercado Público con entrega en 72 horas. Tarifa fija de $50.000 CLP + IVA, 100% abonable a tu plan TheIA." />
+  <meta name="keywords" content="auditoria contactabilidad WhatsApp, analisis Compra Agil Mercado Publico, costo no show clinica, diagnostico atencion al cliente Chile, Pack Despegue TheIA" />
   <meta name="author" content="TheIA" />
   <meta name="geo.region" content="CL" />
   <meta name="geo.placename" content="Santiago, Chile" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://theia.cl/salud-publica" />
+  <meta property="og:url" content="https://theia.cl/auditoria-contactabilidad" />
   <meta property="og:site_name" content="TheIA" />
   <meta property="og:locale" content="es_CL" />
-  <meta property="og:title" content="Contactabilidad de Pacientes y Confirmación de Citas para Salud Pública | TheIA" />
-  <meta property="og:description" content="Recordatorios por WhatsApp con respaldo automático SMS, confirmación en un toque y contingencia masiva de agendas. Operativo en 48 horas para Hospitales y CESFAMs de Chile." />
+  <meta property="og:title" content="Pack Despegue: Diagnóstico de Contactabilidad y Análisis de Mercado Público | TheIA" />
+  <meta property="og:description" content="Evaluamos en vivo la respuesta de tus canales y analizamos 1 Compra Ágil en Mercado Público con entrega en 72 horas. Tarifa fija de $50.000 CLP + IVA, 100% abonable a tu plan TheIA." />
   <meta property="og:image" content="https://theia.cl/logo.png" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Contactabilidad de Pacientes para Salud Pública | TheIA" />
-  <meta name="twitter:description" content="Recordatorios por WhatsApp con respaldo automático SMS, confirmación en un toque y contingencia masiva de agendas." />
+  <meta name="twitter:title" content="Pack Despegue: Diagnóstico de Contactabilidad y Mercado Público | TheIA" />
+  <meta name="twitter:description" content="Auditoría de canales de contacto y análisis técnico de 1 Compra Ágil por $50.000 CLP + IVA, abonable al contratar TheIA." />
   <meta name="twitter:image" content="https://theia.cl/logo.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -184,8 +184,49 @@
       font-size: 1.05rem;
       color: var(--text-sub);
       max-width: 760px;
-      margin: 0 auto 2.5rem;
+      margin: 0 auto 2.25rem;
       line-height: 1.7;
+    }
+
+    /* Tarjeta Precio Pack */
+    .pack-price-box {
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+      background: rgba(212, 175, 55, 0.05);
+      border: 1px solid var(--glass-border-gold);
+      border-radius: 16px;
+      padding: 1.75rem;
+      text-align: center;
+    }
+
+    .pack-price-tag {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .pack-price-amount {
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .pack-price-condition {
+      font-size: 0.92rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .pack-price-highlight {
+      color: var(--gold-light);
+      font-weight: 700;
     }
 
     .cta-btns {
@@ -194,7 +235,6 @@
       justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
-      margin-top: 1.5rem;
     }
     .cta-btns .btn {
       margin: 0 !important;
@@ -204,32 +244,122 @@
       border-radius: 10px;
     }
 
-    /* Credenciales Compra Publica */
-    .salud-credenciales {
-      padding: 4.5rem 0;
+    /* Modulos 2 en 1 */
+    .pack-componentes {
+      padding: 5rem 0;
       background: var(--bg2);
       border-top: 1px solid var(--glass-border);
       border-bottom: 1px solid var(--glass-border);
     }
 
-    .credenciales-grid {
+    .componentes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .componente-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      padding: 2.25rem 2rem;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: all 0.25s ease;
+    }
+
+    .componente-card:hover {
+      border-color: var(--glass-border-gold);
+      transform: translateY(-2px);
+    }
+
+    .componente-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+    }
+
+    .componente-title {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+    }
+
+    .componente-intro {
+      font-size: 0.92rem;
+      color: var(--text-sub);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    .puntos-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      width: 100%;
+    }
+
+    .punto-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--text-sub);
+    }
+
+    .punto-item strong {
+      color: var(--text);
+    }
+
+    .punto-icon {
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    /* Limites de Alcance */
+    .pack-alcance {
+      padding: 5rem 0;
+    }
+
+    .alcance-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1.25rem;
       margin-top: 2.5rem;
     }
 
-    .credencial-card {
+    .alcance-card {
       background: var(--glass);
       border: 1px solid var(--glass-border);
       border-radius: 14px;
       padding: 1.5rem;
+      text-align: left;
       display: flex;
       flex-direction: column;
-      text-align: left;
     }
 
-    .credencial-tag {
+    .alcance-tag {
       font-size: 0.72rem;
       font-weight: 700;
       color: var(--gold);
@@ -238,7 +368,7 @@
       margin-bottom: 0.5rem;
     }
 
-    .credencial-main {
+    .alcance-main {
       font-family: 'Merriweather', serif;
       font-weight: 700;
       font-size: 1.05rem;
@@ -246,112 +376,51 @@
       margin-bottom: 0.4rem;
     }
 
-    .credencial-sub {
+    .alcance-desc {
       color: var(--text-sub);
       font-size: 0.84rem;
       line-height: 1.55;
       margin: 0;
     }
 
-    /* Seccion Operacion */
-    .salud-operacion {
-      padding: 5rem 0;
-    }
-
-    .salud-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin: 3rem 0;
-    }
-
-    .salud-card {
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
+    /* Caja Garantia Abono */
+    .abono-box {
+      margin-top: 3.5rem;
+      background: rgba(212, 175, 55, 0.06);
+      border: 1px solid var(--glass-border-gold);
       border-radius: 18px;
-      padding: 2rem 1.75rem;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      padding: 2.25rem;
       text-align: left;
-      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
     }
 
-    .salud-card:hover {
-      border-color: var(--glass-border-gold);
-      transform: translateY(-2px);
+    .abono-text {
+      max-width: 680px;
     }
 
-    .salud-title {
+    .abono-title {
       font-family: 'Merriweather', serif;
       font-weight: 700;
-      font-size: 1.15rem;
-      color: var(--text);
-      margin-bottom: 0.65rem;
-    }
-
-    .salud-desc {
-      color: var(--text-sub);
-      font-size: 0.9rem;
-      line-height: 1.65;
-      margin: 0;
-    }
-
-    /* Consola Reglas SOME */
-    .salud-consola {
-      padding: 5rem 0;
-      background: var(--bg2);
-      border-top: 1px solid var(--glass-border);
-    }
-
-    .reglas-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
-      margin-top: 2rem;
-    }
-
-    .regla-item {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--glass-border);
-      border-radius: 12px;
-      padding: 1.25rem 1.5rem;
-      text-align: left;
-    }
-
-    .regla-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      font-size: 1.2rem;
+      color: var(--gold-light);
       margin-bottom: 0.5rem;
     }
 
-    .regla-header strong {
+    .abono-desc {
       font-size: 0.92rem;
-      color: var(--text);
-    }
-
-    .regla-badge {
-      color: var(--gold-light);
-      font-weight: 700;
-      font-size: 0.75rem;
-      background: rgba(212, 175, 55, 0.12);
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      padding: 0.15rem 0.5rem;
-      border-radius: 6px;
-    }
-
-    .regla-desc {
-      font-size: 0.82rem;
       color: var(--text-sub);
-      line-height: 1.6;
+      line-height: 1.65;
       margin: 0;
     }
 
     /* Proceso */
     .proceso {
       padding: 5rem 0;
-      background: var(--bg);
+      background: var(--bg2);
       border-top: 1px solid var(--glass-border);
     }
 
@@ -408,7 +477,7 @@
     .cta-final {
       padding: 5.5rem 0;
       text-align: center;
-      background: var(--bg2);
+      background: var(--bg);
       border-top: 1px solid var(--glass-border);
     }
 
@@ -437,13 +506,13 @@
 
     /* Responsive */
     @media (max-width: 960px) {
-      .credenciales-grid { grid-template-columns: repeat(2, 1fr); }
-      .salud-grid { grid-template-columns: 1fr; }
-      .reglas-grid { grid-template-columns: 1fr; }
+      .componentes-grid { grid-template-columns: 1fr; }
+      .alcance-grid { grid-template-columns: repeat(2, 1fr); }
       .steps { grid-template-columns: 1fr; }
+      .abono-box { flex-direction: column; align-items: flex-start; }
     }
     @media (max-width: 560px) {
-      .credenciales-grid { grid-template-columns: 1fr; }
+      .alcance-grid { grid-template-columns: 1fr; }
     }
   </style>
 
@@ -455,7 +524,7 @@
 
 <body>
   <!-- Header / Navigation -->
-  <nav class="site-header" data-site-nav data-site-nav-page="salud-publica" data-site-nav-source="salud-publica-nav" aria-label="Navegación principal">
+  <nav class="site-header" data-site-nav data-site-nav-page="auditoria-contactabilidad" data-site-nav-source="auditoria-nav" aria-label="Navegación principal">
     <a href="/" class="logo">
       <img src="/logo.png" alt="TheIA" width="100" height="100" />
     </a>
@@ -612,6 +681,7 @@
         <div class="site-nav__mobile-section-label">Industrias &amp; Casos</div>
         <a href="/salud" class="site-nav__link">Salud</a>
         <a href="/salud-publica" class="site-nav__link">Salud Pública</a>
+        <a href="/auditoria-contactabilidad" class="site-nav__link">Pack Despegue</a>
         <a href="/servicios-pyme" class="site-nav__link">Servicios Profesionales B2B</a>
         <a href="/automotriz" class="site-nav__link">Automotriz</a>
         <a href="/comercio" class="site-nav__link">Comercio</a>
@@ -631,7 +701,7 @@
       </div>
 
       <!-- 6. Demo CTA -->
-      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold site-nav__demo" onclick="theiaTrackCTA('demo','salud-publica-nav')">Agenda una demo →</a>
+      <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold site-nav__demo" onclick="theiaTrackCTA('demo','auditoria-nav')">Agenda una demo →</a>
     </div>
   </nav>
 
@@ -639,217 +709,139 @@
   <section class="hero">
     <div class="container">
       <div class="dash-badge reveal">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-3"/><path d="M9 9h1"/><path d="M9 13h1"/><path d="M9 17h1"/></svg>
-        Proveedor Activo en Mercado Público · Disponible vía Compra Ágil
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        Pack Despegue Operativo · Entrega en 72 Horas Hábiles
       </div>
-      <h1 class="reveal">Contactabilidad de Pacientes y Confirmación de Citas para <span class="gold">Salud Pública.</span></h1>
-      <p class="lead reveal">Recordatorios por WhatsApp con respaldo automático SMS, confirmación en un toque y contingencia masiva de agendas. Operativo en 48 horas para Hospitales y CESFAMs de Chile.</p>
-      
+      <h1 class="reveal">Pack Despegue: Diagnóstico de Contactabilidad y Análisis de <span class="gold">Mercado Público.</span></h1>
+      <p class="lead reveal">Evaluamos en vivo la respuesta de tus canales y analizamos 1 Compra Ágil en Mercado Público con entrega en 72 horas. Tarifa fija de $50.000 CLP + IVA, 100% abonable a tu plan TheIA.</p>
+
+      <div class="pack-price-box reveal">
+        <div class="pack-price-tag">Tarifa Fija Transparente</div>
+        <div class="pack-price-amount">$50.000 <span style="font-size: 1.1rem; font-weight: 500; color: var(--text-sub);">CLP + IVA</span></div>
+        <p class="pack-price-condition">
+          El valor pagado es <span class="pack-price-highlight">100% abonable</span> a tu mensualidad o setup al contratar cualquier plan de TheIA. El diagnóstico te resulta sin costo si decides avanzar.
+        </p>
+      </div>
+
       <div class="cta-btns reveal">
-        <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" onclick="theiaTrackCTA('demo','salud-publica-hero')">Coordinar reunión técnica →</a>
-        <a href="https://wa.me/12063858350?text=Hola%2C%20me%20interesa%20evaluar%20TheIA%20para%20Salud%20P%C3%BAblica" target="_blank" rel="noopener" class="btn btn-ghost" onclick="theiaTrackCTA('whatsapp','salud-publica-hero')">Consultar por WhatsApp</a>
+        <a href="https://wa.me/12063858350?text=Hola%2C%20quiero%20contratar%20el%20Pack%20Despegue%20de%2050000" target="_blank" rel="noopener" class="btn btn-gold" onclick="theiaTrackCTA('whatsapp','pack-despegue-hero')">Contratar Pack Despegue por $50.000 →</a>
+        <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-ghost" onclick="theiaTrackCTA('demo','pack-despegue-hero')">Revisar alcance en 15 min</a>
       </div>
     </div>
   </section>
 
-  <!-- Pabellón de Credenciales Institucionales y Compra Pública -->
-  <section class="salud-credenciales">
+  <!-- Modulos 2 en 1 -->
+  <section class="pack-componentes">
     <div class="container">
-      <h2 class="section-title reveal">Contratación directa y habilitación en <span class="gold">48 horas hábiles.</span></h2>
-      <p class="section-sub reveal">Datos institucionales para emisión de Orden de Compra expedita sin requerir licitaciones extensas.</p>
+      <h2 class="section-title reveal">Dos diagnósticos operativos en <span class="gold">un solo servicio.</span></h2>
+      <p class="section-sub reveal">Detectamos las fugas de atención en tus canales y preparamos tu propuesta para el Estado con entrega técnica en 72 horas hábiles.</p>
 
-      <div class="credenciales-grid">
-        <div class="credencial-card reveal">
-          <div class="credencial-tag">Registro Oficial</div>
-          <div class="credencial-main">THEIA SERVICIOS TECNOLÓGICOS SpA</div>
-          <p class="credencial-sub">RUT: 78.474.636-4. Proveedor activo registrado en Mercado Público y ChileCompra.</p>
+      <div class="componentes-grid">
+        <!-- Componente 1 -->
+        <div class="componente-card reveal theia-card">
+          <span class="componente-badge">Componente A · Atención y Pacientes</span>
+          <div class="componente-title">Auditoría de Contactabilidad y Stress-Test en Canales Vivos</div>
+          <p class="componente-intro">Probamos tu canal de atención real en situaciones de alta demanda para identificar tiempos de respuesta y pérdidas económicas por inasistencias.</p>
+          <ul class="puntos-list">
+            <li class="punto-item">
+              <svg class="punto-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Simulación real en vivo:</strong> Contacto efectivo en horarios punta y fines de semana por WhatsApp, Instagram o WebChat.</span>
+            </li>
+            <li class="punto-item">
+              <svg class="punto-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Cronometrado de respuesta:</strong> Medición de minutos de primera atención y estimación de tasa de abandono de usuarios.</span>
+            </li>
+            <li class="punto-item">
+              <svg class="punto-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Modelo financiero de inasistencias:</strong> Cálculo del costo de box u horas profesionales ociosas por falta de confirmación oportuna.</span>
+            </li>
+            <li class="punto-item">
+              <svg class="punto-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Recomendaciones correctivas:</strong> Pautas concretas para implementar recordatorios en 1 toque y liberar cupos perdidos.</span>
+            </li>
+          </ul>
         </div>
 
-        <div class="credencial-card reveal">
-          <div class="credencial-tag">Mecanismo de Compra</div>
-          <div class="credencial-main">Disponible vía Compra Ágil</div>
-          <p class="credencial-sub">Cotización formal inmediata y adjudicación directa bajo la normativa de compras públicas.</p>
-        </div>
-
-        <div class="credencial-card reveal">
-          <div class="credencial-tag">Plazo de Entrega</div>
-          <div class="credencial-main">Puesta en Marcha en 2 Días</div>
-          <p class="credencial-sub">Habilitación técnica en 48 horas hábiles tras la recepción conforme de la Orden de Compra.</p>
-        </div>
-
-        <div class="credencial-card reveal">
-          <div class="credencial-tag">Seguridad Institucional</div>
-          <div class="credencial-main">Privacidad Asistencial</div>
-          <p class="credencial-sub">Cumplimiento de estándares de privacidad exigidos para salud, con cifrado y resguardo de nóminas.</p>
+        <!-- Componente 2 -->
+        <div class="componente-card reveal theia-card">
+          <span class="componente-badge">Componente B · Mercado Público</span>
+          <div class="componente-title">Análisis Técnico de 1 Compra Ágil en Mercado Público</div>
+          <p class="componente-intro">Analizamos las bases técnicas de 1 cotización en Mercado Público para estructurar tu propuesta y evitar causales de inadmisibilidad.</p>
+          <ul class="puntos-list">
+            <li class="punto-item">
+              <svg class="punto-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Lectura de requerimientos:</strong> Extracción de especificaciones técnicas y plazos exigidos por el organismo requirente.</span>
+            </li>
+            <li class="punto-item">
+              <svg class="punto-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Checklist de admisibilidad:</strong> Verificación de certificados obligatorios, garantías y antecedentes administrativos indispensables.</span>
+            </li>
+            <li class="punto-item">
+              <svg class="punto-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Desglose de líneas solicitadas:</strong> Resumen estructurado de los ítems cotizados para calzar tu oferta con precisión.</span>
+            </li>
+            <li class="punto-item">
+              <svg class="punto-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Borrador de propuesta técnica:</strong> Documento base redactado para acelerar la preparación de tu cotización en el portal.</span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Módulos Operativos (Oferta Técnica Compra Ágil) -->
-  <section class="salud-operacion">
+  <!-- Limites Estrictos de Alcance -->
+  <section class="pack-alcance">
     <div class="container">
-      <h2 class="section-title reveal">Módulos operativos diseñados para <span class="gold">la red asistencial.</span></h2>
-      <p class="section-sub reveal">Capacidades técnicas concretas para resolver la inasistencia y contingencia de citaciones sin alterar los sistemas locales.</p>
+      <h2 class="section-title reveal">Alcance definido y condiciones <span class="gold">100% transparentes.</span></h2>
+      <p class="section-sub reveal">Sin letra chica. Un encargo puntual para evaluar tus operaciones con plazos y compromisos exactos.</p>
 
-      <div class="salud-grid">
-        <!-- Modulo 1: Canal Dual -->
-        <div class="salud-card reveal theia-card">
-          <div class="theia-card__visual">
-            <div class="piece-icon-wrap">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/>
-              </svg>
-            </div>
-          </div>
-          <div class="theia-card__content">
-            <div class="salud-title">Canal Dual con Respaldo SMS</div>
-            <p class="salud-desc">Notificación interactiva por WhatsApp con fecha, hora, box y profesional. Respaldo automático por SMS para pacientes con teléfonos básicos o sin plan de datos activo.</p>
-          </div>
+      <div class="alcance-grid">
+        <div class="alcance-card reveal">
+          <div class="alcance-tag">Canal Único</div>
+          <div class="alcance-main">1 Canal de Atención</div>
+          <p class="alcance-desc">La auditoría se ejecuta sobre un único canal seleccionado: WhatsApp, Instagram o WebChat.</p>
         </div>
 
-        <!-- Modulo 2: Confirmacion y Liberacion -->
-        <div class="salud-card reveal theia-card">
-          <div class="theia-card__visual">
-            <div class="piece-icon-wrap">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
-              </svg>
-            </div>
-          </div>
-          <div class="theia-card__content">
-            <div class="salud-title">Confirmación y Liberación en Pantalla</div>
-            <p class="salud-desc">Botones interactivos táctiles para confirmar asistencia o liberar el cupo de inmediato, permitiendo reasignar la hora médica a pacientes en lista de espera.</p>
-          </div>
+        <div class="alcance-card reveal">
+          <div class="alcance-tag">Proceso Acotado</div>
+          <div class="alcance-main">1 Compra Ágil</div>
+          <p class="alcance-desc">Válido para 1 cotización o Compra Ágil simple. Excluye licitaciones públicas complejas u obras.</p>
         </div>
 
-        <!-- Modulo 3: Contingencia SOME -->
-        <div class="salud-card reveal theia-card">
-          <div class="theia-card__visual">
-            <div class="piece-icon-wrap">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-              </svg>
-            </div>
-          </div>
-          <div class="theia-card__content">
-            <div class="salud-title">Módulo de Contingencia y Cancelación Masiva</div>
-            <p class="salud-desc">Herramienta para que el equipo SOME suspenda agendas completas y avise a los pacientes afectados ante licencias médicas imprevistas, paro o boxes inhabilitados.</p>
-          </div>
+        <div class="alcance-card reveal">
+          <div class="alcance-tag">Compromiso Temporal</div>
+          <div class="alcance-main">72 Horas Hábiles</div>
+          <p class="alcance-desc">Entrega del informe completo y el borrador técnico en un plazo máximo de 3 días hábiles.</p>
         </div>
 
-        <!-- Modulo 4: Ingesta Excel/CSV -->
-        <div class="salud-card reveal theia-card">
-          <div class="theia-card__visual">
-            <div class="piece-icon-wrap">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/>
-              </svg>
-            </div>
-          </div>
-          <div class="theia-card__content">
-            <div class="salud-title">Ingesta sin Integraciones Complejas</div>
-            <p class="salud-desc">Carga diaria de nóminas mediante planillas Excel o CSV exportadas directamente desde el sistema local del establecimiento (Rayen, Omesh, TrackCare) con normalización telefónica.</p>
-          </div>
+        <div class="alcance-card reveal">
+          <div class="alcance-tag">Frontera Operativa</div>
+          <div class="alcance-main">Carga por el Cliente</div>
+          <p class="alcance-desc">Entregamos el análisis y el borrador de propuesta; la postulación y carga en el portal es de exclusiva responsabilidad del cliente.</p>
         </div>
+      </div>
 
-        <!-- Modulo 5: Panel SOME y Metricas -->
-        <div class="salud-card reveal theia-card">
-          <div class="theia-card__visual">
-            <div class="piece-icon-wrap">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
-              </svg>
-            </div>
-          </div>
-          <div class="theia-card__content">
-            <div class="salud-title">Panel SOME y Reportería en Tiempo Real</div>
-            <p class="salud-desc">Métricas de entrega, lectura, confirmación y cancelación agrupadas por servicio clínico o policlínico para la toma de decisiones del equipo directivo.</p>
-          </div>
+      <!-- Caja de Abono Garantizado -->
+      <div class="abono-box reveal">
+        <div class="abono-text">
+          <div class="abono-title">Garantía de Abono Comercial al 100%</div>
+          <p class="abono-desc">
+            Si decides contratar la plataforma TheIA tras recibir tu informe, los <strong>$50.000 CLP + IVA</strong> pagados se descuentan íntegramente del setup o de tu primer mes de servicio. El diagnóstico completo te resulta sin costo adicional.
+          </p>
         </div>
-
-        <!-- Modulo 6: Resguardo Asistencial -->
-        <div class="salud-card reveal theia-card">
-          <div class="theia-card__visual">
-            <div class="piece-icon-wrap">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-              </svg>
-            </div>
-          </div>
-          <div class="theia-card__content">
-            <div class="salud-title">Resguardo de Privacidad Asistencial</div>
-            <p class="salud-desc">Cifrado en tránsito y reposo, desestigmatización de patologías sensibles en mensajes y cumplimiento de estándares de privacidad exigidos para salud.</p>
-          </div>
+        <div>
+          <a href="https://wa.me/12063858350?text=Hola%2C%20quiero%20contratar%20el%20Pack%20Despegue%20de%2050000" target="_blank" rel="noopener" class="btn btn-gold" onclick="theiaTrackCTA('whatsapp','abono-pack')">Solicitar Pack por $50.000 →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Consola de Reglas SOME y Calendario Nacional -->
-  <section class="salud-consola">
-    <div class="container" style="max-width: 960px;">
-      <div style="text-align: center; margin-bottom: 2.5rem;">
-        <div class="dash-badge reveal">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          Reglas de Contacto Asistencial
-        </div>
-        <h2 class="section-title reveal">Certeza operativa y reglas de contacto <span class="gold">en días hábiles.</span></h2>
-        <p class="section-sub reveal">Despacho diurno programado, respeto estricto del calendario nacional de feriados y protección del paciente.</p>
-      </div>
-
-      <div class="theia-card reveal" style="padding: 2rem; max-width: 820px; margin: 0 auto; text-align: left; align-items: stretch;">
-        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass-border); padding-bottom: 1rem; margin-bottom: 1.25rem;">
-          <div style="font-family: 'Merriweather', serif; font-weight: 700; font-size: 1.05rem; color: var(--gold-light);">Parámetros de Entrega Asistencial</div>
-          <span style="background: rgba(212, 175, 55, 0.1); color: var(--gold-light); border: 1px solid rgba(212, 175, 55, 0.25); font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px;">Operación Verificada</span>
-        </div>
-
-        <div class="reglas-grid">
-          <!-- Regla 1: Ventana Diurna -->
-          <div class="regla-item">
-            <div class="regla-header">
-              <strong>Ventana Diurna Anti-Spam</strong>
-              <span class="regla-badge">08:30 a 19:30</span>
-            </div>
-            <p class="regla-desc">Notificaciones enviadas en horario hábil diurno para evitar contactabilidad molesta a pacientes.</p>
-          </div>
-
-          <!-- Regla 2: Anticipacion para Lunes y Feriados -->
-          <div class="regla-item">
-            <div class="regla-header">
-              <strong>Anticipación en Festivos</strong>
-              <span class="regla-badge">Viernes 11:00-16:00</span>
-            </div>
-            <p class="regla-desc">Citaciones de lunes o post-feriado se notifican el día hábil previo para asegurar confirmación.</p>
-          </div>
-
-          <!-- Regla 3: Desestigmatizacion Clinica -->
-          <div class="regla-item">
-            <div class="regla-header">
-              <strong>Protección de Diagnósticos</strong>
-              <span class="regla-badge">Control de Salud</span>
-            </div>
-            <p class="regla-desc">Ofuscación automática de patologías sensibles a términos neutros en la notificación al usuario.</p>
-          </div>
-
-          <!-- Regla 4: Normalizacion de Telefonos -->
-          <div class="regla-item">
-            <div class="regla-header">
-              <strong>Normalización Telefónica</strong>
-              <span class="regla-badge">+569 / Red Fija</span>
-            </div>
-            <p class="regla-desc">Corrección automática de prefijos y detección de canal óptimo para evitar fallos de envío.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Proceso de Puesta en Marcha -->
+  <!-- Proceso en 3 Pasos -->
   <section class="proceso">
     <div class="container">
-      <h2 class="section-title reveal">Puesta en marcha en <span class="gold">3 pasos simples.</span></h2>
-      <p class="section-sub reveal">Sin instalaciones en servidores locales ni proyectos de desarrollo prolongados.</p>
+      <h2 class="section-title reveal">Cómo solicitar tu <span class="gold">Pack Despegue.</span></h2>
+      <p class="section-sub reveal">Tres pasos simples para activar la evaluación y recibir tus informes en 72 horas hábiles.</p>
 
       <div class="steps">
         <div class="step-card reveal theia-card">
@@ -857,8 +849,8 @@
             <div class="step-num">01</div>
           </div>
           <div class="theia-card__content">
-            <div class="step-name">Exportas tu nómina local</div>
-            <p class="step-desc">Subes la planilla Excel o CSV de citaciones desde tu sistema habitual en minutos.</p>
+            <div class="step-name">Envías tus antecedentes</div>
+            <p class="step-desc">Nos indicas el canal que deseas auditar y compartes el enlace o pliego de la Compra Ágil de tu interés.</p>
           </div>
         </div>
         <div class="step-card reveal theia-card">
@@ -866,8 +858,8 @@
             <div class="step-num">02</div>
           </div>
           <div class="theia-card__content">
-            <div class="step-name">Configuramos los mensajes oficiales</div>
-            <p class="step-desc">Validamos las plantillas interactivas con el equipo SOME, incluyendo profesional, box, fecha y hora.</p>
+            <div class="step-name">Ejecutamos el análisis</div>
+            <p class="step-desc">Simulamos la atención en vivo, calculamos el costo de inasistencias y procesamos los requerimientos técnicos.</p>
           </div>
         </div>
         <div class="step-card reveal theia-card">
@@ -875,27 +867,10 @@
             <div class="step-num">03</div>
           </div>
           <div class="theia-card__content">
-            <div class="step-name">Emisión de orden de compra y activación</div>
-            <p class="step-desc">Habilitación en 48 horas vía Compra Ágil, con seguimiento y reportería en vivo.</p>
+            <div class="step-name">Recibes informe y borrador</div>
+            <p class="step-desc">En 72 horas hábiles recibes el diagnóstico de contacto, el modelo de horas ociosas y tu borrador de propuesta.</p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Llamada Organica Pack Despegue (HU-WEB-044) -->
-  <section style="padding: 3.5rem 0; background: var(--bg); border-top: 1px solid var(--glass-border);">
-    <div class="container" style="max-width: 860px; text-align: center;">
-      <div class="dash-badge reveal" style="margin-bottom: 0.75rem;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        Evaluación Previa de Canales y Licitaciones
-      </div>
-      <h3 class="reveal" style="font-family: 'Merriweather', serif; font-size: clamp(1.4rem, 2.5vw, 1.85rem); font-weight: 700; color: var(--text); margin-bottom: 0.75rem;">Auditoría de contacto y análisis técnico de Compra Ágil</h3>
-      <p class="reveal" style="font-size: 0.95rem; color: var(--text-sub); line-height: 1.65; margin-bottom: 1.5rem;">
-        Si tu equipo busca evaluar tiempos de respuesta o necesita revisar las bases de 1 requerimiento en Mercado Público, contrata el <strong>Pack Despegue</strong> por $50.000 CLP + IVA con entrega en 72 horas hábiles (100% abonable a tu plan).
-      </p>
-      <div class="reveal">
-        <a href="/auditoria-contactabilidad" class="btn btn-gold" style="height: 44px; padding: 0 1.5rem; font-size: 0.9rem; border-radius: 8px;">Conocer el Pack Despegue →</a>
       </div>
     </div>
   </section>
@@ -903,15 +878,12 @@
   <!-- CTA Final -->
   <section class="cta-final">
     <div class="container">
-      <h2 class="section-title reveal">¿Quieres evaluar la contactabilidad en <span class="gold">tu establecimiento?</span></h2>
-      <p class="section-sub reveal">Coordina una sesión técnica de 30 minutos o solicita la cotización para Compra Ágil.</p>
-      
+      <h2 class="section-title reveal">¿Listo para auditar tu canal y <span class="gold">postular informado?</span></h2>
+      <p class="section-sub reveal">Solicita tu Pack Despegue hoy por $50.000 CLP + IVA y abona el total al contratar la plataforma TheIA.</p>
+
       <div class="cta-btns reveal">
-        <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold btn-large" onclick="theiaTrackCTA('demo','salud-publica-cta')">Coordinar reunión técnica →</a>
-        <a href="https://wa.me/12063858350?text=Hola%2C%20me%20interesa%20evaluar%20TheIA%20para%20Salud%20P%C3%BAblica" target="_blank" rel="noopener" class="btn btn-whatsapp" onclick="theiaTrackCTA('whatsapp','salud-publica-cta')">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-          Escríbenos por WhatsApp
-        </a>
+        <a href="https://wa.me/12063858350?text=Hola%2C%20quiero%20solicitar%20el%20Pack%20Despegue%20de%2050000" target="_blank" rel="noopener" class="btn btn-gold btn-large" onclick="theiaTrackCTA('whatsapp','auditoria-cta')">Solicitar Pack Despegue por $50.000 →</a>
+        <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-ghost" onclick="theiaTrackCTA('demo','auditoria-cta')">Coordinar llamada previa</a>
       </div>
     </div>
   </section>
@@ -1005,9 +977,9 @@
           data-api-url="https://admin.theia.cl"
           data-title="Asistente TheIA"
           data-color="#d4af37"
-          data-welcome="Hola. ¿En qué podemos ayudarte respecto a soluciones de salud pública?"
+          data-welcome="Hola. ¿En qué podemos ayudarte con el diagnóstico de contactabilidad o Mercado Público?"
           data-prechat="false"
-          data-welcome-replies="Reunión técnica,Compra Ágil,Ver módulos">
+          data-welcome-replies="Pack Despegue,Auditoría canales,Mercado Público">
   </script>
 </body>
 

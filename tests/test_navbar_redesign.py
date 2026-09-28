@@ -31,6 +31,7 @@ ACTIVE_NAV_MAP = {
     "/panel.html": "/panel",
     "/salud.html": "/casos",
     "/salud-publica.html": "/casos",
+    "/auditoria-contactabilidad.html": "/casos",
     "/servicios.html": "/servicios",
     "/servicios-pyme.html": "/servicios",
     "/automotriz.html": "/casos",
