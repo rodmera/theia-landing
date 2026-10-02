@@ -477,3 +477,46 @@ nav.site-header .logo img {
     justify-content: center;
   }
 }
+
+/* Botón Flotante Oficial de WhatsApp (Esquina Inferior Izquierda — .btn-whatsapp) */
+#theia-wa-float,
+.whatsapp-float-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 990;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+#theia-wa-float:hover,
+.whatsapp-float-btn:hover {
+  transform: scale(1.06) translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+}
+
+#theia-wa-float svg,
+.whatsapp-float-btn svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  #theia-wa-float,
+  .whatsapp-float-btn {
+    bottom: 20px;
+    left: 16px;
+  }
+}
+

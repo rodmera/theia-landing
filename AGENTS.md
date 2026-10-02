@@ -146,9 +146,20 @@ Variables CSS definidas en `:root` que controlan toda la paleta:
 - El panel del hero y similares NO debe mostrar **sesiones de chat simuladas** (burbujas user/bot estilo chatbot). Eso refuerza la idea de TheIA como "solo un chatbot" y contradice el discurso paraguas.
 - Patrón vigente (HU-WEB-036): **imagen conceptual única de orquestación**: un encargo cruza un núcleo de coordinación hacia especialistas y vuelve resuelto. Es una metáfora editorial, no una interfaz, producto ni promesa de funcionalidades.
 
-**⛔ REGLA DURA — Widgets Flotantes y Frame del WebChat:**
-- En desktop (`min-width: 769px`), existe **un único widget flotante de atención** en la esquina inferior derecha: el asistente WebChat propio de TheIA (`#theia-widget-btn`). No duplicar ni amontonar botones flotantes en desktop (estilo Dapta.ai; WhatsApp va como barra en móvil y en CTAs orgánicos en desktop).
-- El botón del WebChat usa gradiente dorado de marca, ícono SVG vectorial AI Spark (no emojis 💬) y tooltip flotante *"Probar conversación en vivo ✨"*.
+**⛔ REGLA DURA — Widgets Flotantes y Patrón de Esquinas Opuestas (Opposite Corners Pattern):**
+- **Patrón Canónico de Esquinas Opuestas:** La atención en vivo se distribuye de forma simétrica y no invasiva entre los dos canales oficiales de TheIA:
+  - **Esquina inferior derecha:** Asistente WebChat propio de TheIA (`#theia-widget-btn`), fondo gradiente dorado de marca, ícono SVG vectorial AI Spark y tooltip flotante *"Probar conversación en vivo ✨"*.
+  - **Esquina inferior izquierda:** Botón flotante oficial de WhatsApp (`#theia-wa-float`, `.whatsapp-float-btn`), círculo de `52px × 52px` (mínimo touch 44px WCAG), fondo verde oficial `#25D366`, ícono vectorial SVG oficial en blanco `#ffffff` de `28px × 28px`, `box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35)`.
+- **Posicionamiento simétrico y z-index:**
+  - Desktop (`min-width: 769px`): WebChat en `bottom: 24px; right: 24px;` y WhatsApp en `bottom: 24px; left: 24px; z-index: 990;`.
+  - Mobile (`max-width: 768px`): WebChat en `bottom: 20px; right: 16px;` y WhatsApp en `bottom: 20px; left: 16px; z-index: 990;`.
+  - Queda derogada la restricción anterior que forzaba un único widget en desktop. Ambos widgets conviven en esquinas opuestas con más de 150px de separación horizontal incluso en pantallas angostas (320px).
+  - Integración obligatoria con `cc-init.js`: cuando el banner de cookies está activo, ambos botones flotantes se elevan armónicamente para no tapar el aviso legal ni quedar ocultos.
+- **Atributos y accesibilidad de WhatsApp:**
+  - `aria-label="Hablar con TheIA por WhatsApp"`
+  - `target="_blank"` y `rel="noopener noreferrer"`
+  - Enlace oficial canónico: `https://wa.me/12063858350?text=Hola%20TheIA%2C%20quiero%20consultar%20por%20atenci%C3%B3n%20con%20IA`
+  - Tracking de evento CTA: `theiaTrackCTA('whatsapp-float', 'floating-btn')`.
 - El frame desplegado (`#theia-widget-box`) usa header azul índigo `#0f172a` con borde dorado `#d4af37` e ícono SVG.
 - Las respuestas rápidas (`.theia-quick-replies button`) usan fondo oscuro `#0f172a` con texto blanco `#ffffff` de alto contraste. PROHIBIDO usar texto dorado claro sobre fondo blanco (bajo contraste ilegible).
 

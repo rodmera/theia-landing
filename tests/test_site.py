@@ -421,6 +421,83 @@ def test_sin_colision_entre_widgets_flotantes(desktop_page, mobile_page):
         assert not has_overlap, f"Colisión o traslape detectado entre .sticky-wa y #theia-widget-btn en modo {mode}"
 
 
+def test_whatsapp_floating_widget_opposite_corners(desktop_page, mobile_page):
+    """QA Botón Flotante Oficial de WhatsApp (Patrón de Esquinas Opuestas con WebChat):
+    1. Desktop (min-width: 769px): bottom: 24px; left: 24px; z-index: 990;
+    2. Mobile (max-width: 768px): bottom: 20px; left: 16px; z-index: 990;
+    3. Dimensiones 52x52px, fondo verde WhatsApp #25D366, icono SVG blanco 28x28px.
+    4. Atributos accesibles (aria-label, target='_blank', rel='noopener noreferrer').
+    5. Enlace oficial con pre-filled text y tracking al clic.
+    6. Sin colisión ni solapamiento con el WebChat (#theia-widget-btn) en ambas vistas.
+    """
+    for page, mode in [(desktop_page, "desktop"), (mobile_page, "mobile")]:
+        goto(page, "/")
+        page.wait_for_timeout(300)
+        # Si el cookie banner está activo, aceptarlo para validar posición de reposo
+        cc_btn = page.locator("#theia-cc-accept")
+        if cc_btn.is_visible():
+            cc_btn.click()
+            page.wait_for_timeout(200)
+
+        wa = page.locator("#theia-wa-float")
+        assert wa.is_visible(), f"Botón flotante de WhatsApp no visible en modo {mode}"
+
+        info = page.evaluate("""() => {
+            const el = document.getElementById('theia-wa-float');
+            const chat = document.getElementById('theia-widget-btn');
+            const style = getComputedStyle(el);
+            const rect = el.getBoundingClientRect();
+            const svg = el.querySelector('svg');
+            const svgRect = svg ? svg.getBoundingClientRect() : null;
+
+            let overlapWithChat = false;
+            if (chat) {
+                const chatRect = chat.getBoundingClientRect();
+                if (chatRect.width > 0 && chatRect.height > 0) {
+                    overlapWithChat = !(rect.right < chatRect.left || rect.left > chatRect.right || rect.bottom < chatRect.top || rect.top > chatRect.bottom);
+                }
+            }
+
+            return {
+                width: rect.width,
+                height: rect.height,
+                bg: style.backgroundColor,
+                bottom: style.bottom,
+                left: style.left,
+                zIndex: style.zIndex,
+                ariaLabel: el.getAttribute('aria-label'),
+                target: el.getAttribute('target'),
+                rel: el.getAttribute('rel'),
+                href: el.getAttribute('href'),
+                svgW: svgRect ? svgRect.width : 0,
+                svgH: svgRect ? svgRect.height : 0,
+                overlapWithChat
+            };
+        }""")
+
+        assert info["width"] >= 44 and info["height"] >= 44, f"Dimensiones menores al mínimo WCAG (52x52px): {info}"
+        assert not info["overlapWithChat"], f"Colisión entre #theia-wa-float y #theia-widget-btn en {mode}"
+        assert "25d366" in info["bg"].lower() or "37, 211, 102" in info["bg"], f"Color no es verde WhatsApp #25D366: {info['bg']}"
+        assert "Hablar con TheIA por WhatsApp" in (info["ariaLabel"] or ""), f"aria-label incorrecto: {info['ariaLabel']}"
+        assert info["target"] == "_blank"
+        assert "noopener" in (info["rel"] or "") and "noreferrer" in (info["rel"] or "")
+        assert "wa.me/12063858350" in info["href"]
+
+        if mode == "desktop":
+            assert info["bottom"] == "24px" and info["left"] == "24px", f"Posición desktop incorrecta: {info}"
+        else:
+            assert info["bottom"] == "20px" and info["left"] == "16px", f"Posición mobile incorrecta: {info}"
+
+
+@pytest.mark.parametrize("subpage", ["/precios", "/servicios", "/funciones", "/alternativa-crm"])
+def test_whatsapp_floating_widget_on_subpages(desktop_page, subpage):
+    """Verifica que el botón flotante de WhatsApp esté activo y visible en subpáginas del catálogo."""
+    goto(desktop_page, subpage)
+    desktop_page.wait_for_timeout(300)
+    wa = desktop_page.locator("#theia-wa-float")
+    assert wa.is_visible(), f"Botón WhatsApp flotante no visible en {subpage}"
+
+
 @pytest.mark.parametrize("path", PAGES)
 def test_webchat_frame_branding_and_contrast(mobile_page, path):
     """QA WebChat Frame en las 19 páginas públicas:

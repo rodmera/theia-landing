@@ -369,10 +369,10 @@ def test_paleta_verde_restringida_a_whatsapp_y_status_dot(mobile_page, path):
         const allElements = document.querySelectorAll('h1, h2, h3, h4, strong, p, span, div, a');
         for (const el of allElements) {
             // Ignorar elementos de WhatsApp y status dots
-            if (el.closest('.btn-whatsapp, .footer-contact-badge--wa, .footer-bottom-wa, #theia-widget-btn, .chat-online, .badge-dot, .live-dot')) {
+            if (el.closest('.btn-whatsapp, .footer-contact-badge--wa, .footer-bottom-wa, #theia-widget-btn, .chat-online, .badge-dot, .live-dot, #theia-wa-float, .whatsapp-float-btn')) {
                 continue;
             }
-            if (el.classList.contains('btn-whatsapp') || el.classList.contains('badge-dot') || el.classList.contains('live-dot')) {
+            if (el.classList.contains('btn-whatsapp') || el.classList.contains('badge-dot') || el.classList.contains('live-dot') || el.classList.contains('whatsapp-float-btn') || el.id === 'theia-wa-float') {
                 continue;
             }
             // Ignorar SVGs de logos oficiales
