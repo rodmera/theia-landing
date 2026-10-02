@@ -27,8 +27,17 @@ while read -r _local_ref _local_sha remote_ref _remote_sha; do
         echo "🔍 [PRE-PUSH GATE] Validando calidad frontend y responsive antes del push a main..." >&2
 
         # 1. Auditoria Frontend UX
+        PY_EXEC="python3"
+        if [ -f ".venv-test/bin/python" ]; then
+            PY_EXEC=".venv-test/bin/python"
+        elif [ -f ".venv/bin/python" ]; then
+            PY_EXEC=".venv/bin/python"
+        elif command -v ~/.local/share/mise/installs/python/3.12.14/bin/python3 >/dev/null 2>&1; then
+            PY_EXEC="$HOME/.local/share/mise/installs/python/3.12.14/bin/python3"
+        fi
+
         if [ -f ".agents/skills/frontend-ux-review/scripts/audit_frontend_ux.py" ]; then
-            if ! python3 .agents/skills/frontend-ux-review/scripts/audit_frontend_ux.py > /dev/null 2>&1; then
+            if ! "$PY_EXEC" .agents/skills/frontend-ux-review/scripts/audit_frontend_ux.py > /dev/null 2>&1; then
                 echo "❌ [PRE-PUSH GATE ERROR] audit_frontend_ux.py fallo. Corrige antes de pasar a main." >&2
                 exit 1
             fi
@@ -36,7 +45,7 @@ while read -r _local_ref _local_sha remote_ref _remote_sha; do
 
         # 2. Wording quality test
         if [ -f ".venv-test/bin/python" ] && [ -f "tests/test_wording_quality.py" ]; then
-            if ! .venv-test/bin/python -m pytest tests/test_wording_quality.py -q > /dev/null 2>&1; then
+            if ! .venv-test/bin/python -m pytest tests/test_wording_quality.py -o addopts="" -q > /dev/null 2>&1; then
                 echo "❌ [PRE-PUSH GATE ERROR] test_wording_quality.py fallo. Bloqueando push." >&2
                 exit 1
             fi
