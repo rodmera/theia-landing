@@ -148,8 +148,8 @@ Variables CSS definidas en `:root` que controlan toda la paleta:
 
 **⛔ REGLA DURA — Widgets Flotantes y Patrón de Esquinas Opuestas (Opposite Corners Pattern):**
 - **Patrón Canónico de Esquinas Opuestas:** La atención en vivo se distribuye de forma simétrica y no invasiva entre los dos canales oficiales de TheIA:
-  - **Esquina inferior derecha:** Asistente WebChat propio de TheIA (`#theia-widget-btn`), fondo gradiente dorado de marca, ícono SVG vectorial AI Spark y tooltip flotante *"Probar conversación en vivo ✨"*.
-  - **Esquina inferior izquierda:** Botón flotante oficial de WhatsApp (`#theia-wa-float`, `.whatsapp-float-btn`), círculo de `52px × 52px` (mínimo touch 44px WCAG), fondo verde oficial `#25D366`, ícono vectorial SVG oficial en blanco `#ffffff` de `28px × 28px`, `box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35)`.
+  - **Esquina inferior derecha:** Asistente WebChat propio de TheIA (`#theia-widget-btn`), círculo homologado de `52px × 52px` (mínimo touch 44px WCAG), fondo gradiente dorado de marca, ícono SVG vectorial AI Spark de `28px × 28px` y tooltip flotante *"Probar conversación en vivo ✨"*.
+  - **Esquina inferior izquierda:** Botón flotante oficial de WhatsApp (`#theia-wa-float`, `.whatsapp-float-btn`), círculo homologado de `52px × 52px` (mínimo touch 44px WCAG), fondo verde oficial `#25D366`, ícono vectorial SVG oficial en blanco `#ffffff` de `28px × 28px`, `box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35)`.
 - **Posicionamiento simétrico y z-index:**
   - Desktop (`min-width: 769px`): WebChat en `bottom: 24px; right: 24px;` y WhatsApp en `bottom: 24px; left: 24px; z-index: 990;`.
   - Mobile (`max-width: 768px`): WebChat en `bottom: 20px; right: 16px;` y WhatsApp en `bottom: 20px; left: 16px; z-index: 990;`.

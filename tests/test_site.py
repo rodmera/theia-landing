@@ -451,8 +451,12 @@ def test_whatsapp_floating_widget_opposite_corners(desktop_page, mobile_page):
             const svgRect = svg ? svg.getBoundingClientRect() : null;
 
             let overlapWithChat = false;
+            let chatWidth = 0;
+            let chatHeight = 0;
             if (chat) {
                 const chatRect = chat.getBoundingClientRect();
+                chatWidth = chatRect.width;
+                chatHeight = chatRect.height;
                 if (chatRect.width > 0 && chatRect.height > 0) {
                     overlapWithChat = !(rect.right < chatRect.left || rect.left > chatRect.right || rect.bottom < chatRect.top || rect.top > chatRect.bottom);
                 }
@@ -461,6 +465,8 @@ def test_whatsapp_floating_widget_opposite_corners(desktop_page, mobile_page):
             return {
                 width: rect.width,
                 height: rect.height,
+                chatWidth,
+                chatHeight,
                 bg: style.backgroundColor,
                 bottom: style.bottom,
                 left: style.left,
@@ -476,6 +482,11 @@ def test_whatsapp_floating_widget_opposite_corners(desktop_page, mobile_page):
         }""")
 
         assert info["width"] >= 44 and info["height"] >= 44, f"Dimensiones menores al mínimo WCAG (52x52px): {info}"
+        assert abs(info["width"] - 52) < 0.5 and abs(info["height"] - 52) < 0.5, f"Dimensiones de WhatsApp deben ser 52x52px: {info}"
+        if info["chatWidth"] > 0:
+            assert abs(info["chatWidth"] - 52) < 0.5 and abs(info["chatHeight"] - 52) < 0.5, (
+                f"Dimensiones de WebChat deben estar homologadas a 52x52px (simetría canónica): {info}"
+            )
         assert not info["overlapWithChat"], f"Colisión entre #theia-wa-float y #theia-widget-btn en {mode}"
         assert "25d366" in info["bg"].lower() or "37, 211, 102" in info["bg"], f"Color no es verde WhatsApp #25D366: {info['bg']}"
         assert "Hablar con TheIA por WhatsApp" in (info["ariaLabel"] or ""), f"aria-label incorrecto: {info['ariaLabel']}"
