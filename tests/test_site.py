@@ -516,12 +516,11 @@ def test_webchat_frame_branding_and_contrast(mobile_page, path):
     2. Verifica que las respuestas rápidas (.theia-quick-replies button) no usen texto dorado claro sobre fondo blanco (bajo contraste).
     """
     goto(mobile_page, path)
-    mobile_page.wait_for_timeout(600)
+    mobile_page.wait_for_function("() => !!document.getElementById('theia-widget-header')", timeout=5000)
 
     btn = mobile_page.locator("#theia-widget-btn")
     if btn.is_visible():
         btn.evaluate("el => el.click()")
-        mobile_page.wait_for_timeout(400)
 
     header_text = mobile_page.locator("#theia-widget-header").inner_text()
     assert "💬" not in header_text, f"{path}: el header del WebChat conserva el emoji '💬' crudo: {header_text!r}"

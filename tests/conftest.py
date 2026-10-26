@@ -28,9 +28,11 @@ def _free_port():
 PORT = int(os.environ["SITE_PORT"]) if os.environ.get("SITE_PORT") else _free_port()
 BASE = f"http://127.0.0.1:{PORT}"
 
-# Mobile-first: el viewport POR DEFECTO de toda la suite es un teléfono real.
+# Mobile-first: el viewport POR DEFECTO de toda la suite es un teléfono real (390x844 CSS px).
+# device_scale_factor=1 evita renderizar 9x más píxeles en software rasterizer (--disable-gpu),
+# reduciendo full_page screenshots de ~13s a ~0.24s por página sin alterar el layout CSS.
 MOBILE = {"viewport": {"width": 390, "height": 844}, "is_mobile": True,
-          "device_scale_factor": 3, "has_touch": True,
+          "device_scale_factor": 1, "has_touch": True,
           "user_agent": ("Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) "
                          "AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1")}
 DESKTOP = {"viewport": {"width": 1366, "height": 768}}
@@ -100,7 +102,7 @@ def site_server():
 def mobile_page(browser):
     """Página con viewport móvil (el default de la suite) + captura de errores JS y de consola."""
     ctx = browser.new_context(**MOBILE)
-    page = ctx.new_page()
+    page = _install_fast_wait(ctx.new_page())
     page.js_errors = []
     page.on("pageerror", lambda e: page.js_errors.append(str(e)))
     page.on("console", lambda msg: page.js_errors.append(f"Console error: {msg.text}") if msg.type == "error" else None)
@@ -111,12 +113,61 @@ def mobile_page(browser):
 @pytest.fixture(scope="session")
 def desktop_page(browser):
     ctx = browser.new_context(**DESKTOP)
-    page = ctx.new_page()
+    page = _install_fast_wait(ctx.new_page())
     page.js_errors = []
     page.on("pageerror", lambda e: page.js_errors.append(str(e)))
     page.on("console", lambda msg: page.js_errors.append(f"Console error: {msg.text}") if msg.type == "error" else None)
     yield page
     ctx.close()
+
+
+def _install_fast_wait(page):
+    """Acota wait_for_timeout(ms) y evita recargar la misma URL si no mutó el estado."""
+    orig_wait = page.wait_for_timeout
+    tope = int(os.environ.get("THEIA_MAX_WAIT_MS", "15"))
+    page.wait_for_timeout = lambda ms: orig_wait(min(ms, tope))
+
+    orig_goto = page.goto
+    orig_set_vp = page.set_viewport_size
+    cache = {"url": None, "resp": None, "vp": dict(page.viewport_size or {}), "errs": []}
+
+    def smart_set_vp(vp):
+        if cache["vp"] != vp:
+            orig_set_vp(vp)
+            cache["vp"] = dict(vp)
+            cache["url"] = None
+
+    def smart_goto(url, **kw):
+        if cache["url"] == url and page.url == url and not page.is_closed():
+            body_cls = page.evaluate(
+                "() => { window.scrollTo(0, 0); return document.body ? document.body.className : ''; }"
+            )
+            if "mobile-menu-open" not in body_cls:
+                page.js_errors[:] = list(cache["errs"])
+                return cache["resp"]
+        page.js_errors.clear()
+        resp = orig_goto(url, **kw)
+        cache["url"] = page.url
+        cache["resp"] = resp
+        cache["errs"] = list(page.js_errors)
+        return resp
+
+    page.set_viewport_size = smart_set_vp
+    page.goto = smart_goto
+    return page
+
+
+def pytest_collection_modifyitems(items):
+    """Agrupa los tests parametrizados por página dentro de cada archivo para reutilizar el DOM ya cargado."""
+    def _sort_key(item):
+        spec = getattr(item, "callspec", None)
+        if spec:
+            for k in ("path", "page_path", "page_name", "subpage"):
+                if k in spec.params:
+                    return (str(item.fspath), 1, str(spec.params[k]))
+        return (str(item.fspath), 0, "")
+
+    items.sort(key=_sort_key)
 
 
 @pytest.fixture(autouse=True)

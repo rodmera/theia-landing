@@ -26,7 +26,7 @@ jobs:
           python -m playwright install --with-deps chromium
 
       - name: Correr suite (mobile-first, paralelo)
-        run: python -m pytest tests/ -v --tb=short -n 4
+        run: python -m pytest tests/ -v --tb=short -n 2 --dist loadfile
 
       - name: Subir screenshots (evidencia visual)
         if: always()

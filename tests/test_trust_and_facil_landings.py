@@ -48,13 +48,11 @@ def test_confianza_and_facil_design_system_conformance():
         assert "drop-shadow(" not in content
 
 
-def test_confianza_and_facil_navigation_in_browser(page):
-    page.goto(f"{BASE}/confianza.html")
-    page.wait_for_load_state("networkidle")
-    assert page.is_visible("text=Centro de Confianza y Seguridad")
-    assert page.is_visible("text=Proveedores de Infraestructura")
+def test_confianza_and_facil_navigation_in_browser(mobile_page):
+    mobile_page.goto(f"{BASE}/confianza.html", wait_until="domcontentloaded")
+    assert mobile_page.is_visible("text=Centro de Confianza y Seguridad")
+    assert mobile_page.is_visible("text=Proveedores de Infraestructura")
 
-    page.goto(f"{BASE}/facil.html")
-    page.wait_for_load_state("networkidle")
-    assert page.is_visible("text=¿Cuánto tiempo pierdes respondiendo")
-    assert page.is_visible("text=Tu IA Operativa en 3 Simples Pasos")
+    mobile_page.goto(f"{BASE}/facil.html", wait_until="domcontentloaded")
+    assert mobile_page.is_visible("text=¿Cuánto tiempo pierdes respondiendo")
+    assert mobile_page.is_visible("text=Tu IA Operativa en 3 Simples Pasos")

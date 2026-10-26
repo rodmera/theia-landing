@@ -248,9 +248,15 @@ window.openTheiaChat = function openTheiaChat(source) {
   }
 
   if (!enhanceWidgetButton()) {
+    if (typeof MutationObserver !== "undefined" && document.body) {
+      var obs = new MutationObserver(function () {
+        if (enhanceWidgetButton()) obs.disconnect();
+      });
+      obs.observe(document.body, { childList: true, subtree: true });
+    }
     var retries = 0;
     var iv = setInterval(function () {
-      if (enhanceWidgetButton() || ++retries > 20) clearInterval(iv);
-    }, 200);
+      if (enhanceWidgetButton() || ++retries > 40) clearInterval(iv);
+    }, 50);
   }
 })();

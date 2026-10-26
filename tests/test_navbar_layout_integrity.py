@@ -10,12 +10,12 @@ HTML_PAGES = sorted([
 ])
 
 @pytest.mark.parametrize("page_path", HTML_PAGES)
-def test_navbar_single_row_layout_desktop(page: Page, site_server: str, page_path: str):
+def test_navbar_single_row_layout_desktop(desktop_page: Page, site_server: str, page_path: str):
     """Verifica mecánicamente que el navbar esté en una sola fila horizontal (sin wrapping) en todas las páginas."""
-    page.set_viewport_size({"width": 1280, "height": 800})
-    page.goto(f"{site_server}{page_path}", wait_until="domcontentloaded")
+    desktop_page.set_viewport_size({"width": 1280, "height": 800})
+    desktop_page.goto(f"{site_server}{page_path}", wait_until="domcontentloaded")
     
-    header = page.locator("nav.site-header, .site-header").first
+    header = desktop_page.locator("nav.site-header, .site-header").first
     expect(header).to_be_visible()
     
     header_box = header.bounding_box()
@@ -23,9 +23,9 @@ def test_navbar_single_row_layout_desktop(page: Page, site_server: str, page_pat
     # El navbar debe ser una barra horizontal delgada (~80px a 145px), nunca una caja colapsada de 300px+
     assert header_box["height"] < 160, f"Navbar demasiado alto ({header_box['height']}px) en {page_path}, indica wrapping vertical"
     
-    logo = page.locator("nav.site-header .logo, .site-header .logo").first
-    nav_links = page.locator("nav.site-header .site-nav, .site-header .site-nav").first
-    menu_toggle = page.locator("nav.site-header .menu-toggle, .site-header .menu-toggle").first
+    logo = desktop_page.locator("nav.site-header .logo, .site-header .logo").first
+    nav_links = desktop_page.locator("nav.site-header .site-nav, .site-header .site-nav").first
+    menu_toggle = desktop_page.locator("nav.site-header .menu-toggle, .site-header .menu-toggle").first
     
     # En desktop, el botón hamburguesa móvil .menu-toggle debe estar estrictamente oculto (evita puntos/artefactos residuales)
     if menu_toggle.count() > 0:
@@ -41,12 +41,12 @@ def test_navbar_single_row_layout_desktop(page: Page, site_server: str, page_pat
         assert abs(nav_box["y"] - logo_box["y"]) < 60, f"Logo (y={logo_box['y']}) y Nav (y={nav_box['y']}) desalineados en {page_path}"
 
 @pytest.mark.parametrize("page_path", ["/index.html", "/facil.html", "/confianza.html", "/orquestacion.html"])
-def test_navbar_mobile_toggle_layout(page: Page, site_server: str, page_path: str):
+def test_navbar_mobile_toggle_layout(mobile_page: Page, site_server: str, page_path: str):
     """Verifica que en móvil el navbar se adapte limpiamente con el botón de menú visible."""
-    page.set_viewport_size({"width": 375, "height": 667})
-    page.goto(f"{site_server}{page_path}", wait_until="domcontentloaded")
+    mobile_page.set_viewport_size({"width": 375, "height": 667})
+    mobile_page.goto(f"{site_server}{page_path}", wait_until="domcontentloaded")
     
-    header = page.locator("nav.site-header, .site-header").first
+    header = mobile_page.locator("nav.site-header, .site-header").first
     expect(header).to_be_visible()
     
     header_box = header.bounding_box()
@@ -55,12 +55,12 @@ def test_navbar_mobile_toggle_layout(page: Page, site_server: str, page_path: st
 
 
 @pytest.mark.parametrize("page_path", HTML_PAGES)
-def test_hero_content_and_badges_not_overlapped_by_navbar(page: Page, site_server: str, page_path: str):
+def test_hero_content_and_badges_not_overlapped_by_navbar(desktop_page: Page, site_server: str, page_path: str):
     """Verifica que ningún elemento de contenido inicial (badge, pill o h1) quede tapado o solapado por el navbar fijo."""
-    page.set_viewport_size({"width": 1280, "height": 800})
-    page.goto(f"{site_server}{page_path}", wait_until="domcontentloaded")
+    desktop_page.set_viewport_size({"width": 1280, "height": 800})
+    desktop_page.goto(f"{site_server}{page_path}", wait_until="domcontentloaded")
     
-    header = page.locator("nav.site-header, .site-header").first
+    header = desktop_page.locator("nav.site-header, .site-header").first
     if header.count() == 0 or not header.is_visible():
         return
 
@@ -69,7 +69,7 @@ def test_hero_content_and_badges_not_overlapped_by_navbar(page: Page, site_serve
     header_bottom = header_box["y"] + header_box["height"]
     
     # 1. Verificar primer elemento de contenido visible en main o sección inicial
-    first_target = page.locator(
+    first_target = desktop_page.locator(
         "main .dash-badge, section.hero .dash-badge, .hero-vertical .dash-badge, "
         "section:first-of-type .dash-badge, section:first-of-type .badge, "
         "main h1, section.hero h1, .hero-vertical h1, h1"
