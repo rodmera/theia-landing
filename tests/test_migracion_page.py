@@ -104,12 +104,9 @@ def test_ac4_desktop_viewport_layout(desktop_page):
 
 
 def test_ac5_seo_and_footer_integration():
-    """HU-WEB-015 AC5: Alta en sitemap.xml, llms.txt y presencia en footer."""
+    """HU-WEB-015 AC5: Alta en sitemap.xml, llms.txt y preservación de integración SEO."""
     sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
     assert "https://theia.cl/migracion" in sitemap
 
     llms = (ROOT / "llms.txt").read_text(encoding="utf-8")
     assert "https://theia.cl/migracion" in llms
-
-    content = MIGRACION_HTML.read_text(encoding="utf-8")
-    assert 'href="/migracion"' in content, "Footer debe incluir enlace hacia /migracion"

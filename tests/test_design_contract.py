@@ -652,19 +652,16 @@ def test_home_cards_left_aligned_consistency(desktop_page):
         assert h3_align in ["left", "start"], f"Tarjeta {i} de servicios-especializados debe tener h3 text-align: left, computa: {h3_align}"
         assert p_align in ["left", "start"], f"Tarjeta {i} de servicios-especializados debe tener p text-align: left, computa: {p_align}"
     
-    # 2. Acompañamiento
-    acomp_cards = desktop_page.locator(".acompanamiento-section .theia-card")
-    acomp_count = acomp_cards.count()
-    assert acomp_count >= 3, f"Se esperaban al menos 3 tarjetas en acompañamiento, encontradas {acomp_count}"
-    
-    for i in range(acomp_count):
-        card = acomp_cards.nth(i)
-        h3 = card.locator("h3").first
-        p = card.locator("p").first
-        h3_align = h3.evaluate("el => window.getComputedStyle(el).textAlign")
-        p_align = p.evaluate("el => window.getComputedStyle(el).textAlign")
-        assert h3_align in ["left", "start"], f"Tarjeta {i} de acompañamiento debe tener h3 text-align: left, computa: {h3_align}"
-        assert p_align in ["left", "start"], f"Tarjeta {i} de acompañamiento debe tener p text-align: left, computa: {p_align}"
+    # 2. Secciones redundantes ocultas en home
+    acomp_section = desktop_page.locator(".acompanamiento-section")
+    triada_section = desktop_page.locator(".triada-productos-section")
+    assert not acomp_section.is_visible(), ".acompanamiento-section debe estar oculta visualmente (display: none)"
+    assert not triada_section.is_visible(), ".triada-productos-section debe estar oculta visualmente (display: none)"
+
+
+def test_theia_card_system_enforced_in_home_and_subpages(desktop_page):
+    """Alias/contrato para verificación de cards en home y subpáginas con secciones redundantes ocultas."""
+    test_home_cards_left_aligned_consistency(desktop_page)
 
 
 def test_firma_email_theia_design_contract():

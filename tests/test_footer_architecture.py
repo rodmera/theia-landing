@@ -138,3 +138,70 @@ def test_inmobiliaria_footer_layout_playwright(desktop_page, mobile_page):
     inner_w = mobile_page.evaluate("window.innerWidth")
     assert scroll_w <= inner_w + 1
 
+
+def test_condensed_footer_and_hidden_sections_contract(desktop_page, mobile_page):
+    """Verifica que las secciones redundantes de index.html estén ocultas en desktop y mobile, y que el footer en las 29 páginas tenga exactamente 4 enlaces en Productos y 4 en Plataforma."""
+    import re
+
+    # 1. Verificación visual en Desktop
+    desktop_page.goto(f"{BASE}/")
+    desktop_page.wait_for_timeout(200)
+    assert not desktop_page.locator(".acompanamiento-section").is_visible(), ".acompanamiento-section debe estar oculta en desktop"
+    assert not desktop_page.locator(".triada-productos-section").is_visible(), ".triada-productos-section debe estar oculta en desktop"
+
+    # 2. Verificación visual en Mobile
+    mobile_page.goto(f"{BASE}/")
+    mobile_page.wait_for_timeout(200)
+    assert not mobile_page.locator(".acompanamiento-section").is_visible(), ".acompanamiento-section debe estar oculta en mobile"
+    assert not mobile_page.locator(".triada-productos-section").is_visible(), ".triada-productos-section debe estar oculta en mobile"
+
+    # 3. Verificación de enlaces del footer en las 29 páginas canónicas
+    assert len(HTML_FILES_WITH_FOOTER) == 29, f"Se esperaban exactamente 29 páginas con footer canónico, encontradas {len(HTML_FILES_WITH_FOOTER)}"
+
+    expected_productos = [
+        "/atencion-cliente",
+        "/pulse",
+        "/cerebro",
+        "/crm",
+    ]
+    expected_plataforma = [
+        "/precios",
+        "/servicios",
+        "/orquestacion",
+        "/blog/",
+    ]
+
+    for html_file in HTML_FILES_WITH_FOOTER:
+        content = html_file.read_text(encoding="utf-8")
+
+        prod_match = re.search(r'<h4>Productos</h4>\s*<div class="footer-links-group">(.*?)</div>', content, re.DOTALL)
+        assert prod_match, f"Falta grupo Productos en {html_file.name}"
+        prod_links = re.findall(r'<a\s+href="([^"]+)"', prod_match.group(1))
+        assert prod_links == expected_productos, (
+            f"Enlaces de Productos incorrectos en {html_file.name}: {prod_links} vs {expected_productos}"
+        )
+
+        plat_match = re.search(r'<h4>Plataforma</h4>\s*<div class="footer-links-group">(.*?)</div>', content, re.DOTALL)
+        assert plat_match, f"Falta grupo Plataforma en {html_file.name}"
+        plat_links = re.findall(r'<a\s+href="([^"]+)"', plat_match.group(1))
+        assert plat_links == expected_plataforma, (
+            f"Enlaces de Plataforma incorrectos en {html_file.name}: {plat_links} vs {expected_plataforma}"
+        )
+
+        assert len(prod_links) + len(plat_links) == 8, (
+            f"Total de enlaces de navegación debe ser 8 en {html_file.name}, encontrados {len(prod_links) + len(plat_links)}"
+        )
+
+    # 4. Verificación de coherencia en blog y layouts
+    for extra_path in [ROOT / "blog" / "index.html", ROOT / "_layouts" / "post.html"]:
+        if extra_path.is_file():
+            extra_content = extra_path.read_text(encoding="utf-8")
+            extra_prod = re.search(r'<h4>Productos</h4>\s*<div class="footer-links-group">(.*?)</div>', extra_content, re.DOTALL)
+            assert extra_prod, f"Falta grupo Productos en {extra_path.name}"
+            assert re.findall(r'<a\s+href="([^"]+)"', extra_prod.group(1)) == expected_productos
+
+            extra_plat = re.search(r'<h4>Plataforma</h4>\s*<div class="footer-links-group">(.*?)</div>', extra_content, re.DOTALL)
+            assert extra_plat, f"Falta grupo Plataforma en {extra_path.name}"
+            assert re.findall(r'<a\s+href="([^"]+)"', extra_plat.group(1)) == expected_plataforma
+
+

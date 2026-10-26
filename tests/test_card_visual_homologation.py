@@ -3,7 +3,7 @@ from playwright.sync_api import Page
 from conftest import BASE
 
 PAGES_TO_AUDIT = [
-    ("index.html", [".specialist-card__icon", ".setup-case-icon", ".conecta-card-icon", ".triada-card__icon", ".piece-icon-wrap"]),
+    ("index.html", [".specialist-card__icon", ".setup-case-icon", ".conecta-card-icon"]),
     ("cerebro.html", [".lean-icon"]),
     ("pulse.html", [".pulse-feat-icon"]),
     ("crm.html", [".feature-icon", ".complemento-icon"]),
