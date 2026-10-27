@@ -87,14 +87,14 @@ a:focus-visible {
   width: 52px !important;
   height: 52px !important;
   border-radius: 12px !important;
-  background: rgba(255, 255, 255, 0.03) !important;
-  border: 1px solid rgba(212, 175, 55, 0.2) !important;
+  background: rgba(212, 175, 55, 0.08) !important;
+  border: 1px solid rgba(212, 175, 55, 0.28) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   margin: 0 auto !important;
   margin-bottom: 0 !important;
-  color: var(--gold-light, #f3e5ab) !important;
+  color: var(--gold, #d4af37) !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
   transition: transform 0.3s var(--bezier-smooth), border-color 0.3s var(--bezier-smooth) !important;
   flex-shrink: 0 !important;
@@ -105,7 +105,7 @@ a:focus-visible {
 .theia-card:hover .theia-card__visual .piece-icon-wrap,
 .theia-card:hover .theia-card__visual .piece-icon {
   transform: scale(1.06) !important;
-  border-color: var(--gold-light, #f3e5ab) !important;
+  border-color: var(--glass-border-gold, rgba(212, 175, 55, 0.4)) !important;
 }
 
 /* Contenido de la tarjeta (título + párrafo) */
@@ -136,7 +136,7 @@ a:focus-visible {
 .theia-card p {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 0.9rem !important;
-  color: var(--text-sub, #94a3b8) !important;
+  color: var(--text-sub, rgba(255, 255, 255, 0.7)) !important;
   line-height: 1.6 !important;
   flex: 1 1 auto;
   margin-block-start: 0 !important;
@@ -150,4 +150,17 @@ a:focus-visible {
 .theia-card .btn.theia-card__action {
   align-self: center !important;
   margin-block-start: auto !important;
+}
+
+/* Design System 2026-10-26: en móvil el apoyo visual (icono 52x52) va centrado en todas las tarjetas */
+@media (max-width: 768px) {
+  .theia-card__visual {
+    align-self: center !important;
+    justify-content: center !important;
+  }
+  .piece-icon-wrap,
+  .theia-card__icon {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }

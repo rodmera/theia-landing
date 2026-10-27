@@ -98,6 +98,8 @@
       --gold-glow: rgba(212, 175, 55, 0.25);
       --indigo: #4f46e5;
       --indigo-light: #6366f1;
+      --indigo-soft: #818cf8;
+      --rose: #e0667e;
       --text: #ffffff;
       --text-sub: rgba(255, 255, 255, 0.7);
       --text-muted: rgba(255, 255, 255, 0.4);
@@ -130,7 +132,7 @@
     .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35); }
     .btn-ghost { background: transparent; color: var(--text-sub); border: 1px solid var(--glass-border); }
     .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-    .btn-whatsapp { background: #25D366; color: white; }
+    .btn-whatsapp { background: #25D366; color: #0f172a; }
     .btn-whatsapp:hover { background: #1da851; }
 
     nav {
@@ -163,7 +165,7 @@
       font-weight: 500;
       font-size: 0.84rem;
       padding: 0.45rem 0.75rem;
-      border-radius: 6px;
+      border-radius: 8px;
       transition: all 0.2s ease;
     }
 
@@ -213,7 +215,7 @@
     .criterion-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
     .criterion-card h3 .num {
       background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      color: #0f172a; font-size: 0.8rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 6px;
+      color: #0f172a; font-size: 0.8rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 8px;
     }
     .criterion-card p { color: var(--text-sub); font-size: 0.95rem; margin-bottom: 0.75rem; }
     .criterion-card .ask {
@@ -224,7 +226,7 @@
     /* Calculadora */
     .calc {
       background: var(--bg2);
-      border-radius: 16px;
+      border-radius: 18px;
       padding: 2.5rem;
       max-width: 880px;
       margin: 2rem auto 0;
@@ -253,7 +255,7 @@
     .calc-result-card {
       background: var(--glass);
       border: 1px solid var(--glass-border);
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 1.25rem;
     }
     .calc-result-card.theia { border-color: var(--glass-border-gold); }
@@ -264,14 +266,14 @@
       margin-top: 1.5rem; padding: 0.9rem 1rem;
       background: rgba(251, 191, 36, 0.08);
       border-left: 3px solid var(--warn);
-      border-radius: 6px;
+      border-radius: 8px;
       font-size: 0.82rem; color: var(--text-sub);
     }
     .calc-data-warning {
       margin-top: 1rem; padding: 0.7rem 0.9rem;
       background: rgba(251, 191, 36, 0.08);
       border-left: 3px solid var(--warn);
-      border-radius: 6px;
+      border-radius: 8px;
       font-size: 0.8rem; color: var(--warn);
       display: none;
     }
@@ -310,7 +312,7 @@
     .faq-item {
       background: var(--glass);
       border: 1px solid var(--glass-border);
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 1.25rem;
       margin-bottom: 1rem;
     }
@@ -987,7 +989,7 @@
         <h2 class="section-title">¿Listo para ver cómo se aplica a tu caso?</h2>
         <p class="section-sub" style="margin: 0 auto 2rem;">Revisamos tu caso con clientes reales en 30 minutos. Decides con datos concretos, no con promesas.</p>
         <div class="cta-buttons">
-          <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" style="padding: 0.85rem 2rem; font-size: 1rem; border-radius: 10px;" onclick="theiaTrackCTA('demo','criterios-cta')">Agenda una demo →</a>
+          <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-gold" style="padding: 0.85rem 2rem; font-size: 1rem; border-radius: 12px;" onclick="theiaTrackCTA('demo','criterios-cta')">Agenda una demo →</a>
           <a href="https://wa.me/12063858350?text=Hola%2C%20quiero%20comparar%20opciones%20de%20atenci%C3%B3n%20con%20IA" target="_blank" rel="noopener" class="btn btn-whatsapp" onclick="theiaTrackCTA('whatsapp','criterios-cta')">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
             Hablar por WhatsApp

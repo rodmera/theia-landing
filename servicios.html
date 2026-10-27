@@ -75,6 +75,8 @@
       --gold-glow: rgba(212, 175, 55, 0.25);
       --indigo: #4f46e5;
       --indigo-light: #6366f1;
+      --indigo-soft: #818cf8;
+      --rose: #e0667e;
       --text: #ffffff;
       --text-sub: rgba(255, 255, 255, 0.7);
       --text-muted: rgba(255, 255, 255, 0.4);
@@ -141,7 +143,7 @@
       font-weight: 500;
       font-size: 0.84rem;
       padding: 0.45rem 0.75rem;
-      border-radius: 6px;
+      border-radius: 8px;
       transition: all 0.2s ease;
     }
 
@@ -174,16 +176,16 @@
     .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35); }
 
     .btn-whatsapp {
-      background: #25D366; color: #ffffff !important; font-weight: 700;
-      padding: 0.85rem 2rem; font-size: 1rem; border-radius: 10px;
+      background: #25D366; color: #0f172a !important; font-weight: 700;
+      padding: 0.85rem 2rem; font-size: 1rem; border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); text-decoration: none;
     }
-    .btn-whatsapp:hover { background: #20bd5a; transform: translateY(-2px); color: #ffffff !important; }
+    .btn-whatsapp:hover { background: #20bd5a; transform: translateY(-2px); color: #0f172a !important; }
 
     .btn-outline-gold {
       background: transparent; color: var(--gold);
       border: 2px solid var(--gold); padding: 0.85rem 2rem;
-      font-size: 1rem; border-radius: 10px;
+      font-size: 1rem; border-radius: 12px;
     }
     .btn-outline-gold:hover { background: var(--gold-glow); transform: translateY(-2px); }
 
@@ -299,7 +301,7 @@
     .plai-alliance-inner {
       display: flex; align-items: center; gap: 1.5rem;
       padding: 1.5rem 2rem; background: var(--glass);
-      border: 1px solid var(--glass-border); border-radius: 16px;
+      border: 1px solid var(--glass-border); border-radius: 18px;
       max-width: 640px; margin: 0 auto;
       transition: border-color 0.3s;
       text-decoration: none; color: inherit;
@@ -308,7 +310,7 @@
 
     .plai-logo {
       height: 72px; width: auto; flex-shrink: 0;
-      border-radius: 10px; padding: 6px 10px;
+      border-radius: 12px; padding: 6px 10px;
     }
 
     .plai-alliance-text { display: flex; flex-direction: column; gap: 0.4rem; }
@@ -693,35 +695,35 @@
                   <!-- Nodos del ciclo -->
                   <!-- 1. Generar (Top) -->
                   <g transform="translate(160, 45)">
-                    <circle r="16" fill="#141c2e" stroke="#d97706" stroke-width="2" />
+                    <circle r="16" fill="#1e293b" stroke="#d97706" stroke-width="2" />
                     <circle r="6" fill="#d97706" />
                     <text y="-20" text-anchor="middle" fill="#f8fafc" font-size="11" font-weight="700" font-family="'Plus Jakarta Sans', sans-serif">Generar</text>
                   </g>
 
                   <!-- 2. Verificar (Right) -->
                   <g transform="translate(245, 130)">
-                    <circle r="16" fill="#141c2e" stroke="#d97706" stroke-width="2" />
+                    <circle r="16" fill="#1e293b" stroke="#d97706" stroke-width="2" />
                     <circle r="6" fill="#d97706" />
                     <text x="24" y="4" text-anchor="start" fill="#f8fafc" font-size="11" font-weight="700" font-family="'Plus Jakarta Sans', sans-serif">Verificar</text>
                   </g>
 
                   <!-- 3. Corregir (Bottom) -->
                   <g transform="translate(160, 215)">
-                    <circle r="16" fill="#141c2e" stroke="#d97706" stroke-width="2" />
+                    <circle r="16" fill="#1e293b" stroke="#d97706" stroke-width="2" />
                     <circle r="6" fill="#d97706" />
                     <text y="28" text-anchor="middle" fill="#f8fafc" font-size="11" font-weight="700" font-family="'Plus Jakarta Sans', sans-serif">Corregir</text>
                   </g>
 
                   <!-- 4. Reintentar (Left) -->
                   <g transform="translate(75, 130)">
-                    <circle r="16" fill="#141c2e" stroke="#d97706" stroke-width="2" />
+                    <circle r="16" fill="#1e293b" stroke="#d97706" stroke-width="2" />
                     <circle r="6" fill="#d97706" />
                     <text x="-24" y="4" text-anchor="end" fill="#f8fafc" font-size="11" font-weight="700" font-family="'Plus Jakarta Sans', sans-serif">Reintentar</text>
                   </g>
 
                   <!-- Centro del ciclo -->
                   <g transform="translate(160, 122)">
-                    <text y="-10" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="600" text-transform="uppercase" letter-spacing="1">Paso 2 de 6</text>
+                    <text y="-10" text-anchor="middle" fill="rgba(255, 255, 255, 0.57)" font-size="10" font-weight="600" text-transform="uppercase" letter-spacing="1">Paso 2 de 6</text>
                     <text y="14" text-anchor="middle" fill="#f59e0b" font-size="20" font-weight="900" font-family="'Merriweather', serif">1 tarea</text>
                     <text y="30" text-anchor="middle" fill="#64748b" font-size="10">sigue siendo la misma</text>
                   </g>
@@ -755,7 +757,7 @@
 
                   <!-- 1. Nodo Splitter (Top) -->
                   <g transform="translate(160, 32)">
-                    <circle r="18" fill="#141c2e" stroke="#4f46e5" stroke-width="2" />
+                    <circle r="18" fill="#1e293b" stroke="#4f46e5" stroke-width="2" />
                     <path d="M -7 -4 L 7 -4 M -7 0 L 7 0 M -7 4 L 7 4" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" />
                     <text y="-22" text-anchor="middle" fill="#a5b4fc" font-size="11" font-weight="700" font-family="'Plus Jakarta Sans', sans-serif">Divisor (Splitter)</text>
                   </g>
@@ -764,25 +766,25 @@
                   <!-- Especialista A: Catálogo -->
                   <g transform="translate(65, 125)">
                     <circle r="25" fill="rgba(79, 70, 229, 0.12)" stroke="#4f46e5" stroke-width="2" />
-                    <circle r="19" fill="#141c2e" stroke="rgba(79, 70, 229, 0.4)" stroke-dasharray="3,3" />
+                    <circle r="19" fill="#1e293b" stroke="rgba(79, 70, 229, 0.4)" stroke-dasharray="3,3" />
                     <text y="4" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">Catálogo</text>
-                    <text y="36" text-anchor="middle" fill="#94a3b8" font-size="9">micro-loop</text>
+                    <text y="36" text-anchor="middle" fill="rgba(255, 255, 255, 0.57)" font-size="9">micro-loop</text>
                   </g>
 
                   <!-- Especialista B: Agenda -->
                   <g transform="translate(160, 125)">
                     <circle r="25" fill="rgba(212, 175, 55, 0.12)" stroke="#d4af37" stroke-width="2" />
-                    <circle r="19" fill="#141c2e" stroke="rgba(212, 175, 55, 0.4)" stroke-dasharray="3,3" />
+                    <circle r="19" fill="#1e293b" stroke="rgba(212, 175, 55, 0.4)" stroke-dasharray="3,3" />
                     <text y="4" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">Agenda</text>
-                    <text y="36" text-anchor="middle" fill="#94a3b8" font-size="9">micro-loop</text>
+                    <text y="36" text-anchor="middle" fill="rgba(255, 255, 255, 0.57)" font-size="9">micro-loop</text>
                   </g>
 
                   <!-- Especialista C: Precios -->
                   <g transform="translate(255, 125)">
                     <circle r="25" fill="rgba(34, 197, 94, 0.12)" stroke="#22c55e" stroke-width="2" />
-                    <circle r="19" fill="#141c2e" stroke="rgba(34, 197, 94, 0.4)" stroke-dasharray="3,3" />
+                    <circle r="19" fill="#1e293b" stroke="rgba(34, 197, 94, 0.4)" stroke-dasharray="3,3" />
                     <text y="4" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">Precios</text>
-                    <text y="36" text-anchor="middle" fill="#94a3b8" font-size="9">micro-loop</text>
+                    <text y="36" text-anchor="middle" fill="rgba(255, 255, 255, 0.57)" font-size="9">micro-loop</text>
                   </g>
 
                   <!-- Caja de Consolidación (Merge) -->
@@ -999,7 +1001,7 @@
   <!-- Consultoría de IA & Acompañamiento Técnico -->
   <section class="b2b-banner" id="consultoria">
     <div class="container">
-      <div class="b2b-inner reveal" style="padding: 2.5rem; background: var(--glass); border: 1px solid var(--glass-border-gold); border-radius: 20px;">
+      <div class="b2b-inner reveal" style="padding: 2.5rem; background: var(--glass); border: 1px solid var(--glass-border-gold); border-radius: 24px;">
         <div class="b2b-text">
           <div class="dash-badge" style="margin-bottom: 0.75rem;">Servicio de Acompañamiento Técnico</div>
           <h3 style="font-family: 'Merriweather', serif; font-size: 1.6rem; margin-bottom: 1rem;">Optimización de Costos y Uso de <span class="gold">Inteligencia Artificial.</span></h3>

@@ -76,7 +76,7 @@
   background: rgba(212, 175, 55, 0.1);
   border: 1px solid var(--glass-border-gold, rgba(212, 175, 55, 0.25));
   padding: 0.2rem 0.6rem;
-  border-radius: 20px;
+  border-radius: 24px;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -89,7 +89,7 @@
 }
 
 .home-bento-card__tag--indigo {
-  color: #94a3b8;
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
   background: rgba(255, 255, 255, 0.04);
   border-color: rgba(255, 255, 255, 0.08);
 }
@@ -111,7 +111,7 @@
   justify-content: space-between;
   background: rgba(212, 175, 55, 0.06);
   border: 1px solid var(--glass-border-gold);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 0.75rem 1rem;
   margin-bottom: 0.75rem;
 }
@@ -133,7 +133,7 @@
   background: rgba(212, 175, 55, 0.1);
   border: 1px solid rgba(212, 175, 55, 0.25);
   padding: 0.25rem 0.5rem;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .home-ui__event-row {
@@ -204,7 +204,7 @@
 .home-ui__pulse-msg {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 0.75rem;
   font-size: 0.8rem;
   line-height: 1.45;
@@ -230,7 +230,7 @@
 .home-ui__crm-cell {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--glass-border);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 0.45rem 0.6rem;
 }
 
@@ -276,7 +276,7 @@
   margin: 2.5rem auto 0;
   background: var(--glass, rgba(15, 23, 42, 0.75));
   border: 1px solid var(--glass-border, var(--hairline-base));
-  border-radius: 20px;
+  border-radius: 24px;
   padding: 2rem;
   box-shadow: var(--e2);
   position: relative;
@@ -387,7 +387,7 @@
   background: rgba(212, 175, 55, 0.1);
   border: 1px solid rgba(212, 175, 55, 0.25);
   padding: 0.25rem 0.75rem;
-  border-radius: 20px;
+  border-radius: 24px;
 }
 
 .vibe-step-card h3 {
@@ -399,7 +399,7 @@
 }
 
 .vibe-step-card p {
-  color: #94a3b8;
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
   font-size: 0.92rem;
   line-height: 1.6;
   margin: 0;
@@ -408,7 +408,7 @@
 .vibe-contrast-box {
   background: rgba(15, 23, 42, 0.6);
   border: 1px solid var(--glass-border);
-  border-radius: 20px;
+  border-radius: 24px;
   padding: 2.5rem;
   margin-top: 1.5rem;
 }
@@ -427,7 +427,7 @@
 }
 
 .vibe-contrast-table th.col-trad {
-  color: #94a3b8;
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
   width: 50%;
 }
 
@@ -449,7 +449,7 @@
 }
 
 .vibe-contrast-table td.col-trad {
-  color: #94a3b8;
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
 }
 
 .vibe-contrast-table td.col-theia {
@@ -553,7 +553,7 @@
 .brain-source-card {
   background: rgba(11, 19, 32, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 14px;
+  border-radius: 12px;
   padding: 0.65rem 0.95rem;
   display: flex;
   align-items: center;
@@ -570,7 +570,7 @@
 .brain-source-icon {
   width: 36px;
   height: 36px;
-  border-radius: 9px;
+  border-radius: 8px;
   background: rgba(212, 175, 55, 0.08);
   border: 1px solid rgba(212, 175, 55, 0.2);
   display: flex;
@@ -593,7 +593,7 @@
 
 .brain-source-desc {
   font-size: 0.72rem;
-  color: #94a3b8;
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
   line-height: 1.3;
 }
 
@@ -722,9 +722,9 @@
   padding: 5px 12px;
   background: rgba(11, 19, 32, 0.9);
   border: 1px solid rgba(212, 175, 55, 0.25);
-  border-radius: 999px;
+  border-radius: 100px;
   font-size: 0.72rem;
-  color: #cbd5e1;
+  color: var(--text-sub, rgba(255, 255, 255, 0.7));
   font-weight: 500;
   white-space: nowrap;
 }
@@ -770,7 +770,7 @@
   align-items: center;
   gap: 5px;
   font-size: 0.7rem;
-  color: #94a3b8;
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
 }
 
 .brain-exec-user-msg {
@@ -779,7 +779,7 @@
   border-radius: 12px;
   padding: 0.65rem 0.85rem;
   font-size: 0.8rem;
-  color: #e2e8f0;
+  color: var(--text, #ffffff);
   line-height: 1.4;
 }
 
@@ -807,7 +807,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #cbd5e1;
+  color: var(--text-sub, rgba(255, 255, 255, 0.7));
 }
 
 .brain-exec-audit-icon {
@@ -848,7 +848,7 @@
   border: 1px solid rgba(212, 175, 55, 0.35);
   color: var(--gold-light, #ebca73);
   padding: 2px 7px;
-  border-radius: 4px;
+  border-radius: 8px;
   font-weight: 700;
 }
 
@@ -904,7 +904,7 @@
 }
 
 .determinista-card p {
-  color: #94a3b8;
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
   font-size: 0.88rem;
   line-height: 1.6;
   margin: 0;
@@ -953,9 +953,9 @@
 
 /* Tarjeta Izquierda: Nota de Voz */
 .voice-prompt-card {
-  background: var(--bg2, #141c2e);
+  background: var(--bg2, #1e293b);
   border: 1px solid var(--glass-border);
-  border-radius: 20px;
+  border-radius: 24px;
   padding: 2.25rem;
   display: flex;
   flex-direction: column;
@@ -967,7 +967,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #94a3b8;
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -986,7 +986,7 @@
 .audio-player-mock {
   background: var(--bg, #0f172a);
   border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 14px;
+  border-radius: 12px;
   padding: 1rem 1.25rem;
   display: flex;
   align-items: center;
@@ -1025,7 +1025,7 @@
 
 .audio-time {
   font-size: 0.85rem;
-  color: #94a3b8;
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
   font-weight: 500;
   flex-shrink: 0;
 }
@@ -1040,7 +1040,7 @@
 
 .voice-quote p {
   font-size: 0.96rem;
-  color: #e2e8f0;
+  color: var(--text, #ffffff);
   font-style: italic;
   line-height: 1.6;
   margin: 0;
@@ -1077,14 +1077,14 @@
 }
 
 .voice-author-role {
-  color: #94a3b8;
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
 }
 
 /* Tarjeta Derecha: Compilación TheIA Engine */
 .engine-result-card {
-  background: var(--bg2, #141c2e);
+  background: var(--bg2, #1e293b);
   border: 1px solid var(--glass-border-gold);
-  border-radius: 20px;
+  border-radius: 24px;
   padding: 2.25rem;
   display: flex;
   flex-direction: column;
@@ -1117,7 +1117,7 @@
   background: rgba(212, 175, 55, 0.1);
   border: 1px solid rgba(212, 175, 55, 0.3);
   padding: 0.25rem 0.65rem;
-  border-radius: 9999px;
+  border-radius: 100px;
 }
 
 .engine-steps {
@@ -1133,7 +1133,7 @@
   gap: 0.85rem;
   background: var(--bg, #0f172a);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 0.85rem 1rem;
 }
 
@@ -1143,14 +1143,14 @@
   color: var(--gold-light, #ebca73);
   background: rgba(212, 175, 55, 0.12);
   padding: 0.15rem 0.4rem;
-  border-radius: 4px;
+  border-radius: 8px;
   flex-shrink: 0;
   margin-top: 2px;
 }
 
 .step-desc {
   font-size: 0.88rem;
-  color: #cbd5e1;
+  color: var(--text-sub, rgba(255, 255, 255, 0.7));
   line-height: 1.45;
 }
 
@@ -1188,9 +1188,9 @@
 }
 
 .setup-case-card {
-  background: var(--bg2, #141c2e);
+  background: var(--bg2, #1e293b);
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 1.5rem;
   transition: transform 0.25s var(--bezier-smooth), border-color 0.25s var(--bezier-smooth);
 }
@@ -1205,8 +1205,8 @@
   height: 52px;
   border-radius: 12px;
   background: rgba(212, 175, 55, 0.08);
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  color: var(--gold-light, #ebca73);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  color: var(--gold, #d4af37);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1224,7 +1224,7 @@
 
 .setup-case-text {
   font-size: 0.88rem;
-  color: #94a3b8;
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
   line-height: 1.5;
   margin: 0;
 }
@@ -1265,9 +1265,9 @@
 }
 
 .conecta-card {
-  background: var(--bg2, #141c2e);
+  background: var(--bg2, #1e293b);
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 1.85rem;
   display: flex;
   flex-direction: column;
@@ -1284,7 +1284,7 @@
   height: 52px;
   border-radius: 12px;
   background: rgba(212, 175, 55, 0.08);
-  border: 1px solid rgba(212, 175, 55, 0.25);
+  border: 1px solid rgba(212, 175, 55, 0.28);
   color: var(--gold, #d4af37);
   display: flex;
   align-items: center;
@@ -1309,7 +1309,7 @@
 
 .conecta-card-text {
   font-size: 0.92rem;
-  color: #94a3b8;
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
   line-height: 1.6;
   margin: 0;
 }
@@ -1326,9 +1326,9 @@
 }
 
 .conecta-logos-wrap {
-  background: var(--bg2, #141c2e);
+  background: var(--bg2, #1e293b);
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 2.75rem 2.5rem;
   text-align: center;
 }
@@ -1349,7 +1349,7 @@
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  color: #e2e8f0;
+  color: var(--text, #ffffff);
   font-size: 1.1rem;
   font-weight: 700;
   opacity: 0.88;
@@ -1479,9 +1479,9 @@
 }
 
 .specialist-card {
-  background: var(--bg2, #141c2e);
+  background: var(--bg2, #1e293b);
   border: 1px solid var(--glass-border);
-  border-radius: 14px;
+  border-radius: 12px;
   padding: 1.2rem 1.3rem;
   display: flex;
   flex-direction: column;
@@ -1505,8 +1505,8 @@
   height: 52px;
   border-radius: 12px;
   background: rgba(212, 175, 55, 0.08);
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  color: var(--gold-light, #ebca73);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  color: var(--gold, #d4af37);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1523,7 +1523,7 @@
   background: rgba(212, 175, 55, 0.08);
   border: 1px solid rgba(212, 175, 55, 0.2);
   padding: 0.2rem 0.55rem;
-  border-radius: 20px;
+  border-radius: 24px;
 }
 
 .specialist-card__title {
@@ -1537,7 +1537,7 @@
 
 .specialist-card__desc {
   font-size: 0.85rem;
-  color: #94a3b8;
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
   line-height: 1.45;
   margin: 0 0 0.75rem 0;
   flex-grow: 1;
@@ -1555,11 +1555,11 @@
 .specialist-tool-pill {
   font-size: 0.72rem;
   font-weight: 500;
-  color: #cbd5e1;
+  color: var(--text-sub, rgba(255, 255, 255, 0.7));
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 0.18rem 0.48rem;
-  border-radius: 5px;
+  border-radius: 8px;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -1568,7 +1568,7 @@
 .specialists-callout {
   background: rgba(212, 175, 55, 0.04);
   border: 1px solid rgba(212, 175, 55, 0.2);
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 1.5rem 2rem;
   display: flex;
   align-items: center;
@@ -1589,7 +1589,7 @@
 }
 
 .specialists-callout-text span {
-  color: #94a3b8;
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
   font-size: 0.92rem;
 }
 
@@ -1654,7 +1654,7 @@
    Graph Engineering vs. Loops (HU-WEB-041 / Visual Architecture Showcase)
    ========================================================================== */
 .gvl-container {
-  background: var(--bg2, #141c2e);
+  background: var(--bg2, #1e293b);
   border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.09));
   border-radius: 24px;
   padding: 3rem 2.5rem;
@@ -1683,7 +1683,7 @@
 
 .gvl-main-sub {
   font-size: 1rem;
-  color: var(--text-sub, #94a3b8);
+  color: var(--text-sub, rgba(255, 255, 255, 0.7));
   line-height: 1.6;
 }
 
@@ -1730,7 +1730,7 @@
   text-transform: uppercase;
   letter-spacing: 0.06em;
   padding: 0.25rem 0.75rem;
-  border-radius: 999px;
+  border-radius: 100px;
   margin-bottom: 0.75rem;
 }
 
@@ -1756,7 +1756,7 @@
 
 .gvl-panel-desc {
   font-size: 0.88rem;
-  color: #94a3b8;
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
   line-height: 1.5;
   margin-bottom: 1.25rem;
   min-height: 2.6rem;
@@ -1777,7 +1777,7 @@
 
 .gvl-footer-muted {
   font-size: 0.82rem;
-  color: #94a3b8;
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
   margin-bottom: 0.35rem;
 }
 
@@ -1796,7 +1796,7 @@
 .gvl-benchmark-card {
   background: rgba(15, 23, 42, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
+  border-radius: 12px;
   padding: 1.25rem 1.75rem;
   margin-bottom: 1.75rem;
 }
@@ -1804,7 +1804,7 @@
 .gvl-benchmark-header {
   font-size: 0.88rem;
   font-weight: 700;
-  color: #cbd5e1;
+  color: var(--text-sub, rgba(255, 255, 255, 0.7));
   margin-bottom: 0.85rem;
 }
 
@@ -1821,7 +1821,7 @@
 
 .gvl-bar-label {
   font-size: 0.82rem;
-  color: #94a3b8;
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
   width: 150px;
   flex-shrink: 0;
 }
@@ -1830,14 +1830,14 @@
   flex-grow: 1;
   height: 12px;
   background: rgba(255, 255, 255, 0.06);
-  border-radius: 999px;
+  border-radius: 100px;
   overflow: hidden;
   position: relative;
 }
 
 .gvl-bar-fill {
   height: 100%;
-  border-radius: 999px;
+  border-radius: 100px;
 }
 
 .gvl-fill-amber {
@@ -1893,18 +1893,18 @@
 
 .gvl-kpi-txt {
   font-size: 0.75rem;
-  color: #94a3b8;
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
 }
 
 .gvl-kpi-warn .gvl-kpi-num { color: #f59e0b; }
 .gvl-kpi-succ .gvl-kpi-num { color: #22c55e; }
-.gvl-kpi-info .gvl-kpi-num { color: #818cf8; }
+.gvl-kpi-info .gvl-kpi-num { color: var(--indigo-soft, #818cf8); }
 
 .gvl-takeaway-box {
   background: linear-gradient(135deg, rgba(20, 28, 46, 0.95), rgba(15, 23, 42, 0.95));
   border: 1px solid rgba(212, 175, 55, 0.25);
   border-left: 4px solid #d4af37;
-  border-radius: 14px;
+  border-radius: 12px;
   padding: 1.5rem 1.75rem;
   text-align: left;
 }
@@ -1929,7 +1929,7 @@
 
 .gvl-takeaway-desc {
   font-size: 0.88rem;
-  color: #94a3b8;
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
   line-height: 1.65;
   margin: 0;
 }
@@ -1943,7 +1943,7 @@
    ========================================================================== */
 .managed-agents-section {
   padding: 5rem 0;
-  background: var(--bg2, #141c2e);
+  background: var(--bg2, #1e293b);
   border-bottom: 1px solid var(--glass-border);
   position: relative;
 }
@@ -1982,7 +1982,7 @@
   padding: 1.6rem 1.5rem;
   background: rgba(15, 23, 42, 0.6);
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
+  border-radius: 18px;
   flex: 1;
   transition: transform 0.25s var(--bezier-smooth), border-color 0.25s var(--bezier-smooth);
 }
@@ -2027,7 +2027,7 @@
 
 .managed-step-desc {
   font-size: 0.88rem;
-  color: var(--text-sub, #94a3b8);
+  color: var(--text-sub, rgba(255, 255, 255, 0.7));
   line-height: 1.6;
   margin: 0;
 }
@@ -2041,7 +2041,7 @@
 .agent-pod-card {
   background: #0b1320;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
+  border-radius: 24px;
   padding: 1.75rem;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
   text-align: left;
@@ -2100,10 +2100,10 @@
   padding: 0.3rem 0.65rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
+  border-radius: 24px;
   font-size: 0.74rem;
   font-weight: 700;
-  color: #cbd5e1;
+  color: var(--text-sub, rgba(255, 255, 255, 0.7));
   white-space: nowrap;
 }
 
@@ -2124,7 +2124,7 @@
   border-radius: 8px;
   font-size: 0.78rem;
   font-weight: 500;
-  color: #cbd5e1;
+  color: var(--text-sub, rgba(255, 255, 255, 0.7));
 }
 
 .agent-pod-activity {
@@ -2163,7 +2163,7 @@
 
 .agent-activity-desc {
   font-size: 0.82rem;
-  color: #94a3b8;
+  color: var(--text-muted, rgba(255, 255, 255, 0.57));
   line-height: 1.5;
   margin: 0;
 }
@@ -2194,7 +2194,7 @@
    ========================================================================== */
 .triada-productos-section {
   padding: 5rem 0;
-  background: var(--bg2, #141c2e);
+  background: var(--bg2, #1e293b);
   border-bottom: 1px solid var(--glass-border);
   position: relative;
 }
@@ -2215,7 +2215,7 @@
 .triada-card {
   background: var(--glass, rgba(15, 23, 42, 0.75));
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 2.25rem 2rem;
   display: flex;
   flex-direction: column;
@@ -2292,8 +2292,27 @@
   transform: translateX(3px);
 }
 
-
-
-
-
-
+/* Design System 2026-10-26: en móvil el icono de las tarjetas de la home va centrado (el texto sigue a la izquierda) */
+@media (max-width: 768px) {
+  .servicios-especializados .theia-card__visual,
+  .acompanamiento-section .theia-card__visual {
+    align-self: center !important;
+    justify-content: center !important;
+  }
+  .servicios-especializados .theia-card__visual .piece-icon-wrap,
+  .acompanamiento-section .theia-card__visual .piece-icon-wrap {
+    margin: 0 auto !important;
+  }
+  .conecta-card-icon {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .specialist-card__top {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .specialist-card__icon {
+    margin: 0 auto 0.5rem;
+  }
+}

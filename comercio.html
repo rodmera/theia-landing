@@ -77,6 +77,8 @@
       --gold-glow: rgba(212, 175, 55, 0.25);
       --indigo: #4f46e5;
       --indigo-light: #6366f1;
+      --indigo-soft: #818cf8;
+      --rose: #e0667e;
       --text: #ffffff;
       --text-sub: rgba(255, 255, 255, 0.7);
       --text-muted: rgba(255, 255, 255, 0.4);
@@ -124,7 +126,7 @@
       font-weight: 500;
       font-size: 0.84rem;
       padding: 0.45rem 0.75rem;
-      border-radius: 6px;
+      border-radius: 8px;
       transition: all 0.2s ease;
     }
 
@@ -173,8 +175,8 @@
     .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35); }
 
     .btn-whatsapp {
-      background: #25D366 !important; color: white !important; font-weight: 700;
-      padding: 0.85rem 2rem; font-size: 1rem; border-radius: 10px;
+      background: #25D366 !important; color: #0f172a !important; font-weight: 700;
+      padding: 0.85rem 2rem; font-size: 1rem; border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
       display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;
     }
@@ -217,7 +219,7 @@
       display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;
     }
     .cta-btns .btn {
-      margin: 0 !important; height: 48px; padding: 0 1.75rem; font-size: 0.95rem; border-radius: 10px;
+      margin: 0 !important; height: 48px; padding: 0 1.75rem; font-size: 0.95rem; border-radius: 12px;
     }
 
     /* Cards Operativas */
@@ -518,7 +520,7 @@
       <p class="lead reveal">Más del 65% de las preguntas de clientes ocurren fuera de horario. TheIA atiende tu catálogo, informa condiciones de despacho y registra los pedidos sin dejar a nadie esperando.</p>
       
       <div class="cta-btns reveal">
-        <button type="button" class="btn btn-gold" onclick="openTheiaChat('comercio')">Probar conversación en vivo ✨</button>
+        <button type="button" class="btn btn-gold" onclick="openTheiaChat('comercio')">Probar conversación en vivo</button>
         <a href="https://calendar.app.google/ZDjEtqCXTJVxzi7bA" target="_blank" rel="noopener" class="btn btn-ghost" onclick="theiaTrackCTA('demo','comercio-hero')">Agenda una demo →</a>
                 <a href="/salud-publica" class="site-nav__card">
             <div class="site-nav__card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
@@ -611,7 +613,7 @@
       <div class="theia-card reveal" style="padding: 2rem; max-width: 820px; margin: 0 auto; text-align: left; align-items: stretch;">
         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass-border); padding-bottom: 1rem; margin-bottom: 1.25rem;">
           <div style="font-family: 'Merriweather', serif; font-weight: 700; font-size: 1.05rem; color: var(--gold-light);">Inspector de Reglas de Comercio</div>
-          <span style="background: rgba(212, 175, 55, 0.1); color: var(--gold-light); border: 1px solid rgba(212, 175, 55, 0.25); font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px;">100% Certeza</span>
+          <span style="background: rgba(212, 175, 55, 0.1); color: var(--gold-light); border: 1px solid rgba(212, 175, 55, 0.25); font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 100px;">100% Certeza</span>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
@@ -628,7 +630,7 @@
           <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 12px; padding: 1rem;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 0.35rem;">
               <strong style="font-size: 0.85rem; color: var(--text);">Checkout Seguro</strong>
-              <span style="color: var(--gold-light); font-weight: 700; font-size: 0.75rem; background: rgba(212,175,55,0.15); padding: 0.1rem 0.4rem; border-radius: 4px;">Webpay / MercadoPago</span>
+              <span style="color: var(--gold-light); font-weight: 700; font-size: 0.75rem; background: rgba(212,175,55,0.15); padding: 0.1rem 0.4rem; border-radius: 8px;">Webpay / MercadoPago</span>
             </div>
             <p style="font-size: 0.78rem; color: var(--text-sub); margin: 0;">Generación de enlace oficial de pago sin transferencias dudosas a terceros.</p>
           </div>

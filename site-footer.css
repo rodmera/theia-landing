@@ -64,7 +64,7 @@ footer {
   align-items: center;
   gap: 0.45rem;
   padding: 0.35rem 0.7rem;
-  border-radius: 9999px;
+  border-radius: 100px;
   background: rgba(255, 255, 255, 0.035);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--text-sub, rgba(255, 255, 255, 0.75));
@@ -158,7 +158,7 @@ footer {
 .footer-contact-badge {
   width: 26px;
   height: 26px;
-  border-radius: 6px;
+  border-radius: 8px;
   display: inline-flex;
   align-items: center;
   justify-content: center;

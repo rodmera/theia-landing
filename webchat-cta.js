@@ -23,7 +23,7 @@ window.openTheiaChat = function openTheiaChat(source) {
       /* Frame Principal - Fondo oscuro #0f172a que elimina píxeles blancos en esquinas con border-radius */
       "#theia-widget-box {" +
         "background: #0f172a !important;" +
-        "border-radius: 16px !important;" +
+        "border-radius: 18px !important;" +
         "overflow: hidden !important;" +
         "border: 1px solid rgba(255, 255, 255, 0.15) !important;" +
         "box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45) !important;" +
@@ -32,7 +32,7 @@ window.openTheiaChat = function openTheiaChat(source) {
       "#theia-widget-btn {" +
         "background: linear-gradient(135deg, #d4af37, #ebca73) !important;" +
         "color: #0f172a !important;" +
-        "box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;" +
+        "box-shadow: 0 4px 20px rgba(212, 175, 55, 0.45) !important;" +
         "border: 1px solid rgba(255, 255, 255, 0.4) !important;" +
         "width: 52px !important;" +
         "height: 52px !important;" +
@@ -44,7 +44,7 @@ window.openTheiaChat = function openTheiaChat(source) {
       "}" +
       "#theia-widget-btn:hover {" +
         "transform: scale(1.08) translateY(-2px) !important;" +
-        "box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45) !important;" +
+        "box-shadow: 0 6px 24px rgba(212, 175, 55, 0.55) !important;" +
       "}" +
       /* Tooltip Flotante */
       "#theia-widget-tooltip {" +
@@ -63,6 +63,9 @@ window.openTheiaChat = function openTheiaChat(source) {
         "backdrop-filter: blur(12px);" +
         "pointer-events: none;" +
         "white-space: nowrap;" +
+        "display: inline-flex;" +
+        "align-items: center;" +
+        "gap: 0.4rem;" +
         "font-family: 'Plus Jakarta Sans', system-ui, sans-serif;" +
         "animation: theiaTooltipPulse 2.5s infinite ease-in-out;" +
       "}" +
@@ -96,7 +99,7 @@ window.openTheiaChat = function openTheiaChat(source) {
         "border: 1.5px solid #d4af37 !important;" +
         "font-weight: 600 !important;" +
         "padding: 7px 14px !important;" +
-        "border-radius: 20px !important;" +
+        "border-radius: 24px !important;" +
         "box-shadow: 0 2px 8px rgba(15, 23, 42, 0.1) !important;" +
         "transition: all 0.2s ease !important;" +
       "}" +
@@ -191,11 +194,12 @@ window.openTheiaChat = function openTheiaChat(source) {
       '</svg>';
     btn.setAttribute("title", "Chatea con TheIA en vivo");
 
-    // Inyectar tooltip flotante "Chatea con TheIA ✨"
+    // Inyectar tooltip flotante "Chatea con TheIA" + chispa SVG (Design System: cero emojis)
     if (!document.getElementById("theia-widget-tooltip")) {
       var tooltip = document.createElement("div");
       tooltip.id = "theia-widget-tooltip";
-      tooltip.innerHTML = "Chatea con TheIA ✨";
+      tooltip.innerHTML =
+        'Chatea con TheIA <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>';
       document.body.appendChild(tooltip);
 
       btn.addEventListener("click", function () {

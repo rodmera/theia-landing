@@ -67,7 +67,7 @@ consistencia comercial ($250.000, demo 30 min) y sticky WhatsApp.
 **PROHIBIDO** inventar estilos inline arbitrarios o mezclar alineaciones discordantes dentro de una misma página.
 1. **Alineación en Homepage (`index.html`):** Para mantener un ritmo visual predecible y escaneable (patrón en F de NN/g), TODAS las tarjetas de contenido en la home (`.specialist-card`, `.determinista-card`, `.conecta-card`, y `.theia-card` en `#servicios-especializados` y `.acompanamiento-section`) deben tener su apoyo visual, título y descripción rigurosamente alineados a la izquierda (`text-align: left`). Prohibido centrar párrafos largos o iconos en la landing home.
 2. **Tarjetas de Catálogo Editorial en Subpáginas:** Las tarjetas editoriales en subpáginas (`precios.html`, `servicios.html`, etc.) gobernadas por `site-cards.css` mantienen su estructura canónica:
-   - Badge `.piece-icon-wrap` de `52px × 52px`, `border-radius: 12px`, fondo `rgba(212, 175, 55, 0.08)` y borde `1px solid var(--glass-border-gold)`.
+   - Badge `.piece-icon-wrap` de `52px × 52px`, `border-radius: 12px`, fondo `rgba(212, 175, 55, 0.08)`, borde `1px solid rgba(212, 175, 55, 0.28)` e icono en `var(--gold)` (hover: borde `var(--glass-border-gold)`). En móvil (≤768px) el icono va centrado en todas las tarjetas, también en la home (Design System 2026-10-26).
    - Título `h3` (`Merriweather`, 1.15rem, margin-bottom: 0.65rem) y descripción `p` (`Plus Jakarta Sans`, 0.9rem, line-height: 1.65, color `var(--text-sub)`).
 3. **Cero Canibalización de CTAs en Secciones Teaser:** En secciones de catálogo o resumen (como `#servicios-especializados`), está prohibido agregar botones duales de agendamiento que compitan con el enlace de destino principal o saturen la vista frente al header sticky y el CTA final.
 4. **Taxonomía Limpia en Footer:** Las columnas de `.footer-links-group` pertenecen exclusivamente a enlaces de páginas internas de navegación. Queda estrictamente prohibido intercalar enlaces de agendamiento (Google Calendar, botones con flecha o estilos destacados) en las listas de navegación del footer.
@@ -148,7 +148,7 @@ Variables CSS definidas en `:root` que controlan toda la paleta:
 
 **⛔ REGLA DURA — Widgets Flotantes y Patrón de Esquinas Opuestas (Opposite Corners Pattern):**
 - **Patrón Canónico de Esquinas Opuestas:** La atención en vivo se distribuye de forma simétrica y no invasiva entre los dos canales oficiales de TheIA:
-  - **Esquina inferior derecha:** Asistente WebChat propio de TheIA (`#theia-widget-btn`), círculo homologado de `52px × 52px` (mínimo touch 44px WCAG), fondo gradiente dorado de marca, ícono SVG vectorial AI Spark de `28px × 28px` y tooltip flotante *"Probar conversación en vivo ✨"*.
+  - **Esquina inferior derecha:** Asistente WebChat propio de TheIA (`#theia-widget-btn`), círculo homologado de `52px × 52px` (mínimo touch 44px WCAG), fondo gradiente dorado de marca, ícono SVG vectorial AI Spark de `28px × 28px` y tooltip flotante *"Chatea con TheIA"* con chispa SVG (sin emoji) y halo dorado `box-shadow: 0 4px 20px rgba(212, 175, 55, 0.45)`.
   - **Esquina inferior izquierda:** Botón flotante oficial de WhatsApp (`#theia-wa-float`, `.whatsapp-float-btn`), círculo homologado de `52px × 52px` (mínimo touch 44px WCAG), fondo verde oficial `#25D366`, ícono vectorial SVG oficial en blanco `#ffffff` de `28px × 28px`, `box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35)`.
 - **Posicionamiento simétrico y z-index:**
   - Desktop (`min-width: 769px`): WebChat en `bottom: 24px; right: 24px;` y WhatsApp en `bottom: 24px; left: 24px; z-index: 990;`.
@@ -164,6 +164,13 @@ Variables CSS definidas en `:root` que controlan toda la paleta:
 - Las respuestas rápidas (`.theia-quick-replies button`) usan fondo oscuro `#0f172a` con texto blanco `#ffffff` de alto contraste. PROHIBIDO usar texto dorado claro sobre fondo blanco (bajo contraste ilegible).
 
 **Componentes reutilizables:** `.glass-card`, `.btn-gold`, `.btn-ghost`, `.btn-whatsapp`, `.section-title`, `.section-sub`, `.reveal` (animación de entrada al scroll).
+
+**⛔ REGLA DURA — Design System formal (2026-10-26):** el design system oficial vive como artefacto «TheIA» en claude.ai (tokens, componentes, voz y refinamientos). Decisiones vigentes:
+- `.btn-whatsapp`: fondo `#25D366` con texto e icono `#0f172a` (contraste 9:1). PROHIBIDO texto blanco sobre el verde (2:1).
+- Radios: solo `8px`, `12px`, `18px`, `24px` y `100px` (pill), más `50%` para círculos. PROHIBIDO 6, 10, 14, 16, 20, 999px.
+- Colores: solo los tokens de `:root` (`--indigo-soft: #818cf8` y `--rose: #e0667e` incluidos). PROHIBIDO hex sueltos como `#94a3b8`, `#cbd5e1`, `#141c2e`, `#10b981`; usar `var(--text-muted)`, `var(--text-sub)`, `var(--bg2)`, `var(--green)`.
+- Cero emojis también en CTA y tooltips («Probar conversación en vivo», sin ✨).
+- `og-image.png` usa el H1 vigente en Merriweather. `Icono_Transp.png` no es un recurso oficial.
 
 ## Responsive
 
