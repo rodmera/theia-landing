@@ -135,6 +135,58 @@ window.openTheiaChat = function openTheiaChat(source) {
       "#theia-powered a {" +
         "color: #ebca73 !important;" +
       "}" +
+      /* Formulario Pre-chat de Captura Obligatoria de Leads (Design System TheIA) */
+      "#theia-prechat {" +
+        "background: #0f172a !important;" +
+        "color: #ffffff !important;" +
+        "padding: 28px 20px !important;" +
+        "box-sizing: border-box !important;" +
+        "height: 100% !important;" +
+        "display: flex !important;" +
+        "flex-direction: column !important;" +
+        "justify-content: center !important;" +
+        "gap: 14px !important;" +
+      "}" +
+      "#theia-prechat p {" +
+        "color: #ebca73 !important;" +
+        "font-weight: 600 !important;" +
+        "font-size: 0.95rem !important;" +
+        "text-align: center !important;" +
+        "margin: 0 0 6px 0 !important;" +
+        "font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;" +
+      "}" +
+      "#theia-prechat input {" +
+        "background: #1e293b !important;" +
+        "color: #ffffff !important;" +
+        "border: 1.5px solid rgba(212, 175, 55, 0.4) !important;" +
+        "border-radius: 10px !important;" +
+        "padding: 12px 14px !important;" +
+        "font-size: 0.95rem !important;" +
+        "outline: none !important;" +
+        "font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;" +
+        "transition: border-color 0.2s, box-shadow 0.2s !important;" +
+      "}" +
+      "#theia-prechat input:focus {" +
+        "border-color: #d4af37 !important;" +
+        "box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.25) !important;" +
+      "}" +
+      "#theia-prechat button {" +
+        "background: linear-gradient(135deg, #d4af37, #ebca73) !important;" +
+        "color: #0f172a !important;" +
+        "font-weight: 700 !important;" +
+        "font-size: 0.95rem !important;" +
+        "padding: 12px !important;" +
+        "border-radius: 10px !important;" +
+        "border: none !important;" +
+        "cursor: pointer !important;" +
+        "font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;" +
+        "box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35) !important;" +
+        "transition: transform 0.2s, box-shadow 0.2s !important;" +
+      "}" +
+      "#theia-prechat button:hover {" +
+        "transform: translateY(-1px) !important;" +
+        "box-shadow: 0 6px 18px rgba(212, 175, 55, 0.5) !important;" +
+      "}" +
       /* Botón Flotante Oficial de WhatsApp (Esquina Inferior Izquierda) */
       "#theia-wa-float {" +
         "position: fixed !important;" +
