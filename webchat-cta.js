@@ -142,10 +142,12 @@ window.openTheiaChat = function openTheiaChat(source) {
         "padding: 28px 20px !important;" +
         "box-sizing: border-box !important;" +
         "height: 100% !important;" +
-        "display: flex !important;" +
         "flex-direction: column !important;" +
         "justify-content: center !important;" +
         "gap: 14px !important;" +
+      "}" +
+      "#theia-prechat[style*=\"display: none\"], #theia-prechat[style*=\"display:none\"] {" +
+        "display: none !important;" +
       "}" +
       "#theia-prechat p {" +
         "color: #ebca73 !important;" +
