@@ -9,6 +9,8 @@ Estás evaluando un agente de inteligencia artificial para atender clientes por 
 
 La respuesta corta: depende. Pero no de la forma que piensas. El precio que ves en una página de precios rara vez es el costo real. Hay costos ocultos que pueden duplicar o triplicar tu inversión mensual si no los conoces de antemano.
 
+> **¿Buscas implementación llave en mano con precio claro?** Revisa los [planes y precios transparentes de TheIA](/precios) o mira cómo opera en [el vertical de Inmobiliaria](/inmobiliaria).
+
 ## Los costos que nadie te muestra
 
 Cuando comparas soluciones de IA conversacional en Chile, estos son los costos que deberías preguntar:
